@@ -356,7 +356,7 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
               CAGED: conecte o braço inteiro
             </h2>
             <p className="mt-1 text-sm text-white/75">
-              Fundamentos • {lessons.length} exercícios
+              Seção 1 • {lessons.length} exercícios
             </p>
           </div>
           <button
