@@ -571,6 +571,164 @@ function ChordDiagram({
   );
 }
 
+type IconName = Parameters<typeof Icon>[0]["name"];
+
+function ExerciseShell({
+  progress,
+  onExit,
+  footer,
+  children,
+}: {
+  progress: number;
+  onExit: () => void;
+  footer: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <div className="flex min-h-dvh flex-col bg-[#f7f8f3] text-[#203330]">
+      <header className="mx-auto flex w-full max-w-[1040px] items-center gap-4 px-4 pt-5 sm:gap-6 sm:px-10 sm:pt-12">
+        <button
+          onClick={onExit}
+          className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#8a9a96] transition hover:bg-[#edf2ef] hover:text-[#4f615c]"
+          aria-label="Voltar à trilha"
+        >
+          <Icon name="close" className="size-6" />
+        </button>
+        <div
+          className="h-4 flex-1 overflow-hidden rounded-full bg-[#dfe6e2]"
+          role="progressbar"
+          aria-label="Progresso do exercício"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(progress)}
+        >
+          <div
+            className="relative h-full rounded-full bg-[#4fbf9d] transition-[width] duration-500"
+            style={{ width: `${progress}%` }}
+          >
+            <div className="absolute inset-x-2 top-1 h-1 rounded-full bg-white/30" />
+          </div>
+        </div>
+      </header>
+
+      <main className="mx-auto flex w-full max-w-[600px] flex-1 flex-col justify-center px-4 py-8 sm:px-6">
+        {children}
+      </main>
+
+      <footer className="sticky bottom-0 border-t-2 border-[#e3e9e5] bg-[#f7f8f3]">
+        <div className="mx-auto flex w-full max-w-[1040px] items-center justify-between gap-3 px-4 py-4 sm:px-10 sm:py-8">
+          {footer}
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function ExerciseHeading({
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}) {
+  return (
+    <div>
+      <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-[#e75e3a]">
+        <span className="flex size-6 items-center justify-center rounded-full bg-[#ff6b45] text-white">
+          <Icon name="practice" className="size-3.5" />
+        </span>
+        {eyebrow}
+      </p>
+      <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#18302d]">
+        {title}
+      </h1>
+      <p className="mt-1 text-sm leading-6 text-[#788884]">{subtitle}</p>
+    </div>
+  );
+}
+
+type ActionButtonProps = {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  icon?: IconName;
+};
+
+function SecondaryButton({ label, onClick, disabled, icon }: ActionButtonProps) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={label}
+      className="flex h-12 items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#d6dfdb] bg-white px-4 text-sm font-black uppercase tracking-[0.08em] text-[#60716c] transition hover:bg-[#f3f6f4] active:translate-y-0.5 active:border-b-2 disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-[150px] sm:px-6"
+    >
+      {icon && <Icon name={icon} className="size-5" />}
+      <span className={icon ? "hidden sm:inline" : undefined}>{label}</span>
+    </button>
+  );
+}
+
+function PrimaryButton({
+  label,
+  onClick,
+  disabled,
+  icon,
+  tone = "green",
+}: ActionButtonProps & { tone?: "green" | "orange" }) {
+  const toneClass =
+    tone === "orange"
+      ? "bg-[#ff6b45] shadow-[0_4px_0_#ca4728]"
+      : "bg-[#157b67] shadow-[0_4px_0_#0b5b4b]";
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`flex h-12 min-w-[130px] items-center justify-center gap-2 rounded-2xl px-6 text-sm font-black uppercase tracking-[0.08em] text-white transition active:translate-y-1 active:shadow-none disabled:cursor-wait disabled:opacity-75 sm:min-w-[150px] ${toneClass}`}
+    >
+      {icon && <Icon name={icon} className="size-5 fill-current" />}
+      {label}
+    </button>
+  );
+}
+
+function BpmControl({
+  bpm,
+  onChange,
+  disabled,
+}: {
+  bpm: number;
+  onChange: (update: (value: number) => number) => void;
+  disabled: boolean;
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#e0e7e3]">
+      <div className="flex items-center gap-2 px-2 text-[#61736e]">
+        <Icon name="metronome" className="size-5" />
+        <span className="text-xs font-black">BPM</span>
+      </div>
+      <button
+        onClick={() => onChange((value) => Math.max(40, value - 4))}
+        disabled={disabled}
+        className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
+        aria-label="Diminuir BPM"
+      >
+        −
+      </button>
+      <span className="w-8 text-center text-sm font-black text-[#183e39]">{bpm}</span>
+      <button
+        onClick={() => onChange((value) => Math.min(180, value + 4))}
+        disabled={disabled}
+        className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
+        aria-label="Aumentar BPM"
+      >
+        +
+      </button>
+    </div>
+  );
+}
+
 function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [bpm, setBpm] = useState(72);
@@ -806,269 +964,160 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     );
   }
 
+  const subtitle = `${lesson.subtitle}. Complete as formas na ordem para memorizar a região.`;
+  const bpmControl = (
+    <BpmControl
+      bpm={bpm}
+      onChange={setBpm}
+      disabled={playbackStatus === "playing" || sequenceStatus === "playing"}
+    />
+  );
+
   if (finalExercise) {
+    const isPlaying = sequenceStatus === "playing";
     return (
-      <div className="min-h-screen bg-[#f7f8f3] text-[#203330]">
-        <TopBar />
-        <main className="mx-auto max-w-[720px] px-4 py-7 sm:px-8 lg:py-10">
-          <div className="mb-6 flex items-center gap-4">
-            <button
-              onClick={onExit}
-              className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#657570] transition hover:bg-[#edf2ef]"
-              aria-label="Voltar à trilha"
-            >
-              <Icon name="close" className="size-6" />
-            </button>
-            <div className="h-3 flex-1 overflow-hidden rounded-full bg-[#dfe6e2]">
-              <div className="h-full w-full rounded-full bg-[#4fbf9d]" />
+      <ExerciseShell
+        progress={100}
+        onExit={onExit}
+        footer={
+          <>
+            <SecondaryButton
+              label="Voltar"
+              icon="back"
+              disabled={isPlaying}
+              onClick={() => {
+                resetSequence();
+                setFinalExercise(false);
+              }}
+            />
+            <div className="flex gap-3">
+              {sequenceStatus === "finished" ? (
+                <>
+                  <SecondaryButton label="Repetir" icon="replay" onClick={startChordSequence} />
+                  <PrimaryButton label="Concluir" onClick={() => setComplete(true)} />
+                </>
+              ) : (
+                <PrimaryButton
+                  label={isPlaying ? "Tocando" : "Iniciar"}
+                  icon="play"
+                  tone="orange"
+                  disabled={isPlaying}
+                  onClick={startChordSequence}
+                />
+              )}
             </div>
-          </div>
+          </>
+        }
+      >
+        <ExerciseHeading eyebrow="Sequência completa" title={lesson.exerciseTitle} subtitle={subtitle} />
 
-          <div className="mb-5">
-            <h1 className="text-2xl font-black tracking-[-0.035em]">{lesson.exerciseTitle}</h1>
-            <p className="mt-2 text-sm leading-6 text-[#788884]">
-              {lesson.subtitle}. Complete as formas na ordem para memorizar a região.
-            </p>
-          </div>
+        <div className="relative -mx-4 mt-6 min-h-[420px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_18%,black_82%,transparent)] sm:-mx-32">
+          {lesson.steps.map((chordStep, index) => {
+            const offset = index - sequenceIndex;
+            const isCurrent = offset === 0;
+            const cardPosition =
+              offset < -1
+                ? "past-hidden"
+                : offset === -1
+                  ? "played"
+                  : isCurrent
+                    ? sequenceStatus === "finished"
+                      ? "complete"
+                      : "current"
+                    : offset === 1
+                      ? "next"
+                      : "future-hidden";
+            const isSounding = isCurrent && sequenceStatus === "playing";
+            const allNotes = shapeFingerings[chordStep.shape].map((_, noteIndex) => noteIndex);
 
-          <div className="overflow-hidden rounded-[28px] border border-[#dfe7e3] bg-white shadow-[0_6px_0_rgba(24,62,57,0.06)]">
-            <div className="border-b border-[#e8edea] px-6 py-4">
-              <p className="text-sm font-bold text-[#758580]">Sequência completa</p>
-            </div>
-
-            <div className="relative min-h-[460px] overflow-hidden px-5 py-8">
-              {lesson.steps.map((chordStep, index) => {
-                const offset = index - sequenceIndex;
-                const isCurrent = offset === 0;
-                const cardPosition =
-                  offset < -1
-                    ? "past-hidden"
-                    : offset === -1
-                      ? "played"
-                      : isCurrent
-                        ? sequenceStatus === "finished"
-                          ? "complete"
-                          : "current"
-                        : offset === 1
-                          ? "next"
-                          : "future-hidden";
-                const isSounding = isCurrent && sequenceStatus === "playing";
-                const allNotes = shapeFingerings[chordStep.shape].map((_, noteIndex) => noteIndex);
-
-                return (
-                  <div
-                    key={`${chordStep.chord}-${index}`}
-                    className={`sequence-chord-card sequence-chord-card--${cardPosition} ${
-                      isSounding ? "sequence-chord-card--sounding" : ""
-                    }`}
-                    style={{
-                      transitionDuration: `${Math.min((60000 / bpm) * 0.58, 760)}ms`,
-                    }}
-                  >
-                    <p className="text-5xl font-black tracking-[-0.055em] text-[#183e39]">
-                      {chordStep.chord}
-                    </p>
-                    <ChordDiagram
-                      step={chordStep}
-                      activeNoteIndexes={isSounding ? allNotes : []}
-                      activeOpenStrings={isSounding ? shapeOpenStrings[chordStep.shape] : []}
-                      showPulse={false}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="border-t border-[#e8edea] bg-[#fbfcf9] p-5 sm:p-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-center justify-between gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#e0e7e3] sm:justify-start">
-                  <div className="flex items-center gap-2 px-2 text-[#61736e]">
-                    <Icon name="metronome" className="size-5" />
-                    <span className="text-xs font-black">BPM</span>
-                  </div>
-                  <button
-                    onClick={() => setBpm((value) => Math.max(40, value - 4))}
-                    disabled={sequenceStatus === "playing"}
-                    className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
-                    aria-label="Diminuir BPM"
-                  >
-                    −
-                  </button>
-                  <span className="w-8 text-center text-sm font-black text-[#183e39]">{bpm}</span>
-                  <button
-                    onClick={() => setBpm((value) => Math.min(180, value + 4))}
-                    disabled={sequenceStatus === "playing"}
-                    className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
-                    aria-label="Aumentar BPM"
-                  >
-                    +
-                  </button>
-                </div>
-
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => {
-                      resetSequence();
-                      setFinalExercise(false);
-                    }}
-                    disabled={sequenceStatus === "playing"}
-                    className="flex size-12 items-center justify-center rounded-2xl border-2 border-[#dce5e1] text-[#60716c] disabled:opacity-30"
-                    aria-label="Voltar aos acordes"
-                  >
-                    <Icon name="back" className="size-5" />
-                  </button>
-                  {sequenceStatus === "finished" ? (
-                    <>
-                      <button
-                        onClick={startChordSequence}
-                        className="flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-[#dce5e1] bg-white px-5 py-3.5 text-sm font-black text-[#52645f] sm:flex-none"
-                      >
-                        <Icon name="replay" className="size-4" /> REPLAY
-                      </button>
-                      <button
-                        onClick={() => setComplete(true)}
-                        className="flex flex-1 items-center justify-center rounded-2xl bg-[#157b67] px-6 py-3.5 text-sm font-black text-white shadow-[0_5px_0_#0b5b4b] transition active:translate-y-1 active:shadow-none sm:flex-none"
-                      >
-                        CONCLUIR
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      onClick={startChordSequence}
-                      disabled={sequenceStatus === "playing"}
-                      className="flex flex-1 items-center justify-center gap-2 rounded-2xl bg-[#ff6b45] px-8 py-3.5 text-sm font-black text-white shadow-[0_5px_0_#ca4728] transition active:translate-y-1 active:shadow-none disabled:cursor-wait disabled:opacity-75 sm:flex-none"
-                    >
-                      <Icon name="play" className="size-5 fill-current" />
-                      {sequenceStatus === "playing" ? "TOCANDO" : "INICIAR"}
-                    </button>
-                  )}
-                </div>
+            return (
+              <div
+                key={`${chordStep.chord}-${index}`}
+                className={`sequence-chord-card sequence-chord-card--${cardPosition} ${
+                  isSounding ? "sequence-chord-card--sounding" : ""
+                }`}
+                style={{
+                  transitionDuration: `${Math.min((60000 / bpm) * 0.58, 760)}ms`,
+                }}
+              >
+                <p className="text-5xl font-black tracking-[-0.055em] text-[#183e39]">
+                  {chordStep.chord}
+                </p>
+                <ChordDiagram
+                  step={chordStep}
+                  activeNoteIndexes={isSounding ? allNotes : []}
+                  activeOpenStrings={isSounding ? shapeOpenStrings[chordStep.shape] : []}
+                  showPulse={false}
+                />
               </div>
-            </div>
-          </div>
-        </main>
-      </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-4 flex justify-center">{bpmControl}</div>
+      </ExerciseShell>
     );
   }
 
+  const isPlaying = playbackStatus === "playing";
   return (
-    <div className="min-h-screen bg-[#f7f8f3] text-[#203330]">
-      <TopBar />
-
-      <main className="mx-auto max-w-[720px] px-4 py-7 sm:px-8 lg:py-10">
-        <div className="mb-6 flex items-center gap-4">
-          <button
-            onClick={onExit}
-            className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#657570] transition hover:bg-[#edf2ef]"
-            aria-label="Voltar à trilha"
-          >
-            <Icon name="close" className="size-6" />
-          </button>
-          <div className="h-3 flex-1 overflow-hidden rounded-full bg-[#dfe6e2]">
-            <div
-              className="h-full rounded-full bg-[#4fbf9d] transition-[width] duration-500"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
-
-        <section>
-          <div className="mb-5">
-            <h1 className="text-2xl font-black tracking-[-0.035em]">{lesson.exerciseTitle}</h1>
-            <p className="mt-2 text-sm leading-6 text-[#788884]">
-              {lesson.subtitle}. Complete as formas na ordem para memorizar a região.
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-[28px] border border-[#dfe7e3] bg-white shadow-[0_6px_0_rgba(24,62,57,0.06)]">
-            <div className="border-b border-[#e8edea] px-6 py-4">
-              <p className="mt-1 text-sm font-bold text-[#758580]">
-                Forma de {step.shape} • {step.fret === 0 ? "posição 1" : `${step.fret}ª casa`}
-              </p>
-            </div>
-
-            <div className="flex min-h-[390px] flex-col items-center justify-center px-5 py-8 sm:px-10">
-              <p className="text-6xl font-black tracking-[-0.055em] text-[#183e39]">{step.chord}</p>
-              <div className="mt-5 rounded-[24px] bg-[#fcfdf9] p-3 ring-1 ring-[#e6ebe8]">
-                <ChordDiagram
-                  step={step}
-                  activeNoteIndexes={activeNoteIndexes}
-                  activeOpenStrings={activeOpenStrings}
+    <ExerciseShell
+      progress={progress}
+      onExit={onExit}
+      footer={
+        <>
+          <SecondaryButton
+            label="Anterior"
+            icon="back"
+            disabled={stepIndex === 0 || isPlaying}
+            onClick={() => {
+              resetPlayback();
+              setStepIndex((current) => Math.max(0, current - 1));
+            }}
+          />
+          <div className="flex gap-3">
+            {playbackStatus === "finished" ? (
+              <>
+                <SecondaryButton label="Repetir" icon="replay" onClick={startPlayback} />
+                <PrimaryButton
+                  label={stepIndex === lesson.steps.length - 1 ? "Exercício final" : "Próximo"}
+                  onClick={nextStep}
                 />
-              </div>
-              <p className="mt-6 max-w-md text-center text-base font-bold leading-6 text-[#536560]">
-                Monte a forma de {step.chord} e toque corda por corda.
-              </p>
-            </div>
-
-            <div className="border-t border-[#e8edea] bg-[#fbfcf9] p-5 sm:p-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-center justify-between gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#e0e7e3] sm:justify-start">
-                  <div className="flex items-center gap-2 px-2 text-[#61736e]">
-                    <Icon name="metronome" className="size-5" />
-                    <span className="text-xs font-black">BPM</span>
-                  </div>
-                  <button
-                    onClick={() => setBpm((value) => Math.max(40, value - 4))}
-                    disabled={playbackStatus === "playing"}
-                    className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f]"
-                    aria-label="Diminuir BPM"
-                  >
-                    −
-                  </button>
-                  <span className="w-8 text-center text-sm font-black text-[#183e39]">{bpm}</span>
-                  <button
-                    onClick={() => setBpm((value) => Math.min(180, value + 4))}
-                    disabled={playbackStatus === "playing"}
-                    className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f]"
-                    aria-label="Aumentar BPM"
-                  >
-                    +
-                  </button>
-                </div>
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => {
-                      resetPlayback();
-                      setStepIndex((current) => Math.max(0, current - 1));
-                    }}
-                    disabled={stepIndex === 0 || playbackStatus === "playing"}
-                    className="flex size-12 items-center justify-center rounded-2xl border-2 border-[#dce5e1] text-[#60716c] disabled:opacity-30"
-                    aria-label="Passo anterior"
-                  >
-                    <Icon name="back" className="size-5" />
-                  </button>
-                  {playbackStatus === "finished" ? (
-                    <>
-                      <button
-                        onClick={startPlayback}
-                        className="flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-[#dce5e1] bg-white px-5 py-3.5 text-sm font-black text-[#52645f] transition active:translate-y-0.5 sm:flex-none"
-                      >
-                        <Icon name="replay" className="size-4" /> REPLAY
-                      </button>
-                      <button
-                        onClick={nextStep}
-                        className="flex flex-1 items-center justify-center gap-2 rounded-2xl bg-[#157b67] px-7 py-3.5 text-sm font-black text-white shadow-[0_5px_0_#0b5b4b] transition active:translate-y-1 active:shadow-none sm:flex-none"
-                      >
-                        {stepIndex === lesson.steps.length - 1 ? "EXERCÍCIO FINAL" : "PRÓXIMO"}
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      onClick={startPlayback}
-                      disabled={playbackStatus === "playing"}
-                      className="flex flex-1 items-center justify-center gap-2 rounded-2xl bg-[#ff6b45] px-8 py-3.5 text-sm font-black text-white shadow-[0_5px_0_#ca4728] transition active:translate-y-1 active:shadow-none disabled:cursor-wait disabled:opacity-75 sm:flex-none"
-                    >
-                      <Icon name="play" className="size-5 fill-current" />
-                      {playbackStatus === "playing" ? "TOCANDO" : "TOCAR"}
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
+              </>
+            ) : (
+              <PrimaryButton
+                label={isPlaying ? "Tocando" : "Tocar"}
+                icon="play"
+                tone="orange"
+                disabled={isPlaying}
+                onClick={startPlayback}
+              />
+            )}
           </div>
-        </section>
-      </main>
-    </div>
+        </>
+      }
+    >
+      <ExerciseHeading
+        eyebrow={`Forma de ${step.shape} • ${step.fret === 0 ? "posição 1" : `${step.fret}ª casa`}`}
+        title={lesson.exerciseTitle}
+        subtitle={subtitle}
+      />
+
+      <div className="mt-8 flex flex-col items-center">
+        <p className="text-6xl font-black tracking-[-0.055em] text-[#183e39]">{step.chord}</p>
+        <div className="mt-5 rounded-[24px] bg-[#fcfdf9] p-3 ring-1 ring-[#e6ebe8]">
+          <ChordDiagram
+            step={step}
+            activeNoteIndexes={activeNoteIndexes}
+            activeOpenStrings={activeOpenStrings}
+          />
+        </div>
+        <p className="mt-6 max-w-md text-center text-base font-bold leading-6 text-[#536560]">
+          Monte a forma de {step.chord} e toque corda por corda.
+        </p>
+        <div className="mt-6">{bpmControl}</div>
+      </div>
+    </ExerciseShell>
   );
 }
 
