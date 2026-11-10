@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "check:chords": "node scripts/chords/check.mjs",
+    "chord": "node scripts/chords/generate.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

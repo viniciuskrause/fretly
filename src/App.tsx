@@ -1,166 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-type Lesson = {
-  id: number;
-  title: string;
-  exerciseTitle: string;
-  subtitle: string;
-  type: "theory" | "chord" | "practice" | "review";
-  status: "done" | "current" | "locked";
-  steps: ChordStep[];
-};
-
-type ChordStep = {
-  chord: string;
-  shape: "C" | "A" | "G" | "E" | "D";
-  fret: number;
-  instruction: string;
-};
-
-const lessons: Lesson[] = [
-  {
-    id: 1,
-    title: "Primeira posição",
-    exerciseTitle: "Acordes na primeira posição",
-    subtitle: "As cinco formas abertas",
-    type: "chord",
-    status: "done",
-    steps: [
-      {
-        chord: "C",
-        shape: "C",
-        fret: 0,
-        instruction: "Monte a forma de C e toque corda por corda.",
-      },
-      {
-        chord: "A",
-        shape: "A",
-        fret: 0,
-        instruction: "Mantenha os três dedos próximos ao traste.",
-      },
-      { chord: "G", shape: "G", fret: 0, instruction: "Deixe todas as cordas soarem com clareza." },
-      { chord: "E", shape: "E", fret: 0, instruction: "Relaxe o polegar atrás do braço." },
-      { chord: "D", shape: "D", fret: 0, instruction: "Toque somente as quatro cordas agudas." },
-    ],
-  },
-  {
-    id: 3,
-    title: "Segunda posição",
-    exerciseTitle: "Acordes na posição 2",
-    subtitle: "Conecte C com a forma de A",
-    type: "chord",
-    status: "current",
-    steps: [
-      { chord: "C", shape: "A", fret: 3, instruction: "Encontre C usando a forma móvel de A." },
-      {
-        chord: "A",
-        shape: "G",
-        fret: 2,
-        instruction: "Visualize a forma de G sem mover a tônica.",
-      },
-      { chord: "G", shape: "E", fret: 3, instruction: "Faça a pestana completa na terceira casa." },
-      { chord: "E", shape: "D", fret: 2, instruction: "Ataque apenas as quatro primeiras cordas." },
-      { chord: "D", shape: "C", fret: 2, instruction: "Feche o ciclo voltando à forma de C." },
-    ],
-  },
-  {
-    id: 4,
-    title: "Terceira posição",
-    exerciseTitle: "Acordes na posição 3",
-    subtitle: "Avance pelo braço",
-    type: "chord",
-    status: "locked",
-    steps: [
-      { chord: "C", shape: "G", fret: 5, instruction: "Veja a forma de G dentro desta região." },
-      { chord: "A", shape: "E", fret: 5, instruction: "Apoie o indicador em uma pestana firme." },
-      {
-        chord: "G",
-        shape: "D",
-        fret: 5,
-        instruction: "Mantenha a tônica da segunda corda evidente.",
-      },
-      { chord: "E", shape: "C", fret: 4, instruction: "Conecte a forma de C ao desenho anterior." },
-      { chord: "D", shape: "A", fret: 5, instruction: "Feche a sequência com a forma de A." },
-    ],
-  },
-  {
-    id: 5,
-    title: "Quarta posição",
-    exerciseTitle: "Acordes na posição 4",
-    subtitle: "Reconheça formas agudas",
-    type: "chord",
-    status: "locked",
-    steps: [
-      {
-        chord: "C",
-        shape: "E",
-        fret: 8,
-        instruction: "Encontre C na oitava casa com a forma de E.",
-      },
-      {
-        chord: "A",
-        shape: "D",
-        fret: 7,
-        instruction: "Toque a forma de D nas quatro cordas agudas.",
-      },
-      { chord: "G", shape: "C", fret: 7, instruction: "Observe a tônica na quinta corda." },
-      { chord: "E", shape: "A", fret: 7, instruction: "Comprima a forma de A sem tensão." },
-      { chord: "D", shape: "G", fret: 7, instruction: "Visualize a forma inteira antes de tocar." },
-    ],
-  },
-  {
-    id: 6,
-    title: "Quinta posição",
-    exerciseTitle: "Acordes na posição 5",
-    subtitle: "Complete o mapa CAGED",
-    type: "chord",
-    status: "locked",
-    steps: [
-      {
-        chord: "C",
-        shape: "D",
-        fret: 10,
-        instruction: "Complete C com a forma de D na região aguda.",
-      },
-      {
-        chord: "A",
-        shape: "C",
-        fret: 9,
-        instruction: "Mantenha a visualização mesmo sem tocar graves.",
-      },
-      { chord: "G", shape: "A", fret: 10, instruction: "Use uma mini pestana para a forma de A." },
-      { chord: "E", shape: "G", fret: 9, instruction: "Reconheça o contorno da forma de G." },
-      { chord: "D", shape: "E", fret: 10, instruction: "Conclua o mapa com a forma de E." },
-    ],
-  },
-  {
-    id: 7,
-    title: "Ciclo das quartas",
-    exerciseTitle: "Acordes no ciclo das quartas",
-    subtitle: "Aplique CAGED em 12 tons",
-    type: "review",
-    status: "locked",
-    steps: [
-      { chord: "C", shape: "C", fret: 0, instruction: "Comece em C e escute a resolução." },
-      { chord: "F", shape: "E", fret: 1, instruction: "Avance uma quarta até F." },
-      { chord: "B♭", shape: "A", fret: 1, instruction: "Mantenha o pulso ao chegar em B♭." },
-      {
-        chord: "E♭",
-        shape: "D",
-        fret: 1,
-        instruction: "Conecte a próxima região sem interromper.",
-      },
-      { chord: "A♭", shape: "G", fret: 1, instruction: "Antecipe a próxima forma antes da troca." },
-      { chord: "D♭", shape: "C", fret: 1, instruction: "Siga o ciclo com movimento mínimo." },
-      { chord: "G♭", shape: "E", fret: 2, instruction: "Mantenha todas as vozes equilibradas." },
-      { chord: "B", shape: "A", fret: 2, instruction: "Continue o pulso e respire entre ataques." },
-      { chord: "E", shape: "E", fret: 0, instruction: "Volte a uma forma aberta sem acelerar." },
-      { chord: "A", shape: "A", fret: 0, instruction: "Prepare a penúltima troca do ciclo." },
-      { chord: "D", shape: "D", fret: 0, instruction: "Toque D com articulação clara." },
-      { chord: "G", shape: "G", fret: 0, instruction: "Finalize em G e retorne para C." },
-    ],
-  },
-];
+import {
+  barreSpans,
+  soundingStrings,
+  stringFrequency,
+  type ChordPosition,
+  type ChordStep,
+} from "./chords.ts";
+import { lessons, type Lesson } from "./lessons.ts";
 
 function Icon({
   name,
@@ -421,55 +268,6 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
   );
 }
 
-const shapeFingerings: Record<ChordStep["shape"], Array<[number, number]>> = {
-  C: [
-    [1, 1],
-    [2, 3],
-    [3, 4],
-  ],
-  A: [
-    [2, 1],
-    [2, 2],
-    [2, 3],
-  ],
-  G: [
-    [3, 0],
-    [2, 4],
-    [3, 5],
-  ],
-  E: [
-    [1, 2],
-    [2, 3],
-    [2, 4],
-  ],
-  D: [
-    [2, 0],
-    [3, 1],
-    [2, 2],
-  ],
-};
-
-// Left-hand finger for each note in shapeFingerings (same order). In first
-// position the strings left open need no finger; once the shape moves up the
-// neck, finger 1 holds the barre and the other notes shift to fingers 2–4.
-const shapeFingerNumbers: Record<ChordStep["shape"], { open: number[]; moved: number[] }> = {
-  C: { open: [1, 2, 3], moved: [2, 3, 4] }, // B, D, A strings
-  A: { open: [3, 2, 1], moved: [4, 3, 2] }, // B, G, D strings
-  G: { open: [3, 1, 2], moved: [4, 2, 3] }, // high E, A, low E strings
-  E: { open: [1, 3, 2], moved: [2, 4, 3] }, // G, D, A strings
-  D: { open: [2, 3, 1], moved: [3, 4, 2] }, // high E, B, G strings
-};
-
-const shapeOpenStrings: Record<ChordStep["shape"], number[]> = {
-  C: [0, 2],
-  A: [0, 4],
-  G: [1, 2, 3],
-  E: [0, 1, 5],
-  D: [3],
-};
-
-const stringFrequencies = [329.63, 246.94, 196, 146.83, 110, 82.41];
-
 const TONE_DURATION = 1.6;
 
 type ScheduledEvent = {
@@ -478,49 +276,33 @@ type ScheduledEvent = {
   onPlay: () => void;
 };
 
-function fingeredNoteFrequency(chordStep: ChordStep, noteIndex: number) {
-  const [relativeFret, string] = shapeFingerings[chordStep.shape][noteIndex];
-  return stringFrequencies[string] * 2 ** ((chordStep.fret + relativeFret) / 12);
+/** Every sounding string of the chord, struck together. */
+function chordNotes(position: ChordPosition) {
+  return soundingStrings(position).map((string) => ({
+    frequency: stringFrequency(position, string)!,
+    volume: position.frets[string] === 0 ? 0.065 : 0.075,
+  }));
 }
 
-// "Open" strings of a shape sound at the shape's base fret (nut or barre).
-function openStringFrequency(chordStep: ChordStep, string: number) {
-  return stringFrequencies[string] * 2 ** (chordStep.fret / 12);
-}
-
-function chordNotes(chordStep: ChordStep) {
-  return [
-    ...shapeFingerings[chordStep.shape].map((_, noteIndex) => ({
-      frequency: fingeredNoteFrequency(chordStep, noteIndex),
-      volume: 0.075,
-    })),
-    ...shapeOpenStrings[chordStep.shape].map((string) => ({
-      frequency: openStringFrequency(chordStep, string),
-      volume: 0.065,
-    })),
-  ];
-}
+// Diagram geometry: strings run low E (bottom row) → high E (top row); columns are
+// frets baseFret … baseFret + 4. The nut is drawn when baseFret is 1, otherwise the
+// base fret number sits under the first column.
+const DIAGRAM_COLUMN_WIDTH = 40.4;
+const diagramRowY = (string: number) => 48 + (5 - string) * 29;
+const diagramColumnX = (fret: number) => 56 + (fret - 0.5) * DIAGRAM_COLUMN_WIDTH;
 
 function ChordDiagram({
   step,
-  activeNoteIndexes,
-  activeOpenStrings,
+  activeStrings,
   showPulse = true,
 }: {
   step: ChordStep;
-  activeNoteIndexes: number[];
-  activeOpenStrings: number[];
+  activeStrings: number[];
   showPulse?: boolean;
 }) {
-  const fingerings = shapeFingerings[step.shape];
-  // Out of first position, the shape's "open" strings are held down at the base
-  // fret, so they become a barre (or a single finger) across exactly those strings.
-  const barreStrings = step.fret > 0 ? shapeOpenStrings[step.shape] : [];
-  const barre =
-    barreStrings.length > 0
-      ? { from: Math.min(...barreStrings), to: Math.max(...barreStrings) }
-      : null;
-  const barreActive = barre !== null && activeOpenStrings.length > 0;
+  const { position } = step;
+  const barres = barreSpans(position);
+  const barreStrings = new Set(barres.flatMap((barre) => barre.strings));
   return (
     <svg
       width="300"
@@ -533,24 +315,22 @@ function ChordDiagram({
     >
       <rect x="28" y="18" width="244" height="206" rx="16" fill="#FCFDF9" />
       {[0, 1, 2, 3, 4, 5].map((string) => {
-        const isActive =
-          activeNoteIndexes.some((index) => fingerings[index]?.[1] === string) ||
-          activeOpenStrings.includes(string);
+        const isActive = activeStrings.includes(string);
         return (
           <g key={`string-${string}`}>
             <line
               x1="56"
-              y1={48 + string * 29}
+              y1={diagramRowY(string)}
               x2="258"
-              y2={48 + string * 29}
+              y2={diagramRowY(string)}
               stroke={isActive ? "#FF6B45" : "#85938F"}
-              strokeWidth={isActive ? 4 : string === 0 ? 1.3 : 1}
+              strokeWidth={isActive ? 4 : string === 5 ? 1.3 : 1}
               className="transition-all duration-150"
             />
-            {step.fret === 0 && activeOpenStrings.includes(string) && (
+            {position.frets[string] === 0 && isActive && (
               <circle
                 cx="42"
-                cy={48 + string * 29}
+                cy={diagramRowY(string)}
                 r="7"
                 fill="none"
                 stroke="#FF6B45"
@@ -560,72 +340,68 @@ function ChordDiagram({
           </g>
         );
       })}
-      {[0, 1, 2, 3, 4, 5].map((fret) => (
+      {[0, 1, 2, 3, 4, 5].map((line) => (
         <line
-          key={`fret-${fret}`}
-          x1={56 + fret * 40.4}
+          key={`fret-${line}`}
+          x1={56 + line * DIAGRAM_COLUMN_WIDTH}
           y1="48"
-          x2={56 + fret * 40.4}
+          x2={56 + line * DIAGRAM_COLUMN_WIDTH}
           y2="193"
           stroke="#64736F"
-          strokeWidth={fret === 0 && step.fret === 0 ? 6 : 1.4}
+          strokeWidth={line === 0 && position.baseFret === 1 ? 6 : 1.4}
         />
       ))}
-      {step.fret > 0 && (
+      {position.baseFret > 1 && (
         <text
-          x="76"
+          x={diagramColumnX(1)}
           y="215"
           textAnchor="middle"
           fontSize="14"
           fontWeight="800"
           fill="#64736F"
-          aria-label={`${step.fret}ª casa`}
+          aria-label={`${position.baseFret}ª casa`}
         >
-          {step.fret}
+          {position.baseFret}
         </text>
       )}
-      {barre && (
-        <line
-          x1="76"
-          y1={48 + barre.from * 29}
-          x2="76"
-          y2={48 + barre.to * 29}
-          stroke={barreActive ? "#FF6B45" : "#183E39"}
-          strokeWidth="18"
-          strokeLinecap="round"
-          className="transition-all duration-150"
-          aria-label={`Pestana na ${step.fret}ª casa, cordas ${barre.from + 1} a ${barre.to + 1}`}
-        />
-      )}
-      {fingerings.map(([fret, string], index) => {
-        const isActive = activeNoteIndexes.includes(index);
-        // In first position the columns are frets 1–5 (the nut sits before them);
-        // out of it the first column is the base fret.
-        const column = step.fret === 0 ? fret - 1 : fret;
-        const cx = 76.2 + column * 40.4;
-        const finger = shapeFingerNumbers[step.shape][step.fret === 0 ? "open" : "moved"][index];
+      {barres.map((barre) => {
+        const isActive = barre.strings.some((string) => activeStrings.includes(string));
         return (
-          <g key={`${fret}-${string}-${index}`}>
+          <line
+            key={`barre-${barre.fret}`}
+            x1={diagramColumnX(barre.fret)}
+            y1={diagramRowY(barre.from)}
+            x2={diagramColumnX(barre.fret)}
+            y2={diagramRowY(barre.to)}
+            stroke={isActive ? "#FF6B45" : "#183E39"}
+            strokeWidth="18"
+            strokeLinecap="round"
+            className="transition-all duration-150"
+            aria-label={`Pestana na ${position.baseFret + barre.fret - 1}ª casa, cordas ${6 - barre.to} a ${6 - barre.from}`}
+          />
+        );
+      })}
+      {position.frets.map((fret, string) => {
+        if (fret <= 0 || barreStrings.has(string)) return null;
+        const isActive = activeStrings.includes(string);
+        const cx = diagramColumnX(fret);
+        const cy = diagramRowY(string);
+        const finger = position.fingers[string];
+        return (
+          <g key={`note-${string}`}>
             {isActive && showPulse && (
-              <circle
-                cx={cx}
-                cy={48 + string * 29}
-                r="19"
-                fill="#FF6B45"
-                opacity="0.18"
-                className="animate-ping"
-              />
+              <circle cx={cx} cy={cy} r="19" fill="#FF6B45" opacity="0.18" className="animate-ping" />
             )}
             <circle
               cx={cx}
-              cy={48 + string * 29}
+              cy={cy}
               r={isActive ? 13 : 10}
               fill={isActive ? "#FF6B45" : "#183E39"}
               className="transition-all duration-150"
             />
             <text
               x={cx}
-              y={52 + string * 29}
+              y={cy + 4}
               textAnchor="middle"
               fontSize="10"
               fontWeight="700"
@@ -787,8 +563,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   const [stepIndex, setStepIndex] = useState(0);
   const [bpm, setBpm] = useState(72);
   const [playbackStatus, setPlaybackStatus] = useState<"idle" | "playing" | "finished">("idle");
-  const [activeNoteIndexes, setActiveNoteIndexes] = useState<number[]>([]);
-  const [activeOpenStrings, setActiveOpenStrings] = useState<number[]>([]);
+  const [activeStrings, setActiveStrings] = useState<number[]>([]);
   const [finalExercise, setFinalExercise] = useState(false);
   const [sequenceIndex, setSequenceIndex] = useState(0);
   const [sequenceStatus, setSequenceStatus] = useState<"idle" | "playing" | "finished">("idle");
@@ -919,40 +694,22 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   async function startPlayback() {
     clearPlayback();
     setPlaybackStatus("playing");
-    setActiveNoteIndexes([]);
-    setActiveOpenStrings([]);
+    setActiveStrings([]);
     await prepareAudio();
 
-    const fingerings = shapeFingerings[step.shape];
-    // Every sounding string, fretted or open, from the 6th string up to the 1st.
-    const bottomToTop = [
-      ...fingerings.map(([, string], noteIndex) => ({ string, noteIndex })),
-      ...shapeOpenStrings[step.shape].map((string) => ({ string, noteIndex: null })),
-    ].sort((a, b) => b.string - a.string);
+    const { position } = step;
+    // Every sounding string, fretted or open, from the lowest up to the 1st.
+    const bottomToTop = soundingStrings(position);
 
-    const events: ScheduledEvent[] = bottomToTop.map(({ string, noteIndex }, index) => ({
+    const events: ScheduledEvent[] = bottomToTop.map((string, index) => ({
       beat: index,
-      notes: [
-        {
-          frequency:
-            noteIndex === null
-              ? openStringFrequency(step, string)
-              : fingeredNoteFrequency(step, noteIndex),
-          volume: 0.16,
-        },
-      ],
-      onPlay: () => {
-        setActiveNoteIndexes(noteIndex === null ? [] : [noteIndex]);
-        setActiveOpenStrings(noteIndex === null ? [string] : []);
-      },
+      notes: [{ frequency: stringFrequency(position, string)!, volume: 0.16 }],
+      onPlay: () => setActiveStrings([string]),
     }));
     events.push({
       beat: bottomToTop.length,
-      notes: chordNotes(step),
-      onPlay: () => {
-        setActiveNoteIndexes(fingerings.map((_, noteIndex) => noteIndex));
-        setActiveOpenStrings(shapeOpenStrings[step.shape]);
-      },
+      notes: chordNotes(position),
+      onPlay: () => setActiveStrings(bottomToTop),
     });
 
     runSchedule(events, bottomToTop.length + 1, () => setPlaybackStatus("finished"));
@@ -961,8 +718,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   function resetPlayback() {
     clearPlayback();
     setPlaybackStatus("idle");
-    setActiveNoteIndexes([]);
-    setActiveOpenStrings([]);
+    setActiveStrings([]);
   }
 
   function nextStep() {
@@ -988,7 +744,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
 
     const events: ScheduledEvent[] = lesson.steps.map((chordStep, index) => ({
       beat: index,
-      notes: chordNotes(chordStep),
+      notes: chordNotes(chordStep.position),
       onPlay: () => setSequenceIndex(index),
     }));
     runSchedule(events, lesson.steps.length, () => setSequenceStatus("finished"));
@@ -1094,7 +850,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
                       ? "next"
                       : "future-hidden";
             const isSounding = isCurrent && sequenceStatus === "playing";
-            const allNotes = shapeFingerings[chordStep.shape].map((_, noteIndex) => noteIndex);
 
             return (
               <div
@@ -1111,8 +866,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
                 </p>
                 <ChordDiagram
                   step={chordStep}
-                  activeNoteIndexes={isSounding ? allNotes : []}
-                  activeOpenStrings={isSounding ? shapeOpenStrings[chordStep.shape] : []}
+                  activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
                   showPulse={false}
                 />
               </div>
@@ -1173,8 +927,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
         <div className="mt-5 rounded-[24px] bg-[#fcfdf9] p-3 ring-1 ring-[#e6ebe8]">
           <ChordDiagram
             step={step}
-            activeNoteIndexes={activeNoteIndexes}
-            activeOpenStrings={activeOpenStrings}
+            activeStrings={activeStrings}
           />
         </div>
         <div className="mt-6">{bpmControl}</div>
