@@ -25,10 +25,10 @@ export function chordLabel(step: Pick<ChordStep, "chord" | "shape">) {
 }
 
 export type ChordStep = {
-  /** Name shown in the app ("C", "B♭", "Am"). */
+  /** Name shown in the app ("C", "B♭", "Am", "G7", "Bm7(♭5)"). */
   chord: string;
   /** chords-db suffix; omitted = "major". */
-  suffix?: "major" | "minor";
+  suffix?: "major" | "minor" | "7" | "m7b5";
   /** CAGED shape the voicing comes from (shown on the lesson path). */
   shape: CagedShape;
   instruction: string;

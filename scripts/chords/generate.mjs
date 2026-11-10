@@ -3,9 +3,9 @@
 //
 //   node scripts/chords/generate.mjs <chord> [--position 1-5 | --shape C|A|G|E|D] [--fret N] [--suffix major]
 //
-//   major|minor + --position  the N-th CAGED shape up the neck (Fretly's "posição N")
-//   major|minor + --shape     CAGED shape placed where the root falls (or at --fret)
-//   major|minor, no shape     all five CAGED shapes
+//   major|minor|7|m7b5 + --position  the N-th CAGED shape up the neck ("posição N")
+//   major|minor|7|m7b5 + --shape     CAGED shape placed where the root falls (or at --fret)
+//   major|minor|7|m7b5, no shape     all five CAGED shapes
 //   other suffixes            chords-db positions converted to Fretly conventions
 //
 // Every result is validated and compared with reference/chords-db/guitar.json.
@@ -18,6 +18,7 @@ import {
   fromCaged,
   shapeForPosition,
   shapeOf,
+  chordSymbol,
   toFretly,
   validate,
 } from "./lib.mjs";
@@ -47,7 +48,7 @@ if (cagedTemplates(suffix)) {
     candidates.push({ source: label, shape, position });
   }
 } else {
-  if (positionArg) throw new Error("--position só vale para major e minor");
+  if (positionArg) throw new Error("--position só vale para major, minor, 7 e m7b5");
   dbPositions(chord, suffix).forEach((dbPosition, index) => {
     candidates.push({ source: `chords-db posição ${index + 1}`, position: toFretly(dbPosition, chord) });
   });
@@ -70,7 +71,7 @@ else {
       "not-in-db": "sem equivalente no chords-db",
     }[r.db.kind];
     const shape = shapeOf(r.position, r.chord, r.suffix);
-    console.log(`\n${r.chord} ${r.suffix} — ${r.source} — cifra: ${r.chord}${r.suffix === "minor" ? "m" : ""} (Forma ${shape ?? "?"}) — ${dbText}`);
+    console.log(`\n${r.chord} ${r.suffix} — ${r.source} — cifra: ${chordSymbol(r.chord, r.suffix)} (Forma ${shape ?? "?"}) — ${dbText}`);
     console.log(`  position: ${formatPosition(r.position)}`);
     console.log(`  ${describe(r.position)}`);
     r.errors.forEach((e) => console.log(`  ❌ ${e}`));

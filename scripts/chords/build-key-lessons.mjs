@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Writes src/lessons.ts: one section with one trail per chord quality (major,
-// then minor) and, in each, one lesson per key — the chord in its five CAGED
+// minor, dominant seventh, half-diminished) and, in each, one lesson per key — the chord in its five CAGED
 // shapes, from the lowest shape up the neck. Keys follow the cycle of fourths.
 //
 //   node scripts/chords/build-key-lessons.mjs
@@ -9,20 +9,25 @@
 // run `npm run check:chords` afterwards.
 import fs from "node:fs";
 import path from "node:path";
-import { CYCLE_OF_FOURTHS, formatPosition, fromCaged, shapesUpTheNeck, validate } from "./lib.mjs";
+import { chordSymbol, CYCLE_OF_FOURTHS, formatPosition, fromCaged, shapesUpTheNeck, validate } from "./lib.mjs";
 
 const SECTION = {
-  title: "Acordes Maiores e Menores no CAGED",
+  title: "Acordes Básicos no CAGED",
   subtitle: "Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço",
 };
 const TRAILS = [
   { suffix: "major", title: "Acordes maiores" },
   { suffix: "minor", title: "Acordes menores" },
+  { suffix: "7", title: "Acordes de sétima dominante" },
+  { suffix: "m7b5", title: "Acordes meio diminutos" },
 ];
-const QUALITY = { major: "maior", minor: "menor" };
-const symbol = (root, suffix) => `${root}${suffix === "minor" ? "m" : ""}`;
+/** Lesson title prefix: "C maior", "C menor", "C7", "Cm7(♭5)". */
+const lessonName = (root, suffix) =>
+  ({ major: `${root} maior`, minor: `${root} menor` })[suffix] ?? chordSymbol(root, suffix);
 
 const instruction = (shape, baseFret, suffix) => {
+  if (suffix !== "major" && suffix !== "minor")
+    return baseFret === 1 ? `Forma de ${shape} na primeira posição.` : `Forma de ${shape} a partir da casa ${baseFret}.`;
   if (baseFret === 1)
     return {
       C: "Forma aberta de C: toque da 5ª corda até a 1ª.",
@@ -47,7 +52,7 @@ let nextId = 1;
 const trails = TRAILS.map((trail, trailIndex) => {
   const { suffix } = trail;
   const lessons = CYCLE_OF_FOURTHS.map((root, index) => {
-    const name = symbol(root, suffix);
+    const name = chordSymbol(root, suffix);
     const steps = shapesUpTheNeck(root).map((shape) => {
       const position = fromCaged(root, shape, undefined, suffix);
       const { errors } = validate(position, root, suffix, shape);
@@ -62,7 +67,7 @@ const trails = TRAILS.map((trail, trailIndex) => {
         "          },",
       ].join("\n");
     });
-    const title = `${root} ${QUALITY[suffix]} - formas CAGED`;
+    const title = `${lessonName(root, suffix)} - formas CAGED`;
     const current = trailIndex === 0 && index === 0;
     return `      {
         id: ${nextId++},
@@ -86,7 +91,7 @@ ${lessons.join("\n")}
 
 const file = `import type { ChordStep } from "./chords.ts";
 
-// One section with a trail per chord quality (major, minor); in each trail, one
+// One section with a trail per chord quality (major, minor, 7, m7(♭5)); in each trail, one
 // lesson per key (cycle of fourths): the chord in its five CAGED shapes,
 // from the lowest shape up the neck; the final exercise plays all five in
 // sequence. Every chord is written out in full in the chords-db format

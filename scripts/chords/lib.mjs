@@ -69,11 +69,34 @@ export const CAGED_MINOR = {
   D: { rootPc: 2, frets: [-1, -1, 0, 2, 3, 1], open: [0, 0, 0, 2, 3, 1], moved: [0, 0, 1, 3, 4, 2] },
 };
 
-/** CAGED templates for a suffix (major or minor). */
+// Dominant seventh shapes (C7 x32310, A7 x02020, G7 320001, E7 020100, D7 xx0212).
+// The moved C7 drops the high E string (x3231x moved, like the common D7 x5453x).
+export const CAGED_DOM7 = {
+  C: { rootPc: 0, frets: [-1, 3, 2, 3, 1, 0], open: [0, 3, 2, 4, 1, 0], movedFrets: [-1, 3, 2, 3, 1, -1], moved: [0, 3, 2, 4, 1, 0] },
+  A: { rootPc: 9, frets: [-1, 0, 2, 0, 2, 0], open: [0, 0, 2, 0, 3, 0], moved: [0, 1, 3, 1, 4, 1] },
+  G: { rootPc: 7, frets: [3, 2, 0, 0, 0, 1], open: [3, 2, 0, 0, 0, 1], moved: [4, 3, 1, 1, 1, 2] },
+  E: { rootPc: 4, frets: [0, 2, 0, 1, 0, 0], open: [0, 2, 0, 1, 0, 0], moved: [1, 3, 1, 2, 1, 1] },
+  D: { rootPc: 2, frets: [-1, -1, 0, 2, 1, 2], open: [0, 0, 0, 2, 1, 3], moved: [0, 0, 1, 3, 2, 4] },
+};
+
+// Half-diminished (m7(♭5)) shapes, each keeping its CAGED root/third strings:
+// Cm7(♭5) x31312, Am7(♭5) x0101x, Gm7(♭5) 31302x, Em7(♭5) 012030, Dm7(♭5) xx0111.
+export const CAGED_M7B5 = {
+  C: { rootPc: 0, frets: [-1, 3, 1, 3, 1, 2], open: [0, 3, 1, 4, 1, 2], moved: [0, 3, 1, 4, 1, 2] },
+  A: { rootPc: 9, frets: [-1, 0, 1, 0, 1, -1], open: [0, 0, 2, 0, 3, 0], moved: [0, 1, 2, 1, 3, 0] },
+  G: { rootPc: 7, frets: [3, 1, 3, 0, 2, -1], open: [3, 1, 4, 0, 2, 0], movedFrets: [3, 1, 3, -1, 2, -1], moved: [3, 1, 4, 0, 2, 0] },
+  E: { rootPc: 4, frets: [0, 1, 2, 0, 3, 0], open: [0, 1, 2, 0, 3, 0], moved: [1, 2, 3, 1, 4, 1] },
+  D: { rootPc: 2, frets: [-1, -1, 0, 1, 1, 1], open: [0, 0, 0, 1, 1, 1], moved: [0, 0, 1, 2, 3, 4] },
+};
+
+/** Chord symbol shown in the app: "C", "Cm", "C7", "Cm7(♭5)". */
+export function chordSymbol(root, suffix = "major") {
+  return root + ({ major: "", minor: "m", "7": "7", m7b5: "m7(♭5)" }[suffix] ?? suffix);
+}
+
+/** CAGED templates for a suffix (major, minor, 7, m7b5). */
 export function cagedTemplates(suffix = "major") {
-  if (suffix === "major") return CAGED;
-  if (suffix === "minor") return CAGED_MINOR;
-  return null;
+  return { major: CAGED, minor: CAGED_MINOR, "7": CAGED_DOM7, m7b5: CAGED_M7B5 }[suffix] ?? null;
 }
 
 /** Fret where the shape sits for this root (0 = open position). */
@@ -111,12 +134,21 @@ export function fromCaged(chord, shape, shift = cagedBaseFret(chord, shape), suf
   if (!template) throw new Error(`Forma desconhecida: ${shape} ${suffix} (use C, A, G, E ou D; major ou minor)`);
   if (shift === 0) {
     const frets = [...template.frets];
-    return { frets, fingers: [...template.open], baseFret: 1, barres: [], midi: midiOf(frets, 1) };
+    const fingers = [...template.open];
+    return { frets, fingers, baseFret: 1, barres: barresOf(frets, fingers), midi: midiOf(frets, 1) };
   }
   // abs = shift + templateFret, and abs = baseFret + rel - 1 with baseFret = shift, so rel = templateFret + 1.
-  const frets = (template.movedFrets ?? template.frets).map((fret) => (fret < 0 ? -1 : fret + 1));
+  let frets = (template.movedFrets ?? template.frets).map((fret) => (fret < 0 ? -1 : fret + 1));
+  let baseFret = shift;
+  // When nothing is held on the shape's first fret (moved C7, m7(♭5)…), start
+  // the diagram at the lowest fretted note instead of an empty column.
+  const lowest = Math.min(...frets.filter((fret) => fret > 0));
+  if (lowest > 1) {
+    frets = frets.map((fret) => (fret > 0 ? fret - (lowest - 1) : fret));
+    baseFret += lowest - 1;
+  }
   const fingers = [...template.moved];
-  return { frets, fingers, baseFret: shift, barres: barresOf(frets, fingers), midi: midiOf(frets, shift) };
+  return { frets, fingers, baseFret, barres: barresOf(frets, fingers), midi: midiOf(frets, baseFret) };
 }
 
 /** A barre is finger 1 holding the same relative fret on two or more strings. */

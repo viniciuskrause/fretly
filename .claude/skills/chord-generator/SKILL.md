@@ -93,6 +93,24 @@ a posição N de um menor usa a mesma forma que a posição N do maior:
 as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
 `suffix: "minor"`. Gere com `npm run chord -- A --suffix minor --position 2`.
 
+## Sétima dominante e meio diminuto (formas CAGED)
+
+`CAGED_DOM7` e `CAGED_M7B5` em `lib.mjs` (sufixos do chords-db `7` e `m7b5`),
+com as mesmas tônicas e terças de cada forma:
+
+| Forma | Dominante (aberta · móvel) | Meio diminuto (aberta · móvel) |
+|---|---|---|
+| C | `x32310` · `x3231x` (sem a 1ª) | `x31312` · igual, sem cordas soltas |
+| A | `x02020` · pestana 5ª–1ª, dedos 1,3,1,4,1 | `x0101x` · pestana 5ª–3ª, dedos 1,2,1,3 |
+| G | `320001` · dedos 4,3,1,1,1,2 | `31302x` · `313x2x` (Sol abafada) |
+| E | `020100` · pestana completa, dedos 1,3,1,2,1,1 | `012030` · pestana, dedos 1,2,3,1,4,1 |
+| D | `xx0212` · dedos 1,3,2,4 | `xx0111` (pestana) · dedos 1,2,3,4 |
+
+Quando nenhuma nota cai na primeira casa da forma móvel (C7, Cm7(♭5)), o
+gerador começa o diagrama na nota mais grave presa (`baseFret` sobe).
+Cifras (`chordSymbol`): "C7", "Cm7(♭5)" (no círculo da trilha, "Cø").
+Passos levam `suffix: "7"` ou `suffix: "m7b5"`.
+
 ## Posições e organização das aulas (v2: por tonalidade)
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`
@@ -107,9 +125,10 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
   em sequência. O título vira o rótulo da trilha ("C maior" / "formas CAGED") e o
   círculo mostra a cifra.
 - **Seção e trilhas:** `src/lessons.ts` exporta `sections` — uma seção ("Acordes
-  Maiores e Menores no CAGED") com duas trilhas, cada uma com seu subtítulo:
-  "Acordes maiores" (C maior … G maior) e "Acordes menores" (C menor … G menor).
-  `lessons` lista todas as aulas em ordem. O troféu fica no fim da última trilha.
+  Básicos no CAGED") com quatro trilhas, cada uma com seu subtítulo: "Acordes
+  maiores" (C maior … G maior), "Acordes menores" (C menor …), "Acordes de sétima
+  dominante" (C7 …) e "Acordes meio diminutos" (Cm7(♭5) …). `lessons` lista todas
+  as aulas em ordem. O troféu fica no fim da última trilha.
 - **Gerar o arquivo de aulas:** `node scripts/chords/build-key-lessons.mjs`
   reescreve `src/lessons.ts` inteiro (`SECTION` e `TRAILS` no script). Depois
   rode `npm run check:chords`.

@@ -219,7 +219,10 @@ function TrailNodeIcon({ lesson }: { lesson: Lesson }) {
   if (lesson.status === "locked") return <Icon name="lock" className="size-6" />;
   if (lesson.type === "review") return <Icon name="replay" className="size-7" />;
   return (
-    <span className="text-[24px] font-black leading-none tracking-[-0.04em]">{lesson.steps[0].chord}</span>
+    <span className="text-[24px] font-black leading-none tracking-[-0.04em]">
+      {/* "Bm7(♭5)" is too wide for the node: show it as "Bø". */}
+      {lesson.steps[0].chord.replace("m7(♭5)", "ø")}
+    </span>
   );
 }
 
@@ -597,10 +600,26 @@ function ExerciseShell({
   );
 }
 
+/**
+ * Uppercase eyebrow that keeps the chord symbol before " - " in its own case:
+ * "Dm7(♭5) - formas CAGED" must not read "DM7(♭5)" (a major-seventh chord).
+ */
+function EyebrowText({ text }: { text: string }) {
+  const [chord, ...rest] = text.split(" - ");
+  if (!rest.length) return <>{text}</>;
+  return (
+    <>
+      <span className="normal-case">{chord}</span> - {rest.join(" - ")}
+    </>
+  );
+}
+
 function ExerciseHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div>
-      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#e75e3a]">{eyebrow}</p>
+      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#e75e3a]">
+        <EyebrowText text={eyebrow} />
+      </p>
       <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#18302d]">
         {title}
       </h1>
