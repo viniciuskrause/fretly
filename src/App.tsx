@@ -603,11 +603,9 @@ function ExerciseShell({
           aria-valuenow={Math.round(progress)}
         >
           <div
-            className="relative h-full rounded-full bg-[#4fbf9d] transition-[width] duration-500"
+            className="h-full rounded-full bg-[#4fbf9d] transition-[width] duration-500"
             style={{ width: `${progress}%` }}
-          >
-            <div className="absolute inset-x-2 top-1 h-1 rounded-full bg-white/30" />
-          </div>
+          />
         </div>
       </header>
 
