@@ -1080,15 +1080,6 @@ export default function App() {
     <div className="min-h-screen bg-[#f7f8f3] text-[#203330]">
       <TopBar />
       <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8 lg:pt-10">
-        <div className="mb-8">
-          <p className="text-sm font-bold text-[#71817d]">Bom dia, Rafa</p>
-          <h1 className="mt-1 text-[34px] font-black leading-tight tracking-[-0.045em] text-[#18302d] sm:text-[40px]">
-            Continue no seu ritmo.
-          </h1>
-          <p className="mt-2 text-sm leading-6 text-[#788984]">
-            Cada forma nova deixa o braço da guitarra um pouco menor.
-          </p>
-        </div>
         <PathSection onSelect={setSelectedLesson} />
       </main>
     </div>
