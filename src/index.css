@@ -263,6 +263,17 @@
   height: auto;
 }
 
+/* Guide page: the five C shapes, 2 per row on phones and 3 from 640px. */
+.sequence-card.guide-shape {
+  width: calc(50% - 6px);
+}
+
+@media (min-width: 640px) {
+  .sequence-card.guide-shape {
+    width: calc((100% - 32px) / 3);
+  }
+}
+
 .sequence-card--dimmed {
   opacity: 0.45;
 }

@@ -365,7 +365,15 @@ function Trail({
   );
 }
 
-function PathSection({ section, onSelect }: { section: Section; onSelect: (lesson: Lesson) => void }) {
+function PathSection({
+  section,
+  onSelect,
+  onOpenGuide,
+}: {
+  section: Section;
+  onSelect: (lesson: Lesson) => void;
+  onOpenGuide: () => void;
+}) {
   const lessons = section.trails.flatMap((trail) => trail.lessons);
   const sectionDone = lessons.every((lesson) => lesson.status === "done");
   const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
@@ -385,9 +393,7 @@ function PathSection({ section, onSelect }: { section: Section; onSelect: (lesso
             </p>
           </div>
           <button
-            onClick={() =>
-              onSelect(lessons.find((lesson) => lesson.status === "current") ?? lessons[0])
-            }
+            onClick={onOpenGuide}
             className="flex shrink-0 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white px-5 py-3 text-xs font-black text-[#1E3A8A] shadow-[0_4px_0_#C7D7F5] transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_#C7D7F5] active:translate-y-1 active:shadow-none"
           >
             <Icon name="book" className="size-4" /> GUIA
@@ -1177,9 +1183,222 @@ function ExercisePage({
   );
 }
 
+// ---------------------------------------------------------------- guide
+
+const GUIDE_SOURCES = [
+  { label: "JustinGuitar — CAGED System", url: "https://justinguitar.com/modules/caged-system" },
+  { label: "Premier Guitar — CAGED explained", url: "https://www.premierguitar.com/explains/caged" },
+  { label: "D'Addario — Guitarist's Guide to the CAGED System", url: "https://www.daddario.com/the-lesson-room/guitar/guitarists-guide-to-the-caged-system/" },
+  { label: "Andy Guitar — The CAGED System Explained", url: "https://www.andyguitar.co.uk/videos/06-the-caged-system-explained" },
+  { label: "London Guitar Academy — The CAGED Guitar System Explained", url: "https://www.londonguitaracademy.com/?p=10738" },
+  { label: "Music Grotto — CAGED System Guitar", url: "https://www.musicgrotto.com/caged-system-guitar" },
+  { label: "Premier Guitar — Why I Don't Teach the CAGED System", url: "https://www.premierguitar.com/lessons/caged/why-i-don-t-teach-the-caged-system?rebelltitem=8" },
+];
+
+function GuideSection({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section className="mt-12">
+      <h2 className="text-[24px] font-black tracking-[-0.03em] text-[#172554]">{title}</h2>
+      <div className="mt-4 space-y-4 text-[15px] leading-7 text-[#334155]">{children}</div>
+    </section>
+  );
+}
+
+function GuidePage({ onBack }: { onBack: () => void }) {
+  const cMajor = sections[0].trails[0].lessons[0];
+  const fretOf = (step: ChordStep) =>
+    step.position.baseFret === 1 ? "aberta" : `a partir da casa ${step.position.baseFret}`;
+  return (
+    <div className="min-h-screen bg-[#FFFEFB] text-[#172554]">
+      <TopBar />
+      <main className="mx-auto max-w-[720px] px-5 pb-20 pt-8 sm:px-8">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 rounded-xl px-2 py-1 text-sm font-black text-[#475569] transition hover:bg-[#FBF3DC]"
+        >
+          <Icon name="back" className="size-4" /> Voltar à trilha
+        </button>
+
+        <p className="mt-8 text-xs font-black uppercase tracking-[0.16em] text-[#C2410C]">Guia</p>
+        <h1 className="mt-2 text-[36px] font-black leading-tight tracking-[-0.045em] sm:text-[44px]">
+          O sistema CAGED
+        </h1>
+        <p className="mt-4 text-[17px] leading-8 text-[#334155]">
+          Cinco acordes que você aprende nas primeiras semanas de violão — C, A, G, E e D — escondem
+          um mapa do braço inteiro. O CAGED é a forma de ler esse mapa: com ele, qualquer acorde
+          pode ser tocado em qualquer tonalidade, em cinco regiões diferentes do braço.
+        </p>
+
+        <GuideSection title="O que é">
+          <p>
+            CAGED é um jeito de organizar o braço da guitarra a partir das cinco formas de acorde
+            aberto: <strong>C, A, G, E e D</strong> — daí o nome. Cada uma dessas formas pode ser
+            deslocada para cima no braço e continua sendo o mesmo desenho; só muda a tonalidade.
+            Encadeadas, as cinco formas cobrem o braço de ponta a ponta.
+          </p>
+          <p>
+            Não há consenso sobre quem criou o sistema. Muitos professores lembram que ele não foi
+            inventado por alguém: é uma consequência da afinação padrão do instrumento, que alguém
+            em algum momento organizou e batizou. Por isso mesmo ele só funciona na afinação padrão
+            (E A D G B E).
+          </p>
+        </GuideSection>
+
+        <GuideSection title="A lógica: a pestana faz o papel do braço">
+          <p>
+            No acorde aberto, as cordas soltas soam porque a pestana do braço (o “nut”) as prende.
+            Quando você leva a forma para cima, o <strong>dedo indicador assume esse papel</strong>:
+            ele prende, na casa base, as cordas que antes eram soltas, e os outros dedos refazem o
+            desenho. É assim que o E aberto vira o F com pestana na casa 1, ou o A aberto vira o C
+            com pestana na casa 3.
+          </p>
+          <p>Veja o mesmo acorde, C maior, nas cinco formas, subindo o braço:</p>
+          <div className="!mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
+            {cMajor.steps.map((step) => (
+              <figure key={step.shape} className="sequence-card guide-shape">
+                <figcaption className="text-center">
+                  <span className="block text-lg font-black text-[#172554]">Forma {step.shape}</span>
+                  <span className="block text-xs font-bold text-[#64748B]">{fretOf(step)}</span>
+                </figcaption>
+                <ChordDiagram step={step} activeStrings={[]} />
+              </figure>
+            ))}
+          </div>
+        </GuideSection>
+
+        <GuideSection title="A ordem C → A → G → E → D">
+          <p>
+            As formas sempre aparecem nessa ordem quando você sobe o braço, e depois do D o ciclo
+            recomeça no C, uma oitava acima. Cada forma se encaixa na seguinte: elas compartilham
+            notas, então a parte de cima de uma forma é a parte de baixo da próxima.
+          </p>
+          <p>
+            Em outras tonalidades a ordem é a mesma, só muda o ponto de partida. O F maior, por
+            exemplo, começa na forma de E (casa 1) e segue E → D → C → A → G. Nas aulas deste app
+            cada tom começa pela forma mais grave que cabe no braço e sobe a partir dela.
+          </p>
+        </GuideSection>
+
+        <GuideSection title="Como reconhecer a forma">
+          <p>
+            A forma de um acorde fica clara pela corda onde está a <strong>tônica</strong> (a nota
+            que dá nome ao acorde, aqui sempre no baixo) e pela corda da <strong>terça</strong> (a
+            nota que diz se o acorde é maior ou menor):
+          </p>
+          <div className="overflow-hidden rounded-2xl border border-[#E5D8B5] bg-white">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-[#FBF3DC] text-xs uppercase tracking-[0.08em] text-[#475569]">
+                <tr>
+                  <th className="px-4 py-3">Tônica na corda</th>
+                  <th className="px-4 py-3">Terça na corda</th>
+                  <th className="px-4 py-3">Forma</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#F1EAD6] font-bold text-[#172554]">
+                {[
+                  ["Lá (5ª)", "Ré (4ª)", "C"],
+                  ["Lá (5ª)", "Si (2ª)", "A"],
+                  ["Mi grave (6ª)", "Lá (5ª)", "G"],
+                  ["Mi grave (6ª)", "Sol (3ª)", "E"],
+                  ["Ré (4ª)", "Mi agudo (1ª)", "D"],
+                ].map(([root, third, shape]) => (
+                  <tr key={shape}>
+                    <td className="px-4 py-3">{root}</td>
+                    <td className="px-4 py-3">{third}</td>
+                    <td className="whitespace-nowrap px-4 py-3 text-[#C2410C]">Forma {shape}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p>
+            A mesma lógica vale para acordes menores, de sétima e meio diminutos: a forma é o
+            desenho de origem, a cifra diz o tipo de acorde.
+          </p>
+        </GuideSection>
+
+        <GuideSection title="Vantagens">
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <strong>O braço inteiro com o que você já sabe.</strong> As cinco formas são acordes que
+              qualquer iniciante conhece; o CAGED só mostra para onde cada uma pode ir.
+            </li>
+            <li>
+              <strong>Qualquer acorde, em qualquer tom, em qualquer lugar.</strong> Encontrando a
+              tônica, você monta o acorde em cinco regiões diferentes e escolhe a mais próxima de onde
+              sua mão já está.
+            </li>
+            <li>
+              <strong>Transpor fica simples.</strong> Mudar de tom é mover o mesmo desenho; a forma
+              não muda.
+            </li>
+            <li>
+              <strong>Ponte para escalas e solos.</strong> Cada forma serve de âncora para arpejos,
+              a pentatônica e a escala maior daquela região, conectando acordes e melodia.
+            </li>
+            <li>
+              <strong>Menos memorização solta.</strong> Em vez de decorar centenas de digitações,
+              você aprende cinco desenhos e a regra que os liga.
+            </li>
+          </ul>
+        </GuideSection>
+
+        <GuideSection title="Limites e cuidados">
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <strong>Formas não substituem as notas.</strong> Um risco comum é tocar desenhos sem
+              saber quais notas eles têm. Vale sempre localizar a tônica e a terça de cada forma.
+            </li>
+            <li>
+              <strong>Só na afinação padrão.</strong> Em afinações alternativas os desenhos mudam.
+            </li>
+            <li>
+              <strong>Algumas formas completas são difíceis.</strong> Por isso as aulas usam
+              digitações tocáveis de cada forma: às vezes uma corda fica abafada, mas a tônica
+              continua no baixo.
+            </li>
+          </ul>
+        </GuideSection>
+
+        <GuideSection title="Como estudar com este app">
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Cada aula é uma tonalidade: o acorde nas cinco formas, da mais grave para a mais aguda.</li>
+            <li>Monte cada forma e toque corda por corda; o título diz o acorde e a forma.</li>
+            <li>No exercício final, toque as cinco formas em sequência, no andamento do metrônomo.</li>
+            <li>Suba o andamento aos poucos: a trilha guarda o BPM da sua última execução.</li>
+            <li>
+              Depois dos acordes maiores vêm os menores, os de sétima dominante e os meio diminutos,
+              sempre pela mesma lógica.
+            </li>
+          </ol>
+        </GuideSection>
+
+        <section className="mt-14 rounded-2xl border border-[#E5D8B5] bg-white p-5">
+          <h2 className="text-sm font-black uppercase tracking-[0.12em] text-[#475569]">Fontes</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {GUIDE_SOURCES.map((source) => (
+              <li key={source.url}>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold text-[#2563EB] underline decoration-[#BFDBFE] underline-offset-4 hover:decoration-[#2563EB]"
+                >
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+    </div>
+  );
+}
+
 export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress>(loadProgress);
+  const [showGuide, setShowGuide] = useState(false);
   const trailSections = applyProgress(sections, progress);
 
   function completeLesson(lesson: Lesson, bpm: number) {
@@ -1189,6 +1408,8 @@ export default function App() {
       return next;
     });
   }
+
+  if (showGuide) return <GuidePage onBack={() => setShowGuide(false)} />;
 
   if (selectedLesson) {
     return (
@@ -1207,7 +1428,15 @@ export default function App() {
       <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8 lg:pt-10">
         <div className="space-y-14">
           {trailSections.map((section) => (
-            <PathSection key={section.id} section={section} onSelect={setSelectedLesson} />
+            <PathSection
+              key={section.id}
+              section={section}
+              onSelect={setSelectedLesson}
+              onOpenGuide={() => {
+                setShowGuide(true);
+                window.scrollTo(0, 0);
+              }}
+            />
           ))}
         </div>
       </main>
