@@ -93,21 +93,21 @@ a posição N de um menor usa a mesma forma que a posição N do maior:
 as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
 `suffix: "minor"`. Gere com `npm run chord -- A --suffix minor --position 2`.
 
-## Posições e aulas "todos os tons" (ciclo das quartas)
+## Posições e organização das aulas (v2: por tonalidade)
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`
   em `lib.mjs`; a ordem cíclica é C → A → G → E → D, começando pela forma mais
-  grave que cabe no braço). Vale para todas as aulas "Acordes Maiores - Nª posição".
-  Gere com `npm run chord -- B♭ --position 3`.
+  grave que cabe no braço). Gere com `npm run chord -- B♭ --position 3`.
 - **Ciclo das quartas** (`CYCLE_OF_FOURTHS`): C, F, B♭, E♭, A♭, D♭, G♭, B, E, A, D, G.
-- **Ordem na trilha:** cada aula "Acordes Maiores - {n}ª posição" é seguida pela aula
-  "Acordes Maiores - {n}ª posição, todos os tons" (tipo `review`), com os 12 tons
-  na ordem do ciclo das quartas naquela posição. C/A/G/E/D dessa aula são
-  idênticos aos da aula de posição correspondente.
-- Depois vem "Acordes Menores - {n}ª posição" (Cm, Am, Gm, Em, Dm na mesma
-  posição) e "Acordes Menores - {n}ª posição, todos os tons" (os 12 tons menores
-  no ciclo das quartas). Ordem: Maiores N → Maiores N todos os tons → Menores N →
-  Menores N todos os tons → Maiores N+1…
+- **Uma aula por tonalidade**, na ordem do ciclo das quartas: "C maior - formas
+  CAGED", "F maior - formas CAGED"… Cada aula tem o acorde nas 5 formas, da mais
+  grave para a mais aguda (`shapesUpTheNeck`), e o exercício final toca as cinco
+  em sequência. O título vira o rótulo da trilha ("C maior" / "formas CAGED") e o
+  círculo mostra a cifra.
+- **Gerar o arquivo de aulas:** `node scripts/chords/build-key-lessons.mjs`
+  reescreve `src/lessons.ts` inteiro (aceita `--suffix minor`). Depois rode
+  `npm run check:chords`.
+- A v1 (aulas por posição, maiores e menores) está na tag `v1` do GitHub.
 
 ## Como o app usa a posição (não mude sem motivo)
 

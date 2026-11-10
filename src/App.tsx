@@ -175,37 +175,15 @@ function TopBar() {
   );
 }
 
-const ORDINALS: Record<string, string> = {
-  primeira: "1ª",
-  segunda: "2ª",
-  terceira: "3ª",
-  quarta: "4ª",
-  quinta: "5ª",
-};
-
-function trailPosition(lesson: Lesson) {
-  const match = lesson.title.toLowerCase().match(/(primeira|segunda|terceira|quarta|quinta|[1-5]ª) posição/);
-  if (!match) return null;
-  return ORDINALS[match[1]] ?? match[1];
-}
-
-/** Trail label: "Acordes maiores / 1ª posição", plus "todos os tons" on the all-keys lessons. */
+/** Trail label from a title like "C maior - formas CAGED": "C maior" / "formas CAGED". */
 function trailLabel(lesson: Lesson) {
-  const position = trailPosition(lesson);
-  if (!position) return lesson.title;
-  const title = lesson.title.toLowerCase();
-  const group = title.includes("menores") ? "Acordes menores" : "Acordes maiores";
+  const [key, detail] = lesson.title.split(" - ");
   return (
     <>
-      <span className="block whitespace-nowrap">{group}</span>
-      <span className="block whitespace-nowrap">{position} posição</span>
-      {title.includes("todos os tons") && <span className="block whitespace-nowrap">todos os tons</span>}
+      <span className="block whitespace-nowrap">{key}</span>
+      {detail && <span className="block whitespace-nowrap">{detail}</span>}
     </>
   );
-}
-
-function trailPositionNumber(lesson: Lesson) {
-  return trailPosition(lesson)?.replace("ª", "") ?? "";
 }
 
 type TrailStatus = Lesson["status"];
@@ -240,7 +218,9 @@ function trailLayout(width: number, count: number) {
 function TrailNodeIcon({ lesson }: { lesson: Lesson }) {
   if (lesson.status === "locked") return <Icon name="lock" className="size-6" />;
   if (lesson.type === "review") return <Icon name="replay" className="size-7" />;
-  return <span className="text-[26px] font-black leading-none">{trailPositionNumber(lesson)}</span>;
+  return (
+    <span className="text-[24px] font-black leading-none tracking-[-0.04em]">{lesson.steps[0].chord}</span>
+  );
 }
 
 function TrailNode({

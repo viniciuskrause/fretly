@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
+/* Arial has no ♭/♯ and the browser's fallback glyph is a full em wide
+   ("B ♭"). This face only covers those two characters and maps them to system
+   fonts whose accidentals have normal widths. */
+@font-face {
+  font-family: Accidentals;
+  src: local("Arial Unicode MS"), local("ArialUnicodeMS"), local("STIXGeneral"), local("Apple Symbols"),
+    local("Segoe UI Symbol"), local("Noto Sans Symbols 2");
+  unicode-range: U+266D, U+266F;
+}
+
 @layer base {
   :root {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Accidentals, Arial, Helvetica, sans-serif;
     color: #203330;
     background: #f7f8f3;
     font-synthesis: none;
