@@ -501,8 +501,15 @@ function ChordDiagram({
   activeOpenStrings: number[];
   showPulse?: boolean;
 }) {
-  const hasBarre = step.fret > 0 && (step.shape === "A" || step.shape === "E");
   const fingerings = shapeFingerings[step.shape];
+  // Out of first position, the shape's "open" strings are held down at the base
+  // fret, so they become a barre (or a single finger) across exactly those strings.
+  const barreStrings = step.fret > 0 ? shapeOpenStrings[step.shape] : [];
+  const barre =
+    barreStrings.length > 0
+      ? { from: Math.min(...barreStrings), to: Math.max(...barreStrings) }
+      : null;
+  const barreActive = barre !== null && activeOpenStrings.length > 0;
   return (
     <svg
       width="300"
@@ -529,7 +536,7 @@ function ChordDiagram({
               strokeWidth={isActive ? 4 : string === 0 ? 1.3 : 1}
               className="transition-all duration-150"
             />
-            {activeOpenStrings.includes(string) && (
+            {step.fret === 0 && activeOpenStrings.includes(string) && (
               <circle
                 cx="42"
                 cy={48 + string * 29}
@@ -566,15 +573,17 @@ function ChordDiagram({
           {step.fret}
         </text>
       )}
-      {hasBarre && (
+      {barre && (
         <line
           x1="76"
-          y1="51"
+          y1={48 + barre.from * 29}
           x2="76"
-          y2="190"
-          stroke="#183E39"
-          strokeWidth="13"
+          y2={48 + barre.to * 29}
+          stroke={barreActive ? "#FF6B45" : "#183E39"}
+          strokeWidth="18"
           strokeLinecap="round"
+          className="transition-all duration-150"
+          aria-label={`Pestana na ${step.fret}ª casa, cordas ${barre.from + 1} a ${barre.to + 1}`}
         />
       )}
       {fingerings.map(([fret, string], index) => {
