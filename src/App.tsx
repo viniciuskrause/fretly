@@ -449,6 +449,17 @@ const shapeFingerings: Record<ChordStep["shape"], Array<[number, number]>> = {
   ],
 };
 
+// Left-hand finger for each note in shapeFingerings (same order). In first
+// position the strings left open need no finger; once the shape moves up the
+// neck, finger 1 holds the barre and the other notes shift to fingers 2–4.
+const shapeFingerNumbers: Record<ChordStep["shape"], { open: number[]; moved: number[] }> = {
+  C: { open: [1, 2, 3], moved: [2, 3, 4] }, // B, D, A strings
+  A: { open: [3, 2, 1], moved: [4, 3, 2] }, // B, G, D strings
+  G: { open: [3, 1, 2], moved: [4, 2, 3] }, // high E, A, low E strings
+  E: { open: [1, 3, 2], moved: [2, 4, 3] }, // G, D, A strings
+  D: { open: [2, 3, 1], moved: [3, 4, 2] }, // high E, B, G strings
+};
+
 const shapeOpenStrings: Record<ChordStep["shape"], number[]> = {
   C: [0, 2],
   A: [0, 4],
@@ -586,13 +597,30 @@ function ChordDiagram({
           aria-label={`Pestana na ${step.fret}ª casa, cordas ${barre.from + 1} a ${barre.to + 1}`}
         />
       )}
+      {barre && (
+        <text
+          x="76"
+          y={52 + ((barre.from + barre.to) / 2) * 29}
+          textAnchor="middle"
+          fontSize="10"
+          fontWeight="700"
+          fill="white"
+        >
+          1
+        </text>
+      )}
       {fingerings.map(([fret, string], index) => {
         const isActive = activeNoteIndexes.includes(index);
+        // In first position the columns are frets 1–5 (the nut sits before them);
+        // out of it the first column is the base fret.
+        const column = step.fret === 0 ? fret - 1 : fret;
+        const cx = 76.2 + column * 40.4;
+        const finger = shapeFingerNumbers[step.shape][step.fret === 0 ? "open" : "moved"][index];
         return (
           <g key={`${fret}-${string}-${index}`}>
             {isActive && showPulse && (
               <circle
-                cx={76 + fret * 40}
+                cx={cx}
                 cy={48 + string * 29}
                 r="19"
                 fill="#FF6B45"
@@ -601,21 +629,22 @@ function ChordDiagram({
               />
             )}
             <circle
-              cx={76 + fret * 40}
+              cx={cx}
               cy={48 + string * 29}
               r={isActive ? 13 : 10}
               fill={isActive ? "#FF6B45" : "#183E39"}
               className="transition-all duration-150"
             />
             <text
-              x={76 + fret * 40}
+              x={cx}
               y={52 + string * 29}
               textAnchor="middle"
               fontSize="10"
               fontWeight="700"
               fill="white"
+              aria-label={`Dedo ${finger}`}
             >
-              {index + 1}
+              {finger}
             </text>
           </g>
         );
