@@ -150,14 +150,14 @@ function Logo({ className }: { className: string }) {
       <circle cx="11.7" cy="2.6" r="1" fill="#fff"/><circle cx="11.7" cy="5" r="1" fill="#fff"/>
       <circle cx="20.3" cy="2.6" r="1" fill="#fff"/><circle cx="20.3" cy="5" r="1" fill="#fff"/>
       <rect x="14.4" y="5.8" width="3.2" height="9.5" fill="#fff"/>
-      <path d="M14.4 9h3.2M14.4 11.6h3.2M14.4 14.2h3.2" stroke="#ff6b45" strokeWidth="0.7"/>
+      <path d="M14.4 9h3.2M14.4 11.6h3.2M14.4 14.2h3.2" stroke="#F97316" strokeWidth="0.7"/>
       <path d="M16 13.2c3.4 0 5.6 2.2 5.6 4.6 0 1.3-.6 2.1-.6 2.9 0 .9 2.6 1.9 2.6 5.2 0 3.3-3.4 5.1-7.6 5.1s-7.6-1.8-7.6-5.1c0-3.3 2.6-4.3 2.6-5.2 0-.8-.6-1.6-.6-2.9 0-2.4 2.2-4.6 5.6-4.6z" fill="#fff"/>
-      <rect x="8.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#182b2a" strokeWidth="1.6"/>
-      <rect x="17.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#182b2a" strokeWidth="1.6"/>
-      <path d="M14.8 20.4h2.4" stroke="#182b2a" strokeWidth="1.6"/>
-      <rect x="15.1" y="19.3" width="1.8" height="2.4" rx="0.3" fill="#ffd9a8" stroke="#182b2a" strokeWidth="0.5"/>
-      <circle cx="11.9" cy="21.2" r="1.1" fill="#182b2a"/><circle cx="20.1" cy="21.2" r="1.1" fill="#182b2a"/>
-      <path d="M13.2 26.6q2.8 1.9 5.6 0" stroke="#182b2a" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+      <rect x="8.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#172554" strokeWidth="1.6"/>
+      <rect x="17.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#172554" strokeWidth="1.6"/>
+      <path d="M14.8 20.4h2.4" stroke="#172554" strokeWidth="1.6"/>
+      <rect x="15.1" y="19.3" width="1.8" height="2.4" rx="0.3" fill="#FEF3C7" stroke="#172554" strokeWidth="0.5"/>
+      <circle cx="11.9" cy="21.2" r="1.1" fill="#172554"/><circle cx="20.1" cy="21.2" r="1.1" fill="#172554"/>
+      <path d="M13.2 26.6q2.8 1.9 5.6 0" stroke="#172554" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
     </svg>
   );
 }
@@ -165,10 +165,10 @@ function Logo({ className }: { className: string }) {
 function Brand() {
   return (
     <div className="flex items-center gap-3">
-      <div className="relative flex size-11 shrink-0 rotate-[-5deg] items-center justify-center rounded-[14px] bg-[#ff6b45] text-white shadow-[0_4px_0_#c94225]">
+      <div className="relative flex size-11 shrink-0 rotate-[-5deg] items-center justify-center rounded-[14px] bg-[#F97316] text-white shadow-[0_4px_0_#C2410C]">
         <Logo className="size-8" />
       </div>
-      <p className="text-[20px] font-bold leading-none tracking-[-0.04em] text-[#182b2a]">
+      <p className="text-[20px] font-bold leading-none tracking-[-0.04em] text-[#172554]">
         Guitar Workouts for Nerds
       </p>
     </div>
@@ -177,11 +177,11 @@ function Brand() {
 
 function TopBar() {
   return (
-    <header className="sticky top-0 z-10 border-b border-[#e3e9e5]/90 bg-[#f7f8f3]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-10 border-b border-[#EDE3C8]/90 bg-[#FFFBEB]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-[720px] items-center justify-between px-5 sm:px-8">
         <Brand />
         <button
-          className="flex size-9 items-center justify-center rounded-full bg-[#efe4d0] text-xs font-black text-[#705538] ring-2 ring-white shadow-sm"
+          className="flex size-9 items-center justify-center rounded-full bg-[#FEF3C7] text-xs font-black text-[#92400E] ring-2 ring-white shadow-sm"
           aria-label="Abrir perfil"
         >
           RL
@@ -335,7 +335,7 @@ function Trail({
   const layout = width ? trailLayout(width, statuses.length) : null;
   return (
     <div ref={ref} className="relative mt-10" style={{ height: layout?.height ?? 400 }}>
-      <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#203330]">
+      <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#172554]">
         {trail.title}
       </p>
       {layout && (
@@ -351,7 +351,7 @@ function Trail({
               <path
                 key={index}
                 d={segment}
-                stroke={statuses[index + 1] === "locked" ? "#dbe2de" : "#1f9a7a"}
+                stroke={statuses[index + 1] === "locked" ? "#EDE3C8" : "#3B82F6"}
               />
             ))}
           </svg>
@@ -371,10 +371,10 @@ function PathSection({ section, onSelect }: { section: Section; onSelect: (lesso
   const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
   return (
     <section>
-      <div className="overflow-hidden rounded-[26px] bg-[#157b67] text-white shadow-[0_7px_0_#0d5b4b]">
+      <div className="overflow-hidden rounded-[26px] bg-[#1E3A8A] text-white shadow-[0_7px_0_#172554]">
         <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-[#9ee9d1]">
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-[#FDE68A]">
               Seção {section.id} • {lessons.length} exercícios
             </p>
             <h2 className="mt-2 text-[25px] font-black tracking-[-0.03em]">
@@ -388,14 +388,14 @@ function PathSection({ section, onSelect }: { section: Section; onSelect: (lesso
             onClick={() =>
               onSelect(lessons.find((lesson) => lesson.status === "current") ?? lessons[0])
             }
-            className="flex shrink-0 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white px-5 py-3 text-xs font-black text-[#126a59] shadow-[0_4px_0_#b5d9ce] transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_#b5d9ce] active:translate-y-1 active:shadow-none"
+            className="flex shrink-0 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white px-5 py-3 text-xs font-black text-[#1E3A8A] shadow-[0_4px_0_#C7D7F5] transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_#C7D7F5] active:translate-y-1 active:shadow-none"
           >
             <Icon name="book" className="size-4" /> GUIA
           </button>
         </div>
-        <div className="h-1.5 bg-[#0b6654]">
+        <div className="h-1.5 bg-[#2B4BA8]">
           <div
-            className="h-full rounded-r-full bg-[#75e0bd]"
+            className="h-full rounded-r-full bg-[#FBBF24]"
             style={{ width: `${doneShare * 100}%` }}
           />
         </div>
@@ -439,7 +439,7 @@ const diagramColumnX = (fret: number) => 56 + (fret - 0.5) * DIAGRAM_COLUMN_WIDT
 /** Big chord symbol ("D"); the shape is only named in the exercise title. */
 function ChordName({ step, className }: { step: ChordStep; className: string }) {
   return (
-    <p className={`font-black tracking-[-0.055em] text-[#183e39] ${className}`}>{step.chord}</p>
+    <p className={`font-black tracking-[-0.055em] text-[#172554] ${className}`}>{step.chord}</p>
   );
 }
 
@@ -463,7 +463,7 @@ function ChordDiagram({
       aria-label={`Diagrama de ${chordLabel(step)}`}
       role="img"
     >
-      <rect x="28" y="18" width="244" height="206" rx="16" fill="#FCFDF9" />
+      <rect x="28" y="18" width="244" height="206" rx="16" fill="#FFFDF5" />
       {[0, 1, 2, 3, 4, 5].map((string) => {
         const isActive = activeStrings.includes(string);
         return (
@@ -473,7 +473,7 @@ function ChordDiagram({
               y1={diagramRowY(string)}
               x2="258"
               y2={diagramRowY(string)}
-              stroke={isActive ? "#FF6B45" : "#85938F"}
+              stroke={isActive ? "#F97316" : "#94A3B8"}
               strokeWidth={isActive ? 4 : string === 5 ? 1.3 : 1}
               className="transition-all duration-150"
             />
@@ -483,7 +483,7 @@ function ChordDiagram({
                 cy={diagramRowY(string)}
                 r="7"
                 fill="none"
-                stroke="#FF6B45"
+                stroke="#F97316"
                 strokeWidth="3"
               />
             )}
@@ -497,7 +497,7 @@ function ChordDiagram({
           y1="48"
           x2={56 + line * DIAGRAM_COLUMN_WIDTH}
           y2="193"
-          stroke="#64736F"
+          stroke="#475569"
           strokeWidth={line === 0 && position.baseFret === 1 ? 6 : 1.4}
         />
       ))}
@@ -508,7 +508,7 @@ function ChordDiagram({
           textAnchor="middle"
           fontSize="14"
           fontWeight="800"
-          fill="#64736F"
+          fill="#475569"
           aria-label={`${position.baseFret}ª casa`}
         >
           {position.baseFret}
@@ -523,7 +523,7 @@ function ChordDiagram({
             y1={diagramRowY(barre.from)}
             x2={diagramColumnX(barre.fret)}
             y2={diagramRowY(barre.to)}
-            stroke={isActive ? "#FF6B45" : "#183E39"}
+            stroke={isActive ? "#F97316" : "#172554"}
             strokeWidth="18"
             strokeLinecap="round"
             className="transition-all duration-150"
@@ -543,7 +543,7 @@ function ChordDiagram({
               cx={cx}
               cy={cy}
               r={isActive ? 13 : 10}
-              fill={isActive ? "#FF6B45" : "#183E39"}
+              fill={isActive ? "#F97316" : "#172554"}
               className="transition-all duration-150"
             />
             <text
@@ -584,17 +584,17 @@ function ExerciseShell({
   children: ReactNode;
 }) {
   return (
-    <div className="flex min-h-dvh flex-col bg-[#f7f8f3] text-[#203330]">
+    <div className="flex min-h-dvh flex-col bg-[#FFFBEB] text-[#172554]">
       <header className="mx-auto flex w-full max-w-[1040px] items-center gap-4 px-4 pt-5 sm:gap-6 sm:px-10 sm:pt-12">
         <button
           onClick={onExit}
-          className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#8a9a96] transition hover:bg-[#edf2ef] hover:text-[#4f615c]"
+          className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#94A3B8] transition hover:bg-[#FBF3DC] hover:text-[#334155]"
           aria-label="Voltar à trilha"
         >
           <Icon name="close" className="size-6" />
         </button>
         <div
-          className="h-4 flex-1 overflow-hidden rounded-full bg-[#dfe6e2]"
+          className="h-4 flex-1 overflow-hidden rounded-full bg-[#EDE3C8]"
           role="progressbar"
           aria-label="Progresso do exercício"
           aria-valuemin={0}
@@ -602,7 +602,7 @@ function ExerciseShell({
           aria-valuenow={Math.round(progress)}
         >
           <div
-            className="h-full rounded-full bg-[#4fbf9d] transition-[width] duration-500"
+            className="h-full rounded-full bg-[#3B82F6] transition-[width] duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -614,7 +614,7 @@ function ExerciseShell({
         {children}
       </main>
 
-      <footer className="sticky bottom-0 border-t-2 border-[#e3e9e5] bg-[#f7f8f3]">
+      <footer className="sticky bottom-0 border-t-2 border-[#EDE3C8] bg-[#FFFBEB]">
         <div className="relative mx-auto w-full max-w-[1040px] px-4 py-4 sm:px-10 sm:py-8">
           {footerCenter && (
             <div className="mb-3 flex justify-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
@@ -645,10 +645,10 @@ function EyebrowText({ text }: { text: string }) {
 function ExerciseHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div>
-      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#e75e3a]">
+      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#EA580C]">
         <EyebrowText text={eyebrow} />
       </p>
-      <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#18302d]">
+      <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#172554]">
         {title}
       </h1>
     </div>
@@ -668,7 +668,7 @@ function SecondaryButton({ label, onClick, disabled, icon }: ActionButtonProps) 
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className="flex h-12 items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#d6dfdb] bg-white px-4 text-sm font-black uppercase tracking-[0.08em] text-[#60716c] transition hover:bg-[#f3f6f4] active:translate-y-0.5 active:border-b-2 disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-[150px] sm:px-6"
+      className="flex h-12 items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#E3D9BD] bg-white px-4 text-sm font-black uppercase tracking-[0.08em] text-[#475569] transition hover:bg-[#FBF3DC] active:translate-y-0.5 active:border-b-2 disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-[150px] sm:px-6"
     >
       {icon && <Icon name={icon} className="size-5" />}
       <span className={icon ? "hidden sm:inline" : undefined}>{label}</span>
@@ -685,8 +685,8 @@ function PrimaryButton({
 }: ActionButtonProps & { tone?: "green" | "orange" }) {
   const toneClass =
     tone === "orange"
-      ? "bg-[#ff6b45] shadow-[0_4px_0_#ca4728]"
-      : "bg-[#157b67] shadow-[0_4px_0_#0b5b4b]";
+      ? "bg-[#F97316] shadow-[0_4px_0_#C2410C]"
+      : "bg-[#3B82F6] shadow-[0_4px_0_#1E3A8A]";
   return (
     <button
       onClick={onClick}
@@ -721,14 +721,14 @@ function BpmControl({
     setDraft(null);
   };
   return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#e0e7e3]" role="group" aria-label={`Andamento: ${bpm} BPM`}>
-      <div className="flex items-center px-2 text-[#61736e]" title="BPM">
+    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#EDE3C8]" role="group" aria-label={`Andamento: ${bpm} BPM`}>
+      <div className="flex items-center px-2 text-[#64748B]" title="BPM">
         <Icon name="metronome" className="size-5" />
       </div>
       <button
         onClick={() => onChange((value) => clampBpm(value - 4))}
         disabled={disabled}
-        className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
+        className="flex size-8 items-center justify-center rounded-lg bg-[#FBF3DC] font-black text-[#475569] disabled:opacity-40"
         aria-label="Diminuir BPM"
       >
         −
@@ -761,12 +761,12 @@ function BpmControl({
             onChange(() => next);
           }
         }}
-        className="h-8 w-12 rounded-lg border-2 border-transparent bg-transparent text-center text-sm font-black text-[#183e39] outline-none transition hover:border-[#e0e7e3] focus:border-[#4fbf9d] focus:bg-[#f3faf7] disabled:opacity-60"
+        className="h-8 w-12 rounded-lg border-2 border-transparent bg-transparent text-center text-sm font-black text-[#172554] outline-none transition hover:border-[#EDE3C8] focus:border-[#3B82F6] focus:bg-[#EFF6FF] disabled:opacity-60"
       />
       <button
         onClick={() => onChange((value) => clampBpm(value + 4))}
         disabled={disabled}
-        className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
+        className="flex size-8 items-center justify-center rounded-lg bg-[#FBF3DC] font-black text-[#475569] disabled:opacity-40"
         aria-label="Aumentar BPM"
       >
         +
@@ -995,33 +995,33 @@ function ExercisePage({
 
   if (complete) {
     return (
-      <div className="min-h-screen bg-[#f7f8f3]">
+      <div className="min-h-screen bg-[#FFFBEB]">
         <TopBar />
         <div className="mx-auto w-full max-w-[560px] px-5 py-16 text-center">
-          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-[#4fbf9d] text-white shadow-[0_9px_0_#2f8d72]">
+          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-[#3B82F6] text-white shadow-[0_9px_0_#1D4ED8]">
             <Icon name="check" className="size-12" />
           </div>
-          <p className="mt-10 text-xs font-black uppercase tracking-[0.18em] text-[#e75e3a]">
+          <p className="mt-10 text-xs font-black uppercase tracking-[0.18em] text-[#EA580C]">
             Exercício concluído
           </p>
-          <h1 className="mt-3 text-4xl font-black tracking-[-0.045em] text-[#18302d]">
+          <h1 className="mt-3 text-4xl font-black tracking-[-0.045em] text-[#172554]">
             {lesson.exerciseTitle}
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-[#71817d]">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-[#64748B]">
             Você percorreu todas as formas desta etapa. Faça a revisão todos os dias para manter a
             forma dos exercícios que você já aprendeu.
           </p>
           <div className="mx-auto mt-8 max-w-sm">
-            <div className="rounded-2xl bg-white p-5 ring-1 ring-[#e0e7e3]">
-              <p className="text-2xl font-black text-[#ef6a44]">{lesson.steps.length}</p>
-              <p className="mt-1 text-[10px] font-black uppercase tracking-wider text-[#8b9995]">
+            <div className="rounded-2xl bg-white p-5 ring-1 ring-[#EDE3C8]">
+              <p className="text-2xl font-black text-[#EA580C]">{lesson.steps.length}</p>
+              <p className="mt-1 text-[10px] font-black uppercase tracking-wider text-[#94A3B8]">
                 Formas tocadas
               </p>
             </div>
           </div>
           <button
             onClick={onExit}
-            className="mt-8 w-full max-w-sm rounded-2xl bg-[#157b67] py-4 text-sm font-black text-white shadow-[0_5px_0_#0b5b4b] transition active:translate-y-1 active:shadow-none"
+            className="mt-8 w-full max-w-sm rounded-2xl bg-[#3B82F6] py-4 text-sm font-black text-white shadow-[0_5px_0_#1E3A8A] transition active:translate-y-1 active:shadow-none"
           >
             VOLTAR À TRILHA
           </button>
@@ -1166,7 +1166,7 @@ function ExercisePage({
 
       <div className="mt-8 flex flex-col items-center">
         <ChordName step={step} className="text-6xl" />
-        <div className="mt-5 rounded-[24px] bg-[#fcfdf9] p-3 ring-1 ring-[#e6ebe8]">
+        <div className="mt-5 rounded-[24px] bg-[#FFFDF5] p-3 ring-1 ring-[#EDE3C8]">
           <ChordDiagram
             step={step}
             activeStrings={activeStrings}
@@ -1202,7 +1202,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f7f8f3] text-[#203330]">
+    <div className="min-h-screen bg-[#FFFBEB] text-[#172554]">
       <TopBar />
       <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8 lg:pt-10">
         <div className="space-y-14">

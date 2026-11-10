@@ -13,8 +13,8 @@
 @layer base {
   :root {
     font-family: Accidentals, Arial, Helvetica, sans-serif;
-    color: #203330;
-    background: #f7f8f3;
+    color: #172554;
+    background: #FFFBEB;
     font-synthesis: none;
   }
 
@@ -32,8 +32,8 @@
   }
 
   ::selection {
-    background: #a9ead5;
-    color: #183e39;
+    background: #BFDBFE;
+    color: #172554;
   }
 }
 
@@ -49,11 +49,11 @@
   }
 
   .panel {
-    border: 1px solid #e0e7e3;
+    border: 1px solid #EDE3C8;
     border-radius: 1.375rem;
     background: #fff;
     padding: 1.25rem;
-    box-shadow: 0 4px 0 rgb(24 62 57 / 0.04);
+    box-shadow: 0 4px 0 rgb(23 37 84 / 0.04);
   }
 
   .trail-node {
@@ -91,20 +91,20 @@
   }
 
   .trail-node--done {
-    --trail-color: #1f9a7a;
+    --trail-color: #3B82F6;
   }
 
   .trail-node--current {
-    --trail-color: #ff6b45;
+    --trail-color: #F97316;
   }
 
   .trail-node--locked {
-    --trail-color: #dfe5e2;
-    border-color: #d3dbd7;
+    --trail-color: #F1EAD6;
+    border-color: #E3D9BD;
   }
 
   .trail-node--locked .trail-node__face {
-    color: #a7b3af;
+    color: #A8B1BF;
     box-shadow: none;
   }
 
@@ -114,7 +114,7 @@
     width: calc(100% + 28px);
     height: calc(100% + 28px);
     fill: none;
-    stroke: #ff6b45;
+    stroke: #F97316;
     stroke-width: 4;
     stroke-linecap: round;
     stroke-dasharray: 22 14.1;
@@ -131,16 +131,16 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 2px solid #f7f8f3;
-    background: #ffc145;
-    color: #5b3b00;
+    border: 2px solid #FFFBEB;
+    background: #FBBF24;
+    color: #78350F;
   }
 
   .trail-label {
     margin-top: 10px;
     max-width: 112px;
     border-radius: 8px;
-    background: #f7f8f3;
+    background: #FFFBEB;
     padding: 2px 6px;
     text-align: center;
     font-size: 12px;
@@ -160,24 +160,24 @@
     align-items: center;
     gap: 4px;
     border-radius: 999px;
-    background: #e3f4ee;
+    background: #DBEAFE;
     padding: 2px 8px 2px 6px;
     font-size: 11px;
     font-weight: 900;
     line-height: 16px;
-    color: #1f7a63;
+    color: #1E3A8A;
   }
 
   .trail-label--done {
-    color: #243633;
+    color: #172554;
   }
 
   .trail-label--current {
-    color: #e0532f;
+    color: #EA580C;
   }
 
   .trail-label--locked {
-    color: #9aa7a3;
+    color: #94A3B8;
   }
 
   .trail-trophy {
@@ -187,7 +187,7 @@
     align-items: center;
     justify-content: center;
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    background: #1f9a7a;
+    background: #3B82F6;
     padding: 4px;
   }
 
@@ -198,17 +198,17 @@
     align-items: center;
     justify-content: center;
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    background: #ffc145;
-    color: #7a4b00;
+    background: #FBBF24;
+    color: #78350F;
   }
 
   .trail-trophy--locked {
-    background: #d3dbd7;
+    background: #E3D9BD;
   }
 
   .trail-trophy--locked .trail-trophy__face {
-    background: #e8ece9;
-    color: #a7b3af;
+    background: #F1EAD6;
+    color: #A8B1BF;
   }
 }
 
@@ -237,8 +237,8 @@
   align-items: center;
   gap: 4px;
   border-radius: 20px;
-  border: 2px solid #e3e9e6;
-  background: #fcfdf9;
+  border: 2px solid #EDE3C8;
+  background: #FFFDF5;
   padding: 12px 6px 4px;
   transition:
     opacity 180ms ease,
@@ -268,10 +268,10 @@
 }
 
 .sequence-card--sounding {
-  border-color: #ff6b45;
+  border-color: #F97316;
   box-shadow:
-    0 0 0 5px rgb(255 107 69 / 0.16),
-    0 14px 34px rgb(202 71 40 / 0.18);
+    0 0 0 5px rgb(249 115 22 / 0.16),
+    0 14px 34px rgb(194 65 12 / 0.18);
   transform: translateY(-4px);
 }
 
@@ -282,13 +282,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #ff6b45;
+  background: #F97316;
   color: #fff;
   font-size: 64px;
   font-weight: 900;
   box-shadow:
-    0 0 0 10px rgb(255 107 69 / 0.18),
-    0 18px 40px rgb(202 71 40 / 0.3);
+    0 0 0 10px rgb(249 115 22 / 0.18),
+    0 18px 40px rgb(194 65 12 / 0.3);
   animation: countdown-pop 1s ease-out both;
 }
 
