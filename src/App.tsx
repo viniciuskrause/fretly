@@ -548,6 +548,7 @@ function ExerciseShell({
   onExit,
   footer,
   footerCenter,
+  wide = false,
   children,
 }: {
   progress: number;
@@ -555,6 +556,8 @@ function ExerciseShell({
   footer: ReactNode;
   /** Centred in the bottom bar (on its own row above the buttons on narrow screens). */
   footerCenter?: ReactNode;
+  /** Wider content column (the final exercise shows every diagram). */
+  wide?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -582,7 +585,9 @@ function ExerciseShell({
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-[600px] flex-1 flex-col justify-center px-4 py-8 sm:px-6">
+      <main
+        className={`mx-auto flex w-full flex-1 flex-col justify-center px-4 py-8 sm:px-6 ${wide ? "max-w-[1040px]" : "max-w-[600px]"}`}
+      >
         {children}
       </main>
 
@@ -712,8 +717,9 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   const [playbackStatus, setPlaybackStatus] = useState<"idle" | "playing" | "finished">("idle");
   const [activeStrings, setActiveStrings] = useState<number[]>([]);
   const [finalExercise, setFinalExercise] = useState(false);
-  const [sequenceIndex, setSequenceIndex] = useState(0);
-  const [sequenceStatus, setSequenceStatus] = useState<"idle" | "playing" | "finished">("idle");
+  const [sequenceIndex, setSequenceIndex] = useState(-1);
+  const [sequenceStatus, setSequenceStatus] = useState<"idle" | "countdown" | "playing" | "finished">("idle");
+  const [countdown, setCountdown] = useState<number | null>(null);
   const [complete, setComplete] = useState(false);
   const timeoutIds = useRef<number[]>([]);
   const audioContext = useRef<AudioContext | null>(null);
@@ -879,22 +885,34 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
 
   function resetSequence() {
     clearPlayback();
-    setSequenceIndex(0);
+    setSequenceIndex(-1);
+    setCountdown(null);
     setSequenceStatus("idle");
   }
 
+  /** 3-2-1 countdown (one second each), then every chord in sequence. */
   async function startChordSequence() {
     clearPlayback();
-    setSequenceIndex(0);
-    setSequenceStatus("playing");
+    setSequenceIndex(-1);
+    setSequenceStatus("countdown");
+    setCountdown(3);
     await prepareAudio();
-
-    const events: ScheduledEvent[] = lesson.steps.map((chordStep, index) => ({
-      beat: index,
-      notes: chordNotes(chordStep.position),
-      onPlay: () => setSequenceIndex(index),
-    }));
-    runSchedule(events, lesson.steps.length, () => setSequenceStatus("finished"));
+    const later = (ms: number, fn: () => void) => timeoutIds.current.push(window.setTimeout(fn, ms));
+    later(1000, () => setCountdown(2));
+    later(2000, () => setCountdown(1));
+    later(3000, () => {
+      setCountdown(null);
+      setSequenceStatus("playing");
+      const events: ScheduledEvent[] = lesson.steps.map((chordStep, index) => ({
+        beat: index,
+        notes: chordNotes(chordStep.position),
+        onPlay: () => setSequenceIndex(index),
+      }));
+      runSchedule(events, lesson.steps.length, () => {
+        setSequenceIndex(-1);
+        setSequenceStatus("finished");
+      });
+    });
   }
 
   if (complete) {
@@ -938,16 +956,17 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     <BpmControl
       bpm={bpm}
       onChange={setBpm}
-      disabled={playbackStatus === "playing" || sequenceStatus === "playing"}
+      disabled={playbackStatus === "playing" || sequenceStatus === "playing" || sequenceStatus === "countdown"}
     />
   );
 
   if (finalExercise) {
-    const isPlaying = sequenceStatus === "playing";
+    const isPlaying = sequenceStatus === "playing" || sequenceStatus === "countdown";
     return (
       <ExerciseShell
         progress={100}
         onExit={onExit}
+        wide
         footerCenter={bpmControl}
         footer={
           <>
@@ -968,7 +987,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
                 </>
               ) : (
                 <PrimaryButton
-                  label={isPlaying ? "Tocando" : "Iniciar"}
+                  label={sequenceStatus === "countdown" ? "Preparando" : isPlaying ? "Tocando" : "Iniciar"}
                   icon="play"
                   tone="orange"
                   disabled={isPlaying}
@@ -981,44 +1000,38 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
       >
         <ExerciseHeading eyebrow={lesson.exerciseTitle} title="Sequência completa" />
 
-        <div className="relative -mx-4 mt-6 min-h-[420px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_18%,black_82%,transparent)] sm:-mx-32">
-          {lesson.steps.map((chordStep, index) => {
-            const offset = index - sequenceIndex;
-            const isCurrent = offset === 0;
-            const cardPosition =
-              offset < -1
-                ? "past-hidden"
-                : offset === -1
-                  ? "played"
-                  : isCurrent
-                    ? sequenceStatus === "finished"
-                      ? "complete"
-                      : "current"
-                    : offset === 1
-                      ? "next"
-                      : "future-hidden";
-            const isSounding = isCurrent && sequenceStatus === "playing";
-
-            return (
-              <div
-                key={`${chordStep.chord}-${index}`}
-                className={`sequence-chord-card sequence-chord-card--${cardPosition} ${
-                  isSounding ? "sequence-chord-card--sounding" : ""
-                }`}
-                style={{
-                  transitionDuration: `${Math.min((60000 / bpm) * 0.58, 760)}ms`,
-                }}
-              >
-                <ChordName step={chordStep} className="text-5xl" />
-                <ChordDiagram
-                  step={chordStep}
-                  activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
-                />
-              </div>
-            );
-          })}
+        <div className="relative mt-8">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            {lesson.steps.map((chordStep, index) => {
+              const isSounding = sequenceStatus === "playing" && index === sequenceIndex;
+              const isDimmed = isPlaying && !isSounding;
+              return (
+                <div
+                  key={`${chordStep.chord}-${chordStep.shape}`}
+                  ref={(node) => {
+                    // Keep the chord being played on screen (the grid scrolls on phones).
+                    if (node && isSounding) node.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                  }}
+                  className={`sequence-card ${isSounding ? "sequence-card--sounding" : ""} ${isDimmed ? "sequence-card--dimmed" : ""}`}
+                  aria-current={isSounding ? "true" : undefined}
+                >
+                  <ChordName step={chordStep} className="text-2xl sm:text-3xl" />
+                  <ChordDiagram
+                    step={chordStep}
+                    activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          {countdown !== null && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-live="assertive">
+              <span key={countdown} className="sequence-countdown">
+                {countdown}
+              </span>
+            </div>
+          )}
         </div>
-
       </ExerciseShell>
     );
   }

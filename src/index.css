@@ -214,67 +214,87 @@
   }
 }
 
-.sequence-chord-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+/* Final exercise: every diagram of the lesson; the one sounding is highlighted. */
+.sequence-card {
   display: flex;
-  width: min(340px, calc(100% - 48px));
+  width: calc(50% - 6px);
+  max-width: 190px;
   flex-direction: column;
   align-items: center;
-  border-radius: 26px;
+  gap: 4px;
+  border-radius: 20px;
+  border: 2px solid #e3e9e6;
   background: #fcfdf9;
-  padding: 24px 16px;
-  border: 1px solid #e3e9e6;
-  transition-property: transform, opacity, filter, box-shadow, border-color;
-  transition-timing-function: cubic-bezier(0.22, 0.75, 0.24, 1);
-  will-change: transform, opacity;
+  padding: 12px 6px 4px;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease;
 }
 
-.sequence-chord-card--current {
-  z-index: 3;
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  box-shadow: 0 16px 44px rgb(24 62 57 / 0.14);
+@media (min-width: 640px) {
+  .sequence-card {
+    width: calc((100% - 32px) / 3);
+  }
 }
 
-.sequence-chord-card--sounding {
+@media (min-width: 1024px) {
+  .sequence-card {
+    width: calc((100% - 64px) / 5);
+  }
+}
+
+.sequence-card svg {
+  height: auto;
+}
+
+.sequence-card--dimmed {
+  opacity: 0.45;
+}
+
+.sequence-card--sounding {
   border-color: #ff6b45;
   box-shadow:
     0 0 0 5px rgb(255 107 69 / 0.16),
-    0 18px 46px rgb(202 71 40 / 0.2);
+    0 14px 34px rgb(202 71 40 / 0.18);
+  transform: translateY(-4px);
 }
 
-.sequence-chord-card--played {
-  z-index: 1;
-  opacity: 0.2;
-  filter: grayscale(0.7);
-  transform: translate(calc(-50% - 82%), -50%) scale(0.78);
+.sequence-countdown {
+  display: flex;
+  width: 120px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ff6b45;
+  color: #fff;
+  font-size: 64px;
+  font-weight: 900;
+  box-shadow:
+    0 0 0 10px rgb(255 107 69 / 0.18),
+    0 18px 40px rgb(202 71 40 / 0.3);
+  animation: countdown-pop 1s ease-out both;
 }
 
-.sequence-chord-card--next {
-  z-index: 2;
-  opacity: 0.42;
-  transform: translate(calc(-50% + 82%), -50%) scale(0.82);
-}
-
-.sequence-chord-card--complete {
-  z-index: 2;
-  opacity: 0.38;
-  filter: grayscale(0.55);
-  transform: translate(-50%, -50%) scale(0.94);
-}
-
-.sequence-chord-card--past-hidden {
-  z-index: 0;
-  opacity: 0;
-  transform: translate(calc(-50% - 165%), -50%) scale(0.68);
-}
-
-.sequence-chord-card--future-hidden {
-  z-index: 0;
-  opacity: 0;
-  transform: translate(calc(-50% + 165%), -50%) scale(0.68);
+@keyframes countdown-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  85% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
