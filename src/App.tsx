@@ -294,11 +294,9 @@ const diagramColumnX = (fret: number) => 56 + (fret - 0.5) * DIAGRAM_COLUMN_WIDT
 function ChordDiagram({
   step,
   activeStrings,
-  showPulse = true,
 }: {
   step: ChordStep;
   activeStrings: number[];
-  showPulse?: boolean;
 }) {
   const { position } = step;
   const barres = barreSpans(position);
@@ -389,9 +387,6 @@ function ChordDiagram({
         const finger = position.fingers[string];
         return (
           <g key={`note-${string}`}>
-            {isActive && showPulse && (
-              <circle cx={cx} cy={cy} r="19" fill="#FF6B45" opacity="0.18" className="animate-ping" />
-            )}
             <circle
               cx={cx}
               cy={cy}
@@ -867,7 +862,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
                 <ChordDiagram
                   step={chordStep}
                   activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
-                  showPulse={false}
                 />
               </div>
             );
