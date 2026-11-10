@@ -17,7 +17,7 @@ export type Lesson = {
 export const lessons: Lesson[] = [
   {
     id: 1,
-    title: "Primeira posição",
+    title: "Acordes na primeira posição",
     exerciseTitle: "Acordes na primeira posição",
     subtitle: "As cinco formas abertas",
     type: "chord",
@@ -57,7 +57,7 @@ export const lessons: Lesson[] = [
   },
   {
     id: 7,
-    title: "Ciclo das quartas",
+    title: "Acordes no ciclo das quartas",
     exerciseTitle: "Acordes no ciclo das quartas",
     subtitle: "Aplique CAGED em 12 tons",
     type: "review",
@@ -139,7 +139,7 @@ export const lessons: Lesson[] = [
   },
   {
     id: 3,
-    title: "Segunda posição",
+    title: "Acordes na segunda posição",
     exerciseTitle: "Acordes na segunda posição",
     subtitle: "Conecte C com a forma de A",
     type: "chord",
@@ -179,7 +179,7 @@ export const lessons: Lesson[] = [
   },
   {
     id: 4,
-    title: "Terceira posição",
+    title: "Acordes na terceira posição",
     exerciseTitle: "Acordes na terceira posição",
     subtitle: "Avance pelo braço",
     type: "chord",
@@ -219,7 +219,7 @@ export const lessons: Lesson[] = [
   },
   {
     id: 5,
-    title: "Quarta posição",
+    title: "Acordes na quarta posição",
     exerciseTitle: "Acordes na quarta posição",
     subtitle: "Reconheça formas agudas",
     type: "chord",
@@ -259,7 +259,7 @@ export const lessons: Lesson[] = [
   },
   {
     id: 6,
-    title: "Quinta posição",
+    title: "Acordes na quinta posição",
     exerciseTitle: "Acordes na quinta posição",
     subtitle: "Complete o mapa CAGED",
     type: "chord",
