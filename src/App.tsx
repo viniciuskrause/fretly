@@ -603,42 +603,42 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     return audioContext.current;
   }
 
+  // Wait until audio output is actually running before scheduling notes, so the
+  // first note of a sequence (the 6th string on G and E shapes) is not swallowed.
+  async function prepareAudio() {
+    const isNew = !audioContext.current;
+    const context = getAudioContext();
+    if (context.state !== "running") await context.resume();
+    if (isNew) await new Promise((resolve) => window.setTimeout(resolve, 150));
+  }
+
+  // Plucked-string synthesis (Karplus–Strong). Unlike a plain triangle wave, it has
+  // strong upper harmonics, so low notes such as G2 (98 Hz) stay audible on laptop
+  // and phone speakers that can't reproduce the fundamental.
   function playGuitarTone(frequency: number, volume = 0.16) {
     const context = getAudioContext();
     const now = context.currentTime;
+    const { sampleRate } = context;
+    const duration = 1.4;
+    const buffer = context.createBuffer(1, Math.floor(sampleRate * duration), sampleRate);
+    const data = buffer.getChannelData(0);
+    // The two-point average adds half a sample of delay per loop.
+    const period = Math.max(2, Math.round(sampleRate / frequency - 0.5));
+    for (let i = 0; i < period; i++) data[i] = Math.random() * 2 - 1;
+    for (let i = period; i < data.length; i++) {
+      const previous = i - period - 1 >= 0 ? data[i - period - 1] : 0;
+      data[i] = 0.996 * 0.5 * (data[i - period] + previous);
+    }
+
+    const source = context.createBufferSource();
+    source.buffer = buffer;
     const output = context.createGain();
-    const filter = context.createBiquadFilter();
-    const body = context.createOscillator();
-    const harmonic = context.createOscillator();
-    const harmonicGain = context.createGain();
-
-    body.type = "triangle";
-    body.frequency.setValueAtTime(frequency, now);
-    harmonic.type = "sine";
-    harmonic.frequency.setValueAtTime(frequency * 2, now);
-    harmonic.detune.setValueAtTime(-7, now);
-
-    filter.type = "lowpass";
-    filter.frequency.setValueAtTime(2800, now);
-    filter.frequency.exponentialRampToValueAtTime(650, now + 0.9);
-    filter.Q.setValueAtTime(1.2, now);
-
-    output.gain.setValueAtTime(0.0001, now);
-    output.gain.exponentialRampToValueAtTime(volume, now + 0.012);
-    output.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
-    harmonicGain.gain.setValueAtTime(volume * 0.22, now);
-    harmonicGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
-
-    body.connect(filter);
-    harmonic.connect(harmonicGain);
-    harmonicGain.connect(filter);
-    filter.connect(output);
+    output.gain.setValueAtTime(volume * 1.4, now);
+    output.gain.setTargetAtTime(0, now + 1.0, 0.1);
+    source.connect(output);
     output.connect(context.destination);
-
-    body.start(now);
-    harmonic.start(now);
-    body.stop(now + 1.12);
-    harmonic.stop(now + 0.52);
+    source.start(now);
+    source.stop(now + duration);
   }
 
   function playNote(chordStep: ChordStep, noteIndex: number, volume?: number) {
@@ -661,13 +661,12 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     });
   }
 
-  function startPlayback() {
+  async function startPlayback() {
     clearPlayback();
-    const context = getAudioContext();
-    void context.resume();
     setPlaybackStatus("playing");
     setActiveNoteIndexes([]);
     setActiveOpenStrings([]);
+    await prepareAudio();
 
     const beatDuration = 60000 / bpm;
     const fingerings = shapeFingerings[step.shape];
@@ -728,12 +727,11 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     setSequenceStatus("idle");
   }
 
-  function startChordSequence() {
+  async function startChordSequence() {
     clearPlayback();
-    const context = getAudioContext();
-    void context.resume();
     setSequenceIndex(0);
     setSequenceStatus("playing");
+    await prepareAudio();
 
     const beatDuration = 60000 / bpm;
     lesson.steps.forEach((chordStep, index) => {
