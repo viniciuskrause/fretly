@@ -459,6 +459,37 @@ const shapeOpenStrings: Record<ChordStep["shape"], number[]> = {
 
 const stringFrequencies = [329.63, 246.94, 196, 146.83, 110, 82.41];
 
+const TONE_DURATION = 1.6;
+
+type ScheduledEvent = {
+  beat: number;
+  notes: Array<{ frequency: number; volume: number }>;
+  onPlay: () => void;
+};
+
+function fingeredNoteFrequency(chordStep: ChordStep, noteIndex: number) {
+  const [relativeFret, string] = shapeFingerings[chordStep.shape][noteIndex];
+  return stringFrequencies[string] * 2 ** ((chordStep.fret + relativeFret) / 12);
+}
+
+// "Open" strings of a shape sound at the shape's base fret (nut or barre).
+function openStringFrequency(chordStep: ChordStep, string: number) {
+  return stringFrequencies[string] * 2 ** (chordStep.fret / 12);
+}
+
+function chordNotes(chordStep: ChordStep) {
+  return [
+    ...shapeFingerings[chordStep.shape].map((_, noteIndex) => ({
+      frequency: fingeredNoteFrequency(chordStep, noteIndex),
+      volume: 0.075,
+    })),
+    ...shapeOpenStrings[chordStep.shape].map((string) => ({
+      frequency: openStringFrequency(chordStep, string),
+      volume: 0.065,
+    })),
+  ];
+}
+
 function ChordDiagram({
   step,
   activeNoteIndexes,
@@ -725,12 +756,20 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   const [complete, setComplete] = useState(false);
   const timeoutIds = useRef<number[]>([]);
   const audioContext = useRef<AudioContext | null>(null);
+  const scheduledSources = useRef<Array<{ source: AudioBufferSourceNode; startAt: number }>>([]);
   const step = lesson.steps[stepIndex];
   const progress = complete || finalExercise ? 100 : ((stepIndex + 1) / lesson.steps.length) * 100;
 
+  // Cancels pending UI updates, the scheduler loop and every note that hasn't
+  // started yet. Notes already sounding keep ringing naturally.
   function clearPlayback() {
     timeoutIds.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
     timeoutIds.current = [];
+    const context = audioContext.current;
+    scheduledSources.current.forEach(({ source, startAt }) => {
+      if (context && startAt > context.currentTime) source.stop();
+    });
+    scheduledSources.current = [];
   }
 
   useEffect(() => {
@@ -758,12 +797,9 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   // enough upper harmonics for low notes such as G2 (98 Hz) to stay audible on
   // laptop and phone speakers, while the soft "fingertip" pluck, the darker
   // string damping and the final low-pass give it a warm nylon timbre.
-  function playGuitarTone(frequency: number, volume = 0.16) {
-    const context = getAudioContext();
-    const now = context.currentTime;
+  function createPluckBuffer(context: AudioContext, frequency: number) {
     const { sampleRate } = context;
-    const duration = 1.6;
-    const buffer = context.createBuffer(1, Math.floor(sampleRate * duration), sampleRate);
+    const buffer = context.createBuffer(1, Math.floor(sampleRate * TONE_DURATION), sampleRate);
     const data = buffer.getChannelData(0);
     // The 3-tap loop filter below adds one sample of delay per loop.
     const period = Math.max(3, Math.round(sampleRate / frequency - 1));
@@ -786,42 +822,59 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
       const c = i - period - 2 >= 0 ? data[i - period - 2] : 0;
       data[i] = 0.997 * (0.25 * a + 0.5 * b + 0.25 * c);
     }
+    return buffer;
+  }
 
+  // Schedules one note at an exact time on the audio clock (sample-accurate,
+  // independent of what the main thread is doing).
+  function scheduleTone(context: AudioContext, frequency: number, volume: number, when: number) {
     const source = context.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createPluckBuffer(context, frequency);
     const tone = context.createBiquadFilter();
     tone.type = "lowpass";
-    tone.frequency.setValueAtTime(2400, now);
-    tone.Q.setValueAtTime(0.5, now);
+    tone.frequency.value = 2400;
+    tone.Q.value = 0.5;
     const output = context.createGain();
-    output.gain.setValueAtTime(0, now);
-    output.gain.linearRampToValueAtTime(volume * 2.2, now + 0.004);
-    output.gain.setTargetAtTime(0, now + 1.2, 0.12);
+    output.gain.setValueAtTime(0, when);
+    output.gain.linearRampToValueAtTime(volume * 2.2, when + 0.004);
+    output.gain.setTargetAtTime(0, when + 1.1, 0.08);
     source.connect(tone);
     tone.connect(output);
     output.connect(context.destination);
-    source.start(now);
-    source.stop(now + duration);
+    source.start(when);
+    source.stop(when + TONE_DURATION);
+    scheduledSources.current.push({ source, startAt: when });
   }
 
-  function playNote(chordStep: ChordStep, noteIndex: number, volume?: number) {
-    const [relativeFret, string] = shapeFingerings[chordStep.shape][noteIndex];
-    const frequency = stringFrequencies[string] * 2 ** ((chordStep.fret + relativeFret) / 12);
-    playGuitarTone(frequency, volume);
+  // Runs a UI update when a note scheduled at `when` actually reaches the speakers.
+  function atAudioTime(context: AudioContext, when: number, update: () => void) {
+    const latency = context.outputLatency || 0;
+    const delay = Math.max(0, (when - context.currentTime + latency) * 1000);
+    timeoutIds.current.push(window.setTimeout(update, delay));
   }
 
-  // "Open" strings of a shape sound at the shape's base fret (nut or barre).
-  function playOpenString(chordStep: ChordStep, string: number, volume?: number) {
-    playGuitarTone(stringFrequencies[string] * 2 ** (chordStep.fret / 12), volume);
-  }
-
-  function playFullChord(chordStep: ChordStep) {
-    shapeFingerings[chordStep.shape].forEach((_, noteIndex) => {
-      playNote(chordStep, noteIndex, 0.075);
-    });
-    shapeOpenStrings[chordStep.shape].forEach((string) => {
-      playOpenString(chordStep, string, 0.065);
-    });
+  // Look-ahead scheduler: a timer wakes every 25 ms and hands the audio clock any
+  // note due in the next 250 ms, so main-thread hiccups never shift the rhythm.
+  function runSchedule(events: ScheduledEvent[], endBeat: number, onDone: () => void) {
+    const context = getAudioContext();
+    const beat = 60 / bpm;
+    const startAt = context.currentTime + 0.1;
+    let next = 0;
+    const pump = () => {
+      const horizon = context.currentTime + 0.25;
+      while (next < events.length && startAt + events[next].beat * beat < horizon) {
+        const event = events[next++];
+        const when = startAt + event.beat * beat;
+        event.notes.forEach(({ frequency, volume }) => scheduleTone(context, frequency, volume, when));
+        atAudioTime(context, when, event.onPlay);
+      }
+      if (next < events.length) {
+        timeoutIds.current.push(window.setTimeout(pump, 25));
+      } else {
+        atAudioTime(context, startAt + endBeat * beat, onDone);
+      }
+    };
+    pump();
   }
 
   async function startPlayback() {
@@ -831,7 +884,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     setActiveOpenStrings([]);
     await prepareAudio();
 
-    const beatDuration = 60000 / bpm;
     const fingerings = shapeFingerings[step.shape];
     // Every sounding string, fretted or open, from the 6th string up to the 1st.
     const bottomToTop = [
@@ -839,33 +891,32 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
       ...shapeOpenStrings[step.shape].map((string) => ({ string, noteIndex: null })),
     ].sort((a, b) => b.string - a.string);
 
-    bottomToTop.forEach(({ string, noteIndex }, sequenceIndex) => {
-      const timeoutId = window.setTimeout(() => {
-        if (noteIndex === null) {
-          setActiveNoteIndexes([]);
-          setActiveOpenStrings([string]);
-          playOpenString(step, string);
-        } else {
-          setActiveOpenStrings([]);
-          setActiveNoteIndexes([noteIndex]);
-          playNote(step, noteIndex);
-        }
-      }, sequenceIndex * beatDuration);
-      timeoutIds.current.push(timeoutId);
+    const events: ScheduledEvent[] = bottomToTop.map(({ string, noteIndex }, index) => ({
+      beat: index,
+      notes: [
+        {
+          frequency:
+            noteIndex === null
+              ? openStringFrequency(step, string)
+              : fingeredNoteFrequency(step, noteIndex),
+          volume: 0.16,
+        },
+      ],
+      onPlay: () => {
+        setActiveNoteIndexes(noteIndex === null ? [] : [noteIndex]);
+        setActiveOpenStrings(noteIndex === null ? [string] : []);
+      },
+    }));
+    events.push({
+      beat: bottomToTop.length,
+      notes: chordNotes(step),
+      onPlay: () => {
+        setActiveNoteIndexes(fingerings.map((_, noteIndex) => noteIndex));
+        setActiveOpenStrings(shapeOpenStrings[step.shape]);
+      },
     });
 
-    const chordTimeout = window.setTimeout(() => {
-      setActiveNoteIndexes(fingerings.map((_, noteIndex) => noteIndex));
-      setActiveOpenStrings(shapeOpenStrings[step.shape]);
-      playFullChord(step);
-    }, bottomToTop.length * beatDuration);
-    timeoutIds.current.push(chordTimeout);
-
-    const finishTimeout = window.setTimeout(
-      () => setPlaybackStatus("finished"),
-      (bottomToTop.length + 1) * beatDuration,
-    );
-    timeoutIds.current.push(finishTimeout);
+    runSchedule(events, bottomToTop.length + 1, () => setPlaybackStatus("finished"));
   }
 
   function resetPlayback() {
@@ -896,19 +947,12 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     setSequenceStatus("playing");
     await prepareAudio();
 
-    const beatDuration = 60000 / bpm;
-    lesson.steps.forEach((chordStep, index) => {
-      const timeoutId = window.setTimeout(() => {
-        setSequenceIndex(index);
-        playFullChord(chordStep);
-      }, index * beatDuration);
-      timeoutIds.current.push(timeoutId);
-    });
-
-    const finishTimeout = window.setTimeout(() => {
-      setSequenceStatus("finished");
-    }, lesson.steps.length * beatDuration);
-    timeoutIds.current.push(finishTimeout);
+    const events: ScheduledEvent[] = lesson.steps.map((chordStep, index) => ({
+      beat: index,
+      notes: chordNotes(chordStep),
+      onPlay: () => setSequenceIndex(index),
+    }));
+    runSchedule(events, lesson.steps.length, () => setSequenceStatus("finished"));
   }
 
   if (complete) {
