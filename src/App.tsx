@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 import {
   barreSpans,
@@ -200,7 +200,7 @@ function PathNode({
         >
           <LessonIcon lesson={lesson} />
         </button>
-        <div className="mt-3 max-w-[190px] text-center">
+        <div className="mt-2 max-w-[200px] rounded-lg bg-[#f7f8f3] px-2 py-1 text-center">
           <p
             className={`text-sm font-black ${lesson.status === "locked" ? "text-[#96a29f]" : "text-[#243633]"}`}
           >
@@ -215,7 +215,42 @@ function PathNode({
   );
 }
 
+// Dashed connector through the centre of every lesson node, measured from the
+// DOM so it follows the path however many lessons there are.
+function usePathConnector() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [d, setD] = useState("");
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const measure = () => {
+      const box = container.getBoundingClientRect();
+      const points = [...container.querySelectorAll<HTMLElement>(".lesson-node")].map((node) => {
+        const rect = node.getBoundingClientRect();
+        return { x: rect.left + rect.width / 2 - box.left, y: rect.top + rect.height / 2 - box.top };
+      });
+      setD(
+        points
+          .map((point, index) => {
+            if (index === 0) return `M${point.x} ${point.y}`;
+            const previous = points[index - 1];
+            const bend = (point.y - previous.y) / 2;
+            return `C${previous.x} ${previous.y + bend} ${point.x} ${point.y - bend} ${point.x} ${point.y}`;
+          })
+          .join(" "),
+      );
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+  return { containerRef, d };
+}
+
 function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
+  const { containerRef, d } = usePathConnector();
+  const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
   return (
     <section>
       <div className="overflow-hidden rounded-[26px] bg-[#157b67] text-white shadow-[0_7px_0_#0d5b4b]">
@@ -227,7 +262,9 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
             <h2 className="mt-2 text-[25px] font-black tracking-[-0.03em]">
               CAGED: conecte o braço inteiro
             </h2>
-            <p className="mt-1 text-sm text-white/75">Fundamentos • 6 exercícios</p>
+            <p className="mt-1 text-sm text-white/75">
+              Fundamentos • {lessons.length} exercícios
+            </p>
           </div>
           <button
             onClick={() =>
@@ -239,19 +276,21 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
           </button>
         </div>
         <div className="h-1.5 bg-[#0b6654]">
-          <div className="h-full w-[38%] rounded-r-full bg-[#75e0bd]" />
+          <div
+            className="h-full rounded-r-full bg-[#75e0bd]"
+            style={{ width: `${doneShare * 100}%` }}
+          />
         </div>
       </div>
 
-      <div className="relative mx-auto mt-4 min-h-[940px] max-w-[560px] py-8">
+      <div ref={containerRef} className="relative mx-auto mt-4 max-w-[560px] py-8">
         <svg
-          className="pointer-events-none absolute left-1/2 top-[93px] h-[770px] w-[310px] -translate-x-1/2 overflow-visible"
-          viewBox="0 0 310 770"
+          className="pointer-events-none absolute inset-0 size-full overflow-visible"
           fill="none"
           aria-hidden="true"
         >
           <path
-            d="M155 0C155 80 55 78 55 154s200 78 200 154S55 386 55 462s200 78 200 154S155 692 155 770"
+            d={d}
             stroke="#d8e0dc"
             strokeWidth="8"
             strokeLinecap="round"

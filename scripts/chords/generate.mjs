@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Generates chord positions in the chords-db format following Fretly's conventions.
 //
-//   node scripts/chords/generate.mjs <chord> [--shape C|A|G|E|D] [--fret N] [--suffix major]
+//   node scripts/chords/generate.mjs <chord> [--position 1-5 | --shape C|A|G|E|D] [--fret N] [--suffix major]
 //
+//   major + --position  the N-th CAGED shape up the neck (Fretly's "posição N")
 //   major + --shape   CAGED shape placed where the root falls (or at --fret)
 //   major, no shape   all five CAGED shapes
 //   other suffixes    chords-db positions converted to Fretly conventions
@@ -15,6 +16,7 @@ import {
   describe,
   formatPosition,
   fromCaged,
+  shapeForPosition,
   toFretly,
   validate,
 } from "./lib.mjs";
@@ -27,11 +29,12 @@ const option = (name) => {
 };
 const json = args.includes("--json");
 if (!chord) {
-  console.error("Uso: node scripts/chords/generate.mjs <acorde> [--shape C|A|G|E|D] [--fret N] [--suffix major] [--json]");
+  console.error("Uso: node scripts/chords/generate.mjs <acorde> [--position 1-5 | --shape C|A|G|E|D] [--fret N] [--suffix major] [--json]");
   process.exit(1);
 }
 const suffix = option("suffix") ?? "major";
-const shapeArg = option("shape");
+const positionArg = option("position");
+const shapeArg = positionArg ? shapeForPosition(chord, Number(positionArg)) : option("shape");
 const fretArg = option("fret");
 
 const candidates = [];
@@ -39,7 +42,8 @@ if (suffix === "major") {
   const shapes = shapeArg ? [shapeArg] : Object.keys(CAGED);
   for (const shape of shapes) {
     const position = fromCaged(chord, shape, fretArg === undefined ? undefined : Number(fretArg));
-    candidates.push({ source: `forma de ${shape}`, shape, position });
+    const label = positionArg ? `posição ${positionArg}, forma de ${shape}` : `forma de ${shape}`;
+    candidates.push({ source: label, shape, position });
   }
 } else {
   dbPositions(chord, suffix).forEach((dbPosition, index) => {

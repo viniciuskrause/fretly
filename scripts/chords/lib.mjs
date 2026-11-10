@@ -61,6 +61,24 @@ export function cagedBaseFret(chord, shape) {
   return (rootPitchClass(chord) - CAGED[shape].rootPc + 12) % 12;
 }
 
+/**
+ * The five CAGED shapes of a chord ordered up the neck (lowest base fret first).
+ * "Posição N" of a chord = the N-th shape in this list: position 1 is the shape
+ * closest to the nut (open C/A/G/E/D, F as E shape at fret 1, B♭ as A shape…),
+ * and each next position is the next shape in C → A → G → E → D order.
+ */
+export function shapesUpTheNeck(chord) {
+  return Object.keys(CAGED).sort((a, b) => cagedBaseFret(chord, a) - cagedBaseFret(chord, b));
+}
+
+export function shapeForPosition(chord, position) {
+  if (!(position >= 1 && position <= 5)) throw new Error("A posição vai de 1 a 5");
+  return shapesUpTheNeck(chord)[position - 1];
+}
+
+/** Order of the "ciclo das quartas" lessons. */
+export const CYCLE_OF_FOURTHS = ["C", "F", "B♭", "E♭", "A♭", "D♭", "G♭", "B", "E", "A", "D", "G"];
+
 export function midiOf(frets, baseFret) {
   return frets.flatMap((fret, string) =>
     fret < 0 ? [] : [OPEN_STRING_MIDI[string] + (fret === 0 ? 0 : baseFret + fret - 1)],

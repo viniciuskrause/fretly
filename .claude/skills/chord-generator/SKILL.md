@@ -63,6 +63,18 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
 6. **Cabe no diagrama:** `frets` entre -1 e 5 (o diagrama mostra 5 casas).
 7. **Notas do acorde:** só notas do acorde (`SUFFIX_INTERVALS`), com tônica e terça.
 
+## Posições e aulas de ciclo das quartas
+
+- **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`
+  em `lib.mjs`; a ordem cíclica é C → A → G → E → D, começando pela forma mais
+  grave que cabe no braço). Vale para todas as aulas "Acordes na … posição".
+  Gere com `npm run chord -- B♭ --position 3`.
+- **Ciclo das quartas** (`CYCLE_OF_FOURTHS`): C, F, B♭, E♭, A♭, D♭, G♭, B, E, A, D, G.
+- **Ordem na trilha:** cada aula "Acordes na {n} posição" é seguida pela aula
+  "Acordes no ciclo das quartas - {N} posição" (tipo `review`), com os 12 tons do
+  ciclo naquela posição. C/A/G/E/D da aula de ciclo são idênticos aos da aula
+  de posição correspondente.
+
 ## Como o app usa a posição (não mude sem motivo)
 
 - **Diagrama** (`ChordDiagram` em `src/App.tsx`): 6ª corda embaixo, 1ª em cima;
@@ -81,6 +93,7 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
 ## Fluxo para gerar um acorde
 
 1. **Gerar**
+   - Maior numa posição: `npm run chord -- G --position 2` (forma escolhida pela regra acima).
    - Maior em forma CAGED: `npm run chord -- G --shape E` (casa calculada) ou
      `--fret N` para forçar a casa. Sem `--shape`, lista as 5 formas.
    - Outras qualidades: `npm run chord -- A --suffix minor` lista as posições do
