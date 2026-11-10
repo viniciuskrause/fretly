@@ -612,30 +612,51 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     if (isNew) await new Promise((resolve) => window.setTimeout(resolve, 150));
   }
 
-  // Plucked-string synthesis (Karplus–Strong). Unlike a plain triangle wave, it has
-  // strong upper harmonics, so low notes such as G2 (98 Hz) stay audible on laptop
-  // and phone speakers that can't reproduce the fundamental.
+  // Nylon-string guitar via plucked-string synthesis (Karplus–Strong). It keeps
+  // enough upper harmonics for low notes such as G2 (98 Hz) to stay audible on
+  // laptop and phone speakers, while the soft "fingertip" pluck, the darker
+  // string damping and the final low-pass give it a warm nylon timbre.
   function playGuitarTone(frequency: number, volume = 0.16) {
     const context = getAudioContext();
     const now = context.currentTime;
     const { sampleRate } = context;
-    const duration = 1.4;
+    const duration = 1.6;
     const buffer = context.createBuffer(1, Math.floor(sampleRate * duration), sampleRate);
     const data = buffer.getChannelData(0);
-    // The two-point average adds half a sample of delay per loop.
-    const period = Math.max(2, Math.round(sampleRate / frequency - 0.5));
-    for (let i = 0; i < period; i++) data[i] = Math.random() * 2 - 1;
+    // The 3-tap loop filter below adds one sample of delay per loop.
+    const period = Math.max(3, Math.round(sampleRate / frequency - 1));
+
+    // Fingertip pluck: smoothed noise (no pick click), plucked ~1/5 from the bridge.
+    const excitation = new Float32Array(period);
+    for (let i = 0; i < period; i++) excitation[i] = Math.random() * 2 - 1;
+    for (let pass = 0; pass < 3; pass++) {
+      for (let i = 1; i < period; i++) excitation[i] = 0.5 * excitation[i] + 0.5 * excitation[i - 1];
+    }
+    const pluckOffset = Math.max(1, Math.round(period * 0.2));
+    for (let i = 0; i < period; i++) {
+      data[i] = excitation[i] - (i >= pluckOffset ? excitation[i - pluckOffset] : 0);
+    }
+
+    // String loop: a 3-tap average damps the highs faster, like nylon.
     for (let i = period; i < data.length; i++) {
-      const previous = i - period - 1 >= 0 ? data[i - period - 1] : 0;
-      data[i] = 0.996 * 0.5 * (data[i - period] + previous);
+      const a = data[i - period];
+      const b = i - period - 1 >= 0 ? data[i - period - 1] : 0;
+      const c = i - period - 2 >= 0 ? data[i - period - 2] : 0;
+      data[i] = 0.997 * (0.25 * a + 0.5 * b + 0.25 * c);
     }
 
     const source = context.createBufferSource();
     source.buffer = buffer;
+    const tone = context.createBiquadFilter();
+    tone.type = "lowpass";
+    tone.frequency.setValueAtTime(2400, now);
+    tone.Q.setValueAtTime(0.5, now);
     const output = context.createGain();
-    output.gain.setValueAtTime(volume * 1.4, now);
-    output.gain.setTargetAtTime(0, now + 1.0, 0.1);
-    source.connect(output);
+    output.gain.setValueAtTime(0, now);
+    output.gain.linearRampToValueAtTime(volume * 2.2, now + 0.004);
+    output.gain.setTargetAtTime(0, now + 1.2, 0.12);
+    source.connect(tone);
+    tone.connect(output);
     output.connect(context.destination);
     source.start(now);
     source.stop(now + duration);
