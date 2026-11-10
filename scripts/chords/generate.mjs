@@ -3,14 +3,14 @@
 //
 //   node scripts/chords/generate.mjs <chord> [--position 1-5 | --shape C|A|G|E|D] [--fret N] [--suffix major]
 //
-//   major + --position  the N-th CAGED shape up the neck (Fretly's "posição N")
-//   major + --shape   CAGED shape placed where the root falls (or at --fret)
-//   major, no shape   all five CAGED shapes
-//   other suffixes    chords-db positions converted to Fretly conventions
+//   major|minor + --position  the N-th CAGED shape up the neck (Fretly's "posição N")
+//   major|minor + --shape     CAGED shape placed where the root falls (or at --fret)
+//   major|minor, no shape     all five CAGED shapes
+//   other suffixes            chords-db positions converted to Fretly conventions
 //
 // Every result is validated and compared with reference/chords-db/guitar.json.
 import {
-  CAGED,
+  cagedTemplates,
   compareWithDb,
   dbPositions,
   describe,
@@ -38,14 +38,15 @@ const shapeArg = positionArg ? shapeForPosition(chord, Number(positionArg)) : op
 const fretArg = option("fret");
 
 const candidates = [];
-if (suffix === "major") {
-  const shapes = shapeArg ? [shapeArg] : Object.keys(CAGED);
+if (cagedTemplates(suffix)) {
+  const shapes = shapeArg ? [shapeArg] : Object.keys(cagedTemplates(suffix));
   for (const shape of shapes) {
-    const position = fromCaged(chord, shape, fretArg === undefined ? undefined : Number(fretArg));
+    const position = fromCaged(chord, shape, fretArg === undefined ? undefined : Number(fretArg), suffix);
     const label = positionArg ? `posição ${positionArg}, forma de ${shape}` : `forma de ${shape}`;
     candidates.push({ source: label, shape, position });
   }
 } else {
+  if (positionArg) throw new Error("--position só vale para major e minor");
   dbPositions(chord, suffix).forEach((dbPosition, index) => {
     candidates.push({ source: `chords-db posição ${index + 1}`, position: toFretly(dbPosition, chord) });
   });

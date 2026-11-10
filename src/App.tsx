@@ -188,11 +188,16 @@ function trailPosition(lesson: Lesson) {
   return ORDINALS[match[1]] ?? match[1];
 }
 
-/** Two-line trail label: "Acordes maiores / 1ª posição", "Ciclo das quartas / 1ª posição". */
+/** Two-line trail label: "Acordes maiores / 1ª posição", "Acordes menores / …", "Ciclo das quartas / …". */
 function trailLabel(lesson: Lesson) {
   const position = trailPosition(lesson);
   if (!position) return lesson.title;
-  const group = lesson.title.toLowerCase().includes("ciclo") ? "Ciclo das quartas" : "Acordes maiores";
+  const title = lesson.title.toLowerCase();
+  const group = title.includes("ciclo")
+    ? "Ciclo das quartas"
+    : title.includes("menores")
+      ? "Acordes menores"
+      : "Acordes maiores";
   return (
     <>
       <span className="block whitespace-nowrap">{group}</span>

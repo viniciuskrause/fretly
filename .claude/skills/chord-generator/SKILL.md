@@ -63,6 +63,23 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
 6. **Cabe no diagrama:** `frets` entre -1 e 5 (o diagrama mostra 5 casas).
 7. **Notas do acorde:** só notas do acorde (`SUFFIX_INTERVALS`), com tônica e terça.
 
+## Acordes menores (formas CAGED menores)
+
+`CAGED_MINOR` em `lib.mjs`, mesmas tônicas e mesma ordem no braço das maiores, então
+a posição N de um menor usa a mesma forma que a posição N do maior:
+
+| Forma | Aberta (frets · dedos) | Móvel (relativo à casa base · dedos) |
+|---|---|---|
+| Cm | `x31013` · 0,3,2,0,1,4 | `x4212x` · 0,4,2,1,3,0 (1ª corda abafada) |
+| Am | `x02210` · 0,0,2,3,1,0 | pestana 5ª–1ª · 0,1,3,4,2,1 |
+| Gm | `310033` · 2,1,0,0,3,4 | `4211xx` · 4,2,1,1,0,0 (só as 4 graves) |
+| Em | `022000` · 0,2,3,0,0,0 | pestana completa · 1,3,4,1,1,1 |
+| Dm | `xx0231` · 0,0,0,2,3,1 | `xx1342` · 0,0,1,3,4,2 (ponto, não pestana) |
+
+`movedFrets` troca o molde quando a forma sai da primeira posição (Cm e Gm perdem
+as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
+`suffix: "minor"`. Gere com `npm run chord -- A --suffix minor --position 2`.
+
 ## Posições e aulas de ciclo das quartas
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`
@@ -74,6 +91,8 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
   "Acordes no ciclo das quartas - {N} posição" (tipo `review`), com os 12 tons do
   ciclo naquela posição. C/A/G/E/D da aula de ciclo são idênticos aos da aula
   de posição correspondente.
+- Depois do ciclo vem "Acordes Menores - {n}ª posição" (Cm, Am, Gm, Em, Dm na
+  mesma posição). Ordem: Maiores N → Ciclo N → Menores N → Maiores N+1…
 
 ## Como o app usa a posição (não mude sem motivo)
 
@@ -111,8 +130,8 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
      position: { frets: [...], fingers: [...], baseFret: 2, barres: [1], midi: [...] },
    }
    ```
-   Para acorde não maior, acrescente `suffix: "minor"` (ou o sufixo do chords-db)
-   e estenda o tipo `ChordStep` em `src/chords.ts`.
+   Para acorde menor, acrescente `suffix: "minor"`; outros sufixos do chords-db
+   exigem estender o tipo `ChordStep` em `src/chords.ts`.
 4. **Verificar:** `npm run check:chords` precisa terminar com
    "✓ todos os acordes seguem as convenções". Ele também informa quais acordes
    são idênticos ao chords-db, quais o chords-db toca com cordas extras e quais

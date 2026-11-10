@@ -20,7 +20,10 @@ export type ChordPosition = {
 export type CagedShape = "C" | "A" | "G" | "E" | "D";
 
 export type ChordStep = {
+  /** Name shown in the app ("C", "B♭", "Am"). */
   chord: string;
+  /** chords-db suffix; omitted = "major". */
+  suffix?: "major" | "minor";
   /** CAGED shape the voicing comes from (shown on the lesson path). */
   shape: CagedShape;
   instruction: string;

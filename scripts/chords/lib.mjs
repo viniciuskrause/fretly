@@ -56,6 +56,26 @@ export const CAGED = {
   D: { rootPc: 2, frets: [-1, -1, 0, 2, 3, 2], open: [0, 0, 0, 1, 3, 2], moved: [0, 0, 1, 2, 4, 3] },
 };
 
+// Minor CAGED shapes (Cm, Am, Gm, Em, Dm in open position). Same roots and the
+// same order up the neck as the major ones, so "posição N" picks the same shape.
+// `movedFrets` replaces the open template when the shape moves: the open Cm's
+// high G (1ª corda, casa 3) and the open Gm's two top notes are out of reach
+// once the open strings become a finger-1 barre, so those strings are muted.
+export const CAGED_MINOR = {
+  C: { rootPc: 0, frets: [-1, 3, 1, 0, 1, 3], open: [0, 3, 2, 0, 1, 4], movedFrets: [-1, 3, 1, 0, 1, -1], moved: [0, 4, 2, 1, 3, 0] },
+  A: { rootPc: 9, frets: [-1, 0, 2, 2, 1, 0], open: [0, 0, 2, 3, 1, 0], moved: [0, 1, 3, 4, 2, 1] },
+  G: { rootPc: 7, frets: [3, 1, 0, 0, 3, 3], open: [2, 1, 0, 0, 3, 4], movedFrets: [3, 1, 0, 0, -1, -1], moved: [4, 2, 1, 1, 0, 0] },
+  E: { rootPc: 4, frets: [0, 2, 2, 0, 0, 0], open: [0, 2, 3, 0, 0, 0], moved: [1, 3, 4, 1, 1, 1] },
+  D: { rootPc: 2, frets: [-1, -1, 0, 2, 3, 1], open: [0, 0, 0, 2, 3, 1], moved: [0, 0, 1, 3, 4, 2] },
+};
+
+/** CAGED templates for a suffix (major or minor). */
+export function cagedTemplates(suffix = "major") {
+  if (suffix === "major") return CAGED;
+  if (suffix === "minor") return CAGED_MINOR;
+  return null;
+}
+
 /** Fret where the shape sits for this root (0 = open position). */
 export function cagedBaseFret(chord, shape) {
   return (rootPitchClass(chord) - CAGED[shape].rootPc + 12) % 12;
@@ -85,16 +105,16 @@ export function midiOf(frets, baseFret) {
   );
 }
 
-/** Major chord from a CAGED shape. `shift` (fret) defaults to where the root falls. */
-export function fromCaged(chord, shape, shift = cagedBaseFret(chord, shape)) {
-  const template = CAGED[shape];
-  if (!template) throw new Error(`Forma desconhecida: ${shape} (use C, A, G, E ou D)`);
+/** Major or minor chord from a CAGED shape. `shift` (fret) defaults to where the root falls. */
+export function fromCaged(chord, shape, shift = cagedBaseFret(chord, shape), suffix = "major") {
+  const template = cagedTemplates(suffix)?.[shape];
+  if (!template) throw new Error(`Forma desconhecida: ${shape} ${suffix} (use C, A, G, E ou D; major ou minor)`);
   if (shift === 0) {
     const frets = [...template.frets];
     return { frets, fingers: [...template.open], baseFret: 1, barres: [], midi: midiOf(frets, 1) };
   }
   // abs = shift + templateFret, and abs = baseFret + rel - 1 with baseFret = shift, so rel = templateFret + 1.
-  const frets = template.frets.map((fret) => (fret < 0 ? -1 : fret + 1));
+  const frets = (template.movedFrets ?? template.frets).map((fret) => (fret < 0 ? -1 : fret + 1));
   const fingers = [...template.moved];
   return { frets, fingers, baseFret: shift, barres: barresOf(frets, fingers), midi: midiOf(frets, shift) };
 }
