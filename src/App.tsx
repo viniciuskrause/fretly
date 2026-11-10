@@ -353,7 +353,7 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
               Seção 1 • {lessons.length} exercícios
             </p>
             <h2 className="mt-2 text-[25px] font-black tracking-[-0.03em]">
-              CAGED: conecte o braço inteiro
+              Acordes Básicos no CAGED
             </h2>
             <p className="mt-1 text-sm text-white/75">
               Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço
