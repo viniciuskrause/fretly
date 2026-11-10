@@ -148,14 +148,9 @@ function Brand() {
       <div className="relative flex size-11 rotate-[-5deg] items-center justify-center rounded-[14px] bg-[#ff6b45] text-white shadow-[0_4px_0_#c94225]">
         <Icon name="practice" className="size-6" />
       </div>
-      <div>
-        <p className="text-[20px] font-bold leading-none tracking-[-0.04em] text-[#182b2a]">
-          Fretly
-        </p>
-        <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#80918d]">
-          guitar lab
-        </p>
-      </div>
+      <p className="text-[20px] font-bold leading-none tracking-[-0.04em] text-[#182b2a]">
+        Guitar Workouts for Nerds
+      </p>
     </div>
   );
 }
