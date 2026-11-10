@@ -1244,15 +1244,18 @@ function GuidePage({ onBack }: { onBack: () => void }) {
           </p>
         </GuideSection>
 
-        <GuideSection title="A lógica: a pestana faz o papel do braço">
+        <GuideSection title="A lógica">
           <p>
-            No acorde aberto, as cordas soltas soam porque a pestana do braço (o “nut”) as prende.
-            Quando você leva a forma para cima, o <strong>dedo indicador assume esse papel</strong>:
-            ele prende, na casa base, as cordas que antes eram soltas, e os outros dedos refazem o
-            desenho. É assim que o E aberto vira o F com pestana na casa 1, ou o A aberto vira o C
-            com pestana na casa 3.
+            Ao mover uma forma aberta para cima, o <strong>dedo indicador faz o papel da pestana do
+            braço</strong>: prende na casa base as cordas que eram soltas, e os outros dedos refazem
+            o desenho. Assim o E aberto vira o F na casa 1, e o A aberto vira o C na casa 3.
           </p>
-          <p>Veja o mesmo acorde, C maior, nas cinco formas, subindo o braço:</p>
+          <p>
+            Subindo o braço, as formas aparecem sempre na ordem <strong>C → A → G → E → D</strong> e
+            depois recomeçam uma oitava acima. Cada uma se encaixa na seguinte, compartilhando notas.
+            Em outro tom só muda o ponto de partida: o F começa na forma de E e segue E → D → C → A →
+            G. Veja o C maior nas cinco formas:
+          </p>
           <div className="!mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
             {cMajor.steps.map((step) => (
               <figure key={step.shape} className="sequence-card guide-shape">
@@ -1264,19 +1267,6 @@ function GuidePage({ onBack }: { onBack: () => void }) {
               </figure>
             ))}
           </div>
-        </GuideSection>
-
-        <GuideSection title="A ordem C → A → G → E → D">
-          <p>
-            As formas sempre aparecem nessa ordem quando você sobe o braço, e depois do D o ciclo
-            recomeça no C, uma oitava acima. Cada forma se encaixa na seguinte: elas compartilham
-            notas, então a parte de cima de uma forma é a parte de baixo da próxima.
-          </p>
-          <p>
-            Em outras tonalidades a ordem é a mesma, só muda o ponto de partida. O F maior, por
-            exemplo, começa na forma de E (casa 1) e segue E → D → C → A → G. Nas aulas deste app
-            cada tom começa pela forma mais grave que cabe no braço e sobe a partir dela.
-          </p>
         </GuideSection>
 
         <GuideSection title="Vantagens">
