@@ -635,12 +635,7 @@ function ExerciseHeading({
 }) {
   return (
     <div>
-      <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-[#e75e3a]">
-        <span className="flex size-6 items-center justify-center rounded-full bg-[#ff6b45] text-white">
-          <Icon name="practice" className="size-3.5" />
-        </span>
-        {eyebrow}
-      </p>
+      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#e75e3a]">{eyebrow}</p>
       <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#18302d]">
         {title}
       </h1>
@@ -1009,7 +1004,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
           </>
         }
       >
-        <ExerciseHeading eyebrow="Sequência completa" title={lesson.exerciseTitle} subtitle={subtitle} />
+        <ExerciseHeading eyebrow={lesson.exerciseTitle} title="Sequência completa" subtitle={subtitle} />
 
         <div className="relative -mx-4 mt-6 min-h-[420px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_18%,black_82%,transparent)] sm:-mx-32">
           {lesson.steps.map((chordStep, index) => {
@@ -1098,8 +1093,8 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
       }
     >
       <ExerciseHeading
-        eyebrow={`Forma de ${step.shape} • ${step.fret === 0 ? "posição 1" : `${step.fret}ª casa`}`}
-        title={lesson.exerciseTitle}
+        eyebrow={lesson.exerciseTitle}
+        title={`Monte a forma de ${step.chord} e toque corda por corda.`}
         subtitle={subtitle}
       />
 
@@ -1112,9 +1107,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
             activeOpenStrings={activeOpenStrings}
           />
         </div>
-        <p className="mt-6 max-w-md text-center text-base font-bold leading-6 text-[#536560]">
-          Monte a forma de {step.chord} e toque corda por corda.
-        </p>
         <div className="mt-6">{bpmControl}</div>
       </div>
     </ExerciseShell>
