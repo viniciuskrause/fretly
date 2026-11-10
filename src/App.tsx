@@ -215,7 +215,7 @@ type TrailPoint = { x: number; y: number };
 // half-circle turns outside the last node of each row.
 function trailLayout(width: number, count: number) {
   const columns = width >= 520 ? 4 : 3;
-  const radius = width >= 520 ? 68 : 66;
+  const radius = width >= 520 ? 74 : 72;
   const top = 76;
   const minX = radius + 6;
   const maxX = width - radius - 6;

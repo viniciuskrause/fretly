@@ -92,7 +92,9 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
   na ordem do ciclo das quartas naquela posição. C/A/G/E/D dessa aula são
   idênticos aos da aula de posição correspondente.
 - Depois vem "Acordes Menores - {n}ª posição" (Cm, Am, Gm, Em, Dm na mesma
-  posição). Ordem: Maiores N → Maiores N todos os tons → Menores N → Maiores N+1…
+  posição) e "Acordes Menores - {n}ª posição, todos os tons" (os 12 tons menores
+  no ciclo das quartas). Ordem: Maiores N → Maiores N todos os tons → Menores N →
+  Menores N todos os tons → Maiores N+1…
 
 ## Como o app usa a posição (não mude sem motivo)
 
