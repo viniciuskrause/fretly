@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-// Writes src/lessons.ts with one lesson per key: the chord in its five CAGED
-// shapes, from the lowest shape up the neck. Keys follow the cycle of fourths.
+// Writes src/lessons.ts: one section per chord quality (major, then minor) and,
+// in each, one lesson per key — the chord in its five CAGED shapes, from the
+// lowest shape up the neck. Keys follow the cycle of fourths.
 //
-//   node scripts/chords/build-key-lessons.mjs [--suffix major|minor]
+//   node scripts/chords/build-key-lessons.mjs
 //
 // The lessons file keeps every chord written out in full (chords-db format);
 // run `npm run check:chords` afterwards.
@@ -10,13 +11,24 @@ import fs from "node:fs";
 import path from "node:path";
 import { CYCLE_OF_FOURTHS, formatPosition, fromCaged, shapesUpTheNeck, validate } from "./lib.mjs";
 
-const args = process.argv.slice(2);
-const suffix = args.includes("--suffix") ? args[args.indexOf("--suffix") + 1] : "major";
-const quality = { major: "maior", minor: "menor" }[suffix];
-if (!quality) throw new Error("--suffix major ou minor");
-const symbol = (root) => `${root}${suffix === "minor" ? "m" : ""}`;
+const SECTIONS = [
+  {
+    suffix: "major",
+    title: "Acordes Básicos no CAGED",
+    subtitle: "Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço",
+    trailTitle: "Fundamentos",
+  },
+  {
+    suffix: "minor",
+    title: "Acordes Menores no CAGED",
+    subtitle: "Faça qualquer acorde menor em qualquer tonalidade em qualquer lugar do braço",
+    trailTitle: "Acordes menores",
+  },
+];
+const QUALITY = { major: "maior", minor: "menor" };
+const symbol = (root, suffix) => `${root}${suffix === "minor" ? "m" : ""}`;
 
-const instruction = (shape, baseFret) => {
+const instruction = (shape, baseFret, suffix) => {
   if (baseFret === 1)
     return {
       C: "Forma aberta de C: toque da 5ª corda até a 1ª.",
@@ -28,45 +40,63 @@ const instruction = (shape, baseFret) => {
   return {
     C: `Forma de C a partir da casa ${baseFret}: tônica na 5ª corda com o dedo 4.`,
     A: `Forma de A: pestana do dedo 1 na casa ${baseFret}, da 5ª à 1ª corda.`,
-    G: `Forma de G a partir da casa ${baseFret}: tônica na 6ª corda.`,
+    G:
+      suffix === "minor"
+        ? `Forma de G a partir da casa ${baseFret}: toque só as quatro cordas graves.`
+        : `Forma de G a partir da casa ${baseFret}: tônica na 6ª corda.`,
     E: `Forma de E: pestana completa na casa ${baseFret}.`,
     D: `Forma de D a partir da casa ${baseFret}: toque as quatro cordas agudas.`,
   }[shape];
 };
 
-const lessons = CYCLE_OF_FOURTHS.map((root, index) => {
-  const name = symbol(root);
-  const steps = shapesUpTheNeck(root).map((shape) => {
-    const position = fromCaged(root, shape, undefined, suffix);
-    const { errors } = validate(position, root, suffix, shape);
-    if (errors.length) throw new Error(`${name} forma ${shape}: ${errors.join("; ")}`);
-    return [
-      "      {",
-      `        chord: "${name}",`,
-      ...(suffix === "major" ? [] : [`        suffix: "${suffix}",`]),
-      `        shape: "${shape}",`,
-      `        instruction: "${instruction(shape, position.baseFret)}",`,
-      `        position: ${formatPosition(position)},`,
-      "      },",
-    ].join("\n");
-  });
-  const title = `${root} ${quality} - formas CAGED`;
-  return `  {
-    id: ${index + 1},
-    title: "${title}",
-    exerciseTitle: "${title}",
-    subtitle: "${name} nas cinco formas, subindo o braço",
-    type: "chord",
-    status: "${index === 0 ? "current" : "locked"}",
-    steps: [
+let nextId = 1;
+const sections = SECTIONS.map((section, sectionIndex) => {
+  const { suffix } = section;
+  const lessons = CYCLE_OF_FOURTHS.map((root, index) => {
+    const name = symbol(root, suffix);
+    const steps = shapesUpTheNeck(root).map((shape) => {
+      const position = fromCaged(root, shape, undefined, suffix);
+      const { errors } = validate(position, root, suffix, shape);
+      if (errors.length) throw new Error(`${name} forma ${shape}: ${errors.join("; ")}`);
+      return [
+        "          {",
+        `            chord: "${name}",`,
+        ...(suffix === "major" ? [] : [`            suffix: "${suffix}",`]),
+        `            shape: "${shape}",`,
+        `            instruction: "${instruction(shape, position.baseFret, suffix)}",`,
+        `            position: ${formatPosition(position)},`,
+        "          },",
+      ].join("\n");
+    });
+    const title = `${root} ${QUALITY[suffix]} - formas CAGED`;
+    const current = sectionIndex === 0 && index === 0;
+    return `      {
+        id: ${nextId++},
+        title: "${title}",
+        exerciseTitle: "${title}",
+        subtitle: "${name} nas cinco formas, subindo o braço",
+        type: "chord",
+        status: "${current ? "current" : "locked"}",
+        steps: [
 ${steps.join("\n")}
+        ],
+      },`;
+  });
+  return `  {
+    id: ${sectionIndex + 1},
+    title: "${section.title}",
+    subtitle: "${section.subtitle}",
+    trailTitle: "${section.trailTitle}",
+    lessons: [
+${lessons.join("\n")}
     ],
   },`;
 });
 
 const file = `import type { ChordStep } from "./chords.ts";
 
-// One lesson per key (cycle of fourths): the chord in its five CAGED shapes,
+// Sections by chord quality (major, minor); in each, one lesson per key (cycle
+// of fourths): the chord in its five CAGED shapes,
 // from the lowest shape up the neck; the final exercise plays all five in
 // sequence. Every chord is written out in full in the chords-db format
 // (strings low E → high E). Generated by scripts/chords/build-key-lessons.mjs
@@ -82,9 +112,21 @@ export type Lesson = {
   steps: ChordStep[];
 };
 
-export const lessons: Lesson[] = [
-${lessons.join("\n")}
+export type Section = {
+  id: number;
+  title: string;
+  subtitle: string;
+  /** Small heading above the section's trail. */
+  trailTitle: string;
+  lessons: Lesson[];
+};
+
+export const sections: Section[] = [
+${sections.join("\n")}
 ];
+
+/** Every lesson of every section, in order. */
+export const lessons: Lesson[] = sections.flatMap((section) => section.lessons);
 `;
 fs.writeFileSync(path.resolve(import.meta.dirname, "../../src/lessons.ts"), file);
-console.log(`src/lessons.ts: ${lessons.length} aulas (${quality})`);
+console.log(`src/lessons.ts: ${SECTIONS.length} seções, ${nextId - 1} aulas`);

@@ -8,7 +8,7 @@ import {
   type ChordPosition,
   type ChordStep,
 } from "./chords.ts";
-import { lessons, type Lesson } from "./lessons.ts";
+import { sections, type Lesson, type Section } from "./lessons.ts";
 
 function Icon({
   name,
@@ -273,7 +273,7 @@ function TrailTrophy({ point, status }: { point: TrailPoint; status: TrailStatus
           <Icon name="trophy" className="size-7" />
         </span>
       </div>
-      <p className={`trail-label trail-label--${status} whitespace-nowrap`}>Unidade completa</p>
+      <p className={`trail-label trail-label--${status} whitespace-nowrap`}>Seção completa</p>
     </div>
   );
 }
@@ -293,7 +293,8 @@ function useElementWidth() {
   return { ref, width };
 }
 
-function Trail({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
+function Trail({ section, onSelect }: { section: Section; onSelect: (lesson: Lesson) => void }) {
+  const { lessons } = section;
   const { ref, width } = useElementWidth();
   const allDone = lessons.every((lesson) => lesson.status === "done");
   const statuses: TrailStatus[] = [...lessons.map((lesson) => lesson.status), allDone ? "done" : "locked"];
@@ -301,7 +302,7 @@ function Trail({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
   return (
     <div ref={ref} className="relative mt-10" style={{ height: layout?.height ?? 400 }}>
       <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#203330]">
-        Fundamentos
+        {section.trailTitle}
       </p>
       {layout && (
         <>
@@ -330,7 +331,8 @@ function Trail({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
   );
 }
 
-function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
+function PathSection({ section, onSelect }: { section: Section; onSelect: (lesson: Lesson) => void }) {
+  const { lessons } = section;
   const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
   return (
     <section>
@@ -338,13 +340,13 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
         <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.16em] text-[#9ee9d1]">
-              Seção 1 • {lessons.length} exercícios
+              Seção {section.id} • {lessons.length} exercícios
             </p>
             <h2 className="mt-2 text-[25px] font-black tracking-[-0.03em]">
-              Acordes Básicos no CAGED
+              {section.title}
             </h2>
             <p className="mt-1 text-sm text-white/75">
-              Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço
+              {section.subtitle}
             </p>
           </div>
           <button
@@ -364,7 +366,7 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
         </div>
       </div>
 
-      <Trail onSelect={onSelect} />
+      <Trail section={section} onSelect={onSelect} />
     </section>
   );
 }
@@ -1060,7 +1062,11 @@ export default function App() {
     <div className="min-h-screen bg-[#f7f8f3] text-[#203330]">
       <TopBar />
       <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8 lg:pt-10">
-        <PathSection onSelect={setSelectedLesson} />
+        <div className="space-y-14">
+          {sections.map((section) => (
+            <PathSection key={section.id} section={section} onSelect={setSelectedLesson} />
+          ))}
+        </div>
       </main>
     </div>
   );
