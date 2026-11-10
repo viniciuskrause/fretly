@@ -624,22 +624,13 @@ function ExerciseShell({
   );
 }
 
-function ExerciseHeading({
-  eyebrow,
-  title,
-  subtitle,
-}: {
-  eyebrow: string;
-  title: string;
-  subtitle: string;
-}) {
+function ExerciseHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div>
       <p className="text-xs font-black uppercase tracking-[0.14em] text-[#e75e3a]">{eyebrow}</p>
       <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#18302d]">
         {title}
       </h1>
-      <p className="mt-1 text-sm leading-6 text-[#788884]">{subtitle}</p>
     </div>
   );
 }
@@ -959,7 +950,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     );
   }
 
-  const subtitle = `${lesson.subtitle}. Complete as formas na ordem para memorizar a região.`;
   const bpmControl = (
     <BpmControl
       bpm={bpm}
@@ -1004,7 +994,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
           </>
         }
       >
-        <ExerciseHeading eyebrow={lesson.exerciseTitle} title="Sequência completa" subtitle={subtitle} />
+        <ExerciseHeading eyebrow={lesson.exerciseTitle} title="Sequência completa" />
 
         <div className="relative -mx-4 mt-6 min-h-[420px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_18%,black_82%,transparent)] sm:-mx-32">
           {lesson.steps.map((chordStep, index) => {
@@ -1095,7 +1085,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
       <ExerciseHeading
         eyebrow={lesson.exerciseTitle}
         title={`Monte a forma de ${step.chord} e toque corda por corda.`}
-        subtitle={subtitle}
       />
 
       <div className="mt-8 flex flex-col items-center">
