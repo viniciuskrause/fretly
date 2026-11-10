@@ -99,6 +99,8 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
   em `lib.mjs`; a ordem cíclica é C → A → G → E → D, começando pela forma mais
   grave que cabe no braço). Gere com `npm run chord -- B♭ --position 3`.
 - **Ciclo das quartas** (`CYCLE_OF_FOURTHS`): C, F, B♭, E♭, A♭, D♭, G♭, B, E, A, D, G.
+- **Sempre bemóis** nos nomes de acordes e tons, também nos menores (A♭m, D♭m,
+  G♭m), nunca sustenidos (G♯m, C♯m, F♯m). Decisão do projeto.
 - **Uma aula por tonalidade**, na ordem do ciclo das quartas: "C maior - formas
   CAGED", "F maior - formas CAGED"… Cada aula tem o acorde nas 5 formas, da mais
   grave para a mais aguda (`shapesUpTheNeck`), e o exercício final toca as cinco
@@ -147,7 +149,7 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
 3. **Registrar** em `src/lessons.ts` como `ChordStep`:
    ```ts
    {
-     chord: "A",              // nome exibido (use ♭/♯: "B♭", "F♯")
+     chord: "A",              // nome exibido (sempre bemol: "B♭", "G♭", "A♭m")
      shape: "G",              // forma CAGED de origem (mostrada na trilha)
      instruction: "…",
      position: { frets: [...], fingers: [...], baseFret: 2, barres: [1], midi: [...] },
