@@ -412,15 +412,10 @@ const DIAGRAM_COLUMN_WIDTH = 40.4;
 const diagramRowY = (string: number) => 48 + (5 - string) * 29;
 const diagramColumnX = (fret: number) => 56 + (fret - 0.5) * DIAGRAM_COLUMN_WIDTH;
 
-/** Big chord symbol with its shape: "D" and a smaller "(Forma C)". */
+/** Big chord symbol ("D"); the shape is only named in the exercise title. */
 function ChordName({ step, className }: { step: ChordStep; className: string }) {
   return (
-    <p className={`font-black text-[#183e39] ${className}`} aria-label={chordLabel(step)}>
-      <span className="tracking-[-0.055em]">{step.chord}</span>
-      <span className="ml-2 align-baseline text-[0.36em] tracking-normal text-[#6b7f7a]">
-        (Forma {step.shape})
-      </span>
-    </p>
+    <p className={`font-black tracking-[-0.055em] text-[#183e39] ${className}`}>{step.chord}</p>
   );
 }
 

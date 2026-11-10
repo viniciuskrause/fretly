@@ -121,8 +121,9 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
   violão de nylon (Karplus–Strong). TOCAR toca as cordas uma a uma, da mais grave
   para a mais aguda, e depois o acorde inteiro; as notas são agendadas no relógio
   do áudio (ritmo exato) e o destaque das cordas segue esse relógio.
-- **Cifra:** o app sempre mostra tonalidade + forma, "D (Forma C)" (`chordLabel` em
-  `src/chords.ts`): no nome grande do acorde, no título e na sequência final.
+- **Cifra:** a forma aparece só no título do exercício, "D (Forma C)" (`chordLabel`
+  em `src/chords.ts`). O nome grande do acorde e os cartões da sequência final
+  mostram só a cifra ("D").
 - **Instrução na tela:** o título é "Monte {cifra} e toque corda por corda.", ex.
   "Monte D (Forma C) e toque corda por corda."; o campo `instruction` fica
   registrado nos dados.
