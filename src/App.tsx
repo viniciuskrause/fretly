@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "re
 
 import {
   barreSpans,
+  chordLabel,
   soundingStrings,
   stringFrequency,
   type ChordPosition,
@@ -411,6 +412,18 @@ const DIAGRAM_COLUMN_WIDTH = 40.4;
 const diagramRowY = (string: number) => 48 + (5 - string) * 29;
 const diagramColumnX = (fret: number) => 56 + (fret - 0.5) * DIAGRAM_COLUMN_WIDTH;
 
+/** Big chord symbol with its shape: "D" and a smaller "(Forma C)". */
+function ChordName({ step, className }: { step: ChordStep; className: string }) {
+  return (
+    <p className={`font-black text-[#183e39] ${className}`} aria-label={chordLabel(step)}>
+      <span className="tracking-[-0.055em]">{step.chord}</span>
+      <span className="ml-2 align-baseline text-[0.36em] tracking-normal text-[#6b7f7a]">
+        (Forma {step.shape})
+      </span>
+    </p>
+  );
+}
+
 function ChordDiagram({
   step,
   activeStrings,
@@ -428,7 +441,7 @@ function ChordDiagram({
       viewBox="0 0 300 250"
       fill="none"
       className="block max-w-full"
-      aria-label={`Diagrama de ${step.chord} usando a forma de ${step.shape}`}
+      aria-label={`Diagrama de ${chordLabel(step)}`}
       role="img"
     >
       <rect x="28" y="18" width="244" height="206" rx="16" fill="#FCFDF9" />
@@ -976,9 +989,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
                   transitionDuration: `${Math.min((60000 / bpm) * 0.58, 760)}ms`,
                 }}
               >
-                <p className="text-5xl font-black tracking-[-0.055em] text-[#183e39]">
-                  {chordStep.chord}
-                </p>
+                <ChordName step={chordStep} className="text-5xl" />
                 <ChordDiagram
                   step={chordStep}
                   activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
@@ -1033,11 +1044,11 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     >
       <ExerciseHeading
         eyebrow={lesson.exerciseTitle}
-        title={`Monte a forma de ${step.chord} e toque corda por corda.`}
+        title={`Monte ${chordLabel(step)} e toque corda por corda.`}
       />
 
       <div className="mt-8 flex flex-col items-center">
-        <p className="text-6xl font-black tracking-[-0.055em] text-[#183e39]">{step.chord}</p>
+        <ChordName step={step} className="text-6xl" />
         <div className="mt-5 rounded-[24px] bg-[#fcfdf9] p-3 ring-1 ring-[#e6ebe8]">
           <ChordDiagram
             step={step}

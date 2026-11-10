@@ -13,7 +13,7 @@ for (const lesson of lessons) {
   for (const [index, step] of lesson.steps.entries()) {
     const suffix = step.suffix ?? "major";
     const where = `${lesson.title} · passo ${index + 1} · ${step.chord}`;
-    const result = validate(step.position, step.chord, suffix);
+    const result = validate(step.position, step.chord, suffix, step.shape);
     const db = compareWithDb(step.position, step.chord, suffix);
     tally[db.kind]++;
     if (db.kind === "not-in-db") notInDb.push(`${step.chord} (forma de ${step.shape})`);

@@ -19,6 +19,11 @@ export type ChordPosition = {
 
 export type CagedShape = "C" | "A" | "G" | "E" | "D";
 
+/** Chord symbol with its CAGED shape, e.g. "D (Forma C)". */
+export function chordLabel(step: Pick<ChordStep, "chord" | "shape">) {
+  return `${step.chord} (Forma ${step.shape})`;
+}
+
 export type ChordStep = {
   /** Name shown in the app ("C", "B♭", "Am"). */
   chord: string;

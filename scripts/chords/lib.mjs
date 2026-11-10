@@ -187,9 +187,40 @@ export function compareWithDb(position, chord, suffix = "major") {
   return best ?? { kind: "not-in-db" };
 }
 
+// ---------------------------------------------------------------- shape
+// A chord's CAGED shape comes from the string that holds the root (the bass)
+// and the lowest string that holds the third:
+//   tônica na Lá + terça na Ré       → forma de C
+//   tônica na Lá + terça na Si       → forma de A
+//   tônica no Mi grave + terça na Lá → forma de G
+//   tônica no Mi grave + terça na Sol → forma de E
+//   tônica na Ré + terça no Mi agudo → forma de D
+const SHAPE_BY_STRINGS = { "1-2": "C", "1-4": "A", "0-1": "G", "0-3": "E", "2-5": "D" };
+
+/** CAGED shape of a position by the root/third rule, or null when it fits none. */
+export function shapeOf(position, chord, suffix = "major") {
+  const intervals = SUFFIX_INTERVALS[suffix];
+  if (!intervals) return null;
+  const rootPc = rootPitchClass(chord);
+  const thirdPc = (rootPc + intervals[1]) % 12;
+  const pcAt = (string) => {
+    const fret = position.frets[string];
+    if (fret < 0) return null;
+    return (OPEN_STRING_MIDI[string] + (fret === 0 ? 0 : position.baseFret + fret - 1)) % 12;
+  };
+  const strings = [0, 1, 2, 3, 4, 5];
+  const rootString = strings.find((string) => pcAt(string) !== null);
+  const thirdString = strings.find((string) => pcAt(string) === thirdPc);
+  if (rootString === undefined || pcAt(rootString) !== rootPc || thirdString === undefined) return null;
+  return SHAPE_BY_STRINGS[`${rootString}-${thirdString}`] ?? null;
+}
+
 // ---------------------------------------------------------------- validation
-/** Returns { errors, warnings } for a position against Fretly's conventions. */
-export function validate(position, chord, suffix = "major") {
+/**
+ * Returns { errors, warnings } for a position against Fretly's conventions.
+ * With `shape`, also checks it against the root/third rule (`shapeOf`).
+ */
+export function validate(position, chord, suffix = "major", shape) {
   const errors = [];
   const warnings = [];
   const { frets, fingers, baseFret, barres, midi } = position;
@@ -244,6 +275,11 @@ export function validate(position, chord, suffix = "major") {
     if (span > 3) warnings.push(`abertura de ${span + 1} casas: difícil de alcançar`);
   }
   if (baseFret > 1 && frets.some((f) => f === 0)) warnings.push("corda solta numa posição com baseFret > 1");
+  if (shape) {
+    const derived = shapeOf(position, chord, suffix);
+    if (derived !== shape)
+      errors.push(`forma registrada ${shape}, mas tônica/terça indicam ${derived ? `forma de ${derived}` : "nenhuma forma CAGED"}`);
+  }
   return { errors: [...new Set(errors)], warnings };
 }
 

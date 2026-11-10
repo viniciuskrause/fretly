@@ -56,12 +56,25 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
    | E | Sol 1, Lá 2, Ré 3 | Sol 2, Lá 3, Ré 4 | cordas 1–6 |
    | D | Sol 1, Mi agudo 2, Si 3 | Sol 2, Mi agudo 3, Si 4 | só a corda 4 → ponto com dedo 1, **não** é pestana |
 
-4. **Pestana** = dedo 1 na mesma casa em 2 ou mais cordas, listada em `barres`.
+4. **A forma vem da tônica e da terça.** A corda da tônica (o baixo) e a corda
+   mais grave que tem a terça definem a forma CAGED; o campo `shape` tem que bater
+   (a verificação acusa erro se não bater):
+
+   | Tônica na corda | Terça na corda | Forma |
+   |---|---|---|
+   | Lá (5ª) | Ré (4ª) | C |
+   | Lá (5ª) | Si (2ª) | A |
+   | Mi grave (6ª) | Lá (5ª) | G |
+   | Mi grave (6ª) | Sol (3ª) | E |
+   | Ré (4ª) | Mi agudo (1ª) | D |
+
+   Vale para maiores e menores (terça menor). `shapeOf` em `lib.mjs` aplica a regra.
+5. **Pestana** = dedo 1 na mesma casa em 2 ou mais cordas, listada em `barres`.
    Só o dedo 1 faz pestana. Um dedo numa corda só é um ponto comum.
-5. **Dedos em ordem:** casa mais alta nunca leva dedo menor que casa mais baixa;
+6. **Dedos em ordem:** casa mais alta nunca leva dedo menor que casa mais baixa;
    cada dedo (exceto a pestana do 1) prende uma única corda. Abertura máxima de 4 casas.
-6. **Cabe no diagrama:** `frets` entre -1 e 5 (o diagrama mostra 5 casas).
-7. **Notas do acorde:** só notas do acorde (`SUFFIX_INTERVALS`), com tônica e terça.
+7. **Cabe no diagrama:** `frets` entre -1 e 5 (o diagrama mostra 5 casas).
+8. **Notas do acorde:** só notas do acorde (`SUFFIX_INTERVALS`), com tônica e terça.
 
 ## Acordes menores (formas CAGED menores)
 
@@ -108,8 +121,11 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
   violão de nylon (Karplus–Strong). TOCAR toca as cordas uma a uma, da mais grave
   para a mais aguda, e depois o acorde inteiro; as notas são agendadas no relógio
   do áudio (ritmo exato) e o destaque das cordas segue esse relógio.
-- **Instrução na tela:** o título é "Monte a forma de {acorde} e toque corda por
-  corda."; o campo `instruction` fica registrado nos dados.
+- **Cifra:** o app sempre mostra tonalidade + forma, "D (Forma C)" (`chordLabel` em
+  `src/chords.ts`): no nome grande do acorde, no título e na sequência final.
+- **Instrução na tela:** o título é "Monte {cifra} e toque corda por corda.", ex.
+  "Monte D (Forma C) e toque corda por corda."; o campo `instruction` fica
+  registrado nos dados.
 
 ## Fluxo para gerar um acorde
 

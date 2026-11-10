@@ -17,6 +17,7 @@ import {
   formatPosition,
   fromCaged,
   shapeForPosition,
+  shapeOf,
   toFretly,
   validate,
 } from "./lib.mjs";
@@ -54,7 +55,7 @@ if (cagedTemplates(suffix)) {
 
 let failed = false;
 const results = candidates.map((candidate) => {
-  const check = validate(candidate.position, chord, suffix);
+  const check = validate(candidate.position, chord, suffix, candidate.shape);
   const db = compareWithDb(candidate.position, chord, suffix);
   if (check.errors.length) failed = true;
   return { chord, suffix, ...candidate, ...check, db: { kind: db.kind, fingersAgree: db.fingersAgree } };
@@ -68,7 +69,8 @@ else {
       "db-extra-strings": `chords-db toca cordas extras${r.db.fingersAgree ? "" : " (dedos diferentes!)"}`,
       "not-in-db": "sem equivalente no chords-db",
     }[r.db.kind];
-    console.log(`\n${r.chord} ${r.suffix} — ${r.source} — ${dbText}`);
+    const shape = shapeOf(r.position, r.chord, r.suffix);
+    console.log(`\n${r.chord} ${r.suffix} — ${r.source} — cifra: ${r.chord}${r.suffix === "minor" ? "m" : ""} (Forma ${shape ?? "?"}) — ${dbText}`);
     console.log(`  position: ${formatPosition(r.position)}`);
     console.log(`  ${describe(r.position)}`);
     r.errors.forEach((e) => console.log(`  ❌ ${e}`));
