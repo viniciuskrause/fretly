@@ -182,22 +182,27 @@ const ORDINALS: Record<string, string> = {
   quinta: "5ª",
 };
 
-/** Short label for the trail: "1ª posição" or "Ciclo · 1ª posição". */
+function trailPosition(lesson: Lesson) {
+  const match = lesson.title.toLowerCase().match(/(primeira|segunda|terceira|quarta|quinta|[1-5]ª) posição/);
+  if (!match) return null;
+  return ORDINALS[match[1]] ?? match[1];
+}
+
+/** Two-line trail label: "Acordes maiores / 1ª posição", "Ciclo das quartas / 1ª posição". */
 function trailLabel(lesson: Lesson) {
-  const match = lesson.title.toLowerCase().match(/(primeira|segunda|terceira|quarta|quinta) posição/);
-  const position = match ? `${ORDINALS[match[1]]} posição` : lesson.title;
-  if (!lesson.title.toLowerCase().includes("ciclo")) return position;
+  const position = trailPosition(lesson);
+  if (!position) return lesson.title;
+  const group = lesson.title.toLowerCase().includes("ciclo") ? "Ciclo das quartas" : "Acordes maiores";
   return (
     <>
-      <span className="block whitespace-nowrap">Ciclo das quartas</span>
-      <span className="block whitespace-nowrap">{position}</span>
+      <span className="block whitespace-nowrap">{group}</span>
+      <span className="block whitespace-nowrap">{position} posição</span>
     </>
   );
 }
 
 function trailPositionNumber(lesson: Lesson) {
-  const match = lesson.title.toLowerCase().match(/(primeira|segunda|terceira|quarta|quinta) posição/);
-  return match ? ORDINALS[match[1]].replace("ª", "") : "";
+  return trailPosition(lesson)?.replace("ª", "") ?? "";
 }
 
 type TrailStatus = Lesson["status"];

@@ -67,10 +67,10 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`
   em `lib.mjs`; a ordem cíclica é C → A → G → E → D, começando pela forma mais
-  grave que cabe no braço). Vale para todas as aulas "Acordes na … posição".
+  grave que cabe no braço). Vale para todas as aulas "Acordes Maiores - Nª posição".
   Gere com `npm run chord -- B♭ --position 3`.
 - **Ciclo das quartas** (`CYCLE_OF_FOURTHS`): C, F, B♭, E♭, A♭, D♭, G♭, B, E, A, D, G.
-- **Ordem na trilha:** cada aula "Acordes na {n} posição" é seguida pela aula
+- **Ordem na trilha:** cada aula "Acordes Maiores - {n}ª posição" é seguida pela aula
   "Acordes no ciclo das quartas - {N} posição" (tipo `review`), com os 12 tons do
   ciclo naquela posição. C/A/G/E/D da aula de ciclo são idênticos aos da aula
   de posição correspondente.

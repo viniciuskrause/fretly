@@ -17,8 +17,8 @@ export type Lesson = {
 export const lessons: Lesson[] = [
   {
     id: 1,
-    title: "Acordes na primeira posição",
-    exerciseTitle: "Acordes na primeira posição",
+    title: "Acordes Maiores - 1ª posição",
+    exerciseTitle: "Acordes Maiores - 1ª posição",
     subtitle: "As cinco formas abertas",
     type: "chord",
     status: "done",
@@ -139,8 +139,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 3,
-    title: "Acordes na segunda posição",
-    exerciseTitle: "Acordes na segunda posição",
+    title: "Acordes Maiores - 2ª posição",
+    exerciseTitle: "Acordes Maiores - 2ª posição",
     subtitle: "Conecte C com a forma de A",
     type: "chord",
     status: "locked",
@@ -261,8 +261,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 4,
-    title: "Acordes na terceira posição",
-    exerciseTitle: "Acordes na terceira posição",
+    title: "Acordes Maiores - 3ª posição",
+    exerciseTitle: "Acordes Maiores - 3ª posição",
     subtitle: "Avance pelo braço",
     type: "chord",
     status: "locked",
@@ -383,8 +383,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 5,
-    title: "Acordes na quarta posição",
-    exerciseTitle: "Acordes na quarta posição",
+    title: "Acordes Maiores - 4ª posição",
+    exerciseTitle: "Acordes Maiores - 4ª posição",
     subtitle: "Reconheça formas agudas",
     type: "chord",
     status: "locked",
@@ -505,8 +505,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 6,
-    title: "Acordes na quinta posição",
-    exerciseTitle: "Acordes na quinta posição",
+    title: "Acordes Maiores - 5ª posição",
+    exerciseTitle: "Acordes Maiores - 5ª posição",
     subtitle: "Complete o mapa CAGED",
     type: "chord",
     status: "locked",
