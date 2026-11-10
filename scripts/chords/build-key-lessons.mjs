@@ -14,7 +14,7 @@ import { CYCLE_OF_FOURTHS, formatPosition, fromCaged, shapesUpTheNeck, validate 
 const SECTIONS = [
   {
     suffix: "major",
-    title: "Acordes Básicos no CAGED",
+    title: "Acordes Maiores no CAGED",
     subtitle: "Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço",
     trailTitle: "Fundamentos",
   },
