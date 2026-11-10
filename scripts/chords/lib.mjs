@@ -80,13 +80,14 @@ export const CAGED_DOM7 = {
 };
 
 // Half-diminished (m7(♭5)) shapes, each keeping its CAGED root/third strings:
-// Cm7(♭5) x31312, Am7(♭5) x0101x, Gm7(♭5) 3x332x, Em7(♭5) 012030, Dm7(♭5) xx0111.
+// Cm7(♭5) x31312, Am7(♭5) x0101x, Gm7(♭5) 3x332x, Em7(♭5) 0100xx, Dm7(♭5) xx0111.
 export const CAGED_M7B5 = {
   C: { rootPc: 0, frets: [-1, 3, 1, 3, 1, 2], open: [0, 3, 1, 4, 1, 2], moved: [0, 3, 1, 4, 1, 2] },
   A: { rootPc: 9, frets: [-1, 0, 1, 0, 1, -1], open: [0, 0, 2, 0, 3, 0], moved: [0, 1, 2, 1, 3, 0] },
   // Forma G: 3x332x (Cm7(♭5) = 8x887x), chosen by the user for every key.
   G: { rootPc: 7, frets: [3, -1, 3, 3, 2, -1], open: [2, 0, 3, 4, 1, 0], moved: [2, 0, 3, 4, 1, 0] },
-  E: { rootPc: 4, frets: [0, 1, 2, 0, 3, 0], open: [0, 1, 2, 0, 3, 0], moved: [1, 2, 3, 1, 4, 1] },
+  // Forma E: 0100xx (Cm7(♭5) = 8988xx), chosen by the user for every key.
+  E: { rootPc: 4, frets: [0, 1, 0, 0, -1, -1], open: [0, 1, 0, 0, 0, 0], moved: [1, 2, 1, 1, 0, 0] },
   D: { rootPc: 2, frets: [-1, -1, 0, 1, 1, 1], open: [0, 0, 0, 1, 1, 1], moved: [0, 0, 1, 2, 3, 4] },
 };
 
@@ -247,7 +248,7 @@ export function shapeOf(position, chord, suffix = "major") {
   if (rootString === undefined || pcAt(rootString) !== rootPc || thirdString === undefined) return null;
   // Exception chosen by the user: the half-diminished Forma G is 3x332x
   // (Cm7(♭5) = 8x887x) — root on the low E, A string muted, third on the G
-  // string. The half-diminished Forma E plays the A string (012030).
+  // string. The half-diminished Forma E plays the A string (0100xx).
   if (suffix === "m7b5" && rootString === 0 && pcAt(1) === null) return "G";
   return SHAPE_BY_STRINGS[`${rootString}-${thirdString}`] ?? null;
 }

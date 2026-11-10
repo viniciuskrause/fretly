@@ -1648,7 +1648,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 8.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 8, barres: [1], midi: [48, 54, 60, 63, 70, 72] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 8, barres: [1], midi: [48, 54, 58, 63] },
           },
           {
             chord: "Cm7(♭5)",
@@ -1672,7 +1672,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E na primeira posição.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 1, barres: [1], midi: [41, 47, 53, 56, 63, 65] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 1, barres: [1], midi: [41, 47, 51, 56] },
           },
           {
             chord: "Fm7(♭5)",
@@ -1731,7 +1731,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 6.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 6, barres: [1], midi: [46, 52, 58, 61, 68, 70] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 6, barres: [1], midi: [46, 52, 56, 61] },
           },
           {
             chord: "B♭m7(♭5)",
@@ -1790,7 +1790,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 11.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 11, barres: [1], midi: [51, 57, 63, 66, 73, 75] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 11, barres: [1], midi: [51, 57, 61, 66] },
           },
         ],
       },
@@ -1814,7 +1814,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 4.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 4, barres: [1], midi: [44, 50, 56, 59, 66, 68] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 4, barres: [1], midi: [44, 50, 54, 59] },
           },
           {
             chord: "A♭m7(♭5)",
@@ -1873,7 +1873,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 9.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 9, barres: [1], midi: [49, 55, 61, 64, 71, 73] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 9, barres: [1], midi: [49, 55, 59, 64] },
           },
           {
             chord: "D♭m7(♭5)",
@@ -1897,7 +1897,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 2.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 2, barres: [1], midi: [42, 48, 54, 57, 64, 66] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 2, barres: [1], midi: [42, 48, 52, 57] },
           },
           {
             chord: "G♭m7(♭5)",
@@ -1956,7 +1956,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 7.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 7, barres: [1], midi: [47, 53, 59, 62, 69, 71] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 7, barres: [1], midi: [47, 53, 57, 62] },
           },
           {
             chord: "Bm7(♭5)",
@@ -1987,7 +1987,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E na primeira posição.",
-            position: { frets: [0, 1, 2, 0, 3, 0], fingers: [0, 1, 2, 0, 3, 0], baseFret: 1, barres: [], midi: [40, 46, 52, 55, 62, 64] },
+            position: { frets: [0, 1, 0, 0, -1, -1], fingers: [0, 1, 0, 0, 0, 0], baseFret: 1, barres: [], midi: [40, 46, 50, 55] },
           },
           {
             chord: "Em7(♭5)",
@@ -2046,7 +2046,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 5.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 5, barres: [1], midi: [45, 51, 57, 60, 67, 69] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 5, barres: [1], midi: [45, 51, 55, 60] },
           },
           {
             chord: "Am7(♭5)",
@@ -2105,7 +2105,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 10.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 10, barres: [1], midi: [50, 56, 62, 65, 72, 74] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 10, barres: [1], midi: [50, 56, 60, 65] },
           },
         ],
       },
@@ -2129,7 +2129,7 @@ export const sections: Section[] = [
             suffix: "m7b5",
             shape: "E",
             instruction: "Forma de E a partir da casa 3.",
-            position: { frets: [1, 2, 3, 1, 4, 1], fingers: [1, 2, 3, 1, 4, 1], baseFret: 3, barres: [1], midi: [43, 49, 55, 58, 65, 67] },
+            position: { frets: [1, 2, 1, 1, -1, -1], fingers: [1, 2, 1, 1, 0, 0], baseFret: 3, barres: [1], midi: [43, 49, 53, 58] },
           },
           {
             chord: "Gm7(♭5)",
