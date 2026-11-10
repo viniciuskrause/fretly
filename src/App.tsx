@@ -553,6 +553,19 @@ function ChordDiagram({
           strokeWidth={fret === 0 && step.fret === 0 ? 6 : 1.4}
         />
       ))}
+      {step.fret > 0 && (
+        <text
+          x="76"
+          y="215"
+          textAnchor="middle"
+          fontSize="14"
+          fontWeight="800"
+          fill="#64736F"
+          aria-label={`${step.fret}ª casa`}
+        >
+          {step.fret}
+        </text>
+      )}
       {hasBarre && (
         <line
           x1="76"
