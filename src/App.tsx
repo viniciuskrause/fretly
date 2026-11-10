@@ -772,11 +772,13 @@ function ExercisePage({
 }) {
   // Tempo of the last run of the final exercise.
   const sequenceBpm = useRef<number | null>(null);
-  const [stepIndex, setStepIndex] = useState(0);
-  const [bpm, setBpm] = useState(72);
+  // A finished lesson reopens on its final exercise, at the tempo used last time.
+  const reopensFinished = lesson.status === "done";
+  const [stepIndex, setStepIndex] = useState(reopensFinished ? lesson.steps.length - 1 : 0);
+  const [bpm, setBpm] = useState(lesson.lastBpm ?? 72);
   const [playbackStatus, setPlaybackStatus] = useState<"idle" | "playing" | "finished">("idle");
   const [activeStrings, setActiveStrings] = useState<number[]>([]);
-  const [finalExercise, setFinalExercise] = useState(false);
+  const [finalExercise, setFinalExercise] = useState(reopensFinished);
   const [sequenceIndex, setSequenceIndex] = useState(-1);
   const [sequenceStatus, setSequenceStatus] = useState<"idle" | "countdown" | "playing" | "finished">("idle");
   const [countdown, setCountdown] = useState<number | null>(null);
