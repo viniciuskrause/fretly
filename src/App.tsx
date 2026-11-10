@@ -586,10 +586,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   const step = lesson.steps[stepIndex];
   const progress = complete || finalExercise ? 100 : ((stepIndex + 1) / lesson.steps.length) * 100;
 
-  function isMutedString(string: number) {
-    return lesson.id === 1 && string === 5;
-  }
-
   function clearPlayback() {
     timeoutIds.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
     timeoutIds.current = [];
@@ -651,16 +647,17 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     playGuitarTone(frequency, volume);
   }
 
-  function playOpenString(string: number, volume?: number) {
-    playGuitarTone(stringFrequencies[string], volume);
+  // "Open" strings of a shape sound at the shape's base fret (nut or barre).
+  function playOpenString(chordStep: ChordStep, string: number, volume?: number) {
+    playGuitarTone(stringFrequencies[string] * 2 ** (chordStep.fret / 12), volume);
   }
 
   function playFullChord(chordStep: ChordStep) {
-    shapeFingerings[chordStep.shape].forEach(([, string], noteIndex) => {
-      if (!isMutedString(string)) playNote(chordStep, noteIndex, 0.075);
+    shapeFingerings[chordStep.shape].forEach((_, noteIndex) => {
+      playNote(chordStep, noteIndex, 0.075);
     });
     shapeOpenStrings[chordStep.shape].forEach((string) => {
-      if (!isMutedString(string)) playOpenString(string, 0.065);
+      playOpenString(chordStep, string, 0.065);
     });
   }
 
@@ -674,23 +671,30 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
 
     const beatDuration = 60000 / bpm;
     const fingerings = shapeFingerings[step.shape];
-    const bottomToTop = fingerings
-      .map(([, string], index) => ({ index, string }))
-      .filter(({ string }) => !isMutedString(string))
-      .sort((a, b) => b.string - a.string)
-      .map(({ index }) => index);
+    // Every sounding string, fretted or open, from the 6th string up to the 1st.
+    const bottomToTop = [
+      ...fingerings.map(([, string], noteIndex) => ({ string, noteIndex })),
+      ...shapeOpenStrings[step.shape].map((string) => ({ string, noteIndex: null })),
+    ].sort((a, b) => b.string - a.string);
 
-    bottomToTop.forEach((noteIndex, sequenceIndex) => {
+    bottomToTop.forEach(({ string, noteIndex }, sequenceIndex) => {
       const timeoutId = window.setTimeout(() => {
-        setActiveNoteIndexes([noteIndex]);
-        playNote(step, noteIndex);
+        if (noteIndex === null) {
+          setActiveNoteIndexes([]);
+          setActiveOpenStrings([string]);
+          playOpenString(step, string);
+        } else {
+          setActiveOpenStrings([]);
+          setActiveNoteIndexes([noteIndex]);
+          playNote(step, noteIndex);
+        }
       }, sequenceIndex * beatDuration);
       timeoutIds.current.push(timeoutId);
     });
 
     const chordTimeout = window.setTimeout(() => {
-      setActiveNoteIndexes(bottomToTop);
-      setActiveOpenStrings(shapeOpenStrings[step.shape].filter((string) => !isMutedString(string)));
+      setActiveNoteIndexes(fingerings.map((_, noteIndex) => noteIndex));
+      setActiveOpenStrings(shapeOpenStrings[step.shape]);
       playFullChord(step);
     }, bottomToTop.length * beatDuration);
     timeoutIds.current.push(chordTimeout);
@@ -830,10 +834,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
                           ? "next"
                           : "future-hidden";
                 const isSounding = isCurrent && sequenceStatus === "playing";
-                const allNotes = shapeFingerings[chordStep.shape]
-                  .map(([, string], noteIndex) => ({ noteIndex, string }))
-                  .filter(({ string }) => !isMutedString(string))
-                  .map(({ noteIndex }) => noteIndex);
+                const allNotes = shapeFingerings[chordStep.shape].map((_, noteIndex) => noteIndex);
 
                 return (
                   <div
@@ -851,13 +852,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
                     <ChordDiagram
                       step={chordStep}
                       activeNoteIndexes={isSounding ? allNotes : []}
-                      activeOpenStrings={
-                        isSounding
-                          ? shapeOpenStrings[chordStep.shape].filter(
-                              (string) => !isMutedString(string),
-                            )
-                          : []
-                      }
+                      activeOpenStrings={isSounding ? shapeOpenStrings[chordStep.shape] : []}
                       showPulse={false}
                     />
                   </div>
