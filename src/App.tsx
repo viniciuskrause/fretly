@@ -142,11 +142,31 @@ function Icon({
   );
 }
 
+/** A guitar wearing taped-up nerd glasses (drawn for the orange tile). */
+function Logo({ className }: { className: string }) {
+  return (
+    <svg className={className} viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="12.6" y="1" width="6.8" height="5.4" rx="1.8" fill="#fff"/>
+      <circle cx="11.7" cy="2.6" r="1" fill="#fff"/><circle cx="11.7" cy="5" r="1" fill="#fff"/>
+      <circle cx="20.3" cy="2.6" r="1" fill="#fff"/><circle cx="20.3" cy="5" r="1" fill="#fff"/>
+      <rect x="14.4" y="5.8" width="3.2" height="9.5" fill="#fff"/>
+      <path d="M14.4 9h3.2M14.4 11.6h3.2M14.4 14.2h3.2" stroke="#ff6b45" strokeWidth="0.7"/>
+      <path d="M16 13.2c3.4 0 5.6 2.2 5.6 4.6 0 1.3-.6 2.1-.6 2.9 0 .9 2.6 1.9 2.6 5.2 0 3.3-3.4 5.1-7.6 5.1s-7.6-1.8-7.6-5.1c0-3.3 2.6-4.3 2.6-5.2 0-.8-.6-1.6-.6-2.9 0-2.4 2.2-4.6 5.6-4.6z" fill="#fff"/>
+      <rect x="8.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#182b2a" strokeWidth="1.6"/>
+      <rect x="17.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#182b2a" strokeWidth="1.6"/>
+      <path d="M14.8 20.4h2.4" stroke="#182b2a" strokeWidth="1.6"/>
+      <rect x="15.1" y="19.3" width="1.8" height="2.4" rx="0.3" fill="#ffd9a8" stroke="#182b2a" strokeWidth="0.5"/>
+      <circle cx="11.9" cy="21.2" r="1.1" fill="#182b2a"/><circle cx="20.1" cy="21.2" r="1.1" fill="#182b2a"/>
+      <path d="M13.2 26.6q2.8 1.9 5.6 0" stroke="#182b2a" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
 function Brand() {
   return (
     <div className="flex items-center gap-3">
-      <div className="relative flex size-11 rotate-[-5deg] items-center justify-center rounded-[14px] bg-[#ff6b45] text-white shadow-[0_4px_0_#c94225]">
-        <Icon name="practice" className="size-6" />
+      <div className="relative flex size-11 shrink-0 rotate-[-5deg] items-center justify-center rounded-[14px] bg-[#ff6b45] text-white shadow-[0_4px_0_#c94225]">
+        <Logo className="size-8" />
       </div>
       <p className="text-[20px] font-bold leading-none tracking-[-0.04em] text-[#182b2a]">
         Guitar Workouts for Nerds
