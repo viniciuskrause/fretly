@@ -676,6 +676,10 @@ function PrimaryButton({
   );
 }
 
+const MIN_BPM = 40;
+const MAX_BPM = 180;
+const clampBpm = (value: number) => Math.min(MAX_BPM, Math.max(MIN_BPM, Math.round(value)));
+
 function BpmControl({
   bpm,
   onChange,
@@ -685,22 +689,59 @@ function BpmControl({
   onChange: (update: (value: number) => number) => void;
   disabled: boolean;
 }) {
+  // Text being typed; null while the field isn't being edited.
+  const [draft, setDraft] = useState<string | null>(null);
+  const commit = () => {
+    if (draft === null) return;
+    const value = Number.parseInt(draft, 10);
+    if (Number.isFinite(value)) onChange(() => clampBpm(value));
+    setDraft(null);
+  };
   return (
     <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#e0e7e3]" role="group" aria-label={`Andamento: ${bpm} BPM`}>
       <div className="flex items-center px-2 text-[#61736e]" title="BPM">
         <Icon name="metronome" className="size-5" />
       </div>
       <button
-        onClick={() => onChange((value) => Math.max(40, value - 4))}
+        onClick={() => onChange((value) => clampBpm(value - 4))}
         disabled={disabled}
         className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
         aria-label="Diminuir BPM"
       >
         −
       </button>
-      <span className="w-8 text-center text-sm font-black text-[#183e39]">{bpm}</span>
+      <input
+        type="text"
+        inputMode="numeric"
+        pattern="[0-9]*"
+        maxLength={3}
+        value={draft ?? String(bpm)}
+        disabled={disabled}
+        aria-label={`Andamento em BPM (${MIN_BPM} a ${MAX_BPM})`}
+        title={`Digite o andamento (${MIN_BPM}–${MAX_BPM} BPM)`}
+        onFocus={(event) => {
+          setDraft(String(bpm));
+          event.currentTarget.select();
+        }}
+        onChange={(event) => setDraft(event.target.value.replace(/\D/g, ""))}
+        onBlur={commit}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") event.currentTarget.blur();
+          else if (event.key === "Escape") {
+            setDraft(null);
+            // Blur without committing: draft is already cleared.
+            requestAnimationFrame(() => (event.target as HTMLInputElement).blur());
+          } else if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+            event.preventDefault();
+            const next = clampBpm(Number.parseInt(draft ?? String(bpm), 10) + (event.key === "ArrowUp" ? 1 : -1) || bpm);
+            setDraft(String(next));
+            onChange(() => next);
+          }
+        }}
+        className="h-8 w-12 rounded-lg border-2 border-transparent bg-transparent text-center text-sm font-black text-[#183e39] outline-none transition hover:border-[#e0e7e3] focus:border-[#4fbf9d] focus:bg-[#f3faf7] disabled:opacity-60"
+      />
       <button
-        onClick={() => onChange((value) => Math.min(180, value + 4))}
+        onClick={() => onChange((value) => clampBpm(value + 4))}
         disabled={disabled}
         className="flex size-8 items-center justify-center rounded-lg bg-[#edf2ef] font-black text-[#52645f] disabled:opacity-40"
         aria-label="Aumentar BPM"
