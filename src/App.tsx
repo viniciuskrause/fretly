@@ -21,7 +21,7 @@ const lessons: Lesson[] = [
   {
     id: 1,
     title: "Primeira posição",
-    exerciseTitle: "Acordes na posição 1",
+    exerciseTitle: "Acordes na primeira posição",
     subtitle: "As cinco formas abertas",
     type: "chord",
     status: "done",
