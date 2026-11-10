@@ -106,12 +106,12 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
   grave para a mais aguda (`shapesUpTheNeck`), e o exercício final toca as cinco
   em sequência. O título vira o rótulo da trilha ("C maior" / "formas CAGED") e o
   círculo mostra a cifra.
-- **Seções:** `src/lessons.ts` exporta `sections` (Seção 1 "Acordes Maiores no
-  CAGED" com os 12 maiores; Seção 2 "Acordes Menores no CAGED" com os 12 menores,
-  "C menor - formas CAGED"…) e `lessons` (todas as aulas em ordem). A página
-  inicial mostra um cartão e uma trilha por seção.
+- **Seção e trilhas:** `src/lessons.ts` exporta `sections` — uma seção ("Acordes
+  Maiores e Menores no CAGED") com duas trilhas, cada uma com seu subtítulo:
+  "Acordes maiores" (C maior … G maior) e "Acordes menores" (C menor … G menor).
+  `lessons` lista todas as aulas em ordem. O troféu fica no fim da última trilha.
 - **Gerar o arquivo de aulas:** `node scripts/chords/build-key-lessons.mjs`
-  reescreve `src/lessons.ts` inteiro (seções em `SECTIONS` no script). Depois
+  reescreve `src/lessons.ts` inteiro (`SECTION` e `TRAILS` no script). Depois
   rode `npm run check:chords`.
 - A v1 (aulas por posição, maiores e menores) está na tag `v1` do GitHub.
 

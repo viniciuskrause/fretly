@@ -8,7 +8,7 @@ import {
   type ChordPosition,
   type ChordStep,
 } from "./chords.ts";
-import { sections, type Lesson, type Section } from "./lessons.ts";
+import { sections, type Lesson, type Section, type Trail as TrailData } from "./lessons.ts";
 
 function Icon({
   name,
@@ -293,16 +293,24 @@ function useElementWidth() {
   return { ref, width };
 }
 
-function Trail({ section, onSelect }: { section: Section; onSelect: (lesson: Lesson) => void }) {
-  const { lessons } = section;
+function Trail({
+  trail,
+  trophy,
+  onSelect,
+}: {
+  trail: TrailData;
+  /** Status of the trophy at the end of the trail; omitted = no trophy. */
+  trophy?: TrailStatus;
+  onSelect: (lesson: Lesson) => void;
+}) {
+  const { lessons } = trail;
   const { ref, width } = useElementWidth();
-  const allDone = lessons.every((lesson) => lesson.status === "done");
-  const statuses: TrailStatus[] = [...lessons.map((lesson) => lesson.status), allDone ? "done" : "locked"];
+  const statuses: TrailStatus[] = [...lessons.map((lesson) => lesson.status), ...(trophy ? [trophy] : [])];
   const layout = width ? trailLayout(width, statuses.length) : null;
   return (
     <div ref={ref} className="relative mt-10" style={{ height: layout?.height ?? 400 }}>
       <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#203330]">
-        {section.trailTitle}
+        {trail.title}
       </p>
       {layout && (
         <>
@@ -324,7 +332,7 @@ function Trail({ section, onSelect }: { section: Section; onSelect: (lesson: Les
           {lessons.map((lesson, index) => (
             <TrailNode key={lesson.id} lesson={lesson} point={layout.points[index]} onSelect={onSelect} />
           ))}
-          <TrailTrophy point={layout.points[lessons.length]} status={statuses[lessons.length]} />
+          {trophy && <TrailTrophy point={layout.points[lessons.length]} status={trophy} />}
         </>
       )}
     </div>
@@ -332,7 +340,8 @@ function Trail({ section, onSelect }: { section: Section; onSelect: (lesson: Les
 }
 
 function PathSection({ section, onSelect }: { section: Section; onSelect: (lesson: Lesson) => void }) {
-  const { lessons } = section;
+  const lessons = section.trails.flatMap((trail) => trail.lessons);
+  const sectionDone = lessons.every((lesson) => lesson.status === "done");
   const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
   return (
     <section>
@@ -366,7 +375,14 @@ function PathSection({ section, onSelect }: { section: Section; onSelect: (lesso
         </div>
       </div>
 
-      <Trail section={section} onSelect={onSelect} />
+      {section.trails.map((trail, index) => (
+        <Trail
+          key={trail.title}
+          trail={trail}
+          trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
+          onSelect={onSelect}
+        />
+      ))}
     </section>
   );
 }
