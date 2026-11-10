@@ -177,7 +177,7 @@ function Brand() {
 
 function TopBar() {
   return (
-    <header className="sticky top-0 z-10 border-b border-[#EDE3C8]/90 bg-[#FFFBEB]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-10 border-b border-[#E5D8B5]/90 bg-[#FFFEFB]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-[720px] items-center justify-between px-5 sm:px-8">
         <Brand />
         <button
@@ -351,7 +351,7 @@ function Trail({
               <path
                 key={index}
                 d={segment}
-                stroke={statuses[index + 1] === "locked" ? "#EDE3C8" : "#3B82F6"}
+                stroke={statuses[index + 1] === "locked" ? "#E5D8B5" : "#3B82F6"}
               />
             ))}
           </svg>
@@ -463,7 +463,7 @@ function ChordDiagram({
       aria-label={`Diagrama de ${chordLabel(step)}`}
       role="img"
     >
-      <rect x="28" y="18" width="244" height="206" rx="16" fill="#FFFDF5" />
+      <rect x="28" y="18" width="244" height="206" rx="16" fill="#FFFFFF" />
       {[0, 1, 2, 3, 4, 5].map((string) => {
         const isActive = activeStrings.includes(string);
         return (
@@ -584,17 +584,17 @@ function ExerciseShell({
   children: ReactNode;
 }) {
   return (
-    <div className="flex min-h-dvh flex-col bg-[#FFFBEB] text-[#172554]">
+    <div className="flex min-h-dvh flex-col bg-[#FFFEFB] text-[#172554]">
       <header className="mx-auto flex w-full max-w-[1040px] items-center gap-4 px-4 pt-5 sm:gap-6 sm:px-10 sm:pt-12">
         <button
           onClick={onExit}
-          className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#94A3B8] transition hover:bg-[#FBF3DC] hover:text-[#334155]"
+          className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#64748B] transition hover:bg-[#FBF3DC] hover:text-[#334155]"
           aria-label="Voltar à trilha"
         >
           <Icon name="close" className="size-6" />
         </button>
         <div
-          className="h-4 flex-1 overflow-hidden rounded-full bg-[#EDE3C8]"
+          className="h-4 flex-1 overflow-hidden rounded-full bg-[#E5D8B5]"
           role="progressbar"
           aria-label="Progresso do exercício"
           aria-valuemin={0}
@@ -614,7 +614,7 @@ function ExerciseShell({
         {children}
       </main>
 
-      <footer className="sticky bottom-0 border-t-2 border-[#EDE3C8] bg-[#FFFBEB]">
+      <footer className="sticky bottom-0 border-t-2 border-[#E5D8B5] bg-[#FFFEFB]">
         <div className="relative mx-auto w-full max-w-[1040px] px-4 py-4 sm:px-10 sm:py-8">
           {footerCenter && (
             <div className="mb-3 flex justify-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
@@ -645,7 +645,7 @@ function EyebrowText({ text }: { text: string }) {
 function ExerciseHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div>
-      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#EA580C]">
+      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#C2410C]">
         <EyebrowText text={eyebrow} />
       </p>
       <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#172554]">
@@ -668,7 +668,7 @@ function SecondaryButton({ label, onClick, disabled, icon }: ActionButtonProps) 
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className="flex h-12 items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#E3D9BD] bg-white px-4 text-sm font-black uppercase tracking-[0.08em] text-[#475569] transition hover:bg-[#FBF3DC] active:translate-y-0.5 active:border-b-2 disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-[150px] sm:px-6"
+      className="flex h-12 items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#DACCA8] bg-white px-4 text-sm font-black uppercase tracking-[0.08em] text-[#475569] transition hover:bg-[#FBF3DC] active:translate-y-0.5 active:border-b-2 disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-[150px] sm:px-6"
     >
       {icon && <Icon name={icon} className="size-5" />}
       <span className={icon ? "hidden sm:inline" : undefined}>{label}</span>
@@ -685,8 +685,8 @@ function PrimaryButton({
 }: ActionButtonProps & { tone?: "green" | "orange" }) {
   const toneClass =
     tone === "orange"
-      ? "bg-[#F97316] shadow-[0_4px_0_#C2410C]"
-      : "bg-[#3B82F6] shadow-[0_4px_0_#1E3A8A]";
+      ? "bg-[#C2410C] shadow-[0_4px_0_#9A3412]"
+      : "bg-[#2563EB] shadow-[0_4px_0_#1E3A8A]";
   return (
     <button
       onClick={onClick}
@@ -721,7 +721,7 @@ function BpmControl({
     setDraft(null);
   };
   return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#EDE3C8]" role="group" aria-label={`Andamento: ${bpm} BPM`}>
+    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#E5D8B5]" role="group" aria-label={`Andamento: ${bpm} BPM`}>
       <div className="flex items-center px-2 text-[#64748B]" title="BPM">
         <Icon name="metronome" className="size-5" />
       </div>
@@ -761,7 +761,7 @@ function BpmControl({
             onChange(() => next);
           }
         }}
-        className="h-8 w-12 rounded-lg border-2 border-transparent bg-transparent text-center text-sm font-black text-[#172554] outline-none transition hover:border-[#EDE3C8] focus:border-[#3B82F6] focus:bg-[#EFF6FF] disabled:opacity-60"
+        className="h-8 w-12 rounded-lg border-2 border-transparent bg-transparent text-center text-sm font-black text-[#172554] outline-none transition hover:border-[#E5D8B5] focus:border-[#3B82F6] focus:bg-[#EFF6FF] disabled:opacity-60"
       />
       <button
         onClick={() => onChange((value) => clampBpm(value + 4))}
@@ -995,13 +995,13 @@ function ExercisePage({
 
   if (complete) {
     return (
-      <div className="min-h-screen bg-[#FFFBEB]">
+      <div className="min-h-screen bg-[#FFFEFB]">
         <TopBar />
         <div className="mx-auto w-full max-w-[560px] px-5 py-16 text-center">
-          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-[#3B82F6] text-white shadow-[0_9px_0_#1D4ED8]">
+          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-[0_9px_0_#1E3A8A]">
             <Icon name="check" className="size-12" />
           </div>
-          <p className="mt-10 text-xs font-black uppercase tracking-[0.18em] text-[#EA580C]">
+          <p className="mt-10 text-xs font-black uppercase tracking-[0.18em] text-[#C2410C]">
             Exercício concluído
           </p>
           <h1 className="mt-3 text-4xl font-black tracking-[-0.045em] text-[#172554]">
@@ -1012,16 +1012,16 @@ function ExercisePage({
             forma dos exercícios que você já aprendeu.
           </p>
           <div className="mx-auto mt-8 max-w-sm">
-            <div className="rounded-2xl bg-white p-5 ring-1 ring-[#EDE3C8]">
-              <p className="text-2xl font-black text-[#EA580C]">{lesson.steps.length}</p>
-              <p className="mt-1 text-[10px] font-black uppercase tracking-wider text-[#94A3B8]">
+            <div className="rounded-2xl bg-white p-5 ring-1 ring-[#E5D8B5]">
+              <p className="text-2xl font-black text-[#C2410C]">{lesson.steps.length}</p>
+              <p className="mt-1 text-[10px] font-black uppercase tracking-wider text-[#64748B]">
                 Formas tocadas
               </p>
             </div>
           </div>
           <button
             onClick={onExit}
-            className="mt-8 w-full max-w-sm rounded-2xl bg-[#3B82F6] py-4 text-sm font-black text-white shadow-[0_5px_0_#1E3A8A] transition active:translate-y-1 active:shadow-none"
+            className="mt-8 w-full max-w-sm rounded-2xl bg-[#2563EB] py-4 text-sm font-black text-white shadow-[0_5px_0_#1E3A8A] transition active:translate-y-1 active:shadow-none"
           >
             VOLTAR À TRILHA
           </button>
@@ -1166,7 +1166,7 @@ function ExercisePage({
 
       <div className="mt-8 flex flex-col items-center">
         <ChordName step={step} className="text-6xl" />
-        <div className="mt-5 rounded-[24px] bg-[#FFFDF5] p-3 ring-1 ring-[#EDE3C8]">
+        <div className="mt-5 rounded-[24px] bg-[#FFFFFF] p-3 ring-1 ring-[#E5D8B5]">
           <ChordDiagram
             step={step}
             activeStrings={activeStrings}
@@ -1202,7 +1202,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFBEB] text-[#172554]">
+    <div className="min-h-screen bg-[#FFFEFB] text-[#172554]">
       <TopBar />
       <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8 lg:pt-10">
         <div className="space-y-14">
