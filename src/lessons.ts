@@ -57,8 +57,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 7,
-    title: "Acordes no ciclo das quartas",
-    exerciseTitle: "Acordes no ciclo das quartas",
+    title: "Acordes no ciclo das quartas - Primeira posição",
+    exerciseTitle: "Acordes no ciclo das quartas - Primeira posição",
     subtitle: "Aplique CAGED em 12 tons",
     type: "review",
     status: "current",
