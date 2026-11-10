@@ -597,18 +597,6 @@ function ChordDiagram({
           aria-label={`Pestana na ${step.fret}ª casa, cordas ${barre.from + 1} a ${barre.to + 1}`}
         />
       )}
-      {barre && (
-        <text
-          x="76"
-          y={52 + ((barre.from + barre.to) / 2) * 29}
-          textAnchor="middle"
-          fontSize="10"
-          fontWeight="700"
-          fill="white"
-        >
-          1
-        </text>
-      )}
       {fingerings.map(([fret, string], index) => {
         const isActive = activeNoteIndexes.includes(index);
         // In first position the columns are frets 1–5 (the nut sits before them);
