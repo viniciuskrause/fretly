@@ -546,11 +546,14 @@ function ExerciseShell({
   progress,
   onExit,
   footer,
+  footerCenter,
   children,
 }: {
   progress: number;
   onExit: () => void;
   footer: ReactNode;
+  /** Centred in the bottom bar (on its own row above the buttons on narrow screens). */
+  footerCenter?: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -583,8 +586,13 @@ function ExerciseShell({
       </main>
 
       <footer className="sticky bottom-0 border-t-2 border-[#e3e9e5] bg-[#f7f8f3]">
-        <div className="mx-auto flex w-full max-w-[1040px] items-center justify-between gap-3 px-4 py-4 sm:px-10 sm:py-8">
-          {footer}
+        <div className="relative mx-auto w-full max-w-[1040px] px-4 py-4 sm:px-10 sm:py-8">
+          {footerCenter && (
+            <div className="mb-3 flex justify-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
+              {footerCenter}
+            </div>
+          )}
+          <div className="flex items-center justify-between gap-3">{footer}</div>
         </div>
       </footer>
     </div>
@@ -656,10 +664,9 @@ function BpmControl({
   disabled: boolean;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#e0e7e3]">
-      <div className="flex items-center gap-2 px-2 text-[#61736e]">
+    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#e0e7e3]" role="group" aria-label={`Andamento: ${bpm} BPM`}>
+      <div className="flex items-center px-2 text-[#61736e]" title="BPM">
         <Icon name="metronome" className="size-5" />
-        <span className="text-xs font-black">BPM</span>
       </div>
       <button
         onClick={() => onChange((value) => Math.max(40, value - 4))}
@@ -924,6 +931,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
       <ExerciseShell
         progress={100}
         onExit={onExit}
+        footerCenter={bpmControl}
         footer={
           <>
             <SecondaryButton
@@ -994,7 +1002,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
           })}
         </div>
 
-        <div className="mt-4 flex justify-center">{bpmControl}</div>
       </ExerciseShell>
     );
   }
@@ -1004,6 +1011,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
     <ExerciseShell
       progress={progress}
       onExit={onExit}
+      footerCenter={bpmControl}
       footer={
         <>
           <SecondaryButton
@@ -1050,7 +1058,6 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
             activeStrings={activeStrings}
           />
         </div>
-        <div className="mt-6">{bpmControl}</div>
       </div>
     </ExerciseShell>
   );
