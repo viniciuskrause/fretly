@@ -69,6 +69,10 @@ usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reai
    | Ré (4ª) | Mi agudo (1ª) | D |
 
    Vale para maiores e menores (terça menor). `shapeOf` em `lib.mjs` aplica a regra.
+   **Exceção (decisão do usuário):** no meio diminuto, a Forma G é `3x332x`
+   (Cm7(♭5) = `8x887x`): tônica no Mi grave, Lá abafada e terça na Sol. Por isso,
+   em m7(♭5) com tônica no Mi grave e a corda Lá abafada, a forma é G; a Forma E
+   do meio diminuto toca a corda Lá (`012030`).
 5. **Pestana** = dedo 1 na mesma casa em 2 ou mais cordas, listada em `barres`.
    Só o dedo 1 faz pestana. Um dedo numa corda só é um ponto comum.
 6. **Dedos em ordem:** casa mais alta nunca leva dedo menor que casa mais baixa;
@@ -102,7 +106,7 @@ com as mesmas tônicas e terças de cada forma:
 |---|---|---|
 | C | `x32310` · `x3231x` (sem a 1ª) | `x31312` · igual, sem cordas soltas |
 | A | `x02020` · pestana 5ª–1ª, dedos 1,3,1,4,1 | `x0101x` · pestana 5ª–3ª, dedos 1,2,1,3 |
-| G | `320001` · dedos 4,3,1,1,1,2 | `31302x` · `313x2x` (Sol abafada) |
+| G | `320001` · dedos 4,3,1,1,1,2 | `3x332x` · igual (Cm7(♭5) = `8x887x`), dedos 2,3,4,1 |
 | E | `020100` · pestana completa, dedos 1,3,1,2,1,1 | `012030` · pestana, dedos 1,2,3,1,4,1 |
 | D | `xx0212` · dedos 1,3,2,4 | `xx0111` (pestana) · dedos 1,2,3,4 |
 
