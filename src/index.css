@@ -46,79 +46,145 @@
     box-shadow: 0 4px 0 rgb(24 62 57 / 0.04);
   }
 
-  .path-row {
-    display: flex;
-    min-height: 125px;
-    align-items: flex-start;
-  }
-
-  .path-row-0 {
-    justify-content: center;
-  }
-
-  .path-row-1 {
-    justify-content: flex-start;
-    padding-left: 12%;
-  }
-
-  .path-row-2 {
-    justify-content: flex-end;
-    padding-right: 12%;
-  }
-
-  .lesson-node {
+  .trail-node {
     position: relative;
     display: flex;
-    height: 74px;
-    width: 82px;
+    width: 68px;
+    height: 68px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition:
-      transform 180ms ease,
-      box-shadow 180ms ease;
+    border: 3px solid var(--trail-color);
+    background: #fff;
+    padding: 4px;
+    transition: transform 150ms ease;
   }
 
-  .lesson-node::before {
-    position: absolute;
-    inset: 7px;
+  .trail-node:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  .trail-node:active {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  .trail-node__face {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    border: 2px solid rgb(255 255 255 / 0.28);
-    content: "";
+    background: var(--trail-color);
+    color: #fff;
+    box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.55);
   }
 
-  .lesson-node:not(:disabled):hover {
-    transform: translateY(-3px) scale(1.03);
+  .trail-node--done {
+    --trail-color: #1f9a7a;
   }
 
-  .lesson-node:not(:disabled):active {
-    transform: translateY(4px);
+  .trail-node--current {
+    --trail-color: #ff6b45;
+  }
+
+  .trail-node--locked {
+    --trail-color: #dfe5e2;
+    border-color: #d3dbd7;
+  }
+
+  .trail-node--locked .trail-node__face {
+    color: #a7b3af;
     box-shadow: none;
   }
 
-  .lesson-node--done {
-    background: #4fbf9d;
-    color: #fff;
-    box-shadow:
-      0 7px 0 #2f8d72,
-      0 10px 16px rgb(47 141 114 / 0.2);
+  .trail-node__progress {
+    position: absolute;
+    inset: -14px;
+    width: calc(100% + 28px);
+    height: calc(100% + 28px);
+    fill: none;
+    stroke: #ff6b45;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 22 14.1;
+    animation: trail-spin 18s linear infinite;
   }
 
-  .lesson-node--current {
-    width: 92px;
-    height: 82px;
-    background: #ff6b45;
-    color: #fff;
-    box-shadow:
-      0 8px 0 #c94728,
-      0 13px 20px rgb(201 71 40 / 0.24);
-    animation: current-pulse 2.8s ease-in-out infinite;
+  .trail-node__badge {
+    position: absolute;
+    right: -4px;
+    bottom: -2px;
+    display: flex;
+    width: 22px;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #f7f8f3;
+    background: #ffc145;
+    color: #5b3b00;
   }
 
-  .lesson-node--locked {
-    background: #dfe5e2;
-    color: #9ba8a4;
-    box-shadow: 0 6px 0 #c1cac6;
+  .trail-label {
+    margin-top: 10px;
+    max-width: 112px;
+    border-radius: 8px;
+    background: #f7f8f3;
+    padding: 2px 6px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 519px) {
+    .trail-label {
+      font-size: 11px;
+    }
+  }
+
+  .trail-label--done {
+    color: #243633;
+  }
+
+  .trail-label--current {
+    color: #e0532f;
+  }
+
+  .trail-label--locked {
+    color: #9aa7a3;
+  }
+
+  .trail-trophy {
+    display: flex;
+    width: 72px;
+    height: 76px;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background: #1f9a7a;
+    padding: 4px;
+  }
+
+  .trail-trophy__face {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background: #ffc145;
+    color: #7a4b00;
+  }
+
+  .trail-trophy--locked {
+    background: #d3dbd7;
+  }
+
+  .trail-trophy--locked .trail-trophy__face {
+    background: #e8ece9;
+    color: #a7b3af;
   }
 }
 
@@ -132,13 +198,9 @@
   }
 }
 
-@keyframes current-pulse {
-  0%,
-  100% {
-    outline: 0 solid rgb(255 107 69 / 0);
-  }
-  50% {
-    outline: 8px solid rgb(255 107 69 / 0.1);
+@keyframes trail-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -216,12 +278,4 @@
   }
 }
 
-@media (max-width: 639px) {
-  .path-row-1 {
-    padding-left: 4%;
-  }
 
-  .path-row-2 {
-    padding-right: 4%;
-  }
-}

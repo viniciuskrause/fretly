@@ -29,7 +29,8 @@ function Icon({
     | "close"
     | "back"
     | "replay"
-    | "metronome";
+    | "metronome"
+    | "trophy";
   className?: string;
 }) {
   const paths: Record<string, ReactNode> = {
@@ -109,6 +110,12 @@ function Icon({
         <path d="M20 4v5h-5" />
       </>
     ),
+    trophy: (
+      <>
+        <path d="M8 4h8v6a4 4 0 0 1-8 0Z" />
+        <path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 14v4M8 20h8" />
+      </>
+    ),
     metronome: (
       <>
         <path d="M8 3h8l4 18H4Z" />
@@ -167,89 +174,175 @@ function TopBar() {
   );
 }
 
-function LessonIcon({ lesson }: { lesson: Lesson }) {
-  if (lesson.status === "done") return <Icon name="check" className="size-8" />;
-  if (lesson.status === "locked") return <Icon name="lock" className="size-6" />;
-  if (lesson.type === "chord")
-    return <span className="text-2xl font-black">{lesson.steps[0].shape}</span>;
-  if (lesson.type === "review") return <Icon name="target" className="size-7" />;
-  return <Icon name="play" className="size-7 fill-current" />;
+const ORDINALS: Record<string, string> = {
+  primeira: "1ª",
+  segunda: "2ª",
+  terceira: "3ª",
+  quarta: "4ª",
+  quinta: "5ª",
+};
+
+/** Short label for the trail: "1ª posição" or "Ciclo · 1ª posição". */
+function trailLabel(lesson: Lesson) {
+  const match = lesson.title.toLowerCase().match(/(primeira|segunda|terceira|quarta|quinta) posição/);
+  const position = match ? `${ORDINALS[match[1]]} posição` : lesson.title;
+  if (!lesson.title.toLowerCase().includes("ciclo")) return position;
+  return (
+    <>
+      <span className="block whitespace-nowrap">Ciclo das quartas</span>
+      <span className="block whitespace-nowrap">{position}</span>
+    </>
+  );
 }
 
-function PathNode({
+function trailPositionNumber(lesson: Lesson) {
+  const match = lesson.title.toLowerCase().match(/(primeira|segunda|terceira|quarta|quinta) posição/);
+  return match ? ORDINALS[match[1]].replace("ª", "") : "";
+}
+
+type TrailStatus = Lesson["status"];
+
+type TrailPoint = { x: number; y: number };
+
+// Serpentine layout: rows run left → right, then right → left, joined by
+// half-circle turns outside the last node of each row.
+function trailLayout(width: number, count: number) {
+  const columns = width >= 520 ? 4 : 3;
+  const radius = width >= 520 ? 68 : 66;
+  const top = 76;
+  const minX = radius + 6;
+  const maxX = width - radius - 6;
+  const spacing = (maxX - minX) / (columns - 1);
+  const points: TrailPoint[] = Array.from({ length: count }, (_, index) => {
+    const row = Math.floor(index / columns);
+    const column = index % columns;
+    const x = row % 2 === 0 ? minX + column * spacing : maxX - column * spacing;
+    return { x, y: top + row * radius * 2 };
+  });
+  const segments = points.slice(1).map((point, index) => {
+    const previous = points[index];
+    if (point.y === previous.y) return `M${previous.x} ${previous.y} L${point.x} ${point.y}`;
+    const turnsRight = previous.x > width / 2;
+    return `M${previous.x} ${previous.y} A${radius} ${radius} 0 0 ${turnsRight ? 1 : 0} ${point.x} ${point.y}`;
+  });
+  const rows = Math.ceil(count / columns);
+  return { points, segments, height: top + (rows - 1) * radius * 2 + 82 };
+}
+
+function TrailNodeIcon({ lesson }: { lesson: Lesson }) {
+  if (lesson.status === "locked") return <Icon name="lock" className="size-6" />;
+  if (lesson.type === "review") return <Icon name="replay" className="size-7" />;
+  return <span className="text-[26px] font-black leading-none">{trailPositionNumber(lesson)}</span>;
+}
+
+function TrailNode({
   lesson,
-  pathIndex,
+  point,
   onSelect,
 }: {
   lesson: Lesson;
-  pathIndex: number;
+  point: TrailPoint;
   onSelect: (lesson: Lesson) => void;
 }) {
+  const status = lesson.status;
   return (
-    <div className={`path-row path-row-${(pathIndex + 1) % 3}`}>
-      <div className="relative flex flex-col items-center">
-        {lesson.status === "current" && (
-          <div className="mb-3 animate-[float_3s_ease-in-out_infinite] rounded-xl bg-[#183e39] px-4 py-2 text-[11px] font-black tracking-[0.08em] text-white shadow-md after:absolute after:bottom-[-5px] after:left-1/2 after:size-3 after:-translate-x-1/2 after:rotate-45 after:bg-[#183e39]">
-            CONTINUE AQUI
-          </div>
+    <div
+      className="absolute flex w-[112px] -translate-x-1/2 -translate-y-[34px] flex-col items-center"
+      style={{ left: point.x, top: point.y }}
+    >
+      <button
+        className={`trail-node trail-node--${status}`}
+        onClick={() => onSelect(lesson)}
+        aria-label={`${lesson.title}: ${lesson.subtitle}${status === "locked" ? " (bloqueada)" : ""}`}
+      >
+        {status === "current" && (
+          <svg className="trail-node__progress" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" />
+          </svg>
         )}
-        <button
-          className={`lesson-node lesson-node--${lesson.status}`}
-          onClick={() => onSelect(lesson)}
-          aria-label={`${lesson.title}: ${lesson.subtitle}`}
-        >
-          <LessonIcon lesson={lesson} />
-        </button>
-        <div className="mt-2 max-w-[200px] rounded-lg bg-[#f7f8f3] px-2 py-1 text-center">
-          <p
-            className={`text-sm font-black ${lesson.status === "locked" ? "text-[#96a29f]" : "text-[#243633]"}`}
-          >
-            {lesson.title}
-          </p>
-          <p className="mt-0.5 text-[11px] font-semibold text-[#91a09c]">
-            {lesson.steps.length} etapas
-          </p>
-        </div>
-      </div>
+        <span className="trail-node__face">
+          <TrailNodeIcon lesson={lesson} />
+        </span>
+        {status === "done" && (
+          <span className="trail-node__badge">
+            <Icon name="check" className="size-3" />
+          </span>
+        )}
+      </button>
+      <p className={`trail-label trail-label--${status}`}>{trailLabel(lesson)}</p>
     </div>
   );
 }
 
-// Dashed connector through the centre of every lesson node, measured from the
-// DOM so it follows the path however many lessons there are.
-function usePathConnector() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [d, setD] = useState("");
+function TrailTrophy({ point, status }: { point: TrailPoint; status: TrailStatus }) {
+  return (
+    <div
+      className="absolute flex w-[112px] -translate-x-1/2 -translate-y-[36px] flex-col items-center"
+      style={{ left: point.x, top: point.y }}
+    >
+      <div className={`trail-trophy trail-trophy--${status}`} aria-hidden="true">
+        <span className="trail-trophy__face">
+          <Icon name="trophy" className="size-7" />
+        </span>
+      </div>
+      <p className={`trail-label trail-label--${status} whitespace-nowrap`}>Unidade completa</p>
+    </div>
+  );
+}
+
+function useElementWidth() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
   useLayoutEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const measure = () => {
-      const box = container.getBoundingClientRect();
-      const points = [...container.querySelectorAll<HTMLElement>(".lesson-node")].map((node) => {
-        const rect = node.getBoundingClientRect();
-        return { x: rect.left + rect.width / 2 - box.left, y: rect.top + rect.height / 2 - box.top };
-      });
-      setD(
-        points
-          .map((point, index) => {
-            if (index === 0) return `M${point.x} ${point.y}`;
-            const previous = points[index - 1];
-            const bend = (point.y - previous.y) / 2;
-            return `C${previous.x} ${previous.y + bend} ${point.x} ${point.y - bend} ${point.x} ${point.y}`;
-          })
-          .join(" "),
-      );
-    };
+    const element = ref.current;
+    if (!element) return;
+    const measure = () => setWidth(element.clientWidth);
     measure();
     const observer = new ResizeObserver(measure);
-    observer.observe(container);
+    observer.observe(element);
     return () => observer.disconnect();
   }, []);
-  return { containerRef, d };
+  return { ref, width };
+}
+
+function Trail({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
+  const { ref, width } = useElementWidth();
+  const allDone = lessons.every((lesson) => lesson.status === "done");
+  const statuses: TrailStatus[] = [...lessons.map((lesson) => lesson.status), allDone ? "done" : "locked"];
+  const layout = width ? trailLayout(width, statuses.length) : null;
+  return (
+    <div ref={ref} className="relative mt-10" style={{ height: layout?.height ?? 400 }}>
+      <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#203330]">
+        Fundamentos
+      </p>
+      {layout && (
+        <>
+          <svg
+            className="pointer-events-none absolute inset-0 size-full overflow-visible"
+            fill="none"
+            strokeWidth="4"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            {layout.segments.map((segment, index) => (
+              <path
+                key={index}
+                d={segment}
+                stroke={statuses[index + 1] === "locked" ? "#dbe2de" : "#1f9a7a"}
+              />
+            ))}
+          </svg>
+          {lessons.map((lesson, index) => (
+            <TrailNode key={lesson.id} lesson={lesson} point={layout.points[index]} onSelect={onSelect} />
+          ))}
+          <TrailTrophy point={layout.points[lessons.length]} status={statuses[lessons.length]} />
+        </>
+      )}
+    </div>
+  );
 }
 
 function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
-  const { containerRef, d } = usePathConnector();
   const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
   return (
     <section>
@@ -283,26 +376,7 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
         </div>
       </div>
 
-      <div ref={containerRef} className="relative mx-auto mt-4 max-w-[560px] py-8">
-        <svg
-          className="pointer-events-none absolute inset-0 size-full overflow-visible"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d={d}
-            stroke="#d8e0dc"
-            strokeWidth="8"
-            strokeLinecap="round"
-            strokeDasharray="4 18"
-          />
-        </svg>
-        <div className="relative space-y-7">
-          {lessons.map((lesson, index) => (
-            <PathNode key={lesson.id} lesson={lesson} pathIndex={index} onSelect={onSelect} />
-          ))}
-        </div>
-      </div>
+      <Trail onSelect={onSelect} />
     </section>
   );
 }
