@@ -1279,44 +1279,6 @@ function GuidePage({ onBack }: { onBack: () => void }) {
           </p>
         </GuideSection>
 
-        <GuideSection title="Como reconhecer a forma">
-          <p>
-            A forma de um acorde fica clara pela corda onde está a <strong>tônica</strong> (a nota
-            que dá nome ao acorde, aqui sempre no baixo) e pela corda da <strong>terça</strong> (a
-            nota que diz se o acorde é maior ou menor):
-          </p>
-          <div className="overflow-hidden rounded-2xl border border-[#E5D8B5] bg-white">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-[#FBF3DC] text-xs uppercase tracking-[0.08em] text-[#475569]">
-                <tr>
-                  <th className="px-4 py-3">Tônica na corda</th>
-                  <th className="px-4 py-3">Terça na corda</th>
-                  <th className="px-4 py-3">Forma</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#F1EAD6] font-bold text-[#172554]">
-                {[
-                  ["Lá (5ª)", "Ré (4ª)", "C"],
-                  ["Lá (5ª)", "Si (2ª)", "A"],
-                  ["Mi grave (6ª)", "Lá (5ª)", "G"],
-                  ["Mi grave (6ª)", "Sol (3ª)", "E"],
-                  ["Ré (4ª)", "Mi agudo (1ª)", "D"],
-                ].map(([root, third, shape]) => (
-                  <tr key={shape}>
-                    <td className="px-4 py-3">{root}</td>
-                    <td className="px-4 py-3">{third}</td>
-                    <td className="whitespace-nowrap px-4 py-3 text-[#C2410C]">Forma {shape}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p>
-            A mesma lógica vale para acordes menores, de sétima e meio diminutos: a forma é o
-            desenho de origem, a cifra diz o tipo de acorde.
-          </p>
-        </GuideSection>
-
         <GuideSection title="Vantagens">
           <ul className="list-disc space-y-2 pl-5">
             <li>
