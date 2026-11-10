@@ -350,13 +350,13 @@ function PathSection({ onSelect }: { onSelect: (lesson: Lesson) => void }) {
         <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.16em] text-[#9ee9d1]">
-              Unidade 1
+              Seção 1 • {lessons.length} exercícios
             </p>
             <h2 className="mt-2 text-[25px] font-black tracking-[-0.03em]">
               CAGED: conecte o braço inteiro
             </h2>
             <p className="mt-1 text-sm text-white/75">
-              Seção 1 • {lessons.length} exercícios
+              Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço
             </p>
           </div>
           <button
