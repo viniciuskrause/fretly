@@ -80,7 +80,7 @@ a posição N de um menor usa a mesma forma que a posição N do maior:
 as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
 `suffix: "minor"`. Gere com `npm run chord -- A --suffix minor --position 2`.
 
-## Posições e aulas de ciclo das quartas
+## Posições e aulas "todos os tons" (ciclo das quartas)
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`
   em `lib.mjs`; a ordem cíclica é C → A → G → E → D, começando pela forma mais
@@ -88,11 +88,11 @@ as notas que ficariam fora do alcance). Passos menores levam `chord: "Am"` e
   Gere com `npm run chord -- B♭ --position 3`.
 - **Ciclo das quartas** (`CYCLE_OF_FOURTHS`): C, F, B♭, E♭, A♭, D♭, G♭, B, E, A, D, G.
 - **Ordem na trilha:** cada aula "Acordes Maiores - {n}ª posição" é seguida pela aula
-  "Acordes no ciclo das quartas - {N} posição" (tipo `review`), com os 12 tons do
-  ciclo naquela posição. C/A/G/E/D da aula de ciclo são idênticos aos da aula
-  de posição correspondente.
-- Depois do ciclo vem "Acordes Menores - {n}ª posição" (Cm, Am, Gm, Em, Dm na
-  mesma posição). Ordem: Maiores N → Ciclo N → Menores N → Maiores N+1…
+  "Acordes Maiores - {n}ª posição, todos os tons" (tipo `review`), com os 12 tons
+  na ordem do ciclo das quartas naquela posição. C/A/G/E/D dessa aula são
+  idênticos aos da aula de posição correspondente.
+- Depois vem "Acordes Menores - {n}ª posição" (Cm, Am, Gm, Em, Dm na mesma
+  posição). Ordem: Maiores N → Maiores N todos os tons → Menores N → Maiores N+1…
 
 ## Como o app usa a posição (não mude sem motivo)
 
