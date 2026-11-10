@@ -191,15 +191,9 @@ function TopBar() {
   );
 }
 
-/** Trail label from a title like "C maior - formas CAGED": "C maior" / "formas CAGED". */
+/** Trail label: the key part of a title like "C maior - formas CAGED" ("C maior"). */
 function trailLabel(lesson: Lesson) {
-  const [key, detail] = lesson.title.split(" - ");
-  return (
-    <>
-      <span className="block whitespace-nowrap">{key}</span>
-      {detail && <span className="block whitespace-nowrap">{detail}</span>}
-    </>
-  );
+  return <span className="block whitespace-nowrap">{lesson.title.split(" - ")[0]}</span>;
 }
 
 type TrailStatus = Lesson["status"];
