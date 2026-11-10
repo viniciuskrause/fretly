@@ -9,6 +9,7 @@ import {
   type ChordStep,
 } from "./chords.ts";
 import { sections, type Lesson, type Section, type Trail as TrailData } from "./lessons.ts";
+import { applyProgress, loadProgress, saveProgress, type Progress } from "./progress.ts";
 
 function Icon({
   name,
@@ -261,6 +262,13 @@ function TrailNode({
         )}
       </button>
       <p className={`trail-label trail-label--${status}`}>{trailLabel(lesson)}</p>
+      {status === "done" && lesson.lastBpm !== undefined && (
+        <p className="trail-bpm" title="Andamento da última execução do exercício final">
+          <Icon name="metronome" className="size-3.5" />
+          <span>{lesson.lastBpm}</span>
+          <span className="sr-only">BPM</span>
+        </p>
+      )}
     </div>
   );
 }
@@ -752,7 +760,18 @@ function BpmControl({
   );
 }
 
-function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }) {
+function ExercisePage({
+  lesson,
+  onExit,
+  onComplete,
+}: {
+  lesson: Lesson;
+  onExit: () => void;
+  /** Called on "Concluir" with the tempo of the last final-exercise run. */
+  onComplete: (bpm: number) => void;
+}) {
+  // Tempo of the last run of the final exercise.
+  const sequenceBpm = useRef<number | null>(null);
   const [stepIndex, setStepIndex] = useState(0);
   const [bpm, setBpm] = useState(72);
   const [playbackStatus, setPlaybackStatus] = useState<"idle" | "playing" | "finished">("idle");
@@ -934,6 +953,7 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
   /** 3-2-1 countdown (one second each), then every chord in sequence. */
   async function startChordSequence() {
     clearPlayback();
+    sequenceBpm.current = bpm;
     setSequenceIndex(-1);
     setSequenceStatus("countdown");
     setCountdown(3);
@@ -1024,7 +1044,13 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
               {sequenceStatus === "finished" ? (
                 <>
                   <SecondaryButton label="Repetir" icon="replay" onClick={startChordSequence} />
-                  <PrimaryButton label="Concluir" onClick={() => setComplete(true)} />
+                  <PrimaryButton
+                    label="Concluir"
+                    onClick={() => {
+                      onComplete(sequenceBpm.current ?? bpm);
+                      setComplete(true);
+                    }}
+                  />
                 </>
               ) : (
                 <PrimaryButton
@@ -1136,6 +1162,16 @@ function ExercisePage({ lesson, onExit }: { lesson: Lesson; onExit: () => void }
 
 export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
+  const [progress, setProgress] = useState<Progress>(loadProgress);
+  const trailSections = applyProgress(sections, progress);
+
+  function completeLesson(lesson: Lesson, bpm: number) {
+    setProgress((current) => {
+      const next = { ...current, [lesson.id]: { bpm, completedAt: new Date().toISOString() } };
+      saveProgress(next);
+      return next;
+    });
+  }
 
   if (selectedLesson) {
     return (
@@ -1143,6 +1179,7 @@ export default function App() {
         key={selectedLesson.id}
         lesson={selectedLesson}
         onExit={() => setSelectedLesson(null)}
+        onComplete={(bpm) => completeLesson(selectedLesson, bpm)}
       />
     );
   }
@@ -1152,7 +1189,7 @@ export default function App() {
       <TopBar />
       <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8 lg:pt-10">
         <div className="space-y-14">
-          {sections.map((section) => (
+          {trailSections.map((section) => (
             <PathSection key={section.id} section={section} onSelect={setSelectedLesson} />
           ))}
         </div>

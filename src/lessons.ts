@@ -15,6 +15,8 @@ export type Lesson = {
   type: "theory" | "chord" | "practice" | "review";
   status: "done" | "current" | "locked";
   steps: ChordStep[];
+  /** Tempo of the last final-exercise run, set from the learner's progress (src/progress.ts). */
+  lastBpm?: number;
 };
 
 /** One trail of the home page, under a small heading ("Acordes maiores"). */
