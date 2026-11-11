@@ -115,6 +115,21 @@ gerador começa o diagrama na nota mais grave presa (`baseFret` sobe).
 Cifras (`chordSymbol`): "C7", "Cm7(♭5)" (no círculo da trilha, "Cø").
 Passos levam `suffix: "7"` ou `suffix: "m7b5"`.
 
+## Notação: armadura de clave (obrigatória)
+
+Sustenidos e bemóis seguem a notação padrão: a armadura de clave da tonalidade
+(igual em qualquer clave, inclusive na de sol). Decisão do usuário, 2026-11-11.
+
+- **Tons maiores:** C (sem acidentes); com sustenidos G, D, A, E, B (1–5♯); com
+  bemóis F, B♭, E♭, A♭, D♭, G♭ (1–6♭). Ciclo das quartas: C F B♭ E♭ A♭ D♭ G♭ B E A D G.
+- **Tons menores:** use a forma com menos acidentes: Am; Em, Bm, F♯m, C♯m, G♯m
+  (1–5♯); Dm, Gm, Cm, Fm, B♭m, E♭m (1–6♭). Nunca A♭m, D♭m, G♭m (7–9♭): terças
+  C♭, F♭, B𝄫. Ciclo (`MINOR_CYCLE`): C F B♭ E♭ G♯ C♯ F♯ B E A D G.
+- **Notas do acorde** (baixo de inversões etc.) são escritas pela letra do grau
+  (`spell`): terça = 2 letras acima da tônica, quinta = 4, sétima = 6; o acidente
+  sai da distância em semitons. Ex.: B7M/D♯, D7M/F♯, G♭7M/B♭, G♯m7/B, E♭m7/G♭.
+- Use os símbolos ♯ e ♭ (nunca `#` ou `b`) nos nomes exibidos.
+
 ## Inversões de tétrades (seção 2)
 
 Aqui **não** se usa a lógica de formas CAGED. Cada tétrade tem 4 variações:
@@ -137,8 +152,7 @@ principal: x7x587 (dedos 0,2,0,1,4,3) e 12-x-10-12-12-x (dedos 2,0,1,3,4,0).
 
 1ª inversão menor (`FIRST_INVERSION_CM`, Cm7/E♭): xx1313 (0,0,1,3,1,4), x6858x
 (0,2,3,1,4,0), alt x6x586 (0,2,0,1,4,3), 11-13-10-12-x-x (2,4,1,3,0,0), alt
-11-x-10-12-11-x (2,0,1,4,3,0). Tons menores em `MINOR_CYCLE`: G♯m, C♯m, F♯m no
-lugar de A♭m, D♭m, G♭m (terças C♭, F♭, B𝄫).
+11-x-10-12-11-x (2,0,1,4,3,0). Tons menores em `MINOR_CYCLE` (ver "Notação").
 
 2ª inversão (baixo na quinta, `SECOND_INVERSION_C`): xx5557 (dedos 0,0,1,1,1,4,
 do chords-db), x-10-10-9-12-x (dedos 0,2,3,1,4,0) e 3324xx (dedos 2,3,1,4,0,0),
@@ -150,8 +164,8 @@ as duas últimas do usuário. Sem alternativas.
   em `lib.mjs`; a ordem cíclica é C → A → G → E → D, começando pela forma mais
   grave que cabe no braço). Gere com `npm run chord -- B♭ --position 3`.
 - **Ciclo das quartas** (`CYCLE_OF_FOURTHS`): C, F, B♭, E♭, A♭, D♭, G♭, B, E, A, D, G.
-- **Sempre bemóis** nos nomes de acordes e tons, também nos menores (A♭m, D♭m,
-  G♭m), nunca sustenidos (G♯m, C♯m, F♯m). Decisão do projeto.
+- **Acidentes:** seguem a armadura de clave (ver "Notação: armadura de clave").
+  A seção 1 ainda usa A♭m, D♭m, G♭m (gerada antes da regra).
 - **Uma aula por tonalidade**, na ordem do ciclo das quartas: "C maior - formas
   CAGED", "F maior - formas CAGED"… Cada aula tem o acorde nas 5 formas, da mais
   grave para a mais aguda (`shapesUpTheNeck`), e o exercício final toca as cinco
@@ -201,7 +215,7 @@ as duas últimas do usuário. Sem alternativas.
 3. **Registrar** em `src/lessons.ts` como `ChordStep`:
    ```ts
    {
-     chord: "A",              // nome exibido (sempre bemol: "B♭", "G♭", "A♭m")
+     chord: "A",              // nome exibido (acidentes da armadura de clave: "B♭", "F♯m")
      shape: "G",              // forma CAGED de origem (mostrada na trilha)
      instruction: "…",
      position: { frets: [...], fingers: [...], baseFret: 2, barres: [1], midi: [...] },
