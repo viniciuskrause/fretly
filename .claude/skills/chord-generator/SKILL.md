@@ -129,7 +129,8 @@ exige que a nota mais grave seja o grau declarado e que esteja na corda
 declarada. O app mostra "C7M/E (baixo na 5ª corda)" no título do exercício.
 Aula C7M - baixo na terça: xx2413 (dedos 0,0,2,4,1,3, 4ª corda), x7958x
 (dedos 0,2,4,1,3,0, 5ª corda), 12-14-10-12-x-x (dedos 2,4,1,3,0,0, 6ª corda;
-casas acima de 9 → escreva os trastes como array).
+casas acima de 9 → escreva os trastes como array). Alternativas logo após a
+principal: x7x587 (dedos 0,2,0,1,4,3) e 12-x-10-12-12-x (dedos 2,0,1,3,4,0).
 
 ## Posições e organização das aulas (v2: por tonalidade)
 
