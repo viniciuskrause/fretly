@@ -137,6 +137,16 @@ const FIRST_INVERSION_CM = [
   { bassString: 6, frets: [11, -1, 10, 12, 11, -1], fingers: [2, 0, 1, 4, 3, 0], alternative: true },
 ];
 
+// C7/E (first inversion of the dominant seventh): main voicings as the user
+// plays them, alternatives following the major/minor model (B♭ on top).
+const FIRST_INVERSION_C7 = [
+  { bassString: 4, frets: [-1, -1, 2, 3, 1, 3], fingers: [0, 0, 2, 3, 1, 4] },
+  { bassString: 5, frets: [-1, 7, 8, 5, 8, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 5, frets: [-1, 7, -1, 5, 8, 6], fingers: [0, 3, 0, 1, 4, 2], alternative: true },
+  { bassString: 6, frets: [12, 13, 10, 12, -1, -1], fingers: [2, 4, 1, 3, 0, 0] },
+  { bassString: 6, frets: [12, -1, 10, 12, 11, -1], fingers: [3, 0, 1, 4, 2, 0], alternative: true },
+];
+
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */
 const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
@@ -199,6 +209,10 @@ const INVERSIONS = {
     {
       title: "1ª inversão: baixo na terça - Acordes menores",
       lessons: MINOR_CYCLE.map((root) => inversionLesson(root, "m7", "third", "terça", FIRST_INVERSION_CM)),
+    },
+    {
+      title: "1ª inversão: baixo na terça - Acordes de sétima dominante",
+      lessons: DOMINANT_CYCLE.map((root) => inversionLesson(root, "7", "third", "terça", FIRST_INVERSION_C7)),
     },
     {
       title: "2ª inversão: baixo na quinta",

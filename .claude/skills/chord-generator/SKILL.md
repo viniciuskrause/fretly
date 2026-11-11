@@ -159,6 +159,10 @@ principal: x7x587 (dedos 0,2,0,1,4,3) e 12-x-10-12-12-x (dedos 2,0,1,3,4,0).
 (0,2,3,1,4,0), alt x6x586 (0,2,0,1,4,3), 11-13-10-12-x-x (2,4,1,3,0,0), alt
 11-x-10-12-11-x (2,0,1,4,3,0). Tons menores em `MINOR_CYCLE` (ver "Notação").
 
+1ª inversão dominante (`FIRST_INVERSION_C7`, C7/E): xx2313 (0,0,2,3,1,4), x7858x
+(0,2,3,1,4,0), alt x7x586 (0,3,0,1,4,2), 12-13-10-12-x-x (2,4,1,3,0,0), alt
+12-x-10-12-11-x (3,0,1,4,2,0). Tons em `DOMINANT_CYCLE`.
+
 2ª inversão (baixo na quinta, `SECOND_INVERSION_C`): xx5557 (dedos 0,0,1,1,1,4,
 do chords-db), x-10-10-9-12-x (dedos 0,2,3,1,4,0) e 3324xx (dedos 2,3,1,4,0,0),
 as duas últimas do usuário. Sem alternativas.
