@@ -32,6 +32,7 @@ function Icon({
     | "back"
     | "replay"
     | "metronome"
+    | "chevron"
     | "trophy";
   className?: string;
 }) {
@@ -118,6 +119,7 @@ function Icon({
         <path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 14v4M8 20h8" />
       </>
     ),
+    chevron: <path d="m6 9 6 6 6-6" />,
     metronome: (
       <>
         <path d="M8 3h8l4 18H4Z" />
@@ -205,7 +207,7 @@ type TrailPoint = { x: number; y: number };
 function trailLayout(width: number, count: number) {
   const columns = width >= 520 ? 4 : 3;
   const radius = width >= 520 ? 74 : 72;
-  const top = 76;
+  const top = 52;
   const minX = radius + 6;
   const maxX = width - radius - 6;
   const spacing = (maxX - minX) / (columns - 1);
@@ -313,13 +315,60 @@ function useElementWidth() {
   return { ref, width };
 }
 
+/** Done/total counter shown on section and trail headers. */
+function doneCount(lessons: Lesson[]) {
+  return `${lessons.filter((lesson) => lesson.status === "done").length}/${lessons.length}`;
+}
+
 function Trail({
+  trail,
+  trophy,
+  open,
+  onToggle,
+  onSelect,
+}: {
+  trail: TrailData;
+  /** Status of the trophy at the end of the trail; omitted = no trophy. */
+  trophy?: TrailStatus;
+  open: boolean;
+  onToggle: () => void;
+  onSelect: (lesson: Lesson) => void;
+}) {
+  const hasCurrent = trail.lessons.some((lesson) => lesson.status === "current");
+  return (
+    <div className="mt-4">
+      <button
+        onClick={onToggle}
+        aria-expanded={open}
+        className={`flex w-full items-center gap-3 rounded-2xl border-2 px-4 py-3 text-left transition hover:border-[#FBBF24] ${
+          open ? "border-transparent" : "border-[#E5D8B5] bg-white"
+        }`}
+      >
+        <span className="min-w-0 flex-1 text-xs font-black uppercase tracking-[0.14em] text-[#172554]">
+          {trail.title}
+        </span>
+        {hasCurrent && !open && (
+          <span className="shrink-0 rounded-full bg-[#FFEDD5] px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#C2410C]">
+            Atual
+          </span>
+        )}
+        <span className="shrink-0 text-xs font-black text-[#64748B]">{doneCount(trail.lessons)}</span>
+        <Icon
+          name="chevron"
+          className={`size-5 shrink-0 text-[#64748B] transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && <TrailBody trail={trail} trophy={trophy} onSelect={onSelect} />}
+    </div>
+  );
+}
+
+function TrailBody({
   trail,
   trophy,
   onSelect,
 }: {
   trail: TrailData;
-  /** Status of the trophy at the end of the trail; omitted = no trophy. */
   trophy?: TrailStatus;
   onSelect: (lesson: Lesson) => void;
 }) {
@@ -328,10 +377,7 @@ function Trail({
   const statuses: TrailStatus[] = [...lessons.map((lesson) => lesson.status), ...(trophy ? [trophy] : [])];
   const layout = width ? trailLayout(width, statuses.length) : null;
   return (
-    <div ref={ref} className="relative mt-10" style={{ height: layout?.height ?? 400 }}>
-      <p className="mb-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#172554]">
-        {trail.title}
-      </p>
+    <div ref={ref} className="relative" style={{ height: layout?.height ?? 400 }}>
       {layout && (
         <>
           <svg
@@ -359,15 +405,72 @@ function Trail({
   );
 }
 
+const COLLAPSED_KEY = "fretly.collapsed.v1";
+const sectionKey = (section: Section) => `s${section.id}`;
+const trailKey = (section: Section, index: number) => `s${section.id}:t${index}`;
+
+/** Collapsed sections and trails, remembered in this browser (all open by default). */
+function useCollapsed() {
+  const [collapsed, setCollapsed] = useState<Set<string>>(() => {
+    try {
+      const raw = window.localStorage.getItem(COLLAPSED_KEY);
+      return new Set(raw ? (JSON.parse(raw) as string[]) : []);
+    } catch {
+      return new Set();
+    }
+  });
+  function update(next: Set<string>) {
+    setCollapsed(next);
+    try {
+      window.localStorage.setItem(COLLAPSED_KEY, JSON.stringify([...next]));
+    } catch {
+      // Blocked storage: the state lasts for this visit only.
+    }
+  }
+  return {
+    collapsed,
+    toggle(key: string) {
+      const next = new Set(collapsed);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      update(next);
+    },
+    expandAll: () => update(new Set()),
+    collapseAll: (all: Section[]) =>
+      update(new Set(all.flatMap((section) => [sectionKey(section), ...section.trails.map((_, i) => trailKey(section, i))]))),
+  };
+}
+
+/** Sticky bar under the top bar: open or close every section and trail at once. */
+function OutlineControls({ onExpand, onCollapse }: { onExpand: () => void; onCollapse: () => void }) {
+  const button =
+    "flex items-center gap-1.5 rounded-full border border-[#E5D8B5] bg-white px-3.5 py-2 text-[11px] font-black uppercase tracking-wider text-[#172554] shadow-sm transition hover:border-[#FBBF24] active:translate-y-px";
+  return (
+    <div className="sticky top-[72px] z-[5] -mx-5 mb-6 flex justify-end gap-2 bg-[#FFFEFB]/90 px-5 py-2.5 backdrop-blur-xl sm:-mx-8 sm:px-8">
+      <button onClick={onExpand} className={button}>
+        <Icon name="chevron" className="size-4" /> Expandir tudo
+      </button>
+      <button onClick={onCollapse} className={button}>
+        <Icon name="chevron" className="size-4 rotate-180" /> Recolher tudo
+      </button>
+    </div>
+  );
+}
+
 function PathSection({
   section,
+  collapsed,
+  onToggle,
   onSelect,
   onOpenGuide,
 }: {
   section: Section;
+  collapsed: Set<string>;
+  onToggle: (key: string) => void;
   onSelect: (lesson: Lesson) => void;
   onOpenGuide: () => void;
 }) {
+  const open = !collapsed.has(sectionKey(section));
   const lessons = section.trails.flatMap((trail) => trail.lessons);
   const sectionDone = lessons.every((lesson) => lesson.status === "done");
   const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
@@ -375,17 +478,22 @@ function PathSection({
     <section>
       <div className="overflow-hidden rounded-[26px] bg-[#1E3A8A] text-white shadow-[0_7px_0_#172554]">
         <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-[#FDE68A]">
-              Seção {section.id} • {lessons.length} {lessons.length === 1 ? "exercício" : "exercícios"}
-            </p>
-            <h2 className="mt-2 text-[25px] font-black tracking-[-0.03em]">
-              {section.title}
-            </h2>
-            <p className="mt-1 text-sm text-white/75">
-              {section.subtitle}
-            </p>
-          </div>
+          <button
+            onClick={() => onToggle(sectionKey(section))}
+            aria-expanded={open}
+            className="group flex min-w-0 flex-1 items-start gap-3 text-left"
+          >
+            <span className="min-w-0 flex-1">
+              <span className="block text-xs font-black uppercase tracking-[0.16em] text-[#FDE68A]">
+                Seção {section.id} • {doneCount(lessons)} {lessons.length === 1 ? "exercício" : "exercícios"}
+              </span>
+              <span className="mt-2 block text-[25px] font-black tracking-[-0.03em]">{section.title}</span>
+              <span className="mt-1 block text-sm text-white/75">{section.subtitle}</span>
+            </span>
+            <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/10 transition group-hover:bg-white/20">
+              <Icon name="chevron" className={`size-5 transition-transform ${open ? "rotate-180" : ""}`} />
+            </span>
+          </button>
           <button
             onClick={onOpenGuide}
             className="flex shrink-0 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white px-5 py-3 text-xs font-black text-[#1E3A8A] shadow-[0_4px_0_#C7D7F5] transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_#C7D7F5] active:translate-y-1 active:shadow-none"
@@ -401,14 +509,17 @@ function PathSection({
         </div>
       </div>
 
-      {section.trails.map((trail, index) => (
-        <Trail
-          key={trail.title}
-          trail={trail}
-          trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
-          onSelect={onSelect}
-        />
-      ))}
+      {open &&
+        section.trails.map((trail, index) => (
+          <Trail
+            key={trail.title}
+            trail={trail}
+            trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
+            open={!collapsed.has(trailKey(section, index))}
+            onToggle={() => onToggle(trailKey(section, index))}
+            onSelect={onSelect}
+          />
+        ))}
     </section>
   );
 }
@@ -1361,6 +1472,7 @@ export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress>(loadProgress);
   const [showGuide, setShowGuide] = useState(false);
+  const outline = useCollapsed();
   const trailSections = applyProgress(sections, progress);
 
   function completeLesson(lesson: Lesson, bpm: number) {
@@ -1387,12 +1499,15 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#FFFEFB] text-[#172554]">
       <TopBar />
-      <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8 lg:pt-10">
-        <div className="space-y-14">
+      <main className="mx-auto max-w-[720px] px-5 pb-16 pt-2 sm:px-8">
+        <OutlineControls onExpand={outline.expandAll} onCollapse={() => outline.collapseAll(trailSections)} />
+        <div className="space-y-10">
           {trailSections.map((section) => (
             <PathSection
               key={section.id}
               section={section}
+              collapsed={outline.collapsed}
+              onToggle={outline.toggle}
               onSelect={setSelectedLesson}
               onOpenGuide={() => {
                 setShowGuide(true);
