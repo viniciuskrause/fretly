@@ -180,8 +180,20 @@ const SECOND_INVERSION_CM7B5 = [
 // qualities lower the chord tones that differ.
 const THIRD_INVERSION_C = [
   { bassString: 4, frets: [-1, -1, 9, 9, 8, 8], fingers: [0, 0, 2, 3, 1, 1] },
-  { bassString: 5, frets: [-1, 14, 14, 12, 13, -1], fingers: [0, 3, 4, 1, 2, 0] },
-  { bassString: 5, frets: [-1, 14, -1, 12, 13, 12], fingers: [0, 3, 0, 1, 2, 1], alternative: true },
+  // In C itself the user plays it open (x2201x); `inC` keeps that, other keys move the shape.
+  {
+    bassString: 5,
+    frets: [-1, 14, 14, 12, 13, -1],
+    fingers: [0, 3, 4, 1, 2, 0],
+    inC: { frets: [-1, 2, 2, 0, 1, -1], fingers: [0, 2, 3, 0, 1, 0] },
+  },
+  {
+    bassString: 5,
+    frets: [-1, 14, -1, 12, 13, 12],
+    fingers: [0, 3, 0, 1, 2, 1],
+    alternative: true,
+    inC: { frets: [-1, 2, -1, 0, 1, 0], fingers: [0, 2, 0, 0, 1, 0] },
+  },
   { bassString: 6, frets: [7, 7, 5, 5, -1, -1], fingers: [3, 4, 1, 1, 0, 0] },
   { bassString: 6, frets: [7, -1, 5, 5, 5, -1], fingers: [3, 0, 1, 1, 1, 0], alternative: true },
 ];
@@ -260,8 +272,8 @@ function inversionLesson(root, suffix, bass, label, model) {
       bassNote,
       bass,
       bassString: voicing.bassString,
-      frets: moved.get(voicing),
-      fingers: voicing.fingers,
+      frets: root === "C" && voicing.inC ? voicing.inC.frets : moved.get(voicing),
+      fingers: root === "C" && voicing.inC ? voicing.inC.fingers : voicing.fingers,
       alternative: voicing.alternative,
       instruction: `${label[0].toUpperCase()}${label.slice(1)} (${bassNote}) no baixo, na ${voicing.bassString}ª corda.`,
   }));
