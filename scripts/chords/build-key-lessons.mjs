@@ -122,6 +122,22 @@ const SECOND_INVERSION_C = [
   { bassString: 6, frets: [3, 3, 2, 4, -1, -1], fingers: [2, 3, 1, 4, 0, 0] },
 ];
 
+// Cm7/E♭ (first inversion of the minor seventh), as the user plays it.
+const FIRST_INVERSION_CM = [
+  { bassString: 4, frets: [-1, -1, 1, 3, 1, 3], fingers: [0, 0, 1, 3, 1, 4] },
+  { bassString: 5, frets: [-1, 6, 8, 5, 8, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 5, frets: [-1, 6, -1, 5, 8, 6], fingers: [0, 2, 0, 1, 4, 3], alternative: true },
+  { bassString: 6, frets: [11, 13, 10, 12, -1, -1], fingers: [2, 4, 1, 3, 0, 0] },
+  { bassString: 6, frets: [11, -1, 10, 12, 11, -1], fingers: [2, 0, 1, 4, 3, 0], alternative: true },
+];
+
+/**
+ * Minor keys in cycle-of-fourths order, named as in standard notation: G♯, C♯
+ * and F♯ minor (5, 4 and 3 sharps) instead of A♭, D♭ and G♭ minor, whose
+ * thirds would be C♭, F♭ and B𝄫.
+ */
+const MINOR_CYCLE = ["C", "F", "B♭", "E♭", "G♯", "C♯", "F♯", "B", "E", "A", "D", "G"];
+
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */
 const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
@@ -180,6 +196,10 @@ const INVERSIONS = {
     {
       title: "1ª inversão: baixo na terça",
       lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "third", "terça", FIRST_INVERSION_C)),
+    },
+    {
+      title: "1ª inversão: baixo na terça - Acordes menores",
+      lessons: MINOR_CYCLE.map((root) => inversionLesson(root, "m7", "third", "terça", FIRST_INVERSION_CM)),
     },
     {
       title: "2ª inversão: baixo na quinta",

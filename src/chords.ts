@@ -29,7 +29,7 @@ export type ChordStep = {
   /** Name shown in the app ("C", "B♭", "Am", "G7", "Bm7(♭5)"). */
   chord: string;
   /** chords-db suffix; omitted = "major". */
-  suffix?: "major" | "minor" | "7" | "m7b5" | "maj7";
+  suffix?: "major" | "minor" | "7" | "m7b5" | "maj7" | "m7";
   /** Chord tone in the bass (inversions); omitted = the root. */
   bass?: "root" | "third" | "fifth" | "seventh";
   /** CAGED shape the voicing comes from (root-position chords of section 1). */

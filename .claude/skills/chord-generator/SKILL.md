@@ -135,6 +135,11 @@ armadura de clave da tonalidade: B7M/D♯, D7M/F♯, G♭7M/B♭). Modelo C7M - 
 casas acima de 9 → escreva os trastes como array). Alternativas logo após a
 principal: x7x587 (dedos 0,2,0,1,4,3) e 12-x-10-12-12-x (dedos 2,0,1,3,4,0).
 
+1ª inversão menor (`FIRST_INVERSION_CM`, Cm7/E♭): xx1313 (0,0,1,3,1,4), x6858x
+(0,2,3,1,4,0), alt x6x586 (0,2,0,1,4,3), 11-13-10-12-x-x (2,4,1,3,0,0), alt
+11-x-10-12-11-x (2,0,1,4,3,0). Tons menores em `MINOR_CYCLE`: G♯m, C♯m, F♯m no
+lugar de A♭m, D♭m, G♭m (terças C♭, F♭, B𝄫).
+
 2ª inversão (baixo na quinta, `SECOND_INVERSION_C`): xx5557 (dedos 0,0,1,1,1,4,
 do chords-db), x-10-10-9-12-x (dedos 0,2,3,1,4,0) e 3324xx (dedos 2,3,1,4,0,0),
 as duas últimas do usuário. Sem alternativas.
