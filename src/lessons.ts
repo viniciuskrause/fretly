@@ -2198,6 +2198,7 @@ export const sections: Section[] = [
             bass: "third",
             bassString: 5,
             instruction: "Terça (E) no baixo, na 5ª corda (digitação alternativa).",
+            alternative: true,
             position: { frets: [-1, 3, -1, 1, 4, 3], fingers: [0, 2, 0, 1, 4, 3], baseFret: 5, barres: [], midi: [52, 60, 67, 71] },
           },
           {
@@ -2214,6 +2215,7 @@ export const sections: Section[] = [
             bass: "third",
             bassString: 6,
             instruction: "Terça (E) no baixo, na 6ª corda (digitação alternativa).",
+            alternative: true,
             position: { frets: [3, -1, 1, 3, 3, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 10, barres: [], midi: [52, 60, 67, 71] },
           },
         ],

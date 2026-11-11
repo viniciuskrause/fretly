@@ -36,6 +36,8 @@ export type ChordStep = {
   shape?: CagedShape;
   /** String holding the bass note (inversions of section 2: 4, 5 or 6). */
   bassString?: 4 | 5 | 6;
+  /** Alternative fingering of the previous step (labelled under the diagram). */
+  alternative?: boolean;
   instruction: string;
   position: ChordPosition;
 };

@@ -1104,6 +1104,7 @@ function ExercisePage({
                     step={chordStep}
                     activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
                   />
+                  {chordStep.alternative && <AlternativeLabel className="mt-2 text-[10px]" />}
                 </div>
               );
             })}
@@ -1172,8 +1173,18 @@ function ExercisePage({
             activeStrings={activeStrings}
           />
         </div>
+        {step.alternative && <AlternativeLabel className="mt-3 text-xs" />}
       </div>
     </ExerciseShell>
+  );
+}
+
+/** Caption under the diagram of an alternative fingering. */
+function AlternativeLabel({ className = "" }: { className?: string }) {
+  return (
+    <p className={`font-black uppercase tracking-[0.14em] text-[#64748B] ${className}`}>
+      Digitação alternativa
+    </p>
   );
 }
 

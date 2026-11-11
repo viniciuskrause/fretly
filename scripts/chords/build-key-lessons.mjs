@@ -141,6 +141,7 @@ const INVERSIONS = {
               frets: "x7x587",
               fingers: [0, 2, 0, 1, 4, 3],
               instruction: "Terça (E) no baixo, na 5ª corda (digitação alternativa).",
+              alternative: true,
             },
             {
               root: "C",
@@ -161,6 +162,7 @@ const INVERSIONS = {
               frets: [12, -1, 10, 12, 12, -1],
               fingers: [2, 0, 1, 3, 4, 0],
               instruction: "Terça (E) no baixo, na 6ª corda (digitação alternativa).",
+              alternative: true,
             },
           ],
         },
@@ -193,6 +195,7 @@ const inversionTrails = INVERSIONS.trails.map((trail) => {
         `            bass: "${step.bass}",`,
         `            bassString: ${step.bassString},`,
         `            instruction: "${step.instruction}",`,
+        ...(step.alternative ? ["            alternative: true,"] : []),
         `            position: ${formatPosition(position)},`,
         "          },",
       ].join("\n");
