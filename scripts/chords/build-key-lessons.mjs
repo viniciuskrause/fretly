@@ -115,12 +115,11 @@ const FIRST_INVERSION_C = [
   { bassString: 6, frets: [12, -1, 10, 12, 12, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
 ];
 
-// C7M/G (second inversion), from chords-db (reference/chords-db) maj7 voicings
-// with the fifth in the bass, moved to C; the user will correct them if needed.
+// C7M/G (second inversion): 4th string from chords-db, 5th and 6th as the user plays them.
 const SECOND_INVERSION_C = [
   { bassString: 4, frets: [-1, -1, 5, 5, 5, 7], fingers: [0, 0, 1, 1, 1, 4] },
-  { bassString: 5, frets: [-1, 10, 10, 12, 12, 12], fingers: [0, 1, 1, 2, 3, 4] },
-  { bassString: 6, frets: [3, 3, 5, 4, 5, 3], fingers: [1, 1, 3, 2, 4, 1] },
+  { bassString: 5, frets: [-1, 10, 10, 9, 12, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 6, frets: [3, 3, 2, 4, -1, -1], fingers: [2, 3, 1, 4, 0, 0] },
 ];
 
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
