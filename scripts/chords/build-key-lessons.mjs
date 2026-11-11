@@ -115,8 +115,21 @@ const FIRST_INVERSION_C = [
   { bassString: 6, frets: [12, -1, 10, 12, 12, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
 ];
 
-/** Note names, always with flats (user rule). */
-const NOTE_NAMES = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
+const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
+/** Letters a chord tone sits above the root (third = 2 letters up, …). */
+const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
+
+/**
+ * Spells the note `semitones` above `root` on the letter `letterSteps` above it,
+ * so the name follows the key signature (B major: third = D♯, E♭ major: G; on
+ * the treble clef as in any clef).
+ */
+function spell(root, semitones, letterSteps) {
+  const letter = LETTERS[(LETTERS.indexOf(root[0]) + letterSteps) % 7];
+  const pc = (rootPitchClass(root) + semitones) % 12;
+  const offset = ((pc - rootPitchClass(letter) + 18) % 12) - 6;
+  return letter + ({ "-2": "𝄫", "-1": "♭", 0: "", 1: "♯", 2: "𝄪" }[offset] ?? "?");
+}
 
 /**
  * Moves a C voicing to `root`: the shift (mod 12) that keeps every fretted note
@@ -135,7 +148,7 @@ function transpose(frets, root) {
 
 function inversionLesson(root, suffix, bass, label, model) {
   const symbol = chordSymbol(root, suffix);
-  const bassNote = NOTE_NAMES[(rootPitchClass(root) + SUFFIX_INTERVALS[suffix][BASS_TONES[bass]]) % 12];
+  const bassNote = spell(root, SUFFIX_INTERVALS[suffix][BASS_TONES[bass]], BASS_LETTER_STEPS[bass]);
   return {
     title: `${symbol} - baixo na ${label}`,
     subtitle: `${symbol} com a ${label} no baixo, na 4ª, 5ª e 6ª corda`,
