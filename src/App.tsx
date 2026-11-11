@@ -405,39 +405,39 @@ function TrailBody({
   );
 }
 
-const COLLAPSED_KEY = "fretly.collapsed.v1";
+const OPEN_KEY = "fretly.open.v1";
 const sectionKey = (section: Section) => `s${section.id}`;
 const trailKey = (section: Section, index: number) => `s${section.id}:t${index}`;
 
-/** Collapsed sections and trails, remembered in this browser (all open by default). */
-function useCollapsed() {
-  const [collapsed, setCollapsed] = useState<Set<string>>(() => {
+/** Open sections and trails, remembered in this browser (all closed by default). */
+function useOutline() {
+  const [open, setOpen] = useState<Set<string>>(() => {
     try {
-      const raw = window.localStorage.getItem(COLLAPSED_KEY);
+      const raw = window.localStorage.getItem(OPEN_KEY);
       return new Set(raw ? (JSON.parse(raw) as string[]) : []);
     } catch {
       return new Set();
     }
   });
   function update(next: Set<string>) {
-    setCollapsed(next);
+    setOpen(next);
     try {
-      window.localStorage.setItem(COLLAPSED_KEY, JSON.stringify([...next]));
+      window.localStorage.setItem(OPEN_KEY, JSON.stringify([...next]));
     } catch {
       // Blocked storage: the state lasts for this visit only.
     }
   }
   return {
-    collapsed,
+    open,
     toggle(key: string) {
-      const next = new Set(collapsed);
+      const next = new Set(open);
       if (next.has(key)) next.delete(key);
       else next.add(key);
       update(next);
     },
-    expandAll: () => update(new Set()),
-    collapseAll: (all: Section[]) =>
+    expandAll: (all: Section[]) =>
       update(new Set(all.flatMap((section) => [sectionKey(section), ...section.trails.map((_, i) => trailKey(section, i))]))),
+    collapseAll: () => update(new Set()),
   };
 }
 
@@ -459,18 +459,18 @@ function OutlineControls({ onExpand, onCollapse }: { onExpand: () => void; onCol
 
 function PathSection({
   section,
-  collapsed,
+  openKeys,
   onToggle,
   onSelect,
   onOpenGuide,
 }: {
   section: Section;
-  collapsed: Set<string>;
+  openKeys: Set<string>;
   onToggle: (key: string) => void;
   onSelect: (lesson: Lesson) => void;
   onOpenGuide: () => void;
 }) {
-  const open = !collapsed.has(sectionKey(section));
+  const open = openKeys.has(sectionKey(section));
   const lessons = section.trails.flatMap((trail) => trail.lessons);
   const sectionDone = lessons.every((lesson) => lesson.status === "done");
   const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
@@ -515,7 +515,7 @@ function PathSection({
             key={trail.title}
             trail={trail}
             trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
-            open={!collapsed.has(trailKey(section, index))}
+            open={openKeys.has(trailKey(section, index))}
             onToggle={() => onToggle(trailKey(section, index))}
             onSelect={onSelect}
           />
@@ -1472,7 +1472,7 @@ export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress>(loadProgress);
   const [showGuide, setShowGuide] = useState(false);
-  const outline = useCollapsed();
+  const outline = useOutline();
   const trailSections = applyProgress(sections, progress);
 
   function completeLesson(lesson: Lesson, bpm: number) {
@@ -1500,13 +1500,13 @@ export default function App() {
     <div className="min-h-screen bg-[#FFFEFB] text-[#172554]">
       <TopBar />
       <main className="mx-auto max-w-[720px] px-5 pb-16 pt-2 sm:px-8">
-        <OutlineControls onExpand={outline.expandAll} onCollapse={() => outline.collapseAll(trailSections)} />
+        <OutlineControls onExpand={() => outline.expandAll(trailSections)} onCollapse={outline.collapseAll} />
         <div className="space-y-10">
           {trailSections.map((section) => (
             <PathSection
               key={section.id}
               section={section}
-              collapsed={outline.collapsed}
+              openKeys={outline.open}
               onToggle={outline.toggle}
               onSelect={setSelectedLesson}
               onOpenGuide={() => {
