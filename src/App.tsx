@@ -230,8 +230,8 @@ function TrailNodeIcon({ lesson }: { lesson: Lesson }) {
   if (lesson.type === "review") return <Icon name="replay" className="size-7" />;
   return (
     <span className="text-[24px] font-black leading-none tracking-[-0.04em]">
-      {/* "Bm7(♭5)" is too wide for the node: show it as "Bø". */}
-      {lesson.steps[0].chord.replace("m7(♭5)", "ø")}
+      {/* "Bm7(♭5)" is too wide for the node: show it as "Bø"; inversions drop the bass ("C7M/E" → "C7M"). */}
+      {lesson.steps[0].chord.replace("m7(♭5)", "ø").split("/")[0]}
     </span>
   );
 }
@@ -377,7 +377,7 @@ function PathSection({
         <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.16em] text-[#FDE68A]">
-              Seção {section.id} • {lessons.length} exercícios
+              Seção {section.id} • {lessons.length} {lessons.length === 1 ? "exercício" : "exercícios"}
             </p>
             <h2 className="mt-2 text-[25px] font-black tracking-[-0.03em]">
               {section.title}

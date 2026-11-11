@@ -91,10 +91,14 @@ export const CAGED_M7B5 = {
   D: { rootPc: 2, frets: [-1, -1, 0, 1, 1, 1], open: [0, 0, 0, 1, 1, 1], moved: [0, 0, 1, 2, 3, 4] },
 };
 
-/** Chord symbol shown in the app: "C", "Cm", "C7", "Cm7(♭5)". */
+/** Chord symbol shown in the app: "C", "Cm", "C7", "Cm7(♭5)", "C7M". */
 export function chordSymbol(root, suffix = "major") {
-  return root + ({ major: "", minor: "m", "7": "7", m7b5: "m7(♭5)" }[suffix] ?? suffix);
+  return root + ({ major: "", minor: "m", "7": "7", m7b5: "m7(♭5)", maj7: "7M" }[suffix] ?? suffix);
 }
+
+/** Chord tone in the bass of an inversion, as an index into SUFFIX_INTERVALS. */
+export const BASS_TONES = { root: 0, third: 1, fifth: 2, seventh: 3 };
+export const BASS_NAMES = { root: "a tônica", third: "a terça", fifth: "a quinta", seventh: "a sétima" };
 
 /** CAGED templates for a suffix (major, minor, 7, m7b5). */
 export function cagedTemplates(suffix = "major") {
@@ -258,7 +262,7 @@ export function shapeOf(position, chord, suffix = "major") {
  * Returns { errors, warnings } for a position against Fretly's conventions.
  * With `shape`, also checks it against the root/third rule (`shapeOf`).
  */
-export function validate(position, chord, suffix = "major", shape) {
+export function validate(position, chord, suffix = "major", shape, bass = "root") {
   const errors = [];
   const warnings = [];
   const { frets, fingers, baseFret, barres, midi } = position;
@@ -287,7 +291,10 @@ export function validate(position, chord, suffix = "major", shape) {
     if (!pcs.includes(rootPc)) errors.push("falta a tônica");
     if (!pcs.includes((rootPc + intervals[1]) % 12)) warnings.push("falta a terça (ou a nota característica)");
   }
-  if (expectedMidi.length && expectedMidi[0] % 12 !== rootPc) errors.push("o baixo (nota mais grave) deve ser a tônica");
+  // Inversions declare which chord tone is in the bass; everything else has the root there.
+  const bassInterval = intervals?.[BASS_TONES[bass]] ?? 0;
+  if (expectedMidi.length && expectedMidi[0] % 12 !== (rootPc + bassInterval) % 12)
+    errors.push(`o baixo (nota mais grave) deve ser ${BASS_NAMES[bass]}`);
 
   // Fingering.
   const byFinger = {};
@@ -313,7 +320,9 @@ export function validate(position, chord, suffix = "major", shape) {
     if (span > 3) warnings.push(`abertura de ${span + 1} casas: difícil de alcançar`);
   }
   if (baseFret > 1 && frets.some((f) => f === 0)) warnings.push("corda solta numa posição com baseFret > 1");
-  if (shape) {
+  // The root/third rule names shapes of root-position chords; an inversion's
+  // shape is the one declared for it.
+  if (shape && bass === "root") {
     const derived = shapeOf(position, chord, suffix);
     if (derived !== shape)
       errors.push(`forma registrada ${shape}, mas tônica/terça indicam ${derived ? `forma de ${derived}` : "nenhuma forma CAGED"}`);

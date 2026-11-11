@@ -2160,6 +2160,36 @@ export const sections: Section[] = [
       },
     ],
   },
+  {
+    id: 2,
+    title: "Inversões de Tétrades",
+    subtitle: "Tétrades com o baixo na terça, na quinta e na sétima, em todas as formas",
+    trails: [
+      {
+        title: "1ª inversão: baixo na terça",
+        lessons: [
+      {
+        id: 49,
+        title: "C7M - baixo na terça",
+        exerciseTitle: "C7M - baixo na terça",
+        subtitle: "C7M com a terça no baixo, nas formas CAGED",
+        type: "chord",
+        status: "locked",
+        steps: [
+          {
+            chord: "C7M/E",
+            suffix: "maj7",
+            bass: "third",
+            shape: "C",
+            instruction: "Forma de C com a terça (E) no baixo, na 4ª corda.",
+            position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 1, barres: [], midi: [52, 59, 60, 67] },
+          },
+        ],
+      },
+        ],
+      },
+    ],
+  },
 ];
 
 /** Every lesson of every trail, in order. */

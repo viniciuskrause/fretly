@@ -9,7 +9,16 @@
 // run `npm run check:chords` afterwards.
 import fs from "node:fs";
 import path from "node:path";
-import { chordSymbol, CYCLE_OF_FOURTHS, formatPosition, fromCaged, shapesUpTheNeck, validate } from "./lib.mjs";
+import {
+  barresOf,
+  chordSymbol,
+  CYCLE_OF_FOURTHS,
+  formatPosition,
+  fromCaged,
+  midiOf,
+  shapesUpTheNeck,
+  validate,
+} from "./lib.mjs";
 
 const SECTION = {
   title: "Acordes Básicos no CAGED",
@@ -89,6 +98,84 @@ ${lessons.join("\n")}
       },`;
 });
 
+// ---------------------------------------------------------------- section 2
+// Seventh-chord inversions, written voicing by voicing (absolute frets, low E →
+// high E) as the user defines them.
+const INVERSIONS = {
+  title: "Inversões de Tétrades",
+  subtitle: "Tétrades com o baixo na terça, na quinta e na sétima, em todas as formas",
+  trails: [
+    {
+      title: "1ª inversão: baixo na terça",
+      lessons: [
+        {
+          title: "C7M - baixo na terça",
+          subtitle: "C7M com a terça no baixo, nas formas CAGED",
+          steps: [
+            {
+              root: "C",
+              suffix: "maj7",
+              bassNote: "E",
+              bass: "third",
+              shape: "C",
+              frets: "xx2413",
+              fingers: [0, 0, 2, 4, 1, 3],
+              instruction: "Forma de C com a terça (E) no baixo, na 4ª corda.",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+/** Absolute frets ("xx2413" or [-1, -1, 2, 4, 1, 3]) → a chords-db position. */
+function positionFromFrets(frets, fingers) {
+  const abs = typeof frets === "string" ? [...frets].map((c) => (c === "x" ? -1 : Number.parseInt(c, 36))) : frets;
+  const fretted = abs.filter((fret) => fret > 0);
+  const baseFret = Math.max(1, Math.min(...fretted) - (Math.max(...fretted) <= 5 ? Math.min(...fretted) : 1));
+  const rel = abs.map((fret) => (fret <= 0 ? fret : fret - baseFret + 1));
+  return { frets: rel, fingers, baseFret, barres: barresOf(rel, fingers), midi: midiOf(rel, baseFret) };
+}
+
+const inversionTrails = INVERSIONS.trails.map((trail) => {
+  const lessons = trail.lessons.map((lesson) => {
+    const steps = lesson.steps.map((step) => {
+      const position = positionFromFrets(step.frets, step.fingers);
+      const name = `${chordSymbol(step.root, step.suffix)}/${step.bassNote}`;
+      const { errors } = validate(position, step.root, step.suffix, step.shape, step.bass);
+      if (errors.length) throw new Error(`${name} forma ${step.shape}: ${errors.join("; ")}`);
+      return [
+        "          {",
+        `            chord: "${name}",`,
+        `            suffix: "${step.suffix}",`,
+        `            bass: "${step.bass}",`,
+        `            shape: "${step.shape}",`,
+        `            instruction: "${step.instruction}",`,
+        `            position: ${formatPosition(position)},`,
+        "          },",
+      ].join("\n");
+    });
+    return `      {
+        id: ${nextId++},
+        title: "${lesson.title}",
+        exerciseTitle: "${lesson.title}",
+        subtitle: "${lesson.subtitle}",
+        type: "chord",
+        status: "locked",
+        steps: [
+${steps.join("\n")}
+        ],
+      },`;
+  });
+  return `      {
+        title: "${trail.title}",
+        lessons: [
+${lessons.join("\n")}
+        ],
+      },`;
+});
+
 const file = `import type { ChordStep } from "./chords.ts";
 
 // One section with a trail per chord quality (major, minor, 7, m7(♭5)); in each trail, one
@@ -132,10 +219,18 @@ export const sections: Section[] = [
 ${trails.join("\n")}
     ],
   },
+  {
+    id: 2,
+    title: "${INVERSIONS.title}",
+    subtitle: "${INVERSIONS.subtitle}",
+    trails: [
+${inversionTrails.join("\n")}
+    ],
+  },
 ];
 
 /** Every lesson of every trail, in order. */
 export const lessons: Lesson[] = sections.flatMap((section) => section.trails.flatMap((trail) => trail.lessons));
 `;
 fs.writeFileSync(path.resolve(import.meta.dirname, "../../src/lessons.ts"), file);
-console.log(`src/lessons.ts: 1 seção, ${TRAILS.length} trilhas, ${nextId - 1} aulas`);
+console.log(`src/lessons.ts: 2 seções, ${TRAILS.length + INVERSIONS.trails.length} trilhas, ${nextId - 1} aulas`);
