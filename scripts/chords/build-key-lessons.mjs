@@ -14,6 +14,9 @@ import {
   BASS_TONES,
   chordSymbol,
   CYCLE_OF_FOURTHS,
+  DOMINANT_CYCLE,
+  HALF_DIMINISHED_CYCLE,
+  MINOR_CYCLE,
   formatPosition,
   fromCaged,
   midiOf,
@@ -63,7 +66,10 @@ const instruction = (shape, baseFret, suffix) => {
 let nextId = 1;
 const trails = TRAILS.map((trail, trailIndex) => {
   const { suffix } = trail;
-  const lessons = CYCLE_OF_FOURTHS.map((root, index) => {
+  // Key-signature rule: minor keys G♯m, C♯m, F♯m (not A♭m …); half-diminished
+  // chords as the 7th degree of a major key (A♯m7(♭5), not B♭m7(♭5)); F♯7, not G♭7.
+  const cycle = { minor: MINOR_CYCLE, "7": DOMINANT_CYCLE, m7b5: HALF_DIMINISHED_CYCLE }[suffix] ?? CYCLE_OF_FOURTHS;
+  const lessons = cycle.map((root, index) => {
     const name = chordSymbol(root, suffix);
     const steps = shapesUpTheNeck(root).map((shape) => {
       const position = fromCaged(root, shape, undefined, suffix);
@@ -130,13 +136,6 @@ const FIRST_INVERSION_CM = [
   { bassString: 6, frets: [11, 13, 10, 12, -1, -1], fingers: [2, 4, 1, 3, 0, 0] },
   { bassString: 6, frets: [11, -1, 10, 12, 11, -1], fingers: [2, 0, 1, 4, 3, 0], alternative: true },
 ];
-
-/**
- * Minor keys in cycle-of-fourths order, named as in standard notation: G♯, C♯
- * and F♯ minor (5, 4 and 3 sharps) instead of A♭, D♭ and G♭ minor, whose
- * thirds would be C♭, F♭ and B𝄫.
- */
-const MINOR_CYCLE = ["C", "F", "B♭", "E♭", "G♯", "C♯", "F♯", "B", "E", "A", "D", "G"];
 
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */

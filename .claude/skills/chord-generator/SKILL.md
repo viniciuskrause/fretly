@@ -128,6 +128,11 @@ Sustenidos e bemóis seguem a notação padrão: a armadura de clave da tonalida
 - **Notas do acorde** (baixo de inversões etc.) são escritas pela letra do grau
   (`spell`): terça = 2 letras acima da tônica, quinta = 4, sétima = 6; o acidente
   sai da distância em semitons. Ex.: B7M/D♯, D7M/F♯, G♭7M/B♭, G♯m7/B, E♭m7/G♭.
+- **Raiz de cada trilha** (lib.mjs): maiores e 7M em `CYCLE_OF_FOURTHS`; menores
+  e m7 em `MINOR_CYCLE`; sétima dominante em `DOMINANT_CYCLE` (F♯7, V de B, não
+  G♭7, que tem F♭); meio diminutos em `HALF_DIMINISHED_CYCLE` (C F A♯ D♯ G♯ C♯ F♯
+  B E A D G: VII de um tom maior; B♭ø, E♭ø, … teriam F♭, B𝄫). Nenhuma nota com
+  dobrado acidente.
 - Use os símbolos ♯ e ♭ (nunca `#` ou `b`) nos nomes exibidos.
 
 ## Inversões de tétrades (seção 2)
@@ -165,7 +170,6 @@ as duas últimas do usuário. Sem alternativas.
   grave que cabe no braço). Gere com `npm run chord -- B♭ --position 3`.
 - **Ciclo das quartas** (`CYCLE_OF_FOURTHS`): C, F, B♭, E♭, A♭, D♭, G♭, B, E, A, D, G.
 - **Acidentes:** seguem a armadura de clave (ver "Notação: armadura de clave").
-  A seção 1 ainda usa A♭m, D♭m, G♭m (gerada antes da regra).
 - **Uma aula por tonalidade**, na ordem do ciclo das quartas: "C maior - formas
   CAGED", "F maior - formas CAGED"… Cada aula tem o acorde nas 5 formas, da mais
   grave para a mais aguda (`shapesUpTheNeck`), e o exercício final toca as cinco

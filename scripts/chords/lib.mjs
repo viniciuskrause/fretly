@@ -128,6 +128,23 @@ export function shapeForPosition(chord, position) {
 /** Order of the "ciclo das quartas" lessons. */
 export const CYCLE_OF_FOURTHS = ["C", "F", "B♭", "E♭", "A♭", "D♭", "G♭", "B", "E", "A", "D", "G"];
 
+/**
+ * Minor keys in cycle-of-fourths order, named as in standard notation: G♯, C♯
+ * and F♯ minor (5, 4 and 3 sharps) instead of A♭, D♭ and G♭ minor, whose
+ * thirds would be C♭, F♭ and B𝄫.
+ */
+export const MINOR_CYCLE = ["C", "F", "B♭", "E♭", "G♯", "C♯", "F♯", "B", "E", "A", "D", "G"];
+
+/**
+ * Half-diminished chords in cycle-of-fourths order, named as the 7th degree of
+ * a major key (key-signature rule): A♯, D♯, G♯, C♯, F♯ (vii of B, E, A, D, G)
+ * instead of B♭, E♭, A♭, D♭, G♭, whose spellings need F♭, B𝄫, C♭ …
+ */
+export const HALF_DIMINISHED_CYCLE = ["C", "F", "A♯", "D♯", "G♯", "C♯", "F♯", "B", "E", "A", "D", "G"];
+
+/** Dominant sevenths named as the V7 of a major key: F♯7 (V of B), not G♭7 (V of C♭, with F♭). */
+export const DOMINANT_CYCLE = ["C", "F", "B♭", "E♭", "A♭", "D♭", "F♯", "B", "E", "A", "D", "G"];
+
 export function midiOf(frets, baseFret) {
   return frets.flatMap((fret, string) =>
     fret < 0 ? [] : [OPEN_STRING_MIDI[string] + (fret === 0 ? 0 : baseFret + fret - 1)],
