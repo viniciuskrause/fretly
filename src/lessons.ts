@@ -21,6 +21,8 @@ export type Lesson = {
 
 /** One trail of the home page, under a small heading ("Acordes maiores"). */
 export type Trail = {
+  /** Collapsible category the trail sits in ("1ª inversão: baixo na terça"); omitted = none. */
+  group?: string;
   title: string;
   lessons: Lesson[];
 };
@@ -2166,7 +2168,8 @@ export const sections: Section[] = [
     subtitle: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
     trails: [
       {
-        title: "1ª inversão: baixo na terça",
+        group: "1ª inversão: baixo na terça",
+        title: "Acordes maiores",
         lessons: [
       {
         id: 49,
@@ -2795,7 +2798,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "1ª inversão: baixo na terça - Acordes menores",
+        group: "1ª inversão: baixo na terça",
+        title: "Acordes menores",
         lessons: [
       {
         id: 61,
@@ -3424,7 +3428,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "1ª inversão: baixo na terça - Acordes de sétima dominante",
+        group: "1ª inversão: baixo na terça",
+        title: "Acordes de sétima dominante",
         lessons: [
       {
         id: 73,
@@ -4053,7 +4058,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "1ª inversão: baixo na terça - Acordes meio diminutos",
+        group: "1ª inversão: baixo na terça",
+        title: "Acordes meio diminutos",
         lessons: [
       {
         id: 85,
@@ -4682,7 +4688,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "2ª inversão: baixo na quinta",
+        group: "2ª inversão: baixo na quinta",
+        title: "Acordes maiores",
         lessons: [
       {
         id: 97,
@@ -5095,7 +5102,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "2ª inversão: baixo na quinta - Acordes menores",
+        group: "2ª inversão: baixo na quinta",
+        title: "Acordes menores",
         lessons: [
       {
         id: 109,
@@ -5508,7 +5516,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "2ª inversão: baixo na quinta - Acordes de sétima dominante",
+        group: "2ª inversão: baixo na quinta",
+        title: "Acordes de sétima dominante",
         lessons: [
       {
         id: 121,
@@ -5921,7 +5930,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "2ª inversão: baixo na quinta - Acordes meio diminutos",
+        group: "2ª inversão: baixo na quinta",
+        title: "Acordes meio diminutos",
         lessons: [
       {
         id: 133,
@@ -6334,7 +6344,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "3ª inversão: baixo na sétima",
+        group: "3ª inversão: baixo na sétima",
+        title: "Acordes maiores",
         lessons: [
       {
         id: 145,
@@ -6747,7 +6758,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "3ª inversão: baixo na sétima - Acordes menores",
+        group: "3ª inversão: baixo na sétima",
+        title: "Acordes menores",
         lessons: [
       {
         id: 157,
@@ -7160,7 +7172,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "3ª inversão: baixo na sétima - Acordes de sétima dominante",
+        group: "3ª inversão: baixo na sétima",
+        title: "Acordes de sétima dominante",
         lessons: [
       {
         id: 169,
@@ -7573,7 +7586,8 @@ export const sections: Section[] = [
         ],
       },
       {
-        title: "3ª inversão: baixo na sétima - Acordes meio diminutos",
+        group: "3ª inversão: baixo na sétima",
+        title: "Acordes meio diminutos",
         lessons: [
       {
         id: 181,

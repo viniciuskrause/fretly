@@ -291,59 +291,35 @@ function lowToHigh(steps) {
   return groups.sort(compare).flat();
 }
 
+// Trails grouped by inversion (a collapsible category on the home page), one
+// trail per chord quality inside each group.
+const INVERSION_GROUPS = [
+  { title: "1ª inversão: baixo na terça", bass: "third", label: "terça",
+    models: { maj7: FIRST_INVERSION_C, m7: FIRST_INVERSION_CM, "7": FIRST_INVERSION_C7, m7b5: FIRST_INVERSION_CM7B5 } },
+  { title: "2ª inversão: baixo na quinta", bass: "fifth", label: "quinta",
+    models: { maj7: SECOND_INVERSION_C, m7: SECOND_INVERSION_CM, "7": SECOND_INVERSION_C7, m7b5: SECOND_INVERSION_CM7B5 } },
+  { title: "3ª inversão: baixo na sétima", bass: "seventh", label: "sétima",
+    models: { maj7: THIRD_INVERSION_C, m7: THIRD_INVERSION_CM, "7": THIRD_INVERSION_C7, m7b5: THIRD_INVERSION_CM7B5 } },
+];
+const QUALITIES = [
+  { suffix: "maj7", title: "Acordes maiores", cycle: CYCLE_OF_FOURTHS },
+  { suffix: "m7", title: "Acordes menores", cycle: MINOR_CYCLE },
+  { suffix: "7", title: "Acordes de sétima dominante", cycle: DOMINANT_CYCLE },
+  { suffix: "m7b5", title: "Acordes meio diminutos", cycle: HALF_DIMINISHED_CYCLE },
+];
+
 const INVERSIONS = {
   title: "Inversões de Tétrades",
   subtitle: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
-  trails: [
-    {
-      title: "1ª inversão: baixo na terça",
-      lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "third", "terça", FIRST_INVERSION_C)),
-    },
-    {
-      title: "1ª inversão: baixo na terça - Acordes menores",
-      lessons: MINOR_CYCLE.map((root) => inversionLesson(root, "m7", "third", "terça", FIRST_INVERSION_CM)),
-    },
-    {
-      title: "1ª inversão: baixo na terça - Acordes de sétima dominante",
-      lessons: DOMINANT_CYCLE.map((root) => inversionLesson(root, "7", "third", "terça", FIRST_INVERSION_C7)),
-    },
-    {
-      title: "1ª inversão: baixo na terça - Acordes meio diminutos",
-      lessons: HALF_DIMINISHED_CYCLE.map((root) => inversionLesson(root, "m7b5", "third", "terça", FIRST_INVERSION_CM7B5)),
-    },
-    {
-      title: "2ª inversão: baixo na quinta",
-      lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "fifth", "quinta", SECOND_INVERSION_C)),
-    },
-    {
-      title: "2ª inversão: baixo na quinta - Acordes menores",
-      lessons: MINOR_CYCLE.map((root) => inversionLesson(root, "m7", "fifth", "quinta", SECOND_INVERSION_CM)),
-    },
-    {
-      title: "2ª inversão: baixo na quinta - Acordes de sétima dominante",
-      lessons: DOMINANT_CYCLE.map((root) => inversionLesson(root, "7", "fifth", "quinta", SECOND_INVERSION_C7)),
-    },
-    {
-      title: "2ª inversão: baixo na quinta - Acordes meio diminutos",
-      lessons: HALF_DIMINISHED_CYCLE.map((root) => inversionLesson(root, "m7b5", "fifth", "quinta", SECOND_INVERSION_CM7B5)),
-    },
-    {
-      title: "3ª inversão: baixo na sétima",
-      lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "seventh", "sétima", THIRD_INVERSION_C)),
-    },
-    {
-      title: "3ª inversão: baixo na sétima - Acordes menores",
-      lessons: MINOR_CYCLE.map((root) => inversionLesson(root, "m7", "seventh", "sétima", THIRD_INVERSION_CM)),
-    },
-    {
-      title: "3ª inversão: baixo na sétima - Acordes de sétima dominante",
-      lessons: DOMINANT_CYCLE.map((root) => inversionLesson(root, "7", "seventh", "sétima", THIRD_INVERSION_C7)),
-    },
-    {
-      title: "3ª inversão: baixo na sétima - Acordes meio diminutos",
-      lessons: HALF_DIMINISHED_CYCLE.map((root) => inversionLesson(root, "m7b5", "seventh", "sétima", THIRD_INVERSION_CM7B5)),
-    },
-  ],
+  trails: INVERSION_GROUPS.flatMap((group) =>
+    QUALITIES.map((quality) => ({
+      group: group.title,
+      title: quality.title,
+      lessons: quality.cycle.map((root) =>
+        inversionLesson(root, quality.suffix, group.bass, group.label, group.models[quality.suffix]),
+      ),
+    })),
+  ),
 };
 
 /** Absolute frets ("xx2413" or [-1, -1, 2, 4, 1, 3]) → a chords-db position. */
@@ -388,6 +364,7 @@ ${steps.join("\n")}
       },`;
   });
   return `      {
+        group: "${trail.group}",
         title: "${trail.title}",
         lessons: [
 ${lessons.join("\n")}
@@ -418,6 +395,8 @@ export type Lesson = {
 
 /** One trail of the home page, under a small heading ("Acordes maiores"). */
 export type Trail = {
+  /** Collapsible category the trail sits in ("1ª inversão: baixo na terça"); omitted = none. */
+  group?: string;
   title: string;
   lessons: Lesson[];
 };

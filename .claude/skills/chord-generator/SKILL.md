@@ -147,6 +147,9 @@ cifra `7M`), `bass` (`root` | `third` | `fifth` | `seventh`) e `bassString`
 `bassString` e **não** tem `shape`. `validate(..., shape, bass, bassString)`
 exige que a nota mais grave seja o grau declarado e que esteja na corda
 declarada. O app mostra "C7M/E (baixo na 5ª corda)" no título do exercício.
+Trilhas agrupadas por inversão (`INVERSION_GROUPS` × `QUALITIES`): cada trilha tem
+`group` ("1ª inversão: baixo na terça", categoria colapsável na home) e `title` com o
+tipo ("Acordes maiores", "Acordes menores", …).
 Ordem dos exercícios de cada aula (`lowToHigh`): ao longo do braço, do acorde mais
 perto da pestana (casa presa mais baixa) ao mais perto do corpo; cada alternativa logo
 após a sua digitação normal. O exercício final toca os passos nessa mesma ordem.

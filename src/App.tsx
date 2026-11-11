@@ -408,6 +408,18 @@ function TrailBody({
 const OPEN_KEY = "fretly.open.v1";
 const sectionKey = (section: Section) => `s${section.id}`;
 const trailKey = (section: Section, index: number) => `s${section.id}:t${index}`;
+const groupKey = (section: Section, group: string) => `s${section.id}:g${group}`;
+
+/** Every key of the outline: sections, inversion groups and trails. */
+function outlineKeys(all: Section[]) {
+  return all.flatMap((section) => [
+    sectionKey(section),
+    ...section.trails.flatMap((trail, index) => [
+      trailKey(section, index),
+      ...(trail.group ? [groupKey(section, trail.group)] : []),
+    ]),
+  ]);
+}
 
 /** Open sections and trails, remembered in this browser (all closed by default). */
 function useOutline() {
@@ -435,10 +447,59 @@ function useOutline() {
       else next.add(key);
       update(next);
     },
-    expandAll: (all: Section[]) =>
-      update(new Set(all.flatMap((section) => [sectionKey(section), ...section.trails.map((_, i) => trailKey(section, i))]))),
+    expandAll: (all: Section[]) => update(new Set(outlineKeys(all))),
     collapseAll: () => update(new Set()),
   };
+}
+
+/** Consecutive trails of a section that share a group (trails without one stand alone). */
+function trailBlocks(section: Section) {
+  const blocks: Array<{ group?: string; items: Array<{ trail: TrailData; index: number }> }> = [];
+  section.trails.forEach((trail, index) => {
+    const last = blocks.at(-1);
+    if (trail.group && last?.group === trail.group) last.items.push({ trail, index });
+    else blocks.push({ group: trail.group, items: [{ trail, index }] });
+  });
+  return blocks;
+}
+
+/** Collapsible category of trails (an inversion in section 2). */
+function TrailGroup({
+  title,
+  lessons,
+  open,
+  onToggle,
+  children,
+}: {
+  title: string;
+  lessons: Lesson[];
+  open: boolean;
+  onToggle: () => void;
+  children: ReactNode;
+}) {
+  const hasCurrent = lessons.some((lesson) => lesson.status === "current");
+  return (
+    <div className="mt-4">
+      <button
+        onClick={onToggle}
+        aria-expanded={open}
+        className="flex w-full items-center gap-3 rounded-2xl bg-[#FEF3C7] px-4 py-3.5 text-left shadow-[0_3px_0_#FBBF24] transition hover:bg-[#FDE68A] active:translate-y-0.5 active:shadow-none"
+      >
+        <span className="min-w-0 flex-1 text-sm font-black tracking-[-0.01em] text-[#172554]">{title}</span>
+        {hasCurrent && !open && (
+          <span className="shrink-0 rounded-full bg-white px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#C2410C]">
+            Atual
+          </span>
+        )}
+        <span className="shrink-0 text-xs font-black text-[#92400E]">{doneCount(lessons)}</span>
+        <Icon
+          name="chevron"
+          className={`size-5 shrink-0 text-[#92400E] transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && <div className="ml-2 border-l-2 border-[#FDE68A] pl-3 sm:ml-3 sm:pl-4">{children}</div>}
+    </div>
+  );
 }
 
 /** Sticky bar under the top bar: open or close every section and trail at once. */
@@ -510,16 +571,31 @@ function PathSection({
       </div>
 
       {open &&
-        section.trails.map((trail, index) => (
-          <Trail
-            key={trail.title}
-            trail={trail}
-            trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
-            open={openKeys.has(trailKey(section, index))}
-            onToggle={() => onToggle(trailKey(section, index))}
-            onSelect={onSelect}
-          />
-        ))}
+        trailBlocks(section).map((block) => {
+          const trails = block.items.map(({ trail, index }) => (
+            <Trail
+              key={index}
+              trail={trail}
+              trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
+              open={openKeys.has(trailKey(section, index))}
+              onToggle={() => onToggle(trailKey(section, index))}
+              onSelect={onSelect}
+            />
+          ));
+          if (!block.group) return trails;
+          const key = groupKey(section, block.group);
+          return (
+            <TrailGroup
+              key={key}
+              title={block.group}
+              lessons={block.items.flatMap(({ trail }) => trail.lessons)}
+              open={openKeys.has(key)}
+              onToggle={() => onToggle(key)}
+            >
+              {trails}
+            </TrailGroup>
+          );
+        })}
     </section>
   );
 }
