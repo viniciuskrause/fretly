@@ -20,7 +20,6 @@ import {
   formatPosition,
   fromCaged,
   midiOf,
-  OPEN_STRING_MIDI,
   rootPitchClass,
   shapesUpTheNeck,
   SUFFIX_INTERVALS,
@@ -228,8 +227,8 @@ function inversionLesson(root, suffix, bass, label, model) {
 }
 
 /**
- * Orders a lesson from the lowest-sounding voicing to the highest: by bass
- * pitch, then average pitch, then position on the neck. Each alternative
+ * Orders a lesson along the neck: from the voicing nearest the nut to the one
+ * nearest the body (lowest fretted note, then highest). Each alternative
  * fingering stays right after its main voicing.
  */
 function lowToHigh(steps) {
@@ -238,13 +237,13 @@ function lowToHigh(steps) {
     if (step.alternative) groups.at(-1).push(step);
     else groups.push([step]);
   }
-  const key = ({ frets }) => {
-    const midi = frets.flatMap((fret, string) => (fret < 0 ? [] : [OPEN_STRING_MIDI[string] + fret]));
-    return [Math.min(...midi), midi.reduce((a, b) => a + b, 0) / midi.length, Math.min(...frets.filter((f) => f > 0))];
+  const span = ({ frets }) => {
+    const fretted = frets.filter((fret) => fret > 0);
+    return [Math.min(...fretted), Math.max(...fretted)];
   };
-  const compare = (a, b) => {
-    const [ka, kb] = [key(a[0]), key(b[0])];
-    return ka[0] - kb[0] || ka[1] - kb[1] || ka[2] - kb[2];
+  const compare = ([a], [b]) => {
+    const [[loA, hiA], [loB, hiB]] = [span(a), span(b)];
+    return loA - loB || hiA - hiB;
   };
   return groups.sort(compare).flat();
 }

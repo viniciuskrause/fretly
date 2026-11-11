@@ -147,9 +147,9 @@ cifra `7M`), `bass` (`root` | `third` | `fifth` | `seventh`) e `bassString`
 `bassString` e **não** tem `shape`. `validate(..., shape, bass, bassString)`
 exige que a nota mais grave seja o grau declarado e que esteja na corda
 declarada. O app mostra "C7M/E (baixo na 5ª corda)" no título do exercício.
-Ordem dos exercícios de cada aula (`lowToHigh`): do acorde mais grave ao mais agudo
-(baixo, depois altura média, depois casa no braço); cada alternativa logo após a sua
-digitação normal. O exercício final toca os passos nessa mesma ordem.
+Ordem dos exercícios de cada aula (`lowToHigh`): ao longo do braço, do acorde mais
+perto da pestana (casa presa mais baixa) ao mais perto do corpo; cada alternativa logo
+após a sua digitação normal. O exercício final toca os passos nessa mesma ordem.
 Cada tonalidade (ciclo de quartas) é o modelo em C transposto (`FIRST_INVERSION_C`,
 `transpose`: menor deslocamento que mantém todas as notas presas na casa ≥ 1,
 mesma digitação; o baixo é escrito pela letra do grau, `spell`, seguindo a
