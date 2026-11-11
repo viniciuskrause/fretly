@@ -180,6 +180,12 @@ xx5556 (0,0,1,1,1,2), x-10-10-9-11-x (0,2,3,1,4,0), 3323xx (2,3,1,4,0,0);
 Cm7(♭5)/G♭ `SECOND_INVERSION_CM7B5` xx4546 (0,0,1,2,1,3), x-9-10-8-11-x
 (0,2,3,1,4,0), 2313xx (2,3,1,4,0,0).
 
+3ª inversão (baixo na sétima), proposta pelo Claude, a revisar: C7M/B
+`THIRD_INVERSION_C` xx9988, x-14-14-12-13-x (alt x-14-x-12-13-12), 7755xx
+(alt 7-x-5-5-5-x); Cm7/B♭, C7/B♭ e Cm7(♭5)/B♭ (`THIRD_INVERSION_CM`, `_C7`,
+`_CM7B5`) abaixam as notas que mudam. `transpose` move a digitação normal e as
+suas alternativas com o mesmo deslocamento (ficam na mesma região do braço).
+
 ## Posições e organização das aulas (v2: por tonalidade)
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`

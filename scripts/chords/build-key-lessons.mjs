@@ -174,6 +174,39 @@ const SECOND_INVERSION_CM7B5 = [
   { bassString: 6, frets: [2, 3, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0] },
 ];
 
+// Third inversions (seventh in the bass), proposed by Claude: main voicings on
+// the same string sets as the other inversions (B E G C for C7M/B),
+// alternatives shaped like the first-inversion ones (B G C E); the other
+// qualities lower the chord tones that differ.
+const THIRD_INVERSION_C = [
+  { bassString: 4, frets: [-1, -1, 9, 9, 8, 8], fingers: [0, 0, 2, 3, 1, 1] },
+  { bassString: 5, frets: [-1, 14, 14, 12, 13, -1], fingers: [0, 3, 4, 1, 2, 0] },
+  { bassString: 5, frets: [-1, 14, -1, 12, 13, 12], fingers: [0, 3, 0, 1, 2, 1], alternative: true },
+  { bassString: 6, frets: [7, 7, 5, 5, -1, -1], fingers: [3, 4, 1, 1, 0, 0] },
+  { bassString: 6, frets: [7, -1, 5, 5, 5, -1], fingers: [3, 0, 1, 1, 1, 0], alternative: true },
+];
+const THIRD_INVERSION_CM = [
+  { bassString: 4, frets: [-1, -1, 8, 8, 8, 8], fingers: [0, 0, 1, 1, 1, 1] },
+  { bassString: 5, frets: [-1, 13, 13, 12, 13, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 5, frets: [-1, 13, -1, 12, 13, 11], fingers: [0, 3, 0, 2, 4, 1], alternative: true },
+  { bassString: 6, frets: [6, 6, 5, 5, -1, -1], fingers: [2, 3, 1, 1, 0, 0] },
+  { bassString: 6, frets: [6, -1, 5, 5, 4, -1], fingers: [4, 0, 2, 3, 1, 0], alternative: true },
+];
+const THIRD_INVERSION_C7 = [
+  { bassString: 4, frets: [-1, -1, 8, 9, 8, 8], fingers: [0, 0, 1, 2, 1, 1] },
+  { bassString: 5, frets: [-1, 13, 14, 12, 13, -1], fingers: [0, 2, 4, 1, 3, 0] },
+  { bassString: 5, frets: [-1, 13, -1, 12, 13, 12], fingers: [0, 2, 0, 1, 3, 1], alternative: true },
+  { bassString: 6, frets: [6, 7, 5, 5, -1, -1], fingers: [2, 3, 1, 1, 0, 0] },
+  { bassString: 6, frets: [6, -1, 5, 5, 5, -1], fingers: [2, 0, 1, 1, 1, 0], alternative: true },
+];
+const THIRD_INVERSION_CM7B5 = [
+  { bassString: 4, frets: [-1, -1, 8, 8, 7, 8], fingers: [0, 0, 2, 3, 1, 4] },
+  { bassString: 5, frets: [-1, 13, 13, 11, 13, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 5, frets: [-1, 13, -1, 11, 13, 11], fingers: [0, 3, 0, 1, 4, 1], alternative: true },
+  { bassString: 6, frets: [6, 6, 4, 5, -1, -1], fingers: [3, 4, 1, 2, 0, 0] },
+  { bassString: 6, frets: [6, -1, 4, 5, 4, -1], fingers: [3, 0, 1, 2, 1, 0], alternative: true },
+];
+
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */
 const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
@@ -191,30 +224,43 @@ function spell(root, semitones, letterSteps) {
 }
 
 /**
- * Moves a C voicing to `root`: the shift (mod 12) that keeps every fretted note
- * at fret 1 or higher (no open strings, so the fingering stays the same) with
- * the lowest highest fret.
+ * Moves C voicings to `root` by one shift for all of them: the shift (mod 12)
+ * that keeps every fretted note at fret 1 or higher (no open strings, so the
+ * fingering stays the same) with the lowest highest fret. A main voicing and
+ * its alternatives move together, so they stay in the same region of the neck.
  */
-function transpose(frets, root) {
+function transpose(voicings, root) {
   const interval = (rootPitchClass(root) - rootPitchClass("C") + 12) % 12;
-  const fretted = frets.filter((fret) => fret > 0);
+  const fretted = voicings.flatMap((frets) => frets.filter((fret) => fret > 0));
   const shifts = [interval - 24, interval - 12, interval, interval + 12].filter(
     (shift) => Math.min(...fretted) + shift >= 1,
   );
-  const shift = shifts.reduce((best, s) => (Math.max(...fretted) + s < Math.max(...fretted) + best ? s : best));
-  return frets.map((fret) => (fret < 0 ? fret : fret + shift));
+  const shift = Math.min(...shifts);
+  return voicings.map((frets) => frets.map((fret) => (fret < 0 ? fret : fret + shift)));
 }
 
 function inversionLesson(root, suffix, bass, label, model) {
   const symbol = chordSymbol(root, suffix);
   const bassNote = spell(root, SUFFIX_INTERVALS[suffix][BASS_TONES[bass]], BASS_LETTER_STEPS[bass]);
+  // Group each main voicing with its alternatives and move the group together.
+  const groups = [];
+  for (const voicing of model) {
+    if (voicing.alternative) groups.at(-1).push(voicing);
+    else groups.push([voicing]);
+  }
+  const moved = new Map(
+    groups.flatMap((group) => {
+      const frets = transpose(group.map((voicing) => voicing.frets), root);
+      return group.map((voicing, index) => [voicing, frets[index]]);
+    }),
+  );
   const steps = model.map((voicing) => ({
       root,
       suffix,
       bassNote,
       bass,
       bassString: voicing.bassString,
-      frets: transpose(voicing.frets, root),
+      frets: moved.get(voicing),
       fingers: voicing.fingers,
       alternative: voicing.alternative,
       instruction: `${label[0].toUpperCase()}${label.slice(1)} (${bassNote}) no baixo, na ${voicing.bassString}ª corda.`,
@@ -283,6 +329,22 @@ const INVERSIONS = {
     {
       title: "2ª inversão: baixo na quinta - Acordes meio diminutos",
       lessons: HALF_DIMINISHED_CYCLE.map((root) => inversionLesson(root, "m7b5", "fifth", "quinta", SECOND_INVERSION_CM7B5)),
+    },
+    {
+      title: "3ª inversão: baixo na sétima",
+      lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "seventh", "sétima", THIRD_INVERSION_C)),
+    },
+    {
+      title: "3ª inversão: baixo na sétima - Acordes menores",
+      lessons: MINOR_CYCLE.map((root) => inversionLesson(root, "m7", "seventh", "sétima", THIRD_INVERSION_CM)),
+    },
+    {
+      title: "3ª inversão: baixo na sétima - Acordes de sétima dominante",
+      lessons: DOMINANT_CYCLE.map((root) => inversionLesson(root, "7", "seventh", "sétima", THIRD_INVERSION_C7)),
+    },
+    {
+      title: "3ª inversão: baixo na sétima - Acordes meio diminutos",
+      lessons: HALF_DIMINISHED_CYCLE.map((root) => inversionLesson(root, "m7b5", "seventh", "sétima", THIRD_INVERSION_CM7B5)),
     },
   ],
 };
