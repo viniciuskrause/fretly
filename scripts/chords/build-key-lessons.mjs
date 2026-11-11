@@ -11,12 +11,15 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   barresOf,
+  BASS_TONES,
   chordSymbol,
   CYCLE_OF_FOURTHS,
   formatPosition,
   fromCaged,
   midiOf,
+  rootPitchClass,
   shapesUpTheNeck,
+  SUFFIX_INTERVALS,
   validate,
 } from "./lib.mjs";
 
@@ -101,72 +104,62 @@ ${lessons.join("\n")}
 // ---------------------------------------------------------------- section 2
 // Seventh-chord inversions, written voicing by voicing (absolute frets, low E →
 // high E) as the user defines them.
+// Voicings of C7M/E (first inversion), written as the user plays them: absolute
+// frets low E → high E, fingers, bass string. Every key is this model moved up
+// the neck (see `transpose`).
+const FIRST_INVERSION_C = [
+  { bassString: 4, frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3] },
+  { bassString: 5, frets: [-1, 7, 9, 5, 8, -1], fingers: [0, 2, 4, 1, 3, 0] },
+  { bassString: 5, frets: [-1, 7, -1, 5, 8, 7], fingers: [0, 2, 0, 1, 4, 3], alternative: true },
+  { bassString: 6, frets: [12, 14, 10, 12, -1, -1], fingers: [2, 4, 1, 3, 0, 0] },
+  { bassString: 6, frets: [12, -1, 10, 12, 12, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
+];
+
+/** Note names, always with flats (user rule). */
+const NOTE_NAMES = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
+
+/**
+ * Moves a C voicing to `root`: the shift (mod 12) that keeps every fretted note
+ * at fret 1 or higher (no open strings, so the fingering stays the same) with
+ * the lowest highest fret.
+ */
+function transpose(frets, root) {
+  const interval = (rootPitchClass(root) - rootPitchClass("C") + 12) % 12;
+  const fretted = frets.filter((fret) => fret > 0);
+  const shifts = [interval - 24, interval - 12, interval, interval + 12].filter(
+    (shift) => Math.min(...fretted) + shift >= 1,
+  );
+  const shift = shifts.reduce((best, s) => (Math.max(...fretted) + s < Math.max(...fretted) + best ? s : best));
+  return frets.map((fret) => (fret < 0 ? fret : fret + shift));
+}
+
+function inversionLesson(root, suffix, bass, label, model) {
+  const symbol = chordSymbol(root, suffix);
+  const bassNote = NOTE_NAMES[(rootPitchClass(root) + SUFFIX_INTERVALS[suffix][BASS_TONES[bass]]) % 12];
+  return {
+    title: `${symbol} - baixo na ${label}`,
+    subtitle: `${symbol} com a ${label} no baixo, na 4ª, 5ª e 6ª corda`,
+    steps: model.map((voicing) => ({
+      root,
+      suffix,
+      bassNote,
+      bass,
+      bassString: voicing.bassString,
+      frets: transpose(voicing.frets, root),
+      fingers: voicing.fingers,
+      alternative: voicing.alternative,
+      instruction: `${label[0].toUpperCase()}${label.slice(1)} (${bassNote}) no baixo, na ${voicing.bassString}ª corda.`,
+    })),
+  };
+}
+
 const INVERSIONS = {
   title: "Inversões de Tétrades",
   subtitle: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
   trails: [
     {
       title: "1ª inversão: baixo na terça",
-      lessons: [
-        {
-          title: "C7M - baixo na terça",
-          subtitle: "C7M com a terça no baixo, na 4ª, 5ª e 6ª corda",
-          steps: [
-            {
-              root: "C",
-              suffix: "maj7",
-              bassNote: "E",
-              bass: "third",
-              bassString: 4,
-              frets: "xx2413",
-              fingers: [0, 0, 2, 4, 1, 3],
-              instruction: "Terça (E) no baixo, na 4ª corda.",
-            },
-            {
-              root: "C",
-              suffix: "maj7",
-              bassNote: "E",
-              bass: "third",
-              bassString: 5,
-              frets: "x7958x",
-              fingers: [0, 2, 4, 1, 3, 0],
-              instruction: "Terça (E) no baixo, na 5ª corda.",
-            },
-            {
-              root: "C",
-              suffix: "maj7",
-              bassNote: "E",
-              bass: "third",
-              bassString: 5,
-              frets: "x7x587",
-              fingers: [0, 2, 0, 1, 4, 3],
-              instruction: "Terça (E) no baixo, na 5ª corda (digitação alternativa).",
-              alternative: true,
-            },
-            {
-              root: "C",
-              suffix: "maj7",
-              bassNote: "E",
-              bass: "third",
-              bassString: 6,
-              frets: [12, 14, 10, 12, -1, -1],
-              fingers: [2, 4, 1, 3, 0, 0],
-              instruction: "Terça (E) no baixo, na 6ª corda.",
-            },
-            {
-              root: "C",
-              suffix: "maj7",
-              bassNote: "E",
-              bass: "third",
-              bassString: 6,
-              frets: [12, -1, 10, 12, 12, -1],
-              fingers: [2, 0, 1, 3, 4, 0],
-              instruction: "Terça (E) no baixo, na 6ª corda (digitação alternativa).",
-              alternative: true,
-            },
-          ],
-        },
-      ],
+      lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "third", "terça", FIRST_INVERSION_C)),
     },
   ],
 };
