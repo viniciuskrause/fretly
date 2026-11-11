@@ -135,6 +135,10 @@ armadura de clave da tonalidade: B7M/D♯, D7M/F♯, G♭7M/B♭). Modelo C7M - 
 casas acima de 9 → escreva os trastes como array). Alternativas logo após a
 principal: x7x587 (dedos 0,2,0,1,4,3) e 12-x-10-12-12-x (dedos 2,0,1,3,4,0).
 
+2ª inversão (baixo na quinta, `SECOND_INVERSION_C`), tirada do chords-db (maj7 com a
+quinta no baixo, sem cordas soltas), a revisar pelo usuário: xx5557 (dedos 0,0,1,1,1,4),
+x-10-10-12-12-12 (dedos 0,1,1,2,3,4), 335453 (dedos 1,1,3,2,4,1). Sem alternativas.
+
 ## Posições e organização das aulas (v2: por tonalidade)
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`

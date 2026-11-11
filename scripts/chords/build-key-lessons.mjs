@@ -115,6 +115,14 @@ const FIRST_INVERSION_C = [
   { bassString: 6, frets: [12, -1, 10, 12, 12, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
 ];
 
+// C7M/G (second inversion), from chords-db (reference/chords-db) maj7 voicings
+// with the fifth in the bass, moved to C; the user will correct them if needed.
+const SECOND_INVERSION_C = [
+  { bassString: 4, frets: [-1, -1, 5, 5, 5, 7], fingers: [0, 0, 1, 1, 1, 4] },
+  { bassString: 5, frets: [-1, 10, 10, 12, 12, 12], fingers: [0, 1, 1, 2, 3, 4] },
+  { bassString: 6, frets: [3, 3, 5, 4, 5, 3], fingers: [1, 1, 3, 2, 4, 1] },
+];
+
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */
 const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
@@ -173,6 +181,10 @@ const INVERSIONS = {
     {
       title: "1ª inversão: baixo na terça",
       lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "third", "terça", FIRST_INVERSION_C)),
+    },
+    {
+      title: "2ª inversão: baixo na quinta",
+      lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "fifth", "quinta", SECOND_INVERSION_C)),
     },
   ],
 };
