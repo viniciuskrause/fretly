@@ -262,7 +262,7 @@ export function shapeOf(position, chord, suffix = "major") {
  * Returns { errors, warnings } for a position against Fretly's conventions.
  * With `shape`, also checks it against the root/third rule (`shapeOf`).
  */
-export function validate(position, chord, suffix = "major", shape, bass = "root") {
+export function validate(position, chord, suffix = "major", shape, bass = "root", bassString) {
   const errors = [];
   const warnings = [];
   const { frets, fingers, baseFret, barres, midi } = position;
@@ -295,6 +295,11 @@ export function validate(position, chord, suffix = "major", shape, bass = "root"
   const bassInterval = intervals?.[BASS_TONES[bass]] ?? 0;
   if (expectedMidi.length && expectedMidi[0] % 12 !== (rootPc + bassInterval) % 12)
     errors.push(`o baixo (nota mais grave) deve ser ${BASS_NAMES[bass]}`);
+  // Inversions name the string that holds the bass (6 = low E … 1 = high e).
+  if (bassString) {
+    const lowest = 6 - frets.findIndex((fret) => fret >= 0);
+    if (lowest !== bassString) errors.push(`baixo declarado na ${bassString}ª corda, mas a corda mais grave tocada é a ${lowest}ª`);
+  }
 
   // Fingering.
   const byFinger = {};

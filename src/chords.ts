@@ -19,9 +19,10 @@ export type ChordPosition = {
 
 export type CagedShape = "C" | "A" | "G" | "E" | "D";
 
-/** Chord symbol with its CAGED shape, e.g. "D (Forma C)". */
-export function chordLabel(step: Pick<ChordStep, "chord" | "shape">) {
-  return `${step.chord} (Forma ${step.shape})`;
+/** Chord symbol with its CAGED shape ("D (Forma C)") or, for inversions, its bass string ("C7M/E (baixo na 5ª corda)"). */
+export function chordLabel(step: Pick<ChordStep, "chord" | "shape" | "bassString">) {
+  if (step.shape) return `${step.chord} (Forma ${step.shape})`;
+  return step.bassString ? `${step.chord} (baixo na ${step.bassString}ª corda)` : step.chord;
 }
 
 export type ChordStep = {
@@ -31,8 +32,10 @@ export type ChordStep = {
   suffix?: "major" | "minor" | "7" | "m7b5" | "maj7";
   /** Chord tone in the bass (inversions); omitted = the root. */
   bass?: "root" | "third" | "fifth" | "seventh";
-  /** CAGED shape the voicing comes from (shown on the lesson path). */
-  shape: CagedShape;
+  /** CAGED shape the voicing comes from (root-position chords of section 1). */
+  shape?: CagedShape;
+  /** String holding the bass note (inversions of section 2: 4, 5 or 6). */
+  bassString?: 4 | 5 | 6;
   instruction: string;
   position: ChordPosition;
 };

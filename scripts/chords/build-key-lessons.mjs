@@ -103,24 +103,34 @@ ${lessons.join("\n")}
 // high E) as the user defines them.
 const INVERSIONS = {
   title: "Inversões de Tétrades",
-  subtitle: "Tétrades com o baixo na terça, na quinta e na sétima, em todas as formas",
+  subtitle: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
   trails: [
     {
       title: "1ª inversão: baixo na terça",
       lessons: [
         {
           title: "C7M - baixo na terça",
-          subtitle: "C7M com a terça no baixo, nas formas CAGED",
+          subtitle: "C7M com a terça no baixo, na 4ª, 5ª e 6ª corda",
           steps: [
             {
               root: "C",
               suffix: "maj7",
               bassNote: "E",
               bass: "third",
-              shape: "C",
+              bassString: 4,
               frets: "xx2413",
               fingers: [0, 0, 2, 4, 1, 3],
-              instruction: "Forma de C com a terça (E) no baixo, na 4ª corda.",
+              instruction: "Terça (E) no baixo, na 4ª corda.",
+            },
+            {
+              root: "C",
+              suffix: "maj7",
+              bassNote: "E",
+              bass: "third",
+              bassString: 5,
+              frets: "x7958x",
+              fingers: [0, 2, 4, 1, 3, 0],
+              instruction: "Terça (E) no baixo, na 5ª corda.",
             },
           ],
         },
@@ -133,7 +143,8 @@ const INVERSIONS = {
 function positionFromFrets(frets, fingers) {
   const abs = typeof frets === "string" ? [...frets].map((c) => (c === "x" ? -1 : Number.parseInt(c, 36))) : frets;
   const fretted = abs.filter((fret) => fret > 0);
-  const baseFret = Math.max(1, Math.min(...fretted) - (Math.max(...fretted) <= 5 ? Math.min(...fretted) : 1));
+  // Diagrams start at fret 1 when everything fits there, else at the lowest fretted note.
+  const baseFret = Math.max(...fretted) <= 5 ? 1 : Math.min(...fretted);
   const rel = abs.map((fret) => (fret <= 0 ? fret : fret - baseFret + 1));
   return { frets: rel, fingers, baseFret, barres: barresOf(rel, fingers), midi: midiOf(rel, baseFret) };
 }
@@ -143,14 +154,14 @@ const inversionTrails = INVERSIONS.trails.map((trail) => {
     const steps = lesson.steps.map((step) => {
       const position = positionFromFrets(step.frets, step.fingers);
       const name = `${chordSymbol(step.root, step.suffix)}/${step.bassNote}`;
-      const { errors } = validate(position, step.root, step.suffix, step.shape, step.bass);
-      if (errors.length) throw new Error(`${name} forma ${step.shape}: ${errors.join("; ")}`);
+      const { errors } = validate(position, step.root, step.suffix, undefined, step.bass, step.bassString);
+      if (errors.length) throw new Error(`${name} baixo na ${step.bassString}ª corda: ${errors.join("; ")}`);
       return [
         "          {",
         `            chord: "${name}",`,
         `            suffix: "${step.suffix}",`,
         `            bass: "${step.bass}",`,
-        `            shape: "${step.shape}",`,
+        `            bassString: ${step.bassString},`,
         `            instruction: "${step.instruction}",`,
         `            position: ${formatPosition(position)},`,
         "          },",

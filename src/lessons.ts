@@ -2163,7 +2163,7 @@ export const sections: Section[] = [
   {
     id: 2,
     title: "Inversões de Tétrades",
-    subtitle: "Tétrades com o baixo na terça, na quinta e na sétima, em todas as formas",
+    subtitle: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
     trails: [
       {
         title: "1ª inversão: baixo na terça",
@@ -2172,7 +2172,7 @@ export const sections: Section[] = [
         id: 49,
         title: "C7M - baixo na terça",
         exerciseTitle: "C7M - baixo na terça",
-        subtitle: "C7M com a terça no baixo, nas formas CAGED",
+        subtitle: "C7M com a terça no baixo, na 4ª, 5ª e 6ª corda",
         type: "chord",
         status: "locked",
         steps: [
@@ -2180,9 +2180,17 @@ export const sections: Section[] = [
             chord: "C7M/E",
             suffix: "maj7",
             bass: "third",
-            shape: "C",
-            instruction: "Forma de C com a terça (E) no baixo, na 4ª corda.",
+            bassString: 4,
+            instruction: "Terça (E) no baixo, na 4ª corda.",
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 1, barres: [], midi: [52, 59, 60, 67] },
+          },
+          {
+            chord: "C7M/E",
+            suffix: "maj7",
+            bass: "third",
+            bassString: 5,
+            instruction: "Terça (E) no baixo, na 5ª corda.",
+            position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 5, barres: [], midi: [52, 59, 60, 67] },
           },
         ],
       },

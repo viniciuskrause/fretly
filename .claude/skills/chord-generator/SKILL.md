@@ -117,13 +117,18 @@ Passos levam `suffix: "7"` ou `suffix: "m7b5"`.
 
 ## Inversões de tétrades (seção 2)
 
-Escritas voicing por voicing em `INVERSIONS` (`build-key-lessons.mjs`): trastes
-absolutos da 6ª para a 1ª corda (`"xx2413"`), dedos, `suffix` (`maj7` → cifra
-`7M`), `bass` (`third` | `fifth` | `seventh`) e `shape` declarada. O passo
-gerado leva `chord: "C7M/E"`, `suffix` e `bass`. `validate(..., shape, bass)`
-exige que a nota mais grave seja o grau declarado e **não** aplica a regra
-tônica+terça da forma (a forma de uma inversão é a declarada pelo usuário).
-Primeira aula: C7M/E = xx2413 (dedos 0,0,2,4,1,3), Forma C.
+Aqui **não** se usa a lógica de formas CAGED. Cada tétrade tem 4 variações:
+ordem direta (baixo na tônica), 1ª inversão (baixo na terça), 2ª (baixo na
+quinta) e 3ª (baixo na sétima); cada variação pode ter o baixo na 4ª, 5ª ou 6ª
+corda. Voicings escritos um a um em `INVERSIONS` (`build-key-lessons.mjs`):
+trastes absolutos da 6ª para a 1ª corda (`"xx2413"`), dedos, `suffix` (`maj7` →
+cifra `7M`), `bass` (`root` | `third` | `fifth` | `seventh`) e `bassString`
+(4 | 5 | 6). O passo gerado leva `chord: "C7M/E"`, `suffix`, `bass`,
+`bassString` e **não** tem `shape`. `validate(..., shape, bass, bassString)`
+exige que a nota mais grave seja o grau declarado e que esteja na corda
+declarada. O app mostra "C7M/E (baixo na 5ª corda)" no título do exercício.
+Aula C7M - baixo na terça: xx2413 (dedos 0,0,2,4,1,3, 4ª corda), x7958x
+(dedos 0,2,4,1,3,0, 5ª corda).
 
 ## Posições e organização das aulas (v2: por tonalidade)
 

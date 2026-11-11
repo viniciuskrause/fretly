@@ -1015,7 +1015,7 @@ function ExercisePage({
             <div className="rounded-2xl bg-white p-5 ring-1 ring-[#E5D8B5]">
               <p className="text-2xl font-black text-[#C2410C]">{lesson.steps.length}</p>
               <p className="mt-1 text-[10px] font-black uppercase tracking-wider text-[#64748B]">
-                Formas tocadas
+                {lesson.steps[0].shape ? "Formas tocadas" : "Digitações tocadas"}
               </p>
             </div>
           </div>
@@ -1091,7 +1091,7 @@ function ExercisePage({
               const isDimmed = isPlaying && !isSounding;
               return (
                 <div
-                  key={`${chordStep.chord}-${chordStep.shape}`}
+                  key={`${chordStep.chord}-${index}`}
                   ref={(node) => {
                     // Keep the chord being played on screen (the grid scrolls on phones).
                     if (node && isSounding) node.scrollIntoView({ block: "nearest", behavior: "smooth" });
