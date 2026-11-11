@@ -179,13 +179,7 @@ const SECOND_INVERSION_CM7B5 = [
 // tones that differ.
 const THIRD_INVERSION_C = [
   { bassString: 4, frets: [-1, -1, 9, 9, 8, 8], fingers: [0, 0, 2, 3, 1, 1] },
-  // In C itself the user plays it open (x2201x); `inC` keeps that, other keys move the shape.
-  {
-    bassString: 5,
-    frets: [-1, 14, 14, 12, 13, -1],
-    fingers: [0, 3, 4, 1, 2, 0],
-    inC: { frets: [-1, 2, 2, 0, 1, -1], fingers: [0, 2, 3, 0, 1, 0] },
-  },
+  { bassString: 5, frets: [-1, 14, 14, 12, 13, -1], fingers: [0, 3, 4, 1, 2, 0] }, // in C: x2201x (open G)
   { bassString: 6, frets: [7, 7, 5, 5, -1, -1], fingers: [3, 4, 1, 1, 0, 0] },
 ];
 const THIRD_INVERSION_CM = [
@@ -221,19 +215,25 @@ function spell(root, semitones, letterSteps) {
 }
 
 /**
- * Moves C voicings to `root` by one shift for all of them: the shift (mod 12)
- * that keeps every fretted note at fret 1 or higher (no open strings, so the
- * fingering stays the same) with the lowest highest fret. A main voicing and
- * its alternatives move together, so they stay in the same region of the neck.
+ * Moves C voicings to `root` by one shift for all of them: the lowest shift
+ * (mod 12) that keeps every note on the neck. When the lowest fretted notes land
+ * on fret 0 they become open strings (C7/B♭ = x1201x rather than at fret 13):
+ * their fingers are dropped and the others renumbered from 1. A main voicing
+ * and its alternatives move together, so they stay in the same region.
  */
 function transpose(voicings, root) {
   const interval = (rootPitchClass(root) - rootPitchClass("C") + 12) % 12;
-  const fretted = voicings.flatMap((frets) => frets.filter((fret) => fret > 0));
-  const shifts = [interval - 24, interval - 12, interval, interval + 12].filter(
-    (shift) => Math.min(...fretted) + shift >= 1,
+  const fretted = voicings.flatMap(({ frets }) => frets.filter((fret) => fret > 0));
+  const shift = Math.min(
+    ...[interval - 24, interval - 12, interval, interval + 12].filter((s) => Math.min(...fretted) + s >= 0),
   );
-  const shift = Math.min(...shifts);
-  return voicings.map((frets) => frets.map((fret) => (fret < 0 ? fret : fret + shift)));
+  return voicings.map(({ frets, fingers }) => {
+    const moved = frets.map((fret) => (fret < 0 ? fret : fret + shift));
+    if (!moved.includes(0) || frets.includes(0)) return { frets: moved, fingers };
+    const kept = fingers.map((finger, string) => (moved[string] === 0 ? 0 : finger));
+    const order = [...new Set(kept.filter((finger) => finger > 0))].sort((a, b) => a - b);
+    return { frets: moved, fingers: kept.map((finger) => (finger === 0 ? 0 : order.indexOf(finger) + 1)) };
+  });
 }
 
 function inversionLesson(root, suffix, bass, label, model) {
@@ -247,8 +247,8 @@ function inversionLesson(root, suffix, bass, label, model) {
   }
   const moved = new Map(
     groups.flatMap((group) => {
-      const frets = transpose(group.map((voicing) => voicing.frets), root);
-      return group.map((voicing, index) => [voicing, frets[index]]);
+      const moved = transpose(group, root);
+      return group.map((voicing, index) => [voicing, moved[index]]);
     }),
   );
   const steps = model.map((voicing) => ({
@@ -257,8 +257,8 @@ function inversionLesson(root, suffix, bass, label, model) {
       bassNote,
       bass,
       bassString: voicing.bassString,
-      frets: root === "C" && voicing.inC ? voicing.inC.frets : moved.get(voicing),
-      fingers: root === "C" && voicing.inC ? voicing.inC.fingers : voicing.fingers,
+      frets: moved.get(voicing).frets,
+      fingers: moved.get(voicing).fingers,
       alternative: voicing.alternative,
       instruction: `${label[0].toUpperCase()}${label.slice(1)} (${bassNote}) no baixo, na ${voicing.bassString}ª corda.`,
   }));
@@ -281,8 +281,8 @@ function lowToHigh(steps) {
     else groups.push([step]);
   }
   const span = ({ frets }) => {
-    const fretted = frets.filter((fret) => fret > 0);
-    return [Math.min(...fretted), Math.max(...fretted)];
+    const played = frets.filter((fret) => fret >= 0); // open strings count as fret 0
+    return [Math.min(...played), Math.max(...played)];
   };
   const compare = ([a], [b]) => {
     const [[loA, hiA], [loB, hiB]] = [span(a), span(b)];

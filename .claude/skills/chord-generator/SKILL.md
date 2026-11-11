@@ -181,11 +181,14 @@ Cm7(♭5)/G♭ `SECOND_INVERSION_CM7B5` xx4546 (0,0,1,2,1,3), x-9-10-8-11-x
 (0,2,3,1,4,0), 2313xx (2,3,1,4,0,0).
 
 3ª inversão (baixo na sétima), proposta pelo Claude, a revisar: C7M/B
-`THIRD_INVERSION_C` xx9988, x2201x em C (aberto, `inC`; móvel nos outros tons:
-x-14-14-12-13-x, dedos 3,4,1,2), 7755xx, confirmados pelo usuário. Sem
+`THIRD_INVERSION_C` xx9988, x2201x em C (aberto, sai do `transpose`; móvel nos outros
+tons: x-14-14-12-13-x, dedos 3,4,1,2), 7755xx, confirmados pelo usuário. Sem
 alternativas na 3ª inversão (decisão do usuário); Cm7/B♭, C7/B♭ e Cm7(♭5)/B♭ (`THIRD_INVERSION_CM`, `_C7`,
 `_CM7B5`) abaixam as notas que mudam. `transpose` move a digitação normal e as
-suas alternativas com o mesmo deslocamento (ficam na mesma região do braço).
+suas alternativas com o mesmo deslocamento (ficam na mesma região do braço) e usa
+o menor deslocamento possível: se as notas da casa mais baixa caem na casa 0, viram
+cordas soltas (C7/B♭ = x1201x, não na casa 13; Em7/D = xx0000), com os dedos
+dessas notas removidos e os outros renumerados a partir de 1 (decisão do usuário).
 
 ## Posições e organização das aulas (v2: por tonalidade)
 
