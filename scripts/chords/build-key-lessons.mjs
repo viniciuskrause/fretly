@@ -156,6 +156,24 @@ const FIRST_INVERSION_CM7B5 = [
   { bassString: 6, frets: [11, -1, 10, 11, 11, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
 ];
 
+// Second inversions of the other qualities, derived from the C7M/G model by
+// lowering the chord tones that differ (third, fifth, seventh).
+const SECOND_INVERSION_CM = [
+  { bassString: 4, frets: [-1, -1, 5, 5, 4, 6], fingers: [0, 0, 2, 3, 1, 4] },
+  { bassString: 5, frets: [-1, 10, 10, 8, 11, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 6, frets: [3, 3, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0] },
+];
+const SECOND_INVERSION_C7 = [
+  { bassString: 4, frets: [-1, -1, 5, 5, 5, 6], fingers: [0, 0, 1, 1, 1, 2] },
+  { bassString: 5, frets: [-1, 10, 10, 9, 11, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 6, frets: [3, 3, 2, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0] },
+];
+const SECOND_INVERSION_CM7B5 = [
+  { bassString: 4, frets: [-1, -1, 4, 5, 4, 6], fingers: [0, 0, 1, 2, 1, 3] },
+  { bassString: 5, frets: [-1, 9, 10, 8, 11, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 6, frets: [2, 3, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0] },
+];
+
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */
 const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
@@ -230,6 +248,18 @@ const INVERSIONS = {
     {
       title: "2ª inversão: baixo na quinta",
       lessons: CYCLE_OF_FOURTHS.map((root) => inversionLesson(root, "maj7", "fifth", "quinta", SECOND_INVERSION_C)),
+    },
+    {
+      title: "2ª inversão: baixo na quinta - Acordes menores",
+      lessons: MINOR_CYCLE.map((root) => inversionLesson(root, "m7", "fifth", "quinta", SECOND_INVERSION_CM)),
+    },
+    {
+      title: "2ª inversão: baixo na quinta - Acordes de sétima dominante",
+      lessons: DOMINANT_CYCLE.map((root) => inversionLesson(root, "7", "fifth", "quinta", SECOND_INVERSION_C7)),
+    },
+    {
+      title: "2ª inversão: baixo na quinta - Acordes meio diminutos",
+      lessons: HALF_DIMINISHED_CYCLE.map((root) => inversionLesson(root, "m7b5", "fifth", "quinta", SECOND_INVERSION_CM7B5)),
     },
   ],
 };

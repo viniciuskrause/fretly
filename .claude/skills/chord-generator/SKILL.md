@@ -170,6 +170,12 @@ x6857x (0,2,4,1,3,0), alt x6x576 (0,2,0,1,4,3), 11-13-10-11-x-x (2,4,1,3,0,0), a
 2ª inversão (baixo na quinta, `SECOND_INVERSION_C`): xx5557 (dedos 0,0,1,1,1,4,
 do chords-db), x-10-10-9-12-x (dedos 0,2,3,1,4,0) e 3324xx (dedos 2,3,1,4,0,0),
 as duas últimas do usuário. Sem alternativas.
+2ª inversão dos outros tipos, derivada do modelo 7M (abaixando terça, quinta ou
+sétima), sem alternativas: Cm7/G `SECOND_INVERSION_CM` xx5546 (0,0,2,3,1,4),
+x-10-10-8-11-x (0,2,3,1,4,0), 3313xx (2,3,1,4,0,0); C7/G `SECOND_INVERSION_C7`
+xx5556 (0,0,1,1,1,2), x-10-10-9-11-x (0,2,3,1,4,0), 3323xx (2,3,1,4,0,0);
+Cm7(♭5)/G♭ `SECOND_INVERSION_CM7B5` xx4546 (0,0,1,2,1,3), x-9-10-8-11-x
+(0,2,3,1,4,0), 2313xx (2,3,1,4,0,0).
 
 ## Posições e organização das aulas (v2: por tonalidade)
 
