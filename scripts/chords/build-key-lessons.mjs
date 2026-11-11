@@ -174,10 +174,9 @@ const SECOND_INVERSION_CM7B5 = [
   { bassString: 6, frets: [2, 3, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0] },
 ];
 
-// Third inversions (seventh in the bass), proposed by Claude: main voicings on
-// the same string sets as the other inversions (B E G C for C7M/B),
-// alternatives shaped like the first-inversion ones (B G C E); the other
-// qualities lower the chord tones that differ.
+// Third inversions (seventh in the bass), no alternatives: same string sets as
+// the other inversions (B E G C for C7M/B); the other qualities lower the chord
+// tones that differ.
 const THIRD_INVERSION_C = [
   { bassString: 4, frets: [-1, -1, 9, 9, 8, 8], fingers: [0, 0, 2, 3, 1, 1] },
   // In C itself the user plays it open (x2201x); `inC` keeps that, other keys move the shape.
@@ -187,36 +186,22 @@ const THIRD_INVERSION_C = [
     fingers: [0, 3, 4, 1, 2, 0],
     inC: { frets: [-1, 2, 2, 0, 1, -1], fingers: [0, 2, 3, 0, 1, 0] },
   },
-  {
-    bassString: 5,
-    frets: [-1, 14, -1, 12, 13, 12],
-    fingers: [0, 3, 0, 1, 2, 1],
-    alternative: true,
-    inC: { frets: [-1, 2, -1, 0, 1, 0], fingers: [0, 2, 0, 0, 1, 0] },
-  },
   { bassString: 6, frets: [7, 7, 5, 5, -1, -1], fingers: [3, 4, 1, 1, 0, 0] },
-  { bassString: 6, frets: [7, -1, 5, 5, 5, -1], fingers: [3, 0, 1, 1, 1, 0], alternative: true },
 ];
 const THIRD_INVERSION_CM = [
   { bassString: 4, frets: [-1, -1, 8, 8, 8, 8], fingers: [0, 0, 1, 1, 1, 1] },
   { bassString: 5, frets: [-1, 13, 13, 12, 13, -1], fingers: [0, 2, 3, 1, 4, 0] },
-  { bassString: 5, frets: [-1, 13, -1, 12, 13, 11], fingers: [0, 3, 0, 2, 4, 1], alternative: true },
   { bassString: 6, frets: [6, 6, 5, 5, -1, -1], fingers: [2, 3, 1, 1, 0, 0] },
-  { bassString: 6, frets: [6, -1, 5, 5, 4, -1], fingers: [4, 0, 2, 3, 1, 0], alternative: true },
 ];
 const THIRD_INVERSION_C7 = [
   { bassString: 4, frets: [-1, -1, 8, 9, 8, 8], fingers: [0, 0, 1, 2, 1, 1] },
   { bassString: 5, frets: [-1, 13, 14, 12, 13, -1], fingers: [0, 2, 4, 1, 3, 0] },
-  { bassString: 5, frets: [-1, 13, -1, 12, 13, 12], fingers: [0, 2, 0, 1, 3, 1], alternative: true },
   { bassString: 6, frets: [6, 7, 5, 5, -1, -1], fingers: [2, 3, 1, 1, 0, 0] },
-  { bassString: 6, frets: [6, -1, 5, 5, 5, -1], fingers: [2, 0, 1, 1, 1, 0], alternative: true },
 ];
 const THIRD_INVERSION_CM7B5 = [
   { bassString: 4, frets: [-1, -1, 8, 8, 7, 8], fingers: [0, 0, 2, 3, 1, 4] },
   { bassString: 5, frets: [-1, 13, 13, 11, 13, -1], fingers: [0, 2, 3, 1, 4, 0] },
-  { bassString: 5, frets: [-1, 13, -1, 11, 13, 11], fingers: [0, 3, 0, 1, 4, 1], alternative: true },
   { bassString: 6, frets: [6, 6, 4, 5, -1, -1], fingers: [3, 4, 1, 2, 0, 0] },
-  { bassString: 6, frets: [6, -1, 4, 5, 4, -1], fingers: [3, 0, 1, 2, 1, 0], alternative: true },
 ];
 
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
