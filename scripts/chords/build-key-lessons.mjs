@@ -20,6 +20,7 @@ import {
   formatPosition,
   fromCaged,
   midiOf,
+  OPEN_STRING_MIDI,
   rootPitchClass,
   shapesUpTheNeck,
   SUFFIX_INTERVALS,
@@ -208,10 +209,7 @@ function transpose(frets, root) {
 function inversionLesson(root, suffix, bass, label, model) {
   const symbol = chordSymbol(root, suffix);
   const bassNote = spell(root, SUFFIX_INTERVALS[suffix][BASS_TONES[bass]], BASS_LETTER_STEPS[bass]);
-  return {
-    title: `${symbol} - baixo na ${label}`,
-    subtitle: `${symbol} com a ${label} no baixo, na 4ª, 5ª e 6ª corda`,
-    steps: model.map((voicing) => ({
+  const steps = model.map((voicing) => ({
       root,
       suffix,
       bassNote,
@@ -221,8 +219,34 @@ function inversionLesson(root, suffix, bass, label, model) {
       fingers: voicing.fingers,
       alternative: voicing.alternative,
       instruction: `${label[0].toUpperCase()}${label.slice(1)} (${bassNote}) no baixo, na ${voicing.bassString}ª corda.`,
-    })),
+  }));
+  return {
+    title: `${symbol} - baixo na ${label}`,
+    subtitle: `${symbol} com a ${label} no baixo, na 4ª, 5ª e 6ª corda`,
+    steps: lowToHigh(steps),
   };
+}
+
+/**
+ * Orders a lesson from the lowest-sounding voicing to the highest: by bass
+ * pitch, then average pitch, then position on the neck. Each alternative
+ * fingering stays right after its main voicing.
+ */
+function lowToHigh(steps) {
+  const groups = [];
+  for (const step of steps) {
+    if (step.alternative) groups.at(-1).push(step);
+    else groups.push([step]);
+  }
+  const key = ({ frets }) => {
+    const midi = frets.flatMap((fret, string) => (fret < 0 ? [] : [OPEN_STRING_MIDI[string] + fret]));
+    return [Math.min(...midi), midi.reduce((a, b) => a + b, 0) / midi.length, Math.min(...frets.filter((f) => f > 0))];
+  };
+  const compare = (a, b) => {
+    const [ka, kb] = [key(a[0]), key(b[0])];
+    return ka[0] - kb[0] || ka[1] - kb[1] || ka[2] - kb[2];
+  };
+  return groups.sort(compare).flat();
 }
 
 const INVERSIONS = {
