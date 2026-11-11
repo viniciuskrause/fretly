@@ -147,6 +147,15 @@ const FIRST_INVERSION_C7 = [
   { bassString: 6, frets: [12, -1, 10, 12, 11, -1], fingers: [3, 0, 1, 4, 2, 0], alternative: true },
 ];
 
+// Cm7(♭5)/E♭ (first inversion of the half-diminished), as the user plays it.
+const FIRST_INVERSION_CM7B5 = [
+  { bassString: 4, frets: [-1, -1, 1, 3, 1, 2], fingers: [0, 0, 1, 3, 1, 2] },
+  { bassString: 5, frets: [-1, 6, 8, 5, 7, -1], fingers: [0, 2, 4, 1, 3, 0] },
+  { bassString: 5, frets: [-1, 6, -1, 5, 7, 6], fingers: [0, 2, 0, 1, 4, 3], alternative: true },
+  { bassString: 6, frets: [11, 13, 10, 11, -1, -1], fingers: [2, 4, 1, 3, 0, 0] },
+  { bassString: 6, frets: [11, -1, 10, 11, 11, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
+];
+
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */
 const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
@@ -213,6 +222,10 @@ const INVERSIONS = {
     {
       title: "1ª inversão: baixo na terça - Acordes de sétima dominante",
       lessons: DOMINANT_CYCLE.map((root) => inversionLesson(root, "7", "third", "terça", FIRST_INVERSION_C7)),
+    },
+    {
+      title: "1ª inversão: baixo na terça - Acordes meio diminutos",
+      lessons: HALF_DIMINISHED_CYCLE.map((root) => inversionLesson(root, "m7b5", "third", "terça", FIRST_INVERSION_CM7B5)),
     },
     {
       title: "2ª inversão: baixo na quinta",

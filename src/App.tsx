@@ -437,6 +437,11 @@ const diagramRowY = (string: number) => 48 + (5 - string) * 29;
 const diagramColumnX = (fret: number) => 56 + (fret - 0.5) * DIAGRAM_COLUMN_WIDTH;
 
 /** Big chord symbol ("D"); the shape is only named in the exercise title. */
+/** "Cm7(♭5)/E♭" and the like are too wide for the big size on phones. */
+function isLongChordName(step: ChordStep) {
+  return step.chord.length > 8;
+}
+
 function ChordName({ step, className }: { step: ChordStep; className: string }) {
   return (
     <p className={`font-black tracking-[-0.055em] text-[#172554] ${className}`}>{step.chord}</p>
@@ -1099,7 +1104,7 @@ function ExercisePage({
                   className={`sequence-card ${isSounding ? "sequence-card--sounding" : ""} ${isDimmed ? "sequence-card--dimmed" : ""}`}
                   aria-current={isSounding ? "true" : undefined}
                 >
-                  <ChordName step={chordStep} className="text-2xl sm:text-3xl" />
+                  <ChordName step={chordStep} className={isLongChordName(chordStep) ? "text-xl sm:text-2xl" : "text-2xl sm:text-3xl"} />
                   <ChordDiagram
                     step={chordStep}
                     activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
@@ -1166,7 +1171,7 @@ function ExercisePage({
       />
 
       <div className="mt-8 flex flex-col items-center">
-        <ChordName step={step} className="text-6xl" />
+        <ChordName step={step} className={isLongChordName(step) ? "text-5xl sm:text-6xl" : "text-6xl"} />
         <div className="mt-5 rounded-[24px] bg-[#FFFFFF] p-3 ring-1 ring-[#E5D8B5]">
           <ChordDiagram
             step={step}
