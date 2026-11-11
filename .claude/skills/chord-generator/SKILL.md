@@ -128,7 +128,8 @@ cifra `7M`), `bass` (`root` | `third` | `fifth` | `seventh`) e `bassString`
 exige que a nota mais grave seja o grau declarado e que esteja na corda
 declarada. O app mostra "C7M/E (baixo na 5ª corda)" no título do exercício.
 Aula C7M - baixo na terça: xx2413 (dedos 0,0,2,4,1,3, 4ª corda), x7958x
-(dedos 0,2,4,1,3,0, 5ª corda).
+(dedos 0,2,4,1,3,0, 5ª corda), 12-14-10-12-x-x (dedos 2,4,1,3,0,0, 6ª corda;
+casas acima de 9 → escreva os trastes como array).
 
 ## Posições e organização das aulas (v2: por tonalidade)
 
