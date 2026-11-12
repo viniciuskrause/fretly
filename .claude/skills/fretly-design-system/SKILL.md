@@ -63,7 +63,8 @@ Cada `--color-x` vira `bg-x`, `text-x`, `border-x`, `fill-x`, `stroke-x`.
 | `accent-strong` | #D95209 | hover do botão laranja |
 | `accent-ink` | #B53D06 | texto laranja em fundo claro (eyebrow "Guia", rótulos de exercício) |
 | `accent-soft` | #FFF0E6 | anel sólido do card que está soando |
-| `success` | #0E7A52 | **só** o badge de check da aula concluída (ícone branco 5,5:1) |
+| `success` | #0E7A52 | **só** checks de "concluído": badge da trilha e tela de aula concluída (ícone branco 5,5:1) |
+| `success-soft` | #E3F4EC | anel sólido em volta do check grande da tela de aula concluída |
 | `danger` | #C8281C | reservado |
 
 Outros tokens:
@@ -81,12 +82,14 @@ Outros tokens:
 | Inter 400–700 | `font-sans` (padrão) | texto corrido, botões |
 | JetBrains Mono 500–700 | `font-mono` / `.eyebrow` | contadores `x/y`, BPM, intervalos, números de dedo/casa, eyebrows |
 
-- `.eyebrow`: mono 11px, 600, `tracking 0.12em`, caixa alta. Ex.: "Seção 2",
-  "Guia". Para cifras dentro de eyebrow use `EyebrowText` (mantém `Dm7` em
-  caixa normal).
+- `.eyebrow`: mono 11px, 600, `tracking 0.12em`, caixa alta — rótulos pequenos
+  (cabeçalho de tabela, "Digitação alternativa", "Formas tocadas").
+- `.eyebrow.eyebrow--lg`: 13px, 700 — **overlines de abertura** de página ou
+  bloco: "Seção N", "Guia", título da aula no exercício, "Exercício concluído".
+- Cifras dentro de eyebrow ficam em `normal-case` (`Dm7(♭5)` não pode virar `DM7(♭5)`).
 - Títulos: `tracking-[-0.03em]`/`-0.04em`, `font-bold`, `leading-tight`.
   Escala: H1 de página 36/46px; título de seção principal 24/26px; H2 de guia
-  24px; título de subseção 15px semibold; corpo 15px `leading-7`; intro 17px.
+  24px; título de subseção/grupo 17px semibold; corpo 15px `leading-7`; intro 17px.
 - Números sempre com `tabular-nums`.
 - `Accidentals` fica primeiro em todas as pilhas (♭/♯ com largura certa) — não remova.
 
@@ -105,7 +108,7 @@ Outros tokens:
 
 Reutilize os componentes existentes em `src/App.tsx` antes de criar novos:
 `Icon`, `TopBar`, `ChevronToggle`, `Collapse`, `useDisclosureIds`,
-`CurrentDot`, `PrimaryButton`, `SecondaryButton`, `ChordDiagram`,
+`CurrentDot`, `PrimaryButton`, `SecondaryButton`, `ChordCard`, `ChordDiagram`,
 `GuideLayout`, `GuideSection`, `ExerciseShell`, `ExerciseHeading`.
 
 ### Hierarquia recolhível (Home)
@@ -116,10 +119,11 @@ também a subseção (e o grupo) da próxima aula a estudar.
 
 **1. Cabeçalho de seção principal** (`PathSection`) — o único bloco "forte":
 - Card `rounded-card border border-brand bg-brand text-white`, padding
-  `p-5 pr-4 sm:p-6 sm:pr-4`.
-- Esquerda (clicável, também alterna): eyebrow `Seção N` em `text-brand-soft`,
+  `p-5 sm:p-6 sm:pr-5` (direita 20px para alinhar o chevron).
+- Esquerda (clicável, também alterna): overline `Seção N`
+  (`eyebrow eyebrow--lg text-brand-soft`),
   título `font-display text-[24px] sm:text-[26px] font-bold`, subtítulo
-  `text-sm text-brand-soft`.
+  `text-[15px] font-medium text-brand-soft`.
 - Direita, lado a lado: botão só-ícone do guia (ícone `notebook`, `size-6`,
   sem borda/label, `aria-label` + `title`) e o **chevron** (botão `size-11`,
   `-mr-1.5`, controle acessível com `aria-expanded`/`aria-controls`/`aria-label`).
@@ -131,20 +135,24 @@ também a subseção (e o grupo) da próxima aula a estudar.
 
 **2. Cabeçalho de subseção e de grupo** (`Trail`, `TrailGroup`) — mesmo estilo:
 - `rounded-card border bg-surface`, `border-line` fechado / `border-line-strong` aberto.
-- Botão `flex min-h-14 items-center gap-3 px-4 py-3`, **sem hover de fundo**,
+- Botão `flex min-h-16 items-center gap-3 px-5 py-5`, **sem hover de fundo**,
   `focus-visible:outline-offset-[-2px]`.
-- Título `font-display text-[15px] font-semibold tracking-[-0.01em] text-ink`;
-  abaixo, só o contador `font-mono text-[11px] tabular-nums text-muted`
-  (sem barra, sem ícone à esquerda).
-- À direita: `CurrentDot` (ponto laranja 10px, só quando fechado e contém a
-  aula atual) e `ChevronToggle` em `text-ink-2`.
+- Título sozinho, centralizado na vertical: `font-display text-[17px]
+  font-semibold leading-snug tracking-[-0.015em] text-ink` (sem barra, sem
+  ícone à esquerda, sem texto embaixo).
+- À direita, nesta ordem: `CurrentDot` (ponto laranja 10px, só quando fechado
+  e contém a aula atual), contador `x/y` (`min-w-[3rem] text-right font-mono
+  text-xs tabular-nums text-muted`, largura mínima para alinhar entre cards) e
+  `ChevronToggle` em `text-ink-2`.
 - Corpo da subseção: sem linha separadora entre cabeçalho e conteúdo
-  (`px-1 pb-2 pt-1`). Corpo de grupo: recuo com guia `border-l-2 border-line`.
+  (`px-1 pb-4 pt-1`). Corpo de grupo: recuo com guia `border-l-2 border-line`.
 
 **3. Indicador de abrir/fechar:** sempre `ChevronToggle` — chevron puro, sem
 fundo nem borda, gira 180° ao abrir. Nunca "+/−", nunca chip com fundo.
-Os chevrons de seção e subseção ficam **alinhados** (centro a 32px da borda
-direita do card).
+Tamanho: `size-5` nas subseções/grupos; `iconClassName="size-7"` na seção
+principal (o centro do chevron não muda, então o alinhamento se mantém).
+Os chevrons de seção e subseção ficam **alinhados** (centro a 36px da borda
+direita do card: `px-5` nas subseções e `pr-5` + `-mr-1.5` no botão de 44px da seção).
 
 **4. Região animada:** `Collapse` (`.disclosure-region`, altura 0fr→1fr em
 280ms + fade/translate 4px), sempre montada e `inert` quando fechada;
@@ -186,30 +194,88 @@ sem uso.
 - Contagens: `x/y` em mono — preferir número a barra fora do cabeçalho principal.
 - Foco: contorno 2px `brand` global; em fundo azul `outline-white`.
 
-### Diagramas de acorde
+### Acordes: o card de acorde (padrão único)
 
-`ChordDiagram` (SVG 300×250, fundo `surface`): cordas em repouso `subtle`,
-casas `ink-2`, pontos/pestana `ink`; corda soando fica laranja com número do
-dedo branco. Figuras de diagrama: `rounded-card border border-line bg-surface`,
-legenda com nome em `font-display` bold e detalhe em `text-xs text-muted`;
-intervalos/notas em `font-mono text-brand-ink`. Grade de 3 colunas
-(`grid grid-cols-3 gap-2 sm:gap-3`) para comparar formas lado a lado.
+Todo acorde do app — passo da aula, sequência completa, guias — é mostrado com
+**`ChordCard`**: cifra no topo e diagrama embaixo, num único card. Não monte
+cifra + diagrama à mão em lugar nenhum.
+
+- **Proporções** (referência: card de 348px no passo da aula, ~348 × 330):
+  margem ~40px em cima e embaixo, ~52px nas laterais (padding + margem do
+  próprio diagrama), cifra de 40px numa caixa de 40px e 13px entre cifra e
+  diagrama. Em `.chord-card` (`src/index.css`) tudo está em **`cqw`** (fração
+  da largura do próprio card): padding `11.5cqw 10.9cqw 7.5cqw`, cifra
+  `11.5cqw` (longas, > 8 caracteres: `9.2cqw`), espaço `3.7cqw`. Assim um card
+  de 110px no celular é uma miniatura exata do de 348px. Para mudar o padrão,
+  mude essas frações, nunca valores fixos num uso específico.
+- **Tamanho:** o card ocupa a largura que recebe (`width: 100%`). Passo da aula:
+  `className="max-w-[348px]"`. Grades: `.sequence-slot` (2/3/5 por linha, até
+  190px; com `guide-shape`, 2/3) ou `grid grid-cols-3 gap-2 sm:gap-3` para
+  comparar formas lado a lado.
+- **Legendas ficam fora do card**, logo abaixo (`mt-1.5`/`mt-2`, centralizadas,
+  `text-xs text-muted`; título curto em `font-display` bold). Ex.: "Forma A ·
+  a partir da casa 3", "Baixo na 5ª · casa 5", "Digitação alternativa".
+- **Estados:** `sequence-card--sounding` (borda `accent` + anel sólido
+  `accent-soft`, sobe 4px) e `sequence-card--dimmed` (opacidade 0.45), passados
+  em `className`; `current` marca `aria-current`.
+
+**`ChordDiagram`** (dentro do card; SVG 272×211, `viewBox="0 21 272 211"` com a
+mesma margem de 14 unidades nos quatro lados — se mudar a geometria, recalcule a
+caixa para manter as margens iguais): cordas em repouso `subtle`, casas `ink-2`,
+pontos/pestana `ink`; corda soando fica laranja com número do dedo branco. Na
+margem esquerda (alinhado à direita em x=31, colado ao diagrama sem tocar o
+círculo de corda solta), o **grau** de cada corda que soa (`stringDegree`: "1",
+"♭3", "5", "♭7"…) em `font-mono` 13px bold `fill-brand-ink`, que vira
+`fill-accent-ink` quando a corda está soando. O grau substitui listas de
+intervalos embaixo do diagrama.
 
 ### Páginas de guia
 
-Use `GuideLayout` (TopBar, botão "Voltar à trilha", eyebrow "Guia" em
+Use `GuideLayout` (TopBar, botão "Voltar à trilha", overline `eyebrow--lg` "Guia" em
 `accent-ink`, H1, intro, conteúdo, card de **Fontes**) e `GuideSection` para
 cada H2. Tabelas: `rounded-card border border-line bg-surface`, cabeçalho com
 `.eyebrow text-muted`, linhas separadas por `border-line`, `overflow-x-auto`.
 Listas `list-disc`/`list-decimal pl-5 space-y-2` com `<strong>` no início do
 item. Cada seção da Home liga ao seu guia pelo `id` (veja `App`).
 
-### Exercício
+### Páginas de aula (exercício)
 
-`ExerciseShell`: botão fechar só-ícone + barra `h-2.5 bg-line` com
-preenchimento `bg-brand`; rodapé `sticky bg-surface border-t border-line` com
-área segura do iPhone. Card que está soando: borda `accent` + anel sólido
-`accent-soft`. Contagem regressiva: círculo `ink` com borda laranja 6px.
+- **`ExerciseShell`:** topo com botão fechar só-ícone (`close`, `text-muted`)
+  + barra `h-2.5 rounded-full bg-line` com preenchimento `bg-brand`; conteúdo
+  `max-w-[600px]` (passo a passo) ou `max-w-[1040px]` (`wide`, sequência);
+  rodapé `sticky bg-surface border-t border-line` com área segura do iPhone,
+  `BpmControl` centralizado e botões nas pontas.
+- **`ExerciseHeading`:** bloco centralizado na tela (`mx-auto max-w-[600px]
+  text-center`, também na sequência larga): overline `eyebrow eyebrow--lg
+  text-accent-ink` com o **caminho da aula na Home** — os títulos acima dela
+  (grupo, se houver, e subseção) + a cifra, separados por " - ", ex.
+  "1ª inversão: baixo na terça - Acordes maiores - C7M" (`lessonPath` +
+  `LessonOverline`; a cifra fica em `normal-case`) + H1 `font-display text-[26px]
+  sm:text-[30px] font-bold text-balance`.
+- **Espaço cabeçalho → acordes:** `mt-12` (48px) abaixo do `ExerciseHeading`,
+  no passo e na sequência.
+- **Passo:** `ChordCard` com `max-w-[348px]`, centralizado; legenda
+  opcional fora do card, na linha reservada abaixo.
+- **Nada pode empurrar o layout entre passos.** Textos opcionais ficam **fora**
+  do card do diagrama, numa linha **reservada** em todos os passos da aula:
+  `AlternativeSlot` ("Digitação alternativa") é renderizado sempre que a aula
+  tem alguma digitação alternativa e só alterna `invisible`. Na sequência, cada
+  item é um `.sequence-slot` (largura da grade) com o `ChordCard` e a linha
+  reservada embaixo.
+- **Rodapé:** esquerda `SecondaryButton` ("Anterior"/"Voltar", ícone `back`,
+  label some no celular); direita `PrimaryButton tone="accent"` ("Tocar",
+  "Iniciar", ícone `play`) e, depois de tocar, `SecondaryButton` "Repetir" +
+  `PrimaryButton` azul ("Próximo", "Exercício final", "Concluir").
+- **`BpmControl`:** grupo `rounded-control border border-line bg-surface`,
+  só o ícone `metronome` (sem rótulo "BPM"; dica `title="BPM"`), botões −/+ `size-9 rounded-lg
+  bg-sunken` (exceção de raio por serem pequenos) e campo mono 15px.
+- **Sequência completa:** `ChordCard` com `.sequence-card` em `.sequence-slot`
+  (2/3/5 por linha); o que está soando ganha borda `accent` + anel sólido `accent-soft`; os demais ficam com
+  opacidade 0.45. Contagem regressiva: círculo `ink` com borda laranja 6px.
+- **Aula concluída:** check grande `size-24 rounded-full bg-success` com anel
+  `ring-8 ring-success-soft` e check branco de traço 3; overline
+  "Exercício concluído", H1 32/36px, card de estatística e botão primário
+  "Voltar à trilha" (`max-w-sm`, largura total).
 
 ## Acessibilidade (obrigatório)
 

@@ -223,6 +223,15 @@ dessas notas removidos e os outros renumerados a partir de 1 (decisão do usuár
   Pestanas são uma barra contínua da primeira à última corda que o dedo 1 prende,
   **sem número de dedo**. Notas mostram o número do dedo. Corda solta acende um
   círculo antes da pestana do braço quando soa.
+- **Graus à esquerda do diagrama:** cada corda que soa mostra, na margem
+  esquerda, o grau da nota em relação à fundamental do acorde — número com o
+  acidente ("1", "♭3", "3", "♭5", "5", "♭7", "7"). É calculado por
+  `stringDegree` (`src/chords.ts`) a partir da cifra (`rootPitchClass` lê a
+  fundamental antes da barra: "B♭m7/F" → B♭) e da casa absoluta; cordas
+  abafadas não têm grau. Por isso a **cifra precisa começar pela fundamental
+  correta** (letra + ♭/♯): um acorde novo com cifra errada mostra graus errados.
+  Ao gerar acordes, confira que só aparecem graus da qualidade (maior 1·3·5;
+  menor 1·♭3·5; 7 1·3·5·♭7; 7M 1·3·5·7; m7 1·♭3·5·♭7; m7(♭5) 1·♭3·♭5·♭7).
 - **Som:** cada corda que soa vira uma nota (`midi` → frequência), com timbre de
   violão de nylon (Karplus–Strong). TOCAR toca as cordas uma a uma, da mais grave
   para a mais aguda, e depois o acorde inteiro; as notas são agendadas no relógio
