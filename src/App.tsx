@@ -410,17 +410,6 @@ const sectionKey = (section: Section) => `s${section.id}`;
 const trailKey = (section: Section, index: number) => `s${section.id}:t${index}`;
 const groupKey = (section: Section, group: string) => `s${section.id}:g${group}`;
 
-/** Every key of the outline: sections, inversion groups and trails. */
-function outlineKeys(all: Section[]) {
-  return all.flatMap((section) => [
-    sectionKey(section),
-    ...section.trails.flatMap((trail, index) => [
-      trailKey(section, index),
-      ...(trail.group ? [groupKey(section, trail.group)] : []),
-    ]),
-  ]);
-}
-
 /** Open sections and trails, remembered in this browser (all closed by default). */
 function useOutline() {
   const [open, setOpen] = useState<Set<string>>(() => {
@@ -447,8 +436,6 @@ function useOutline() {
       else next.add(key);
       update(next);
     },
-    expandAll: (all: Section[]) => update(new Set(outlineKeys(all))),
-    collapseAll: () => update(new Set()),
   };
 }
 
@@ -498,22 +485,6 @@ function TrailGroup({
         />
       </button>
       {open && <div className="ml-2 border-l-2 border-[#FDE68A] pl-3 sm:ml-3 sm:pl-4">{children}</div>}
-    </div>
-  );
-}
-
-/** Sticky bar under the top bar: open or close every section and trail at once. */
-function OutlineControls({ onExpand, onCollapse }: { onExpand: () => void; onCollapse: () => void }) {
-  const button =
-    "flex items-center gap-1.5 rounded-full border border-[#E5D8B5] bg-white px-3.5 py-2 text-[11px] font-black uppercase tracking-wider text-[#172554] shadow-sm transition hover:border-[#FBBF24] active:translate-y-px";
-  return (
-    <div className="sticky top-[72px] z-[5] -mx-5 mb-6 flex justify-end gap-2 bg-[#FFFEFB]/90 px-5 py-2.5 backdrop-blur-xl sm:-mx-8 sm:px-8">
-      <button onClick={onExpand} className={button}>
-        <Icon name="chevron" className="size-4" /> Expandir tudo
-      </button>
-      <button onClick={onCollapse} className={button}>
-        <Icon name="chevron" className="size-4 rotate-180" /> Recolher tudo
-      </button>
     </div>
   );
 }
@@ -1575,8 +1546,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#FFFEFB] text-[#172554]">
       <TopBar />
-      <main className="mx-auto max-w-[720px] px-5 pb-16 pt-2 sm:px-8">
-        <OutlineControls onExpand={() => outline.expandAll(trailSections)} onCollapse={outline.collapseAll} />
+      <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8">
         <div className="space-y-10">
           {trailSections.map((section) => (
             <PathSection
