@@ -51,7 +51,7 @@
   --color-on-ink-muted: #aeb7c7; /* secondary text on ink — 9.5:1 */
 
   /* Status */
-  --color-success: #0e7a52; /* 5.5:1 on white */
+  --color-success: #0e7a52; /* "done" check badge on trail nodes; white on it 5.5:1 */
   --color-danger: #c8281c; /* 5.6:1 on white */
 
   /* Radii */
@@ -214,16 +214,16 @@
 
   .trail-node__badge {
     position: absolute;
-    right: -4px;
-    bottom: -2px;
+    right: -6px;
+    bottom: -4px;
     display: flex;
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: 2px solid var(--color-surface);
-    background: var(--color-ink);
+    background: var(--color-success);
     color: #fff;
   }
 

@@ -23,7 +23,9 @@ progresso (`src/progress.ts`) ao fazer trabalho visual.
    se faz com **borda sólida de 1px** (`border-line`) ou com cor de fundo.
    Único "anel" permitido: `box-shadow: 0 0 0 3px <token>` sólido, sem desfoque.
 2. **Nada de estética Duolingo/gamificada:** sem botões "3D" com sombra
-   deslocada, sem verde, sem caixa alta em botões, sem cantos muito redondos.
+   deslocada, sem verde como cor de interface, sem caixa alta em botões, sem
+   cantos muito redondos. Única exceção aprovada para o verde: o badge de
+   check da aula concluída (token `success`).
 3. **Moderno e enxuto:** menos ornamento. Rótulos supérfluos foram removidos
    (logo, label "Guia", etiqueta "Atual", barras de progresso nas subseções,
    ícones nos cabeçalhos de grupo). Antes de adicionar um elemento, pergunte se
@@ -43,7 +45,7 @@ Cada `--color-x` vira `bg-x`, `text-x`, `border-x`, `fill-x`, `stroke-x`.
 
 | Token | Hex | Uso |
 |---|---|---|
-| `ink` | #0A0F1C | texto principal, trilho da barra de progresso principal, badge de check, ponto do diagrama |
+| `ink` | #0A0F1C | texto principal, trilho da barra de progresso principal, ponto do diagrama |
 | `ink-2` | #2B3445 | texto corrido, chevrons das subseções, linhas de casa |
 | `muted` | #5A6478 | texto secundário, contadores `x/y` das subseções |
 | `subtle` | #8A94A6 | só gráfico (cordas em repouso, hover de borda) — nunca texto |
@@ -61,7 +63,8 @@ Cada `--color-x` vira `bg-x`, `text-x`, `border-x`, `fill-x`, `stroke-x`.
 | `accent-strong` | #D95209 | hover do botão laranja |
 | `accent-ink` | #B53D06 | texto laranja em fundo claro (eyebrow "Guia", rótulos de exercício) |
 | `accent-soft` | #FFF0E6 | anel sólido do card que está soando |
-| `success` / `danger` | #0E7A52 / #C8281C | reservados |
+| `success` | #0E7A52 | **só** o badge de check da aula concluída (ícone branco 5,5:1) |
+| `danger` | #C8281C | reservado |
 
 Outros tokens:
 - **Raios:** `rounded-card` = **6px** (todo container: cards, cabeçalhos,
@@ -151,7 +154,7 @@ direita do card).
 
 Nós redondos 68px ligados por caminho SVG (`trailLayout`, 3 colunas < 520px,
 4 acima). Estados:
-- concluído: `brand` com letra branca + badge preto de check + selo de BPM (`brand-soft`/`brand-ink`, mono);
+- concluído: `brand` com letra branca + badge de check **verde** (`success`, 28px, borda branca 2px, check branco `size-4` com traço grosso `[stroke-width:3.5]`) + selo de BPM (`brand-soft`/`brand-ink`, mono);
 - atual: `accent` com letra **branca** + anel laranja tracejado girando;
 - bloqueado: `sunken` com borda `line-strong` e letra `muted`.
 Caminho percorrido azul sólido; trecho bloqueado pontilhado `line-strong`.

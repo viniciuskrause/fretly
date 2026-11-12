@@ -302,7 +302,7 @@ function TrailNode({
         </span>
         {status === "done" && (
           <span className="trail-node__badge">
-            <Icon name="check" className="size-3" />
+            <Icon name="check" className="size-4 [stroke-width:3.5]" />
           </span>
         )}
       </button>
