@@ -4,6 +4,7 @@ import {
   barreSpans,
   chordLabel,
   soundingStrings,
+  stringDegree,
   stringFrequency,
   type ChordPosition,
   type ChordStep,
@@ -186,7 +187,16 @@ const doneShareOf = (lessons: Lesson[]) =>
   lessons.length ? lessons.filter((lesson) => lesson.status === "done").length / lessons.length : 0;
 
 /** Bare chevron (no background) that turns upward when its category is open. */
-function ChevronToggle({ open, className = "" }: { open: boolean; className?: string }) {
+function ChevronToggle({
+  open,
+  className = "",
+  iconClassName = "size-5",
+}: {
+  open: boolean;
+  className?: string;
+  /** Size of the chevron itself; the box stays centred so chevrons line up across headers. */
+  iconClassName?: string;
+}) {
   return (
     <span
       className={`flex size-8 shrink-0 items-center justify-center transition-transform duration-[240ms] ${
@@ -194,7 +204,7 @@ function ChevronToggle({ open, className = "" }: { open: boolean; className?: st
       } ${className}`}
       aria-hidden="true"
     >
-      <Icon name="chevron" className="size-5" />
+      <Icon name="chevron" className={iconClassName} />
     </span>
   );
 }
@@ -421,21 +431,19 @@ function Trail({
         onClick={onToggle}
         aria-expanded={open}
         aria-controls={regionId}
-        className="group flex min-h-14 w-full items-center gap-3 px-4 py-3 text-left transition-colors focus-visible:outline-offset-[-2px]"
+        className="group flex min-h-16 w-full items-center gap-3 px-5 py-5 text-left transition-colors focus-visible:outline-offset-[-2px]"
       >
-        <span className="min-w-0 flex-1">
-          <span className="block font-display text-[15px] font-semibold tracking-[-0.01em] text-ink">
-            {trail.title}
-          </span>
-          <span className="mt-1 block font-mono text-[11px] font-medium tabular-nums text-muted">
-            {doneCount(trail.lessons)}
-          </span>
+        <span className="min-w-0 flex-1 font-display text-[17px] font-semibold leading-snug tracking-[-0.015em] text-ink">
+          {trail.title}
         </span>
         {hasCurrent && !open && <CurrentDot />}
+        <span className="min-w-[3rem] shrink-0 text-right font-mono text-xs font-medium tabular-nums text-muted">
+          {doneCount(trail.lessons)}
+        </span>
         <ChevronToggle open={open} className="text-ink-2" />
       </button>
       <Collapse id={regionId} labelledBy={buttonId} open={open}>
-        <div className="px-1 pb-2 pt-1">
+        <div className="px-1 pb-4 pt-1">
           <TrailBody trail={trail} trophy={trophy} onSelect={onSelect} />
         </div>
       </Collapse>
@@ -513,19 +521,17 @@ function TrailGroup({
         onClick={onToggle}
         aria-expanded={open}
         aria-controls={regionId}
-        className={`group flex min-h-14 w-full items-center gap-3 rounded-card border bg-surface px-4 py-3 text-left transition-colors focus-visible:outline-offset-[-2px] ${
+        className={`group flex min-h-16 w-full items-center gap-3 rounded-card border bg-surface px-5 py-5 text-left transition-colors focus-visible:outline-offset-[-2px] ${
           open ? "border-line-strong" : "border-line"
         }`}
       >
-        <span className="min-w-0 flex-1">
-          <span className="block font-display text-[15px] font-semibold tracking-[-0.01em] text-ink">
-            {title}
-          </span>
-          <span className="mt-1 block font-mono text-[11px] font-medium tabular-nums text-muted">
-            {doneCount(lessons)}
-          </span>
+        <span className="min-w-0 flex-1 font-display text-[17px] font-semibold leading-snug tracking-[-0.015em] text-ink">
+          {title}
         </span>
         {hasCurrent && !open && <CurrentDot />}
+        <span className="min-w-[3rem] shrink-0 text-right font-mono text-xs font-medium tabular-nums text-muted">
+          {doneCount(lessons)}
+        </span>
         <ChevronToggle open={open} className="text-ink-2" />
       </button>
       <Collapse id={regionId} labelledBy={buttonId} open={open}>
@@ -568,16 +574,16 @@ function PathSection({
   return (
     <section>
       <div className="overflow-hidden rounded-card border border-brand bg-brand text-white">
-        <div className="flex flex-col gap-4 p-5 pr-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:p-6 sm:pr-4">
+        <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:p-6 sm:pr-5">
           {/* The whole title area toggles too; the chevron button is the accessible control. */}
           <div className="min-w-0 flex-1 cursor-pointer" onClick={toggleSection}>
-            <span className="eyebrow block text-brand-soft">
+            <span className="eyebrow eyebrow--lg block text-brand-soft">
               Seção {section.id}
             </span>
             <span className="mt-2 block font-display text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[26px]">
               {section.title}
             </span>
-            <span className="mt-1.5 block text-sm leading-relaxed text-brand-soft">{section.subtitle}</span>
+            <span className="mt-1.5 block text-[15px] font-medium leading-relaxed text-brand-soft">{section.subtitle}</span>
           </div>
           <div className="flex shrink-0 items-center justify-end gap-2">
             <button
@@ -596,7 +602,7 @@ function PathSection({
               aria-label={`${open ? "Recolher" : "Expandir"} seção ${section.id}: ${section.title}`}
               className="-mr-1.5 flex size-11 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 focus-visible:outline-white"
             >
-              <ChevronToggle open={open} />
+              <ChevronToggle open={open} iconClassName="size-7" />
             </button>
           </div>
         </div>
@@ -676,15 +682,38 @@ const DIAGRAM_COLUMN_WIDTH = 40.4;
 const diagramRowY = (string: number) => 48 + (5 - string) * 29;
 const diagramColumnX = (fret: number) => 56 + (fret - 0.5) * DIAGRAM_COLUMN_WIDTH;
 
-/** Big chord symbol ("D"); the shape is only named in the exercise title. */
 /** "Cm7(♭5)/E♭" and the like are too wide for the big size on phones. */
 function isLongChordName(step: ChordStep) {
   return step.chord.length > 8;
 }
 
-function ChordName({ step, className }: { step: ChordStep; className: string }) {
+/**
+ * The standard representation of a chord: symbol on top, diagram below, in one card.
+ * It scales as a unit (see `.chord-card` in index.css); captions go outside the card.
+ */
+function ChordCard({
+  step,
+  activeStrings = [],
+  className = "",
+  cardRef,
+  current,
+}: {
+  step: ChordStep;
+  activeStrings?: number[];
+  className?: string;
+  cardRef?: (node: HTMLDivElement | null) => void;
+  /** Marks the card being played (aria-current). */
+  current?: boolean;
+}) {
   return (
-    <p className={`font-display font-bold tracking-[-0.045em] text-ink ${className}`}>{step.chord}</p>
+    <div ref={cardRef} className={`chord-card ${className}`} aria-current={current ? "true" : undefined}>
+      <div className="chord-card__body">
+        <p className={`chord-card__name ${isLongChordName(step) ? "chord-card__name--long" : ""}`}>{step.chord}</p>
+        <div className="chord-card__diagram">
+          <ChordDiagram step={step} activeStrings={activeStrings} />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -699,16 +728,18 @@ function ChordDiagram({
   const barres = barreSpans(position);
   const barreStrings = new Set(barres.flatMap((barre) => barre.strings));
   return (
+    // The view box hugs the drawing with the same 14-unit margin on every side: degree
+    // labels (left, from x≈15) to the last fret (x=258), highest dot (y=35) to the
+    // base-fret number (y≈218).
     <svg
-      width="300"
-      height="250"
-      viewBox="0 0 300 250"
+      width="272"
+      height="211"
+      viewBox="0 21 272 211"
       fill="none"
       className="block max-w-full"
       aria-label={`Diagrama de ${chordLabel(step)}`}
       role="img"
     >
-      <rect x="28" y="18" width="244" height="206" rx="16" className="fill-surface" />
       {[0, 1, 2, 3, 4, 5].map((string) => {
         const isActive = activeStrings.includes(string);
         return (
@@ -721,6 +752,19 @@ function ChordDiagram({
               strokeWidth={isActive ? 4 : string === 5 ? 1.6 : 1.2}
               className={`transition-all duration-150 ${isActive ? "stroke-accent" : "stroke-subtle"}`}
             />
+            {stringDegree(step, string) && (
+              <text
+                x="31"
+                y={diagramRowY(string) + 4.5}
+                textAnchor="end"
+                fontSize="13"
+                fontWeight="700"
+                className={`font-mono transition-colors duration-150 ${isActive ? "fill-accent-ink" : "fill-brand-ink"}`}
+                aria-label={`Grau ${stringDegree(step, string)}`}
+              >
+                {stringDegree(step, string)}
+              </text>
+            )}
             {position.frets[string] === 0 && isActive && (
               <circle
                 cx="42"
@@ -871,25 +915,39 @@ function ExerciseShell({
   );
 }
 
+/** Where a lesson sits on the home page: its group (if any), trail and chord symbol. */
+type LessonPath = { headings: string[]; chord: string };
+
 /**
- * Uppercase eyebrow that keeps the chord symbol before " - " in its own case:
- * "Dm7(♭5) - formas CAGED" must not read "DM7(♭5)" (a major-seventh chord).
+ * Path of a lesson for the exercise overline, from the headlines above it:
+ * "1ª inversão: baixo na terça - Acordes maiores - C7M".
  */
-function EyebrowText({ text }: { text: string }) {
-  const [chord, ...rest] = text.split(" - ");
-  if (!rest.length) return <>{text}</>;
+function lessonPath(lesson: Lesson): LessonPath {
+  const trail = sections.flatMap((section) => section.trails).find((item) => item.lessons.some(({ id }) => id === lesson.id));
+  const headings = trail ? [trail.group, trail.title].filter((heading): heading is string => !!heading) : [];
+  // The chord without its bass ("C7M/E" → "C7M"); the lesson title is the fallback.
+  const chord = lesson.steps[0]?.chord.split("/")[0] ?? lesson.title.split(" - ")[0];
+  return { headings, chord };
+}
+
+/**
+ * Uppercase overline with the lesson path; the chord symbol keeps its own case
+ * ("Dm7(♭5)" must not read "DM7(♭5)", a major-seventh chord).
+ */
+function LessonOverline({ path }: { path: LessonPath }) {
   return (
     <>
-      <span className="normal-case">{chord}</span> - {rest.join(" - ")}
+      {path.headings.map((heading) => `${heading} - `).join("")}
+      <span className="normal-case">{path.chord}</span>
     </>
   );
 }
 
-function ExerciseHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
+function ExerciseHeading({ path, title }: { path: LessonPath; title: string }) {
   return (
-    <div>
-      <p className="eyebrow text-accent-ink">
-        <EyebrowText text={eyebrow} />
+    <div className="mx-auto w-full max-w-[600px] text-center">
+      <p className="eyebrow eyebrow--lg text-balance text-accent-ink">
+        <LessonOverline path={path} />
       </p>
       <h1 className="mt-3 text-balance font-display text-[26px] font-bold leading-tight tracking-[-0.03em] text-ink sm:text-[30px]">
         {title}
@@ -968,9 +1026,8 @@ function BpmControl({
   };
   return (
     <div className="flex items-center gap-2 rounded-control bg-surface p-1.5 border border-line" role="group" aria-label={`Andamento: ${bpm} BPM`}>
-      <div className="flex items-center gap-1.5 px-2 text-muted" title="BPM">
+      <div className="flex items-center px-2 text-muted" title="BPM">
         <Icon name="metronome" className="size-5" />
-        <span className="eyebrow text-[10px]!">BPM</span>
       </div>
       <button
         onClick={() => onChange((value) => clampBpm(value - 4))}
@@ -1049,6 +1106,9 @@ function ExercisePage({
   const audioContext = useRef<AudioContext | null>(null);
   const scheduledSources = useRef<Array<{ source: AudioBufferSourceNode; startAt: number }>>([]);
   const step = lesson.steps[stepIndex];
+  const path = lessonPath(lesson);
+  // Lessons with alternative fingerings keep a caption row under every diagram.
+  const hasAlternatives = lesson.steps.some((item) => item.alternative);
   const progress = complete || finalExercise ? 100 : ((stepIndex + 1) / lesson.steps.length) * 100;
 
   // Cancels pending UI updates, the scheduler loop and every note that hasn't
@@ -1245,10 +1305,10 @@ function ExercisePage({
       <div className="min-h-screen bg-canvas">
         <TopBar />
         <div className="mx-auto w-full max-w-[560px] px-5 py-14 text-center sm:py-16">
-          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-brand text-white ring-8 ring-brand-soft">
-            <Icon name="check" className="size-12" />
+          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-success text-white ring-8 ring-success-soft">
+            <Icon name="check" className="size-12 [stroke-width:3]" />
           </div>
-          <p className="eyebrow mt-10 text-accent-ink">Exercício concluído</p>
+          <p className="eyebrow eyebrow--lg mt-10 text-accent-ink">Exercício concluído</p>
           <h1 className="mt-3 text-balance font-display text-[32px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-4xl">
             {lesson.exerciseTitle}
           </h1>
@@ -1327,29 +1387,28 @@ function ExercisePage({
           </>
         }
       >
-        <ExerciseHeading eyebrow={lesson.exerciseTitle} title="Sequência completa" />
+        <ExerciseHeading path={path} title="Sequência completa" />
 
-        <div className="relative mt-8">
+        <div className="relative mt-12">
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {lesson.steps.map((chordStep, index) => {
               const isSounding = sequenceStatus === "playing" && index === sequenceIndex;
               const isDimmed = isPlaying && !isSounding;
               return (
-                <div
-                  key={`${chordStep.chord}-${index}`}
-                  ref={(node) => {
-                    // Keep the chord being played on screen (the grid scrolls on phones).
-                    if (node && isSounding) node.scrollIntoView({ block: "nearest", behavior: "smooth" });
-                  }}
-                  className={`sequence-card ${isSounding ? "sequence-card--sounding" : ""} ${isDimmed ? "sequence-card--dimmed" : ""}`}
-                  aria-current={isSounding ? "true" : undefined}
-                >
-                  <ChordName step={chordStep} className={isLongChordName(chordStep) ? "text-xl sm:text-2xl" : "text-2xl sm:text-3xl"} />
-                  <ChordDiagram
+                <div key={`${chordStep.chord}-${index}`} className="sequence-slot">
+                  <ChordCard
                     step={chordStep}
                     activeStrings={isSounding ? soundingStrings(chordStep.position) : []}
+                    current={isSounding}
+                    cardRef={(node) => {
+                      // Keep the chord being played on screen (the grid scrolls on phones).
+                      if (node && isSounding) node.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                    }}
+                    className={`sequence-card ${isSounding ? "sequence-card--sounding" : ""} ${isDimmed ? "sequence-card--dimmed" : ""}`}
                   />
-                  {chordStep.alternative && <AlternativeLabel className="mt-2 text-[10px]" />}
+                  {hasAlternatives && (
+                    <AlternativeSlot className="mt-1.5 text-[10px]!" show={!!chordStep.alternative} />
+                  )}
                 </div>
               );
             })}
@@ -1406,28 +1465,29 @@ function ExercisePage({
       }
     >
       <ExerciseHeading
-        eyebrow={lesson.exerciseTitle}
+        path={path}
         title={`Monte ${chordLabel(step)} e toque corda por corda.`}
       />
 
-      <div className="mt-8 flex flex-col items-center">
-        <ChordName step={step} className={isLongChordName(step) ? "text-5xl sm:text-6xl" : "text-6xl"} />
-        <div className="mt-5 rounded-card border border-line bg-surface p-3">
-          <ChordDiagram
-            step={step}
-            activeStrings={activeStrings}
-          />
-        </div>
-        {step.alternative && <AlternativeLabel className="mt-3 text-xs" />}
+      <div className="mt-12 flex flex-col items-center">
+        <ChordCard step={step} activeStrings={activeStrings} className="max-w-[348px]" />
+        {hasAlternatives && <AlternativeSlot className="mt-3 text-xs!" show={!!step.alternative} />}
       </div>
     </ExerciseShell>
   );
 }
 
-/** Caption under the diagram of an alternative fingering. */
-function AlternativeLabel({ className = "" }: { className?: string }) {
+/**
+ * Caption under the diagram of an alternative fingering. The row is reserved on every
+ * step of a lesson that has alternatives (`show` only toggles visibility), so the
+ * caption appearing never moves the rest of the content.
+ */
+function AlternativeSlot({ show, className = "" }: { show: boolean; className?: string }) {
   return (
-    <p className={`eyebrow text-muted ${className}`}>
+    <p
+      className={`eyebrow text-center leading-4 text-muted ${show ? "" : "invisible"} ${className}`}
+      aria-hidden={!show}
+    >
       Digitação alternativa
     </p>
   );
@@ -1481,7 +1541,7 @@ function GuideLayout({
           <Icon name="back" className="size-4" /> Voltar à trilha
         </button>
 
-        <p className="eyebrow mt-8 text-accent-ink">Guia</p>
+        <p className="eyebrow eyebrow--lg mt-8 text-accent-ink">Guia</p>
         <h1 className="mt-2 font-display text-[36px] font-bold leading-tight tracking-[-0.04em] sm:text-[46px]">
           {title}
         </h1>
@@ -1558,12 +1618,12 @@ function CagedGuide({ onBack }: { onBack: () => void }) {
           </p>
           <div className="!mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
             {cMajor.steps.map((step) => (
-              <figure key={step.shape} className="sequence-card guide-shape">
-                <figcaption className="text-center">
-                  <span className="block font-display text-lg font-bold text-ink">Forma {step.shape}</span>
+              <figure key={step.shape} className="sequence-slot guide-shape">
+                <ChordCard step={step} />
+                <figcaption className="mt-2 text-center">
+                  <span className="block font-display text-[15px] font-bold text-ink">Forma {step.shape}</span>
                   <span className="block text-xs font-medium text-muted">{fretOf(step)}</span>
                 </figcaption>
-                <ChordDiagram step={step} activeStrings={[]} />
               </figure>
             ))}
           </div>
@@ -1647,14 +1707,6 @@ const TETRADS = [
   { quality: "Sétima dominante", symbol: "C7", notes: "C · E · G · B♭", formula: "1 · 3 · 5 · ♭7", role: "V7, o acorde que pede resolução" },
   { quality: "Meio diminuto", symbol: "Cm7(♭5)", notes: "C · E♭ · G♭ · B♭", formula: "1 · ♭3 · ♭5 · ♭7", role: "VIIm7(♭5) e o IIm7(♭5) do menor" },
 ];
-
-/** Interval of each pitch class above C, spelled for these four chord qualities. */
-const INTERVAL_FROM_C: Record<number, string> = { 0: "1", 3: "♭3", 4: "3", 6: "♭5", 7: "5", 10: "♭7", 11: "7" };
-
-/** Intervals of a C voicing, from the bass up ("3 · 7 · 1 · 5"). */
-function intervalsOf(step: ChordStep) {
-  return step.position.midi.map((note) => INTERVAL_FROM_C[note % 12] ?? "?").join(" · ");
-}
 
 /** Short quality name used as the row label of the diagram tables. */
 const QUALITY_LABEL: Record<string, string> = {
@@ -1782,9 +1834,9 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
       <GuideSection title="As formas em C">
         <p>
           Abaixo, as formas principais de cada inversão em C, para as quatro qualidades e as três
-          cordas do baixo. Embaixo de cada diagrama estão as notas do acorde lidas do baixo para o
-          agudo, como intervalos: <strong>1</strong> é a fundamental, <strong>3</strong> a terça,{" "}
-          <strong>5</strong> a quinta e <strong>7</strong> a sétima.
+          cordas do baixo. À esquerda de cada diagrama, cada corda que soa mostra o grau da nota:{" "}
+          <strong>1</strong> é a fundamental, <strong>3</strong> a terça, <strong>5</strong> a quinta
+          e <strong>7</strong> a sétima, com ♭ quando o intervalo é abaixado.
         </p>
         {tables.map((table) => (
           <div key={table.inversion} className="!mt-10">
@@ -1795,22 +1847,11 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
                   <p className="eyebrow text-brand-ink">{row.quality}</p>
                   <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3">
                     {row.steps.map((step) => (
-                      <figure
-                        key={`${step.chord}-${step.bassString}`}
-                        className="flex min-w-0 flex-col items-center gap-1 rounded-card border border-line bg-surface px-1 pb-3 pt-3"
-                      >
-                        <figcaption className="text-center">
-                          <span className="block font-display text-[15px] font-bold leading-tight text-ink sm:text-lg">
-                            {step.chord}
-                          </span>
-                          <span className="block text-[11px] font-medium text-muted sm:text-xs">
-                            Baixo na {step.bassString}ª · {fretOf(step)}
-                          </span>
+                      <figure key={`${step.chord}-${step.bassString}`} className="min-w-0">
+                        <ChordCard step={step} />
+                        <figcaption className="mt-1.5 text-center text-[11px] font-medium leading-snug text-muted sm:text-xs">
+                          Baixo na {step.bassString}ª · {fretOf(step)}
                         </figcaption>
-                        <ChordDiagram step={step} activeStrings={[]} />
-                        <span className="font-mono text-[11px] font-semibold tabular-nums text-brand-ink sm:text-xs">
-                          {intervalsOf(step)}
-                        </span>
                       </figure>
                     ))}
                   </div>

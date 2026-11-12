@@ -75,3 +75,24 @@ export function barreSpans(position: ChordPosition) {
     return { fret, from: Math.min(...strings), to: Math.max(...strings), strings };
   });
 }
+
+const NATURAL_PITCH_CLASS: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+
+/** Pitch class (0 = C) of the chord's root, read from its symbol ("B♭m7/F" → 10). */
+export function rootPitchClass(chord: string) {
+  const match = /^([A-G])([♭♯]?)/.exec(chord);
+  if (!match) return null;
+  const accidental = match[2] === "♭" ? -1 : match[2] === "♯" ? 1 : 0;
+  return (NATURAL_PITCH_CLASS[match[1]] + accidental + 12) % 12;
+}
+
+/** Degree names by semitones above the root, spelled for the app's chords (triads, 7M, m7, 7, m7(♭5)). */
+const DEGREE_BY_SEMITONES = ["1", "♭2", "2", "♭3", "3", "4", "♭5", "5", "♯5", "6", "♭7", "7"];
+
+/** Degree of the note a string sounds in this chord ("1", "♭3", "5", "♭7"…), or null when muted. */
+export function stringDegree(step: Pick<ChordStep, "chord" | "position">, string: number) {
+  const fret = absoluteFret(step.position, string);
+  const root = rootPitchClass(step.chord);
+  if (fret === null || root === null) return null;
+  return DEGREE_BY_SEMITONES[(OPEN_STRING_MIDI[string] + fret - root + 120) % 12];
+}
