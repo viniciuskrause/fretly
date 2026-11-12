@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 import {
   barreSpans,
@@ -21,7 +21,7 @@ function Icon({
     | "practice"
     | "profile"
     | "fire"
-    | "book"
+    | "notebook"
     | "play"
     | "check"
     | "lock"
@@ -66,10 +66,10 @@ function Icon({
     fire: (
       <path d="M12 22c4 0 7-3 7-7 0-3-2-6-5-9 0 3-1 4-3 5 0-4-2-7-2-7-3 4-4 7-4 10 0 5 3 8 7 8Z" />
     ),
-    book: (
+    notebook: (
       <>
-        <path d="M4 5a3 3 0 0 1 3-3h13v17H7a3 3 0 0 0-3 3Z" />
-        <path d="M4 5v17M8 6h8M8 10h6" />
+        <rect x="6" y="3" width="14" height="18" rx="2" />
+        <path d="M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11.5 8h5M11.5 12h5M11.5 16h3" />
       </>
     ),
     play: <path d="m9 7 8 5-8 5Z" />,
@@ -144,34 +144,11 @@ function Icon({
   );
 }
 
-/** A guitar wearing taped-up nerd glasses (drawn for the orange tile). */
-function Logo({ className }: { className: string }) {
-  return (
-    <svg className={className} viewBox="0 0 32 32" aria-hidden="true">
-      <rect x="12.6" y="1" width="6.8" height="5.4" rx="1.8" fill="#fff"/>
-      <circle cx="11.7" cy="2.6" r="1" fill="#fff"/><circle cx="11.7" cy="5" r="1" fill="#fff"/>
-      <circle cx="20.3" cy="2.6" r="1" fill="#fff"/><circle cx="20.3" cy="5" r="1" fill="#fff"/>
-      <rect x="14.4" y="5.8" width="3.2" height="9.5" fill="#fff"/>
-      <path d="M14.4 9h3.2M14.4 11.6h3.2M14.4 14.2h3.2" stroke="#F97316" strokeWidth="0.7"/>
-      <path d="M16 13.2c3.4 0 5.6 2.2 5.6 4.6 0 1.3-.6 2.1-.6 2.9 0 .9 2.6 1.9 2.6 5.2 0 3.3-3.4 5.1-7.6 5.1s-7.6-1.8-7.6-5.1c0-3.3 2.6-4.3 2.6-5.2 0-.8-.6-1.6-.6-2.9 0-2.4 2.2-4.6 5.6-4.6z" fill="#fff"/>
-      <rect x="8.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#172554" strokeWidth="1.6"/>
-      <rect x="17.2" y="18.3" width="6.6" height="5.4" rx="1.6" fill="#fff" stroke="#172554" strokeWidth="1.6"/>
-      <path d="M14.8 20.4h2.4" stroke="#172554" strokeWidth="1.6"/>
-      <rect x="15.1" y="19.3" width="1.8" height="2.4" rx="0.3" fill="#FEF3C7" stroke="#172554" strokeWidth="0.5"/>
-      <circle cx="11.9" cy="21.2" r="1.1" fill="#172554"/><circle cx="20.1" cy="21.2" r="1.1" fill="#172554"/>
-      <path d="M13.2 26.6q2.8 1.9 5.6 0" stroke="#172554" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-    </svg>
-  );
-}
-
 function Brand() {
   return (
-    <div className="flex items-center gap-3">
-      <div className="relative flex size-11 shrink-0 rotate-[-5deg] items-center justify-center rounded-[14px] bg-[#F97316] text-white shadow-[0_4px_0_#C2410C]">
-        <Logo className="size-8" />
-      </div>
-      <p className="text-[20px] font-bold leading-none tracking-[-0.04em] text-[#172554]">
-        Guitar Workouts for Nerds
+    <div className="flex items-center">
+      <p className="font-display text-[17px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[19px]">
+        Guitar Workouts <span className="text-accent-ink">for Nerds</span>
       </p>
     </div>
   );
@@ -179,11 +156,11 @@ function Brand() {
 
 function TopBar() {
   return (
-    <header className="sticky top-0 z-10 border-b border-[#E5D8B5]/90 bg-[#FFFEFB]/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-[72px] max-w-[720px] items-center justify-between px-5 sm:px-8">
+    <header className="sticky top-0 z-10 border-b border-line bg-canvas">
+      <div className="flex h-16 w-full items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-8 lg:px-12">
         <Brand />
         <button
-          className="flex size-9 items-center justify-center rounded-full bg-[#FEF3C7] text-xs font-black text-[#92400E] ring-2 ring-white shadow-sm"
+          className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-[11px] font-semibold text-white transition hover:bg-ink-2 active:scale-95"
           aria-label="Abrir perfil"
         >
           RL
@@ -199,6 +176,63 @@ function trailLabel(lesson: Lesson) {
 }
 
 type TrailStatus = Lesson["status"];
+
+/** Done/total counter shown on section and trail headers. */
+function doneCount(lessons: Lesson[]) {
+  return `${lessons.filter((lesson) => lesson.status === "done").length}/${lessons.length}`;
+}
+
+const doneShareOf = (lessons: Lesson[]) =>
+  lessons.length ? lessons.filter((lesson) => lesson.status === "done").length / lessons.length : 0;
+
+/** Bare chevron (no background) that turns upward when its category is open. */
+function ChevronToggle({ open, className = "" }: { open: boolean; className?: string }) {
+  return (
+    <span
+      className={`flex size-8 shrink-0 items-center justify-center transition-transform duration-[240ms] ${
+        open ? "rotate-180" : ""
+      } ${className}`}
+      aria-hidden="true"
+    >
+      <Icon name="chevron" className="size-5" />
+    </span>
+  );
+}
+
+/**
+ * Animated region of a collapsible category. It stays mounted so it can slide
+ * open and shut; while closed it is `inert` (no focus, hidden from assistive tech).
+ */
+function Collapse({
+  id,
+  labelledBy,
+  open,
+  children,
+}: {
+  id: string;
+  labelledBy: string;
+  open: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <div id={id} role="region" aria-labelledby={labelledBy} className="disclosure-region" data-open={open} inert={!open}>
+      <div className="disclosure-region__inner">{children}</div>
+    </div>
+  );
+}
+
+/** Small orange dot on a closed header whose lessons include the current one. */
+function CurrentDot() {
+  return (
+    <span className="size-2.5 shrink-0 rounded-full bg-accent" role="img" aria-label="Aula atual" title="Aula atual" />
+  );
+}
+
+/** Ids tying a disclosure button to its region (aria-controls / aria-labelledby). */
+function useDisclosureIds() {
+  const id = useId();
+  return { buttonId: `${id}-button`, regionId: `${id}-region` };
+}
 
 type TrailPoint = { x: number; y: number };
 
@@ -231,7 +265,7 @@ function TrailNodeIcon({ lesson }: { lesson: Lesson }) {
   if (lesson.status === "locked") return <Icon name="lock" className="size-6" />;
   if (lesson.type === "review") return <Icon name="replay" className="size-7" />;
   return (
-    <span className="text-[24px] font-black leading-none tracking-[-0.04em]">
+    <span className="text-[23px] font-bold leading-none tracking-[-0.04em]">
       {/* "Bm7(♭5)" is too wide for the node: show it as "Bø"; inversions drop the bass ("C7M/E" → "C7M"). */}
       {lesson.steps[0].chord.replace("m7(♭5)", "ø").split("/")[0]}
     </span>
@@ -315,54 +349,6 @@ function useElementWidth() {
   return { ref, width };
 }
 
-/** Done/total counter shown on section and trail headers. */
-function doneCount(lessons: Lesson[]) {
-  return `${lessons.filter((lesson) => lesson.status === "done").length}/${lessons.length}`;
-}
-
-function Trail({
-  trail,
-  trophy,
-  open,
-  onToggle,
-  onSelect,
-}: {
-  trail: TrailData;
-  /** Status of the trophy at the end of the trail; omitted = no trophy. */
-  trophy?: TrailStatus;
-  open: boolean;
-  onToggle: () => void;
-  onSelect: (lesson: Lesson) => void;
-}) {
-  const hasCurrent = trail.lessons.some((lesson) => lesson.status === "current");
-  return (
-    <div className="mt-4">
-      <button
-        onClick={onToggle}
-        aria-expanded={open}
-        className={`flex w-full items-center gap-3 rounded-2xl border-2 px-4 py-3 text-left transition hover:border-[#FBBF24] ${
-          open ? "border-transparent" : "border-[#E5D8B5] bg-white"
-        }`}
-      >
-        <span className="min-w-0 flex-1 text-xs font-black uppercase tracking-[0.14em] text-[#172554]">
-          {trail.title}
-        </span>
-        {hasCurrent && !open && (
-          <span className="shrink-0 rounded-full bg-[#FFEDD5] px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#C2410C]">
-            Atual
-          </span>
-        )}
-        <span className="shrink-0 text-xs font-black text-[#64748B]">{doneCount(trail.lessons)}</span>
-        <Icon
-          name="chevron"
-          className={`size-5 shrink-0 text-[#64748B] transition-transform ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-      {open && <TrailBody trail={trail} trophy={trophy} onSelect={onSelect} />}
-    </div>
-  );
-}
-
 function TrailBody({
   trail,
   trophy,
@@ -391,7 +377,8 @@ function TrailBody({
               <path
                 key={index}
                 d={segment}
-                stroke={statuses[index + 1] === "locked" ? "#E5D8B5" : "#3B82F6"}
+                className={statuses[index + 1] === "locked" ? "stroke-line-strong" : "stroke-brand"}
+                strokeDasharray={statuses[index + 1] === "locked" ? "2 8" : undefined}
               />
             ))}
           </svg>
@@ -404,6 +391,58 @@ function TrailBody({
     </div>
   );
 }
+
+
+
+function Trail({
+  trail,
+  trophy,
+  open,
+  onToggle,
+  onSelect,
+}: {
+  trail: TrailData;
+  /** Status of the trophy at the end of the trail; omitted = no trophy. */
+  trophy?: TrailStatus;
+  open: boolean;
+  onToggle: () => void;
+  onSelect: (lesson: Lesson) => void;
+}) {
+  const { buttonId, regionId } = useDisclosureIds();
+  const hasCurrent = trail.lessons.some((lesson) => lesson.status === "current");
+  return (
+    <div
+      className={`overflow-hidden rounded-card border bg-surface transition-colors ${
+        open ? "border-line-strong" : "border-line"
+      }`}
+    >
+      <button
+        id={buttonId}
+        onClick={onToggle}
+        aria-expanded={open}
+        aria-controls={regionId}
+        className="group flex min-h-14 w-full items-center gap-3 px-4 py-3 text-left transition-colors focus-visible:outline-offset-[-2px]"
+      >
+        <span className="min-w-0 flex-1">
+          <span className="block font-display text-[15px] font-semibold tracking-[-0.01em] text-ink">
+            {trail.title}
+          </span>
+          <span className="mt-1 block font-mono text-[11px] font-medium tabular-nums text-muted">
+            {doneCount(trail.lessons)}
+          </span>
+        </span>
+        {hasCurrent && !open && <CurrentDot />}
+        <ChevronToggle open={open} className="text-ink-2" />
+      </button>
+      <Collapse id={regionId} labelledBy={buttonId} open={open}>
+        <div className="px-1 pb-2 pt-1">
+          <TrailBody trail={trail} trophy={trophy} onSelect={onSelect} />
+        </div>
+      </Collapse>
+    </div>
+  );
+}
+
 
 const OPEN_KEY = "fretly.open.v1";
 const sectionKey = (section: Section) => `s${section.id}`;
@@ -430,10 +469,11 @@ function useOutline() {
   }
   return {
     open,
-    toggle(key: string) {
+    /** Opens or closes `key`; when opening, also opens the keys in `alsoOpen`. */
+    toggle(key: string, alsoOpen: string[] = []) {
       const next = new Set(open);
       if (next.has(key)) next.delete(key);
-      else next.add(key);
+      else [key, ...alsoOpen].forEach((k) => next.add(k));
       update(next);
     },
   };
@@ -465,26 +505,34 @@ function TrailGroup({
   children: ReactNode;
 }) {
   const hasCurrent = lessons.some((lesson) => lesson.status === "current");
+  const { buttonId, regionId } = useDisclosureIds();
   return (
-    <div className="mt-4">
+    <div>
       <button
+        id={buttonId}
         onClick={onToggle}
         aria-expanded={open}
-        className="flex w-full items-center gap-3 rounded-2xl bg-[#FEF3C7] px-4 py-3.5 text-left shadow-[0_3px_0_#FBBF24] transition hover:bg-[#FDE68A] active:translate-y-0.5 active:shadow-none"
+        aria-controls={regionId}
+        className={`group flex min-h-14 w-full items-center gap-3 rounded-card border bg-surface px-4 py-3 text-left transition-colors focus-visible:outline-offset-[-2px] ${
+          open ? "border-line-strong" : "border-line"
+        }`}
       >
-        <span className="min-w-0 flex-1 text-sm font-black tracking-[-0.01em] text-[#172554]">{title}</span>
-        {hasCurrent && !open && (
-          <span className="shrink-0 rounded-full bg-white px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#C2410C]">
-            Atual
+        <span className="min-w-0 flex-1">
+          <span className="block font-display text-[15px] font-semibold tracking-[-0.01em] text-ink">
+            {title}
           </span>
-        )}
-        <span className="shrink-0 text-xs font-black text-[#92400E]">{doneCount(lessons)}</span>
-        <Icon
-          name="chevron"
-          className={`size-5 shrink-0 text-[#92400E] transition-transform ${open ? "rotate-180" : ""}`}
-        />
+          <span className="mt-1 block font-mono text-[11px] font-medium tabular-nums text-muted">
+            {doneCount(lessons)}
+          </span>
+        </span>
+        {hasCurrent && !open && <CurrentDot />}
+        <ChevronToggle open={open} className="text-ink-2" />
       </button>
-      {open && <div className="ml-2 border-l-2 border-[#FDE68A] pl-3 sm:ml-3 sm:pl-4">{children}</div>}
+      <Collapse id={regionId} labelledBy={buttonId} open={open}>
+        <div className="ml-[31px] space-y-3 border-l-2 border-line pb-1 pl-3 pt-3 sm:ml-[35px] sm:pl-4">
+          {children}
+        </div>
+      </Collapse>
     </div>
   );
 }
@@ -498,75 +546,109 @@ function PathSection({
 }: {
   section: Section;
   openKeys: Set<string>;
-  onToggle: (key: string) => void;
+  onToggle: (key: string, alsoOpen?: string[]) => void;
   onSelect: (lesson: Lesson) => void;
   onOpenGuide: () => void;
 }) {
+  const { buttonId, regionId } = useDisclosureIds();
   const open = openKeys.has(sectionKey(section));
   const lessons = section.trails.flatMap((trail) => trail.lessons);
   const sectionDone = lessons.every((lesson) => lesson.status === "done");
-  const doneShare = lessons.filter((lesson) => lesson.status === "done").length / lessons.length;
+  const doneShare = doneShareOf(lessons);
+  /**
+   * Opening the section also opens the trail (and its group) holding the next lesson to
+   * study: its first unfinished lesson (the "current" one, when it is in this section).
+   */
+  function toggleSection() {
+    const index = section.trails.findIndex((trail) => trail.lessons.some((lesson) => lesson.status !== "done"));
+    const trail = section.trails[index];
+    const alsoOpen = trail ? [trailKey(section, index), ...(trail.group ? [groupKey(section, trail.group)] : [])] : [];
+    onToggle(sectionKey(section), alsoOpen);
+  }
   return (
     <section>
-      <div className="overflow-hidden rounded-[26px] bg-[#1E3A8A] text-white shadow-[0_7px_0_#172554]">
-        <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
-          <button
-            onClick={() => onToggle(sectionKey(section))}
-            aria-expanded={open}
-            className="group flex min-w-0 flex-1 items-start gap-3 text-left"
-          >
-            <span className="min-w-0 flex-1">
-              <span className="block text-xs font-black uppercase tracking-[0.16em] text-[#FDE68A]">
-                Seção {section.id} • {doneCount(lessons)} {lessons.length === 1 ? "exercício" : "exercícios"}
-              </span>
-              <span className="mt-2 block text-[25px] font-black tracking-[-0.03em]">{section.title}</span>
-              <span className="mt-1 block text-sm text-white/75">{section.subtitle}</span>
+      <div className="overflow-hidden rounded-card border border-brand bg-brand text-white">
+        <div className="flex flex-col gap-4 p-5 pr-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:p-6 sm:pr-4">
+          {/* The whole title area toggles too; the chevron button is the accessible control. */}
+          <div className="min-w-0 flex-1 cursor-pointer" onClick={toggleSection}>
+            <span className="eyebrow block text-brand-soft">
+              Seção {section.id}
             </span>
-            <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/10 transition group-hover:bg-white/20">
-              <Icon name="chevron" className={`size-5 transition-transform ${open ? "rotate-180" : ""}`} />
+            <span className="mt-2 block font-display text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[26px]">
+              {section.title}
             </span>
-          </button>
-          <button
-            onClick={onOpenGuide}
-            className="flex shrink-0 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white px-5 py-3 text-xs font-black text-[#1E3A8A] shadow-[0_4px_0_#C7D7F5] transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_#C7D7F5] active:translate-y-1 active:shadow-none"
-          >
-            <Icon name="book" className="size-4" /> GUIA
-          </button>
+            <span className="mt-1.5 block text-sm leading-relaxed text-brand-soft">{section.subtitle}</span>
+          </div>
+          <div className="flex shrink-0 items-center justify-end gap-2">
+            <button
+              onClick={onOpenGuide}
+              aria-label={`Guia da seção ${section.id}`}
+              title="Guia"
+              className="flex size-11 shrink-0 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 active:scale-[0.96] focus-visible:outline-white"
+            >
+              <Icon name="notebook" className="size-6" />
+            </button>
+            <button
+              id={buttonId}
+              onClick={toggleSection}
+              aria-expanded={open}
+              aria-controls={regionId}
+              aria-label={`${open ? "Recolher" : "Expandir"} seção ${section.id}: ${section.title}`}
+              className="-mr-1.5 flex size-11 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 focus-visible:outline-white"
+            >
+              <ChevronToggle open={open} />
+            </button>
+          </div>
         </div>
-        <div className="h-1.5 bg-[#2B4BA8]">
+        <div className="flex items-center gap-3 px-5 pb-5 sm:px-6 sm:pb-6">
+          <span className="shrink-0 whitespace-nowrap font-mono text-sm font-bold tabular-nums text-white">
+            {doneCount(lessons)} {lessons.length === 1 ? "exercício" : "exercícios"}
+          </span>
           <div
-            className="h-full rounded-r-full bg-[#FBBF24]"
-            style={{ width: `${doneShare * 100}%` }}
-          />
+            className="h-3 flex-1 overflow-hidden rounded-full bg-ink"
+            role="progressbar"
+            aria-label={`Progresso da seção ${section.id}`}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(doneShare * 100)}
+          >
+            <div
+              className="h-full rounded-full bg-accent transition-[width] duration-500"
+              style={{ width: `${doneShare * 100}%` }}
+            />
+          </div>
         </div>
       </div>
 
-      {open &&
-        trailBlocks(section).map((block) => {
-          const trails = block.items.map(({ trail, index }) => (
-            <Trail
-              key={index}
-              trail={trail}
-              trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
-              open={openKeys.has(trailKey(section, index))}
-              onToggle={() => onToggle(trailKey(section, index))}
-              onSelect={onSelect}
-            />
-          ));
-          if (!block.group) return trails;
-          const key = groupKey(section, block.group);
-          return (
-            <TrailGroup
-              key={key}
-              title={block.group}
-              lessons={block.items.flatMap(({ trail }) => trail.lessons)}
-              open={openKeys.has(key)}
-              onToggle={() => onToggle(key)}
-            >
-              {trails}
-            </TrailGroup>
-          );
-        })}
+      <Collapse id={regionId} labelledBy={buttonId} open={open}>
+        <div className="space-y-3 pt-3">
+          {trailBlocks(section).map((block) => {
+            const trails = block.items.map(({ trail, index }) => (
+              <Trail
+                key={index}
+                trail={trail}
+                trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
+                open={openKeys.has(trailKey(section, index))}
+                onToggle={() => onToggle(trailKey(section, index))}
+                onSelect={onSelect}
+              />
+            ));
+            if (!block.group) return trails;
+            const key = groupKey(section, block.group);
+            return (
+              <TrailGroup
+                key={key}
+                title={block.group}
+                lessons={block.items.flatMap(({ trail }) => trail.lessons)}
+                open={openKeys.has(key)}
+                onToggle={() => onToggle(key)}
+              >
+                {trails}
+              </TrailGroup>
+            );
+          })}
+        </div>
+      </Collapse>
     </section>
   );
 }
@@ -602,7 +684,7 @@ function isLongChordName(step: ChordStep) {
 
 function ChordName({ step, className }: { step: ChordStep; className: string }) {
   return (
-    <p className={`font-black tracking-[-0.055em] text-[#172554] ${className}`}>{step.chord}</p>
+    <p className={`font-display font-bold tracking-[-0.045em] text-ink ${className}`}>{step.chord}</p>
   );
 }
 
@@ -626,7 +708,7 @@ function ChordDiagram({
       aria-label={`Diagrama de ${chordLabel(step)}`}
       role="img"
     >
-      <rect x="28" y="18" width="244" height="206" rx="16" fill="#FFFFFF" />
+      <rect x="28" y="18" width="244" height="206" rx="16" className="fill-surface" />
       {[0, 1, 2, 3, 4, 5].map((string) => {
         const isActive = activeStrings.includes(string);
         return (
@@ -636,9 +718,8 @@ function ChordDiagram({
               y1={diagramRowY(string)}
               x2="258"
               y2={diagramRowY(string)}
-              stroke={isActive ? "#F97316" : "#94A3B8"}
-              strokeWidth={isActive ? 4 : string === 5 ? 1.3 : 1}
-              className="transition-all duration-150"
+              strokeWidth={isActive ? 4 : string === 5 ? 1.6 : 1.2}
+              className={`transition-all duration-150 ${isActive ? "stroke-accent" : "stroke-subtle"}`}
             />
             {position.frets[string] === 0 && isActive && (
               <circle
@@ -646,7 +727,7 @@ function ChordDiagram({
                 cy={diagramRowY(string)}
                 r="7"
                 fill="none"
-                stroke="#F97316"
+                className="stroke-accent"
                 strokeWidth="3"
               />
             )}
@@ -660,8 +741,9 @@ function ChordDiagram({
           y1="48"
           x2={56 + line * DIAGRAM_COLUMN_WIDTH}
           y2="193"
-          stroke="#475569"
+          className="stroke-ink-2"
           strokeWidth={line === 0 && position.baseFret === 1 ? 6 : 1.4}
+          strokeLinecap={line === 0 && position.baseFret === 1 ? "round" : undefined}
         />
       ))}
       {position.baseFret > 1 && (
@@ -670,8 +752,8 @@ function ChordDiagram({
           y="215"
           textAnchor="middle"
           fontSize="14"
-          fontWeight="800"
-          fill="#475569"
+          fontWeight="600"
+          className="fill-muted font-mono"
           aria-label={`${position.baseFret}ª casa`}
         >
           {position.baseFret}
@@ -686,10 +768,9 @@ function ChordDiagram({
             y1={diagramRowY(barre.from)}
             x2={diagramColumnX(barre.fret)}
             y2={diagramRowY(barre.to)}
-            stroke={isActive ? "#F97316" : "#172554"}
             strokeWidth="18"
             strokeLinecap="round"
-            className="transition-all duration-150"
+            className={`transition-all duration-150 ${isActive ? "stroke-accent" : "stroke-ink"}`}
             aria-label={`Pestana na ${position.baseFret + barre.fret - 1}ª casa, cordas ${6 - barre.to} a ${6 - barre.from}`}
           />
         );
@@ -706,16 +787,15 @@ function ChordDiagram({
               cx={cx}
               cy={cy}
               r={isActive ? 13 : 10}
-              fill={isActive ? "#F97316" : "#172554"}
-              className="transition-all duration-150"
+              className={`transition-all duration-150 ${isActive ? "fill-accent" : "fill-ink"}`}
             />
             <text
               x={cx}
               y={cy + 4}
               textAnchor="middle"
-              fontSize="10"
+              fontSize={isActive ? 12 : 11}
               fontWeight="700"
-              fill="white"
+              className={`font-mono transition-all duration-150 fill-white`}
               aria-label={`Dedo ${finger}`}
             >
               {finger}
@@ -747,17 +827,17 @@ function ExerciseShell({
   children: ReactNode;
 }) {
   return (
-    <div className="flex min-h-dvh flex-col bg-[#FFFEFB] text-[#172554]">
+    <div className="flex min-h-dvh flex-col bg-canvas text-ink">
       <header className="mx-auto flex w-full max-w-[1040px] items-center gap-4 px-4 pt-5 sm:gap-6 sm:px-10 sm:pt-12">
         <button
           onClick={onExit}
-          className="flex size-10 shrink-0 items-center justify-center rounded-xl text-[#64748B] transition hover:bg-[#FBF3DC] hover:text-[#334155]"
+          className="flex size-11 shrink-0 items-center justify-center rounded-control text-muted transition hover:bg-sunken hover:text-ink active:scale-95"
           aria-label="Voltar à trilha"
         >
           <Icon name="close" className="size-6" />
         </button>
         <div
-          className="h-4 flex-1 overflow-hidden rounded-full bg-[#E5D8B5]"
+          className="h-2.5 flex-1 overflow-hidden rounded-full bg-line"
           role="progressbar"
           aria-label="Progresso do exercício"
           aria-valuemin={0}
@@ -765,7 +845,7 @@ function ExerciseShell({
           aria-valuenow={Math.round(progress)}
         >
           <div
-            className="h-full rounded-full bg-[#3B82F6] transition-[width] duration-500"
+            className="h-full rounded-full bg-brand transition-[width] duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -777,8 +857,8 @@ function ExerciseShell({
         {children}
       </main>
 
-      <footer className="sticky bottom-0 border-t-2 border-[#E5D8B5] bg-[#FFFEFB]">
-        <div className="relative mx-auto w-full max-w-[1040px] px-4 py-4 sm:px-10 sm:py-8">
+      <footer className="sticky bottom-0 border-t border-line bg-surface">
+        <div className="relative mx-auto w-full max-w-[1040px] px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-10 sm:py-6">
           {footerCenter && (
             <div className="mb-3 flex justify-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
               {footerCenter}
@@ -808,10 +888,10 @@ function EyebrowText({ text }: { text: string }) {
 function ExerciseHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div>
-      <p className="text-xs font-black uppercase tracking-[0.14em] text-[#C2410C]">
+      <p className="eyebrow text-accent-ink">
         <EyebrowText text={eyebrow} />
       </p>
-      <h1 className="mt-3 text-[28px] font-black leading-tight tracking-[-0.035em] text-[#172554]">
+      <h1 className="mt-3 text-balance font-display text-[26px] font-bold leading-tight tracking-[-0.03em] text-ink sm:text-[30px]">
         {title}
       </h1>
     </div>
@@ -831,7 +911,7 @@ function SecondaryButton({ label, onClick, disabled, icon }: ActionButtonProps) 
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className="flex h-12 items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#DACCA8] bg-white px-4 text-sm font-black uppercase tracking-[0.08em] text-[#475569] transition hover:bg-[#FBF3DC] active:translate-y-0.5 active:border-b-2 disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-[150px] sm:px-6"
+      className="flex h-12 min-w-12 items-center justify-center gap-2 rounded-control border border-line-strong bg-surface px-4 text-sm font-semibold text-ink-2 transition hover:border-subtle hover:bg-sunken hover:text-ink active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong disabled:hover:bg-surface sm:min-w-[140px] sm:px-5"
     >
       {icon && <Icon name={icon} className="size-5" />}
       <span className={icon ? "hidden sm:inline" : undefined}>{label}</span>
@@ -844,17 +924,20 @@ function PrimaryButton({
   onClick,
   disabled,
   icon,
-  tone = "green",
-}: ActionButtonProps & { tone?: "green" | "orange" }) {
+  tone = "primary",
+}: ActionButtonProps & {
+  /** "primary" (blue) moves forward; "accent" (orange) makes sound. */
+  tone?: "primary" | "accent";
+}) {
   const toneClass =
-    tone === "orange"
-      ? "bg-[#C2410C] shadow-[0_4px_0_#9A3412]"
-      : "bg-[#2563EB] shadow-[0_4px_0_#1E3A8A]";
+    tone === "accent"
+      ? "bg-accent text-white hover:bg-accent-strong"
+      : "bg-brand text-white hover:bg-brand-strong";
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`flex h-12 min-w-[130px] items-center justify-center gap-2 rounded-2xl px-6 text-sm font-black uppercase tracking-[0.08em] text-white transition active:translate-y-1 active:shadow-none disabled:cursor-wait disabled:opacity-75 sm:min-w-[150px] ${toneClass}`}
+      className={`flex h-12 min-w-[124px] items-center justify-center gap-2 rounded-control px-6 text-sm font-semibold transition active:scale-[0.98] disabled:cursor-wait disabled:opacity-70 sm:min-w-[150px] ${toneClass}`}
     >
       {icon && <Icon name={icon} className="size-5 fill-current" />}
       {label}
@@ -884,14 +967,15 @@ function BpmControl({
     setDraft(null);
   };
   return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-[#E5D8B5]" role="group" aria-label={`Andamento: ${bpm} BPM`}>
-      <div className="flex items-center px-2 text-[#64748B]" title="BPM">
+    <div className="flex items-center gap-2 rounded-control bg-surface p-1.5 border border-line" role="group" aria-label={`Andamento: ${bpm} BPM`}>
+      <div className="flex items-center gap-1.5 px-2 text-muted" title="BPM">
         <Icon name="metronome" className="size-5" />
+        <span className="eyebrow text-[10px]!">BPM</span>
       </div>
       <button
         onClick={() => onChange((value) => clampBpm(value - 4))}
         disabled={disabled}
-        className="flex size-8 items-center justify-center rounded-lg bg-[#FBF3DC] font-black text-[#475569] disabled:opacity-40"
+        className="flex size-9 items-center justify-center rounded-lg bg-sunken font-mono text-base font-semibold text-ink-2 transition hover:bg-line hover:text-ink active:scale-95 disabled:opacity-40 disabled:hover:bg-sunken"
         aria-label="Diminuir BPM"
       >
         −
@@ -924,12 +1008,12 @@ function BpmControl({
             onChange(() => next);
           }
         }}
-        className="h-8 w-12 rounded-lg border-2 border-transparent bg-transparent text-center text-sm font-black text-[#172554] outline-none transition hover:border-[#E5D8B5] focus:border-[#3B82F6] focus:bg-[#EFF6FF] disabled:opacity-60"
+        className="h-9 w-14 rounded-lg border-2 border-transparent bg-transparent text-center font-mono text-[15px] font-semibold tabular-nums text-ink outline-none transition hover:border-line focus:border-brand focus:bg-brand-soft disabled:opacity-60"
       />
       <button
         onClick={() => onChange((value) => clampBpm(value + 4))}
         disabled={disabled}
-        className="flex size-8 items-center justify-center rounded-lg bg-[#FBF3DC] font-black text-[#475569] disabled:opacity-40"
+        className="flex size-9 items-center justify-center rounded-lg bg-sunken font-mono text-base font-semibold text-ink-2 transition hover:bg-line hover:text-ink active:scale-95 disabled:opacity-40 disabled:hover:bg-sunken"
         aria-label="Aumentar BPM"
       >
         +
@@ -1158,35 +1242,33 @@ function ExercisePage({
 
   if (complete) {
     return (
-      <div className="min-h-screen bg-[#FFFEFB]">
+      <div className="min-h-screen bg-canvas">
         <TopBar />
-        <div className="mx-auto w-full max-w-[560px] px-5 py-16 text-center">
-          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-[0_9px_0_#1E3A8A]">
+        <div className="mx-auto w-full max-w-[560px] px-5 py-14 text-center sm:py-16">
+          <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-brand text-white ring-8 ring-brand-soft">
             <Icon name="check" className="size-12" />
           </div>
-          <p className="mt-10 text-xs font-black uppercase tracking-[0.18em] text-[#C2410C]">
-            Exercício concluído
-          </p>
-          <h1 className="mt-3 text-4xl font-black tracking-[-0.045em] text-[#172554]">
+          <p className="eyebrow mt-10 text-accent-ink">Exercício concluído</p>
+          <h1 className="mt-3 text-balance font-display text-[32px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-4xl">
             {lesson.exerciseTitle}
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-[#64748B]">
+          <p className="mx-auto mt-4 max-w-md text-[15px] leading-7 text-muted">
             Você percorreu todas as formas desta etapa. Faça a revisão todos os dias para manter a
             forma dos exercícios que você já aprendeu.
           </p>
           <div className="mx-auto mt-8 max-w-sm">
-            <div className="rounded-2xl bg-white p-5 ring-1 ring-[#E5D8B5]">
-              <p className="text-2xl font-black text-[#C2410C]">{lesson.steps.length}</p>
-              <p className="mt-1 text-[10px] font-black uppercase tracking-wider text-[#64748B]">
+            <div className="rounded-card border border-line bg-surface p-5">
+              <p className="font-display text-3xl font-bold tabular-nums text-accent-ink">{lesson.steps.length}</p>
+              <p className="eyebrow mt-1 text-[10px]! text-muted">
                 {lesson.steps[0].shape ? "Formas tocadas" : "Digitações tocadas"}
               </p>
             </div>
           </div>
           <button
             onClick={onExit}
-            className="mt-8 w-full max-w-sm rounded-2xl bg-[#2563EB] py-4 text-sm font-black text-white shadow-[0_5px_0_#1E3A8A] transition active:translate-y-1 active:shadow-none"
+            className="mt-8 h-12 w-full max-w-sm rounded-control bg-brand text-sm font-semibold text-white transition hover:bg-brand-strong active:scale-[0.98]"
           >
-            VOLTAR À TRILHA
+            Voltar à trilha
           </button>
         </div>
       </div>
@@ -1236,7 +1318,7 @@ function ExercisePage({
                 <PrimaryButton
                   label={sequenceStatus === "countdown" ? "Preparando" : isPlaying ? "Tocando" : "Iniciar"}
                   icon="play"
-                  tone="orange"
+                  tone="accent"
                   disabled={isPlaying}
                   onClick={startChordSequence}
                 />
@@ -1314,7 +1396,7 @@ function ExercisePage({
               <PrimaryButton
                 label={isPlaying ? "Tocando" : "Tocar"}
                 icon="play"
-                tone="orange"
+                tone="accent"
                 disabled={isPlaying}
                 onClick={startPlayback}
               />
@@ -1330,7 +1412,7 @@ function ExercisePage({
 
       <div className="mt-8 flex flex-col items-center">
         <ChordName step={step} className={isLongChordName(step) ? "text-5xl sm:text-6xl" : "text-6xl"} />
-        <div className="mt-5 rounded-[24px] bg-[#FFFFFF] p-3 ring-1 ring-[#E5D8B5]">
+        <div className="mt-5 rounded-card border border-line bg-surface p-3">
           <ChordDiagram
             step={step}
             activeStrings={activeStrings}
@@ -1345,7 +1427,7 @@ function ExercisePage({
 /** Caption under the diagram of an alternative fingering. */
 function AlternativeLabel({ className = "" }: { className?: string }) {
   return (
-    <p className={`font-black uppercase tracking-[0.14em] text-[#64748B] ${className}`}>
+    <p className={`eyebrow text-muted ${className}`}>
       Digitação alternativa
     </p>
   );
@@ -1353,7 +1435,7 @@ function AlternativeLabel({ className = "" }: { className?: string }) {
 
 // ---------------------------------------------------------------- guide
 
-const GUIDE_SOURCES = [
+const GUIDE_SOURCES: GuideSource[] = [
   { label: "JustinGuitar — CAGED System", url: "https://justinguitar.com/modules/caged-system" },
   { label: "Premier Guitar — CAGED explained", url: "https://www.premierguitar.com/explains/caged" },
   { label: "D'Addario — Guitarist's Guide to the CAGED System", url: "https://www.daddario.com/the-lesson-room/guitar/guitarists-guide-to-the-caged-system/" },
@@ -1366,36 +1448,86 @@ const GUIDE_SOURCES = [
 function GuideSection({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mt-12">
-      <h2 className="text-[24px] font-black tracking-[-0.03em] text-[#172554]">{title}</h2>
-      <div className="mt-4 space-y-4 text-[15px] leading-7 text-[#334155]">{children}</div>
+      <h2 className="font-display text-[24px] font-bold tracking-[-0.03em] text-ink">{title}</h2>
+      <div className="mt-4 space-y-4 text-[15px] leading-7 text-ink-2 [&_strong]:font-semibold [&_strong]:text-ink">{children}</div>
     </section>
   );
 }
 
-function GuidePage({ onBack }: { onBack: () => void }) {
-  const cMajor = sections[0].trails[0].lessons[0];
-  const fretOf = (step: ChordStep) =>
-    step.position.baseFret === 1 ? "aberta" : `a partir da casa ${step.position.baseFret}`;
+type GuideSource = { label: string; url: string };
+
+/** Shared frame of every guide page: top bar, back button, title, intro, content and sources. */
+function GuideLayout({
+  title,
+  intro,
+  sources,
+  onBack,
+  children,
+}: {
+  title: string;
+  intro: ReactNode;
+  sources: GuideSource[];
+  onBack: () => void;
+  children: ReactNode;
+}) {
   return (
-    <div className="min-h-screen bg-[#FFFEFB] text-[#172554]">
+    <div className="min-h-screen bg-canvas text-ink">
       <TopBar />
-      <main className="mx-auto max-w-[720px] px-5 pb-20 pt-8 sm:px-8">
+      <main className="mx-auto max-w-[720px] px-5 pb-20 pt-6 sm:px-8 sm:pt-8">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 rounded-xl px-2 py-1 text-sm font-black text-[#475569] transition hover:bg-[#FBF3DC]"
+          className="-ml-2 flex h-10 items-center gap-2 rounded-control px-3 text-sm font-semibold text-ink-2 transition hover:bg-sunken hover:text-ink"
         >
           <Icon name="back" className="size-4" /> Voltar à trilha
         </button>
 
-        <p className="mt-8 text-xs font-black uppercase tracking-[0.16em] text-[#C2410C]">Guia</p>
-        <h1 className="mt-2 text-[36px] font-black leading-tight tracking-[-0.045em] sm:text-[44px]">
-          O sistema CAGED
+        <p className="eyebrow mt-8 text-accent-ink">Guia</p>
+        <h1 className="mt-2 font-display text-[36px] font-bold leading-tight tracking-[-0.04em] sm:text-[46px]">
+          {title}
         </h1>
-        <p className="mt-4 text-[17px] leading-8 text-[#334155]">
+        <p className="mt-4 text-[17px] leading-8 text-ink-2">{intro}</p>
+
+        {children}
+
+        <section className="mt-14 rounded-card border border-line bg-surface p-5">
+          <h2 className="eyebrow text-muted">Fontes</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {sources.map((source) => (
+              <li key={source.url}>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-brand-ink underline decoration-brand-line underline-offset-4 transition hover:text-brand hover:decoration-brand"
+                >
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function CagedGuide({ onBack }: { onBack: () => void }) {
+  const cMajor = sections[0].trails[0].lessons[0];
+  const fretOf = (step: ChordStep) =>
+    step.position.baseFret === 1 ? "aberta" : `a partir da casa ${step.position.baseFret}`;
+  return (
+    <GuideLayout
+      title="O sistema CAGED"
+      sources={GUIDE_SOURCES}
+      onBack={onBack}
+      intro={
+        <>
           Cinco acordes que você aprende nas primeiras semanas de violão — C, A, G, E e D — escondem
           um mapa do braço inteiro. O CAGED é a forma de ler esse mapa: com ele, qualquer acorde
           pode ser tocado em qualquer tonalidade, em cinco regiões diferentes do braço.
-        </p>
+        </>
+      }
+    >
 
         <GuideSection title="O que é">
           <p>
@@ -1428,8 +1560,8 @@ function GuidePage({ onBack }: { onBack: () => void }) {
             {cMajor.steps.map((step) => (
               <figure key={step.shape} className="sequence-card guide-shape">
                 <figcaption className="text-center">
-                  <span className="block text-lg font-black text-[#172554]">Forma {step.shape}</span>
-                  <span className="block text-xs font-bold text-[#64748B]">{fretOf(step)}</span>
+                  <span className="block font-display text-lg font-bold text-ink">Forma {step.shape}</span>
+                  <span className="block text-xs font-medium text-muted">{fretOf(step)}</span>
                 </figcaption>
                 <ChordDiagram step={step} activeStrings={[]} />
               </figure>
@@ -1492,33 +1624,278 @@ function GuidePage({ onBack }: { onBack: () => void }) {
             </li>
           </ol>
         </GuideSection>
+    </GuideLayout>
+  );
+}
 
-        <section className="mt-14 rounded-2xl border border-[#E5D8B5] bg-white p-5">
-          <h2 className="text-sm font-black uppercase tracking-[0.12em] text-[#475569]">Fontes</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            {GUIDE_SOURCES.map((source) => (
-              <li key={source.url}>
-                <a
-                  href={source.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-bold text-[#2563EB] underline decoration-[#BFDBFE] underline-offset-4 hover:decoration-[#2563EB]"
-                >
-                  {source.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </main>
-    </div>
+// ------------------------------------------------- guide: inversões de tétrades
+
+const INVERSIONS_SOURCES: GuideSource[] = [
+  { label: "Jazz Guitar Licks — Major Seventh Chords: Drop 2, Drop 3 and Drop 2 & 4 Voicings", url: "https://www.jazz-guitar-licks.com/pages/chords/major-seventh-chords-jazz-guitar-diagrams.html" },
+  { label: "Jazz Guitar Licks — Minor 7th Chord Voicings & Inversions", url: "https://www.jazz-guitar-licks.com/pages/chords/minor-seventh-chords-voicings-jazz-guitar-diagrams-root-positions-inversions.html" },
+  { label: "Jazz Guitar Licks — Dominant 7th Chords: Drop 2, Drop 3 and Drop 2-4 Voicings", url: "https://jazz-guitar-licks.com/pages/chords/dominant-7th-chords-voicings-jazz-guitar-diagrams-root-positions-inversions.html" },
+  { label: "Hub Guitar — Drop 2 Chords (dom7)", url: "https://www.hubguitar.com/fretboard/drop2-chords-dom7" },
+  { label: "Hub Guitar — Drop 3 Chords (dom7)", url: "https://hubguitar.com/fretboard/drop3-chords-dom7" },
+  { label: "Premier Guitar — Jazz Drop 2 Chord Lesson", url: "https://www.premierguitar.com/lessons/jazz/jazz-drop-2-chord-lesson" },
+  { label: "jazzguitar.be — What is meant by drop 2, drop 3 and inversions?", url: "https://www.jazzguitar.be/forum/comping-chords-chord-progressions/85754-need-general-explanation-what-meant-drop-2-drop-3-inversions.html" },
+];
+
+/** The four tetrads of section 2, in C, with their notes and formula. */
+const TETRADS = [
+  { quality: "Maior com sétima maior", symbol: "C7M", notes: "C · E · G · B", formula: "1 · 3 · 5 · 7", role: "I7M e IV7M de uma tonalidade maior" },
+  { quality: "Menor com sétima", symbol: "Cm7", notes: "C · E♭ · G · B♭", formula: "1 · ♭3 · 5 · ♭7", role: "IIm7, IIIm7 e VIm7" },
+  { quality: "Sétima dominante", symbol: "C7", notes: "C · E · G · B♭", formula: "1 · 3 · 5 · ♭7", role: "V7, o acorde que pede resolução" },
+  { quality: "Meio diminuto", symbol: "Cm7(♭5)", notes: "C · E♭ · G♭ · B♭", formula: "1 · ♭3 · ♭5 · ♭7", role: "VIIm7(♭5) e o IIm7(♭5) do menor" },
+];
+
+/** Interval of each pitch class above C, spelled for these four chord qualities. */
+const INTERVAL_FROM_C: Record<number, string> = { 0: "1", 3: "♭3", 4: "3", 6: "♭5", 7: "5", 10: "♭7", 11: "7" };
+
+/** Intervals of a C voicing, from the bass up ("3 · 7 · 1 · 5"). */
+function intervalsOf(step: ChordStep) {
+  return step.position.midi.map((note) => INTERVAL_FROM_C[note % 12] ?? "?").join(" · ");
+}
+
+/** Short quality name used as the row label of the diagram tables. */
+const QUALITY_LABEL: Record<string, string> = {
+  "Acordes maiores": "Maior (7M)",
+  "Acordes menores": "Menor (m7)",
+  "Acordes de sétima dominante": "Dominante (7)",
+  "Acordes meio diminutos": "Meio diminuto (m7♭5)",
+};
+
+/**
+ * The C lesson of every trail of section 2, grouped by inversion: per chord quality, the
+ * main voicing on each bass string (6ª → 4ª), leaving out the alternative fingerings.
+ */
+function inversionTables() {
+  const section = sections[1];
+  const tables: Array<{ inversion: string; rows: Array<{ quality: string; steps: ChordStep[] }> }> = [];
+  for (const trail of section.trails) {
+    const lesson = trail.lessons.find((item) => item.title.startsWith("C")) ?? trail.lessons[0];
+    const steps = lesson.steps
+      .filter((step) => !step.alternative)
+      .sort((a, b) => (b.bassString ?? 0) - (a.bassString ?? 0));
+    const inversion = trail.group ?? "";
+    let table = tables.find((item) => item.inversion === inversion);
+    if (!table) tables.push((table = { inversion, rows: [] }));
+    table.rows.push({ quality: QUALITY_LABEL[trail.title] ?? trail.title, steps });
+  }
+  return tables;
+}
+
+function InversionsGuide({ onBack }: { onBack: () => void }) {
+  const tables = inversionTables();
+  const fretOf = (step: ChordStep) => `casa ${step.position.baseFret}`;
+  return (
+    <GuideLayout
+      title="Inversões de tétrades"
+      sources={INVERSIONS_SOURCES}
+      onBack={onBack}
+      intro={
+        <>
+          Uma tétrade tem quatro notas, e qualquer uma delas pode ir para o baixo. Trocar a nota mais
+          grave muda a cor do acorde e, principalmente, deixa você tocar a mesma harmonia em vários
+          lugares do braço, com uma linha de baixo que anda por graus vizinhos em vez de saltar.
+        </>
+      }
+    >
+      <GuideSection title="O que é uma tétrade">
+        <p>
+          A tétrade é a tríade (fundamental, terça e quinta) com mais uma terça empilhada:{" "}
+          <strong>a sétima</strong>. A combinação de terça e sétima, maiores ou menores, e de quinta
+          justa ou diminuta dá as quatro qualidades que esta seção trabalha. Em C:
+        </p>
+        <div className="!mt-6 overflow-x-auto rounded-card border border-line bg-surface">
+          <table className="w-full min-w-[520px] text-left text-sm">
+            <thead className="border-b border-line text-muted">
+              <tr>
+                <th className="eyebrow px-4 py-3 font-medium">Qualidade</th>
+                <th className="eyebrow px-4 py-3 font-medium">Cifra</th>
+                <th className="eyebrow px-4 py-3 font-medium">Notas</th>
+                <th className="eyebrow px-4 py-3 font-medium">Fórmula</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TETRADS.map((tetrad) => (
+                <tr key={tetrad.symbol} className="border-b border-line last:border-0">
+                  <td className="px-4 py-3">
+                    <span className="block font-semibold text-ink">{tetrad.quality}</span>
+                    <span className="block text-xs text-muted">{tetrad.role}</span>
+                  </td>
+                  <td className="px-4 py-3 font-display font-bold text-ink">{tetrad.symbol}</td>
+                  <td className="whitespace-nowrap px-4 py-3 font-mono text-[13px]">{tetrad.notes}</td>
+                  <td className="whitespace-nowrap px-4 py-3 font-mono text-[13px] text-brand-ink">{tetrad.formula}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </GuideSection>
+
+      <GuideSection title="O que é uma inversão">
+        <p>
+          O que define a inversão é só <strong>a nota mais grave</strong>. As outras três podem vir
+          em qualquer ordem por cima. Com quatro notas há quatro possibilidades:
+        </p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <strong>Estado fundamental:</strong> a fundamental no baixo (C7M). É o que você tocou na
+            Seção 1.
+          </li>
+          <li>
+            <strong>1ª inversão:</strong> a terça no baixo (C7M/E, Cm7/E♭).
+          </li>
+          <li>
+            <strong>2ª inversão:</strong> a quinta no baixo (C7M/G, Cm7(♭5)/G♭).
+          </li>
+          <li>
+            <strong>3ª inversão:</strong> a sétima no baixo (C7M/B, C7/B♭). É a mais instável das
+            quatro: a sétima no grave pede resolução, e o baixo costuma descer um grau, como em
+            C7/B♭ → F7M/A.
+          </li>
+        </ul>
+        <p>
+          Na cifra, a inversão aparece com uma barra seguida da nota do baixo: <strong>C7/E</strong>{" "}
+          se lê “C sete com baixo em mi”.
+        </p>
+      </GuideSection>
+
+      <GuideSection title="Como as formas são montadas">
+        <p>
+          No piano, a tétrade fechada (as quatro notas o mais juntas possível) é natural. No violão
+          ela quase sempre exige uma abertura impossível de mão. A solução clássica é o{" "}
+          <strong>drop 2</strong>: pegar a forma fechada e descer uma oitava a segunda nota mais
+          aguda. O acorde fica mais aberto, cabe em <strong>quatro cordas vizinhas</strong> e
+          continua com as mesmas quatro notas.
+        </p>
+        <p>
+          Cada aula desta seção mostra o acorde em três grupos de cordas, um para cada corda do
+          baixo: <strong>6ª</strong> (cordas 6 a 3), <strong>5ª</strong> (5 a 2) e{" "}
+          <strong>4ª</strong> (4 a 1). Algumas aulas trazem também uma{" "}
+          <strong>digitação alternativa</strong> que pula uma corda: é o <strong>drop 3</strong>,
+          em que a terceira nota mais aguda é que desce a oitava. Ela soa mais aberta e é muito
+          usada com o baixo na 6ª e na 5ª corda.
+        </p>
+      </GuideSection>
+
+      <GuideSection title="As formas em C">
+        <p>
+          Abaixo, as formas principais de cada inversão em C, para as quatro qualidades e as três
+          cordas do baixo. Embaixo de cada diagrama estão as notas do acorde lidas do baixo para o
+          agudo, como intervalos: <strong>1</strong> é a fundamental, <strong>3</strong> a terça,{" "}
+          <strong>5</strong> a quinta e <strong>7</strong> a sétima.
+        </p>
+        {tables.map((table) => (
+          <div key={table.inversion} className="!mt-10">
+            <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-ink">{table.inversion}</h3>
+            <div className="mt-4 space-y-6">
+              {table.rows.map((row) => (
+                <div key={row.quality}>
+                  <p className="eyebrow text-brand-ink">{row.quality}</p>
+                  <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3">
+                    {row.steps.map((step) => (
+                      <figure
+                        key={`${step.chord}-${step.bassString}`}
+                        className="flex min-w-0 flex-col items-center gap-1 rounded-card border border-line bg-surface px-1 pb-3 pt-3"
+                      >
+                        <figcaption className="text-center">
+                          <span className="block font-display text-[15px] font-bold leading-tight text-ink sm:text-lg">
+                            {step.chord}
+                          </span>
+                          <span className="block text-[11px] font-medium text-muted sm:text-xs">
+                            Baixo na {step.bassString}ª · {fretOf(step)}
+                          </span>
+                        </figcaption>
+                        <ChordDiagram step={step} activeStrings={[]} />
+                        <span className="font-mono text-[11px] font-semibold tabular-nums text-brand-ink sm:text-xs">
+                          {intervalsOf(step)}
+                        </span>
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </GuideSection>
+
+      <GuideSection title="Uma nota de diferença">
+        <p>
+          Compare as quatro qualidades na mesma inversão e na mesma corda do baixo: o desenho quase
+          não muda. De uma qualidade para a próxima, <strong>uma única nota desce um semitom</strong>{" "}
+          (uma casa):
+        </p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <strong>Maior → dominante:</strong> a sétima maior desce para a sétima menor (B → B♭).
+          </li>
+          <li>
+            <strong>Dominante → menor:</strong> a terça maior desce para a terça menor (E → E♭).
+          </li>
+          <li>
+            <strong>Menor → meio diminuto:</strong> a quinta justa desce para a quinta diminuta (G → G♭).
+          </li>
+        </ul>
+        <p>
+          Por isso vale aprender cada desenho junto com os intervalos dele: sabendo onde estão a
+          terça, a quinta e a sétima, você troca de qualidade movendo um dedo, sem decorar um
+          desenho novo.
+        </p>
+      </GuideSection>
+
+      <GuideSection title="Para que servem">
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <strong>Condução de vozes.</strong> Escolhendo a inversão certa, a passagem de um acorde
+            para o outro move cada voz o mínimo possível. Num II–V–I, por exemplo, a sétima de um
+            acorde costuma descer meio tom e virar a terça do seguinte.
+          </li>
+          <li>
+            <strong>Linhas de baixo.</strong> Inversões criam baixos que andam por grau conjunto,
+            como C7M → C7M/B → Am7 (dó, si, lá) ou C7 → C7/B♭ → F7M/A (dó, si bemol, lá).
+          </li>
+          <li>
+            <strong>Tudo na mesma região.</strong> Com as três inversões e o estado fundamental, um
+            acorde aparece em quatro lugares de cada grupo de cordas, e você acompanha uma música
+            inteira sem sair de uma região do braço.
+          </li>
+          <li>
+            <strong>Cor.</strong> Com a terça ou a sétima no baixo, o acorde soa menos “parado” que no
+            estado fundamental, o que dá movimento ao acompanhamento.
+          </li>
+        </ul>
+      </GuideSection>
+
+      <GuideSection title="Como estudar com este app">
+        <ol className="list-decimal space-y-2 pl-5">
+          <li>
+            A seção está organizada por inversão e, dentro de cada uma, pelas quatro qualidades de
+            tétrade.
+          </li>
+          <li>
+            Cada aula é uma tonalidade, no ciclo de quartas: o acorde com o baixo na 4ª, na 5ª e na
+            6ª corda, ordenado pela posição no braço, do mais grave para o mais agudo.
+          </li>
+          <li>
+            Monte cada forma e diga em voz alta qual nota está no baixo. Depois, toque as formas em
+            sequência no exercício final, no andamento do metrônomo.
+          </li>
+          <li>
+            Quando uma forma estiver firme, troque a qualidade movendo um único dedo, como no item
+            “Uma nota de diferença”.
+          </li>
+        </ol>
+      </GuideSection>
+    </GuideLayout>
   );
 }
 
 export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress>(loadProgress);
-  const [showGuide, setShowGuide] = useState(false);
+  const [guideSection, setGuideSection] = useState<number | null>(null);
   const outline = useOutline();
   const trailSections = applyProgress(sections, progress);
 
@@ -1530,7 +1907,10 @@ export default function App() {
     });
   }
 
-  if (showGuide) return <GuidePage onBack={() => setShowGuide(false)} />;
+  if (guideSection !== null) {
+    const Guide = guideSection === 2 ? InversionsGuide : CagedGuide;
+    return <Guide onBack={() => setGuideSection(null)} />;
+  }
 
   if (selectedLesson) {
     return (
@@ -1544,10 +1924,10 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFEFB] text-[#172554]">
+    <div className="min-h-screen bg-canvas text-ink">
       <TopBar />
-      <main className="mx-auto max-w-[720px] px-5 pb-16 pt-8 sm:px-8">
-        <div className="space-y-10">
+      <main className="mx-auto max-w-[720px] px-4 pb-16 pt-6 sm:px-8 sm:pt-8">
+        <div className="space-y-6 sm:space-y-8">
           {trailSections.map((section) => (
             <PathSection
               key={section.id}
@@ -1556,7 +1936,7 @@ export default function App() {
               onToggle={outline.toggle}
               onSelect={setSelectedLesson}
               onOpenGuide={() => {
-                setShowGuide(true);
+                setGuideSection(section.id);
                 window.scrollTo(0, 0);
               }}
             />
