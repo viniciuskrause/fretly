@@ -367,6 +367,27 @@
   height: auto;
 }
 
+/*
+ * Compact variant (chord dictionary): same card size, a much smaller symbol and a
+ * bigger diagram, close under the symbol. Heights add up to the same 94.9cqw as
+ * the standard card: 9.5 + 6.5 (symbol) - 2 + 71.4 (diagram at 92% width) + 9.5 = 94.9.
+ * The negative gap eats into the diagram's own top margin (its view box keeps 14 units).
+ */
+.chord-card--compact .chord-card__body {
+  padding: 9.5cqw 4cqw 9.5cqw;
+}
+
+.chord-card--compact .chord-card__name,
+.chord-card--compact .chord-card__name--long {
+  height: 6.5cqw;
+  font-size: 6.5cqw;
+  letter-spacing: -0.03em;
+}
+
+.chord-card--compact .chord-card__diagram {
+  margin-top: -2cqw;
+}
+
 /* Grids of chord cards (final sequence, CAGED guide): one slot = card + caption row. */
 .sequence-slot {
   display: flex;
