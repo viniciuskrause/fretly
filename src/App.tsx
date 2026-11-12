@@ -156,7 +156,7 @@ function Icon({
 function Brand() {
   return (
     <div className="flex items-center">
-      <p className="font-display text-[17px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[19px]">
+      <p className="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
         Guitar Workouts <span className="text-accent-ink">for Nerds</span>
       </p>
     </div>
@@ -179,7 +179,7 @@ function DictionaryLink() {
       href={DICTIONARY_HASH}
       aria-current={current ? "page" : undefined}
       aria-label="Dicionário de Acordes"
-      className={`flex h-11 shrink-0 items-center gap-2 rounded-control px-2 text-sm font-semibold transition-colors hover:text-brand-ink sm:px-3 ${
+      className={`flex h-11 shrink-0 items-center gap-2 rounded-control px-2 text-base font-semibold transition-colors hover:text-brand-ink sm:px-3 ${
         current ? "text-brand-ink" : "text-ink-2"
       }`}
     >
@@ -192,8 +192,8 @@ function DictionaryLink() {
 function TopBar() {
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-canvas">
-      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-8 lg:px-12">
-        <div className="flex min-w-0 items-center gap-3 sm:gap-10">
+      <div className="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between gap-3 px-4 pt-2 sm:h-[88px] sm:px-8 lg:px-12">
+        <div className="flex min-w-0 items-center gap-3 sm:items-baseline sm:gap-10">
           <Brand />
           <DictionaryLink />
         </div>
@@ -1544,7 +1544,7 @@ const GUIDE_SOURCES: GuideSource[] = [
 
 function GuideSection({ title, id, children }: { title: string; id?: string; children: ReactNode }) {
   return (
-    <section id={id} className="mt-12 scroll-mt-[136px] lg:scroll-mt-[104px]">
+    <section id={id} className="mt-12 scroll-mt-[152px] lg:scroll-mt-[120px]">
       <h2 className="font-display text-[24px] font-bold tracking-[-0.03em] text-ink">{title}</h2>
       <div className="mt-4 space-y-4 text-[15px] leading-7 text-ink-2 [&_strong]:font-semibold [&_strong]:text-ink">{children}</div>
     </section>
@@ -2056,7 +2056,7 @@ function useActiveSection(ids: string[]) {
         const visible = entries.filter((entry) => entry.isIntersecting);
         if (visible.length) setActive(visible[0].target.id);
       },
-      { rootMargin: "-140px 0px -55% 0px" },
+      { rootMargin: "-156px 0px -55% 0px" },
     );
     ids.forEach((id) => {
       const element = document.getElementById(id);
@@ -2121,7 +2121,7 @@ function DictionaryPage({ onBack }: { onBack: () => void }) {
         <div className="mt-6 lg:mt-12 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
           <nav
             aria-label="Seções do dicionário"
-            className="sticky top-16 z-[5] -mx-4 border-b border-line bg-canvas sm:-mx-8 sm:top-[72px] lg:top-[104px] lg:mx-0 lg:self-start lg:border-b-0"
+            className="sticky top-20 z-[5] -mx-4 border-b border-line bg-canvas sm:-mx-8 sm:top-[88px] lg:top-[120px] lg:mx-0 lg:self-start lg:border-b-0"
           >
             <div className="flex items-center gap-2 px-4 py-2 sm:px-8 lg:hidden">
               <div className="flex min-w-0 flex-1 gap-1 overflow-x-auto">

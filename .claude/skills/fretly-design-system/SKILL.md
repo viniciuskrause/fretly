@@ -105,12 +105,14 @@ Outros tokens:
   `px-5 sm:px-8` (guias). Exercícios: até `max-w-[1040px]`.
 - **Header (TopBar):** faixa de largura total com conteúdo em `max-w-[1440px]`, `sticky top-0`, `bg-canvas` (mesma cor do
   fundo, nunca branco) com **só a linha** `border-b border-line` como
-  separador; nome do site à esquerda seguido (`gap-3 sm:gap-10`) do link de navegação
-  "Dicionário de Acordes" (`DictionaryLink`: `text-sm font-semibold
+  separador; nome do site (`font-display` bold 19px, 22px a partir de `sm`) à esquerda seguido (`gap-3 sm:gap-10`, **alinhados pela linha de
+  base do texto** com `sm:items-baseline`) do link de navegação
+  "Dicionário de Acordes" (`DictionaryLink`: `text-base font-semibold
   text-ink-2 hover:text-brand-ink`, sem borda nem fundo, `aria-current` em
   `brand-ink`; no celular só o ícone `dictionary` com `aria-label`), avatar à
   direita;
-  `px-4 sm:px-8 lg:px-12`, `h-16 sm:h-[72px]`. Sem logo.
+  `px-4 sm:px-8 lg:px-12`, `h-20 sm:h-[88px]` com `pt-2` (8px a mais em cima que embaixo; ao mudar a altura, atualize os
+  `sticky top-*`, `scroll-mt-*` e o `rootMargin` do Dicionário). Sem logo.
 - Espaço entre seções: `space-y-6 sm:space-y-8`; entre cards de subseção: `space-y-3`.
 - Mobile-first: alvos de toque ≥ 44px; testar em 320–390px.
 
@@ -265,7 +267,7 @@ sm:px-8 lg:px-12`, mesmas margens do header).
   "Voltar", H1 e intro (`max-w-[720px]`).
 - **Abaixo dele, duas colunas a partir de `lg`**
   (`grid-cols-[240px_minmax(0,1fr)] gap-12`): **menu** à esquerda
-  (`sticky top-[104px] self-start`), sem rótulo: só um link por
+  (`sticky top-[120px] self-start`), sem rótulo: só um link por
   seção (`h-11 rounded-control px-3 text-sm font-semibold`, contagem em mono à
   direita; ativo `bg-brand-soft text-brand-ink` com `aria-current="location"`,
   demais `text-ink-2 hover:bg-sunken`), ativo via `IntersectionObserver`
