@@ -85,7 +85,7 @@ Outros tokens:
 - `.eyebrow`: mono 11px, 600, `tracking 0.12em`, caixa alta — rótulos pequenos
   (cabeçalho de tabela, "Digitação alternativa", "Formas tocadas").
 - `.eyebrow.eyebrow--lg`: 13px, 700 — **overlines de abertura** de página ou
-  bloco: "Seção N", "Guia", título da aula no exercício, "Exercício concluído".
+  bloco: "Unidade N", "Guia", título da aula no exercício, "Exercício concluído".
 - Cifras dentro de eyebrow ficam em `normal-case` (`Dm7(♭5)` não pode virar `DM7(♭5)`).
 - Títulos: `tracking-[-0.03em]`/`-0.04em`, `font-bold`, `leading-tight`.
   Escala: H1 de página 36/46px; título de seção principal 24/26px; H2 de guia
@@ -95,11 +95,21 @@ Outros tokens:
 
 ## Layout
 
+- **Largura máxima do site: 1440px.** Tudo que é "largura total" (conteúdo do
+  header, Dicionário de Acordes) fica em `mx-auto w-full max-w-[1440px]`,
+  centralizado; fundos e linhas de borda (ex.: `border-b` do header) continuam
+  de ponta a ponta. As páginas de aula (`ExerciseShell`) têm o próprio template
+  e não seguem esta regra.
+
 - Coluna de conteúdo: `mx-auto max-w-[720px] px-4 sm:px-8` (home) /
   `px-5 sm:px-8` (guias). Exercícios: até `max-w-[1040px]`.
-- **Header (TopBar):** largura total, `sticky top-0`, `bg-canvas` (mesma cor do
+- **Header (TopBar):** faixa de largura total com conteúdo em `max-w-[1440px]`, `sticky top-0`, `bg-canvas` (mesma cor do
   fundo, nunca branco) com **só a linha** `border-b border-line` como
-  separador; nome do site à esquerda, avatar à direita;
+  separador; nome do site à esquerda seguido (`gap-3 sm:gap-10`) do link de navegação
+  "Dicionário de Acordes" (`DictionaryLink`: `text-sm font-semibold
+  text-ink-2 hover:text-brand-ink`, sem borda nem fundo, `aria-current` em
+  `brand-ink`; no celular só o ícone `dictionary` com `aria-label`), avatar à
+  direita;
   `px-4 sm:px-8 lg:px-12`, `h-16 sm:h-[72px]`. Sem logo.
 - Espaço entre seções: `space-y-6 sm:space-y-8`; entre cards de subseção: `space-y-3`.
 - Mobile-first: alvos de toque ≥ 44px; testar em 320–390px.
@@ -113,14 +123,19 @@ Reutilize os componentes existentes em `src/App.tsx` antes de criar novos:
 
 ### Hierarquia recolhível (Home)
 
-Seção → (grupo) → subseção → trilha. **Tudo fechado por padrão**; estado salvo
+**Nomenclatura na interface:** os blocos principais da Home se chamam
+**unidades** ("Unidade 1", "Unidade completa", "Guia da unidade 2") — nunca
+"seção" em texto visível ao usuário. No código e nesta skill eles seguem como
+`Section`/"seção principal".
+
+Unidade (seção principal) → (grupo) → subseção → trilha. **Tudo fechado por padrão**; estado salvo
 em `localStorage` (`fretly.open.v1`) via `useOutline`. Abrir uma seção abre
 também a subseção (e o grupo) da próxima aula a estudar.
 
 **1. Cabeçalho de seção principal** (`PathSection`) — o único bloco "forte":
 - Card `rounded-card border border-brand bg-brand text-white`, padding
   `p-5 sm:p-6 sm:pr-5` (direita 20px para alinhar o chevron).
-- Esquerda (clicável, também alterna): overline `Seção N`
+- Esquerda (clicável, também alterna): overline `Unidade N`
   (`eyebrow eyebrow--lg text-brand-soft`),
   título `font-display text-[24px] sm:text-[26px] font-bold`, subtítulo
   `text-[15px] font-medium text-brand-soft`.
@@ -208,6 +223,10 @@ cifra + diagrama à mão em lugar nenhum.
   `11.5cqw` (longas, > 8 caracteres: `9.2cqw`), espaço `3.7cqw`. Assim um card
   de 110px no celular é uma miniatura exata do de 348px. Para mudar o padrão,
   mude essas frações, nunca valores fixos num uso específico.
+- **Variante compacta** (`chord-card--compact`, só no Dicionário de Acordes):
+  mesmo tamanho de card, cifra bem menor (`6.5cqw`) e diagrama maior (92% da
+  largura) colado na cifra (`margin-top: -2cqw`, avançando sobre a margem
+  interna do próprio diagrama), padding `9.5cqw 4cqw 9.5cqw`.
 - **Tamanho:** o card ocupa a largura que recebe (`width: 100%`). Passo da aula:
   `className="max-w-[348px]"`. Grades: `.sequence-slot` (2/3/5 por linha, até
   190px; com `guide-shape`, 2/3) ou `grid grid-cols-3 gap-2 sm:gap-3` para
@@ -237,6 +256,46 @@ cada H2. Tabelas: `rounded-card border border-line bg-surface`, cabeçalho com
 `.eyebrow text-muted`, linhas separadas por `border-line`, `overflow-x-auto`.
 Listas `list-disc`/`list-decimal pl-5 space-y-2` com `<strong>` no início do
 item. Cada seção da Home liga ao seu guia pelo `id` (veja `App`).
+
+### Dicionário de Acordes (`#dicionario`)
+
+`DictionaryPage`: **largura total até 1440px** (`mx-auto max-w-[1440px] px-4
+sm:px-8 lg:px-12`, mesmas margens do header).
+- **Cabeçalho da página** numa coluna de largura total, sem overline:
+  "Voltar", H1 e intro (`max-w-[720px]`).
+- **Abaixo dele, duas colunas a partir de `lg`**
+  (`grid-cols-[240px_minmax(0,1fr)] gap-12`): **menu** à esquerda
+  (`sticky top-[104px] self-start`), sem rótulo: só um link por
+  seção (`h-11 rounded-control px-3 text-sm font-semibold`, contagem em mono à
+  direita; ativo `bg-brand-soft text-brand-ink` com `aria-current="location"`,
+  demais `text-ink-2 hover:bg-sunken`), ativo via `IntersectionObserver`
+  (`useActiveSection`); e a **coluna dos acordes** à direita.
+- **Seletor de tonalidade** abaixo dos links do menu (`mt-8 border-t
+  border-line pt-6`): **lista suspensa** (`KeySelect`, `<select>` nativo com
+  `appearance-none`, `h-11 rounded-control border border-line-strong
+  bg-surface font-display font-semibold`, ícone `chevron` à
+  direita, rótulo "Tonalidade" como `<label>` na mesma fonte dos links do menu — `text-sm
+  font-semibold text-ink-2`, `px-3`; a lista tem `mx-3` para alinhar com o
+  rótulo e com o texto dos links), com as 12 tonalidades
+  cromáticas (C, D♭, D, E♭, E, F, F♯, G, A♭, A, B♭, B); **padrão: C**. Trocar a
+  tonalidade troca todos os cards (`dictionaryOf(key)` busca, em cada trilha, a
+  aula daquela tonalidade pela fundamental — `rootPitchClass`; a grafia vem das
+  aulas, ex. C♯m em D♭).
+- **Abaixo de `lg`**, o menu vira uma linha rolável `sticky` sob o header,
+  de ponta a ponta (`border-b border-line`, links `h-9` sem contagem), com a
+  mesma lista suspensa em versão compacta (`compact`, `h-9`, rótulo só para leitor de tela) à direita.
+- **Âncoras:** cada seção tem `id` (`anchorOf`, ex. `acordes-meio-diminutos`) e
+  os links usam `#dicionario/<id>`, para não sair da rota; `GuideSection`
+  aceita `id` e tem `scroll-mt` para o header (e o menu no celular).
+- **Seções** com `GuideSection` por qualidade
+(maiores, menores, dominantes, meio diminutos) — **só esses headings**, sem
+subtítulos por forma/inversão. Em cada uma, uma única grade de
+`ChordCard` grandes, com 32px entre o heading e a grade (`pt-4` além do `mt-4` da seção): 2 colunas no celular, 3 a partir de `sm` e **4 por linha
+a partir de `lg`** (`grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4`;
+~250px por card a 1440px) (formas CAGED e depois as
+inversões, na ordem das aulas) **sem nenhum texto abaixo dos cards** — a
+cifra dentro do card e os graus no diagrama bastam. O conteúdo vem direto das aulas (`dictionaryOf`), então acordes
+novos aparecem sozinhos.
 
 ### Páginas de aula (exercício)
 

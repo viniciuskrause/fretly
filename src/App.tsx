@@ -4,6 +4,7 @@ import {
   barreSpans,
   chordLabel,
   soundingStrings,
+  rootPitchClass,
   stringDegree,
   stringFrequency,
   type ChordPosition,
@@ -23,6 +24,7 @@ function Icon({
     | "profile"
     | "fire"
     | "notebook"
+    | "dictionary"
     | "play"
     | "check"
     | "lock"
@@ -71,6 +73,12 @@ function Icon({
       <>
         <rect x="6" y="3" width="14" height="18" rx="2" />
         <path d="M3.5 7.5h5M3.5 12h5M3.5 16.5h5M11.5 8h5M11.5 12h5M11.5 16h3" />
+      </>
+    ),
+    dictionary: (
+      <>
+        <path d="M12 6.5C10 5 7 4.5 3.5 5v13.5c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5c-3.5-.5-6.5 0-8.5 1.5Z" />
+        <path d="M12 6.5V20" />
       </>
     ),
     play: <path d="m9 7 8 5-8 5Z" />,
@@ -155,11 +163,40 @@ function Brand() {
   );
 }
 
+const DICTIONARY_HASH = "#dicionario";
+
+/** "#dicionario" or one of its anchors ("#dicionario/acordes-menores"). */
+const isDictionaryHash = (hash: string) => hash === DICTIONARY_HASH || hash.startsWith(`${DICTIONARY_HASH}/`);
+
+/** Section anchored by the URL ("#dicionario/acordes-menores" → "acordes-menores"). */
+const dictionaryAnchor = (hash: string) => (hash.startsWith(`${DICTIONARY_HASH}/`) ? hash.slice(DICTIONARY_HASH.length + 1) : null);
+
+/** Header link to the chord dictionary (a plain hash link, so it works from any page). */
+function DictionaryLink() {
+  const current = isDictionaryHash(window.location.hash);
+  return (
+    <a
+      href={DICTIONARY_HASH}
+      aria-current={current ? "page" : undefined}
+      aria-label="Dicionário de Acordes"
+      className={`flex h-11 shrink-0 items-center gap-2 rounded-control px-2 text-sm font-semibold transition-colors hover:text-brand-ink sm:px-3 ${
+        current ? "text-brand-ink" : "text-ink-2"
+      }`}
+    >
+      <Icon name="dictionary" className="size-5 sm:hidden" />
+      <span className="hidden sm:inline">Dicionário de Acordes</span>
+    </a>
+  );
+}
+
 function TopBar() {
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-canvas">
-      <div className="flex h-16 w-full items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-8 lg:px-12">
-        <Brand />
+      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-8 lg:px-12">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-10">
+          <Brand />
+          <DictionaryLink />
+        </div>
         <button
           className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-[11px] font-semibold text-white transition hover:bg-ink-2 active:scale-95"
           aria-label="Abrir perfil"
@@ -339,7 +376,7 @@ function TrailTrophy({ point, status }: { point: TrailPoint; status: TrailStatus
           <Icon name="trophy" className="size-7" />
         </span>
       </div>
-      <p className={`trail-label trail-label--${status} whitespace-nowrap`}>Seção completa</p>
+      <p className={`trail-label trail-label--${status} whitespace-nowrap`}>Unidade completa</p>
     </div>
   );
 }
@@ -578,7 +615,7 @@ function PathSection({
           {/* The whole title area toggles too; the chevron button is the accessible control. */}
           <div className="min-w-0 flex-1 cursor-pointer" onClick={toggleSection}>
             <span className="eyebrow eyebrow--lg block text-brand-soft">
-              Seção {section.id}
+              Unidade {section.id}
             </span>
             <span className="mt-2 block font-display text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[26px]">
               {section.title}
@@ -588,7 +625,7 @@ function PathSection({
           <div className="flex shrink-0 items-center justify-end gap-2">
             <button
               onClick={onOpenGuide}
-              aria-label={`Guia da seção ${section.id}`}
+              aria-label={`Guia da unidade ${section.id}`}
               title="Guia"
               className="flex size-11 shrink-0 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 active:scale-[0.96] focus-visible:outline-white"
             >
@@ -599,7 +636,7 @@ function PathSection({
               onClick={toggleSection}
               aria-expanded={open}
               aria-controls={regionId}
-              aria-label={`${open ? "Recolher" : "Expandir"} seção ${section.id}: ${section.title}`}
+              aria-label={`${open ? "Recolher" : "Expandir"} unidade ${section.id}: ${section.title}`}
               className="-mr-1.5 flex size-11 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 focus-visible:outline-white"
             >
               <ChevronToggle open={open} iconClassName="size-7" />
@@ -613,7 +650,7 @@ function PathSection({
           <div
             className="h-3 flex-1 overflow-hidden rounded-full bg-ink"
             role="progressbar"
-            aria-label={`Progresso da seção ${section.id}`}
+            aria-label={`Progresso da unidade ${section.id}`}
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(doneShare * 100)}
@@ -1505,9 +1542,9 @@ const GUIDE_SOURCES: GuideSource[] = [
   { label: "Premier Guitar — Why I Don't Teach the CAGED System", url: "https://www.premierguitar.com/lessons/caged/why-i-don-t-teach-the-caged-system?rebelltitem=8" },
 ];
 
-function GuideSection({ title, children }: { title: string; children: ReactNode }) {
+function GuideSection({ title, id, children }: { title: string; id?: string; children: ReactNode }) {
   return (
-    <section className="mt-12">
+    <section id={id} className="mt-12 scroll-mt-[136px] lg:scroll-mt-[104px]">
       <h2 className="font-display text-[24px] font-bold tracking-[-0.03em] text-ink">{title}</h2>
       <div className="mt-4 space-y-4 text-[15px] leading-7 text-ink-2 [&_strong]:font-semibold [&_strong]:text-ink">{children}</div>
     </section>
@@ -1756,7 +1793,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
         <p>
           A tétrade é a tríade (fundamental, terça e quinta) com mais uma terça empilhada:{" "}
           <strong>a sétima</strong>. A combinação de terça e sétima, maiores ou menores, e de quinta
-          justa ou diminuta dá as quatro qualidades que esta seção trabalha. Em C:
+          justa ou diminuta dá as quatro qualidades que esta unidade trabalha. Em C:
         </p>
         <div className="!mt-6 overflow-x-auto rounded-card border border-line bg-surface">
           <table className="w-full min-w-[520px] text-left text-sm">
@@ -1793,7 +1830,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
         <ul className="list-disc space-y-2 pl-5">
           <li>
             <strong>Estado fundamental:</strong> a fundamental no baixo (C7M). É o que você tocou na
-            Seção 1.
+            Unidade 1.
           </li>
           <li>
             <strong>1ª inversão:</strong> a terça no baixo (C7M/E, Cm7/E♭).
@@ -1822,7 +1859,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
           continua com as mesmas quatro notas.
         </p>
         <p>
-          Cada aula desta seção mostra o acorde em três grupos de cordas, um para cada corda do
+          Cada aula desta unidade mostra o acorde em três grupos de cordas, um para cada corda do
           baixo: <strong>6ª</strong> (cordas 6 a 3), <strong>5ª</strong> (5 a 2) e{" "}
           <strong>4ª</strong> (4 a 1). Algumas aulas trazem também uma{" "}
           <strong>digitação alternativa</strong> que pula uma corda: é o <strong>drop 3</strong>,
@@ -1912,7 +1949,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
       <GuideSection title="Como estudar com este app">
         <ol className="list-decimal space-y-2 pl-5">
           <li>
-            A seção está organizada por inversão e, dentro de cada uma, pelas quatro qualidades de
+            A unidade está organizada por inversão e, dentro de cada uma, pelas quatro qualidades de
             tétrade.
           </li>
           <li>
@@ -1933,11 +1970,220 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
   );
 }
 
+/** Dictionary sections, one per chord quality, named after the home-page trails. */
+const DICTIONARY_QUALITIES = [
+  { trail: "Acordes maiores", title: "Acordes maiores" },
+  { trail: "Acordes menores", title: "Acordes menores" },
+  { trail: "Acordes de sétima dominante", title: "Acordes dominantes" },
+  { trail: "Acordes meio diminutos", title: "Acordes meio diminutos" },
+];
+
+/** The 12 keys of the dictionary's key selector, chromatic from C (pitch class = index). */
+const DICTIONARY_KEYS = ["C", "D♭", "D", "E♭", "E", "F", "F♯", "G", "A♭", "A", "B♭", "B"];
+
+/**
+ * Every fingering of the app in one key (pitch class of the root), by quality: for each
+ * trail of that quality, its lesson in that key becomes a group (CAGED shapes, then each
+ * inversion), in lesson order. Chord spellings come from the lessons (e.g. C♯m on D♭).
+ */
+function dictionaryOf(key: number) {
+  return DICTIONARY_QUALITIES.map(({ trail: trailTitle, title }) => ({
+    title,
+    groups: sections.flatMap((section) =>
+      section.trails
+        .filter((trail) => trail.title === trailTitle)
+        .flatMap((trail) => {
+          const lesson = trail.lessons.find((item) => item.steps.length && rootPitchClass(item.steps[0].chord) === key);
+          if (!lesson) return [];
+          return [{ key: `${section.id}-${trail.group ?? ""}`, steps: lesson.steps }];
+        }),
+    ),
+  }));
+}
+
+/** Key drop-down of the chord dictionary (C by default). */
+function KeySelect({
+  value,
+  onChange,
+  compact = false,
+}: {
+  value: number;
+  onChange: (key: number) => void;
+  /** Phone menu row: no visible label, shorter control. */
+  compact?: boolean;
+}) {
+  return (
+    <label className={`block ${compact ? "shrink-0" : ""}`}>
+      <span className={compact ? "sr-only" : "mb-2 block px-3 text-sm font-semibold text-ink-2"}>Tonalidade</span>
+      {/* Indented like the label (and the menu links' text) so they share one left edge. */}
+      <span className={`relative block ${compact ? "" : "mx-3"}`}>
+        <select
+          value={value}
+          onChange={(event) => onChange(Number(event.target.value))}
+          className={`w-full cursor-pointer appearance-none rounded-control border border-line-strong bg-surface font-display font-semibold text-ink transition-colors hover:border-subtle ${
+            compact ? "h-9 pl-3 pr-8 text-sm" : "h-11 pl-3 pr-10 text-[15px]"
+          }`}
+        >
+          {DICTIONARY_KEYS.map((name, index) => (
+            <option key={name} value={index}>
+              {name}
+            </option>
+          ))}
+        </select>
+        <Icon
+          name="chevron"
+          className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-ink-2 ${compact ? "right-2 size-4" : "right-3 size-5"}`}
+        />
+      </span>
+    </label>
+  );
+}
+
+/** Anchor id of a dictionary section ("Acordes meio diminutos" → "acordes-meio-diminutos"). */
+const anchorOf = (title: string) =>
+  title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-");
+
+/** Section of the dictionary currently at the top of the screen (for the menu highlight). */
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState(ids[0]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (visible.length) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-140px 0px -55% 0px" },
+    );
+    ids.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+    return () => observer.disconnect();
+  }, [ids.join()]);
+  return active;
+}
+
+/** Chord dictionary: every fingering in the app, shown on C, with a menu of its sections. */
+function DictionaryPage({ onBack }: { onBack: () => void }) {
+  const [key, setKey] = useState(0);
+  const qualities = dictionaryOf(key).map((quality) => ({ ...quality, id: anchorOf(quality.title) }));
+  const active = useActiveSection(qualities.map((quality) => quality.id));
+  // Opened straight on an anchor (shared link): jump to that section once.
+  useEffect(() => {
+    const anchor = dictionaryAnchor(window.location.hash);
+    if (anchor) document.getElementById(anchor)?.scrollIntoView();
+  }, []);
+  const menuLink = (quality: (typeof qualities)[number], compact: boolean) => {
+    const current = quality.id === active;
+    const count = quality.groups.reduce((total, group) => total + group.steps.length, 0);
+    return (
+      <a
+        key={quality.id}
+        href={`${DICTIONARY_HASH}/${quality.id}`}
+        aria-current={current ? "location" : undefined}
+        className={`flex shrink-0 items-center justify-between gap-3 rounded-control text-sm font-semibold transition-colors ${
+          compact ? "h-9 px-3" : "h-11 px-3"
+        } ${current ? "bg-brand-soft text-brand-ink" : "text-ink-2 hover:bg-sunken hover:text-ink"}`}
+      >
+        <span className="whitespace-nowrap">{quality.title}</span>
+        {!compact && (
+          <span className={`font-mono text-xs font-medium tabular-nums ${current ? "text-brand-ink" : "text-muted"}`}>
+            {count}
+          </span>
+        )}
+      </a>
+    );
+  };
+  return (
+    <div className="min-h-screen bg-canvas text-ink">
+      <TopBar />
+      <main className="mx-auto w-full max-w-[1440px] px-4 pb-20 pt-6 sm:px-8 sm:pt-8 lg:px-12">
+        {/* Page header: one full-width column. */}
+        <button
+          onClick={onBack}
+          className="-ml-2 flex h-10 items-center gap-2 rounded-control px-3 text-sm font-semibold text-ink-2 transition hover:bg-sunken hover:text-ink"
+        >
+          <Icon name="back" className="size-4" /> Voltar
+        </button>
+        <h1 className="mt-8 font-display text-[36px] font-bold leading-tight tracking-[-0.04em] sm:text-[46px]">
+          Dicionário de Acordes
+        </h1>
+        <p className="mt-4 max-w-[720px] text-[17px] leading-8 text-ink-2">
+          Todas as digitações de acorde para cada função. Em teoria, você pode substituir um acorde
+          por qualquer outro da mesma categoria. Não esqueça que o ouvido tem a última palavra.
+        </p>
+
+        {/* Below it: the menu on the left of the chord column (a scrolling row on phones). */}
+        <div className="mt-6 lg:mt-12 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+          <nav
+            aria-label="Seções do dicionário"
+            className="sticky top-16 z-[5] -mx-4 border-b border-line bg-canvas sm:-mx-8 sm:top-[72px] lg:top-[104px] lg:mx-0 lg:self-start lg:border-b-0"
+          >
+            <div className="flex items-center gap-2 px-4 py-2 sm:px-8 lg:hidden">
+              <div className="flex min-w-0 flex-1 gap-1 overflow-x-auto">
+                {qualities.map((quality) => menuLink(quality, true))}
+              </div>
+              <KeySelect value={key} onChange={setKey} compact />
+            </div>
+            <div className="hidden lg:block">
+              <div className="flex flex-col gap-1">{qualities.map((quality) => menuLink(quality, false))}</div>
+              <div className="mt-8 border-t border-line pt-6">
+                <KeySelect value={key} onChange={setKey} />
+              </div>
+            </div>
+          </nav>
+
+          <div className="min-w-0 [&>section:first-child]:lg:mt-0">
+            {qualities.map((quality) => (
+              <GuideSection key={quality.id} id={quality.id} title={quality.title}>
+                <div className="grid grid-cols-2 gap-3 pt-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+                  {quality.groups.flatMap((group) =>
+                    group.steps.map((step, index) => (
+                      <ChordCard key={`${group.key}-${index}`} step={step} className="chord-card--compact min-w-0" />
+                    )),
+                  )}
+                </div>
+              </GuideSection>
+            ))}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+/** True while the URL points at the chord dictionary (#dicionario or one of its anchors). */
+function useDictionaryRoute() {
+  const [open, setOpen] = useState(() => isDictionaryHash(window.location.hash));
+  useEffect(() => {
+    const sync = () => {
+      const hash = window.location.hash;
+      setOpen(isDictionaryHash(hash));
+      // Anchors scroll to their section (after the page renders); anything else starts at the top.
+      const anchor = dictionaryAnchor(hash);
+      if (anchor) requestAnimationFrame(() => document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth" }));
+      else window.scrollTo(0, 0);
+    };
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+  function close() {
+    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    setOpen(false);
+  }
+  return { open, close };
+}
+
 export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress>(loadProgress);
   const [guideSection, setGuideSection] = useState<number | null>(null);
   const outline = useOutline();
+  const dictionary = useDictionaryRoute();
   const trailSections = applyProgress(sections, progress);
 
   function completeLesson(lesson: Lesson, bpm: number) {
@@ -1947,6 +2193,8 @@ export default function App() {
       return next;
     });
   }
+
+  if (dictionary.open) return <DictionaryPage onBack={dictionary.close} />;
 
   if (guideSection !== null) {
     const Guide = guideSection === 2 ? InversionsGuide : CagedGuide;
