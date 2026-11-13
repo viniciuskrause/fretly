@@ -198,6 +198,38 @@ const THIRD_INVERSION_CM7B5 = [
   { bassString: 6, frets: [6, 6, 4, 5, -1, -1], fingers: [3, 4, 1, 2, 0, 0] },
 ];
 
+// Root position (ordem direta, bass = root), C models. Proposed by Claude
+// (2026-11-13), pending the user's review: drop 2 on each bass string, plus a
+// drop 3 alternative (string skipped) on the 5th and 6th strings.
+const ROOT_POSITION_C = [
+  { bassString: 4, frets: [-1, -1, 10, 12, 12, 12], fingers: [0, 0, 1, 2, 3, 4] },
+  { bassString: 5, frets: [-1, 3, 5, 4, 5, -1], fingers: [0, 1, 3, 2, 4, 0] },
+  { bassString: 5, frets: [-1, 3, -1, 4, 5, 3], fingers: [0, 2, 0, 3, 4, 1], alternative: true },
+  { bassString: 6, frets: [8, 10, 9, 9, -1, -1], fingers: [1, 4, 2, 3, 0, 0] },
+  { bassString: 6, frets: [8, -1, 9, 9, 8, -1], fingers: [2, 0, 3, 4, 1, 0], alternative: true },
+];
+const ROOT_POSITION_CM = [
+  { bassString: 4, frets: [-1, -1, 10, 12, 11, 11], fingers: [0, 0, 1, 4, 2, 3] },
+  { bassString: 5, frets: [-1, 3, 5, 3, 4, -1], fingers: [0, 1, 3, 1, 2, 0] },
+  { bassString: 5, frets: [-1, 3, -1, 3, 4, 3], fingers: [0, 1, 0, 1, 2, 1], alternative: true },
+  { bassString: 6, frets: [8, 10, 8, 8, -1, -1], fingers: [1, 3, 1, 1, 0, 0] },
+  { bassString: 6, frets: [8, -1, 8, 8, 8, -1], fingers: [2, 0, 3, 4, 1, 0], alternative: true },
+];
+const ROOT_POSITION_C7 = [
+  { bassString: 4, frets: [-1, -1, 10, 12, 11, 12], fingers: [0, 0, 1, 3, 2, 4] },
+  { bassString: 5, frets: [-1, 3, 5, 3, 5, -1], fingers: [0, 1, 3, 1, 4, 0] },
+  { bassString: 5, frets: [-1, 3, -1, 3, 5, 3], fingers: [0, 2, 0, 3, 4, 1], alternative: true },
+  { bassString: 6, frets: [8, 10, 8, 9, -1, -1], fingers: [1, 3, 1, 2, 0, 0] },
+  { bassString: 6, frets: [8, -1, 8, 9, 8, -1], fingers: [2, 0, 3, 4, 1, 0], alternative: true },
+];
+const ROOT_POSITION_CM7B5 = [
+  { bassString: 4, frets: [-1, -1, 10, 11, 11, 11], fingers: [0, 0, 1, 2, 3, 4] },
+  { bassString: 5, frets: [-1, 3, 4, 3, 4, -1], fingers: [0, 2, 3, 1, 4, 0] },
+  { bassString: 5, frets: [-1, 3, -1, 3, 4, 2], fingers: [0, 2, 0, 3, 4, 1], alternative: true },
+  { bassString: 6, frets: [8, 9, 8, 8, -1, -1], fingers: [1, 2, 1, 1, 0, 0] },
+  { bassString: 6, frets: [8, -1, 8, 8, 7, -1], fingers: [2, 0, 3, 4, 1, 0], alternative: true },
+];
+
 const LETTERS = ["C", "D", "E", "F", "G", "A", "B"];
 /** Letters a chord tone sits above the root (third = 2 letters up, …). */
 const BASS_LETTER_STEPS = { root: 0, third: 2, fifth: 4, seventh: 6 };
@@ -294,6 +326,8 @@ function lowToHigh(steps) {
 // Trails grouped by inversion (a collapsible category on the home page), one
 // trail per chord quality inside each group.
 const INVERSION_GROUPS = [
+  { title: "Ordem direta: baixo na tônica", bass: "root", label: "tônica",
+    models: { maj7: ROOT_POSITION_C, m7: ROOT_POSITION_CM, "7": ROOT_POSITION_C7, m7b5: ROOT_POSITION_CM7B5 } },
   { title: "1ª inversão: baixo na terça", bass: "third", label: "terça",
     models: { maj7: FIRST_INVERSION_C, m7: FIRST_INVERSION_CM, "7": FIRST_INVERSION_C7, m7b5: FIRST_INVERSION_CM7B5 } },
   { title: "2ª inversão: baixo na quinta", bass: "fifth", label: "quinta",
@@ -336,7 +370,7 @@ const inversionTrails = INVERSIONS.trails.map((trail) => {
   const lessons = trail.lessons.map((lesson) => {
     const steps = lesson.steps.map((step) => {
       const position = positionFromFrets(step.frets, step.fingers);
-      const name = `${chordSymbol(step.root, step.suffix)}/${step.bassNote}`;
+      const name = chordSymbol(step.root, step.suffix) + (step.bass === "root" ? "" : `/${step.bassNote}`);
       const { errors } = validate(position, step.root, step.suffix, undefined, step.bass, step.bassString);
       if (errors.length) throw new Error(`${name} baixo na ${step.bassString}ª corda: ${errors.join("; ")}`);
       return [
