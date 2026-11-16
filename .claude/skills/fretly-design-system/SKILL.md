@@ -85,7 +85,7 @@ Outros tokens:
 - `.eyebrow`: mono 11px, 600, `tracking 0.12em`, caixa alta — rótulos pequenos
   (cabeçalho de tabela, "Digitação alternativa", "Formas tocadas").
 - `.eyebrow.eyebrow--lg`: 13px, 700 — **overlines de abertura** de página ou
-  bloco: "Lição" / "Module", "Guia", título da aula no exercício, "Exercício concluído".
+  bloco: "Módulo" / "Module", "Guia", título da aula no exercício, "Exercício concluído".
 - Cifras dentro de eyebrow ficam em `normal-case` (`Dm7(♭5)` não pode virar `DM7(♭5)`).
 - Títulos: `tracking-[-0.03em]`/`-0.04em`, `font-bold`, `leading-tight`.
   Escala: H1 de página 36/46px; título de seção principal 24/26px; H2 de guia
@@ -126,19 +126,19 @@ Reutilize os componentes existentes em `src/App.tsx` antes de criar novos:
 ### Hierarquia recolhível (Home)
 
 **Nomenclatura na interface:** os blocos principais da Home se chamam
-**lições** em pt e **modules** em en ("Lição", "Guia da lição Inversões de Tétrades"),
-**sem número** — nunca "seção" nem "unidade" em texto visível ao usuário. Cada
-lição contém **aulas** ("lessons" em en). No código e nesta skill eles seguem como
+**módulos** ("Módulo" / "Module", "Guia do módulo Inversões de Tétrades"),
+**sem número** — nunca "seção", "unidade" nem "lição" em texto visível ao usuário. Cada
+módulo contém **aulas** ("lessons" em en). No código e nesta skill eles seguem como
 `Section`/"seção principal".
 
-Lição (seção principal) → (grupo) → subseção → trilha. **Tudo fechado por padrão**; estado salvo
+Módulo (seção principal) → (grupo) → subseção → trilha. **Tudo fechado por padrão**; estado salvo
 em `localStorage` (`fretly.open.v1`) via `useOutline`. Abrir uma seção abre
 também a subseção (e o grupo) da próxima aula a estudar.
 
 **1. Cabeçalho de seção principal** (`PathSection`) — o único bloco "forte":
 - Card `rounded-card border border-brand bg-brand text-white`, padding
   `p-5 sm:p-6 sm:pr-5` (direita 20px para alinhar o chevron).
-- Esquerda (clicável, também alterna): overline `Lição` / `Module` (sem número)
+- Esquerda (clicável, também alterna): overline `Módulo` / `Module` (sem número)
   (`eyebrow eyebrow--lg text-brand-soft`),
   título `font-display text-[24px] sm:text-[26px] font-bold`, subtítulo
   `text-[15px] font-medium text-brand-soft`.
