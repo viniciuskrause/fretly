@@ -426,6 +426,24 @@
     stroke: var(--color-line-strong);
   }
 
+  /* Key of the segment under the pointer, just outside the ring. */
+  .lesson-hub__tooltip {
+    position: absolute;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: var(--color-ink);
+    color: var(--color-surface);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.18);
+  }
+
   .lesson-hub__segment--done {
     stroke: var(--color-brand);
   }
@@ -477,6 +495,11 @@
     font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 1;
+  }
+
+  /* Longer chord names on the active lesson ("A♭maj7", "C♯dim"). */
+  .lesson-hub__symbol--long {
+    font-size: 22px;
   }
 
   .trail-trophy {

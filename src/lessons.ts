@@ -8861,14 +8861,14 @@ export const sections: Section[] = [
       {
         id: 193,
         key: "inversions/root/maj7/C",
-        title: { pt: "C7M - baixo na tônica", en: "Cmaj7 - root in the bass" },
-        exerciseTitle: { pt: "C7M - baixo na tônica", en: "Cmaj7 - root in the bass" },
-        subtitle: { pt: "C7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "C7+ - baixo na tônica", en: "Cmaj7 - root in the bass" },
+        exerciseTitle: { pt: "C7+ - baixo na tônica", en: "Cmaj7 - root in the bass" },
+        subtitle: { pt: "C7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -8876,7 +8876,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 4, 5, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 1, barres: [], midi: [48, 55, 59, 64] },
           },
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -8885,7 +8885,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, -1, 4, 5, 3], fingers: [0, 2, 0, 3, 4, 1], baseFret: 1, barres: [], midi: [48, 59, 64, 67] },
           },
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -8893,7 +8893,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 8, barres: [], midi: [48, 55, 59, 64] },
           },
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -8902,7 +8902,7 @@ export const sections: Section[] = [
             position: { frets: [1, -1, 2, 2, 1, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 8, barres: [], midi: [48, 59, 64, 67] },
           },
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -8914,14 +8914,14 @@ export const sections: Section[] = [
       {
         id: 194,
         key: "inversions/root/maj7/F",
-        title: { pt: "F7M - baixo na tônica", en: "Fmaj7 - root in the bass" },
-        exerciseTitle: { pt: "F7M - baixo na tônica", en: "Fmaj7 - root in the bass" },
-        subtitle: { pt: "F7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "F7+ - baixo na tônica", en: "Fmaj7 - root in the bass" },
+        exerciseTitle: { pt: "F7+ - baixo na tônica", en: "Fmaj7 - root in the bass" },
+        subtitle: { pt: "F7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -8929,7 +8929,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 1, barres: [], midi: [41, 48, 52, 57] },
           },
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -8938,7 +8938,7 @@ export const sections: Section[] = [
             position: { frets: [1, -1, 2, 2, 1, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 1, barres: [], midi: [41, 52, 57, 60] },
           },
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -8946,7 +8946,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 5, 5, 5], fingers: [0, 0, 1, 2, 3, 4], baseFret: 1, barres: [], midi: [53, 60, 64, 69] },
           },
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -8954,7 +8954,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 8, barres: [], midi: [53, 60, 64, 69] },
           },
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -8967,14 +8967,14 @@ export const sections: Section[] = [
       {
         id: 195,
         key: "inversions/root/maj7/Bb",
-        title: { pt: "B♭7M - baixo na tônica", en: "B♭maj7 - root in the bass" },
-        exerciseTitle: { pt: "B♭7M - baixo na tônica", en: "B♭maj7 - root in the bass" },
-        subtitle: { pt: "B♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B♭7+ - baixo na tônica", en: "B♭maj7 - root in the bass" },
+        exerciseTitle: { pt: "B♭7+ - baixo na tônica", en: "B♭maj7 - root in the bass" },
+        subtitle: { pt: "B♭7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -8982,7 +8982,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 1, barres: [], midi: [46, 53, 57, 62] },
           },
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -8991,7 +8991,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, -1, 2, 3, 1], fingers: [0, 2, 0, 3, 4, 1], baseFret: 1, barres: [], midi: [46, 57, 62, 65] },
           },
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -8999,7 +8999,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 6, barres: [], midi: [46, 53, 57, 62] },
           },
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9008,7 +9008,7 @@ export const sections: Section[] = [
             position: { frets: [1, -1, 2, 2, 1, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 6, barres: [], midi: [46, 57, 62, 65] },
           },
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9020,14 +9020,14 @@ export const sections: Section[] = [
       {
         id: 196,
         key: "inversions/root/maj7/Eb",
-        title: { pt: "E♭7M - baixo na tônica", en: "E♭maj7 - root in the bass" },
-        exerciseTitle: { pt: "E♭7M - baixo na tônica", en: "E♭maj7 - root in the bass" },
-        subtitle: { pt: "E♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E♭7+ - baixo na tônica", en: "E♭maj7 - root in the bass" },
+        exerciseTitle: { pt: "E♭7+ - baixo na tônica", en: "E♭maj7 - root in the bass" },
+        subtitle: { pt: "E♭7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9035,7 +9035,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 1, barres: [], midi: [51, 58, 62, 67] },
           },
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9043,7 +9043,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 6, barres: [], midi: [51, 58, 62, 67] },
           },
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9052,7 +9052,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, -1, 2, 3, 1], fingers: [0, 2, 0, 3, 4, 1], baseFret: 6, barres: [], midi: [51, 62, 67, 70] },
           },
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9060,7 +9060,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 11, barres: [], midi: [51, 58, 62, 67] },
           },
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9073,14 +9073,14 @@ export const sections: Section[] = [
       {
         id: 197,
         key: "inversions/root/maj7/Ab",
-        title: { pt: "A♭7M - baixo na tônica", en: "A♭maj7 - root in the bass" },
-        exerciseTitle: { pt: "A♭7M - baixo na tônica", en: "A♭maj7 - root in the bass" },
-        subtitle: { pt: "A♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A♭7+ - baixo na tônica", en: "A♭maj7 - root in the bass" },
+        exerciseTitle: { pt: "A♭7+ - baixo na tônica", en: "A♭maj7 - root in the bass" },
+        subtitle: { pt: "A♭7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9088,7 +9088,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 4, barres: [], midi: [44, 51, 55, 60] },
           },
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9097,7 +9097,7 @@ export const sections: Section[] = [
             position: { frets: [4, -1, 5, 5, 4, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 1, barres: [], midi: [44, 55, 60, 63] },
           },
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9105,7 +9105,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 6, barres: [], midi: [56, 63, 67, 72] },
           },
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9113,7 +9113,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 11, barres: [], midi: [56, 63, 67, 72] },
           },
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9126,14 +9126,14 @@ export const sections: Section[] = [
       {
         id: 198,
         key: "inversions/root/maj7/Db",
-        title: { pt: "D♭7M - baixo na tônica", en: "D♭maj7 - root in the bass" },
-        exerciseTitle: { pt: "D♭7M - baixo na tônica", en: "D♭maj7 - root in the bass" },
-        subtitle: { pt: "D♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D♭7+ - baixo na tônica", en: "D♭maj7 - root in the bass" },
+        exerciseTitle: { pt: "D♭7+ - baixo na tônica", en: "D♭maj7 - root in the bass" },
+        subtitle: { pt: "D♭7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9141,7 +9141,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 4, barres: [], midi: [49, 56, 60, 65] },
           },
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9150,7 +9150,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, -1, 2, 3, 1], fingers: [0, 2, 0, 3, 4, 1], baseFret: 4, barres: [], midi: [49, 60, 65, 68] },
           },
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9158,7 +9158,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 9, barres: [], midi: [49, 56, 60, 65] },
           },
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9167,7 +9167,7 @@ export const sections: Section[] = [
             position: { frets: [1, -1, 2, 2, 1, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 9, barres: [], midi: [49, 60, 65, 68] },
           },
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9179,14 +9179,14 @@ export const sections: Section[] = [
       {
         id: 199,
         key: "inversions/root/maj7/Gb",
-        title: { pt: "G♭7M - baixo na tônica", en: "G♭maj7 - root in the bass" },
-        exerciseTitle: { pt: "G♭7M - baixo na tônica", en: "G♭maj7 - root in the bass" },
-        subtitle: { pt: "G♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G♭7+ - baixo na tônica", en: "G♭maj7 - root in the bass" },
+        exerciseTitle: { pt: "G♭7+ - baixo na tônica", en: "G♭maj7 - root in the bass" },
+        subtitle: { pt: "G♭7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9194,7 +9194,7 @@ export const sections: Section[] = [
             position: { frets: [2, 4, 3, 3, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 1, barres: [], midi: [42, 49, 53, 58] },
           },
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9203,7 +9203,7 @@ export const sections: Section[] = [
             position: { frets: [2, -1, 3, 3, 2, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 1, barres: [], midi: [42, 53, 58, 61] },
           },
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9211,7 +9211,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 4, barres: [], midi: [54, 61, 65, 70] },
           },
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9219,7 +9219,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 9, barres: [], midi: [54, 61, 65, 70] },
           },
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9232,14 +9232,14 @@ export const sections: Section[] = [
       {
         id: 200,
         key: "inversions/root/maj7/B",
-        title: { pt: "B7M - baixo na tônica", en: "Bmaj7 - root in the bass" },
-        exerciseTitle: { pt: "B7M - baixo na tônica", en: "Bmaj7 - root in the bass" },
-        subtitle: { pt: "B7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B7+ - baixo na tônica", en: "Bmaj7 - root in the bass" },
+        exerciseTitle: { pt: "B7+ - baixo na tônica", en: "Bmaj7 - root in the bass" },
+        subtitle: { pt: "B7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9247,7 +9247,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 4, 3, 4, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 1, barres: [], midi: [47, 54, 58, 63] },
           },
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9256,7 +9256,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, -1, 3, 4, 2], fingers: [0, 2, 0, 3, 4, 1], baseFret: 1, barres: [], midi: [47, 58, 63, 66] },
           },
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9264,7 +9264,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 7, barres: [], midi: [47, 54, 58, 63] },
           },
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9273,7 +9273,7 @@ export const sections: Section[] = [
             position: { frets: [1, -1, 2, 2, 1, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 7, barres: [], midi: [47, 58, 63, 66] },
           },
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9285,14 +9285,14 @@ export const sections: Section[] = [
       {
         id: 201,
         key: "inversions/root/maj7/E",
-        title: { pt: "E7M - baixo na tônica", en: "Emaj7 - root in the bass" },
-        exerciseTitle: { pt: "E7M - baixo na tônica", en: "Emaj7 - root in the bass" },
-        subtitle: { pt: "E7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E7+ - baixo na tônica", en: "Emaj7 - root in the bass" },
+        exerciseTitle: { pt: "E7+ - baixo na tônica", en: "Emaj7 - root in the bass" },
+        subtitle: { pt: "E7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9300,7 +9300,7 @@ export const sections: Section[] = [
             position: { frets: [0, 2, 1, 1, -1, -1], fingers: [0, 3, 1, 2, 0, 0], baseFret: 1, barres: [], midi: [40, 47, 51, 56] },
           },
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9309,7 +9309,7 @@ export const sections: Section[] = [
             position: { frets: [0, -1, 1, 1, 0, -1], fingers: [0, 0, 1, 2, 0, 0], baseFret: 1, barres: [], midi: [40, 51, 56, 59] },
           },
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9317,7 +9317,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 4, 4], fingers: [0, 0, 1, 2, 3, 4], baseFret: 1, barres: [], midi: [52, 59, 63, 68] },
           },
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9325,7 +9325,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 7, barres: [], midi: [52, 59, 63, 68] },
           },
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9338,14 +9338,14 @@ export const sections: Section[] = [
       {
         id: 202,
         key: "inversions/root/maj7/A",
-        title: { pt: "A7M - baixo na tônica", en: "Amaj7 - root in the bass" },
-        exerciseTitle: { pt: "A7M - baixo na tônica", en: "Amaj7 - root in the bass" },
-        subtitle: { pt: "A7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A7+ - baixo na tônica", en: "Amaj7 - root in the bass" },
+        exerciseTitle: { pt: "A7+ - baixo na tônica", en: "Amaj7 - root in the bass" },
+        subtitle: { pt: "A7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9353,7 +9353,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 0, 2, 1, 2, -1], fingers: [0, 0, 2, 1, 3, 0], baseFret: 1, barres: [], midi: [45, 52, 56, 61] },
           },
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9362,7 +9362,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 0, -1, 1, 2, 0], fingers: [0, 0, 0, 1, 2, 0], baseFret: 1, barres: [], midi: [45, 56, 61, 64] },
           },
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9370,7 +9370,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 5, barres: [], midi: [45, 52, 56, 61] },
           },
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9379,7 +9379,7 @@ export const sections: Section[] = [
             position: { frets: [1, -1, 2, 2, 1, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 5, barres: [], midi: [45, 56, 61, 64] },
           },
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9391,14 +9391,14 @@ export const sections: Section[] = [
       {
         id: 203,
         key: "inversions/root/maj7/D",
-        title: { pt: "D7M - baixo na tônica", en: "Dmaj7 - root in the bass" },
-        exerciseTitle: { pt: "D7M - baixo na tônica", en: "Dmaj7 - root in the bass" },
-        subtitle: { pt: "D7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D7+ - baixo na tônica", en: "Dmaj7 - root in the bass" },
+        exerciseTitle: { pt: "D7+ - baixo na tônica", en: "Dmaj7 - root in the bass" },
+        subtitle: { pt: "D7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9406,7 +9406,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 0, 2, 2, 2], fingers: [0, 0, 0, 1, 2, 3], baseFret: 1, barres: [], midi: [50, 57, 61, 66] },
           },
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9414,7 +9414,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 5, barres: [], midi: [50, 57, 61, 66] },
           },
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9423,7 +9423,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, -1, 2, 3, 1], fingers: [0, 2, 0, 3, 4, 1], baseFret: 5, barres: [], midi: [50, 61, 66, 69] },
           },
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9431,7 +9431,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 10, barres: [], midi: [50, 57, 61, 66] },
           },
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9444,14 +9444,14 @@ export const sections: Section[] = [
       {
         id: 204,
         key: "inversions/root/maj7/G",
-        title: { pt: "G7M - baixo na tônica", en: "Gmaj7 - root in the bass" },
-        exerciseTitle: { pt: "G7M - baixo na tônica", en: "Gmaj7 - root in the bass" },
-        subtitle: { pt: "G7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G7+ - baixo na tônica", en: "Gmaj7 - root in the bass" },
+        exerciseTitle: { pt: "G7+ - baixo na tônica", en: "Gmaj7 - root in the bass" },
+        subtitle: { pt: "G7+ com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9459,7 +9459,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 4, 4, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 1, barres: [], midi: [43, 50, 54, 59] },
           },
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -9468,7 +9468,7 @@ export const sections: Section[] = [
             position: { frets: [3, -1, 4, 4, 3, -1], fingers: [2, 0, 3, 4, 1, 0], baseFret: 1, barres: [], midi: [43, 54, 59, 62] },
           },
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -9476,7 +9476,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 5, barres: [], midi: [55, 62, 66, 71] },
           },
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -9484,7 +9484,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 10, barres: [], midi: [55, 62, 66, 71] },
           },
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -11429,14 +11429,14 @@ export const sections: Section[] = [
       {
         id: 241,
         key: "inversions/third/maj7/C",
-        title: { pt: "C7M - baixo na terça", en: "Cmaj7 - third in the bass" },
-        exerciseTitle: { pt: "C7M - baixo na terça", en: "Cmaj7 - third in the bass" },
-        subtitle: { pt: "C7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "C7+ - baixo na terça", en: "Cmaj7 - third in the bass" },
+        exerciseTitle: { pt: "C7+ - baixo na terça", en: "Cmaj7 - third in the bass" },
+        subtitle: { pt: "C7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11444,7 +11444,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 1, barres: [], midi: [52, 59, 60, 67] },
           },
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11452,7 +11452,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 5, barres: [], midi: [52, 59, 60, 67] },
           },
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11461,7 +11461,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, -1, 1, 4, 3], fingers: [0, 2, 0, 1, 4, 3], baseFret: 5, barres: [], midi: [52, 60, 67, 71] },
           },
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11469,7 +11469,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 10, barres: [], midi: [52, 59, 60, 67] },
           },
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11482,14 +11482,14 @@ export const sections: Section[] = [
       {
         id: 242,
         key: "inversions/third/maj7/F",
-        title: { pt: "F7M - baixo na terça", en: "Fmaj7 - third in the bass" },
-        exerciseTitle: { pt: "F7M - baixo na terça", en: "Fmaj7 - third in the bass" },
-        subtitle: { pt: "F7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "F7+ - baixo na terça", en: "Fmaj7 - third in the bass" },
+        exerciseTitle: { pt: "F7+ - baixo na terça", en: "Fmaj7 - third in the bass" },
+        subtitle: { pt: "F7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11497,7 +11497,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 3, barres: [], midi: [45, 52, 53, 60] },
           },
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11506,7 +11506,7 @@ export const sections: Section[] = [
             position: { frets: [5, -1, 3, 5, 5, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 1, barres: [], midi: [45, 53, 60, 64] },
           },
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11514,7 +11514,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 6, barres: [], midi: [57, 64, 65, 72] },
           },
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11522,7 +11522,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 10, barres: [], midi: [57, 64, 65, 72] },
           },
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11535,14 +11535,14 @@ export const sections: Section[] = [
       {
         id: 243,
         key: "inversions/third/maj7/Bb",
-        title: { pt: "B♭7M - baixo na terça", en: "B♭maj7 - third in the bass" },
-        exerciseTitle: { pt: "B♭7M - baixo na terça", en: "B♭maj7 - third in the bass" },
-        subtitle: { pt: "B♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B♭7+ - baixo na terça", en: "B♭maj7 - third in the bass" },
+        exerciseTitle: { pt: "B♭7+ - baixo na terça", en: "B♭maj7 - third in the bass" },
+        subtitle: { pt: "B♭7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11550,7 +11550,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 3, barres: [], midi: [50, 57, 58, 65] },
           },
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11559,7 +11559,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, -1, 1, 4, 3], fingers: [0, 2, 0, 1, 4, 3], baseFret: 3, barres: [], midi: [50, 58, 65, 69] },
           },
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11567,7 +11567,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 8, barres: [], midi: [50, 57, 58, 65] },
           },
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11576,7 +11576,7 @@ export const sections: Section[] = [
             position: { frets: [3, -1, 1, 3, 3, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 8, barres: [], midi: [50, 58, 65, 69] },
           },
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11588,14 +11588,14 @@ export const sections: Section[] = [
       {
         id: 244,
         key: "inversions/third/maj7/Eb",
-        title: { pt: "E♭7M - baixo na terça", en: "E♭maj7 - third in the bass" },
-        exerciseTitle: { pt: "E♭7M - baixo na terça", en: "E♭maj7 - third in the bass" },
-        subtitle: { pt: "E♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E♭7+ - baixo na terça", en: "E♭maj7 - third in the bass" },
+        exerciseTitle: { pt: "E♭7+ - baixo na terça", en: "E♭maj7 - third in the bass" },
+        subtitle: { pt: "E♭7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11603,7 +11603,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 1, barres: [], midi: [43, 50, 51, 58] },
           },
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11612,7 +11612,7 @@ export const sections: Section[] = [
             position: { frets: [3, -1, 1, 3, 3, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 1, barres: [], midi: [43, 51, 58, 62] },
           },
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11620,7 +11620,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 4, barres: [], midi: [55, 62, 63, 70] },
           },
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11628,7 +11628,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 8, barres: [], midi: [55, 62, 63, 70] },
           },
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11641,14 +11641,14 @@ export const sections: Section[] = [
       {
         id: 245,
         key: "inversions/third/maj7/Ab",
-        title: { pt: "A♭7M - baixo na terça", en: "A♭maj7 - third in the bass" },
-        exerciseTitle: { pt: "A♭7M - baixo na terça", en: "A♭maj7 - third in the bass" },
-        subtitle: { pt: "A♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A♭7+ - baixo na terça", en: "A♭maj7 - third in the bass" },
+        exerciseTitle: { pt: "A♭7+ - baixo na terça", en: "A♭maj7 - third in the bass" },
+        subtitle: { pt: "A♭7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11656,7 +11656,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 1, barres: [], midi: [48, 55, 56, 63] },
           },
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11665,7 +11665,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, -1, 1, 4, 3], fingers: [0, 2, 0, 1, 4, 3], baseFret: 1, barres: [], midi: [48, 56, 63, 67] },
           },
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11673,7 +11673,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 6, barres: [], midi: [48, 55, 56, 63] },
           },
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11682,7 +11682,7 @@ export const sections: Section[] = [
             position: { frets: [3, -1, 1, 3, 3, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 6, barres: [], midi: [48, 56, 63, 67] },
           },
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11694,14 +11694,14 @@ export const sections: Section[] = [
       {
         id: 246,
         key: "inversions/third/maj7/Db",
-        title: { pt: "D♭7M - baixo na terça", en: "D♭maj7 - third in the bass" },
-        exerciseTitle: { pt: "D♭7M - baixo na terça", en: "D♭maj7 - third in the bass" },
-        subtitle: { pt: "D♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D♭7+ - baixo na terça", en: "D♭maj7 - third in the bass" },
+        exerciseTitle: { pt: "D♭7+ - baixo na terça", en: "D♭maj7 - third in the bass" },
+        subtitle: { pt: "D♭7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11709,7 +11709,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 5, 2, 4], fingers: [0, 0, 2, 4, 1, 3], baseFret: 1, barres: [], midi: [53, 60, 61, 68] },
           },
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11717,7 +11717,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 6, barres: [], midi: [53, 60, 61, 68] },
           },
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11726,7 +11726,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, -1, 1, 4, 3], fingers: [0, 2, 0, 1, 4, 3], baseFret: 6, barres: [], midi: [53, 61, 68, 72] },
           },
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11734,7 +11734,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 11, barres: [], midi: [53, 60, 61, 68] },
           },
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11747,14 +11747,14 @@ export const sections: Section[] = [
       {
         id: 247,
         key: "inversions/third/maj7/Gb",
-        title: { pt: "G♭7M - baixo na terça", en: "G♭maj7 - third in the bass" },
-        exerciseTitle: { pt: "G♭7M - baixo na terça", en: "G♭maj7 - third in the bass" },
-        subtitle: { pt: "G♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G♭7+ - baixo na terça", en: "G♭maj7 - third in the bass" },
+        exerciseTitle: { pt: "G♭7+ - baixo na terça", en: "G♭maj7 - third in the bass" },
+        subtitle: { pt: "G♭7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11762,7 +11762,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 4, barres: [], midi: [46, 53, 54, 61] },
           },
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11771,7 +11771,7 @@ export const sections: Section[] = [
             position: { frets: [3, -1, 1, 3, 3, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 4, barres: [], midi: [46, 54, 61, 65] },
           },
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11779,7 +11779,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 7, barres: [], midi: [58, 65, 66, 73] },
           },
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11787,7 +11787,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 11, barres: [], midi: [58, 65, 66, 73] },
           },
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11800,14 +11800,14 @@ export const sections: Section[] = [
       {
         id: 248,
         key: "inversions/third/maj7/B",
-        title: { pt: "B7M - baixo na terça", en: "Bmaj7 - third in the bass" },
-        exerciseTitle: { pt: "B7M - baixo na terça", en: "Bmaj7 - third in the bass" },
-        subtitle: { pt: "B7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B7+ - baixo na terça", en: "Bmaj7 - third in the bass" },
+        exerciseTitle: { pt: "B7+ - baixo na terça", en: "Bmaj7 - third in the bass" },
+        subtitle: { pt: "B7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11815,7 +11815,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 0, 2], fingers: [0, 0, 1, 3, 0, 2], baseFret: 1, barres: [], midi: [51, 58, 59, 66] },
           },
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11823,7 +11823,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 4, barres: [], midi: [51, 58, 59, 66] },
           },
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11832,7 +11832,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, -1, 1, 4, 3], fingers: [0, 2, 0, 1, 4, 3], baseFret: 4, barres: [], midi: [51, 59, 66, 70] },
           },
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11840,7 +11840,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 9, barres: [], midi: [51, 58, 59, 66] },
           },
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11853,14 +11853,14 @@ export const sections: Section[] = [
       {
         id: 249,
         key: "inversions/third/maj7/E",
-        title: { pt: "E7M - baixo na terça", en: "Emaj7 - third in the bass" },
-        exerciseTitle: { pt: "E7M - baixo na terça", en: "Emaj7 - third in the bass" },
-        subtitle: { pt: "E7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E7+ - baixo na terça", en: "Emaj7 - third in the bass" },
+        exerciseTitle: { pt: "E7+ - baixo na terça", en: "Emaj7 - third in the bass" },
+        subtitle: { pt: "E7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11868,7 +11868,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 2, barres: [], midi: [44, 51, 52, 59] },
           },
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11877,7 +11877,7 @@ export const sections: Section[] = [
             position: { frets: [4, -1, 2, 4, 4, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 1, barres: [], midi: [44, 52, 59, 63] },
           },
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11885,7 +11885,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 5, barres: [], midi: [56, 63, 64, 71] },
           },
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11893,7 +11893,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 9, barres: [], midi: [56, 63, 64, 71] },
           },
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11906,14 +11906,14 @@ export const sections: Section[] = [
       {
         id: 250,
         key: "inversions/third/maj7/A",
-        title: { pt: "A7M - baixo na terça", en: "Amaj7 - third in the bass" },
-        exerciseTitle: { pt: "A7M - baixo na terça", en: "Amaj7 - third in the bass" },
-        subtitle: { pt: "A7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A7+ - baixo na terça", en: "Amaj7 - third in the bass" },
+        exerciseTitle: { pt: "A7+ - baixo na terça", en: "Amaj7 - third in the bass" },
+        subtitle: { pt: "A7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11921,7 +11921,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 2, barres: [], midi: [49, 56, 57, 64] },
           },
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11930,7 +11930,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 4, -1, 2, 5, 4], fingers: [0, 2, 0, 1, 4, 3], baseFret: 1, barres: [], midi: [49, 57, 64, 68] },
           },
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11938,7 +11938,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 7, barres: [], midi: [49, 56, 57, 64] },
           },
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11947,7 +11947,7 @@ export const sections: Section[] = [
             position: { frets: [3, -1, 1, 3, 3, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 7, barres: [], midi: [49, 57, 64, 68] },
           },
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11959,14 +11959,14 @@ export const sections: Section[] = [
       {
         id: 251,
         key: "inversions/third/maj7/D",
-        title: { pt: "D7M - baixo na terça", en: "Dmaj7 - third in the bass" },
-        exerciseTitle: { pt: "D7M - baixo na terça", en: "Dmaj7 - third in the bass" },
-        subtitle: { pt: "D7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D7+ - baixo na terça", en: "Dmaj7 - third in the bass" },
+        exerciseTitle: { pt: "D7+ - baixo na terça", en: "Dmaj7 - third in the bass" },
+        subtitle: { pt: "D7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11974,7 +11974,7 @@ export const sections: Section[] = [
             position: { frets: [2, 4, 0, 2, -1, -1], fingers: [1, 3, 0, 2, 0, 0], baseFret: 1, barres: [], midi: [42, 49, 50, 57] },
           },
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -11983,7 +11983,7 @@ export const sections: Section[] = [
             position: { frets: [2, -1, 0, 2, 2, -1], fingers: [1, 0, 0, 2, 3, 0], baseFret: 1, barres: [], midi: [42, 50, 57, 61] },
           },
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -11991,7 +11991,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 3, barres: [], midi: [54, 61, 62, 69] },
           },
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -11999,7 +11999,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 7, barres: [], midi: [54, 61, 62, 69] },
           },
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -12012,14 +12012,14 @@ export const sections: Section[] = [
       {
         id: 252,
         key: "inversions/third/maj7/G",
-        title: { pt: "G7M - baixo na terça", en: "Gmaj7 - third in the bass" },
-        exerciseTitle: { pt: "G7M - baixo na terça", en: "Gmaj7 - third in the bass" },
-        subtitle: { pt: "G7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G7+ - baixo na terça", en: "Gmaj7 - third in the bass" },
+        exerciseTitle: { pt: "G7+ - baixo na terça", en: "Gmaj7 - third in the bass" },
+        subtitle: { pt: "G7+ com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -12027,7 +12027,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 4, 0, 3, -1], fingers: [0, 1, 3, 0, 2, 0], baseFret: 1, barres: [], midi: [47, 54, 55, 62] },
           },
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -12036,7 +12036,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, -1, 0, 3, 2], fingers: [0, 1, 0, 0, 3, 2], baseFret: 1, barres: [], midi: [47, 55, 62, 66] },
           },
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -12044,7 +12044,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 5, barres: [], midi: [47, 54, 55, 62] },
           },
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -12053,7 +12053,7 @@ export const sections: Section[] = [
             position: { frets: [3, -1, 1, 3, 3, -1], fingers: [2, 0, 1, 3, 4, 0], baseFret: 5, barres: [], midi: [47, 55, 62, 66] },
           },
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -13997,14 +13997,14 @@ export const sections: Section[] = [
       {
         id: 289,
         key: "inversions/fifth/maj7/C",
-        title: { pt: "C7M - baixo na quinta", en: "Cmaj7 - fifth in the bass" },
-        exerciseTitle: { pt: "C7M - baixo na quinta", en: "Cmaj7 - fifth in the bass" },
-        subtitle: { pt: "C7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "C7+ - baixo na quinta", en: "Cmaj7 - fifth in the bass" },
+        exerciseTitle: { pt: "C7+ - baixo na quinta", en: "Cmaj7 - fifth in the bass" },
+        subtitle: { pt: "C7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "C7M/G",
+            chord: "C7+/G",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14012,7 +14012,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 2, 4, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 1, barres: [], midi: [43, 48, 52, 59] },
           },
           {
-            chord: "C7M/G",
+            chord: "C7+/G",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14020,7 +14020,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 5, barres: [1], midi: [55, 60, 64, 71] },
           },
           {
-            chord: "C7M/G",
+            chord: "C7+/G",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14032,14 +14032,14 @@ export const sections: Section[] = [
       {
         id: 290,
         key: "inversions/fifth/maj7/F",
-        title: { pt: "F7M - baixo na quinta", en: "Fmaj7 - fifth in the bass" },
-        exerciseTitle: { pt: "F7M - baixo na quinta", en: "Fmaj7 - fifth in the bass" },
-        subtitle: { pt: "F7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "F7+ - baixo na quinta", en: "Fmaj7 - fifth in the bass" },
+        exerciseTitle: { pt: "F7+ - baixo na quinta", en: "Fmaj7 - fifth in the bass" },
+        subtitle: { pt: "F7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "F7M/C",
+            chord: "F7+/C",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14047,7 +14047,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 2, 5, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 1, barres: [], midi: [48, 53, 57, 64] },
           },
           {
-            chord: "F7M/C",
+            chord: "F7+/C",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14055,7 +14055,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 7, barres: [], midi: [48, 53, 57, 64] },
           },
           {
-            chord: "F7M/C",
+            chord: "F7+/C",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14067,14 +14067,14 @@ export const sections: Section[] = [
       {
         id: 291,
         key: "inversions/fifth/maj7/Bb",
-        title: { pt: "B♭7M - baixo na quinta", en: "B♭maj7 - fifth in the bass" },
-        exerciseTitle: { pt: "B♭7M - baixo na quinta", en: "B♭maj7 - fifth in the bass" },
-        subtitle: { pt: "B♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B♭7+ - baixo na quinta", en: "B♭maj7 - fifth in the bass" },
+        exerciseTitle: { pt: "B♭7+ - baixo na quinta", en: "B♭maj7 - fifth in the bass" },
+        subtitle: { pt: "B♭7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B♭7M/F",
+            chord: "B♭7+/F",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14082,7 +14082,7 @@ export const sections: Section[] = [
             position: { frets: [1, 1, 0, 2, -1, -1], fingers: [1, 2, 0, 3, 0, 0], baseFret: 1, barres: [], midi: [41, 46, 50, 57] },
           },
           {
-            chord: "B♭7M/F",
+            chord: "B♭7+/F",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14090,7 +14090,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 3, 3, 5], fingers: [0, 0, 1, 1, 1, 4], baseFret: 1, barres: [3], midi: [53, 58, 62, 69] },
           },
           {
-            chord: "B♭7M/F",
+            chord: "B♭7+/F",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14102,14 +14102,14 @@ export const sections: Section[] = [
       {
         id: 292,
         key: "inversions/fifth/maj7/Eb",
-        title: { pt: "E♭7M - baixo na quinta", en: "E♭maj7 - fifth in the bass" },
-        exerciseTitle: { pt: "E♭7M - baixo na quinta", en: "E♭maj7 - fifth in the bass" },
-        subtitle: { pt: "E♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E♭7+ - baixo na quinta", en: "E♭maj7 - fifth in the bass" },
+        exerciseTitle: { pt: "E♭7+ - baixo na quinta", en: "E♭maj7 - fifth in the bass" },
+        subtitle: { pt: "E♭7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E♭7M/B♭",
+            chord: "E♭7+/B♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14117,7 +14117,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 1, 0, 3, -1], fingers: [0, 1, 2, 0, 3, 0], baseFret: 1, barres: [], midi: [46, 51, 55, 62] },
           },
           {
-            chord: "E♭7M/B♭",
+            chord: "E♭7+/B♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14125,7 +14125,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 5, barres: [], midi: [46, 51, 55, 62] },
           },
           {
-            chord: "E♭7M/B♭",
+            chord: "E♭7+/B♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14137,14 +14137,14 @@ export const sections: Section[] = [
       {
         id: 293,
         key: "inversions/fifth/maj7/Ab",
-        title: { pt: "A♭7M - baixo na quinta", en: "A♭maj7 - fifth in the bass" },
-        exerciseTitle: { pt: "A♭7M - baixo na quinta", en: "A♭maj7 - fifth in the bass" },
-        subtitle: { pt: "A♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A♭7+ - baixo na quinta", en: "A♭maj7 - fifth in the bass" },
+        exerciseTitle: { pt: "A♭7+ - baixo na quinta", en: "A♭maj7 - fifth in the bass" },
+        subtitle: { pt: "A♭7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A♭7M/E♭",
+            chord: "A♭7+/E♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14152,7 +14152,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 1, barres: [1], midi: [51, 56, 60, 67] },
           },
           {
-            chord: "A♭7M/E♭",
+            chord: "A♭7+/E♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14160,7 +14160,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 5, barres: [], midi: [51, 56, 60, 67] },
           },
           {
-            chord: "A♭7M/E♭",
+            chord: "A♭7+/E♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14172,14 +14172,14 @@ export const sections: Section[] = [
       {
         id: 294,
         key: "inversions/fifth/maj7/Db",
-        title: { pt: "D♭7M - baixo na quinta", en: "D♭maj7 - fifth in the bass" },
-        exerciseTitle: { pt: "D♭7M - baixo na quinta", en: "D♭maj7 - fifth in the bass" },
-        subtitle: { pt: "D♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D♭7+ - baixo na quinta", en: "D♭maj7 - fifth in the bass" },
+        exerciseTitle: { pt: "D♭7+ - baixo na quinta", en: "D♭maj7 - fifth in the bass" },
+        subtitle: { pt: "D♭7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D♭7M/A♭",
+            chord: "D♭7+/A♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14187,7 +14187,7 @@ export const sections: Section[] = [
             position: { frets: [4, 4, 3, 5, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 1, barres: [], midi: [44, 49, 53, 60] },
           },
           {
-            chord: "D♭7M/A♭",
+            chord: "D♭7+/A♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14195,7 +14195,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 6, barres: [1], midi: [56, 61, 65, 72] },
           },
           {
-            chord: "D♭7M/A♭",
+            chord: "D♭7+/A♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14207,14 +14207,14 @@ export const sections: Section[] = [
       {
         id: 295,
         key: "inversions/fifth/maj7/Gb",
-        title: { pt: "G♭7M - baixo na quinta", en: "G♭maj7 - fifth in the bass" },
-        exerciseTitle: { pt: "G♭7M - baixo na quinta", en: "G♭maj7 - fifth in the bass" },
-        subtitle: { pt: "G♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G♭7+ - baixo na quinta", en: "G♭maj7 - fifth in the bass" },
+        exerciseTitle: { pt: "G♭7+ - baixo na quinta", en: "G♭maj7 - fifth in the bass" },
+        subtitle: { pt: "G♭7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G♭7M/D♭",
+            chord: "G♭7+/D♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14222,7 +14222,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 3, barres: [], midi: [49, 54, 58, 65] },
           },
           {
-            chord: "G♭7M/D♭",
+            chord: "G♭7+/D♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14230,7 +14230,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 8, barres: [], midi: [49, 54, 58, 65] },
           },
           {
-            chord: "G♭7M/D♭",
+            chord: "G♭7+/D♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14242,14 +14242,14 @@ export const sections: Section[] = [
       {
         id: 296,
         key: "inversions/fifth/maj7/B",
-        title: { pt: "B7M - baixo na quinta", en: "Bmaj7 - fifth in the bass" },
-        exerciseTitle: { pt: "B7M - baixo na quinta", en: "Bmaj7 - fifth in the bass" },
-        subtitle: { pt: "B7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B7+ - baixo na quinta", en: "Bmaj7 - fifth in the bass" },
+        exerciseTitle: { pt: "B7+ - baixo na quinta", en: "Bmaj7 - fifth in the bass" },
+        subtitle: { pt: "B7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B7M/F♯",
+            chord: "B7+/F♯",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14257,7 +14257,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 1, barres: [], midi: [42, 47, 51, 58] },
           },
           {
-            chord: "B7M/F♯",
+            chord: "B7+/F♯",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14265,7 +14265,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 4, barres: [1], midi: [54, 59, 63, 70] },
           },
           {
-            chord: "B7M/F♯",
+            chord: "B7+/F♯",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14277,14 +14277,14 @@ export const sections: Section[] = [
       {
         id: 297,
         key: "inversions/fifth/maj7/E",
-        title: { pt: "E7M - baixo na quinta", en: "Emaj7 - fifth in the bass" },
-        exerciseTitle: { pt: "E7M - baixo na quinta", en: "Emaj7 - fifth in the bass" },
-        subtitle: { pt: "E7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E7+ - baixo na quinta", en: "Emaj7 - fifth in the bass" },
+        exerciseTitle: { pt: "E7+ - baixo na quinta", en: "Emaj7 - fifth in the bass" },
+        subtitle: { pt: "E7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E7M/B",
+            chord: "E7+/B",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14292,7 +14292,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 1, barres: [], midi: [47, 52, 56, 63] },
           },
           {
-            chord: "E7M/B",
+            chord: "E7+/B",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14300,7 +14300,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 6, barres: [], midi: [47, 52, 56, 63] },
           },
           {
-            chord: "E7M/B",
+            chord: "E7+/B",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14312,14 +14312,14 @@ export const sections: Section[] = [
       {
         id: 298,
         key: "inversions/fifth/maj7/A",
-        title: { pt: "A7M - baixo na quinta", en: "Amaj7 - fifth in the bass" },
-        exerciseTitle: { pt: "A7M - baixo na quinta", en: "Amaj7 - fifth in the bass" },
-        subtitle: { pt: "A7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A7+ - baixo na quinta", en: "Amaj7 - fifth in the bass" },
+        exerciseTitle: { pt: "A7+ - baixo na quinta", en: "Amaj7 - fifth in the bass" },
+        subtitle: { pt: "A7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A7M/E",
+            chord: "A7+/E",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14327,7 +14327,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 2, 4], fingers: [0, 0, 1, 1, 1, 4], baseFret: 1, barres: [2], midi: [52, 57, 61, 68] },
           },
           {
-            chord: "A7M/E",
+            chord: "A7+/E",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14335,7 +14335,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 6, barres: [], midi: [52, 57, 61, 68] },
           },
           {
-            chord: "A7M/E",
+            chord: "A7+/E",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14347,14 +14347,14 @@ export const sections: Section[] = [
       {
         id: 299,
         key: "inversions/fifth/maj7/D",
-        title: { pt: "D7M - baixo na quinta", en: "Dmaj7 - fifth in the bass" },
-        exerciseTitle: { pt: "D7M - baixo na quinta", en: "Dmaj7 - fifth in the bass" },
-        subtitle: { pt: "D7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D7+ - baixo na quinta", en: "Dmaj7 - fifth in the bass" },
+        exerciseTitle: { pt: "D7+ - baixo na quinta", en: "Dmaj7 - fifth in the bass" },
+        subtitle: { pt: "D7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D7M/A",
+            chord: "D7+/A",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -14362,7 +14362,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 4, barres: [], midi: [45, 50, 54, 61] },
           },
           {
-            chord: "D7M/A",
+            chord: "D7+/A",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14370,7 +14370,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 7, barres: [1], midi: [57, 62, 66, 73] },
           },
           {
-            chord: "D7M/A",
+            chord: "D7+/A",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14382,14 +14382,14 @@ export const sections: Section[] = [
       {
         id: 300,
         key: "inversions/fifth/maj7/G",
-        title: { pt: "G7M - baixo na quinta", en: "Gmaj7 - fifth in the bass" },
-        exerciseTitle: { pt: "G7M - baixo na quinta", en: "Gmaj7 - fifth in the bass" },
-        subtitle: { pt: "G7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G7+ - baixo na quinta", en: "Gmaj7 - fifth in the bass" },
+        exerciseTitle: { pt: "G7+ - baixo na quinta", en: "Gmaj7 - fifth in the bass" },
+        subtitle: { pt: "G7+ com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G7M/D",
+            chord: "G7+/D",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -14397,7 +14397,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 0, 0, 0, 2], fingers: [0, 0, 0, 0, 0, 1], baseFret: 1, barres: [], midi: [50, 55, 59, 66] },
           },
           {
-            chord: "G7M/D",
+            chord: "G7+/D",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -14405,7 +14405,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 4, barres: [], midi: [50, 55, 59, 66] },
           },
           {
-            chord: "G7M/D",
+            chord: "G7+/D",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -15701,14 +15701,14 @@ export const sections: Section[] = [
       {
         id: 337,
         key: "inversions/seventh/maj7/C",
-        title: { pt: "C7M - baixo na sétima", en: "Cmaj7 - seventh in the bass" },
-        exerciseTitle: { pt: "C7M - baixo na sétima", en: "Cmaj7 - seventh in the bass" },
-        subtitle: { pt: "C7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "C7+ - baixo na sétima", en: "Cmaj7 - seventh in the bass" },
+        exerciseTitle: { pt: "C7+ - baixo na sétima", en: "Cmaj7 - seventh in the bass" },
+        subtitle: { pt: "C7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "C7M/B",
+            chord: "C7+/B",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15716,7 +15716,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 0, 1, -1], fingers: [0, 2, 3, 0, 1, 0], baseFret: 1, barres: [], midi: [47, 52, 55, 60] },
           },
           {
-            chord: "C7M/B",
+            chord: "C7+/B",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15724,7 +15724,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 5, barres: [1], midi: [47, 52, 55, 60] },
           },
           {
-            chord: "C7M/B",
+            chord: "C7+/B",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15736,14 +15736,14 @@ export const sections: Section[] = [
       {
         id: 338,
         key: "inversions/seventh/maj7/F",
-        title: { pt: "F7M - baixo na sétima", en: "Fmaj7 - seventh in the bass" },
-        exerciseTitle: { pt: "F7M - baixo na sétima", en: "Fmaj7 - seventh in the bass" },
-        subtitle: { pt: "F7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "F7+ - baixo na sétima", en: "Fmaj7 - seventh in the bass" },
+        exerciseTitle: { pt: "F7+ - baixo na sétima", en: "Fmaj7 - seventh in the bass" },
+        subtitle: { pt: "F7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "F7M/E",
+            chord: "F7+/E",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15751,7 +15751,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [1], midi: [52, 57, 60, 65] },
           },
           {
-            chord: "F7M/E",
+            chord: "F7+/E",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15759,7 +15759,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 5, barres: [], midi: [52, 57, 60, 65] },
           },
           {
-            chord: "F7M/E",
+            chord: "F7+/E",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15771,14 +15771,14 @@ export const sections: Section[] = [
       {
         id: 339,
         key: "inversions/seventh/maj7/Bb",
-        title: { pt: "B♭7M - baixo na sétima", en: "B♭maj7 - seventh in the bass" },
-        exerciseTitle: { pt: "B♭7M - baixo na sétima", en: "B♭maj7 - seventh in the bass" },
-        subtitle: { pt: "B♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B♭7+ - baixo na sétima", en: "B♭maj7 - seventh in the bass" },
+        exerciseTitle: { pt: "B♭7+ - baixo na sétima", en: "B♭maj7 - seventh in the bass" },
+        subtitle: { pt: "B♭7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B♭7M/A",
+            chord: "B♭7+/A",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15786,7 +15786,7 @@ export const sections: Section[] = [
             position: { frets: [5, 5, 3, 3, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 1, barres: [3], midi: [45, 50, 53, 58] },
           },
           {
-            chord: "B♭7M/A",
+            chord: "B♭7+/A",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15794,7 +15794,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 6, barres: [1], midi: [57, 62, 65, 70] },
           },
           {
-            chord: "B♭7M/A",
+            chord: "B♭7+/A",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15806,14 +15806,14 @@ export const sections: Section[] = [
       {
         id: 340,
         key: "inversions/seventh/maj7/Eb",
-        title: { pt: "E♭7M - baixo na sétima", en: "E♭maj7 - seventh in the bass" },
-        exerciseTitle: { pt: "E♭7M - baixo na sétima", en: "E♭maj7 - seventh in the bass" },
-        subtitle: { pt: "E♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E♭7+ - baixo na sétima", en: "E♭maj7 - seventh in the bass" },
+        exerciseTitle: { pt: "E♭7+ - baixo na sétima", en: "E♭maj7 - seventh in the bass" },
+        subtitle: { pt: "E♭7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E♭7M/D",
+            chord: "E♭7+/D",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15821,7 +15821,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 5, 5, 3, 4, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 1, barres: [], midi: [50, 55, 58, 63] },
           },
           {
-            chord: "E♭7M/D",
+            chord: "E♭7+/D",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15829,7 +15829,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 8, barres: [1], midi: [50, 55, 58, 63] },
           },
           {
-            chord: "E♭7M/D",
+            chord: "E♭7+/D",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15841,14 +15841,14 @@ export const sections: Section[] = [
       {
         id: 341,
         key: "inversions/seventh/maj7/Ab",
-        title: { pt: "A♭7M - baixo na sétima", en: "A♭maj7 - seventh in the bass" },
-        exerciseTitle: { pt: "A♭7M - baixo na sétima", en: "A♭maj7 - seventh in the bass" },
-        subtitle: { pt: "A♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A♭7+ - baixo na sétima", en: "A♭maj7 - seventh in the bass" },
+        exerciseTitle: { pt: "A♭7+ - baixo na sétima", en: "A♭maj7 - seventh in the bass" },
+        subtitle: { pt: "A♭7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A♭7M/G",
+            chord: "A♭7+/G",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15856,7 +15856,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 1, barres: [1], midi: [43, 48, 51, 56] },
           },
           {
-            chord: "A♭7M/G",
+            chord: "A♭7+/G",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15864,7 +15864,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 5, 5, 4, 4], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [4], midi: [55, 60, 63, 68] },
           },
           {
-            chord: "A♭7M/G",
+            chord: "A♭7+/G",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15876,14 +15876,14 @@ export const sections: Section[] = [
       {
         id: 342,
         key: "inversions/seventh/maj7/Db",
-        title: { pt: "D♭7M - baixo na sétima", en: "D♭maj7 - seventh in the bass" },
-        exerciseTitle: { pt: "D♭7M - baixo na sétima", en: "D♭maj7 - seventh in the bass" },
-        subtitle: { pt: "D♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D♭7+ - baixo na sétima", en: "D♭maj7 - seventh in the bass" },
+        exerciseTitle: { pt: "D♭7+ - baixo na sétima", en: "D♭maj7 - seventh in the bass" },
+        subtitle: { pt: "D♭7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D♭7M/C",
+            chord: "D♭7+/C",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15891,7 +15891,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 1, barres: [], midi: [48, 53, 56, 61] },
           },
           {
-            chord: "D♭7M/C",
+            chord: "D♭7+/C",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15899,7 +15899,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 6, barres: [1], midi: [48, 53, 56, 61] },
           },
           {
-            chord: "D♭7M/C",
+            chord: "D♭7+/C",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15911,14 +15911,14 @@ export const sections: Section[] = [
       {
         id: 343,
         key: "inversions/seventh/maj7/Gb",
-        title: { pt: "G♭7M - baixo na sétima", en: "G♭maj7 - seventh in the bass" },
-        exerciseTitle: { pt: "G♭7M - baixo na sétima", en: "G♭maj7 - seventh in the bass" },
-        subtitle: { pt: "G♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G♭7+ - baixo na sétima", en: "G♭maj7 - seventh in the bass" },
+        exerciseTitle: { pt: "G♭7+ - baixo na sétima", en: "G♭maj7 - seventh in the bass" },
+        subtitle: { pt: "G♭7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G♭7M/F",
+            chord: "G♭7+/F",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15926,7 +15926,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 3, 2, 2], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [2], midi: [53, 58, 61, 66] },
           },
           {
-            chord: "G♭7M/F",
+            chord: "G♭7+/F",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15934,7 +15934,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 6, barres: [], midi: [53, 58, 61, 66] },
           },
           {
-            chord: "G♭7M/F",
+            chord: "G♭7+/F",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15946,14 +15946,14 @@ export const sections: Section[] = [
       {
         id: 344,
         key: "inversions/seventh/maj7/B",
-        title: { pt: "B7M - baixo na sétima", en: "Bmaj7 - seventh in the bass" },
-        exerciseTitle: { pt: "B7M - baixo na sétima", en: "Bmaj7 - seventh in the bass" },
-        subtitle: { pt: "B7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "B7+ - baixo na sétima", en: "Bmaj7 - seventh in the bass" },
+        exerciseTitle: { pt: "B7+ - baixo na sétima", en: "Bmaj7 - seventh in the bass" },
+        subtitle: { pt: "B7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B7M/A♯",
+            chord: "B7+/A♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -15961,7 +15961,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 4, barres: [1], midi: [46, 51, 54, 59] },
           },
           {
-            chord: "B7M/A♯",
+            chord: "B7+/A♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15969,7 +15969,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 7, barres: [1], midi: [58, 63, 66, 71] },
           },
           {
-            chord: "B7M/A♯",
+            chord: "B7+/A♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -15981,14 +15981,14 @@ export const sections: Section[] = [
       {
         id: 345,
         key: "inversions/seventh/maj7/E",
-        title: { pt: "E7M - baixo na sétima", en: "Emaj7 - seventh in the bass" },
-        exerciseTitle: { pt: "E7M - baixo na sétima", en: "Emaj7 - seventh in the bass" },
-        subtitle: { pt: "E7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "E7+ - baixo na sétima", en: "Emaj7 - seventh in the bass" },
+        exerciseTitle: { pt: "E7+ - baixo na sétima", en: "Emaj7 - seventh in the bass" },
+        subtitle: { pt: "E7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E7M/D♯",
+            chord: "E7+/D♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -15996,7 +15996,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 0, 0], fingers: [0, 0, 1, 2, 0, 0], baseFret: 1, barres: [], midi: [51, 56, 59, 64] },
           },
           {
-            chord: "E7M/D♯",
+            chord: "E7+/D♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -16004,7 +16004,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 4, barres: [], midi: [51, 56, 59, 64] },
           },
           {
-            chord: "E7M/D♯",
+            chord: "E7+/D♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -16016,14 +16016,14 @@ export const sections: Section[] = [
       {
         id: 346,
         key: "inversions/seventh/maj7/A",
-        title: { pt: "A7M - baixo na sétima", en: "Amaj7 - seventh in the bass" },
-        exerciseTitle: { pt: "A7M - baixo na sétima", en: "Amaj7 - seventh in the bass" },
-        subtitle: { pt: "A7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "A7+ - baixo na sétima", en: "Amaj7 - seventh in the bass" },
+        exerciseTitle: { pt: "A7+ - baixo na sétima", en: "Amaj7 - seventh in the bass" },
+        subtitle: { pt: "A7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A7M/G♯",
+            chord: "A7+/G♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -16031,7 +16031,7 @@ export const sections: Section[] = [
             position: { frets: [4, 4, 2, 2, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 1, barres: [2], midi: [44, 49, 52, 57] },
           },
           {
-            chord: "A7M/G♯",
+            chord: "A7+/G♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -16039,7 +16039,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 5, barres: [1], midi: [56, 61, 64, 69] },
           },
           {
-            chord: "A7M/G♯",
+            chord: "A7+/G♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -16051,14 +16051,14 @@ export const sections: Section[] = [
       {
         id: 347,
         key: "inversions/seventh/maj7/D",
-        title: { pt: "D7M - baixo na sétima", en: "Dmaj7 - seventh in the bass" },
-        exerciseTitle: { pt: "D7M - baixo na sétima", en: "Dmaj7 - seventh in the bass" },
-        subtitle: { pt: "D7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "D7+ - baixo na sétima", en: "Dmaj7 - seventh in the bass" },
+        exerciseTitle: { pt: "D7+ - baixo na sétima", en: "Dmaj7 - seventh in the bass" },
+        subtitle: { pt: "D7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D7M/C♯",
+            chord: "D7+/C♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -16066,7 +16066,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 4, 4, 2, 3, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 1, barres: [], midi: [49, 54, 57, 62] },
           },
           {
-            chord: "D7M/C♯",
+            chord: "D7+/C♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -16074,7 +16074,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 7, barres: [1], midi: [49, 54, 57, 62] },
           },
           {
-            chord: "D7M/C♯",
+            chord: "D7+/C♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -16086,14 +16086,14 @@ export const sections: Section[] = [
       {
         id: 348,
         key: "inversions/seventh/maj7/G",
-        title: { pt: "G7M - baixo na sétima", en: "Gmaj7 - seventh in the bass" },
-        exerciseTitle: { pt: "G7M - baixo na sétima", en: "Gmaj7 - seventh in the bass" },
-        subtitle: { pt: "G7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
+        title: { pt: "G7+ - baixo na sétima", en: "Gmaj7 - seventh in the bass" },
+        exerciseTitle: { pt: "G7+ - baixo na sétima", en: "Gmaj7 - seventh in the bass" },
+        subtitle: { pt: "G7+ com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G7M/F♯",
+            chord: "G7+/F♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -16101,7 +16101,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 0, 0, -1, -1], fingers: [1, 2, 0, 0, 0, 0], baseFret: 1, barres: [], midi: [42, 47, 50, 55] },
           },
           {
-            chord: "G7M/F♯",
+            chord: "G7+/F♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -16109,7 +16109,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 4, 4, 3, 3], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [3], midi: [54, 59, 62, 67] },
           },
           {
-            chord: "G7M/F♯",
+            chord: "G7+/F♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -17406,14 +17406,14 @@ export const sections: Section[] = [
       {
         id: 385,
         key: "inversions/review/maj7/C",
-        title: { pt: "C7M - todas as inversões", en: "Cmaj7 - all inversions" },
-        exerciseTitle: { pt: "C7M - todas as inversões", en: "Cmaj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de C7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Cmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "C7+ - todas as inversões", en: "Cmaj7 - all inversions" },
+        exerciseTitle: { pt: "C7+ - todas as inversões", en: "Cmaj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de C7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Cmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "C7M/B",
+            chord: "C7+/B",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -17421,7 +17421,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 0, 1, -1], fingers: [0, 2, 3, 0, 1, 0], baseFret: 1, barres: [], midi: [47, 52, 55, 60] },
           },
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -17429,7 +17429,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 1, barres: [], midi: [52, 59, 60, 67] },
           },
           {
-            chord: "C7M/G",
+            chord: "C7+/G",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -17437,7 +17437,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 2, 4, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 1, barres: [], midi: [43, 48, 52, 59] },
           },
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -17445,7 +17445,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 4, 5, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 1, barres: [], midi: [48, 55, 59, 64] },
           },
           {
-            chord: "C7M/G",
+            chord: "C7+/G",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -17453,7 +17453,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 5, barres: [1], midi: [55, 60, 64, 71] },
           },
           {
-            chord: "C7M/B",
+            chord: "C7+/B",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -17461,7 +17461,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 5, barres: [1], midi: [47, 52, 55, 60] },
           },
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -17469,7 +17469,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 5, barres: [], midi: [52, 59, 60, 67] },
           },
           {
-            chord: "C7M/B",
+            chord: "C7+/B",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -17477,7 +17477,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 8, barres: [1], midi: [59, 64, 67, 72] },
           },
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -17485,7 +17485,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 8, barres: [], midi: [48, 55, 59, 64] },
           },
           {
-            chord: "C7M/G",
+            chord: "C7+/G",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -17493,7 +17493,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 9, barres: [], midi: [55, 60, 64, 71] },
           },
           {
-            chord: "C7M",
+            chord: "C7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -17501,7 +17501,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 10, barres: [], midi: [60, 67, 71, 76] },
           },
           {
-            chord: "C7M/E",
+            chord: "C7+/E",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -17513,14 +17513,14 @@ export const sections: Section[] = [
       {
         id: 386,
         key: "inversions/review/maj7/F",
-        title: { pt: "F7M - todas as inversões", en: "Fmaj7 - all inversions" },
-        exerciseTitle: { pt: "F7M - todas as inversões", en: "Fmaj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de F7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Fmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "F7+ - todas as inversões", en: "Fmaj7 - all inversions" },
+        exerciseTitle: { pt: "F7+ - todas as inversões", en: "Fmaj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de F7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Fmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "F7M/E",
+            chord: "F7+/E",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -17528,7 +17528,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [1], midi: [52, 57, 60, 65] },
           },
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -17536,7 +17536,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 1, barres: [], midi: [41, 48, 52, 57] },
           },
           {
-            chord: "F7M/C",
+            chord: "F7+/C",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -17544,7 +17544,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 2, 5, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 1, barres: [], midi: [48, 53, 57, 64] },
           },
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -17552,7 +17552,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 5, 5, 5], fingers: [0, 0, 1, 2, 3, 4], baseFret: 1, barres: [], midi: [53, 60, 64, 69] },
           },
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -17560,7 +17560,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 3, barres: [], midi: [45, 52, 53, 60] },
           },
           {
-            chord: "F7M/E",
+            chord: "F7+/E",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -17568,7 +17568,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 5, barres: [], midi: [52, 57, 60, 65] },
           },
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -17576,7 +17576,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 6, barres: [], midi: [57, 64, 65, 72] },
           },
           {
-            chord: "F7M/C",
+            chord: "F7+/C",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -17584,7 +17584,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 7, barres: [], midi: [48, 53, 57, 64] },
           },
           {
-            chord: "F7M",
+            chord: "F7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -17592,7 +17592,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 8, barres: [], midi: [53, 60, 64, 69] },
           },
           {
-            chord: "F7M/C",
+            chord: "F7+/C",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -17600,7 +17600,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 10, barres: [1], midi: [60, 65, 69, 76] },
           },
           {
-            chord: "F7M/E",
+            chord: "F7+/E",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -17608,7 +17608,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 10, barres: [1], midi: [52, 57, 60, 65] },
           },
           {
-            chord: "F7M/A",
+            chord: "F7+/A",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -17620,14 +17620,14 @@ export const sections: Section[] = [
       {
         id: 387,
         key: "inversions/review/maj7/Bb",
-        title: { pt: "B♭7M - todas as inversões", en: "B♭maj7 - all inversions" },
-        exerciseTitle: { pt: "B♭7M - todas as inversões", en: "B♭maj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de B♭7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of B♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "B♭7+ - todas as inversões", en: "B♭maj7 - all inversions" },
+        exerciseTitle: { pt: "B♭7+ - todas as inversões", en: "B♭maj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de B♭7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of B♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B♭7M/F",
+            chord: "B♭7+/F",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -17635,7 +17635,7 @@ export const sections: Section[] = [
             position: { frets: [1, 1, 0, 2, -1, -1], fingers: [1, 2, 0, 3, 0, 0], baseFret: 1, barres: [], midi: [41, 46, 50, 57] },
           },
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -17643,7 +17643,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 1, barres: [], midi: [46, 53, 57, 62] },
           },
           {
-            chord: "B♭7M/F",
+            chord: "B♭7+/F",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -17651,7 +17651,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 3, 3, 5], fingers: [0, 0, 1, 1, 1, 4], baseFret: 1, barres: [3], midi: [53, 58, 62, 69] },
           },
           {
-            chord: "B♭7M/A",
+            chord: "B♭7+/A",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -17659,7 +17659,7 @@ export const sections: Section[] = [
             position: { frets: [5, 5, 3, 3, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 1, barres: [3], midi: [45, 50, 53, 58] },
           },
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -17667,7 +17667,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 3, barres: [], midi: [50, 57, 58, 65] },
           },
           {
-            chord: "B♭7M/A",
+            chord: "B♭7+/A",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -17675,7 +17675,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 6, barres: [1], midi: [57, 62, 65, 70] },
           },
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -17683,7 +17683,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 6, barres: [], midi: [46, 53, 57, 62] },
           },
           {
-            chord: "B♭7M/F",
+            chord: "B♭7+/F",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -17691,7 +17691,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 7, barres: [], midi: [53, 58, 62, 69] },
           },
           {
-            chord: "B♭7M",
+            chord: "B♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -17699,7 +17699,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 8, barres: [], midi: [58, 65, 69, 74] },
           },
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -17707,7 +17707,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 8, barres: [], midi: [50, 57, 58, 65] },
           },
           {
-            chord: "B♭7M/A",
+            chord: "B♭7+/A",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -17715,7 +17715,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 10, barres: [], midi: [57, 62, 65, 70] },
           },
           {
-            chord: "B♭7M/D",
+            chord: "B♭7+/D",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -17727,14 +17727,14 @@ export const sections: Section[] = [
       {
         id: 388,
         key: "inversions/review/maj7/Eb",
-        title: { pt: "E♭7M - todas as inversões", en: "E♭maj7 - all inversions" },
-        exerciseTitle: { pt: "E♭7M - todas as inversões", en: "E♭maj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de E♭7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of E♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "E♭7+ - todas as inversões", en: "E♭maj7 - all inversions" },
+        exerciseTitle: { pt: "E♭7+ - todas as inversões", en: "E♭maj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de E♭7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of E♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E♭7M/B♭",
+            chord: "E♭7+/B♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -17742,7 +17742,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 1, 0, 3, -1], fingers: [0, 1, 2, 0, 3, 0], baseFret: 1, barres: [], midi: [46, 51, 55, 62] },
           },
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -17750,7 +17750,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 1, barres: [], midi: [51, 58, 62, 67] },
           },
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -17758,7 +17758,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 1, barres: [], midi: [43, 50, 51, 58] },
           },
           {
-            chord: "E♭7M/D",
+            chord: "E♭7+/D",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -17766,7 +17766,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 5, 5, 3, 4, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 1, barres: [], midi: [50, 55, 58, 63] },
           },
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -17774,7 +17774,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 4, barres: [], midi: [55, 62, 63, 70] },
           },
           {
-            chord: "E♭7M/B♭",
+            chord: "E♭7+/B♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -17782,7 +17782,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 5, barres: [], midi: [46, 51, 55, 62] },
           },
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -17790,7 +17790,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 6, barres: [], midi: [51, 58, 62, 67] },
           },
           {
-            chord: "E♭7M/B♭",
+            chord: "E♭7+/B♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -17798,7 +17798,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 8, barres: [1], midi: [58, 63, 67, 74] },
           },
           {
-            chord: "E♭7M/D",
+            chord: "E♭7+/D",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -17806,7 +17806,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 8, barres: [1], midi: [50, 55, 58, 63] },
           },
           {
-            chord: "E♭7M/G",
+            chord: "E♭7+/G",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -17814,7 +17814,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 8, barres: [], midi: [55, 62, 63, 70] },
           },
           {
-            chord: "E♭7M/D",
+            chord: "E♭7+/D",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -17822,7 +17822,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 11, barres: [1], midi: [62, 67, 70, 75] },
           },
           {
-            chord: "E♭7M",
+            chord: "E♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -17834,14 +17834,14 @@ export const sections: Section[] = [
       {
         id: 389,
         key: "inversions/review/maj7/Ab",
-        title: { pt: "A♭7M - todas as inversões", en: "A♭maj7 - all inversions" },
-        exerciseTitle: { pt: "A♭7M - todas as inversões", en: "A♭maj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de A♭7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of A♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "A♭7+ - todas as inversões", en: "A♭maj7 - all inversions" },
+        exerciseTitle: { pt: "A♭7+ - todas as inversões", en: "A♭maj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de A♭7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of A♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A♭7M/E♭",
+            chord: "A♭7+/E♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -17849,7 +17849,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 1, barres: [1], midi: [51, 56, 60, 67] },
           },
           {
-            chord: "A♭7M/G",
+            chord: "A♭7+/G",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -17857,7 +17857,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 1, barres: [1], midi: [43, 48, 51, 56] },
           },
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -17865,7 +17865,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 1, barres: [], midi: [48, 55, 56, 63] },
           },
           {
-            chord: "A♭7M/G",
+            chord: "A♭7+/G",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -17873,7 +17873,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 5, 5, 4, 4], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [4], midi: [55, 60, 63, 68] },
           },
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -17881,7 +17881,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 4, barres: [], midi: [44, 51, 55, 60] },
           },
           {
-            chord: "A♭7M/E♭",
+            chord: "A♭7+/E♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -17889,7 +17889,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 5, barres: [], midi: [51, 56, 60, 67] },
           },
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -17897,7 +17897,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 6, barres: [], midi: [56, 63, 67, 72] },
           },
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -17905,7 +17905,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 6, barres: [], midi: [48, 55, 56, 63] },
           },
           {
-            chord: "A♭7M/G",
+            chord: "A♭7+/G",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -17913,7 +17913,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 8, barres: [], midi: [55, 60, 63, 68] },
           },
           {
-            chord: "A♭7M/C",
+            chord: "A♭7+/C",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -17921,7 +17921,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 9, barres: [], midi: [60, 67, 68, 75] },
           },
           {
-            chord: "A♭7M/E♭",
+            chord: "A♭7+/E♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -17929,7 +17929,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 10, barres: [], midi: [51, 56, 60, 67] },
           },
           {
-            chord: "A♭7M",
+            chord: "A♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -17941,14 +17941,14 @@ export const sections: Section[] = [
       {
         id: 390,
         key: "inversions/review/maj7/Db",
-        title: { pt: "D♭7M - todas as inversões", en: "D♭maj7 - all inversions" },
-        exerciseTitle: { pt: "D♭7M - todas as inversões", en: "D♭maj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de D♭7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of D♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "D♭7+ - todas as inversões", en: "D♭maj7 - all inversions" },
+        exerciseTitle: { pt: "D♭7+ - todas as inversões", en: "D♭maj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de D♭7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of D♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D♭7M/C",
+            chord: "D♭7+/C",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -17956,7 +17956,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 1, barres: [], midi: [48, 53, 56, 61] },
           },
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -17964,7 +17964,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 5, 2, 4], fingers: [0, 0, 2, 4, 1, 3], baseFret: 1, barres: [], midi: [53, 60, 61, 68] },
           },
           {
-            chord: "D♭7M/A♭",
+            chord: "D♭7+/A♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -17972,7 +17972,7 @@ export const sections: Section[] = [
             position: { frets: [4, 4, 3, 5, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 1, barres: [], midi: [44, 49, 53, 60] },
           },
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -17980,7 +17980,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 4, barres: [], midi: [49, 56, 60, 65] },
           },
           {
-            chord: "D♭7M/A♭",
+            chord: "D♭7+/A♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -17988,7 +17988,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 6, barres: [1], midi: [56, 61, 65, 72] },
           },
           {
-            chord: "D♭7M/C",
+            chord: "D♭7+/C",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -17996,7 +17996,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 6, barres: [1], midi: [48, 53, 56, 61] },
           },
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -18004,7 +18004,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 6, barres: [], midi: [53, 60, 61, 68] },
           },
           {
-            chord: "D♭7M/C",
+            chord: "D♭7+/C",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -18012,7 +18012,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 9, barres: [1], midi: [60, 65, 68, 73] },
           },
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -18020,7 +18020,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 9, barres: [], midi: [49, 56, 60, 65] },
           },
           {
-            chord: "D♭7M/A♭",
+            chord: "D♭7+/A♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -18028,7 +18028,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 10, barres: [], midi: [56, 61, 65, 72] },
           },
           {
-            chord: "D♭7M",
+            chord: "D♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -18036,7 +18036,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 11, barres: [], midi: [61, 68, 72, 77] },
           },
           {
-            chord: "D♭7M/F",
+            chord: "D♭7+/F",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -18048,14 +18048,14 @@ export const sections: Section[] = [
       {
         id: 391,
         key: "inversions/review/maj7/Gb",
-        title: { pt: "G♭7M - todas as inversões", en: "G♭maj7 - all inversions" },
-        exerciseTitle: { pt: "G♭7M - todas as inversões", en: "G♭maj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de G♭7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of G♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "G♭7+ - todas as inversões", en: "G♭maj7 - all inversions" },
+        exerciseTitle: { pt: "G♭7+ - todas as inversões", en: "G♭maj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de G♭7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of G♭maj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G♭7M/F",
+            chord: "G♭7+/F",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -18063,7 +18063,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 3, 3, 2, 2], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [2], midi: [53, 58, 61, 66] },
           },
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -18071,7 +18071,7 @@ export const sections: Section[] = [
             position: { frets: [2, 4, 3, 3, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 1, barres: [], midi: [42, 49, 53, 58] },
           },
           {
-            chord: "G♭7M/D♭",
+            chord: "G♭7+/D♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -18079,7 +18079,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 3, barres: [], midi: [49, 54, 58, 65] },
           },
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -18087,7 +18087,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 4, barres: [], midi: [54, 61, 65, 70] },
           },
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -18095,7 +18095,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 4, barres: [], midi: [46, 53, 54, 61] },
           },
           {
-            chord: "G♭7M/F",
+            chord: "G♭7+/F",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -18103,7 +18103,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 6, barres: [], midi: [53, 58, 61, 66] },
           },
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -18111,7 +18111,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 7, barres: [], midi: [58, 65, 66, 73] },
           },
           {
-            chord: "G♭7M/D♭",
+            chord: "G♭7+/D♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -18119,7 +18119,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 8, barres: [], midi: [49, 54, 58, 65] },
           },
           {
-            chord: "G♭7M",
+            chord: "G♭7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -18127,7 +18127,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 9, barres: [], midi: [54, 61, 65, 70] },
           },
           {
-            chord: "G♭7M/D♭",
+            chord: "G♭7+/D♭",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -18135,7 +18135,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 11, barres: [1], midi: [61, 66, 70, 77] },
           },
           {
-            chord: "G♭7M/F",
+            chord: "G♭7+/F",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -18143,7 +18143,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 11, barres: [1], midi: [53, 58, 61, 66] },
           },
           {
-            chord: "G♭7M/B♭",
+            chord: "G♭7+/B♭",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -18155,14 +18155,14 @@ export const sections: Section[] = [
       {
         id: 392,
         key: "inversions/review/maj7/B",
-        title: { pt: "B7M - todas as inversões", en: "Bmaj7 - all inversions" },
-        exerciseTitle: { pt: "B7M - todas as inversões", en: "Bmaj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de B7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Bmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "B7+ - todas as inversões", en: "Bmaj7 - all inversions" },
+        exerciseTitle: { pt: "B7+ - todas as inversões", en: "Bmaj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de B7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Bmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -18170,7 +18170,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 0, 2], fingers: [0, 0, 1, 3, 0, 2], baseFret: 1, barres: [], midi: [51, 58, 59, 66] },
           },
           {
-            chord: "B7M/F♯",
+            chord: "B7+/F♯",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -18178,7 +18178,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 1, barres: [], midi: [42, 47, 51, 58] },
           },
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -18186,7 +18186,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 4, 3, 4, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 1, barres: [], midi: [47, 54, 58, 63] },
           },
           {
-            chord: "B7M/F♯",
+            chord: "B7+/F♯",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -18194,7 +18194,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 4, barres: [1], midi: [54, 59, 63, 70] },
           },
           {
-            chord: "B7M/A♯",
+            chord: "B7+/A♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -18202,7 +18202,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 4, barres: [1], midi: [46, 51, 54, 59] },
           },
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -18210,7 +18210,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 4, barres: [], midi: [51, 58, 59, 66] },
           },
           {
-            chord: "B7M/A♯",
+            chord: "B7+/A♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -18218,7 +18218,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 7, barres: [1], midi: [58, 63, 66, 71] },
           },
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -18226,7 +18226,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 7, barres: [], midi: [47, 54, 58, 63] },
           },
           {
-            chord: "B7M/F♯",
+            chord: "B7+/F♯",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -18234,7 +18234,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 8, barres: [], midi: [54, 59, 63, 70] },
           },
           {
-            chord: "B7M",
+            chord: "B7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -18242,7 +18242,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 9, barres: [], midi: [59, 66, 70, 75] },
           },
           {
-            chord: "B7M/D♯",
+            chord: "B7+/D♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -18250,7 +18250,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 9, barres: [], midi: [51, 58, 59, 66] },
           },
           {
-            chord: "B7M/A♯",
+            chord: "B7+/A♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -18262,14 +18262,14 @@ export const sections: Section[] = [
       {
         id: 393,
         key: "inversions/review/maj7/E",
-        title: { pt: "E7M - todas as inversões", en: "Emaj7 - all inversions" },
-        exerciseTitle: { pt: "E7M - todas as inversões", en: "Emaj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de E7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Emaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "E7+ - todas as inversões", en: "Emaj7 - all inversions" },
+        exerciseTitle: { pt: "E7+ - todas as inversões", en: "Emaj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de E7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Emaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "E7M/D♯",
+            chord: "E7+/D♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -18277,7 +18277,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 0, 0], fingers: [0, 0, 1, 2, 0, 0], baseFret: 1, barres: [], midi: [51, 56, 59, 64] },
           },
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -18285,7 +18285,7 @@ export const sections: Section[] = [
             position: { frets: [0, 2, 1, 1, -1, -1], fingers: [0, 3, 1, 2, 0, 0], baseFret: 1, barres: [], midi: [40, 47, 51, 56] },
           },
           {
-            chord: "E7M/B",
+            chord: "E7+/B",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -18293,7 +18293,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 1, barres: [], midi: [47, 52, 56, 63] },
           },
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -18301,7 +18301,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 4, 4], fingers: [0, 0, 1, 2, 3, 4], baseFret: 1, barres: [], midi: [52, 59, 63, 68] },
           },
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -18309,7 +18309,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 2, barres: [], midi: [44, 51, 52, 59] },
           },
           {
-            chord: "E7M/D♯",
+            chord: "E7+/D♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -18317,7 +18317,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 4, barres: [], midi: [51, 56, 59, 64] },
           },
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -18325,7 +18325,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 5, barres: [], midi: [56, 63, 64, 71] },
           },
           {
-            chord: "E7M/B",
+            chord: "E7+/B",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -18333,7 +18333,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 6, barres: [], midi: [47, 52, 56, 63] },
           },
           {
-            chord: "E7M",
+            chord: "E7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -18341,7 +18341,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 7, barres: [], midi: [52, 59, 63, 68] },
           },
           {
-            chord: "E7M/B",
+            chord: "E7+/B",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -18349,7 +18349,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 9, barres: [1], midi: [59, 64, 68, 75] },
           },
           {
-            chord: "E7M/D♯",
+            chord: "E7+/D♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -18357,7 +18357,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 9, barres: [1], midi: [51, 56, 59, 64] },
           },
           {
-            chord: "E7M/G♯",
+            chord: "E7+/G♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -18369,14 +18369,14 @@ export const sections: Section[] = [
       {
         id: 394,
         key: "inversions/review/maj7/A",
-        title: { pt: "A7M - todas as inversões", en: "Amaj7 - all inversions" },
-        exerciseTitle: { pt: "A7M - todas as inversões", en: "Amaj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de A7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Amaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "A7+ - todas as inversões", en: "Amaj7 - all inversions" },
+        exerciseTitle: { pt: "A7+ - todas as inversões", en: "Amaj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de A7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Amaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -18384,7 +18384,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 0, 2, 1, 2, -1], fingers: [0, 0, 2, 1, 3, 0], baseFret: 1, barres: [], midi: [45, 52, 56, 61] },
           },
           {
-            chord: "A7M/E",
+            chord: "A7+/E",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -18392,7 +18392,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 2, 4], fingers: [0, 0, 1, 1, 1, 4], baseFret: 1, barres: [2], midi: [52, 57, 61, 68] },
           },
           {
-            chord: "A7M/G♯",
+            chord: "A7+/G♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -18400,7 +18400,7 @@ export const sections: Section[] = [
             position: { frets: [4, 4, 2, 2, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 1, barres: [2], midi: [44, 49, 52, 57] },
           },
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -18408,7 +18408,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 2, barres: [], midi: [49, 56, 57, 64] },
           },
           {
-            chord: "A7M/G♯",
+            chord: "A7+/G♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -18416,7 +18416,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 5, barres: [1], midi: [56, 61, 64, 69] },
           },
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -18424,7 +18424,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 5, barres: [], midi: [45, 52, 56, 61] },
           },
           {
-            chord: "A7M/E",
+            chord: "A7+/E",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -18432,7 +18432,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 6, barres: [], midi: [52, 57, 61, 68] },
           },
           {
-            chord: "A7M",
+            chord: "A7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -18440,7 +18440,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 7, barres: [], midi: [57, 64, 68, 73] },
           },
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -18448,7 +18448,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 7, barres: [], midi: [49, 56, 57, 64] },
           },
           {
-            chord: "A7M/G♯",
+            chord: "A7+/G♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -18456,7 +18456,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 9, barres: [], midi: [56, 61, 64, 69] },
           },
           {
-            chord: "A7M/C♯",
+            chord: "A7+/C♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -18464,7 +18464,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 10, barres: [], midi: [61, 68, 69, 76] },
           },
           {
-            chord: "A7M/E",
+            chord: "A7+/E",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -18476,14 +18476,14 @@ export const sections: Section[] = [
       {
         id: 395,
         key: "inversions/review/maj7/D",
-        title: { pt: "D7M - todas as inversões", en: "Dmaj7 - all inversions" },
-        exerciseTitle: { pt: "D7M - todas as inversões", en: "Dmaj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de D7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Dmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "D7+ - todas as inversões", en: "Dmaj7 - all inversions" },
+        exerciseTitle: { pt: "D7+ - todas as inversões", en: "Dmaj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de D7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Dmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -18491,7 +18491,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 0, 2, 2, 2], fingers: [0, 0, 0, 1, 2, 3], baseFret: 1, barres: [], midi: [50, 57, 61, 66] },
           },
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -18499,7 +18499,7 @@ export const sections: Section[] = [
             position: { frets: [2, 4, 0, 2, -1, -1], fingers: [1, 3, 0, 2, 0, 0], baseFret: 1, barres: [], midi: [42, 49, 50, 57] },
           },
           {
-            chord: "D7M/C♯",
+            chord: "D7+/C♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -18507,7 +18507,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 4, 4, 2, 3, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 1, barres: [], midi: [49, 54, 57, 62] },
           },
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -18515,7 +18515,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 3, barres: [], midi: [54, 61, 62, 69] },
           },
           {
-            chord: "D7M/A",
+            chord: "D7+/A",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -18523,7 +18523,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 4, barres: [], midi: [45, 50, 54, 61] },
           },
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,
@@ -18531,7 +18531,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 1, 3, 2, 3, -1], fingers: [0, 1, 3, 2, 4, 0], baseFret: 5, barres: [], midi: [50, 57, 61, 66] },
           },
           {
-            chord: "D7M/A",
+            chord: "D7+/A",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -18539,7 +18539,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 1, 1, 3], fingers: [0, 0, 1, 1, 1, 4], baseFret: 7, barres: [1], midi: [57, 62, 66, 73] },
           },
           {
-            chord: "D7M/C♯",
+            chord: "D7+/C♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -18547,7 +18547,7 @@ export const sections: Section[] = [
             position: { frets: [3, 3, 1, 1, -1, -1], fingers: [3, 4, 1, 1, 0, 0], baseFret: 7, barres: [1], midi: [49, 54, 57, 62] },
           },
           {
-            chord: "D7M/F♯",
+            chord: "D7+/F♯",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -18555,7 +18555,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 5, 1, 4, -1], fingers: [0, 2, 4, 1, 3, 0], baseFret: 7, barres: [], midi: [54, 61, 62, 69] },
           },
           {
-            chord: "D7M/C♯",
+            chord: "D7+/C♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -18563,7 +18563,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 2, 1, 1], fingers: [0, 0, 2, 3, 1, 1], baseFret: 10, barres: [1], midi: [61, 66, 69, 74] },
           },
           {
-            chord: "D7M",
+            chord: "D7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -18571,7 +18571,7 @@ export const sections: Section[] = [
             position: { frets: [1, 3, 2, 2, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 10, barres: [], midi: [50, 57, 61, 66] },
           },
           {
-            chord: "D7M/A",
+            chord: "D7+/A",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -18583,14 +18583,14 @@ export const sections: Section[] = [
       {
         id: 396,
         key: "inversions/review/maj7/G",
-        title: { pt: "G7M - todas as inversões", en: "Gmaj7 - all inversions" },
-        exerciseTitle: { pt: "G7M - todas as inversões", en: "Gmaj7 - all inversions" },
-        subtitle: { pt: "As quatro inversões de G7M em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Gmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
+        title: { pt: "G7+ - todas as inversões", en: "Gmaj7 - all inversions" },
+        exerciseTitle: { pt: "G7+ - todas as inversões", en: "Gmaj7 - all inversions" },
+        subtitle: { pt: "As quatro inversões de G7+ em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte", en: "All four inversions of Gmaj7 on every string, from the region nearest the nut to the one nearest the bridge" },
         type: "chord",
         status: "locked",
         steps: [
           {
-            chord: "G7M/D",
+            chord: "G7+/D",
             suffix: "maj7",
             bass: "fifth",
             bassString: 4,
@@ -18598,7 +18598,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 0, 0, 0, 2], fingers: [0, 0, 0, 0, 0, 1], baseFret: 1, barres: [], midi: [50, 55, 59, 66] },
           },
           {
-            chord: "G7M/F♯",
+            chord: "G7+/F♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 6,
@@ -18606,7 +18606,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 0, 0, -1, -1], fingers: [1, 2, 0, 0, 0, 0], baseFret: 1, barres: [], midi: [42, 47, 50, 55] },
           },
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 5,
@@ -18614,7 +18614,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 4, 0, 3, -1], fingers: [0, 1, 3, 0, 2, 0], baseFret: 1, barres: [], midi: [47, 54, 55, 62] },
           },
           {
-            chord: "G7M/F♯",
+            chord: "G7+/F♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 4,
@@ -18622,7 +18622,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 4, 4, 3, 3], fingers: [0, 0, 2, 3, 1, 1], baseFret: 1, barres: [3], midi: [54, 59, 62, 67] },
           },
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 6,
@@ -18630,7 +18630,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 4, 4, -1, -1], fingers: [1, 4, 2, 3, 0, 0], baseFret: 1, barres: [], midi: [43, 50, 54, 59] },
           },
           {
-            chord: "G7M/D",
+            chord: "G7+/D",
             suffix: "maj7",
             bass: "fifth",
             bassString: 5,
@@ -18638,7 +18638,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 2, 2, 1, 4, -1], fingers: [0, 2, 3, 1, 4, 0], baseFret: 4, barres: [], midi: [50, 55, 59, 66] },
           },
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 4,
@@ -18646,7 +18646,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 1, 3, 3, 3], fingers: [0, 0, 1, 2, 3, 4], baseFret: 5, barres: [], midi: [55, 62, 66, 71] },
           },
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 6,
@@ -18654,7 +18654,7 @@ export const sections: Section[] = [
             position: { frets: [3, 5, 1, 3, -1, -1], fingers: [2, 4, 1, 3, 0, 0], baseFret: 5, barres: [], midi: [47, 54, 55, 62] },
           },
           {
-            chord: "G7M/F♯",
+            chord: "G7+/F♯",
             suffix: "maj7",
             bass: "seventh",
             bassString: 5,
@@ -18662,7 +18662,7 @@ export const sections: Section[] = [
             position: { frets: [-1, 3, 3, 1, 2, -1], fingers: [0, 3, 4, 1, 2, 0], baseFret: 7, barres: [], midi: [54, 59, 62, 67] },
           },
           {
-            chord: "G7M/B",
+            chord: "G7+/B",
             suffix: "maj7",
             bass: "third",
             bassString: 4,
@@ -18670,7 +18670,7 @@ export const sections: Section[] = [
             position: { frets: [-1, -1, 2, 4, 1, 3], fingers: [0, 0, 2, 4, 1, 3], baseFret: 8, barres: [], midi: [59, 66, 67, 74] },
           },
           {
-            chord: "G7M/D",
+            chord: "G7+/D",
             suffix: "maj7",
             bass: "fifth",
             bassString: 6,
@@ -18678,7 +18678,7 @@ export const sections: Section[] = [
             position: { frets: [2, 2, 1, 3, -1, -1], fingers: [2, 3, 1, 4, 0, 0], baseFret: 9, barres: [], midi: [50, 55, 59, 66] },
           },
           {
-            chord: "G7M",
+            chord: "G7+",
             suffix: "maj7",
             bass: "root",
             bassString: 5,

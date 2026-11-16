@@ -127,8 +127,8 @@ Sustenidos e bemóis seguem a notação padrão: a armadura de clave da tonalida
   C♭, F♭, B𝄫. Ciclo (`MINOR_CYCLE`): C F B♭ E♭ G♯ C♯ F♯ B E A D G.
 - **Notas do acorde** (baixo de inversões etc.) são escritas pela letra do grau
   (`spell`): terça = 2 letras acima da tônica, quinta = 4, sétima = 6; o acidente
-  sai da distância em semitons. Ex.: B7M/D♯, D7M/F♯, G♭7M/B♭, G♯m7/B, E♭m7/G♭.
-- **Raiz de cada trilha** (lib.mjs): maiores e 7M em `CYCLE_OF_FOURTHS`; menores
+  sai da distância em semitons. Ex.: B7+/D♯, D7+/F♯, G♭7+/B♭, G♯m7/B, E♭m7/G♭.
+- **Raiz de cada trilha** (lib.mjs): maiores e 7+ em `CYCLE_OF_FOURTHS`; menores
   e m7 em `MINOR_CYCLE`; sétima dominante em `DOMINANT_CYCLE` (F♯7, V de B, não
   G♭7, que tem F♭); meio diminutos em `HALF_DIMINISHED_CYCLE` (C F A♯ D♯ G♯ C♯ F♯
   B E A D G: VII de um tom maior; B♭ø, E♭ø, … teriam F♭, B𝄫). Nenhuma nota com
@@ -142,11 +142,11 @@ ordem direta (baixo na tônica), 1ª inversão (baixo na terça), 2ª (baixo na
 quinta) e 3ª (baixo na sétima); cada variação pode ter o baixo na 4ª, 5ª ou 6ª
 corda. Voicings escritos um a um em `INVERSIONS` (`build-key-lessons.mjs`):
 trastes absolutos da 6ª para a 1ª corda (`"xx2413"`), dedos, `suffix` (`maj7` →
-cifra `7M`), `bass` (`root` | `third` | `fifth` | `seventh`) e `bassString`
-(4 | 5 | 6). O passo gerado leva `chord: "C7M/E"`, `suffix`, `bass`,
+cifra `7+`), `bass` (`root` | `third` | `fifth` | `seventh`) e `bassString`
+(4 | 5 | 6). O passo gerado leva `chord: "C7+/E"`, `suffix`, `bass`,
 `bassString` e **não** tem `shape`. `validate(..., shape, bass, bassString)`
 exige que a nota mais grave seja o grau declarado e que esteja na corda
-declarada. O app mostra "C7M/E (baixo na 5ª corda)" no título do exercício.
+declarada. O app mostra "C7+/E (baixo na 5ª corda)" no título do exercício.
 Trilhas agrupadas por inversão (`INVERSION_GROUPS` × `QUALITIES`): cada trilha tem
 `group` ("1ª inversão: baixo na terça", categoria colapsável na home) e `title` com o
 tipo ("Acordes maiores", "Acordes menores", …).
@@ -156,7 +156,7 @@ após a sua digitação normal. O exercício final toca os passos nessa mesma or
 Cada tonalidade (ciclo de quartas) é o modelo em C transposto (`FIRST_INVERSION_C`,
 `transpose`: menor deslocamento que mantém todas as notas presas na casa ≥ 1,
 mesma digitação; o baixo é escrito pela letra do grau, `spell`, seguindo a
-armadura de clave da tonalidade: B7M/D♯, D7M/F♯, G♭7M/B♭). Modelo C7M - baixo na terça: xx2413 (dedos 0,0,2,4,1,3, 4ª corda), x7958x
+armadura de clave da tonalidade: B7+/D♯, D7+/F♯, G♭7+/B♭). Modelo C7+ - baixo na terça: xx2413 (dedos 0,0,2,4,1,3, 4ª corda), x7958x
 (dedos 0,2,4,1,3,0, 5ª corda), 12-14-10-12-x-x (dedos 2,4,1,3,0,0, 6ª corda;
 casas acima de 9 → escreva os trastes como array). Alternativas logo após a
 principal: x7x587 (dedos 0,2,0,1,4,3) e 12-x-10-12-12-x (dedos 2,0,1,3,4,0).
@@ -176,14 +176,14 @@ x6857x (0,2,4,1,3,0), alt x6x576 (0,2,0,1,4,3), 11-13-10-11-x-x (2,4,1,3,0,0), a
 2ª inversão (baixo na quinta, `SECOND_INVERSION_C`): xx5557 (dedos 0,0,1,1,1,4,
 do chords-db), x-10-10-9-12-x (dedos 0,2,3,1,4,0) e 3324xx (dedos 2,3,1,4,0,0),
 as duas últimas do usuário. Sem alternativas.
-2ª inversão dos outros tipos, derivada do modelo 7M (abaixando terça, quinta ou
+2ª inversão dos outros tipos, derivada do modelo 7+ (abaixando terça, quinta ou
 sétima), sem alternativas: Cm7/G `SECOND_INVERSION_CM` xx5546 (0,0,2,3,1,4),
 x-10-10-8-11-x (0,2,3,1,4,0), 3313xx (2,3,1,4,0,0); C7/G `SECOND_INVERSION_C7`
 xx5556 (0,0,1,1,1,2), x-10-10-9-11-x (0,2,3,1,4,0), 3323xx (2,3,1,4,0,0);
 Cm7(♭5)/G♭ `SECOND_INVERSION_CM7B5` xx4546 (0,0,1,2,1,3), x-9-10-8-11-x
 (0,2,3,1,4,0), 2313xx (2,3,1,4,0,0).
 
-3ª inversão (baixo na sétima), proposta pelo Claude, a revisar: C7M/B
+3ª inversão (baixo na sétima), proposta pelo Claude, a revisar: C7+/B
 `THIRD_INVERSION_C` xx9988, x2201x em C (aberto, sai do `transpose`; móvel nos outros
 tons: x-14-14-12-13-x, dedos 3,4,1,2), 7755xx, confirmados pelo usuário. Sem
 alternativas na 3ª inversão (decisão do usuário); Cm7/B♭, C7/B♭ e Cm7(♭5)/B♭ (`THIRD_INVERSION_CM`, `_C7`,
@@ -259,7 +259,7 @@ quando a ordem muda).
   abafadas não têm grau. Por isso a **cifra precisa começar pela fundamental
   correta** (letra + ♭/♯): um acorde novo com cifra errada mostra graus errados.
   Ao gerar acordes, confira que só aparecem graus da qualidade (maior 1·3·5;
-  menor 1·♭3·5; 7 1·3·5·♭7; 7M 1·3·5·7; m7 1·♭3·5·♭7; m7(♭5) 1·♭3·♭5·♭7).
+  menor 1·♭3·5; 7 1·3·5·♭7; 7+ 1·3·5·7; m7 1·♭3·5·♭7; m7(♭5) 1·♭3·♭5·♭7).
 - **Som:** cada corda que soa vira uma nota (`midi` → frequência), com timbre de
   violão de nylon (Karplus–Strong). TOCAR toca as cordas uma a uma, da mais grave
   para a mais aguda, e depois o acorde inteiro; as notas são agendadas no relógio
@@ -274,7 +274,7 @@ quando a ordem muda).
   Nos dados, `title`, `exerciseTitle`, `subtitle`, `instruction`, `group` e os
   títulos de seção/trilha são `{ pt, en }` (tipo `Localized` em `src/i18n.tsx`),
   gerados por `scripts/chords/build-key-lessons.mjs`. Na interface, use
-  `t("texto pt", "English text")` de `useI18n()`. Em inglês, "7M" vira "maj7"
+  `t("texto pt", "English text")` de `useI18n()`. Em inglês, "7+" vira "maj7"
   (`chordName`); o campo `chord` continua com a cifra brasileira.
 
 ## Fluxo para gerar um acorde

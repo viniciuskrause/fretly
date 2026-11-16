@@ -140,7 +140,7 @@ export const content = {
     },
     grid2: [
       ["Exercícios do sistema CAGED", "O módulo Acordes Básicos no CAGED ensina o sistema CAGED: as cinco formas de acorde aberto — C, A, G, E e D — levadas para cima no braço. Você toca acordes maiores, menores, de sétima dominante e meio diminutos nas cinco formas, da mais grave à mais aguda, nas 12 tonalidades."],
-      ["Exercícios de inversões de acordes para iniciantes e avançados", "O módulo Inversões de Tétrades trabalha as inversões de tétrades: 7M, m7, 7 e m7(♭5) na ordem direta e com a terça, a quinta e a sétima no baixo, na 4ª, 5ª e 6ª corda — voicings drop 2, com alternativas em drop 3."],
+      ["Exercícios de inversões de acordes para iniciantes e avançados", "O módulo Inversões de Tétrades trabalha as inversões de tétrades: 7+, m7, 7 e m7(♭5) na ordem direta e com a terça, a quinta e a sétima no baixo, na 4ª, 5ª e 6ª corda — voicings drop 2, com alternativas em drop 3."],
     ],
     faq: {
       h2: "Perguntas frequentes",

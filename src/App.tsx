@@ -85,13 +85,13 @@ function doneCount(lessons: Lesson[]) {
 const doneShareOf = (lessons: Lesson[]) =>
   lessons.length ? lessons.filter((lesson) => lesson.status === "done").length / lessons.length : 0;
 
-/** Chord of a key variation without its bass ("C7M/E" → "C7M"). */
+/** Chord of a key variation without its bass ("C7+/E" → "C7+"). */
 const variationChord = (lesson: Lesson) => lesson.steps[0].chord.split("/")[0];
 
 /** Key of a variation: the root of its chord ("B♭m7" → "B♭"). */
 const variationKey = (lesson: Lesson) => variationChord(lesson).match(/^[A-G][♯♭]?/)?.[0] ?? lesson.title.pt;
 
-/** Chord quality shown on the lesson icon ("7M", "m7", "ø"; a plain major triad is "M"). */
+/** Chord quality shown on the lesson icon ("7+", "m7", "ø"; a plain major triad is "M"). */
 function lessonSymbol(trail: TrailData) {
   const first = trail.lessons[0];
   if (!first) return "";
@@ -139,6 +139,20 @@ function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: L
   const status = lessonStatus(trail);
   const next = nextVariation(trail);
   const center = HUB_SIZE / 2;
+  // The active lesson shows the chord of the key being studied ("C7+", "B♭m"); the others the quality ("7+").
+  const quality = lessonSymbol(trail);
+  const centerSymbol = chordName(
+    status === "current" ? variationKey(next) + (quality === "M" ? "" : quality) : quality,
+    lang,
+  );
+  // Segment under the pointer (or focused): its key shows in a tooltip outside the ring.
+  const [hovered, setHovered] = useState<number | null>(null);
+  const tooltip = hovered === null ? null : (() => {
+    const degrees = -90 + (hovered + 0.5) * (360 / trail.lessons.length);
+    const radians = (degrees * Math.PI) / 180;
+    const radius = RING_RADIUS + 28;
+    return { left: center + radius * Math.cos(radians), top: center + radius * Math.sin(radians) };
+  })();
   return (
     <div className="flex flex-col items-center">
       <div className="relative" style={{ width: HUB_SIZE, height: HUB_SIZE }}>
@@ -156,18 +170,25 @@ function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: L
                 tabIndex={0}
                 aria-label={label}
                 onClick={() => onSelect(lesson)}
+                onMouseEnter={() => setHovered(index)}
+                onMouseLeave={() => setHovered((current) => (current === index ? null : current))}
+                onFocus={() => setHovered(index)}
+                onBlur={() => setHovered((current) => (current === index ? null : current))}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
                     onSelect(lesson);
                   }
                 }}
-              >
-                <title>{label}</title>
-              </path>
+              />
             );
           })}
         </svg>
+        {tooltip && hovered !== null && (
+          <span className="lesson-hub__tooltip" style={tooltip} aria-hidden="true">
+            {variationKey(trail.lessons[hovered])}
+          </span>
+        )}
         <button
           className={`lesson-hub lesson-hub--${status}`}
           style={{ left: center, top: center }}
@@ -177,7 +198,7 @@ function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: L
             `${l(trail.title)}: practise ${variationKey(next)} (${doneCount(trail.lessons)} keys done)`,
           )}
         >
-          <span className="lesson-hub__symbol">{chordName(lessonSymbol(trail), lang)}</span>
+          <span className={`lesson-hub__symbol${centerSymbol.length > 4 ? " lesson-hub__symbol--long" : ""}`}>{centerSymbol}</span>
           {status === "done" && (
             <span className="trail-node__badge">
               <Icon name="check" className="size-4 [stroke-width:3.5]" />
@@ -404,7 +425,7 @@ function ProgressHighlight({ trails }: { trails: TrailData[] }) {
           {done}
           <span className="text-muted">/{trails.length}</span>
         </span>
-        <span className="text-[15px] font-bold text-ink-2">{t("Aulas concluídas", "Lessons completed")}</span>
+        <span className="text-[15px] font-bold text-ink">{t("Aulas concluídas", "Lessons completed")}</span>
       </div>
       <div>
         <div
@@ -813,14 +834,14 @@ type LessonPath = { headings: string[]; chord: string };
 
 /**
  * Path of a lesson for the exercise overline, from the headlines above it:
- * "1ª inversão: baixo na terça - Acordes maiores - C7M".
+ * "1ª inversão: baixo na terça - Acordes maiores - C7+".
  */
 function lessonPath(lesson: Lesson, lang: Lang): LessonPath {
   const trail = sections.flatMap((section) => section.trails).find((item) => item.lessons.some(({ id }) => id === lesson.id));
   const headings = trail
     ? [trail.group, trail.title].filter((heading): heading is Localized => !!heading).map((heading) => heading[lang])
     : [];
-  // The chord without its bass ("C7M/E" → "C7M"); the lesson title is the fallback.
+  // The chord without its bass ("C7+/E" → "C7+"); the lesson title is the fallback.
   const chord = lesson.steps[0] ? chordName(lesson.steps[0].chord.split("/")[0], lang) : lesson.title[lang].split(" - ")[0];
   return { headings, chord };
 }
@@ -1716,10 +1737,10 @@ const INVERSIONS_SOURCES: GuideSource[] = [
 const TETRADS: Array<{ quality: Localized; symbol: string; notes: string; formula: string; role: Localized }> = [
   {
     quality: { pt: "Maior com sétima maior", en: "Major seventh" },
-    symbol: "C7M",
+    symbol: "C7+",
     notes: "C · E · G · B",
     formula: "1 · 3 · 5 · 7",
-    role: { pt: "I7M e IV7M de uma tonalidade maior", en: "Imaj7 and IVmaj7 of a major key" },
+    role: { pt: "I7+ e IV7+ de uma tonalidade maior", en: "Imaj7 and IVmaj7 of a major key" },
   },
   {
     quality: { pt: "Menor com sétima", en: "Minor seventh" },
@@ -1746,7 +1767,7 @@ const TETRADS: Array<{ quality: Localized; symbol: string; notes: string; formul
 
 /** Short quality name used as the row label of the diagram tables, keyed by the trail's Portuguese title. */
 const QUALITY_LABEL: Record<string, Localized> = {
-  "Acordes maiores": { pt: "Maior (7M)", en: "Major (maj7)" },
+  "Acordes maiores": { pt: "Maior (7+)", en: "Major (maj7)" },
   "Acordes menores": { pt: "Menor (m7)", en: "Minor (m7)" },
   "Acordes de sétima dominante": { pt: "Dominante (7)", en: "Dominant (7)" },
   "Acordes meio diminutos": { pt: "Meio diminuto (m7♭5)", en: "Half-diminished (m7♭5)" },
@@ -1882,19 +1903,19 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
             </p>
             <ul className="list-disc space-y-2 pl-5">
               <li>
-                <strong>Estado fundamental:</strong> a fundamental no baixo (C7M). É o que você tocou no
+                <strong>Estado fundamental:</strong> a fundamental no baixo (C7+). É o que você tocou no
                 módulo Acordes Básicos no CAGED.
               </li>
               <li>
-                <strong>1ª inversão:</strong> a terça no baixo (C7M/E, Cm7/E♭).
+                <strong>1ª inversão:</strong> a terça no baixo (C7+/E, Cm7/E♭).
               </li>
               <li>
-                <strong>2ª inversão:</strong> a quinta no baixo (C7M/G, Cm7(♭5)/G♭).
+                <strong>2ª inversão:</strong> a quinta no baixo (C7+/G, Cm7(♭5)/G♭).
               </li>
               <li>
-                <strong>3ª inversão:</strong> a sétima no baixo (C7M/B, C7/B♭). É a mais instável das
+                <strong>3ª inversão:</strong> a sétima no baixo (C7+/B, C7/B♭). É a mais instável das
                 quatro: a sétima no grave pede resolução, e o baixo costuma descer um grau, como em
-                C7/B♭ → F7M/A.
+                C7/B♭ → F7+/A.
               </li>
             </ul>
             <p>
@@ -2051,7 +2072,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
             </li>
             <li>
               <strong>Linhas de baixo.</strong> Inversões criam baixos que andam por grau conjunto,
-              como C7M → C7M/B → Am7 (dó, si, lá) ou C7 → C7/B♭ → F7M/A (dó, si bemol, lá).
+              como C7+ → C7+/B → Am7 (dó, si, lá) ou C7 → C7/B♭ → F7+/A (dó, si bemol, lá).
             </li>
             <li>
               <strong>Tudo na mesma região.</strong> Com as três inversões e o estado fundamental, um

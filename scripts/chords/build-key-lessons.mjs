@@ -30,8 +30,8 @@ import {
 // Every text is bilingual ({ pt, en }); the app picks one with the language selector.
 /** A `Localized` value written as TypeScript source. */
 const loc = (text) => `{ pt: ${JSON.stringify(text.pt)}, en: ${JSON.stringify(text.en)} }`;
-/** Chord symbol in English: Brazilian "7M" is "maj7". */
-const englishSymbol = (symbol) => symbol.replace("7M", "maj7");
+/** Chord symbol in English: Brazilian "7+" is "maj7". */
+const englishSymbol = (symbol) => symbol.replace("7+", "maj7");
 const ORDINAL_EN = { 4: "4th", 5: "5th", 6: "6th" };
 /**
  * Stable lesson key ("caged/major/Bb", "inversions/third/maj7/C"): progress is saved
@@ -153,7 +153,7 @@ ${lessons.join("\n")}
 // ---------------------------------------------------------------- seventh-chord inversions
 // Seventh-chord inversions, written voicing by voicing (absolute frets, low E →
 // high E) as the user defines them.
-// Voicings of C7M/E (first inversion), written as the user plays them: absolute
+// Voicings of C7+/E (first inversion), written as the user plays them: absolute
 // frets low E → high E, fingers, bass string. Every key is this model moved up
 // the neck (see `transpose`).
 const FIRST_INVERSION_C = [
@@ -164,7 +164,7 @@ const FIRST_INVERSION_C = [
   { bassString: 6, frets: [12, -1, 10, 12, 12, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
 ];
 
-// C7M/G (second inversion): 4th string from chords-db, 5th and 6th as the user plays them.
+// C7+/G (second inversion): 4th string from chords-db, 5th and 6th as the user plays them.
 const SECOND_INVERSION_C = [
   { bassString: 4, frets: [-1, -1, 5, 5, 5, 7], fingers: [0, 0, 1, 1, 1, 4] },
   { bassString: 5, frets: [-1, 10, 10, 9, 12, -1], fingers: [0, 2, 3, 1, 4, 0] },
@@ -199,7 +199,7 @@ const FIRST_INVERSION_CM7B5 = [
   { bassString: 6, frets: [11, -1, 10, 11, 11, -1], fingers: [2, 0, 1, 3, 4, 0], alternative: true },
 ];
 
-// Second inversions of the other qualities, derived from the C7M/G model by
+// Second inversions of the other qualities, derived from the C7+/G model by
 // lowering the chord tones that differ (third, fifth, seventh).
 const SECOND_INVERSION_CM = [
   { bassString: 4, frets: [-1, -1, 5, 5, 4, 6], fingers: [0, 0, 2, 3, 1, 4] },
@@ -218,7 +218,7 @@ const SECOND_INVERSION_CM7B5 = [
 ];
 
 // Third inversions (seventh in the bass), no alternatives: same string sets as
-// the other inversions (B E G C for C7M/B); the other qualities lower the chord
+// the other inversions (B E G C for C7+/B); the other qualities lower the chord
 // tones that differ.
 const THIRD_INVERSION_C = [
   { bassString: 4, frets: [-1, -1, 9, 9, 8, 8], fingers: [0, 0, 2, 3, 1, 1] },

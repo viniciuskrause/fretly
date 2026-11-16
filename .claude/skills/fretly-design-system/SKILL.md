@@ -315,7 +315,7 @@ novos aparecem sozinhos.
   text-center`, também na sequência larga): overline `eyebrow eyebrow--lg
   text-accent-ink` com o **caminho da aula na Home** — os títulos acima dela
   (grupo, se houver, e subseção) + a cifra, separados por " - ", ex.
-  "1ª inversão: baixo na terça - Acordes maiores - C7M" (`lessonPath` +
+  "1ª inversão: baixo na terça - Acordes maiores - C7+" (`lessonPath` +
   `LessonOverline`; a cifra fica em `normal-case`) + H1 `font-display text-[26px]
   sm:text-[30px] font-bold text-balance`.
 - **Espaço cabeçalho → acordes:** `mt-12` (48px) abaixo do `ExerciseHeading`,
