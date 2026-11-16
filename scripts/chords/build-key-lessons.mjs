@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// Writes src/lessons.ts: one section with one trail per chord quality (major,
-// minor, dominant seventh, half-diminished) and, in each, one lesson per key — the chord in its five CAGED
-// shapes, from the lowest shape up the neck. Keys follow the cycle of fourths.
+// Writes src/lessons.ts: the CAGED module (one trail per chord quality — major,
+// minor, dominant seventh, half-diminished — and, in each, one lesson per key: the
+// chord in its five CAGED shapes), the triad-inversion module and the
+// seventh-chord-inversion module. Keys follow the cycle of fourths.
 //
 //   node scripts/chords/build-key-lessons.mjs
 //
@@ -149,7 +150,7 @@ ${lessons.join("\n")}
       },`;
 });
 
-// ---------------------------------------------------------------- section 2
+// ---------------------------------------------------------------- seventh-chord inversions
 // Seventh-chord inversions, written voicing by voicing (absolute frets, low E →
 // high E) as the user defines them.
 // Voicings of C7M/E (first inversion), written as the user plays them: absolute
@@ -310,7 +311,7 @@ function transpose(voicings, root) {
   });
 }
 
-function inversionLesson(root, suffix, bass, label, model) {
+function inversionLesson(root, suffix, bass, label, model, module = "inversions") {
   const symbol = chordSymbol(root, suffix);
   const bassNote = spell(root, SUFFIX_INTERVALS[suffix][BASS_TONES[bass]], BASS_LETTER_STEPS[bass]);
   // Group each main voicing with its alternatives and move the group together.
@@ -340,7 +341,7 @@ function inversionLesson(root, suffix, bass, label, model) {
       },
   }));
   return {
-    key: lessonKey("inversions", bass, suffix, ascii(root)),
+    key: lessonKey(module, bass, suffix, ascii(root)),
     title: { pt: `${symbol} - baixo na ${label.pt}`, en: `${englishSymbol(symbol)} - ${label.en} in the bass` },
     subtitle: {
       pt: `${symbol} com a ${label.pt} no baixo, na 4ª, 5ª e 6ª corda`,
@@ -372,6 +373,38 @@ function lowToHigh(steps) {
   return groups.sort(compare).flat();
 }
 
+/**
+ * Review lesson of one quality in one key: every inversion on every bass string
+ * (main fingerings only), from the voicing nearest the nut to the one nearest
+ * the bridge.
+ */
+function reviewLesson(root, suffix, groups, module, count) {
+  const symbol = chordSymbol(root, suffix);
+  const steps = groups.flatMap((group) =>
+    inversionLesson(root, suffix, group.bass, group.label, group.models[suffix], module).steps.filter((step) => !step.alternative),
+  );
+  return {
+    key: lessonKey(module, "review", suffix, ascii(root)),
+    title: { pt: `${symbol} - todas as inversões`, en: `${englishSymbol(symbol)} - all inversions` },
+    subtitle: {
+      pt: `As ${count.pt} inversões de ${symbol} em todas as cordas, da região mais próxima da pestana até a mais próxima da ponte`,
+      en: `All ${count.en} inversions of ${englishSymbol(symbol)} on every string, from the region nearest the nut to the one nearest the bridge`,
+    },
+    steps: lowToHigh(steps),
+  };
+}
+
+const REVIEW_GROUP = { pt: "Revisão: todas as inversões", en: "Review: all inversions" };
+
+/** One review trail per quality: every inversion of the chord, along the whole neck. */
+const reviewTrails = (groups, qualities, module, count) =>
+  qualities.map((quality) => ({
+    group: REVIEW_GROUP,
+    review: true,
+    title: quality.title,
+    lessons: quality.cycle.map((root) => reviewLesson(root, quality.suffix, groups, module, count)),
+  }));
+
 // Trails grouped by inversion (a collapsible category on the home page), one
 // trail per chord quality inside each group.
 const INVERSION_GROUPS = [
@@ -397,15 +430,105 @@ const INVERSIONS = {
     pt: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
     en: "Every seventh chord in root position and with the third, fifth and seventh in the bass, on the 4th, 5th and 6th strings",
   },
-  trails: INVERSION_GROUPS.flatMap((group) =>
-    QUALITIES.map((quality) => ({
-      group: group.title,
-      title: quality.title,
-      lessons: quality.cycle.map((root) =>
-        inversionLesson(root, quality.suffix, group.bass, group.label, group.models[quality.suffix]),
-      ),
-    })),
-  ),
+  trails: [
+    ...INVERSION_GROUPS.flatMap((group) =>
+      QUALITIES.map((quality) => ({
+        group: group.title,
+        title: quality.title,
+        lessons: quality.cycle.map((root) =>
+          inversionLesson(root, quality.suffix, group.bass, group.label, group.models[quality.suffix]),
+        ),
+      })),
+    ),
+    ...reviewTrails(INVERSION_GROUPS, QUALITIES, "inversions", { pt: "quatro", en: "four" }),
+  ],
+};
+
+// ---------------------------------------------------------------- triads
+// Triad inversions (module "Inversões de Tríades"): close voicings on three
+// adjacent strings, bass on the 6th, 5th or 4th string, in root position and
+// with the third or the fifth in the bass. C models proposed by Claude
+// (2026-11-16), pending the user's review; every key is the model moved up
+// the neck (`transpose`), as in the seventh-chord inversions.
+const TRIAD_ROOT_C = [
+  { bassString: 6, frets: [8, 7, 5, -1, -1, -1], fingers: [4, 3, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 15, 14, 12, -1, -1], fingers: [0, 4, 3, 1, 0, 0] }, // in C: x320xx
+  { bassString: 4, frets: [-1, -1, 10, 9, 8, -1], fingers: [0, 0, 3, 2, 1, 0] },
+];
+const TRIAD_FIRST_C = [
+  { bassString: 6, frets: [12, 10, 10, -1, -1, -1], fingers: [3, 1, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 7, 5, 5, -1, -1], fingers: [0, 3, 1, 1, 0, 0] },
+  { bassString: 4, frets: [-1, -1, 14, 12, 13, -1], fingers: [0, 0, 3, 1, 2, 0] }, // in C: xx201x
+];
+const TRIAD_SECOND_C = [
+  { bassString: 6, frets: [3, 3, 2, -1, -1, -1], fingers: [2, 3, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 10, 10, 9, -1, -1], fingers: [0, 2, 3, 1, 0, 0] },
+  { bassString: 4, frets: [-1, -1, 5, 5, 5, -1], fingers: [0, 0, 1, 1, 1, 0] },
+];
+const TRIAD_ROOT_CM = [
+  { bassString: 6, frets: [8, 6, 5, -1, -1, -1], fingers: [4, 2, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 15, 13, 12, -1, -1], fingers: [0, 4, 2, 1, 0, 0] }, // in C: x310xx
+  { bassString: 4, frets: [-1, -1, 10, 8, 8, -1], fingers: [0, 0, 3, 1, 1, 0] },
+];
+const TRIAD_FIRST_CM = [
+  { bassString: 6, frets: [11, 10, 10, -1, -1, -1], fingers: [2, 1, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 6, 5, 5, -1, -1], fingers: [0, 2, 1, 1, 0, 0] },
+  { bassString: 4, frets: [-1, -1, 13, 12, 13, -1], fingers: [0, 0, 2, 1, 3, 0] }, // in C: xx101x
+];
+const TRIAD_SECOND_CM = [
+  { bassString: 6, frets: [3, 3, 1, -1, -1, -1], fingers: [3, 4, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 10, 10, 8, -1, -1], fingers: [0, 3, 4, 1, 0, 0] },
+  { bassString: 4, frets: [-1, -1, 5, 5, 4, -1], fingers: [0, 0, 2, 3, 1, 0] },
+];
+const TRIAD_ROOT_CDIM = [
+  { bassString: 6, frets: [8, 6, 4, -1, -1, -1], fingers: [4, 2, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 15, 13, 11, -1, -1], fingers: [0, 4, 2, 1, 0, 0] },
+  { bassString: 4, frets: [-1, -1, 10, 8, 7, -1], fingers: [0, 0, 4, 2, 1, 0] },
+];
+const TRIAD_FIRST_CDIM = [
+  { bassString: 6, frets: [11, 9, 10, -1, -1, -1], fingers: [3, 1, 2, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 6, 4, 5, -1, -1], fingers: [0, 3, 1, 2, 0, 0] },
+  { bassString: 4, frets: [-1, -1, 13, 11, 13, -1], fingers: [0, 0, 2, 1, 3, 0] },
+];
+const TRIAD_SECOND_CDIM = [
+  { bassString: 6, frets: [2, 3, 1, -1, -1, -1], fingers: [2, 3, 1, 0, 0, 0] },
+  { bassString: 5, frets: [-1, 9, 10, 8, -1, -1], fingers: [0, 2, 3, 1, 0, 0] },
+  { bassString: 4, frets: [-1, -1, 4, 5, 4, -1], fingers: [0, 0, 1, 2, 1, 0] },
+];
+
+const TRIAD_GROUPS = [
+  { title: INVERSION_GROUPS[0].title, bass: "root", label: INVERSION_GROUPS[0].label,
+    models: { major: TRIAD_ROOT_C, minor: TRIAD_ROOT_CM, dim: TRIAD_ROOT_CDIM } },
+  { title: INVERSION_GROUPS[1].title, bass: "third", label: INVERSION_GROUPS[1].label,
+    models: { major: TRIAD_FIRST_C, minor: TRIAD_FIRST_CM, dim: TRIAD_FIRST_CDIM } },
+  { title: INVERSION_GROUPS[2].title, bass: "fifth", label: INVERSION_GROUPS[2].label,
+    models: { major: TRIAD_SECOND_C, minor: TRIAD_SECOND_CM, dim: TRIAD_SECOND_CDIM } },
+];
+const TRIAD_QUALITIES = [
+  { suffix: "major", title: { pt: "Tríades maiores", en: "Major triads" }, cycle: CYCLE_OF_FOURTHS },
+  { suffix: "minor", title: { pt: "Tríades menores", en: "Minor triads" }, cycle: MINOR_CYCLE },
+  // Diminished triads as the 7th degree of a major key (A♯dim, not B♭dim), like m7(♭5).
+  { suffix: "dim", title: { pt: "Tríades diminutas", en: "Diminished triads" }, cycle: HALF_DIMINISHED_CYCLE },
+];
+
+const TRIADS = {
+  title: { pt: "Inversões de Tríades", en: "Triad Inversions" },
+  subtitle: {
+    pt: "Cada tríade na ordem direta e com o baixo na terça e na quinta, na 4ª, 5ª e 6ª corda",
+    en: "Every triad in root position and with the third and fifth in the bass, on the 4th, 5th and 6th strings",
+  },
+  trails: [
+    ...TRIAD_GROUPS.flatMap((group) =>
+      TRIAD_QUALITIES.map((quality) => ({
+        group: group.title,
+        title: quality.title,
+        lessons: quality.cycle.map((root) =>
+          inversionLesson(root, quality.suffix, group.bass, group.label, group.models[quality.suffix], "triads"),
+        ),
+      })),
+    ),
+    ...reviewTrails(TRIAD_GROUPS, TRIAD_QUALITIES, "triads", { pt: "três", en: "three" }),
+  ],
 };
 
 /** Absolute frets ("xx2413" or [-1, -1, 2, 4, 1, 3]) → a chords-db position. */
@@ -418,7 +541,7 @@ function positionFromFrets(frets, fingers) {
   return { frets: rel, fingers, baseFret, barres: barresOf(rel, fingers), midi: midiOf(rel, baseFret) };
 }
 
-const inversionTrails = INVERSIONS.trails.map((trail) => {
+const renderInversionTrails = (module) => module.trails.map((trail) => {
   const lessons = trail.lessons.map((lesson) => {
     const steps = lesson.steps.map((step) => {
       const position = positionFromFrets(step.frets, step.fingers);
@@ -428,7 +551,7 @@ const inversionTrails = INVERSIONS.trails.map((trail) => {
       return [
         "          {",
         `            chord: "${name}",`,
-        `            suffix: "${step.suffix}",`,
+        ...(step.suffix === "major" ? [] : [`            suffix: "${step.suffix}",`]),
         `            bass: "${step.bass}",`,
         `            bassString: ${step.bassString},`,
         `            instruction: ${loc(step.instruction)},`,
@@ -451,13 +574,17 @@ ${steps.join("\n")}
       },`;
   });
   return `      {
-        group: ${loc(trail.group)},
+        group: ${loc(trail.group)},${trail.review ? "\n        review: true," : ""}
         title: ${loc(trail.title)},
         lessons: [
 ${lessons.join("\n")}
         ],
       },`;
 });
+
+// Module order on the dashboard: CAGED, triads, seventh chords (ids stay: 1, 3, 2).
+const triadTrails = renderInversionTrails(TRIADS);
+const inversionTrails = renderInversionTrails(INVERSIONS);
 
 const file = `import type { ChordStep } from "./chords.ts";
 import type { Localized } from "./i18n.tsx";
@@ -487,6 +614,8 @@ export type Lesson = {
 export type Trail = {
   /** Collapsible category the trail sits in ("1ª inversão: baixo na terça"); omitted = none. */
   group?: Localized;
+  /** Review trail: every inversion of a quality, along the neck (left out of guide tables and the dictionary). */
+  review?: boolean;
   title: Localized;
   lessons: Lesson[];
 };
@@ -508,6 +637,14 @@ ${trails.join("\n")}
     ],
   },
   {
+    id: 3,
+    title: ${loc(TRIADS.title)},
+    subtitle: ${loc(TRIADS.subtitle)},
+    trails: [
+${triadTrails.join("\n")}
+    ],
+  },
+  {
     id: 2,
     title: ${loc(INVERSIONS.title)},
     subtitle: ${loc(INVERSIONS.subtitle)},
@@ -521,4 +658,4 @@ ${inversionTrails.join("\n")}
 export const lessons: Lesson[] = sections.flatMap((section) => section.trails.flatMap((trail) => trail.lessons));
 `;
 fs.writeFileSync(path.resolve(import.meta.dirname, "../../src/lessons.ts"), file);
-console.log(`src/lessons.ts: 2 seções, ${TRAILS.length + INVERSIONS.trails.length} trilhas, ${nextId - 1} aulas`);
+console.log(`src/lessons.ts: 3 seções, ${TRAILS.length + TRIADS.trails.length + INVERSIONS.trails.length} trilhas, ${nextId - 1} aulas`);

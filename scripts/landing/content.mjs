@@ -24,7 +24,7 @@ export const content = {
       ctaNote: "Free, no credit card",
       checklist: [
         "The CAGED system, shape by shape",
-        "Major, minor, dominant 7 and half-diminished chords",
+        "Major, minor, dominant 7, half-diminished and diminished chords",
         "Seventh-chord inversions (drop 2 and drop 3)",
         "All 12 keys, in the cycle of fourths",
         "A chord dictionary with every fingering",
@@ -97,7 +97,7 @@ export const content = {
       ctaNote: "Grátis, sem cartão de crédito",
       checklist: [
         "O sistema CAGED, forma por forma",
-        "Acordes maiores, menores, de sétima dominante e meio diminutos",
+        "Acordes maiores, menores, de sétima dominante, meio diminutos e diminutos",
         "Inversões de tétrades (drop 2 e drop 3)",
         "As 12 tonalidades, no ciclo de quartas",
         "Um dicionário com todas as digitações",
