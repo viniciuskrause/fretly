@@ -14,6 +14,7 @@ import { sections, type Lesson, type Section, type Trail as TrailData } from "./
 import { applyProgress, loadProgress, saveProgress, type Progress } from "./progress.ts";
 import { LANGUAGES, chordName, useI18n, type Lang, type Localized } from "./i18n.tsx";
 import { initialsOf, supabase, useSession } from "./auth/supabase.ts";
+import { saveResultToAccount, syncProgress } from "./auth/progressSync.ts";
 
 function Icon({
   name,
@@ -2547,14 +2548,32 @@ export default function App() {
   const [guideSection, setGuideSection] = useState<number | null>(null);
   const outline = useOutline();
   const dictionary = useDictionaryRoute();
+  const session = useSession();
+  const userId = session?.user.id;
   const trailSections = applyProgress(sections, progress);
 
+  // Logged in (or switched account): merge this browser's progress with the account's.
+  useEffect(() => {
+    if (!userId) return;
+    let cancelled = false;
+    void syncProgress(loadProgress()).then((merged) => {
+      if (!merged || cancelled) return;
+      saveProgress(merged);
+      setProgress(merged);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [userId]);
+
   function completeLesson(lesson: Lesson, bpm: number) {
+    const result = { bpm, completedAt: new Date().toISOString() };
     setProgress((current) => {
-      const next = { ...current, [lesson.id]: { bpm, completedAt: new Date().toISOString() } };
+      const next = { ...current, [lesson.key]: result };
       saveProgress(next);
       return next;
     });
+    if (userId) void saveResultToAccount(lesson.key, result);
   }
 
   if (dictionary.open) return <DictionaryPage onBack={dictionary.close} />;
