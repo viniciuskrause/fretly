@@ -12,6 +12,21 @@ import { BRAND, SITE_URL, content } from "./content.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
 
+/**
+ * localStorage key where supabase-js keeps the session ("sb-<project ref>-auth-token"),
+ * from VITE_SUPABASE_URL in .env.local; null when accounts are not configured.
+ */
+function sessionStorageKey() {
+  try {
+    const env = fs.readFileSync(path.join(ROOT, ".env.local"), "utf8");
+    const url = env.match(/^VITE_SUPABASE_URL=(.+)$/m)?.[1].trim();
+    return url ? `sb-${new URL(url).hostname.split(".")[0]}-auth-token` : null;
+  } catch {
+    return null;
+  }
+}
+const SESSION_KEY = sessionStorageKey();
+
 // Real numbers from the lesson data.
 const steps = lessons.flatMap((lesson) => lesson.steps);
 const uniqueFingerings = new Set(steps.map((step) => `${step.chord}|${step.position.baseFret}|${step.position.frets}`)).size;
@@ -143,14 +158,25 @@ function page(lang) {
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-control focus:bg-surface focus:px-4 focus:py-2">${lang === "en" ? "Skip to content" : "Pular para o conteúdo"}</a>
 
     <header class="border-b border-line bg-canvas">
-      <nav class="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-[88px] sm:px-8" aria-label="${lang === "en" ? "Main" : "Principal"}">
+      <nav data-auth-root class="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-[88px] sm:px-8" aria-label="${lang === "en" ? "Main" : "Principal"}">
         <a href="${lang === "en" ? "./" : "./"}" class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
           Guitar Workouts <span class="text-accent-ink">for Nerds</span>
         </a>
-        <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div class="flex shrink-0 items-center gap-2 sm:gap-3" data-auth="out">
           <a href="${loginHref}" class="flex h-11 items-center rounded-control border border-line-strong bg-surface px-4 text-[15px] font-semibold text-ink-2 transition-colors hover:border-subtle hover:text-ink">${escape(t.nav.login)}</a>
           <a href="${signupHref}" class="hidden h-11 items-center rounded-control bg-brand px-5 text-[15px] font-semibold text-white transition-colors hover:bg-brand-strong sm:flex">${escape(t.nav.cta)}</a>
         </div>
+        <div class="hidden shrink-0 items-center gap-3" data-auth="in">
+          <a href="${appHref}" class="hidden h-11 items-center rounded-control bg-brand px-5 text-[15px] font-semibold text-white transition-colors hover:bg-brand-strong sm:flex">${escape(t.nav.continue)}</a>
+          <div data-auth-menu class="size-9"></div>
+        </div>${SESSION_KEY ? `
+        <script>
+          // A session stored by Supabase in this browser: hide the header buttons until
+          // src/landing-auth.ts confirms it with the server (then it shows the right state).
+          try {
+            if (localStorage.getItem(${JSON.stringify(SESSION_KEY)})) document.querySelector("[data-auth-root]").setAttribute("data-auth-pending", "");
+          } catch (error) {}
+        </script>` : ""}
       </nav>
     </header>
 
@@ -272,7 +298,8 @@ ${t.faq.items
           <li><a href="${otherHref}" hreflang="${content[other].htmlLang}" lang="${content[other].htmlLang}" class="text-ink-2 hover:text-brand-ink">${escape(t.footer.language)}</a></li>
         </ul>
       </div>
-    </footer>
+    </footer>${SESSION_KEY ? `
+    <script type="module" src="/src/landing-auth.ts"></script>` : ""}
   </body>
 </html>
 `;

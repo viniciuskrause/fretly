@@ -35,14 +35,25 @@
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-control focus:bg-surface focus:px-4 focus:py-2">Pular para o conteúdo</a>
 
     <header class="border-b border-line bg-canvas">
-      <nav class="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-[88px] sm:px-8" aria-label="Principal">
+      <nav data-auth-root class="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-[88px] sm:px-8" aria-label="Principal">
         <a href="./" class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
           Guitar Workouts <span class="text-accent-ink">for Nerds</span>
         </a>
-        <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div class="flex shrink-0 items-center gap-2 sm:gap-3" data-auth="out">
           <a href="../login/?lang=pt" class="flex h-11 items-center rounded-control border border-line-strong bg-surface px-4 text-[15px] font-semibold text-ink-2 transition-colors hover:border-subtle hover:text-ink">Entrar</a>
           <a href="../signup/?lang=pt" class="hidden h-11 items-center rounded-control bg-brand px-5 text-[15px] font-semibold text-white transition-colors hover:bg-brand-strong sm:flex">Comece a praticar grátis</a>
         </div>
+        <div class="hidden shrink-0 items-center gap-3" data-auth="in">
+          <a href="../app/?lang=pt" class="hidden h-11 items-center rounded-control bg-brand px-5 text-[15px] font-semibold text-white transition-colors hover:bg-brand-strong sm:flex">Continuar praticando</a>
+          <div data-auth-menu class="size-9"></div>
+        </div>
+        <script>
+          // A session stored by Supabase in this browser: hide the header buttons until
+          // src/landing-auth.ts confirms it with the server (then it shows the right state).
+          try {
+            if (localStorage.getItem("sb-idviqrohqdghnmrnafpa-auth-token")) document.querySelector("[data-auth-root]").setAttribute("data-auth-pending", "");
+          } catch (error) {}
+        </script>
       </nav>
     </header>
 
@@ -254,5 +265,6 @@
         </ul>
       </div>
     </footer>
+    <script type="module" src="/src/landing-auth.ts"></script>
   </body>
 </html>
