@@ -17,10 +17,6 @@ export function mountUserMenu(container: HTMLElement, { onSignOut }: { onSignOut
       <I18nProvider lang={lang}>
         <UserMenu
           basePath={basePath}
-          // The homepage is one page per language: go to the other one.
-          onLanguageChange={(next) => {
-            if (next !== lang) window.location.assign(next === "pt" ? `${basePath}pt/` : basePath || "./");
-          }}
           onSignOut={onSignOut}
         />
       </I18nProvider>

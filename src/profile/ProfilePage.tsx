@@ -4,13 +4,13 @@ import type { User } from "@supabase/supabase-js";
 import { ErrorText, Field, homeHref, useErrorMessage } from "../auth/AuthPage.tsx";
 import { resetAccountProgress, syncProgress } from "../auth/progressSync.ts";
 import { siteUrl, supabase } from "../auth/supabase.ts";
-import { useI18n } from "../i18n.tsx";
-import { sections } from "../lessons.ts";
+import { LANGUAGES, useI18n, type Lang } from "../i18n.tsx";
+import { lessons } from "../lessons.ts";
 import { clearLocalProgress, loadProgress, saveProgress, type Progress } from "../progress.ts";
 import { UserMenu } from "../UserMenu.tsx";
 
 // Profile page (profile/), modelled on the reference profile page: a greeting,
-// then cards with the account details, the progress in each section of lessons,
+// then cards with the account details, the progress in all exercises, the language,
 // a progress reset and the account deletion. Only for logged-in users: the
 // session is confirmed with the server first.
 
@@ -58,7 +58,7 @@ function ProgressBar({ done, total }: { done: number; total: number }) {
         aria-valuemin={0}
         aria-valuemax={total}
         aria-valuenow={done}
-        aria-label={t("Tonalidades concluídas", "Keys completed")}
+        aria-label={t("Exercícios concluídos", "Exercises completed")}
         className="h-3 flex-1 overflow-hidden rounded-full bg-sunken"
       >
         <div className="h-full rounded-full bg-brand transition-[width] duration-500" style={{ width: `${total ? (done / total) * 100 : 0}%` }} />
@@ -190,6 +190,45 @@ function DeleteAccountDialog({ user, onClose }: { user: User; onClose: () => voi
   );
 }
 
+/** Language of the whole site (app, profile, log-in), saved in this browser. */
+function LanguagePicker() {
+  const { t, lang, setLang } = useI18n();
+  function choose(next: Lang) {
+    setLang(next);
+    // Keep the address in step, so a reload doesn't bring back the old ?lang=.
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", next);
+    window.history.replaceState(null, "", url);
+  }
+  return (
+    <div role="radiogroup" aria-label={t("Idioma", "Language")} className="grid gap-3 sm:grid-cols-2">
+      {LANGUAGES.map((language) => {
+        const selected = language.id === lang;
+        return (
+          <button
+            key={language.id}
+            type="button"
+            role="radio"
+            aria-checked={selected}
+            lang={language.htmlLang}
+            onClick={() => choose(language.id)}
+            className={`flex h-12 items-center justify-between rounded-control border px-4 text-[16px] font-semibold transition-colors ${
+              selected ? "border-brand bg-brand-soft text-brand-ink" : "border-line-strong bg-surface text-ink-2 hover:border-subtle hover:text-ink"
+            }`}
+          >
+            <span>{language.label}</span>
+            {selected && (
+              <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="m5 12 4 4L19 6" />
+              </svg>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 function Header() {
   const { t, lang } = useI18n();
   return (
@@ -254,12 +293,8 @@ export function ProfilePage() {
     const { user } = state;
     const firstName = String(user.user_metadata?.first_name ?? "").trim();
     const username = String(user.user_metadata?.username ?? "").trim();
-    const counts = sections.map((section) => {
-      const keys = section.trails.flatMap((trail) => trail.lessons.map((lesson) => lesson.key));
-      return { section, total: keys.length, done: keys.filter((key) => progress[key]).length };
-    });
-    const total = counts.reduce((sum, item) => sum + item.total, 0);
-    const done = counts.reduce((sum, item) => sum + item.done, 0);
+    const total = lessons.length;
+    const done = lessons.filter((lesson) => progress[lesson.key]).length;
 
     content = (
       <div className="space-y-6">
@@ -284,16 +319,8 @@ export function ProfilePage() {
 
         <Card title={t("Progresso nas aulas", "Lesson progress")}>
           <ProgressBar done={done} total={total} />
-          <p className="mt-2 text-sm text-muted">{t("Tonalidades concluídas em todas as aulas.", "Keys completed across all lessons.")}</p>
-          <div className="mt-6 space-y-5">
-            {counts.map(({ section, done: sectionDone, total: sectionTotal }) => (
-              <div key={section.id}>
-                <p className="mb-2 text-[15px] font-semibold text-ink">{section.title[lang]}</p>
-                <ProgressBar done={sectionDone} total={sectionTotal} />
-              </div>
-            ))}
-          </div>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <p className="mt-2 text-sm text-muted">{t("Exercícios concluídos em todas as aulas.", "Exercises completed across all lessons.")}</p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href={`../app/?lang=${lang}`} className={`${buttonBase} bg-brand text-white hover:bg-brand-strong`}>
               {t("Ir para as aulas →", "Go to lessons →")}
             </a>
@@ -302,6 +329,13 @@ export function ProfilePage() {
             </button>
           </div>
           <p className="mt-2 text-sm text-muted">{t("Comece do zero e refaça todas as aulas.", "Start fresh and go through all lessons again.")}</p>
+        </Card>
+
+        <Card title={t("Idioma", "Language")}>
+          <p className="mb-4 text-[15px] text-ink-2">
+            {t("Idioma das aulas e de todo o site.", "Language of the lessons and the whole site.")}
+          </p>
+          <LanguagePicker />
         </Card>
 
         <Card title={t("Excluir conta", "Delete account")} tone="danger">

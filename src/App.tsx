@@ -297,7 +297,7 @@ function trailBlocks(section: Section) {
 type TrailSegment = { d: string; status: TrailStatus };
 
 /**
- * Every lesson of a unit in one container, on a serpentine trail: two lessons
+ * Every lesson of a module ("lição") in one container, on a serpentine trail: two lessons
  * per row on wide screens (left → right, then right → left), one per row on
  * phones. Group headings ("1ª inversão: baixo na terça") sit on the trail
  * between their lessons. The trail is drawn from the measured hub positions.
@@ -433,7 +433,7 @@ function PathSection({
           {/* The whole title area toggles too; the chevron button is the accessible control. */}
           <div className="min-w-0 flex-1 cursor-pointer" onClick={toggleSection}>
             <span className="eyebrow eyebrow--lg block text-brand-soft">
-              {t("Unidade", "Unit")} {section.id}
+              {t("Lição", "Module")}
             </span>
             <span className="mt-2 block font-display text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[26px]">
               {l(section.title)}
@@ -443,7 +443,7 @@ function PathSection({
           <div className="flex shrink-0 items-center justify-end gap-2">
             <button
               onClick={onOpenGuide}
-              aria-label={t(`Guia da unidade ${section.id}`, `Unit ${section.id} guide`)}
+              aria-label={t(`Guia da lição ${l(section.title)}`, `${l(section.title)} module guide`)}
               title={t("Guia", "Guide")}
               className="flex size-11 shrink-0 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 active:scale-[0.96] focus-visible:outline-white"
             >
@@ -455,8 +455,8 @@ function PathSection({
               aria-expanded={open}
               aria-controls={regionId}
               aria-label={t(
-                `${open ? "Recolher" : "Expandir"} unidade ${section.id}: ${l(section.title)}`,
-                `${open ? "Collapse" : "Expand"} unit ${section.id}: ${l(section.title)}`,
+                `${open ? "Recolher" : "Expandir"} lição ${l(section.title)}`,
+                `${open ? "Collapse" : "Expand"} module ${l(section.title)}`,
               )}
               className="-mr-1.5 flex size-11 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 focus-visible:outline-white"
             >
@@ -472,7 +472,7 @@ function PathSection({
           <div
             className="h-3 flex-1 overflow-hidden rounded-full bg-ink"
             role="progressbar"
-            aria-label={t(`Progresso da unidade ${section.id}`, `Unit ${section.id} progress`)}
+            aria-label={t(`Progresso da lição ${l(section.title)}`, `${l(section.title)} module progress`)}
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(doneShare * 100)}
@@ -1748,12 +1748,12 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
           <p>
             A tétrade é a tríade (fundamental, terça e quinta) com mais uma terça empilhada:{" "}
             <strong>a sétima</strong>. A combinação de terça e sétima, maiores ou menores, e de quinta
-            justa ou diminuta dá as quatro qualidades que esta unidade trabalha. Em C:
+            justa ou diminuta dá as quatro qualidades que esta lição trabalha. Em C:
           </p>,
           <p>
             A seventh chord (a tetrad) is the triad (root, third and fifth) with one more third stacked
             on top: <strong>the seventh</strong>. Combining a major or minor third and seventh with a
-            perfect or diminished fifth gives the four qualities this unit covers. In C:
+            perfect or diminished fifth gives the four qualities this module covers. In C:
           </p>,
         )}
         <div className="!mt-6 overflow-x-auto rounded-card border border-line bg-surface">
@@ -1793,7 +1793,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
             <ul className="list-disc space-y-2 pl-5">
               <li>
                 <strong>Estado fundamental:</strong> a fundamental no baixo (C7M). É o que você tocou na
-                Unidade 1.
+                lição Acordes Básicos no CAGED.
               </li>
               <li>
                 <strong>1ª inversão:</strong> a terça no baixo (C7M/E, Cm7/E♭).
@@ -1820,7 +1820,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
             <ul className="list-disc space-y-2 pl-5">
               <li>
                 <strong>Root position:</strong> the root in the bass (Cmaj7). That is what you played in
-                Unit 1.
+                the Basic Chords with CAGED module.
               </li>
               <li>
                 <strong>1st inversion:</strong> the third in the bass (Cmaj7/E, Cm7/E♭).
@@ -1853,7 +1853,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
               continua com as mesmas quatro notas.
             </p>
             <p>
-              Cada aula desta unidade mostra o acorde em três grupos de cordas, um para cada corda do
+              Cada aula desta lição mostra o acorde em três grupos de cordas, um para cada corda do
               baixo: <strong>6ª</strong> (cordas 6 a 3), <strong>5ª</strong> (5 a 2) e{" "}
               <strong>4ª</strong> (4 a 1). Algumas aulas trazem também uma{" "}
               <strong>digitação alternativa</strong> que pula uma corda: é o <strong>drop 3</strong>,
@@ -1870,7 +1870,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
               <strong>four adjacent strings</strong> and keeps the same four notes.
             </p>
             <p>
-              Each lesson in this unit shows the chord on three string sets, one for each bass string:{" "}
+              Each lesson in this module shows the chord on three string sets, one for each bass string:{" "}
               <strong>6th</strong> (strings 6 to 3), <strong>5th</strong> (5 to 2) and{" "}
               <strong>4th</strong> (4 to 1). Some lessons also include an{" "}
               <strong>alternative fingering</strong> that skips a string: the <strong>drop 3</strong>,
@@ -2022,7 +2022,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
         {t(
           <ol className="list-decimal space-y-2 pl-5">
             <li>
-              A unidade está organizada por inversão e, dentro de cada uma, pelas quatro qualidades de
+              A lição está organizada por inversão e, dentro de cada uma, pelas quatro qualidades de
               tétrade.
             </li>
             <li>
@@ -2040,7 +2040,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
             </li>
           </ol>,
           <ol className="list-decimal space-y-2 pl-5">
-            <li>The unit is organised by inversion and, within each one, by the four seventh-chord qualities.</li>
+            <li>The module is organised by inversion and, within each one, by the four seventh-chord qualities.</li>
             <li>
               Each lesson has a variation for every key, in the cycle of fourths: the chord with the
               bass on the 4th, 5th and 6th strings, ordered by position on the neck, from lowest to
