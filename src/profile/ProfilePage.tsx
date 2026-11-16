@@ -5,7 +5,7 @@ import { ErrorText, Field, homeHref, useErrorMessage } from "../auth/AuthPage.ts
 import { resetAccountProgress, syncProgress } from "../auth/progressSync.ts";
 import { siteUrl, supabase } from "../auth/supabase.ts";
 import { LANGUAGES, useI18n, type Lang } from "../i18n.tsx";
-import { lessons } from "../lessons.ts";
+import { sections } from "../lessons.ts";
 import { clearLocalProgress, loadProgress, saveProgress, type Progress } from "../progress.ts";
 import { UserMenu } from "../UserMenu.tsx";
 
@@ -293,8 +293,10 @@ export function ProfilePage() {
     const { user } = state;
     const firstName = String(user.user_metadata?.first_name ?? "").trim();
     const username = String(user.user_metadata?.username ?? "").trim();
-    const total = lessons.length;
-    const done = lessons.filter((lesson) => progress[lesson.key]).length;
+    // An aula counts once all its 12 keys are done.
+    const trails = sections.flatMap((section) => section.trails);
+    const total = trails.length;
+    const done = trails.filter((trail) => trail.lessons.every((lesson) => progress[lesson.key])).length;
 
     content = (
       <div className="space-y-6">
@@ -319,7 +321,7 @@ export function ProfilePage() {
 
         <Card title={t("Progresso nas aulas", "Lesson progress")}>
           <ProgressBar done={done} total={total} />
-          <p className="mt-2 text-sm text-muted">{t("Exercícios concluídos em todas as aulas.", "Exercises completed across all lessons.")}</p>
+          <p className="mt-2 text-sm text-muted">{t("Aulas concluídas, cada uma nas 12 tonalidades.", "Lessons completed, each in all 12 keys.")}</p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href={`../app/?lang=${lang}`} className={`${buttonBase} bg-brand text-white hover:bg-brand-strong`}>
               {t("Ir para as aulas →", "Go to lessons →")}
