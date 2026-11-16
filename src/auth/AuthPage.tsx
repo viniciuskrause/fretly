@@ -15,9 +15,9 @@ type LoginView = "password" | "reset" | "newPassword";
 const MIN_PASSWORD = 8;
 
 /** The homepage in the current language (en at the site root, pt in pt/). */
-const homeHref = (lang: string) => (lang === "pt" ? "../pt/" : "../");
+export const homeHref = (lang: string) => (lang === "pt" ? "../pt/" : "../");
 
-function useErrorMessage() {
+export function useErrorMessage() {
   const { t } = useI18n();
   return (message: string) => {
     const text = message.toLowerCase();
@@ -26,13 +26,19 @@ function useErrorMessage() {
     if (text.includes("signups not allowed") || text.includes("user not found"))
       return t("Não encontramos uma conta com este e-mail.", "We couldn't find an account with this e-mail.");
     if (text.includes("email not confirmed")) return t("Confirme seu e-mail pelo link que enviamos antes de entrar.", "Confirm your e-mail with the link we sent before logging in.");
+    // Supabase's built-in e-mail service sends only a few e-mails per hour for the whole site.
+    if (text.includes("email rate limit"))
+      return t(
+        "Limite de envio de e-mails atingido. Tente de novo mais tarde (pode levar até uma hora).",
+        "The e-mail sending limit was reached. Try again later (it can take up to an hour).",
+      );
     if (text.includes("rate limit") || text.includes("security purposes"))
       return t("Muitas tentativas. Espere um minuto e tente de novo.", "Too many attempts. Wait a minute and try again.");
     return t(`Algo deu errado: ${message}`, `Something went wrong: ${message}`);
   };
 }
 
-function Field({
+export function Field({
   label,
   type = "text",
   value,
@@ -88,7 +94,7 @@ function SubmitButton({ label, busy }: { label: string; busy: boolean }) {
   );
 }
 
-function ErrorText({ message }: { message: string | null }) {
+export function ErrorText({ message }: { message: string | null }) {
   return (
     <p role="alert" className={`text-sm font-medium text-danger ${message ? "" : "hidden"}`}>
       {message}
@@ -238,7 +244,38 @@ function LoginForm() {
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
   const [passwordChanged, setPasswordChanged] = useState(false);
+  // The e-mail is not confirmed yet (log-in refused, or the confirmation link failed): offer a new link.
+  const [needsConfirmation, setNeedsConfirmation] = useState(false);
   const appUrl = siteUrl(`../app/?lang=${lang}`);
+
+  // Sent here by the app after an e-mail link failed (see src/main.tsx).
+  useEffect(() => {
+    const code = new URLSearchParams(window.location.search).get("auth_error");
+    if (!code) return;
+    setNeedsConfirmation(true);
+    setError(
+      code === "otp_expired" || code === "access_denied"
+        ? t(
+            "O link do e-mail expirou ou já foi usado. Digite seu e-mail e peça um novo link de confirmação abaixo.",
+            "The e-mail link has expired or was already used. Enter your e-mail and request a new confirmation link below.",
+          )
+        : t(
+            "Não foi possível confirmar pelo link do e-mail. Digite seu e-mail e peça um novo link abaixo.",
+            "We couldn't confirm you with the e-mail link. Enter your e-mail and request a new link below.",
+          ),
+    );
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  async function resendConfirmation() {
+    if (!supabase) return;
+    if (!email.trim()) return setError(t("Digite seu e-mail acima.", "Enter your e-mail above."));
+    setError(null);
+    setBusy(true);
+    const { error: resendError } = await supabase.auth.resend({ type: "signup", email: email.trim(), options: { emailRedirectTo: appUrl } });
+    setBusy(false);
+    if (resendError) return setError(errorMessage(resendError.message));
+    setSent(true);
+  }
 
   // Coming back from a password-reset e-mail: ask for the new password.
   useEffect(() => {
@@ -277,7 +314,10 @@ function LoginForm() {
       if (!failure) setPasswordChanged(true);
     }
     setBusy(false);
-    if (failure) setError(errorMessage(failure.message));
+    if (failure) {
+      setError(errorMessage(failure.message));
+      if (failure.message.toLowerCase().includes("email not confirmed")) setNeedsConfirmation(true);
+    }
   }
 
   const heading = {
@@ -342,6 +382,9 @@ function LoginForm() {
         />
         <div className="flex flex-wrap justify-between gap-3">
           {view === "password" && <TextButton onClick={() => go("reset")}>{t("Esqueceu a senha?", "Forgot password?")}</TextButton>}
+          {view === "password" && needsConfirmation && (
+            <TextButton onClick={() => void resendConfirmation()}>{t("Reenviar e-mail de confirmação", "Resend confirmation e-mail")}</TextButton>
+          )}
           {view === "reset" && <TextButton onClick={() => go("password")}>{t("Voltar ao login", "Back to log in")}</TextButton>}
         </div>
       </form>

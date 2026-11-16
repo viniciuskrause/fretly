@@ -60,6 +60,16 @@ export function saveProgress(progress: Progress) {
   }
 }
 
+/** Forgets this browser's progress (profile page: reset progress, delete account). */
+export function clearLocalProgress() {
+  try {
+    window.localStorage.removeItem(STORAGE_KEY);
+    window.localStorage.removeItem(LEGACY_KEY);
+  } catch {
+    // Blocked storage: nothing was saved.
+  }
+}
+
 /** Both progress records together; for a lesson in both, the newest completion wins. */
 export function mergeProgress(a: Progress, b: Progress): Progress {
   const merged: Progress = { ...a };
