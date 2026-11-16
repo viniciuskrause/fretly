@@ -193,6 +193,33 @@ o menor deslocamento possível: se as notas da casa mais baixa caem na casa 0, v
 cordas soltas (C7/B♭ = x1201x, não na casa 13; Em7/D = xx0000), com os dedos
 dessas notas removidos e os outros renumerados a partir de 1 (decisão do usuário).
 
+## Inversões de tríades (módulo "Inversões de Tríades")
+
+Mesma lógica das inversões de tétrades (`inversionLesson`, `transpose`, `lowToHigh`),
+com chaves `triads/<baixo>/<sufixo>/<tom>` (`#modulo/triads` no app). Três
+qualidades (`TRIAD_QUALITIES`): maior (`major`, ciclo das quartas), menor (`minor`,
+`MINOR_CYCLE`) e diminuta (`dim`, cifra "Cdim", `HALF_DIMINISHED_CYCLE`: VII grau de
+um tom maior). Três grupos (`TRIAD_GROUPS`): ordem direta, 1ª inversão (terça) e 2ª
+inversão (quinta). Cada aula tem a tríade fechada em três cordas vizinhas com o
+baixo na 6ª, 5ª e 4ª corda, sem alternativas. Modelos em C propostos pelo Claude em
+2026-11-16, **a revisar com o usuário**:
+
+| | Baixo na 6ª | Baixo na 5ª | Baixo na 4ª |
+|---|---|---|---|
+| C | 875xxx (4,3,1) | x-15-14-12-x-x → em C x320xx | xx-10-9-8-x (3,2,1) |
+| C/E | 12-10-10-x-x-x (3,1,1) | x755xx (3,1,1) | xx-14-12-13-x → em C xx201x |
+| C/G | 332xxx (2,3,1) | x-10-10-9-x-x (2,3,1) | xx555x (pestana) |
+| Cm | 865xxx (4,2,1) | x-15-13-12-x-x → em C x310xx | xx-10-8-8-x (3,1,1) |
+| Cm/E♭ | 11-10-10-x-x-x (2,1,1) | x655xx (2,1,1) | xx-13-12-13-x → em C xx101x |
+| Cm/G | 331xxx (3,4,1) | x-10-10-8-x-x (3,4,1) | xx554x (2,3,1) |
+| Cdim | 864xxx (4,2,1) ⚠ 5 casas | x-15-13-11-x-x (4,2,1) ⚠ | xx-10-8-7-x (4,2,1) |
+| Cdim/E♭ | 11-9-10-x-x-x (3,1,2) | x645xx (3,1,2) | xx-13-11-13-x (2,1,3) |
+| Cdim/G♭ | 231xxx (2,3,1) | x-9-10-8-x-x (2,3,1) | xx454x (1,2,1) |
+
+A tríade diminuta fechada na ordem direta tem abertura de 5 casas (aviso ⚠ do
+check). A ordem do painel é CAGED → Tríades → Tétrades (ids 1, 3, 2: o id não muda
+quando a ordem muda).
+
 ## Posições e organização das aulas (v2: por tonalidade)
 
 - **Posição N de um acorde = a N-ª forma CAGED subindo o braço** (`shapeForPosition`
@@ -205,7 +232,8 @@ dessas notas removidos e os outros renumerados a partir de 1 (decisão do usuár
   grave para a mais aguda (`shapesUpTheNeck`), e o exercício final toca as cinco
   em sequência. O título vira o rótulo da trilha ("C maior" / "formas CAGED") e o
   círculo mostra a cifra.
-- **Seção e trilhas:** `src/lessons.ts` exporta `sections` — uma seção ("Acordes
+- **Seção e trilhas:** `src/lessons.ts` exporta `sections` (módulos CAGED, Inversões de
+  Tríades e Inversões de Tétrades). O módulo CAGED é uma seção ("Acordes
   Básicos no CAGED") com quatro trilhas, cada uma com seu subtítulo: "Acordes
   maiores" (C maior … G maior), "Acordes menores" (C menor …), "Acordes de sétima
   dominante" (C7 …) e "Acordes meio diminutos" (Cm7(♭5) …). `lessons` lista todas

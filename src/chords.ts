@@ -40,12 +40,12 @@ export type ChordStep = {
   /** Name shown in the app ("C", "B♭", "Am", "G7", "Bm7(♭5)"). */
   chord: string;
   /** chords-db suffix; omitted = "major". */
-  suffix?: "major" | "minor" | "7" | "m7b5" | "maj7" | "m7";
+  suffix?: "major" | "minor" | "dim" | "7" | "m7b5" | "maj7" | "m7";
   /** Chord tone in the bass (inversions); omitted = the root. */
   bass?: "root" | "third" | "fifth" | "seventh";
   /** CAGED shape the voicing comes from (root-position chords of section 1). */
   shape?: CagedShape;
-  /** String holding the bass note (inversions of section 2: 4, 5 or 6). */
+  /** String holding the bass note (triad and seventh-chord inversions: 4, 5 or 6). */
   bassString?: 4 | 5 | 6;
   /** Alternative fingering of the previous step (labelled under the diagram). */
   alternative?: boolean;

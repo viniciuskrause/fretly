@@ -395,14 +395,14 @@ function ProgressHighlight({ lessons }: { lessons: Lesson[] }) {
       <h2 id="progress-title" className="eyebrow eyebrow--lg text-muted">
         {t("Seu progresso", "Your progress")}
       </h2>
-      <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+      <div className="flex flex-1 flex-col justify-center gap-1.5 py-4">
         <span className="font-display text-[44px] font-bold leading-none tracking-[-0.04em] text-ink sm:text-[52px]">
           {done}
           <span className="text-muted">/{lessons.length}</span>
         </span>
         <span className="text-[15px] font-medium text-ink-2">{t("exercícios concluídos", "exercises completed")}</span>
       </div>
-      <div className="mt-auto pt-6">
+      <div>
         <div
           className="h-3 overflow-hidden rounded-full bg-sunken"
           role="progressbar"
@@ -425,7 +425,7 @@ function NextLesson({ sections: all, onSelect }: { sections: Section[]; onSelect
   const next = section?.trails.flatMap((trail) => trail.lessons).find((lesson) => lesson.status === "current");
   const started = all.some((item) => item.trails.some((trail) => trail.lessons.some((lesson) => lesson.status === "done")));
   return (
-    <section aria-labelledby="next-title" className="flex flex-col justify-between rounded-card border border-line bg-surface p-5 sm:p-7">
+    <section aria-labelledby="next-title" className="flex flex-col rounded-card border border-line bg-surface p-5 sm:p-7">
       <h2 id="next-title" className="eyebrow eyebrow--lg text-muted">
         {t("Próxima aula", "Next lesson")}
       </h2>
@@ -434,17 +434,19 @@ function NextLesson({ sections: all, onSelect }: { sections: Section[]; onSelect
           <div className="mt-3">
             <p className="font-display text-[24px] font-bold leading-tight tracking-[-0.03em] text-ink sm:text-[26px]">{l(next.title)}</p>
             <p className="mt-1.5 text-[15px] text-ink-2">{l(next.subtitle)}</p>
-            <p className="mt-1 text-sm text-muted">
-              {t("Módulo", "Module")}: {l(section.title)}
-            </p>
           </div>
-          <button
-            onClick={() => onSelect(next)}
-            className="mt-5 flex h-11 items-center justify-center gap-2 self-start rounded-control bg-accent px-5 text-[15px] font-semibold text-white transition-colors hover:bg-accent-strong"
-          >
-            <Icon name="play" className="size-4" />
-            {started ? t("Continuar praticando", "Continue practicing") : t("Começar a praticar", "Start practicing")}
-          </button>
+          <div className="mt-auto flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="inline-flex min-w-0 max-w-full items-center self-start rounded-md bg-sunken px-2.5 py-1 text-[13px] font-medium text-ink-2 sm:self-center">
+              <span className="truncate">{l(section.title)}</span>
+            </p>
+            <button
+              onClick={() => onSelect(next)}
+              className="flex h-11 shrink-0 items-center justify-center gap-2 rounded-control bg-accent px-5 text-[15px] font-semibold text-white transition-colors hover:bg-accent-strong"
+            >
+              <Icon name="play" className="size-4" />
+              {started ? t("Continuar praticando", "Continue practicing") : t("Começar a praticar", "Start practicing")}
+            </button>
+          </div>
         </>
       ) : (
         <p className="mt-3 text-[16px] font-semibold text-ink">{t("Você concluiu todas as aulas!", "You've completed every lesson!")}</p>
@@ -1744,18 +1746,22 @@ const QUALITY_LABEL: Record<string, Localized> = {
   "Acordes menores": { pt: "Menor (m7)", en: "Minor (m7)" },
   "Acordes de sétima dominante": { pt: "Dominante (7)", en: "Dominant (7)" },
   "Acordes meio diminutos": { pt: "Meio diminuto (m7♭5)", en: "Half-diminished (m7♭5)" },
+  "Tríades maiores": { pt: "Maior", en: "Major" },
+  "Tríades menores": { pt: "Menor (m)", en: "Minor (m)" },
+  "Tríades diminutas": { pt: "Diminuta (dim)", en: "Diminished (dim)" },
 };
 
 const ORDINAL_EN: Record<number, string> = { 4: "4th", 5: "5th", 6: "6th" };
 
 /**
- * The C lesson of every trail of section 2, grouped by inversion: per chord quality, the
- * main voicing on each bass string (6ª → 4ª), leaving out the alternative fingerings.
+ * The C lesson of every trail of an inversion module (triads: id 3, seventh chords: id 2),
+ * grouped by inversion: per chord quality, the main voicing on each bass string (6ª → 4ª),
+ * leaving out the alternative fingerings.
  */
-function inversionTables() {
-  const section = sections[1];
+function inversionTables(sectionId: number) {
+  const section = sections.find((item) => item.id === sectionId)!;
   const tables: Array<{ inversion: Localized; rows: Array<{ quality: Localized; steps: ChordStep[] }> }> = [];
-  for (const trail of section.trails) {
+  for (const trail of section.trails.filter((item) => !item.review)) {
     const lesson = trail.lessons.find((item) => item.title.pt.startsWith("C")) ?? trail.lessons[0];
     const steps = lesson.steps
       .filter((step) => !step.alternative)
@@ -1768,9 +1774,42 @@ function inversionTables() {
   return tables;
 }
 
+/** Guide tables: per inversion, the C shapes of each quality on the three bass strings. */
+function InversionShapeTables({ tables }: { tables: ReturnType<typeof inversionTables> }) {
+  const { t, l } = useI18n();
+  const fretOf = (step: ChordStep) => t(`casa ${step.position.baseFret}`, `fret ${step.position.baseFret}`);
+  return (
+    <>
+      {tables.map((table) => (
+        <div key={table.inversion.pt} className="!mt-10">
+          <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-ink">{l(table.inversion)}</h3>
+          <div className="mt-4 space-y-6">
+            {table.rows.map((row) => (
+              <div key={row.quality.pt}>
+                <p className="eyebrow text-brand-ink">{l(row.quality)}</p>
+                <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3">
+                  {row.steps.map((step) => (
+                    <figure key={`${step.chord}-${step.bassString}`} className="min-w-0">
+                      <ChordCard step={step} />
+                      <figcaption className="mt-1.5 text-center text-[11px] font-medium leading-snug text-muted sm:text-xs">
+                        {t(`Baixo na ${step.bassString}ª`, `Bass on the ${ORDINAL_EN[step.bassString ?? 0]}`)} ·{" "}
+                        {fretOf(step)}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </>
+  );
+}
+
 function InversionsGuide({ onBack }: { onBack: () => void }) {
   const { t, l, lang } = useI18n();
-  const tables = inversionTables();
+  const tables = inversionTables(2);
   const fretOf = (step: ChordStep) => t(`casa ${step.position.baseFret}`, `fret ${step.position.baseFret}`);
   return (
     <GuideLayout
@@ -1943,29 +1982,7 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
             and <strong>7</strong> the seventh, with ♭ when the interval is lowered.
           </p>,
         )}
-        {tables.map((table) => (
-          <div key={table.inversion.pt} className="!mt-10">
-            <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-ink">{l(table.inversion)}</h3>
-            <div className="mt-4 space-y-6">
-              {table.rows.map((row) => (
-                <div key={row.quality.pt}>
-                  <p className="eyebrow text-brand-ink">{l(row.quality)}</p>
-                  <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3">
-                    {row.steps.map((step) => (
-                      <figure key={`${step.chord}-${step.bassString}`} className="min-w-0">
-                        <ChordCard step={step} />
-                        <figcaption className="mt-1.5 text-center text-[11px] font-medium leading-snug text-muted sm:text-xs">
-                          {t(`Baixo na ${step.bassString}ª`, `Bass on the ${ORDINAL_EN[step.bassString ?? 0]}`)} ·{" "}
-                          {fretOf(step)}
-                        </figcaption>
-                      </figure>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+        <InversionShapeTables tables={tables} />
       </GuideSection>
 
       <GuideSection title={t("Uma nota de diferença", "One note apart")}>
@@ -2109,11 +2126,172 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
 }
 
 /** Dictionary sections, one per chord quality, named after the home-page trails. */
-const DICTIONARY_QUALITIES: Array<{ trail: string; title: Localized }> = [
-  { trail: "Acordes maiores", title: { pt: "Acordes maiores", en: "Major chords" } },
-  { trail: "Acordes menores", title: { pt: "Acordes menores", en: "Minor chords" } },
-  { trail: "Acordes de sétima dominante", title: { pt: "Acordes dominantes", en: "Dominant chords" } },
-  { trail: "Acordes meio diminutos", title: { pt: "Acordes meio diminutos", en: "Half-diminished chords" } },
+const TRIAD_SOURCES: GuideSource[] = [
+  { label: "Wikipedia — Triad (music)", url: "https://en.wikipedia.org/wiki/Triad_(music)" },
+  { label: "Wikipedia — Inversion (music)", url: "https://en.wikipedia.org/wiki/Inversion_(music)" },
+];
+
+/** The three triads of the triad-inversion module, in C. */
+const TRIADS: Array<{ quality: Localized; symbol: string; notes: string; formula: string }> = [
+  { quality: { pt: "Maior", en: "Major" }, symbol: "C", notes: "C E G", formula: "1 3 5" },
+  { quality: { pt: "Menor", en: "Minor" }, symbol: "Cm", notes: "C E♭ G", formula: "1 ♭3 5" },
+  { quality: { pt: "Diminuta", en: "Diminished" }, symbol: "Cdim", notes: "C E♭ G♭", formula: "1 ♭3 ♭5" },
+];
+
+function TriadsGuide({ onBack }: { onBack: () => void }) {
+  const { t, l } = useI18n();
+  const tables = inversionTables(3);
+  return (
+    <GuideLayout
+      title={t("Inversões de tríades", "Triad inversions")}
+      sources={TRIAD_SOURCES}
+      onBack={onBack}
+      intro={t(
+        <>
+          A tríade é o acorde mais básico: três notas empilhadas em terças. Trocando a nota que fica no
+          baixo, o mesmo acorde ganha três formas em cada grupo de três cordas — um jeito curto de tocar
+          qualquer acorde em qualquer região do braço.
+        </>,
+        <>
+          The triad is the most basic chord: three notes stacked in thirds. By changing which note sits
+          in the bass, the same chord gets three shapes on every set of three strings — a short way to
+          play any chord anywhere on the neck.
+        </>,
+      )}
+    >
+      <GuideSection title={t("O que é uma tríade", "What a triad is")}>
+        {t(
+          <p>
+            Uma tríade tem a <strong>fundamental</strong>, a <strong>terça</strong> e a{" "}
+            <strong>quinta</strong>. A terça maior ou menor e a quinta justa ou diminuta dão as três
+            qualidades que este módulo trabalha. Em C:
+          </p>,
+          <p>
+            A triad has the <strong>root</strong>, the <strong>third</strong> and the{" "}
+            <strong>fifth</strong>. A major or minor third and a perfect or diminished fifth give the
+            three qualities this module covers. In C:
+          </p>,
+        )}
+        <div className="!mt-6 overflow-x-auto rounded-card border border-line bg-surface">
+          <table className="w-full min-w-[420px] text-left text-sm">
+            <thead className="border-b border-line text-muted">
+              <tr>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Qualidade", "Quality")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Cifra", "Symbol")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Notas", "Notes")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Fórmula", "Formula")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TRIADS.map((triad) => (
+                <tr key={triad.symbol} className="border-b border-line last:border-b-0">
+                  <td className="px-4 py-3 font-semibold text-ink">{l(triad.quality)}</td>
+                  <td className="px-4 py-3 font-mono text-ink">{triad.symbol}</td>
+                  <td className="px-4 py-3 text-ink-2">{triad.notes}</td>
+                  <td className="px-4 py-3 font-mono text-ink-2">{triad.formula}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </GuideSection>
+
+      <GuideSection title={t("O que é uma inversão", "What an inversion is")}>
+        {t(
+          <>
+            <p>
+              O que define a inversão é só <strong>a nota mais grave</strong>. Com três notas há três
+              possibilidades:
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Ordem direta:</strong> a fundamental no baixo (C).
+              </li>
+              <li>
+                <strong>1ª inversão:</strong> a terça no baixo (C/E, Cm/E♭).
+              </li>
+              <li>
+                <strong>2ª inversão:</strong> a quinta no baixo (C/G, Cdim/G♭).
+              </li>
+            </ul>
+            <p>A cifra com barra mostra a nota do baixo: C/E é o acorde de C com o E na nota mais grave.</p>
+          </>,
+          <>
+            <p>
+              The only thing that defines the inversion is <strong>the lowest note</strong>. With three
+              notes there are three options:
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Root position:</strong> the root in the bass (C).
+              </li>
+              <li>
+                <strong>1st inversion:</strong> the third in the bass (C/E, Cm/E♭).
+              </li>
+              <li>
+                <strong>2nd inversion:</strong> the fifth in the bass (C/G, Cdim/G♭).
+              </li>
+            </ul>
+            <p>A slash chord names the bass note: C/E is a C chord with E as its lowest note.</p>
+          </>,
+        )}
+      </GuideSection>
+
+      <GuideSection title={t("As formas em C", "The shapes in C")}>
+        {t(
+          <p>
+            Cada forma usa três cordas vizinhas, com as notas na ordem mais fechada possível. Abaixo, as
+            formas em C das três qualidades, com o baixo na 6ª, 5ª e 4ª corda. À esquerda de cada
+            diagrama, cada corda que soa mostra o grau da nota: <strong>1</strong> é a fundamental,{" "}
+            <strong>3</strong> a terça e <strong>5</strong> a quinta, com ♭ quando o intervalo é abaixado.
+          </p>,
+          <p>
+            Every shape uses three neighbouring strings, with the notes as close together as possible.
+            Below are the C shapes of the three qualities, with the bass on the 6th, 5th and 4th string.
+            To the left of each diagram, every sounding string shows the degree of its note:{" "}
+            <strong>1</strong> is the root, <strong>3</strong> the third and <strong>5</strong> the fifth,
+            with ♭ when the interval is lowered.
+          </p>,
+        )}
+        <InversionShapeTables tables={tables} />
+      </GuideSection>
+
+      <GuideSection title={t("Como estudar com este app", "How to study with this app")}>
+        {t(
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              Cada aula é uma qualidade numa inversão, nas 12 tonalidades; cada tonalidade traz a forma
+              com o baixo na 6ª, 5ª e 4ª corda, da mais perto da pestana para a mais perto do corpo.
+            </li>
+            <li>O exercício final toca as três formas em sequência, no andamento do metrônomo.</li>
+            <li>
+              Diga em voz alta a nota do baixo antes de tocar: é ela que muda de uma inversão para outra.
+            </li>
+            <li>
+              Algumas formas da tríade diminuta pedem uma abertura grande entre os dedos; vá devagar.
+            </li>
+          </ul>,
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              Each lesson is one quality in one inversion, in all 12 keys; each key has the shape with the
+              bass on the 6th, 5th and 4th string, from the one nearest the nut to the one nearest the body.
+            </li>
+            <li>The final exercise plays the three shapes in sequence, at the metronome tempo.</li>
+            <li>Say the bass note out loud before you play: it is what changes from one inversion to the next.</li>
+            <li>Some diminished-triad shapes need a wide stretch between the fingers; take it slowly.</li>
+          </ul>,
+        )}
+      </GuideSection>
+    </GuideLayout>
+  );
+}
+
+const DICTIONARY_QUALITIES: Array<{ trails: string[]; title: Localized }> = [
+  { trails: ["Acordes maiores", "Tríades maiores"], title: { pt: "Acordes maiores", en: "Major chords" } },
+  { trails: ["Acordes menores", "Tríades menores"], title: { pt: "Acordes menores", en: "Minor chords" } },
+  { trails: ["Acordes de sétima dominante"], title: { pt: "Acordes dominantes", en: "Dominant chords" } },
+  { trails: ["Acordes meio diminutos"], title: { pt: "Acordes meio diminutos", en: "Half-diminished chords" } },
+  { trails: ["Tríades diminutas"], title: { pt: "Acordes diminutos", en: "Diminished chords" } },
 ];
 
 /** The 12 keys of the dictionary's key selector, chromatic from C (pitch class = index). */
@@ -2125,11 +2303,11 @@ const DICTIONARY_KEYS = ["C", "D♭", "D", "E♭", "E", "F", "F♯", "G", "A♭"
  * inversion), in lesson order. Chord spellings come from the lessons (e.g. C♯m on D♭).
  */
 function dictionaryOf(key: number) {
-  return DICTIONARY_QUALITIES.map(({ trail: trailTitle, title }) => ({
+  return DICTIONARY_QUALITIES.map(({ trails: trailTitles, title }) => ({
     title,
     groups: sections.flatMap((section) =>
       section.trails
-        .filter((trail) => trail.title.pt === trailTitle)
+        .filter((trail) => trailTitles.includes(trail.title.pt) && !trail.review)
         .flatMap((trail) => {
           const lesson = trail.lessons.find((item) => item.steps.length && rootPitchClass(item.steps[0].chord) === key);
           if (!lesson) return [];
@@ -2358,7 +2536,7 @@ export default function App() {
   if (dictionary.open) return <DictionaryPage onBack={dictionary.close} />;
 
   if (guideSection !== null) {
-    const Guide = guideSection === 2 ? InversionsGuide : CagedGuide;
+    const Guide = guideSection === 2 ? InversionsGuide : guideSection === 3 ? TriadsGuide : CagedGuide;
     return <Guide onBack={() => setGuideSection(null)} />;
   }
 
