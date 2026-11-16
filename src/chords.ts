@@ -53,6 +53,36 @@ export type ChordStep = {
   position: ChordPosition;
 };
 
+/** One note of a scale position. */
+export type ScaleNote = {
+  /** String index, 0 = low E … 5 = high E (as in `ChordPosition.frets`). */
+  string: number;
+  /** Absolute fret (0 = open). */
+  fret: number;
+  /** Left-hand finger (1 index … 4 pinky). */
+  finger: number;
+  /** Scale degree from the key's tonic ("1", "♭3", "7"…). */
+  degree: string;
+};
+
+/** A scale in one position: three notes per string except one string with two, low E → high E. */
+export type ScaleStep = {
+  /** Tonic of the key ("C", "F♯"); the scale is major or natural minor. */
+  root: string;
+  quality: "major" | "minor";
+  /** 1–7: the degree of the key (major or minor) the position starts on, on the 6th string. */
+  position: number;
+  /** Mode whose shape the position has ("Jônio" … "Lócrio"). */
+  mode: Localized;
+  /** The 17 notes, ascending. */
+  notes: ScaleNote[];
+};
+
+/** Frequency of a scale note. */
+export function scaleNoteFrequency(note: ScaleNote) {
+  return midiToFrequency(OPEN_STRING_MIDI[note.string] + note.fret);
+}
+
 /** Standard tuning, low E → high E. */
 export const OPEN_STRING_MIDI = [40, 45, 50, 55, 59, 64];
 

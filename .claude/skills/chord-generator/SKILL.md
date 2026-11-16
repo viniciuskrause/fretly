@@ -308,3 +308,34 @@ quando a ordem muda).
 6. **Publicar:** `npm run deploy` (roda a verificação antes do build).
 
 Nunca altere `reference/chords-db/guitar.json`: é a referência original.
+
+## Escalas: 7 posições do modo jônio
+
+Módulo `scales` (seção id 4), gerado em `scripts/chords/build-key-lessons.mjs`
+(`scalePosition`, `scaleLesson`). **Uma aula por desenho** (pedido do usuário,
+2026-11-16): grupo "Escalas maiores" (`CYCLE_OF_FOURTHS`) com as aulas "Posição 1 -
+Jônio" … "Posição 7 - Lócrio", e grupo "Escalas menores" (`MINOR_CYCLE`, menor
+natural) com "Posição 1 - Eólio" … "Posição 7 - Mixolídio". Cada aula tem as 12
+tonalidades (chave `scales/<major|minor>/p<n>/<tônica>`), e cada tonalidade é um
+único exercício: um `ScaleStep` (src/chords.ts) em `lesson.scale` (`lesson.steps`
+fica vazio). Sem exercício final: tocar o desenho conclui a tonalidade. O hub
+inativo mostra o número da posição.
+
+- **Posição n** começa no n-ésimo grau da escala maior na 6ª corda (casa 1–12)
+  e vai até a 1ª com **três notas por corda, menos uma corda com duas** (17 notas,
+  `NOTES_PER_STRING`, definido pelo usuário em 2026-11-16): posição 1 = jônio, 2 = dórico, 3 =
+  frígio, 4 = lídio, 5 = mixolídio, 6 = eólio, 7 = lócrio.
+- **Menor**: usa os mesmos desenhos da relativa maior (A menor = C maior), com os
+  graus contados da tônica menor (1 2 ♭3 4 5 ♭6 ♭7) e as posições numeradas a partir
+  dela (usuário, 2026-11-16): 1 = eólio, 2 = lócrio, 3 = jônio, 4 = dórico,
+  5 = frígio, 6 = lídio, 7 = mixolídio.
+- **Jônio (posição 1)**, pedido do usuário (2026-11-16): a tônica sai da 2ª corda e vai para a 1ª, e a 4 da 1ª corda sai (17 notas).
+- **Dórico (posição 2)**, pedido do usuário (2026-11-16): a 6 sai da 3ª corda e vai para a 2ª, a 2 sai da 2ª e vai para a 1ª, e a 5 da 1ª corda sai (17 notas).
+- **Frígio (posição 3)**, pedido do usuário (2026-11-16): a 7 sai da 3ª corda e vai para a 2ª, a 3 sai da 2ª e vai para a 1ª, e a 6 da 1ª corda sai (17 notas).
+- **Lídio (posição 4)**, pedido do usuário (2026-11-16): o 4º grau sai da 2ª corda e vai para a 1ª, e a 7ª da 1ª corda sai (17 notas; `NOTES_PER_STRING`).
+- **Mixolídio (posição 5)**, pedido do usuário (2026-11-16): a 5ª sai da 2ª corda e vai para a 1ª, e a tônica da 1ª corda sai (17 notas).
+- **Eólio (posição 6)**, pedido do usuário (2026-11-16), graus da maior: a 3 sai da 3ª corda e vai para a 2ª, a 6 sai da 2ª e vai para a 1ª, e a 2 da 1ª corda sai (17 notas; a 3ª corda fica com duas notas).
+- **Lócrio (posição 7)**, pedido do usuário (2026-11-16), graus da maior: a 7 sai da 2ª corda e vai para a 1ª, e a 3 da 1ª corda sai (17 notas).
+- **Dedos** por corda: tom-tom e semitom-tom → 1 2 4; tom-semitom → 1 3 4; duas notas a um tom → 2 4, a meio tom → 3 4. Posição que cabe em quatro casas (ex.: eólio) → um dedo por casa.
+- O gerador recusa casas fora de ordem ou abertura acima de 5 casas numa corda.
+- Digitações das 7 posições definidas pelo usuário (2026-11-16).
