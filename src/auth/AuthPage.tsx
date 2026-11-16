@@ -4,13 +4,13 @@ import { useI18n } from "../i18n.tsx";
 import { siteUrl, supabase } from "./supabase.ts";
 
 // Sign-up and log-in pages (signup/ and login/), modelled on the reference
-// register/login pages: a profile form that saves progress, and a log-in that
-// sends a link by e-mail by default, with password log-in and password reset.
+// register/login pages: a profile form that saves progress, and a log-in with
+// e-mail and password (plus password reset).
 
 export type AuthMode = "signup" | "login";
 
-/** Log-in page views: e-mail link (default), password, reset request, new password (after a reset link). */
-type LoginView = "link" | "password" | "reset" | "newPassword";
+/** Log-in page views: e-mail + password (default), reset request, new password (after a reset link). */
+type LoginView = "password" | "reset" | "newPassword";
 
 const MIN_PASSWORD = 8;
 
@@ -231,7 +231,7 @@ function SignupForm() {
 function LoginForm() {
   const { t, lang } = useI18n();
   const errorMessage = useErrorMessage();
-  const [view, setView] = useState<LoginView>("link");
+  const [view, setView] = useState<LoginView>("password");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -260,13 +260,7 @@ function LoginForm() {
     if (!supabase) return;
     setBusy(true);
     let failure: { message: string } | null = null;
-    if (view === "link") {
-      ({ error: failure } = await supabase.auth.signInWithOtp({
-        email: email.trim(),
-        options: { emailRedirectTo: appUrl, shouldCreateUser: false },
-      }));
-      if (!failure) setSent(true);
-    } else if (view === "password") {
+    if (view === "password") {
       ({ error: failure } = await supabase.auth.signInWithPassword({ email: email.trim(), password }));
       if (!failure) window.location.assign(appUrl);
     } else if (view === "reset") {
@@ -287,7 +281,6 @@ function LoginForm() {
   }
 
   const heading = {
-    link: t("Entrar", "Log in"),
     password: t("Entrar", "Log in"),
     reset: t("Redefinir senha", "Reset password"),
     newPassword: t("Nova senha", "New password"),
@@ -308,7 +301,7 @@ function LoginForm() {
   return (
     <div>
       <h1 className="font-display text-[34px] font-bold leading-tight tracking-[-0.04em] text-ink sm:text-[40px]">{heading}</h1>
-      {(view === "link" || view === "password") && (
+      {view === "password" && (
         <p className="mt-3 text-[16px] text-ink-2">
           {t("Ainda não tem conta?", "Don't have an account yet?")}{" "}
           <a href={`../signup/?lang=${lang}`} className="font-semibold text-brand-ink underline underline-offset-4">
@@ -341,7 +334,6 @@ function LoginForm() {
           busy={busy}
           label={
             {
-              link: t("Receber link de acesso", "Get log-in link"),
               password: t("Entrar", "Log in"),
               reset: t("Redefinir senha", "Reset password"),
               newPassword: t("Salvar nova senha", "Save new password"),
@@ -349,13 +341,7 @@ function LoginForm() {
           }
         />
         <div className="flex flex-wrap justify-between gap-3">
-          {view === "link" && <TextButton onClick={() => go("password")}>{t("Entrar com senha", "Log in with password instead")}</TextButton>}
-          {view === "password" && (
-            <>
-              <TextButton onClick={() => go("link")}>{t("Receber link por e-mail", "Get a log-in link instead")}</TextButton>
-              <TextButton onClick={() => go("reset")}>{t("Esqueceu a senha?", "Forgot password?")}</TextButton>
-            </>
-          )}
+          {view === "password" && <TextButton onClick={() => go("reset")}>{t("Esqueceu a senha?", "Forgot password?")}</TextButton>}
           {view === "reset" && <TextButton onClick={() => go("password")}>{t("Voltar ao login", "Back to log in")}</TextButton>}
         </div>
       </form>
