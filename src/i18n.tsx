@@ -79,9 +79,9 @@ export function useI18n() {
 }
 
 /**
- * Chord symbol as written in each language: Brazilian "7M" is "maj7" in English
- * ("C7M/E" → "Cmaj7/E"); everything else is the same.
+ * Chord symbol as written in each language: Brazilian "7+" is "maj7" in English
+ * ("C7+/E" → "Cmaj7/E"); everything else is the same.
  */
 export function chordName(symbol: string, lang: Lang) {
-  return lang === "en" ? symbol.replace("7M", "maj7") : symbol;
+  return lang === "en" ? symbol.replace("7+", "maj7") : symbol;
 }

@@ -91,9 +91,9 @@ export const CAGED_M7B5 = {
   D: { rootPc: 2, frets: [-1, -1, 0, 1, 1, 1], open: [0, 0, 0, 1, 1, 1], moved: [0, 0, 1, 2, 3, 4] },
 };
 
-/** Chord symbol shown in the app: "C", "Cm", "C7", "Cm7(♭5)", "C7M". */
+/** Chord symbol shown in the app: "C", "Cm", "C7", "Cm7(♭5)", "C7+". */
 export function chordSymbol(root, suffix = "major") {
-  return root + ({ major: "", minor: "m", "7": "7", m7b5: "m7(♭5)", maj7: "7M" }[suffix] ?? suffix);
+  return root + ({ major: "", minor: "m", "7": "7", m7b5: "m7(♭5)", maj7: "7+" }[suffix] ?? suffix);
 }
 
 /** Chord tone in the bass of an inversion, as an index into SUFFIX_INTERVALS. */

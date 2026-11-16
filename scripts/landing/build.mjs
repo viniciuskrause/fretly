@@ -202,7 +202,7 @@ ${t.hero.checklist
           </ul>
         </div>
         <div class="flex justify-center">
-          ${lessonRing(t.hero.ringLabel, lang === "en" ? "maj7" : "7M")}
+          ${lessonRing(t.hero.ringLabel, lang === "en" ? "maj7" : "7+")}
         </div>
       </section>
 

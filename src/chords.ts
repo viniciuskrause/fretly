@@ -25,7 +25,7 @@ const ORDINAL_EN = { 4: "4th", 5: "5th", 6: "6th" } as const;
 
 /**
  * Chord symbol with its CAGED shape ("D (Forma C)" / "D (C shape)") or, for
- * inversions, its bass string ("C7M/E (baixo na 5ª corda)" / "Cmaj7/E (bass on the 5th string)").
+ * inversions, its bass string ("C7+/E (baixo na 5ª corda)" / "Cmaj7/E (bass on the 5th string)").
  */
 export function chordLabel(step: Pick<ChordStep, "chord" | "shape" | "bassString">, lang: Lang) {
   const chord = chordName(step.chord, lang);
@@ -97,7 +97,7 @@ export function rootPitchClass(chord: string) {
   return (NATURAL_PITCH_CLASS[match[1]] + accidental + 12) % 12;
 }
 
-/** Degree names by semitones above the root, spelled for the app's chords (triads, 7M, m7, 7, m7(♭5)). */
+/** Degree names by semitones above the root, spelled for the app's chords (triads, 7+, m7, 7, m7(♭5)). */
 const DEGREE_BY_SEMITONES = ["1", "♭2", "2", "♭3", "3", "4", "♭5", "5", "♯5", "6", "♭7", "7"];
 
 /** Degree of the note a string sounds in this chord ("1", "♭3", "5", "♭7"…), or null when muted. */
