@@ -47,8 +47,8 @@ type I18n = {
 
 const I18nContext = createContext<I18n | null>(null);
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(initialLang);
+export function I18nProvider({ children, lang: pageLang }: { children: ReactNode; /** Fixed by the page (the homepage is one page per language). */ lang?: Lang }) {
+  const [lang, setLangState] = useState<Lang>(() => pageLang ?? initialLang());
 
   useEffect(() => {
     document.documentElement.lang = LANGUAGES.find((item) => item.id === lang)!.htmlLang;

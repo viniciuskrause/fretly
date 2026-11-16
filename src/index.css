@@ -281,6 +281,11 @@
     color: var(--color-brand-ink);
   }
 
+  /* Homepage header while the stored session is being verified: keep the space, hide the buttons. */
+  [data-auth-pending] [data-auth] {
+    visibility: hidden;
+  }
+
   /* User menu (top bar): drop-down under the initials, with the language selector. */
   .user-menu {
     position: absolute;

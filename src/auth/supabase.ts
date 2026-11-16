@@ -1,4 +1,4 @@
-import { createClient, type Session, type SupabaseClient } from "@supabase/supabase-js";
+import { createClient, type Session, type SupabaseClient, type User } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 
 /**
@@ -38,8 +38,12 @@ export function useSession() {
 
 /** Initials shown in the avatar ("Rafael Lima" → "RL"; falls back to the e-mail). */
 export function initialsOf(session: Session) {
-  const name = String(session.user.user_metadata?.first_name ?? "").trim();
-  const source = name || session.user.email || "?";
+  return initialsOfUser(session.user);
+}
+
+export function initialsOfUser(user: User) {
+  const name = String(user.user_metadata?.first_name ?? "").trim();
+  const source = name || user.email || "?";
   const words = source.split(/[\s@._-]+/).filter(Boolean);
   return ((words[0]?.[0] ?? "?") + (words[1]?.[0] ?? "")).toUpperCase();
 }

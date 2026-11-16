@@ -16,7 +16,7 @@ export const content = {
     title: "Guitar Chord Exercises – CAGED System & Chord Inversions | Guitar Workouts for Nerds",
     description:
       "Free interactive guitar chord exercises with sound and a metronome. Learn the CAGED system and seventh-chord inversions in all 12 keys, right in your browser.",
-    nav: { cta: "Start practicing for free", login: "Log in" },
+    nav: { cta: "Start practicing for free", login: "Log in", continue: "Continue practicing", account: "Open the app" },
     hero: {
       h1: "Guitar chord exercises that teach you the whole fretboard",
       sub: "Bite-sized, interactive lessons with sound and a metronome. Play every chord in every key, anywhere on the neck.",
@@ -89,7 +89,7 @@ export const content = {
     title: "Exercícios de Acordes para Violão e Guitarra – CAGED e Inversões | Guitar Workouts for Nerds",
     description:
       "Exercícios interativos e gratuitos de acordes para violão e guitarra, com som e metrônomo. Aprenda o sistema CAGED e as inversões de tétrades nas 12 tonalidades.",
-    nav: { cta: "Comece a praticar grátis", login: "Entrar" },
+    nav: { cta: "Comece a praticar grátis", login: "Entrar", continue: "Continuar praticando", account: "Abrir o app" },
     hero: {
       h1: "Exercícios de acordes para dominar o braço inteiro do violão e da guitarra",
       sub: "Aulas curtas e interativas, com som e metrônomo. Toque qualquer acorde em qualquer tonalidade, em qualquer lugar do braço.",
