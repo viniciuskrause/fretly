@@ -2,6 +2,7 @@
 # Build and publish dist/ to the gh-pages branch (GitHub Pages preview).
 set -e
 node scripts/chords/check.mjs
+node scripts/landing/build.mjs
 npx tsc --noEmit
 npx vite build --base=/fretly/
 cd dist

@@ -12,7 +12,7 @@ const notInDb = [];
 for (const lesson of lessons) {
   for (const [index, step] of lesson.steps.entries()) {
     const suffix = step.suffix ?? "major";
-    const where = `${lesson.title} · passo ${index + 1} · ${step.chord}`;
+    const where = `${lesson.title.pt} · passo ${index + 1} · ${step.chord}`;
     const result = validate(step.position, step.chord, suffix, step.shape, step.bass, step.bassString);
     const db = compareWithDb(step.position, step.chord, suffix);
     tally[db.kind]++;

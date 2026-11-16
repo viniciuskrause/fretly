@@ -240,8 +240,14 @@ dessas notas removidos e os outros renumerados a partir de 1 (decisão do usuár
   em `src/chords.ts`). O nome grande do acorde e os cartões da sequência final
   mostram só a cifra ("D").
 - **Instrução na tela:** o título é "Monte {cifra} e toque corda por corda.", ex.
-  "Monte D (Forma C) e toque corda por corda."; o campo `instruction` fica
-  registrado nos dados.
+  "Monte D (Forma C) e toque corda por corda." (em inglês: "Fret D (C shape) and
+  play it string by string."); o campo `instruction` fica registrado nos dados.
+- **Bilíngue (desde 2026-11-16):** todo texto do app existe em português e inglês.
+  Nos dados, `title`, `exerciseTitle`, `subtitle`, `instruction`, `group` e os
+  títulos de seção/trilha são `{ pt, en }` (tipo `Localized` em `src/i18n.tsx`),
+  gerados por `scripts/chords/build-key-lessons.mjs`. Na interface, use
+  `t("texto pt", "English text")` de `useI18n()`. Em inglês, "7M" vira "maj7"
+  (`chordName`); o campo `chord` continua com a cifra brasileira.
 
 ## Fluxo para gerar um acorde
 
@@ -260,7 +266,7 @@ dessas notas removidos e os outros renumerados a partir de 1 (decisão do usuár
    {
      chord: "A",              // nome exibido (acidentes da armadura de clave: "B♭", "F♯m")
      shape: "G",              // forma CAGED de origem (mostrada na trilha)
-     instruction: "…",
+     instruction: { pt: "…", en: "…" },
      position: { frets: [...], fingers: [...], baseFret: 2, barres: [1], midi: [...] },
    }
    ```

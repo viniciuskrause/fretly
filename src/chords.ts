@@ -1,3 +1,5 @@
+import { chordName, type Lang, type Localized } from "./i18n.tsx";
+
 // Chord voicings are written out in full, in the chords-db format
 // (https://github.com/tombatossals/chords-db). Generate new ones with the
 // chord-generator skill (.claude/skills/chord-generator) and validate them
@@ -19,10 +21,19 @@ export type ChordPosition = {
 
 export type CagedShape = "C" | "A" | "G" | "E" | "D";
 
-/** Chord symbol with its CAGED shape ("D (Forma C)") or, for inversions, its bass string ("C7M/E (baixo na 5ª corda)"). */
-export function chordLabel(step: Pick<ChordStep, "chord" | "shape" | "bassString">) {
-  if (step.shape) return `${step.chord} (Forma ${step.shape})`;
-  return step.bassString ? `${step.chord} (baixo na ${step.bassString}ª corda)` : step.chord;
+const ORDINAL_EN = { 4: "4th", 5: "5th", 6: "6th" } as const;
+
+/**
+ * Chord symbol with its CAGED shape ("D (Forma C)" / "D (C shape)") or, for
+ * inversions, its bass string ("C7M/E (baixo na 5ª corda)" / "Cmaj7/E (bass on the 5th string)").
+ */
+export function chordLabel(step: Pick<ChordStep, "chord" | "shape" | "bassString">, lang: Lang) {
+  const chord = chordName(step.chord, lang);
+  if (step.shape) return lang === "en" ? `${chord} (${step.shape} shape)` : `${chord} (Forma ${step.shape})`;
+  if (!step.bassString) return chord;
+  return lang === "en"
+    ? `${chord} (bass on the ${ORDINAL_EN[step.bassString]} string)`
+    : `${chord} (baixo na ${step.bassString}ª corda)`;
 }
 
 export type ChordStep = {
@@ -38,7 +49,7 @@ export type ChordStep = {
   bassString?: 4 | 5 | 6;
   /** Alternative fingering of the previous step (labelled under the diagram). */
   alternative?: boolean;
-  instruction: string;
+  instruction: Localized;
   position: ChordPosition;
 };
 

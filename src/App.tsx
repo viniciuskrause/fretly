@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 import {
   barreSpans,
@@ -12,6 +12,8 @@ import {
 } from "./chords.ts";
 import { sections, type Lesson, type Section, type Trail as TrailData } from "./lessons.ts";
 import { applyProgress, loadProgress, saveProgress, type Progress } from "./progress.ts";
+import { LANGUAGES, chordName, useI18n, type Lang, type Localized } from "./i18n.tsx";
+import { initialsOf, supabase, useSession } from "./auth/supabase.ts";
 
 function Icon({
   name,
@@ -153,13 +155,19 @@ function Icon({
   );
 }
 
+/** App name; links to the homepage in the current language (en at the site root, pt in pt/). */
 function Brand() {
+  const { lang, t } = useI18n();
   return (
-    <div className="flex items-center">
-      <p className="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
+    <a
+      href={lang === "pt" ? "../pt/" : "../"}
+      aria-label={t("Guitar Workouts for Nerds: página inicial", "Guitar Workouts for Nerds: homepage")}
+      className="flex items-center"
+    >
+      <span className="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
         Guitar Workouts <span className="text-accent-ink">for Nerds</span>
-      </p>
-    </div>
+      </span>
+    </a>
   );
 }
 
@@ -173,18 +181,19 @@ const dictionaryAnchor = (hash: string) => (hash.startsWith(`${DICTIONARY_HASH}/
 
 /** Header link to the chord dictionary (a plain hash link, so it works from any page). */
 function DictionaryLink() {
+  const { t } = useI18n();
   const current = isDictionaryHash(window.location.hash);
   return (
     <a
       href={DICTIONARY_HASH}
       aria-current={current ? "page" : undefined}
-      aria-label="Dicionário de Acordes"
+      aria-label={t("Dicionário de Acordes", "Chord Dictionary")}
       className={`flex h-11 shrink-0 items-center gap-2 rounded-control px-2 text-base font-semibold transition-colors hover:text-brand-ink sm:px-3 ${
         current ? "text-brand-ink" : "text-ink-2"
       }`}
     >
       <Icon name="dictionary" className="size-5 sm:hidden" />
-      <span className="hidden sm:inline">Dicionário de Acordes</span>
+      <span className="hidden sm:inline">{t("Dicionário de Acordes", "Chord Dictionary")}</span>
     </a>
   );
 }
@@ -197,20 +206,139 @@ function TopBar() {
           <Brand />
           <DictionaryLink />
         </div>
-        <button
-          className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-[11px] font-semibold text-white transition hover:bg-ink-2 active:scale-95"
-          aria-label="Abrir perfil"
-        >
-          RL
-        </button>
+        <UserMenu />
       </div>
     </header>
   );
 }
 
-/** Trail label: the key part of a title like "C maior - formas CAGED" ("C maior"). */
-function trailLabel(lesson: Lesson) {
-  return <span className="block whitespace-nowrap">{lesson.title.split(" - ")[0]}</span>;
+/**
+ * Avatar with the user's initials (a profile icon when logged out); opens a menu
+ * with the account (log out, or log in / sign up) and the language selector.
+ */
+function UserMenu() {
+  const { t, lang, setLang } = useI18n();
+  const session = useSession();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuId = useId();
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    // Focus the selected language so the keyboard starts inside the menu.
+    rootRef.current?.querySelector<HTMLElement>('[aria-checked="true"]')?.focus();
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  function choose(next: Lang) {
+    setLang(next);
+    setOpen(false);
+    buttonRef.current?.focus();
+  }
+
+  return (
+    <div ref={rootRef} className="relative shrink-0">
+      <button
+        ref={buttonRef}
+        onClick={() => setOpen((value) => !value)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-controls={open ? menuId : undefined}
+        aria-label={t("Menu do usuário", "User menu")}
+        className={`flex size-9 items-center justify-center rounded-full font-mono text-[11px] font-semibold text-white transition hover:bg-ink-2 active:scale-95 ${
+          open ? "bg-ink-2" : "bg-ink"
+        }`}
+      >
+        {session ? initialsOf(session) : <Icon name="profile" className="size-5" />}
+      </button>
+      {open && (
+        <div
+          id={menuId}
+          role="menu"
+          aria-label={t("Menu do usuário", "User menu")}
+          className="user-menu"
+          onKeyDown={(event) => {
+            if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+            event.preventDefault();
+            const items = [...event.currentTarget.querySelectorAll<HTMLElement>('[role^="menuitem"]')];
+            const index = items.indexOf(document.activeElement as HTMLElement);
+            const next = (index + (event.key === "ArrowDown" ? 1 : -1) + items.length) % items.length;
+            items[next]?.focus();
+          }}
+        >
+          {session ? (
+            <div className="border-b border-line px-3 pb-3 pt-1">
+              <p className="truncate text-sm font-semibold text-ink">
+                {String(session.user.user_metadata?.first_name || session.user.email)}
+              </p>
+              {session.user.user_metadata?.first_name && (
+                <p className="truncate text-xs text-muted">{session.user.email}</p>
+              )}
+            </div>
+          ) : null}
+          <p className="eyebrow px-3 pb-1.5 pt-3 text-muted" id={`${menuId}-language`}>
+            {t("Idioma", "Language")}
+          </p>
+          <div role="group" aria-labelledby={`${menuId}-language`}>
+            {LANGUAGES.map((language) => {
+              const selected = language.id === lang;
+              return (
+                <button
+                  key={language.id}
+                  role="menuitemradio"
+                  aria-checked={selected}
+                  lang={language.htmlLang}
+                  onClick={() => choose(language.id)}
+                  className={`user-menu__item ${selected ? "user-menu__item--selected" : ""}`}
+                >
+                  <span>{language.label}</span>
+                  {selected && <Icon name="check" className="size-4 [stroke-width:3]" />}
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-2 border-t border-line pt-2">
+            {session ? (
+              <button
+                role="menuitem"
+                className="user-menu__item"
+                onClick={async () => {
+                  await supabase?.auth.signOut();
+                  setOpen(false);
+                }}
+              >
+                {t("Sair", "Log out")}
+              </button>
+            ) : (
+              <>
+                <a role="menuitem" href={`../login/?lang=${lang}`} className="user-menu__item">
+                  {t("Entrar", "Log in")}
+                </a>
+                <a role="menuitem" href={`../signup/?lang=${lang}`} className="user-menu__item">
+                  {t("Criar conta", "Sign up")}
+                </a>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 type TrailStatus = Lesson["status"];
@@ -270,8 +398,10 @@ function Collapse({
 
 /** Small orange dot on a closed header whose lessons include the current one. */
 function CurrentDot() {
+  const { t } = useI18n();
+  const label = t("Aula atual", "Current lesson");
   return (
-    <span className="size-2.5 shrink-0 rounded-full bg-accent" role="img" aria-label="Aula atual" title="Aula atual" />
+    <span className="size-2.5 shrink-0 rounded-full bg-accent" role="img" aria-label={label} title={label} />
   );
 }
 
@@ -281,218 +411,113 @@ function useDisclosureIds() {
   return { buttonId: `${id}-button`, regionId: `${id}-region` };
 }
 
-type TrailPoint = { x: number; y: number };
+/** Chord of a key variation without its bass ("C7M/E" → "C7M"). */
+const variationChord = (lesson: Lesson) => lesson.steps[0].chord.split("/")[0];
 
-// Serpentine layout: rows run left → right, then right → left, joined by
-// half-circle turns outside the last node of each row.
-function trailLayout(width: number, count: number) {
-  const columns = width >= 520 ? 4 : 3;
-  const radius = width >= 520 ? 74 : 72;
-  const top = 52;
-  const minX = radius + 6;
-  const maxX = width - radius - 6;
-  const spacing = (maxX - minX) / (columns - 1);
-  const points: TrailPoint[] = Array.from({ length: count }, (_, index) => {
-    const row = Math.floor(index / columns);
-    const column = index % columns;
-    const x = row % 2 === 0 ? minX + column * spacing : maxX - column * spacing;
-    return { x, y: top + row * radius * 2 };
-  });
-  const segments = points.slice(1).map((point, index) => {
-    const previous = points[index];
-    if (point.y === previous.y) return `M${previous.x} ${previous.y} L${point.x} ${point.y}`;
-    const turnsRight = previous.x > width / 2;
-    return `M${previous.x} ${previous.y} A${radius} ${radius} 0 0 ${turnsRight ? 1 : 0} ${point.x} ${point.y}`;
-  });
-  const rows = Math.ceil(count / columns);
-  return { points, segments, height: top + (rows - 1) * radius * 2 + 82 };
+/** Key of a variation: the root of its chord ("B♭m7" → "B♭"). */
+const variationKey = (lesson: Lesson) => variationChord(lesson).match(/^[A-G][♯♭]?/)?.[0] ?? lesson.title.pt;
+
+/** Chord quality shown on the lesson icon ("7M", "m7", "ø"; a plain major triad is "M"). */
+function lessonSymbol(trail: TrailData) {
+  const first = trail.lessons[0];
+  if (!first) return "";
+  const suffix = variationChord(first).slice(variationKey(first).length);
+  return suffix === "" ? "M" : suffix.replace("m7(♭5)", "ø");
 }
 
-function TrailNodeIcon({ lesson }: { lesson: Lesson }) {
-  if (lesson.status === "locked") return <Icon name="lock" className="size-6" />;
-  if (lesson.type === "review") return <Icon name="replay" className="size-7" />;
+/** A lesson is done once every key is done; it is current while it holds the current variation. */
+function lessonStatus(trail: TrailData): TrailStatus {
+  if (trail.lessons.every((lesson) => lesson.status === "done")) return "done";
+  if (trail.lessons.some((lesson) => lesson.status === "current")) return "current";
+  return "locked";
+}
+
+/** The variation the big icon opens: the first key not done yet (the first key once all are done). */
+const nextVariation = (trail: TrailData) =>
+  trail.lessons.find((lesson) => lesson.status !== "done") ?? trail.lessons[0];
+
+const HUB_SIZE = 148;
+const RING_RADIUS = 64;
+/** Gap between two key segments of the ring, in degrees. */
+const SEGMENT_GAP = 5;
+
+/** Arc of the ring for key `index` of `count`, clockwise from the top. */
+function segmentPath(index: number, count: number) {
+  const center = HUB_SIZE / 2;
+  const span = 360 / count;
+  const start = -90 + index * span + SEGMENT_GAP / 2;
+  const end = start + span - SEGMENT_GAP;
+  const point = (degrees: number) => {
+    const radians = (degrees * Math.PI) / 180;
+    return `${center + RING_RADIUS * Math.cos(radians)} ${center + RING_RADIUS * Math.sin(radians)}`;
+  };
+  return `M${point(start)} A${RING_RADIUS} ${RING_RADIUS} 0 0 1 ${point(end)}`;
+}
+
+/**
+ * One lesson (a trail): a big icon with the chord quality inside a ring split
+ * into 12 segments, one per key in cycle-of-fourths order (C at the top, then
+ * clockwise). A segment is blue once its key is done, orange for the key to
+ * practise next; clicking it opens that key.
+ */
+function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: Lesson) => void }) {
+  const { t, l, lang } = useI18n();
+  const status = lessonStatus(trail);
+  const next = nextVariation(trail);
+  const center = HUB_SIZE / 2;
   return (
-    <span className="text-[23px] font-bold leading-none tracking-[-0.04em]">
-      {/* "Bm7(♭5)" is too wide for the node: show it as "Bø"; inversions drop the bass ("C7M/E" → "C7M"). */}
-      {lesson.steps[0].chord.replace("m7(♭5)", "ø").split("/")[0]}
-    </span>
-  );
-}
-
-function TrailNode({
-  lesson,
-  point,
-  onSelect,
-}: {
-  lesson: Lesson;
-  point: TrailPoint;
-  onSelect: (lesson: Lesson) => void;
-}) {
-  const status = lesson.status;
-  return (
-    <div
-      className="absolute flex w-[112px] -translate-x-1/2 -translate-y-[34px] flex-col items-center"
-      style={{ left: point.x, top: point.y }}
-    >
-      <button
-        className={`trail-node trail-node--${status}`}
-        onClick={() => onSelect(lesson)}
-        aria-label={`${lesson.title}: ${lesson.subtitle}${status === "locked" ? " (bloqueada)" : ""}`}
-      >
-        {status === "current" && (
-          <svg className="trail-node__progress" viewBox="0 0 100 100" aria-hidden="true">
-            <circle cx="50" cy="50" r="46" />
-          </svg>
-        )}
-        <span className="trail-node__face">
-          <TrailNodeIcon lesson={lesson} />
-        </span>
-        {status === "done" && (
-          <span className="trail-node__badge">
-            <Icon name="check" className="size-4 [stroke-width:3.5]" />
-          </span>
-        )}
-      </button>
-      <p className={`trail-label trail-label--${status}`}>{trailLabel(lesson)}</p>
-      {status === "done" && lesson.lastBpm !== undefined && (
-        <p className="trail-bpm" title="Andamento da última execução do exercício final">
-          <Icon name="metronome" className="size-3.5" />
-          <span>{lesson.lastBpm}</span>
-          <span className="sr-only">BPM</span>
-        </p>
-      )}
-    </div>
-  );
-}
-
-function TrailTrophy({ point, status }: { point: TrailPoint; status: TrailStatus }) {
-  return (
-    <div
-      className="absolute flex w-[112px] -translate-x-1/2 -translate-y-[36px] flex-col items-center"
-      style={{ left: point.x, top: point.y }}
-    >
-      <div className={`trail-trophy trail-trophy--${status}`} aria-hidden="true">
-        <span className="trail-trophy__face">
-          <Icon name="trophy" className="size-7" />
-        </span>
-      </div>
-      <p className={`trail-label trail-label--${status} whitespace-nowrap`}>Unidade completa</p>
-    </div>
-  );
-}
-
-function useElementWidth() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-  useLayoutEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    const measure = () => setWidth(element.clientWidth);
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-  return { ref, width };
-}
-
-function TrailBody({
-  trail,
-  trophy,
-  onSelect,
-}: {
-  trail: TrailData;
-  trophy?: TrailStatus;
-  onSelect: (lesson: Lesson) => void;
-}) {
-  const { lessons } = trail;
-  const { ref, width } = useElementWidth();
-  const statuses: TrailStatus[] = [...lessons.map((lesson) => lesson.status), ...(trophy ? [trophy] : [])];
-  const layout = width ? trailLayout(width, statuses.length) : null;
-  return (
-    <div ref={ref} className="relative" style={{ height: layout?.height ?? 400 }}>
-      {layout && (
-        <>
-          <svg
-            className="pointer-events-none absolute inset-0 size-full overflow-visible"
-            fill="none"
-            strokeWidth="4"
-            strokeLinecap="round"
-            aria-hidden="true"
-          >
-            {layout.segments.map((segment, index) => (
+    <div className="flex flex-col items-center">
+      <div className="relative" style={{ width: HUB_SIZE, height: HUB_SIZE }}>
+        <svg className="lesson-hub__ring" viewBox={`0 0 ${HUB_SIZE} ${HUB_SIZE}`}>
+          {trail.lessons.map((lesson, index) => {
+            const bpm = lesson.status === "done" && lesson.lastBpm !== undefined ? ` · ${lesson.lastBpm} BPM` : "";
+            const segmentStatus = lesson.status === "done" ? "done" : status === "current" && lesson.id === next.id ? "next" : "todo";
+            const label = `${l(lesson.title)}${lesson.status === "done" ? t(" (feita)", " (done)") : ""}${bpm}`;
+            return (
               <path
-                key={index}
-                d={segment}
-                className={statuses[index + 1] === "locked" ? "stroke-line-strong" : "stroke-brand"}
-                strokeDasharray={statuses[index + 1] === "locked" ? "2 8" : undefined}
-              />
-            ))}
-          </svg>
-          {lessons.map((lesson, index) => (
-            <TrailNode key={lesson.id} lesson={lesson} point={layout.points[index]} onSelect={onSelect} />
-          ))}
-          {trophy && <TrailTrophy point={layout.points[lessons.length]} status={trophy} />}
-        </>
-      )}
+                key={lesson.id}
+                d={segmentPath(index, trail.lessons.length)}
+                className={`lesson-hub__segment lesson-hub__segment--${segmentStatus}`}
+                role="button"
+                tabIndex={0}
+                aria-label={label}
+                onClick={() => onSelect(lesson)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    onSelect(lesson);
+                  }
+                }}
+              >
+                <title>{label}</title>
+              </path>
+            );
+          })}
+        </svg>
+        <button
+          className={`lesson-hub lesson-hub--${status}`}
+          style={{ left: center, top: center }}
+          onClick={() => onSelect(next)}
+          aria-label={t(
+            `${l(trail.title)}: praticar ${variationKey(next)} (${doneCount(trail.lessons)} tonalidades feitas)`,
+            `${l(trail.title)}: practise ${variationKey(next)} (${doneCount(trail.lessons)} keys done)`,
+          )}
+        >
+          <span className="lesson-hub__symbol">{chordName(lessonSymbol(trail), lang)}</span>
+          {status === "done" && (
+            <span className="trail-node__badge">
+              <Icon name="check" className="size-4 [stroke-width:3.5]" />
+            </span>
+          )}
+        </button>
+      </div>
+      <p className={`trail-label trail-label--${status} mt-2 max-w-none`}>{l(trail.title)}</p>
     </div>
   );
 }
-
-
-
-function Trail({
-  trail,
-  trophy,
-  open,
-  onToggle,
-  onSelect,
-}: {
-  trail: TrailData;
-  /** Status of the trophy at the end of the trail; omitted = no trophy. */
-  trophy?: TrailStatus;
-  open: boolean;
-  onToggle: () => void;
-  onSelect: (lesson: Lesson) => void;
-}) {
-  const { buttonId, regionId } = useDisclosureIds();
-  const hasCurrent = trail.lessons.some((lesson) => lesson.status === "current");
-  return (
-    <div
-      className={`overflow-hidden rounded-card border bg-surface transition-colors ${
-        open ? "border-line-strong" : "border-line"
-      }`}
-    >
-      <button
-        id={buttonId}
-        onClick={onToggle}
-        aria-expanded={open}
-        aria-controls={regionId}
-        className="group flex min-h-16 w-full items-center gap-3 px-5 py-5 text-left transition-colors focus-visible:outline-offset-[-2px]"
-      >
-        <span className="min-w-0 flex-1 font-display text-[17px] font-semibold leading-snug tracking-[-0.015em] text-ink">
-          {trail.title}
-        </span>
-        {hasCurrent && !open && <CurrentDot />}
-        <span className="min-w-[3rem] shrink-0 text-right font-mono text-xs font-medium tabular-nums text-muted">
-          {doneCount(trail.lessons)}
-        </span>
-        <ChevronToggle open={open} className="text-ink-2" />
-      </button>
-      <Collapse id={regionId} labelledBy={buttonId} open={open}>
-        <div className="px-1 pb-4 pt-1">
-          <TrailBody trail={trail} trophy={trophy} onSelect={onSelect} />
-        </div>
-      </Collapse>
-    </div>
-  );
-}
-
 
 const OPEN_KEY = "fretly.open.v1";
 const sectionKey = (section: Section) => `s${section.id}`;
-const trailKey = (section: Section, index: number) => `s${section.id}:t${index}`;
-const groupKey = (section: Section, group: string) => `s${section.id}:g${group}`;
 
 /** Open sections and trails, remembered in this browser (all closed by default). */
 function useOutline() {
@@ -524,58 +549,124 @@ function useOutline() {
   };
 }
 
-/** Consecutive trails of a section that share a group (trails without one stand alone). */
+/** Consecutive trails of a section that share a group (or that have none). */
 function trailBlocks(section: Section) {
-  const blocks: Array<{ group?: string; items: Array<{ trail: TrailData; index: number }> }> = [];
+  const blocks: Array<{ group?: Localized; items: Array<{ trail: TrailData; index: number }> }> = [];
   section.trails.forEach((trail, index) => {
     const last = blocks.at(-1);
-    if (trail.group && last?.group === trail.group) last.items.push({ trail, index });
+    if (last && last.group?.pt === trail.group?.pt) last.items.push({ trail, index });
     else blocks.push({ group: trail.group, items: [{ trail, index }] });
   });
   return blocks;
 }
 
-/** Collapsible category of trails (an inversion in section 2). */
-function TrailGroup({
-  title,
-  lessons,
-  open,
-  onToggle,
-  children,
-}: {
-  title: string;
-  lessons: Lesson[];
-  open: boolean;
-  onToggle: () => void;
-  children: ReactNode;
-}) {
-  const hasCurrent = lessons.some((lesson) => lesson.status === "current");
-  const { buttonId, regionId } = useDisclosureIds();
+type TrailSegment = { d: string; status: TrailStatus };
+
+/**
+ * Every lesson of a unit in one container, on a serpentine trail: two lessons
+ * per row on wide screens (left → right, then right → left), one per row on
+ * phones. Group headings ("1ª inversão: baixo na terça") sit on the trail
+ * between their lessons. The trail is drawn from the measured hub positions.
+ */
+function UnitTrail({ section, onSelect }: { section: Section; onSelect: (lesson: Lesson) => void }) {
+  const { l } = useI18n();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const hubRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [segments, setSegments] = useState<TrailSegment[]>([]);
+  const trails = section.trails;
+
+  // Grid placement on wide screens: headings take a full row, lessons fill rows of two, alternating direction.
+  let row = 0;
+  let hubRow = 0;
+  const placed: Array<
+    { kind: "heading"; title: string; row: number } | { kind: "hub"; trail: TrailData; index: number; row: number; column: number }
+  > = [];
+  trailBlocks(section).forEach((block) => {
+    if (block.group) placed.push({ kind: "heading", title: l(block.group), row: ++row });
+    block.items.forEach(({ trail, index }, position) => {
+      if (position % 2 === 0) {
+        row += 1;
+        hubRow += 1;
+      }
+      const leftToRight = hubRow % 2 === 1;
+      placed.push({ kind: "hub", trail, index, row, column: leftToRight ? 1 + (position % 2) : 2 - (position % 2) });
+    });
+  });
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const measure = () => {
+      const origin = container.getBoundingClientRect();
+      const boxes = hubRefs.current.slice(0, trails.length).map((element) => {
+        const circle = element?.firstElementChild?.getBoundingClientRect();
+        const block = element?.getBoundingClientRect();
+        if (!circle || !block) return null;
+        return {
+          x: circle.left + circle.width / 2 - origin.left,
+          y: circle.top + circle.height / 2 - origin.top,
+          top: circle.top - origin.top,
+          bottom: block.bottom - origin.top,
+        };
+      });
+      const half = HUB_SIZE / 2;
+      const next: TrailSegment[] = [];
+      boxes.slice(1).forEach((b, i) => {
+        const a = boxes[i];
+        if (!a || !b) return;
+        const status = lessonStatus(trails[i + 1]);
+        if (Math.abs(a.y - b.y) < 1) {
+          const dir = Math.sign(b.x - a.x);
+          next.push({ d: `M${a.x + dir * half} ${a.y} L${b.x - dir * half} ${b.y}`, status });
+        } else {
+          const midY = (a.bottom + b.top) / 2;
+          next.push({ d: `M${a.x} ${a.bottom + 4} C${a.x} ${midY} ${b.x} ${midY} ${b.x} ${b.top - 4}`, status });
+        }
+      });
+      setSegments(next);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [trails]);
+
   return (
-    <div>
-      <button
-        id={buttonId}
-        onClick={onToggle}
-        aria-expanded={open}
-        aria-controls={regionId}
-        className={`group flex min-h-16 w-full items-center gap-3 rounded-card border bg-surface px-5 py-5 text-left transition-colors focus-visible:outline-offset-[-2px] ${
-          open ? "border-line-strong" : "border-line"
-        }`}
+    <div ref={containerRef} className="unit-trail">
+      <svg
+        className="pointer-events-none absolute inset-0 size-full overflow-visible"
+        fill="none"
+        strokeWidth="4"
+        strokeLinecap="round"
+        aria-hidden="true"
       >
-        <span className="min-w-0 flex-1 font-display text-[17px] font-semibold leading-snug tracking-[-0.015em] text-ink">
-          {title}
-        </span>
-        {hasCurrent && !open && <CurrentDot />}
-        <span className="min-w-[3rem] shrink-0 text-right font-mono text-xs font-medium tabular-nums text-muted">
-          {doneCount(lessons)}
-        </span>
-        <ChevronToggle open={open} className="text-ink-2" />
-      </button>
-      <Collapse id={regionId} labelledBy={buttonId} open={open}>
-        <div className="ml-[31px] space-y-3 border-l-2 border-line pb-1 pl-3 pt-3 sm:ml-[35px] sm:pl-4">
-          {children}
-        </div>
-      </Collapse>
+        {segments.map((segment, index) => (
+          <path
+            key={index}
+            d={segment.d}
+            className={segment.status === "locked" ? "stroke-line-strong" : "stroke-brand"}
+            strokeDasharray={segment.status === "locked" ? "2 8" : undefined}
+          />
+        ))}
+      </svg>
+      {placed.map((item) =>
+        item.kind === "heading" ? (
+          <h3 key={`h${item.row}`} className="unit-trail__heading" style={{ "--row": item.row } as CSSProperties}>
+            <span>{item.title}</span>
+          </h3>
+        ) : (
+          <div
+            key={item.index}
+            ref={(element) => {
+              hubRefs.current[item.index] = element;
+            }}
+            className="unit-trail__hub"
+            style={{ "--row": item.row, "--column": item.column } as CSSProperties}
+          >
+            <LessonHub trail={item.trail} onSelect={onSelect} />
+          </div>
+        ),
+      )}
     </div>
   );
 }
@@ -593,20 +684,13 @@ function PathSection({
   onSelect: (lesson: Lesson) => void;
   onOpenGuide: () => void;
 }) {
+  const { t, l } = useI18n();
   const { buttonId, regionId } = useDisclosureIds();
   const open = openKeys.has(sectionKey(section));
   const lessons = section.trails.flatMap((trail) => trail.lessons);
-  const sectionDone = lessons.every((lesson) => lesson.status === "done");
   const doneShare = doneShareOf(lessons);
-  /**
-   * Opening the section also opens the trail (and its group) holding the next lesson to
-   * study: its first unfinished lesson (the "current" one, when it is in this section).
-   */
   function toggleSection() {
-    const index = section.trails.findIndex((trail) => trail.lessons.some((lesson) => lesson.status !== "done"));
-    const trail = section.trails[index];
-    const alsoOpen = trail ? [trailKey(section, index), ...(trail.group ? [groupKey(section, trail.group)] : [])] : [];
-    onToggle(sectionKey(section), alsoOpen);
+    onToggle(sectionKey(section));
   }
   return (
     <section>
@@ -615,18 +699,18 @@ function PathSection({
           {/* The whole title area toggles too; the chevron button is the accessible control. */}
           <div className="min-w-0 flex-1 cursor-pointer" onClick={toggleSection}>
             <span className="eyebrow eyebrow--lg block text-brand-soft">
-              Unidade {section.id}
+              {t("Unidade", "Unit")} {section.id}
             </span>
             <span className="mt-2 block font-display text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[26px]">
-              {section.title}
+              {l(section.title)}
             </span>
-            <span className="mt-1.5 block text-[15px] font-medium leading-relaxed text-brand-soft">{section.subtitle}</span>
+            <span className="mt-1.5 block text-[15px] font-medium leading-relaxed text-brand-soft">{l(section.subtitle)}</span>
           </div>
           <div className="flex shrink-0 items-center justify-end gap-2">
             <button
               onClick={onOpenGuide}
-              aria-label={`Guia da unidade ${section.id}`}
-              title="Guia"
+              aria-label={t(`Guia da unidade ${section.id}`, `Unit ${section.id} guide`)}
+              title={t("Guia", "Guide")}
               className="flex size-11 shrink-0 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 active:scale-[0.96] focus-visible:outline-white"
             >
               <Icon name="notebook" className="size-6" />
@@ -636,7 +720,10 @@ function PathSection({
               onClick={toggleSection}
               aria-expanded={open}
               aria-controls={regionId}
-              aria-label={`${open ? "Recolher" : "Expandir"} unidade ${section.id}: ${section.title}`}
+              aria-label={t(
+                `${open ? "Recolher" : "Expandir"} unidade ${section.id}: ${l(section.title)}`,
+                `${open ? "Collapse" : "Expand"} unit ${section.id}: ${l(section.title)}`,
+              )}
               className="-mr-1.5 flex size-11 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 focus-visible:outline-white"
             >
               <ChevronToggle open={open} iconClassName="size-7" />
@@ -645,12 +732,13 @@ function PathSection({
         </div>
         <div className="flex items-center gap-3 px-5 pb-5 sm:px-6 sm:pb-6">
           <span className="shrink-0 whitespace-nowrap font-mono text-sm font-bold tabular-nums text-white">
-            {doneCount(lessons)} {lessons.length === 1 ? "exercício" : "exercícios"}
+            {doneCount(lessons)}{" "}
+            {lessons.length === 1 ? t("exercício", "exercise") : t("exercícios", "exercises")}
           </span>
           <div
             className="h-3 flex-1 overflow-hidden rounded-full bg-ink"
             role="progressbar"
-            aria-label={`Progresso da unidade ${section.id}`}
+            aria-label={t(`Progresso da unidade ${section.id}`, `Unit ${section.id} progress`)}
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(doneShare * 100)}
@@ -664,32 +752,8 @@ function PathSection({
       </div>
 
       <Collapse id={regionId} labelledBy={buttonId} open={open}>
-        <div className="space-y-3 pt-3">
-          {trailBlocks(section).map((block) => {
-            const trails = block.items.map(({ trail, index }) => (
-              <Trail
-                key={index}
-                trail={trail}
-                trophy={index === section.trails.length - 1 ? (sectionDone ? "done" : "locked") : undefined}
-                open={openKeys.has(trailKey(section, index))}
-                onToggle={() => onToggle(trailKey(section, index))}
-                onSelect={onSelect}
-              />
-            ));
-            if (!block.group) return trails;
-            const key = groupKey(section, block.group);
-            return (
-              <TrailGroup
-                key={key}
-                title={block.group}
-                lessons={block.items.flatMap(({ trail }) => trail.lessons)}
-                open={openKeys.has(key)}
-                onToggle={() => onToggle(key)}
-              >
-                {trails}
-              </TrailGroup>
-            );
-          })}
+        <div className="pt-3">
+          <UnitTrail section={section} onSelect={onSelect} />
         </div>
       </Collapse>
     </section>
@@ -742,10 +806,11 @@ function ChordCard({
   /** Marks the card being played (aria-current). */
   current?: boolean;
 }) {
+  const { lang } = useI18n();
   return (
     <div ref={cardRef} className={`chord-card ${className}`} aria-current={current ? "true" : undefined}>
       <div className="chord-card__body">
-        <p className={`chord-card__name ${isLongChordName(step) ? "chord-card__name--long" : ""}`}>{step.chord}</p>
+        <p className={`chord-card__name ${isLongChordName(step) ? "chord-card__name--long" : ""}`}>{chordName(step.chord, lang)}</p>
         <div className="chord-card__diagram">
           <ChordDiagram step={step} activeStrings={activeStrings} />
         </div>
@@ -761,6 +826,7 @@ function ChordDiagram({
   step: ChordStep;
   activeStrings: number[];
 }) {
+  const { t, lang } = useI18n();
   const { position } = step;
   const barres = barreSpans(position);
   const barreStrings = new Set(barres.flatMap((barre) => barre.strings));
@@ -774,7 +840,7 @@ function ChordDiagram({
       viewBox="0 21 272 211"
       fill="none"
       className="block max-w-full"
-      aria-label={`Diagrama de ${chordLabel(step)}`}
+      aria-label={t(`Diagrama de ${chordLabel(step, lang)}`, `${chordLabel(step, lang)} diagram`)}
       role="img"
     >
       {[0, 1, 2, 3, 4, 5].map((string) => {
@@ -797,7 +863,7 @@ function ChordDiagram({
                 fontSize="13"
                 fontWeight="700"
                 className={`font-mono transition-colors duration-150 ${isActive ? "fill-accent-ink" : "fill-brand-ink"}`}
-                aria-label={`Grau ${stringDegree(step, string)}`}
+                aria-label={t(`Grau ${stringDegree(step, string)}`, `Degree ${stringDegree(step, string)}`)}
               >
                 {stringDegree(step, string)}
               </text>
@@ -835,7 +901,7 @@ function ChordDiagram({
           fontSize="14"
           fontWeight="600"
           className="fill-muted font-mono"
-          aria-label={`${position.baseFret}ª casa`}
+          aria-label={t(`${position.baseFret}ª casa`, `Fret ${position.baseFret}`)}
         >
           {position.baseFret}
         </text>
@@ -852,7 +918,10 @@ function ChordDiagram({
             strokeWidth="18"
             strokeLinecap="round"
             className={`transition-all duration-150 ${isActive ? "stroke-accent" : "stroke-ink"}`}
-            aria-label={`Pestana na ${position.baseFret + barre.fret - 1}ª casa, cordas ${6 - barre.to} a ${6 - barre.from}`}
+            aria-label={t(
+              `Pestana na ${position.baseFret + barre.fret - 1}ª casa, cordas ${6 - barre.to} a ${6 - barre.from}`,
+              `Barre at fret ${position.baseFret + barre.fret - 1}, strings ${6 - barre.to} to ${6 - barre.from}`,
+            )}
           />
         );
       })}
@@ -877,7 +946,7 @@ function ChordDiagram({
               fontSize={isActive ? 12 : 11}
               fontWeight="700"
               className={`font-mono transition-all duration-150 fill-white`}
-              aria-label={`Dedo ${finger}`}
+              aria-label={t(`Dedo ${finger}`, `Finger ${finger}`)}
             >
               {finger}
             </text>
@@ -907,20 +976,21 @@ function ExerciseShell({
   wide?: boolean;
   children: ReactNode;
 }) {
+  const { t } = useI18n();
   return (
     <div className="flex min-h-dvh flex-col bg-canvas text-ink">
       <header className="mx-auto flex w-full max-w-[1040px] items-center gap-4 px-4 pt-5 sm:gap-6 sm:px-10 sm:pt-12">
         <button
           onClick={onExit}
           className="flex size-11 shrink-0 items-center justify-center rounded-control text-muted transition hover:bg-sunken hover:text-ink active:scale-95"
-          aria-label="Voltar à trilha"
+          aria-label={t("Voltar à trilha", "Back to the path")}
         >
           <Icon name="close" className="size-6" />
         </button>
         <div
           className="h-2.5 flex-1 overflow-hidden rounded-full bg-line"
           role="progressbar"
-          aria-label="Progresso do exercício"
+          aria-label={t("Progresso do exercício", "Exercise progress")}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(progress)}
@@ -959,11 +1029,13 @@ type LessonPath = { headings: string[]; chord: string };
  * Path of a lesson for the exercise overline, from the headlines above it:
  * "1ª inversão: baixo na terça - Acordes maiores - C7M".
  */
-function lessonPath(lesson: Lesson): LessonPath {
+function lessonPath(lesson: Lesson, lang: Lang): LessonPath {
   const trail = sections.flatMap((section) => section.trails).find((item) => item.lessons.some(({ id }) => id === lesson.id));
-  const headings = trail ? [trail.group, trail.title].filter((heading): heading is string => !!heading) : [];
+  const headings = trail
+    ? [trail.group, trail.title].filter((heading): heading is Localized => !!heading).map((heading) => heading[lang])
+    : [];
   // The chord without its bass ("C7M/E" → "C7M"); the lesson title is the fallback.
-  const chord = lesson.steps[0]?.chord.split("/")[0] ?? lesson.title.split(" - ")[0];
+  const chord = lesson.steps[0] ? chordName(lesson.steps[0].chord.split("/")[0], lang) : lesson.title[lang].split(" - ")[0];
   return { headings, chord };
 }
 
@@ -1053,6 +1125,7 @@ function BpmControl({
   onChange: (update: (value: number) => number) => void;
   disabled: boolean;
 }) {
+  const { t } = useI18n();
   // Text being typed; null while the field isn't being edited.
   const [draft, setDraft] = useState<string | null>(null);
   const commit = () => {
@@ -1062,7 +1135,7 @@ function BpmControl({
     setDraft(null);
   };
   return (
-    <div className="flex items-center gap-2 rounded-control bg-surface p-1.5 border border-line" role="group" aria-label={`Andamento: ${bpm} BPM`}>
+    <div className="flex items-center gap-2 rounded-control bg-surface p-1.5 border border-line" role="group" aria-label={t(`Andamento: ${bpm} BPM`, `Tempo: ${bpm} BPM`)}>
       <div className="flex items-center px-2 text-muted" title="BPM">
         <Icon name="metronome" className="size-5" />
       </div>
@@ -1070,7 +1143,7 @@ function BpmControl({
         onClick={() => onChange((value) => clampBpm(value - 4))}
         disabled={disabled}
         className="flex size-9 items-center justify-center rounded-lg bg-sunken font-mono text-base font-semibold text-ink-2 transition hover:bg-line hover:text-ink active:scale-95 disabled:opacity-40 disabled:hover:bg-sunken"
-        aria-label="Diminuir BPM"
+        aria-label={t("Diminuir BPM", "Decrease BPM")}
       >
         −
       </button>
@@ -1081,8 +1154,8 @@ function BpmControl({
         maxLength={3}
         value={draft ?? String(bpm)}
         disabled={disabled}
-        aria-label={`Andamento em BPM (${MIN_BPM} a ${MAX_BPM})`}
-        title={`Digite o andamento (${MIN_BPM}–${MAX_BPM} BPM)`}
+        aria-label={t(`Andamento em BPM (${MIN_BPM} a ${MAX_BPM})`, `Tempo in BPM (${MIN_BPM} to ${MAX_BPM})`)}
+        title={t(`Digite o andamento (${MIN_BPM}–${MAX_BPM} BPM)`, `Type the tempo (${MIN_BPM}–${MAX_BPM} BPM)`)}
         onFocus={(event) => {
           setDraft(String(bpm));
           event.currentTarget.select();
@@ -1108,7 +1181,7 @@ function BpmControl({
         onClick={() => onChange((value) => clampBpm(value + 4))}
         disabled={disabled}
         className="flex size-9 items-center justify-center rounded-lg bg-sunken font-mono text-base font-semibold text-ink-2 transition hover:bg-line hover:text-ink active:scale-95 disabled:opacity-40 disabled:hover:bg-sunken"
-        aria-label="Aumentar BPM"
+        aria-label={t("Aumentar BPM", "Increase BPM")}
       >
         +
       </button>
@@ -1126,6 +1199,7 @@ function ExercisePage({
   /** Called on "Concluir" with the tempo of the last final-exercise run. */
   onComplete: (bpm: number) => void;
 }) {
+  const { t, l, lang } = useI18n();
   // Tempo of the last run of the final exercise.
   const sequenceBpm = useRef<number | null>(null);
   // A finished lesson reopens on its final exercise, at the tempo used last time.
@@ -1143,7 +1217,7 @@ function ExercisePage({
   const audioContext = useRef<AudioContext | null>(null);
   const scheduledSources = useRef<Array<{ source: AudioBufferSourceNode; startAt: number }>>([]);
   const step = lesson.steps[stepIndex];
-  const path = lessonPath(lesson);
+  const path = lessonPath(lesson, lang);
   // Lessons with alternative fingerings keep a caption row under every diagram.
   const hasAlternatives = lesson.steps.some((item) => item.alternative);
   const progress = complete || finalExercise ? 100 : ((stepIndex + 1) / lesson.steps.length) * 100;
@@ -1345,19 +1419,21 @@ function ExercisePage({
           <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-success text-white ring-8 ring-success-soft">
             <Icon name="check" className="size-12 [stroke-width:3]" />
           </div>
-          <p className="eyebrow eyebrow--lg mt-10 text-accent-ink">Exercício concluído</p>
+          <p className="eyebrow eyebrow--lg mt-10 text-accent-ink">{t("Exercício concluído", "Exercise complete")}</p>
           <h1 className="mt-3 text-balance font-display text-[32px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-4xl">
-            {lesson.exerciseTitle}
+            {l(lesson.exerciseTitle)}
           </h1>
           <p className="mx-auto mt-4 max-w-md text-[15px] leading-7 text-muted">
-            Você percorreu todas as formas desta etapa. Faça a revisão todos os dias para manter a
-            forma dos exercícios que você já aprendeu.
+            {t(
+              "Você percorreu todas as formas desta etapa. Faça a revisão todos os dias para manter a forma dos exercícios que você já aprendeu.",
+              "You went through every shape in this step. Review every day to keep the exercises you have already learned in shape.",
+            )}
           </p>
           <div className="mx-auto mt-8 max-w-sm">
             <div className="rounded-card border border-line bg-surface p-5">
               <p className="font-display text-3xl font-bold tabular-nums text-accent-ink">{lesson.steps.length}</p>
               <p className="eyebrow mt-1 text-[10px]! text-muted">
-                {lesson.steps[0].shape ? "Formas tocadas" : "Digitações tocadas"}
+                {lesson.steps[0].shape ? t("Formas tocadas", "Shapes played") : t("Digitações tocadas", "Fingerings played")}
               </p>
             </div>
           </div>
@@ -1365,7 +1441,7 @@ function ExercisePage({
             onClick={onExit}
             className="mt-8 h-12 w-full max-w-sm rounded-control bg-brand text-sm font-semibold text-white transition hover:bg-brand-strong active:scale-[0.98]"
           >
-            Voltar à trilha
+            {t("Voltar à trilha", "Back to the path")}
           </button>
         </div>
       </div>
@@ -1391,7 +1467,7 @@ function ExercisePage({
         footer={
           <>
             <SecondaryButton
-              label="Voltar"
+              label={t("Voltar", "Back")}
               icon="back"
               disabled={isPlaying}
               onClick={() => {
@@ -1402,9 +1478,9 @@ function ExercisePage({
             <div className="flex gap-3">
               {sequenceStatus === "finished" ? (
                 <>
-                  <SecondaryButton label="Repetir" icon="replay" onClick={startChordSequence} />
+                  <SecondaryButton label={t("Repetir", "Repeat")} icon="replay" onClick={startChordSequence} />
                   <PrimaryButton
-                    label="Concluir"
+                    label={t("Concluir", "Finish")}
                     onClick={() => {
                       onComplete(sequenceBpm.current ?? bpm);
                       setComplete(true);
@@ -1413,7 +1489,13 @@ function ExercisePage({
                 </>
               ) : (
                 <PrimaryButton
-                  label={sequenceStatus === "countdown" ? "Preparando" : isPlaying ? "Tocando" : "Iniciar"}
+                  label={
+                    sequenceStatus === "countdown"
+                      ? t("Preparando", "Get ready")
+                      : isPlaying
+                        ? t("Tocando", "Playing")
+                        : t("Iniciar", "Start")
+                  }
                   icon="play"
                   tone="accent"
                   disabled={isPlaying}
@@ -1424,7 +1506,7 @@ function ExercisePage({
           </>
         }
       >
-        <ExerciseHeading path={path} title="Sequência completa" />
+        <ExerciseHeading path={path} title={t("Sequência completa", "Full sequence")} />
 
         <div className="relative mt-12">
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
@@ -1471,7 +1553,7 @@ function ExercisePage({
       footer={
         <>
           <SecondaryButton
-            label="Anterior"
+            label={t("Anterior", "Previous")}
             icon="back"
             disabled={stepIndex === 0 || isPlaying}
             onClick={() => {
@@ -1482,15 +1564,15 @@ function ExercisePage({
           <div className="flex gap-3">
             {playbackStatus === "finished" ? (
               <>
-                <SecondaryButton label="Repetir" icon="replay" onClick={startPlayback} />
+                <SecondaryButton label={t("Repetir", "Repeat")} icon="replay" onClick={startPlayback} />
                 <PrimaryButton
-                  label={stepIndex === lesson.steps.length - 1 ? "Exercício final" : "Próximo"}
+                  label={stepIndex === lesson.steps.length - 1 ? t("Exercício final", "Final exercise") : t("Próximo", "Next")}
                   onClick={nextStep}
                 />
               </>
             ) : (
               <PrimaryButton
-                label={isPlaying ? "Tocando" : "Tocar"}
+                label={isPlaying ? t("Tocando", "Playing") : t("Tocar", "Play")}
                 icon="play"
                 tone="accent"
                 disabled={isPlaying}
@@ -1503,7 +1585,10 @@ function ExercisePage({
     >
       <ExerciseHeading
         path={path}
-        title={`Monte ${chordLabel(step)} e toque corda por corda.`}
+        title={t(
+          `Monte ${chordLabel(step, lang)} e toque corda por corda.`,
+          `Fret ${chordLabel(step, lang)} and play it string by string.`,
+        )}
       />
 
       <div className="mt-12 flex flex-col items-center">
@@ -1520,12 +1605,13 @@ function ExercisePage({
  * caption appearing never moves the rest of the content.
  */
 function AlternativeSlot({ show, className = "" }: { show: boolean; className?: string }) {
+  const { t } = useI18n();
   return (
     <p
       className={`eyebrow text-center leading-4 text-muted ${show ? "" : "invisible"} ${className}`}
       aria-hidden={!show}
     >
-      Digitação alternativa
+      {t("Digitação alternativa", "Alternative fingering")}
     </p>
   );
 }
@@ -1567,6 +1653,7 @@ function GuideLayout({
   onBack: () => void;
   children: ReactNode;
 }) {
+  const { t } = useI18n();
   return (
     <div className="min-h-screen bg-canvas text-ink">
       <TopBar />
@@ -1575,10 +1662,10 @@ function GuideLayout({
           onClick={onBack}
           className="-ml-2 flex h-10 items-center gap-2 rounded-control px-3 text-sm font-semibold text-ink-2 transition hover:bg-sunken hover:text-ink"
         >
-          <Icon name="back" className="size-4" /> Voltar à trilha
+          <Icon name="back" className="size-4" /> {t("Voltar à trilha", "Back to the path")}
         </button>
 
-        <p className="eyebrow eyebrow--lg mt-8 text-accent-ink">Guia</p>
+        <p className="eyebrow eyebrow--lg mt-8 text-accent-ink">{t("Guia", "Guide")}</p>
         <h1 className="mt-2 font-display text-[36px] font-bold leading-tight tracking-[-0.04em] sm:text-[46px]">
           {title}
         </h1>
@@ -1587,7 +1674,7 @@ function GuideLayout({
         {children}
 
         <section className="mt-14 rounded-card border border-line bg-surface p-5">
-          <h2 className="eyebrow text-muted">Fontes</h2>
+          <h2 className="eyebrow text-muted">{t("Fontes", "Sources")}</h2>
           <ul className="mt-3 space-y-2 text-sm">
             {sources.map((source) => (
               <li key={source.url}>
@@ -1609,64 +1696,109 @@ function GuideLayout({
 }
 
 function CagedGuide({ onBack }: { onBack: () => void }) {
+  const { t } = useI18n();
   const cMajor = sections[0].trails[0].lessons[0];
   const fretOf = (step: ChordStep) =>
-    step.position.baseFret === 1 ? "aberta" : `a partir da casa ${step.position.baseFret}`;
+    step.position.baseFret === 1
+      ? t("aberta", "open")
+      : t(`a partir da casa ${step.position.baseFret}`, `from fret ${step.position.baseFret}`);
   return (
     <GuideLayout
-      title="O sistema CAGED"
+      title={t("O sistema CAGED", "The CAGED system")}
       sources={GUIDE_SOURCES}
       onBack={onBack}
-      intro={
+      intro={t(
         <>
           Cinco acordes que você aprende nas primeiras semanas de violão — C, A, G, E e D — escondem
           um mapa do braço inteiro. O CAGED é a forma de ler esse mapa: com ele, qualquer acorde
           pode ser tocado em qualquer tonalidade, em cinco regiões diferentes do braço.
-        </>
-      }
+        </>,
+        <>
+          Five chords you learn in your first weeks on the guitar — C, A, G, E and D — hide a map of
+          the whole neck. CAGED is the way to read that map: with it, any chord can be played in any
+          key, in five different regions of the neck.
+        </>,
+      )}
     >
+      <GuideSection title={t("O que é", "What it is")}>
+        {t(
+          <>
+            <p>
+              CAGED é um jeito de organizar o braço da guitarra a partir das cinco formas de acorde
+              aberto: <strong>C, A, G, E e D</strong> — daí o nome. Cada uma dessas formas pode ser
+              deslocada para cima no braço e continua sendo o mesmo desenho; só muda a tonalidade.
+              Encadeadas, as cinco formas cobrem o braço de ponta a ponta.
+            </p>
+            <p>
+              Não há consenso sobre quem criou o sistema. Muitos professores lembram que ele não foi
+              inventado por alguém: é uma consequência da afinação padrão do instrumento, que alguém
+              em algum momento organizou e batizou. Por isso mesmo ele só funciona na afinação padrão
+              (E A D G B E).
+            </p>
+          </>,
+          <>
+            <p>
+              CAGED is a way of organising the guitar neck around the five open-chord shapes:{" "}
+              <strong>C, A, G, E and D</strong> — hence the name. Each shape can be moved up the neck
+              and stays the same pattern; only the key changes. Chained together, the five shapes
+              cover the neck from end to end.
+            </p>
+            <p>
+              Nobody agrees on who created the system. Many teachers point out that nobody invented
+              it: it is a consequence of the instrument's standard tuning, which someone at some point
+              organised and named. That is also why it only works in standard tuning (E A D G B E).
+            </p>
+          </>,
+        )}
+      </GuideSection>
 
-        <GuideSection title="O que é">
-          <p>
-            CAGED é um jeito de organizar o braço da guitarra a partir das cinco formas de acorde
-            aberto: <strong>C, A, G, E e D</strong> — daí o nome. Cada uma dessas formas pode ser
-            deslocada para cima no braço e continua sendo o mesmo desenho; só muda a tonalidade.
-            Encadeadas, as cinco formas cobrem o braço de ponta a ponta.
-          </p>
-          <p>
-            Não há consenso sobre quem criou o sistema. Muitos professores lembram que ele não foi
-            inventado por alguém: é uma consequência da afinação padrão do instrumento, que alguém
-            em algum momento organizou e batizou. Por isso mesmo ele só funciona na afinação padrão
-            (E A D G B E).
-          </p>
-        </GuideSection>
+      <GuideSection title={t("A lógica", "The logic")}>
+        {t(
+          <>
+            <p>
+              Ao mover uma forma aberta para cima, o <strong>dedo indicador faz o papel da pestana do
+              braço</strong>: prende na casa base as cordas que eram soltas, e os outros dedos refazem
+              o desenho. Assim o E aberto vira o F na casa 1, e o A aberto vira o C na casa 3.
+            </p>
+            <p>
+              Subindo o braço, as formas aparecem sempre na ordem <strong>C → A → G → E → D</strong> e
+              depois recomeçam uma oitava acima. Cada uma se encaixa na seguinte, compartilhando notas.
+              Em outro tom só muda o ponto de partida: o F começa na forma de E e segue E → D → C → A →
+              G. Veja o C maior nas cinco formas:
+            </p>
+          </>,
+          <>
+            <p>
+              When you move an open shape up the neck, your <strong>index finger takes the place of
+              the nut</strong>: it holds down, at the base fret, the strings that used to be open, and
+              the other fingers rebuild the pattern. That is how open E becomes F at fret 1, and open A
+              becomes C at fret 3.
+            </p>
+            <p>
+              Going up the neck, the shapes always come in the order <strong>C → A → G → E → D</strong>{" "}
+              and then start again an octave higher. Each one locks into the next, sharing notes. In
+              another key only the starting point changes: F starts on the E shape and goes E → D → C →
+              A → G. Here is C major in all five shapes:
+            </p>
+          </>,
+        )}
+        <div className="!mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
+          {cMajor.steps.map((step) => (
+            <figure key={step.shape} className="sequence-slot guide-shape">
+              <ChordCard step={step} />
+              <figcaption className="mt-2 text-center">
+                <span className="block font-display text-[15px] font-bold text-ink">
+                  {t(`Forma ${step.shape}`, `${step.shape} shape`)}
+                </span>
+                <span className="block text-xs font-medium text-muted">{fretOf(step)}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </GuideSection>
 
-        <GuideSection title="A lógica">
-          <p>
-            Ao mover uma forma aberta para cima, o <strong>dedo indicador faz o papel da pestana do
-            braço</strong>: prende na casa base as cordas que eram soltas, e os outros dedos refazem
-            o desenho. Assim o E aberto vira o F na casa 1, e o A aberto vira o C na casa 3.
-          </p>
-          <p>
-            Subindo o braço, as formas aparecem sempre na ordem <strong>C → A → G → E → D</strong> e
-            depois recomeçam uma oitava acima. Cada uma se encaixa na seguinte, compartilhando notas.
-            Em outro tom só muda o ponto de partida: o F começa na forma de E e segue E → D → C → A →
-            G. Veja o C maior nas cinco formas:
-          </p>
-          <div className="!mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
-            {cMajor.steps.map((step) => (
-              <figure key={step.shape} className="sequence-slot guide-shape">
-                <ChordCard step={step} />
-                <figcaption className="mt-2 text-center">
-                  <span className="block font-display text-[15px] font-bold text-ink">Forma {step.shape}</span>
-                  <span className="block text-xs font-medium text-muted">{fretOf(step)}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </GuideSection>
-
-        <GuideSection title="Vantagens">
+      <GuideSection title={t("Vantagens", "Advantages")}>
+        {t(
           <ul className="list-disc space-y-2 pl-5">
             <li>
               <strong>O braço inteiro com o que você já sabe.</strong> As cinco formas são acordes que
@@ -1689,10 +1821,35 @@ function CagedGuide({ onBack }: { onBack: () => void }) {
               <strong>Menos memorização solta.</strong> Em vez de decorar centenas de digitações,
               você aprende cinco desenhos e a regra que os liga.
             </li>
-          </ul>
-        </GuideSection>
+          </ul>,
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <strong>The whole neck with what you already know.</strong> The five shapes are chords
+              every beginner knows; CAGED just shows where each one can go.
+            </li>
+            <li>
+              <strong>Any chord, in any key, anywhere.</strong> Once you find the root, you can build
+              the chord in five different regions and pick the one closest to where your hand already
+              is.
+            </li>
+            <li>
+              <strong>Transposing becomes simple.</strong> Changing key means moving the same pattern;
+              the shape does not change.
+            </li>
+            <li>
+              <strong>A bridge to scales and solos.</strong> Each shape anchors the arpeggios, the
+              pentatonic and the major scale of its region, connecting chords and melody.
+            </li>
+            <li>
+              <strong>Less rote memorisation.</strong> Instead of memorising hundreds of fingerings,
+              you learn five patterns and the rule that links them.
+            </li>
+          </ul>,
+        )}
+      </GuideSection>
 
-        <GuideSection title="Limites e cuidados">
+      <GuideSection title={t("Limites e cuidados", "Limits and caveats")}>
+        {t(
           <ul className="list-disc space-y-2 pl-5">
             <li>
               <strong>Formas não substituem as notas.</strong> Um risco comum é tocar desenhos sem
@@ -1706,21 +1863,53 @@ function CagedGuide({ onBack }: { onBack: () => void }) {
               digitações tocáveis de cada forma: às vezes uma corda fica abafada, mas a tônica
               continua no baixo.
             </li>
-          </ul>
-        </GuideSection>
+          </ul>,
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <strong>Shapes do not replace notes.</strong> A common trap is playing patterns without
+              knowing which notes they contain. Always find the root and the third of each shape.
+            </li>
+            <li>
+              <strong>Standard tuning only.</strong> In alternate tunings the patterns change.
+            </li>
+            <li>
+              <strong>Some full shapes are hard to play.</strong> That is why the lessons use playable
+              fingerings of each shape: sometimes a string is muted, but the root stays in the bass.
+            </li>
+          </ul>,
+        )}
+      </GuideSection>
 
-        <GuideSection title="Como estudar com este app">
+      <GuideSection title={t("Como estudar com este app", "How to study with this app")}>
+        {t(
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Cada aula é uma tonalidade: o acorde nas cinco formas, da mais grave para a mais aguda.</li>
+            <li>
+              Cada aula é um tipo de acorde, com uma variação para cada uma das 12 tonalidades: o
+              acorde nas cinco formas, da mais grave para a mais aguda.
+            </li>
             <li>Monte cada forma e toque corda por corda; o título diz o acorde e a forma.</li>
             <li>No exercício final, toque as cinco formas em sequência, no andamento do metrônomo.</li>
-            <li>Suba o andamento aos poucos: a trilha guarda o BPM da sua última execução.</li>
+            <li>Suba o andamento aos poucos: o app guarda o BPM da sua última execução.</li>
             <li>
               Depois dos acordes maiores vêm os menores, os de sétima dominante e os meio diminutos,
               sempre pela mesma lógica.
             </li>
-          </ol>
-        </GuideSection>
+          </ol>,
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>
+              Each lesson is one chord type, with a variation for each of the 12 keys: the chord in
+              all five shapes, from the lowest to the highest.
+            </li>
+            <li>Fret each shape and play it string by string; the title names the chord and the shape.</li>
+            <li>In the final exercise, play the five shapes in sequence, in time with the metronome.</li>
+            <li>Raise the tempo little by little: the app keeps the BPM of your last run.</li>
+            <li>
+              After the major chords come the minor, dominant seventh and half-diminished chords,
+              always following the same logic.
+            </li>
+          </ol>,
+        )}
+      </GuideSection>
     </GuideLayout>
   );
 }
@@ -1738,20 +1927,46 @@ const INVERSIONS_SOURCES: GuideSource[] = [
 ];
 
 /** The four tetrads of section 2, in C, with their notes and formula. */
-const TETRADS = [
-  { quality: "Maior com sétima maior", symbol: "C7M", notes: "C · E · G · B", formula: "1 · 3 · 5 · 7", role: "I7M e IV7M de uma tonalidade maior" },
-  { quality: "Menor com sétima", symbol: "Cm7", notes: "C · E♭ · G · B♭", formula: "1 · ♭3 · 5 · ♭7", role: "IIm7, IIIm7 e VIm7" },
-  { quality: "Sétima dominante", symbol: "C7", notes: "C · E · G · B♭", formula: "1 · 3 · 5 · ♭7", role: "V7, o acorde que pede resolução" },
-  { quality: "Meio diminuto", symbol: "Cm7(♭5)", notes: "C · E♭ · G♭ · B♭", formula: "1 · ♭3 · ♭5 · ♭7", role: "VIIm7(♭5) e o IIm7(♭5) do menor" },
+const TETRADS: Array<{ quality: Localized; symbol: string; notes: string; formula: string; role: Localized }> = [
+  {
+    quality: { pt: "Maior com sétima maior", en: "Major seventh" },
+    symbol: "C7M",
+    notes: "C · E · G · B",
+    formula: "1 · 3 · 5 · 7",
+    role: { pt: "I7M e IV7M de uma tonalidade maior", en: "Imaj7 and IVmaj7 of a major key" },
+  },
+  {
+    quality: { pt: "Menor com sétima", en: "Minor seventh" },
+    symbol: "Cm7",
+    notes: "C · E♭ · G · B♭",
+    formula: "1 · ♭3 · 5 · ♭7",
+    role: { pt: "IIm7, IIIm7 e VIm7", en: "IIm7, IIIm7 and VIm7" },
+  },
+  {
+    quality: { pt: "Sétima dominante", en: "Dominant seventh" },
+    symbol: "C7",
+    notes: "C · E · G · B♭",
+    formula: "1 · 3 · 5 · ♭7",
+    role: { pt: "V7, o acorde que pede resolução", en: "V7, the chord that wants to resolve" },
+  },
+  {
+    quality: { pt: "Meio diminuto", en: "Half-diminished" },
+    symbol: "Cm7(♭5)",
+    notes: "C · E♭ · G♭ · B♭",
+    formula: "1 · ♭3 · ♭5 · ♭7",
+    role: { pt: "VIIm7(♭5) e o IIm7(♭5) do menor", en: "VIIm7(♭5) and the IIm7(♭5) of a minor key" },
+  },
 ];
 
-/** Short quality name used as the row label of the diagram tables. */
-const QUALITY_LABEL: Record<string, string> = {
-  "Acordes maiores": "Maior (7M)",
-  "Acordes menores": "Menor (m7)",
-  "Acordes de sétima dominante": "Dominante (7)",
-  "Acordes meio diminutos": "Meio diminuto (m7♭5)",
+/** Short quality name used as the row label of the diagram tables, keyed by the trail's Portuguese title. */
+const QUALITY_LABEL: Record<string, Localized> = {
+  "Acordes maiores": { pt: "Maior (7M)", en: "Major (maj7)" },
+  "Acordes menores": { pt: "Menor (m7)", en: "Minor (m7)" },
+  "Acordes de sétima dominante": { pt: "Dominante (7)", en: "Dominant (7)" },
+  "Acordes meio diminutos": { pt: "Meio diminuto (m7♭5)", en: "Half-diminished (m7♭5)" },
 };
+
+const ORDINAL_EN: Record<number, string> = { 4: "4th", 5: "5th", 6: "6th" };
 
 /**
  * The C lesson of every trail of section 2, grouped by inversion: per chord quality, the
@@ -1759,60 +1974,73 @@ const QUALITY_LABEL: Record<string, string> = {
  */
 function inversionTables() {
   const section = sections[1];
-  const tables: Array<{ inversion: string; rows: Array<{ quality: string; steps: ChordStep[] }> }> = [];
+  const tables: Array<{ inversion: Localized; rows: Array<{ quality: Localized; steps: ChordStep[] }> }> = [];
   for (const trail of section.trails) {
-    const lesson = trail.lessons.find((item) => item.title.startsWith("C")) ?? trail.lessons[0];
+    const lesson = trail.lessons.find((item) => item.title.pt.startsWith("C")) ?? trail.lessons[0];
     const steps = lesson.steps
       .filter((step) => !step.alternative)
       .sort((a, b) => (b.bassString ?? 0) - (a.bassString ?? 0));
-    const inversion = trail.group ?? "";
-    let table = tables.find((item) => item.inversion === inversion);
+    const inversion = trail.group ?? { pt: "", en: "" };
+    let table = tables.find((item) => item.inversion.pt === inversion.pt);
     if (!table) tables.push((table = { inversion, rows: [] }));
-    table.rows.push({ quality: QUALITY_LABEL[trail.title] ?? trail.title, steps });
+    table.rows.push({ quality: QUALITY_LABEL[trail.title.pt] ?? trail.title, steps });
   }
   return tables;
 }
 
 function InversionsGuide({ onBack }: { onBack: () => void }) {
+  const { t, l, lang } = useI18n();
   const tables = inversionTables();
-  const fretOf = (step: ChordStep) => `casa ${step.position.baseFret}`;
+  const fretOf = (step: ChordStep) => t(`casa ${step.position.baseFret}`, `fret ${step.position.baseFret}`);
   return (
     <GuideLayout
-      title="Inversões de tétrades"
+      title={t("Inversões de tétrades", "Seventh chord inversions")}
       sources={INVERSIONS_SOURCES}
       onBack={onBack}
-      intro={
+      intro={t(
         <>
           Uma tétrade tem quatro notas, e qualquer uma delas pode ir para o baixo. Trocar a nota mais
           grave muda a cor do acorde e, principalmente, deixa você tocar a mesma harmonia em vários
           lugares do braço, com uma linha de baixo que anda por graus vizinhos em vez de saltar.
-        </>
-      }
+        </>,
+        <>
+          A seventh chord has four notes, and any of them can go in the bass. Changing the lowest note
+          changes the colour of the chord and, above all, lets you play the same harmony in several
+          places on the neck, with a bass line that moves stepwise instead of leaping.
+        </>,
+      )}
     >
-      <GuideSection title="O que é uma tétrade">
-        <p>
-          A tétrade é a tríade (fundamental, terça e quinta) com mais uma terça empilhada:{" "}
-          <strong>a sétima</strong>. A combinação de terça e sétima, maiores ou menores, e de quinta
-          justa ou diminuta dá as quatro qualidades que esta unidade trabalha. Em C:
-        </p>
+      <GuideSection title={t("O que é uma tétrade", "What a seventh chord is")}>
+        {t(
+          <p>
+            A tétrade é a tríade (fundamental, terça e quinta) com mais uma terça empilhada:{" "}
+            <strong>a sétima</strong>. A combinação de terça e sétima, maiores ou menores, e de quinta
+            justa ou diminuta dá as quatro qualidades que esta unidade trabalha. Em C:
+          </p>,
+          <p>
+            A seventh chord (a tetrad) is the triad (root, third and fifth) with one more third stacked
+            on top: <strong>the seventh</strong>. Combining a major or minor third and seventh with a
+            perfect or diminished fifth gives the four qualities this unit covers. In C:
+          </p>,
+        )}
         <div className="!mt-6 overflow-x-auto rounded-card border border-line bg-surface">
           <table className="w-full min-w-[520px] text-left text-sm">
             <thead className="border-b border-line text-muted">
               <tr>
-                <th className="eyebrow px-4 py-3 font-medium">Qualidade</th>
-                <th className="eyebrow px-4 py-3 font-medium">Cifra</th>
-                <th className="eyebrow px-4 py-3 font-medium">Notas</th>
-                <th className="eyebrow px-4 py-3 font-medium">Fórmula</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Qualidade", "Quality")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Cifra", "Symbol")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Notas", "Notes")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Fórmula", "Formula")}</th>
               </tr>
             </thead>
             <tbody>
               {TETRADS.map((tetrad) => (
                 <tr key={tetrad.symbol} className="border-b border-line last:border-0">
                   <td className="px-4 py-3">
-                    <span className="block font-semibold text-ink">{tetrad.quality}</span>
-                    <span className="block text-xs text-muted">{tetrad.role}</span>
+                    <span className="block font-semibold text-ink">{l(tetrad.quality)}</span>
+                    <span className="block text-xs text-muted">{l(tetrad.role)}</span>
                   </td>
-                  <td className="px-4 py-3 font-display font-bold text-ink">{tetrad.symbol}</td>
+                  <td className="px-4 py-3 font-display font-bold text-ink">{chordName(tetrad.symbol, lang)}</td>
                   <td className="whitespace-nowrap px-4 py-3 font-mono text-[13px]">{tetrad.notes}</td>
                   <td className="whitespace-nowrap px-4 py-3 font-mono text-[13px] text-brand-ink">{tetrad.formula}</td>
                 </tr>
@@ -1822,72 +2050,133 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
         </div>
       </GuideSection>
 
-      <GuideSection title="O que é uma inversão">
-        <p>
-          O que define a inversão é só <strong>a nota mais grave</strong>. As outras três podem vir
-          em qualquer ordem por cima. Com quatro notas há quatro possibilidades:
-        </p>
-        <ul className="list-disc space-y-2 pl-5">
-          <li>
-            <strong>Estado fundamental:</strong> a fundamental no baixo (C7M). É o que você tocou na
-            Unidade 1.
-          </li>
-          <li>
-            <strong>1ª inversão:</strong> a terça no baixo (C7M/E, Cm7/E♭).
-          </li>
-          <li>
-            <strong>2ª inversão:</strong> a quinta no baixo (C7M/G, Cm7(♭5)/G♭).
-          </li>
-          <li>
-            <strong>3ª inversão:</strong> a sétima no baixo (C7M/B, C7/B♭). É a mais instável das
-            quatro: a sétima no grave pede resolução, e o baixo costuma descer um grau, como em
-            C7/B♭ → F7M/A.
-          </li>
-        </ul>
-        <p>
-          Na cifra, a inversão aparece com uma barra seguida da nota do baixo: <strong>C7/E</strong>{" "}
-          se lê “C sete com baixo em mi”.
-        </p>
+      <GuideSection title={t("O que é uma inversão", "What an inversion is")}>
+        {t(
+          <>
+            <p>
+              O que define a inversão é só <strong>a nota mais grave</strong>. As outras três podem vir
+              em qualquer ordem por cima. Com quatro notas há quatro possibilidades:
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Estado fundamental:</strong> a fundamental no baixo (C7M). É o que você tocou na
+                Unidade 1.
+              </li>
+              <li>
+                <strong>1ª inversão:</strong> a terça no baixo (C7M/E, Cm7/E♭).
+              </li>
+              <li>
+                <strong>2ª inversão:</strong> a quinta no baixo (C7M/G, Cm7(♭5)/G♭).
+              </li>
+              <li>
+                <strong>3ª inversão:</strong> a sétima no baixo (C7M/B, C7/B♭). É a mais instável das
+                quatro: a sétima no grave pede resolução, e o baixo costuma descer um grau, como em
+                C7/B♭ → F7M/A.
+              </li>
+            </ul>
+            <p>
+              Na cifra, a inversão aparece com uma barra seguida da nota do baixo: <strong>C7/E</strong>{" "}
+              se lê “C sete com baixo em mi”.
+            </p>
+          </>,
+          <>
+            <p>
+              The only thing that defines the inversion is <strong>the lowest note</strong>. The other
+              three can come in any order above it. With four notes there are four possibilities:
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Root position:</strong> the root in the bass (Cmaj7). That is what you played in
+                Unit 1.
+              </li>
+              <li>
+                <strong>1st inversion:</strong> the third in the bass (Cmaj7/E, Cm7/E♭).
+              </li>
+              <li>
+                <strong>2nd inversion:</strong> the fifth in the bass (Cmaj7/G, Cm7(♭5)/G♭).
+              </li>
+              <li>
+                <strong>3rd inversion:</strong> the seventh in the bass (Cmaj7/B, C7/B♭). It is the
+                least stable of the four: a seventh in the bass wants to resolve, and the bass usually
+                steps down, as in C7/B♭ → Fmaj7/A.
+              </li>
+            </ul>
+            <p>
+              In chord symbols, an inversion is written with a slash followed by the bass note:{" "}
+              <strong>C7/E</strong> reads “C seven over E”.
+            </p>
+          </>,
+        )}
       </GuideSection>
 
-      <GuideSection title="Como as formas são montadas">
-        <p>
-          No piano, a tétrade fechada (as quatro notas o mais juntas possível) é natural. No violão
-          ela quase sempre exige uma abertura impossível de mão. A solução clássica é o{" "}
-          <strong>drop 2</strong>: pegar a forma fechada e descer uma oitava a segunda nota mais
-          aguda. O acorde fica mais aberto, cabe em <strong>quatro cordas vizinhas</strong> e
-          continua com as mesmas quatro notas.
-        </p>
-        <p>
-          Cada aula desta unidade mostra o acorde em três grupos de cordas, um para cada corda do
-          baixo: <strong>6ª</strong> (cordas 6 a 3), <strong>5ª</strong> (5 a 2) e{" "}
-          <strong>4ª</strong> (4 a 1). Algumas aulas trazem também uma{" "}
-          <strong>digitação alternativa</strong> que pula uma corda: é o <strong>drop 3</strong>,
-          em que a terceira nota mais aguda é que desce a oitava. Ela soa mais aberta e é muito
-          usada com o baixo na 6ª e na 5ª corda.
-        </p>
+      <GuideSection title={t("Como as formas são montadas", "How the shapes are built")}>
+        {t(
+          <>
+            <p>
+              No piano, a tétrade fechada (as quatro notas o mais juntas possível) é natural. No violão
+              ela quase sempre exige uma abertura impossível de mão. A solução clássica é o{" "}
+              <strong>drop 2</strong>: pegar a forma fechada e descer uma oitava a segunda nota mais
+              aguda. O acorde fica mais aberto, cabe em <strong>quatro cordas vizinhas</strong> e
+              continua com as mesmas quatro notas.
+            </p>
+            <p>
+              Cada aula desta unidade mostra o acorde em três grupos de cordas, um para cada corda do
+              baixo: <strong>6ª</strong> (cordas 6 a 3), <strong>5ª</strong> (5 a 2) e{" "}
+              <strong>4ª</strong> (4 a 1). Algumas aulas trazem também uma{" "}
+              <strong>digitação alternativa</strong> que pula uma corda: é o <strong>drop 3</strong>,
+              em que a terceira nota mais aguda é que desce a oitava. Ela soa mais aberta e é muito
+              usada com o baixo na 6ª e na 5ª corda.
+            </p>
+          </>,
+          <>
+            <p>
+              On the piano, the close-position seventh chord (all four notes as close together as
+              possible) comes naturally. On the guitar it almost always needs an impossible stretch.
+              The classic solution is the <strong>drop 2</strong>: take the close shape and drop the
+              second-highest note an octave. The chord opens up, fits on{" "}
+              <strong>four adjacent strings</strong> and keeps the same four notes.
+            </p>
+            <p>
+              Each lesson in this unit shows the chord on three string sets, one for each bass string:{" "}
+              <strong>6th</strong> (strings 6 to 3), <strong>5th</strong> (5 to 2) and{" "}
+              <strong>4th</strong> (4 to 1). Some lessons also include an{" "}
+              <strong>alternative fingering</strong> that skips a string: the <strong>drop 3</strong>,
+              where the third-highest note is the one dropped an octave. It sounds more open and is
+              widely used with the bass on the 6th and 5th strings.
+            </p>
+          </>,
+        )}
       </GuideSection>
 
-      <GuideSection title="As formas em C">
-        <p>
-          Abaixo, as formas principais de cada inversão em C, para as quatro qualidades e as três
-          cordas do baixo. À esquerda de cada diagrama, cada corda que soa mostra o grau da nota:{" "}
-          <strong>1</strong> é a fundamental, <strong>3</strong> a terça, <strong>5</strong> a quinta
-          e <strong>7</strong> a sétima, com ♭ quando o intervalo é abaixado.
-        </p>
+      <GuideSection title={t("As formas em C", "The shapes in C")}>
+        {t(
+          <p>
+            Abaixo, as formas principais de cada inversão em C, para as quatro qualidades e as três
+            cordas do baixo. À esquerda de cada diagrama, cada corda que soa mostra o grau da nota:{" "}
+            <strong>1</strong> é a fundamental, <strong>3</strong> a terça, <strong>5</strong> a quinta
+            e <strong>7</strong> a sétima, com ♭ quando o intervalo é abaixado.
+          </p>,
+          <p>
+            Below are the main shapes of each inversion in C, for the four qualities and the three bass
+            strings. To the left of each diagram, every sounding string shows the degree of its note:{" "}
+            <strong>1</strong> is the root, <strong>3</strong> the third, <strong>5</strong> the fifth
+            and <strong>7</strong> the seventh, with ♭ when the interval is lowered.
+          </p>,
+        )}
         {tables.map((table) => (
-          <div key={table.inversion} className="!mt-10">
-            <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-ink">{table.inversion}</h3>
+          <div key={table.inversion.pt} className="!mt-10">
+            <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-ink">{l(table.inversion)}</h3>
             <div className="mt-4 space-y-6">
               {table.rows.map((row) => (
-                <div key={row.quality}>
-                  <p className="eyebrow text-brand-ink">{row.quality}</p>
+                <div key={row.quality.pt}>
+                  <p className="eyebrow text-brand-ink">{l(row.quality)}</p>
                   <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3">
                     {row.steps.map((step) => (
                       <figure key={`${step.chord}-${step.bassString}`} className="min-w-0">
                         <ChordCard step={step} />
                         <figcaption className="mt-1.5 text-center text-[11px] font-medium leading-snug text-muted sm:text-xs">
-                          Baixo na {step.bassString}ª · {fretOf(step)}
+                          {t(`Baixo na ${step.bassString}ª`, `Bass on the ${ORDINAL_EN[step.bassString ?? 0]}`)} ·{" "}
+                          {fretOf(step)}
                         </figcaption>
                       </figure>
                     ))}
@@ -1899,83 +2188,152 @@ function InversionsGuide({ onBack }: { onBack: () => void }) {
         ))}
       </GuideSection>
 
-      <GuideSection title="Uma nota de diferença">
-        <p>
-          Compare as quatro qualidades na mesma inversão e na mesma corda do baixo: o desenho quase
-          não muda. De uma qualidade para a próxima, <strong>uma única nota desce um semitom</strong>{" "}
-          (uma casa):
-        </p>
-        <ul className="list-disc space-y-2 pl-5">
-          <li>
-            <strong>Maior → dominante:</strong> a sétima maior desce para a sétima menor (B → B♭).
-          </li>
-          <li>
-            <strong>Dominante → menor:</strong> a terça maior desce para a terça menor (E → E♭).
-          </li>
-          <li>
-            <strong>Menor → meio diminuto:</strong> a quinta justa desce para a quinta diminuta (G → G♭).
-          </li>
-        </ul>
-        <p>
-          Por isso vale aprender cada desenho junto com os intervalos dele: sabendo onde estão a
-          terça, a quinta e a sétima, você troca de qualidade movendo um dedo, sem decorar um
-          desenho novo.
-        </p>
+      <GuideSection title={t("Uma nota de diferença", "One note apart")}>
+        {t(
+          <>
+            <p>
+              Compare as quatro qualidades na mesma inversão e na mesma corda do baixo: o desenho quase
+              não muda. De uma qualidade para a próxima, <strong>uma única nota desce um semitom</strong>{" "}
+              (uma casa):
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Maior → dominante:</strong> a sétima maior desce para a sétima menor (B → B♭).
+              </li>
+              <li>
+                <strong>Dominante → menor:</strong> a terça maior desce para a terça menor (E → E♭).
+              </li>
+              <li>
+                <strong>Menor → meio diminuto:</strong> a quinta justa desce para a quinta diminuta (G → G♭).
+              </li>
+            </ul>
+            <p>
+              Por isso vale aprender cada desenho junto com os intervalos dele: sabendo onde estão a
+              terça, a quinta e a sétima, você troca de qualidade movendo um dedo, sem decorar um
+              desenho novo.
+            </p>
+          </>,
+          <>
+            <p>
+              Compare the four qualities in the same inversion and on the same bass string: the shape
+              barely changes. From one quality to the next, <strong>a single note drops a semitone</strong>{" "}
+              (one fret):
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Major → dominant:</strong> the major seventh drops to the minor seventh (B → B♭).
+              </li>
+              <li>
+                <strong>Dominant → minor:</strong> the major third drops to the minor third (E → E♭).
+              </li>
+              <li>
+                <strong>Minor → half-diminished:</strong> the perfect fifth drops to the diminished
+                fifth (G → G♭).
+              </li>
+            </ul>
+            <p>
+              That is why it pays to learn each shape together with its intervals: knowing where the
+              third, fifth and seventh are, you change quality by moving one finger, without memorising
+              a new shape.
+            </p>
+          </>,
+        )}
       </GuideSection>
 
-      <GuideSection title="Para que servem">
-        <ul className="list-disc space-y-2 pl-5">
-          <li>
-            <strong>Condução de vozes.</strong> Escolhendo a inversão certa, a passagem de um acorde
-            para o outro move cada voz o mínimo possível. Num II–V–I, por exemplo, a sétima de um
-            acorde costuma descer meio tom e virar a terça do seguinte.
-          </li>
-          <li>
-            <strong>Linhas de baixo.</strong> Inversões criam baixos que andam por grau conjunto,
-            como C7M → C7M/B → Am7 (dó, si, lá) ou C7 → C7/B♭ → F7M/A (dó, si bemol, lá).
-          </li>
-          <li>
-            <strong>Tudo na mesma região.</strong> Com as três inversões e o estado fundamental, um
-            acorde aparece em quatro lugares de cada grupo de cordas, e você acompanha uma música
-            inteira sem sair de uma região do braço.
-          </li>
-          <li>
-            <strong>Cor.</strong> Com a terça ou a sétima no baixo, o acorde soa menos “parado” que no
-            estado fundamental, o que dá movimento ao acompanhamento.
-          </li>
-        </ul>
+      <GuideSection title={t("Para que servem", "What they are for")}>
+        {t(
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <strong>Condução de vozes.</strong> Escolhendo a inversão certa, a passagem de um acorde
+              para o outro move cada voz o mínimo possível. Num II–V–I, por exemplo, a sétima de um
+              acorde costuma descer meio tom e virar a terça do seguinte.
+            </li>
+            <li>
+              <strong>Linhas de baixo.</strong> Inversões criam baixos que andam por grau conjunto,
+              como C7M → C7M/B → Am7 (dó, si, lá) ou C7 → C7/B♭ → F7M/A (dó, si bemol, lá).
+            </li>
+            <li>
+              <strong>Tudo na mesma região.</strong> Com as três inversões e o estado fundamental, um
+              acorde aparece em quatro lugares de cada grupo de cordas, e você acompanha uma música
+              inteira sem sair de uma região do braço.
+            </li>
+            <li>
+              <strong>Cor.</strong> Com a terça ou a sétima no baixo, o acorde soa menos “parado” que no
+              estado fundamental, o que dá movimento ao acompanhamento.
+            </li>
+          </ul>,
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <strong>Voice leading.</strong> With the right inversion, moving from one chord to the
+              next shifts each voice as little as possible. In a II–V–I, for example, the seventh of one
+              chord usually drops a half step and becomes the third of the next.
+            </li>
+            <li>
+              <strong>Bass lines.</strong> Inversions create bass lines that move stepwise, such as
+              Cmaj7 → Cmaj7/B → Am7 (C, B, A) or C7 → C7/B♭ → Fmaj7/A (C, B♭, A).
+            </li>
+            <li>
+              <strong>Everything in one region.</strong> With root position and the three inversions, a
+              chord appears in four places on each string set, so you can accompany a whole song without
+              leaving one region of the neck.
+            </li>
+            <li>
+              <strong>Colour.</strong> With the third or the seventh in the bass, the chord sounds less
+              “static” than in root position, which gives the accompaniment movement.
+            </li>
+          </ul>,
+        )}
       </GuideSection>
 
-      <GuideSection title="Como estudar com este app">
-        <ol className="list-decimal space-y-2 pl-5">
-          <li>
-            A unidade está organizada por inversão e, dentro de cada uma, pelas quatro qualidades de
-            tétrade.
-          </li>
-          <li>
-            Cada aula é uma tonalidade, no ciclo de quartas: o acorde com o baixo na 4ª, na 5ª e na
-            6ª corda, ordenado pela posição no braço, do mais grave para o mais agudo.
-          </li>
-          <li>
-            Monte cada forma e diga em voz alta qual nota está no baixo. Depois, toque as formas em
-            sequência no exercício final, no andamento do metrônomo.
-          </li>
-          <li>
-            Quando uma forma estiver firme, troque a qualidade movendo um único dedo, como no item
-            “Uma nota de diferença”.
-          </li>
-        </ol>
+      <GuideSection title={t("Como estudar com este app", "How to study with this app")}>
+        {t(
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>
+              A unidade está organizada por inversão e, dentro de cada uma, pelas quatro qualidades de
+              tétrade.
+            </li>
+            <li>
+              Cada aula tem uma variação para cada tonalidade, no ciclo de quartas: o acorde com o
+              baixo na 4ª, na 5ª e na 6ª corda, ordenado pela posição no braço, do mais grave para o
+              mais agudo.
+            </li>
+            <li>
+              Monte cada forma e diga em voz alta qual nota está no baixo. Depois, toque as formas em
+              sequência no exercício final, no andamento do metrônomo.
+            </li>
+            <li>
+              Quando uma forma estiver firme, troque a qualidade movendo um único dedo, como no item
+              “Uma nota de diferença”.
+            </li>
+          </ol>,
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The unit is organised by inversion and, within each one, by the four seventh-chord qualities.</li>
+            <li>
+              Each lesson has a variation for every key, in the cycle of fourths: the chord with the
+              bass on the 4th, 5th and 6th strings, ordered by position on the neck, from lowest to
+              highest.
+            </li>
+            <li>
+              Fret each shape and say out loud which note is in the bass. Then play the shapes in
+              sequence in the final exercise, in time with the metronome.
+            </li>
+            <li>
+              Once a shape feels solid, change its quality by moving a single finger, as in “One note
+              apart”.
+            </li>
+          </ol>,
+        )}
       </GuideSection>
     </GuideLayout>
   );
 }
 
 /** Dictionary sections, one per chord quality, named after the home-page trails. */
-const DICTIONARY_QUALITIES = [
-  { trail: "Acordes maiores", title: "Acordes maiores" },
-  { trail: "Acordes menores", title: "Acordes menores" },
-  { trail: "Acordes de sétima dominante", title: "Acordes dominantes" },
-  { trail: "Acordes meio diminutos", title: "Acordes meio diminutos" },
+const DICTIONARY_QUALITIES: Array<{ trail: string; title: Localized }> = [
+  { trail: "Acordes maiores", title: { pt: "Acordes maiores", en: "Major chords" } },
+  { trail: "Acordes menores", title: { pt: "Acordes menores", en: "Minor chords" } },
+  { trail: "Acordes de sétima dominante", title: { pt: "Acordes dominantes", en: "Dominant chords" } },
+  { trail: "Acordes meio diminutos", title: { pt: "Acordes meio diminutos", en: "Half-diminished chords" } },
 ];
 
 /** The 12 keys of the dictionary's key selector, chromatic from C (pitch class = index). */
@@ -1991,11 +2349,11 @@ function dictionaryOf(key: number) {
     title,
     groups: sections.flatMap((section) =>
       section.trails
-        .filter((trail) => trail.title === trailTitle)
+        .filter((trail) => trail.title.pt === trailTitle)
         .flatMap((trail) => {
           const lesson = trail.lessons.find((item) => item.steps.length && rootPitchClass(item.steps[0].chord) === key);
           if (!lesson) return [];
-          return [{ key: `${section.id}-${trail.group ?? ""}`, steps: lesson.steps }];
+          return [{ key: `${section.id}-${trail.group?.pt ?? ""}`, steps: lesson.steps }];
         }),
     ),
   }));
@@ -2012,9 +2370,10 @@ function KeySelect({
   /** Phone menu row: no visible label, shorter control. */
   compact?: boolean;
 }) {
+  const { t } = useI18n();
   return (
     <label className={`block ${compact ? "shrink-0" : ""}`}>
-      <span className={compact ? "sr-only" : "mb-2 block px-3 text-sm font-semibold text-ink-2"}>Tonalidade</span>
+      <span className={compact ? "sr-only" : "mb-2 block px-3 text-sm font-semibold text-ink-2"}>{t("Tonalidade", "Key")}</span>
       {/* Indented like the label (and the menu links' text) so they share one left edge. */}
       <span className={`relative block ${compact ? "" : "mx-3"}`}>
         <select
@@ -2069,8 +2428,10 @@ function useActiveSection(ids: string[]) {
 
 /** Chord dictionary: every fingering in the app, shown on C, with a menu of its sections. */
 function DictionaryPage({ onBack }: { onBack: () => void }) {
+  const { t, l } = useI18n();
   const [key, setKey] = useState(0);
-  const qualities = dictionaryOf(key).map((quality) => ({ ...quality, id: anchorOf(quality.title) }));
+  // Anchors come from the Portuguese titles so shared links work in both languages.
+  const qualities = dictionaryOf(key).map((quality) => ({ ...quality, id: anchorOf(quality.title.pt) }));
   const active = useActiveSection(qualities.map((quality) => quality.id));
   // Opened straight on an anchor (shared link): jump to that section once.
   useEffect(() => {
@@ -2089,7 +2450,7 @@ function DictionaryPage({ onBack }: { onBack: () => void }) {
           compact ? "h-9 px-3" : "h-11 px-3"
         } ${current ? "bg-brand-soft text-brand-ink" : "text-ink-2 hover:bg-sunken hover:text-ink"}`}
       >
-        <span className="whitespace-nowrap">{quality.title}</span>
+        <span className="whitespace-nowrap">{l(quality.title)}</span>
         {!compact && (
           <span className={`font-mono text-xs font-medium tabular-nums ${current ? "text-brand-ink" : "text-muted"}`}>
             {count}
@@ -2107,20 +2468,22 @@ function DictionaryPage({ onBack }: { onBack: () => void }) {
           onClick={onBack}
           className="-ml-2 flex h-10 items-center gap-2 rounded-control px-3 text-sm font-semibold text-ink-2 transition hover:bg-sunken hover:text-ink"
         >
-          <Icon name="back" className="size-4" /> Voltar
+          <Icon name="back" className="size-4" /> {t("Voltar", "Back")}
         </button>
         <h1 className="mt-8 font-display text-[36px] font-bold leading-tight tracking-[-0.04em] sm:text-[46px]">
-          Dicionário de Acordes
+          {t("Dicionário de Acordes", "Chord Dictionary")}
         </h1>
         <p className="mt-4 max-w-[720px] text-[17px] leading-8 text-ink-2">
-          Todas as digitações de acorde para cada função. Em teoria, você pode substituir um acorde
-          por qualquer outro da mesma categoria. Não esqueça que o ouvido tem a última palavra.
+          {t(
+            "Todas as digitações de acorde para cada função. Em teoria, você pode substituir um acorde por qualquer outro da mesma categoria. Não esqueça que o ouvido tem a última palavra.",
+            "Every chord fingering for each function. In theory, you can replace a chord with any other in the same category. Don't forget that your ear has the final say.",
+          )}
         </p>
 
         {/* Below it: the menu on the left of the chord column (a scrolling row on phones). */}
         <div className="mt-6 lg:mt-12 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
           <nav
-            aria-label="Seções do dicionário"
+            aria-label={t("Seções do dicionário", "Dictionary sections")}
             className="sticky top-20 z-[5] -mx-4 border-b border-line bg-canvas sm:-mx-8 sm:top-[88px] lg:top-[120px] lg:mx-0 lg:self-start lg:border-b-0"
           >
             <div className="flex items-center gap-2 px-4 py-2 sm:px-8 lg:hidden">
@@ -2139,7 +2502,7 @@ function DictionaryPage({ onBack }: { onBack: () => void }) {
 
           <div className="min-w-0 [&>section:first-child]:lg:mt-0">
             {qualities.map((quality) => (
-              <GuideSection key={quality.id} id={quality.id} title={quality.title}>
+              <GuideSection key={quality.id} id={quality.id} title={l(quality.title)}>
                 <div className="grid grid-cols-2 gap-3 pt-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
                   {quality.groups.flatMap((group) =>
                     group.steps.map((step, index) => (
