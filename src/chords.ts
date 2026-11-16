@@ -59,9 +59,9 @@ export type ScaleNote = {
   string: number;
   /** Absolute fret (0 = open). */
   fret: number;
-  /** Left-hand finger (1 index … 4 pinky). */
-  finger: number;
-  /** Scale degree from the key's tonic ("1", "♭3", "7"…). */
+  /** Left-hand finger (1 index … 4 pinky); left out when the exercise has no set fingering. */
+  finger?: number;
+  /** Scale degree from the key's tonic ("1", "♭3", "7"…); in an exercise, the note name ("E"). */
   degree: string;
 };
 
@@ -74,8 +74,14 @@ export type ScaleStep = {
   position: number;
   /** Mode whose shape the position has ("Jônio" … "Lócrio"). */
   mode: Localized;
-  /** The 17 notes, ascending. */
+  /** The 17 notes, ascending; an exercise lists its notes in playing order. */
   notes: ScaleNote[];
+  /** Exercise that is not a position (preparatory lesson): card title, replacing "Posição n" and the mode. */
+  label?: Localized;
+  /** Notes come in pairs (1st-2nd, 3rd-4th…), drawn joined by an arc: the leaps of the exercise. */
+  leaps?: boolean;
+  /** Exercise heading, replacing "Play C major in position n…". */
+  instruction?: Localized;
 };
 
 /** Frequency of a scale note. */
