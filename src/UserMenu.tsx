@@ -1,27 +1,25 @@
 import { useEffect, useId, useRef, useState } from "react";
 
 import { initialsOf, supabase, useSession } from "./auth/supabase.ts";
-import { LANGUAGES, useI18n, type Lang } from "./i18n.tsx";
+import { useI18n } from "./i18n.tsx";
 import { Icon } from "./Icon.tsx";
 
 /**
  * Avatar with the user's initials (a profile icon when logged out); opens a menu
- * with the account (log out, or log in / sign up) and the language selector.
+ * with the account: profile and log out, or log in / sign up. The language is
+ * chosen on the profile page.
  * Used by the app's top bar and, for logged-in users, by the homepage header.
  */
 export function UserMenu({
   basePath = "../",
-  onLanguageChange,
   onSignOut,
 }: {
   /** From the current page to the site root ("../" in app/, "" on the English homepage). */
   basePath?: string;
-  /** Called after the language changes (the homepage moves to its page in that language). */
-  onLanguageChange?: (lang: Lang) => void;
   /** Called after logging out. */
   onSignOut?: () => void;
 } = {}) {
-  const { t, lang, setLang } = useI18n();
+  const { t, lang } = useI18n();
   const session = useSession();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -41,20 +39,14 @@ export function UserMenu({
     };
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("keydown", onKeyDown);
-    // Focus the selected language so the keyboard starts inside the menu.
-    rootRef.current?.querySelector<HTMLElement>('[aria-checked="true"]')?.focus();
+    // Focus the first item so the keyboard starts inside the menu.
+    rootRef.current?.querySelector<HTMLElement>('[role="menuitem"]')?.focus();
     return () => {
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
 
-  function choose(next: Lang) {
-    setLang(next);
-    setOpen(false);
-    buttonRef.current?.focus();
-    onLanguageChange?.(next);
-  }
 
   return (
     <div ref={rootRef} className="relative shrink-0">
@@ -96,28 +88,7 @@ export function UserMenu({
               )}
             </div>
           ) : null}
-          <p className="eyebrow px-3 pb-1.5 pt-3 text-muted" id={`${menuId}-language`}>
-            {t("Idioma", "Language")}
-          </p>
-          <div role="group" aria-labelledby={`${menuId}-language`}>
-            {LANGUAGES.map((language) => {
-              const selected = language.id === lang;
-              return (
-                <button
-                  key={language.id}
-                  role="menuitemradio"
-                  aria-checked={selected}
-                  lang={language.htmlLang}
-                  onClick={() => choose(language.id)}
-                  className={`user-menu__item ${selected ? "user-menu__item--selected" : ""}`}
-                >
-                  <span>{language.label}</span>
-                  {selected && <Icon name="check" className="size-4 [stroke-width:3]" />}
-                </button>
-              );
-            })}
-          </div>
-          <div className="mt-2 border-t border-line pt-2">
+          <div className={session ? "pt-2" : ""}>
             {session ? (
               <>
               <a role="menuitem" href={`${basePath}profile/?lang=${lang}`} className="user-menu__item">
