@@ -32,6 +32,13 @@ const loc = (text) => `{ pt: ${JSON.stringify(text.pt)}, en: ${JSON.stringify(te
 /** Chord symbol in English: Brazilian "7M" is "maj7". */
 const englishSymbol = (symbol) => symbol.replace("7M", "maj7");
 const ORDINAL_EN = { 4: "4th", 5: "5th", 6: "6th" };
+/**
+ * Stable lesson key ("caged/major/Bb", "inversions/third/maj7/C"): progress is saved
+ * under it, locally and in the account, so it must never change when lessons are
+ * added or reordered (unlike the sequential id).
+ */
+const ascii = (root) => root.replace("♭", "b").replace("♯", "#");
+const lessonKey = (...parts) => parts.join("/");
 
 const SECTION = {
   title: { pt: "Acordes Básicos no CAGED", en: "Basic Chords with CAGED" },
@@ -123,6 +130,7 @@ const trails = TRAILS.map((trail, trailIndex) => {
     const current = trailIndex === 0 && index === 0;
     return `      {
         id: ${nextId++},
+        key: "${lessonKey("caged", suffix, ascii(root))}",
         title: ${title},
         exerciseTitle: ${title},
         subtitle: ${subtitle},
@@ -332,6 +340,7 @@ function inversionLesson(root, suffix, bass, label, model) {
       },
   }));
   return {
+    key: lessonKey("inversions", bass, suffix, ascii(root)),
     title: { pt: `${symbol} - baixo na ${label.pt}`, en: `${englishSymbol(symbol)} - ${label.en} in the bass` },
     subtitle: {
       pt: `${symbol} com a ${label.pt} no baixo, na 4ª, 5ª e 6ª corda`,
@@ -430,6 +439,7 @@ const inversionTrails = INVERSIONS.trails.map((trail) => {
     });
     return `      {
         id: ${nextId++},
+        key: "${lesson.key}",
         title: ${loc(lesson.title)},
         exerciseTitle: ${loc(lesson.title)},
         subtitle: ${loc(lesson.subtitle)},
@@ -461,6 +471,8 @@ import type { Localized } from "./i18n.tsx";
 
 export type Lesson = {
   id: number;
+  /** Stable key the learner's progress is saved under ("caged/major/C", "inversions/third/maj7/C"). */
+  key: string;
   title: Localized;
   exerciseTitle: Localized;
   subtitle: Localized;

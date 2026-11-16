@@ -10,6 +10,8 @@ import type { Localized } from "./i18n.tsx";
 
 export type Lesson = {
   id: number;
+  /** Stable key the learner's progress is saved under ("caged/major/C", "inversions/third/maj7/C"). */
+  key: string;
   title: Localized;
   exerciseTitle: Localized;
   subtitle: Localized;
@@ -46,6 +48,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 1,
+        key: "caged/major/C",
         title: { pt: "C maior - formas CAGED", en: "C major - CAGED shapes" },
         exerciseTitle: { pt: "C maior - formas CAGED", en: "C major - CAGED shapes" },
         subtitle: { pt: "C nas cinco formas, subindo o braço", en: "C in all five shapes, moving up the neck" },
@@ -86,6 +89,7 @@ export const sections: Section[] = [
       },
       {
         id: 2,
+        key: "caged/major/F",
         title: { pt: "F maior - formas CAGED", en: "F major - CAGED shapes" },
         exerciseTitle: { pt: "F maior - formas CAGED", en: "F major - CAGED shapes" },
         subtitle: { pt: "F nas cinco formas, subindo o braço", en: "F in all five shapes, moving up the neck" },
@@ -126,6 +130,7 @@ export const sections: Section[] = [
       },
       {
         id: 3,
+        key: "caged/major/Bb",
         title: { pt: "B♭ maior - formas CAGED", en: "B♭ major - CAGED shapes" },
         exerciseTitle: { pt: "B♭ maior - formas CAGED", en: "B♭ major - CAGED shapes" },
         subtitle: { pt: "B♭ nas cinco formas, subindo o braço", en: "B♭ in all five shapes, moving up the neck" },
@@ -166,6 +171,7 @@ export const sections: Section[] = [
       },
       {
         id: 4,
+        key: "caged/major/Eb",
         title: { pt: "E♭ maior - formas CAGED", en: "E♭ major - CAGED shapes" },
         exerciseTitle: { pt: "E♭ maior - formas CAGED", en: "E♭ major - CAGED shapes" },
         subtitle: { pt: "E♭ nas cinco formas, subindo o braço", en: "E♭ in all five shapes, moving up the neck" },
@@ -206,6 +212,7 @@ export const sections: Section[] = [
       },
       {
         id: 5,
+        key: "caged/major/Ab",
         title: { pt: "A♭ maior - formas CAGED", en: "A♭ major - CAGED shapes" },
         exerciseTitle: { pt: "A♭ maior - formas CAGED", en: "A♭ major - CAGED shapes" },
         subtitle: { pt: "A♭ nas cinco formas, subindo o braço", en: "A♭ in all five shapes, moving up the neck" },
@@ -246,6 +253,7 @@ export const sections: Section[] = [
       },
       {
         id: 6,
+        key: "caged/major/Db",
         title: { pt: "D♭ maior - formas CAGED", en: "D♭ major - CAGED shapes" },
         exerciseTitle: { pt: "D♭ maior - formas CAGED", en: "D♭ major - CAGED shapes" },
         subtitle: { pt: "D♭ nas cinco formas, subindo o braço", en: "D♭ in all five shapes, moving up the neck" },
@@ -286,6 +294,7 @@ export const sections: Section[] = [
       },
       {
         id: 7,
+        key: "caged/major/Gb",
         title: { pt: "G♭ maior - formas CAGED", en: "G♭ major - CAGED shapes" },
         exerciseTitle: { pt: "G♭ maior - formas CAGED", en: "G♭ major - CAGED shapes" },
         subtitle: { pt: "G♭ nas cinco formas, subindo o braço", en: "G♭ in all five shapes, moving up the neck" },
@@ -326,6 +335,7 @@ export const sections: Section[] = [
       },
       {
         id: 8,
+        key: "caged/major/B",
         title: { pt: "B maior - formas CAGED", en: "B major - CAGED shapes" },
         exerciseTitle: { pt: "B maior - formas CAGED", en: "B major - CAGED shapes" },
         subtitle: { pt: "B nas cinco formas, subindo o braço", en: "B in all five shapes, moving up the neck" },
@@ -366,6 +376,7 @@ export const sections: Section[] = [
       },
       {
         id: 9,
+        key: "caged/major/E",
         title: { pt: "E maior - formas CAGED", en: "E major - CAGED shapes" },
         exerciseTitle: { pt: "E maior - formas CAGED", en: "E major - CAGED shapes" },
         subtitle: { pt: "E nas cinco formas, subindo o braço", en: "E in all five shapes, moving up the neck" },
@@ -406,6 +417,7 @@ export const sections: Section[] = [
       },
       {
         id: 10,
+        key: "caged/major/A",
         title: { pt: "A maior - formas CAGED", en: "A major - CAGED shapes" },
         exerciseTitle: { pt: "A maior - formas CAGED", en: "A major - CAGED shapes" },
         subtitle: { pt: "A nas cinco formas, subindo o braço", en: "A in all five shapes, moving up the neck" },
@@ -446,6 +458,7 @@ export const sections: Section[] = [
       },
       {
         id: 11,
+        key: "caged/major/D",
         title: { pt: "D maior - formas CAGED", en: "D major - CAGED shapes" },
         exerciseTitle: { pt: "D maior - formas CAGED", en: "D major - CAGED shapes" },
         subtitle: { pt: "D nas cinco formas, subindo o braço", en: "D in all five shapes, moving up the neck" },
@@ -486,6 +499,7 @@ export const sections: Section[] = [
       },
       {
         id: 12,
+        key: "caged/major/G",
         title: { pt: "G maior - formas CAGED", en: "G major - CAGED shapes" },
         exerciseTitle: { pt: "G maior - formas CAGED", en: "G major - CAGED shapes" },
         subtitle: { pt: "G nas cinco formas, subindo o braço", en: "G in all five shapes, moving up the neck" },
@@ -531,6 +545,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 13,
+        key: "caged/minor/C",
         title: { pt: "C menor - formas CAGED", en: "C minor - CAGED shapes" },
         exerciseTitle: { pt: "C menor - formas CAGED", en: "C minor - CAGED shapes" },
         subtitle: { pt: "Cm nas cinco formas, subindo o braço", en: "Cm in all five shapes, moving up the neck" },
@@ -576,6 +591,7 @@ export const sections: Section[] = [
       },
       {
         id: 14,
+        key: "caged/minor/F",
         title: { pt: "F menor - formas CAGED", en: "F minor - CAGED shapes" },
         exerciseTitle: { pt: "F menor - formas CAGED", en: "F minor - CAGED shapes" },
         subtitle: { pt: "Fm nas cinco formas, subindo o braço", en: "Fm in all five shapes, moving up the neck" },
@@ -621,6 +637,7 @@ export const sections: Section[] = [
       },
       {
         id: 15,
+        key: "caged/minor/Bb",
         title: { pt: "B♭ menor - formas CAGED", en: "B♭ minor - CAGED shapes" },
         exerciseTitle: { pt: "B♭ menor - formas CAGED", en: "B♭ minor - CAGED shapes" },
         subtitle: { pt: "B♭m nas cinco formas, subindo o braço", en: "B♭m in all five shapes, moving up the neck" },
@@ -666,6 +683,7 @@ export const sections: Section[] = [
       },
       {
         id: 16,
+        key: "caged/minor/Eb",
         title: { pt: "E♭ menor - formas CAGED", en: "E♭ minor - CAGED shapes" },
         exerciseTitle: { pt: "E♭ menor - formas CAGED", en: "E♭ minor - CAGED shapes" },
         subtitle: { pt: "E♭m nas cinco formas, subindo o braço", en: "E♭m in all five shapes, moving up the neck" },
@@ -711,6 +729,7 @@ export const sections: Section[] = [
       },
       {
         id: 17,
+        key: "caged/minor/G#",
         title: { pt: "G♯ menor - formas CAGED", en: "G♯ minor - CAGED shapes" },
         exerciseTitle: { pt: "G♯ menor - formas CAGED", en: "G♯ minor - CAGED shapes" },
         subtitle: { pt: "G♯m nas cinco formas, subindo o braço", en: "G♯m in all five shapes, moving up the neck" },
@@ -756,6 +775,7 @@ export const sections: Section[] = [
       },
       {
         id: 18,
+        key: "caged/minor/C#",
         title: { pt: "C♯ menor - formas CAGED", en: "C♯ minor - CAGED shapes" },
         exerciseTitle: { pt: "C♯ menor - formas CAGED", en: "C♯ minor - CAGED shapes" },
         subtitle: { pt: "C♯m nas cinco formas, subindo o braço", en: "C♯m in all five shapes, moving up the neck" },
@@ -801,6 +821,7 @@ export const sections: Section[] = [
       },
       {
         id: 19,
+        key: "caged/minor/F#",
         title: { pt: "F♯ menor - formas CAGED", en: "F♯ minor - CAGED shapes" },
         exerciseTitle: { pt: "F♯ menor - formas CAGED", en: "F♯ minor - CAGED shapes" },
         subtitle: { pt: "F♯m nas cinco formas, subindo o braço", en: "F♯m in all five shapes, moving up the neck" },
@@ -846,6 +867,7 @@ export const sections: Section[] = [
       },
       {
         id: 20,
+        key: "caged/minor/B",
         title: { pt: "B menor - formas CAGED", en: "B minor - CAGED shapes" },
         exerciseTitle: { pt: "B menor - formas CAGED", en: "B minor - CAGED shapes" },
         subtitle: { pt: "Bm nas cinco formas, subindo o braço", en: "Bm in all five shapes, moving up the neck" },
@@ -891,6 +913,7 @@ export const sections: Section[] = [
       },
       {
         id: 21,
+        key: "caged/minor/E",
         title: { pt: "E menor - formas CAGED", en: "E minor - CAGED shapes" },
         exerciseTitle: { pt: "E menor - formas CAGED", en: "E minor - CAGED shapes" },
         subtitle: { pt: "Em nas cinco formas, subindo o braço", en: "Em in all five shapes, moving up the neck" },
@@ -936,6 +959,7 @@ export const sections: Section[] = [
       },
       {
         id: 22,
+        key: "caged/minor/A",
         title: { pt: "A menor - formas CAGED", en: "A minor - CAGED shapes" },
         exerciseTitle: { pt: "A menor - formas CAGED", en: "A minor - CAGED shapes" },
         subtitle: { pt: "Am nas cinco formas, subindo o braço", en: "Am in all five shapes, moving up the neck" },
@@ -981,6 +1005,7 @@ export const sections: Section[] = [
       },
       {
         id: 23,
+        key: "caged/minor/D",
         title: { pt: "D menor - formas CAGED", en: "D minor - CAGED shapes" },
         exerciseTitle: { pt: "D menor - formas CAGED", en: "D minor - CAGED shapes" },
         subtitle: { pt: "Dm nas cinco formas, subindo o braço", en: "Dm in all five shapes, moving up the neck" },
@@ -1026,6 +1051,7 @@ export const sections: Section[] = [
       },
       {
         id: 24,
+        key: "caged/minor/G",
         title: { pt: "G menor - formas CAGED", en: "G minor - CAGED shapes" },
         exerciseTitle: { pt: "G menor - formas CAGED", en: "G minor - CAGED shapes" },
         subtitle: { pt: "Gm nas cinco formas, subindo o braço", en: "Gm in all five shapes, moving up the neck" },
@@ -1076,6 +1102,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 25,
+        key: "caged/7/C",
         title: { pt: "C7 - formas CAGED", en: "C7 - CAGED shapes" },
         exerciseTitle: { pt: "C7 - formas CAGED", en: "C7 - CAGED shapes" },
         subtitle: { pt: "C7 nas cinco formas, subindo o braço", en: "C7 in all five shapes, moving up the neck" },
@@ -1121,6 +1148,7 @@ export const sections: Section[] = [
       },
       {
         id: 26,
+        key: "caged/7/F",
         title: { pt: "F7 - formas CAGED", en: "F7 - CAGED shapes" },
         exerciseTitle: { pt: "F7 - formas CAGED", en: "F7 - CAGED shapes" },
         subtitle: { pt: "F7 nas cinco formas, subindo o braço", en: "F7 in all five shapes, moving up the neck" },
@@ -1166,6 +1194,7 @@ export const sections: Section[] = [
       },
       {
         id: 27,
+        key: "caged/7/Bb",
         title: { pt: "B♭7 - formas CAGED", en: "B♭7 - CAGED shapes" },
         exerciseTitle: { pt: "B♭7 - formas CAGED", en: "B♭7 - CAGED shapes" },
         subtitle: { pt: "B♭7 nas cinco formas, subindo o braço", en: "B♭7 in all five shapes, moving up the neck" },
@@ -1211,6 +1240,7 @@ export const sections: Section[] = [
       },
       {
         id: 28,
+        key: "caged/7/Eb",
         title: { pt: "E♭7 - formas CAGED", en: "E♭7 - CAGED shapes" },
         exerciseTitle: { pt: "E♭7 - formas CAGED", en: "E♭7 - CAGED shapes" },
         subtitle: { pt: "E♭7 nas cinco formas, subindo o braço", en: "E♭7 in all five shapes, moving up the neck" },
@@ -1256,6 +1286,7 @@ export const sections: Section[] = [
       },
       {
         id: 29,
+        key: "caged/7/Ab",
         title: { pt: "A♭7 - formas CAGED", en: "A♭7 - CAGED shapes" },
         exerciseTitle: { pt: "A♭7 - formas CAGED", en: "A♭7 - CAGED shapes" },
         subtitle: { pt: "A♭7 nas cinco formas, subindo o braço", en: "A♭7 in all five shapes, moving up the neck" },
@@ -1301,6 +1332,7 @@ export const sections: Section[] = [
       },
       {
         id: 30,
+        key: "caged/7/Db",
         title: { pt: "D♭7 - formas CAGED", en: "D♭7 - CAGED shapes" },
         exerciseTitle: { pt: "D♭7 - formas CAGED", en: "D♭7 - CAGED shapes" },
         subtitle: { pt: "D♭7 nas cinco formas, subindo o braço", en: "D♭7 in all five shapes, moving up the neck" },
@@ -1346,6 +1378,7 @@ export const sections: Section[] = [
       },
       {
         id: 31,
+        key: "caged/7/F#",
         title: { pt: "F♯7 - formas CAGED", en: "F♯7 - CAGED shapes" },
         exerciseTitle: { pt: "F♯7 - formas CAGED", en: "F♯7 - CAGED shapes" },
         subtitle: { pt: "F♯7 nas cinco formas, subindo o braço", en: "F♯7 in all five shapes, moving up the neck" },
@@ -1391,6 +1424,7 @@ export const sections: Section[] = [
       },
       {
         id: 32,
+        key: "caged/7/B",
         title: { pt: "B7 - formas CAGED", en: "B7 - CAGED shapes" },
         exerciseTitle: { pt: "B7 - formas CAGED", en: "B7 - CAGED shapes" },
         subtitle: { pt: "B7 nas cinco formas, subindo o braço", en: "B7 in all five shapes, moving up the neck" },
@@ -1436,6 +1470,7 @@ export const sections: Section[] = [
       },
       {
         id: 33,
+        key: "caged/7/E",
         title: { pt: "E7 - formas CAGED", en: "E7 - CAGED shapes" },
         exerciseTitle: { pt: "E7 - formas CAGED", en: "E7 - CAGED shapes" },
         subtitle: { pt: "E7 nas cinco formas, subindo o braço", en: "E7 in all five shapes, moving up the neck" },
@@ -1481,6 +1516,7 @@ export const sections: Section[] = [
       },
       {
         id: 34,
+        key: "caged/7/A",
         title: { pt: "A7 - formas CAGED", en: "A7 - CAGED shapes" },
         exerciseTitle: { pt: "A7 - formas CAGED", en: "A7 - CAGED shapes" },
         subtitle: { pt: "A7 nas cinco formas, subindo o braço", en: "A7 in all five shapes, moving up the neck" },
@@ -1526,6 +1562,7 @@ export const sections: Section[] = [
       },
       {
         id: 35,
+        key: "caged/7/D",
         title: { pt: "D7 - formas CAGED", en: "D7 - CAGED shapes" },
         exerciseTitle: { pt: "D7 - formas CAGED", en: "D7 - CAGED shapes" },
         subtitle: { pt: "D7 nas cinco formas, subindo o braço", en: "D7 in all five shapes, moving up the neck" },
@@ -1571,6 +1608,7 @@ export const sections: Section[] = [
       },
       {
         id: 36,
+        key: "caged/7/G",
         title: { pt: "G7 - formas CAGED", en: "G7 - CAGED shapes" },
         exerciseTitle: { pt: "G7 - formas CAGED", en: "G7 - CAGED shapes" },
         subtitle: { pt: "G7 nas cinco formas, subindo o braço", en: "G7 in all five shapes, moving up the neck" },
@@ -1621,6 +1659,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 37,
+        key: "caged/m7b5/C",
         title: { pt: "Cm7(♭5) - formas CAGED", en: "Cm7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "Cm7(♭5) - formas CAGED", en: "Cm7(♭5) - CAGED shapes" },
         subtitle: { pt: "Cm7(♭5) nas cinco formas, subindo o braço", en: "Cm7(♭5) in all five shapes, moving up the neck" },
@@ -1666,6 +1705,7 @@ export const sections: Section[] = [
       },
       {
         id: 38,
+        key: "caged/m7b5/F",
         title: { pt: "Fm7(♭5) - formas CAGED", en: "Fm7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "Fm7(♭5) - formas CAGED", en: "Fm7(♭5) - CAGED shapes" },
         subtitle: { pt: "Fm7(♭5) nas cinco formas, subindo o braço", en: "Fm7(♭5) in all five shapes, moving up the neck" },
@@ -1711,6 +1751,7 @@ export const sections: Section[] = [
       },
       {
         id: 39,
+        key: "caged/m7b5/A#",
         title: { pt: "A♯m7(♭5) - formas CAGED", en: "A♯m7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "A♯m7(♭5) - formas CAGED", en: "A♯m7(♭5) - CAGED shapes" },
         subtitle: { pt: "A♯m7(♭5) nas cinco formas, subindo o braço", en: "A♯m7(♭5) in all five shapes, moving up the neck" },
@@ -1756,6 +1797,7 @@ export const sections: Section[] = [
       },
       {
         id: 40,
+        key: "caged/m7b5/D#",
         title: { pt: "D♯m7(♭5) - formas CAGED", en: "D♯m7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "D♯m7(♭5) - formas CAGED", en: "D♯m7(♭5) - CAGED shapes" },
         subtitle: { pt: "D♯m7(♭5) nas cinco formas, subindo o braço", en: "D♯m7(♭5) in all five shapes, moving up the neck" },
@@ -1801,6 +1843,7 @@ export const sections: Section[] = [
       },
       {
         id: 41,
+        key: "caged/m7b5/G#",
         title: { pt: "G♯m7(♭5) - formas CAGED", en: "G♯m7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "G♯m7(♭5) - formas CAGED", en: "G♯m7(♭5) - CAGED shapes" },
         subtitle: { pt: "G♯m7(♭5) nas cinco formas, subindo o braço", en: "G♯m7(♭5) in all five shapes, moving up the neck" },
@@ -1846,6 +1889,7 @@ export const sections: Section[] = [
       },
       {
         id: 42,
+        key: "caged/m7b5/C#",
         title: { pt: "C♯m7(♭5) - formas CAGED", en: "C♯m7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "C♯m7(♭5) - formas CAGED", en: "C♯m7(♭5) - CAGED shapes" },
         subtitle: { pt: "C♯m7(♭5) nas cinco formas, subindo o braço", en: "C♯m7(♭5) in all five shapes, moving up the neck" },
@@ -1891,6 +1935,7 @@ export const sections: Section[] = [
       },
       {
         id: 43,
+        key: "caged/m7b5/F#",
         title: { pt: "F♯m7(♭5) - formas CAGED", en: "F♯m7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "F♯m7(♭5) - formas CAGED", en: "F♯m7(♭5) - CAGED shapes" },
         subtitle: { pt: "F♯m7(♭5) nas cinco formas, subindo o braço", en: "F♯m7(♭5) in all five shapes, moving up the neck" },
@@ -1936,6 +1981,7 @@ export const sections: Section[] = [
       },
       {
         id: 44,
+        key: "caged/m7b5/B",
         title: { pt: "Bm7(♭5) - formas CAGED", en: "Bm7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "Bm7(♭5) - formas CAGED", en: "Bm7(♭5) - CAGED shapes" },
         subtitle: { pt: "Bm7(♭5) nas cinco formas, subindo o braço", en: "Bm7(♭5) in all five shapes, moving up the neck" },
@@ -1981,6 +2027,7 @@ export const sections: Section[] = [
       },
       {
         id: 45,
+        key: "caged/m7b5/E",
         title: { pt: "Em7(♭5) - formas CAGED", en: "Em7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "Em7(♭5) - formas CAGED", en: "Em7(♭5) - CAGED shapes" },
         subtitle: { pt: "Em7(♭5) nas cinco formas, subindo o braço", en: "Em7(♭5) in all five shapes, moving up the neck" },
@@ -2026,6 +2073,7 @@ export const sections: Section[] = [
       },
       {
         id: 46,
+        key: "caged/m7b5/A",
         title: { pt: "Am7(♭5) - formas CAGED", en: "Am7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "Am7(♭5) - formas CAGED", en: "Am7(♭5) - CAGED shapes" },
         subtitle: { pt: "Am7(♭5) nas cinco formas, subindo o braço", en: "Am7(♭5) in all five shapes, moving up the neck" },
@@ -2071,6 +2119,7 @@ export const sections: Section[] = [
       },
       {
         id: 47,
+        key: "caged/m7b5/D",
         title: { pt: "Dm7(♭5) - formas CAGED", en: "Dm7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "Dm7(♭5) - formas CAGED", en: "Dm7(♭5) - CAGED shapes" },
         subtitle: { pt: "Dm7(♭5) nas cinco formas, subindo o braço", en: "Dm7(♭5) in all five shapes, moving up the neck" },
@@ -2116,6 +2165,7 @@ export const sections: Section[] = [
       },
       {
         id: 48,
+        key: "caged/m7b5/G",
         title: { pt: "Gm7(♭5) - formas CAGED", en: "Gm7(♭5) - CAGED shapes" },
         exerciseTitle: { pt: "Gm7(♭5) - formas CAGED", en: "Gm7(♭5) - CAGED shapes" },
         subtitle: { pt: "Gm7(♭5) nas cinco formas, subindo o braço", en: "Gm7(♭5) in all five shapes, moving up the neck" },
@@ -2174,6 +2224,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 49,
+        key: "inversions/root/maj7/C",
         title: { pt: "C7M - baixo na tônica", en: "Cmaj7 - root in the bass" },
         exerciseTitle: { pt: "C7M - baixo na tônica", en: "Cmaj7 - root in the bass" },
         subtitle: { pt: "C7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2226,6 +2277,7 @@ export const sections: Section[] = [
       },
       {
         id: 50,
+        key: "inversions/root/maj7/F",
         title: { pt: "F7M - baixo na tônica", en: "Fmaj7 - root in the bass" },
         exerciseTitle: { pt: "F7M - baixo na tônica", en: "Fmaj7 - root in the bass" },
         subtitle: { pt: "F7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2278,6 +2330,7 @@ export const sections: Section[] = [
       },
       {
         id: 51,
+        key: "inversions/root/maj7/Bb",
         title: { pt: "B♭7M - baixo na tônica", en: "B♭maj7 - root in the bass" },
         exerciseTitle: { pt: "B♭7M - baixo na tônica", en: "B♭maj7 - root in the bass" },
         subtitle: { pt: "B♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2330,6 +2383,7 @@ export const sections: Section[] = [
       },
       {
         id: 52,
+        key: "inversions/root/maj7/Eb",
         title: { pt: "E♭7M - baixo na tônica", en: "E♭maj7 - root in the bass" },
         exerciseTitle: { pt: "E♭7M - baixo na tônica", en: "E♭maj7 - root in the bass" },
         subtitle: { pt: "E♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2382,6 +2436,7 @@ export const sections: Section[] = [
       },
       {
         id: 53,
+        key: "inversions/root/maj7/Ab",
         title: { pt: "A♭7M - baixo na tônica", en: "A♭maj7 - root in the bass" },
         exerciseTitle: { pt: "A♭7M - baixo na tônica", en: "A♭maj7 - root in the bass" },
         subtitle: { pt: "A♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2434,6 +2489,7 @@ export const sections: Section[] = [
       },
       {
         id: 54,
+        key: "inversions/root/maj7/Db",
         title: { pt: "D♭7M - baixo na tônica", en: "D♭maj7 - root in the bass" },
         exerciseTitle: { pt: "D♭7M - baixo na tônica", en: "D♭maj7 - root in the bass" },
         subtitle: { pt: "D♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2486,6 +2542,7 @@ export const sections: Section[] = [
       },
       {
         id: 55,
+        key: "inversions/root/maj7/Gb",
         title: { pt: "G♭7M - baixo na tônica", en: "G♭maj7 - root in the bass" },
         exerciseTitle: { pt: "G♭7M - baixo na tônica", en: "G♭maj7 - root in the bass" },
         subtitle: { pt: "G♭7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2538,6 +2595,7 @@ export const sections: Section[] = [
       },
       {
         id: 56,
+        key: "inversions/root/maj7/B",
         title: { pt: "B7M - baixo na tônica", en: "Bmaj7 - root in the bass" },
         exerciseTitle: { pt: "B7M - baixo na tônica", en: "Bmaj7 - root in the bass" },
         subtitle: { pt: "B7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2590,6 +2648,7 @@ export const sections: Section[] = [
       },
       {
         id: 57,
+        key: "inversions/root/maj7/E",
         title: { pt: "E7M - baixo na tônica", en: "Emaj7 - root in the bass" },
         exerciseTitle: { pt: "E7M - baixo na tônica", en: "Emaj7 - root in the bass" },
         subtitle: { pt: "E7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2642,6 +2701,7 @@ export const sections: Section[] = [
       },
       {
         id: 58,
+        key: "inversions/root/maj7/A",
         title: { pt: "A7M - baixo na tônica", en: "Amaj7 - root in the bass" },
         exerciseTitle: { pt: "A7M - baixo na tônica", en: "Amaj7 - root in the bass" },
         subtitle: { pt: "A7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2694,6 +2754,7 @@ export const sections: Section[] = [
       },
       {
         id: 59,
+        key: "inversions/root/maj7/D",
         title: { pt: "D7M - baixo na tônica", en: "Dmaj7 - root in the bass" },
         exerciseTitle: { pt: "D7M - baixo na tônica", en: "Dmaj7 - root in the bass" },
         subtitle: { pt: "D7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2746,6 +2807,7 @@ export const sections: Section[] = [
       },
       {
         id: 60,
+        key: "inversions/root/maj7/G",
         title: { pt: "G7M - baixo na tônica", en: "Gmaj7 - root in the bass" },
         exerciseTitle: { pt: "G7M - baixo na tônica", en: "Gmaj7 - root in the bass" },
         subtitle: { pt: "G7M com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2804,6 +2866,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 61,
+        key: "inversions/root/m7/C",
         title: { pt: "Cm7 - baixo na tônica", en: "Cm7 - root in the bass" },
         exerciseTitle: { pt: "Cm7 - baixo na tônica", en: "Cm7 - root in the bass" },
         subtitle: { pt: "Cm7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2856,6 +2919,7 @@ export const sections: Section[] = [
       },
       {
         id: 62,
+        key: "inversions/root/m7/F",
         title: { pt: "Fm7 - baixo na tônica", en: "Fm7 - root in the bass" },
         exerciseTitle: { pt: "Fm7 - baixo na tônica", en: "Fm7 - root in the bass" },
         subtitle: { pt: "Fm7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2908,6 +2972,7 @@ export const sections: Section[] = [
       },
       {
         id: 63,
+        key: "inversions/root/m7/Bb",
         title: { pt: "B♭m7 - baixo na tônica", en: "B♭m7 - root in the bass" },
         exerciseTitle: { pt: "B♭m7 - baixo na tônica", en: "B♭m7 - root in the bass" },
         subtitle: { pt: "B♭m7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "B♭m7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -2960,6 +3025,7 @@ export const sections: Section[] = [
       },
       {
         id: 64,
+        key: "inversions/root/m7/Eb",
         title: { pt: "E♭m7 - baixo na tônica", en: "E♭m7 - root in the bass" },
         exerciseTitle: { pt: "E♭m7 - baixo na tônica", en: "E♭m7 - root in the bass" },
         subtitle: { pt: "E♭m7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "E♭m7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3012,6 +3078,7 @@ export const sections: Section[] = [
       },
       {
         id: 65,
+        key: "inversions/root/m7/G#",
         title: { pt: "G♯m7 - baixo na tônica", en: "G♯m7 - root in the bass" },
         exerciseTitle: { pt: "G♯m7 - baixo na tônica", en: "G♯m7 - root in the bass" },
         subtitle: { pt: "G♯m7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3064,6 +3131,7 @@ export const sections: Section[] = [
       },
       {
         id: 66,
+        key: "inversions/root/m7/C#",
         title: { pt: "C♯m7 - baixo na tônica", en: "C♯m7 - root in the bass" },
         exerciseTitle: { pt: "C♯m7 - baixo na tônica", en: "C♯m7 - root in the bass" },
         subtitle: { pt: "C♯m7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3116,6 +3184,7 @@ export const sections: Section[] = [
       },
       {
         id: 67,
+        key: "inversions/root/m7/F#",
         title: { pt: "F♯m7 - baixo na tônica", en: "F♯m7 - root in the bass" },
         exerciseTitle: { pt: "F♯m7 - baixo na tônica", en: "F♯m7 - root in the bass" },
         subtitle: { pt: "F♯m7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3168,6 +3237,7 @@ export const sections: Section[] = [
       },
       {
         id: 68,
+        key: "inversions/root/m7/B",
         title: { pt: "Bm7 - baixo na tônica", en: "Bm7 - root in the bass" },
         exerciseTitle: { pt: "Bm7 - baixo na tônica", en: "Bm7 - root in the bass" },
         subtitle: { pt: "Bm7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3220,6 +3290,7 @@ export const sections: Section[] = [
       },
       {
         id: 69,
+        key: "inversions/root/m7/E",
         title: { pt: "Em7 - baixo na tônica", en: "Em7 - root in the bass" },
         exerciseTitle: { pt: "Em7 - baixo na tônica", en: "Em7 - root in the bass" },
         subtitle: { pt: "Em7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Em7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3272,6 +3343,7 @@ export const sections: Section[] = [
       },
       {
         id: 70,
+        key: "inversions/root/m7/A",
         title: { pt: "Am7 - baixo na tônica", en: "Am7 - root in the bass" },
         exerciseTitle: { pt: "Am7 - baixo na tônica", en: "Am7 - root in the bass" },
         subtitle: { pt: "Am7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Am7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3324,6 +3396,7 @@ export const sections: Section[] = [
       },
       {
         id: 71,
+        key: "inversions/root/m7/D",
         title: { pt: "Dm7 - baixo na tônica", en: "Dm7 - root in the bass" },
         exerciseTitle: { pt: "Dm7 - baixo na tônica", en: "Dm7 - root in the bass" },
         subtitle: { pt: "Dm7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3376,6 +3449,7 @@ export const sections: Section[] = [
       },
       {
         id: 72,
+        key: "inversions/root/m7/G",
         title: { pt: "Gm7 - baixo na tônica", en: "Gm7 - root in the bass" },
         exerciseTitle: { pt: "Gm7 - baixo na tônica", en: "Gm7 - root in the bass" },
         subtitle: { pt: "Gm7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3434,6 +3508,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 73,
+        key: "inversions/root/7/C",
         title: { pt: "C7 - baixo na tônica", en: "C7 - root in the bass" },
         exerciseTitle: { pt: "C7 - baixo na tônica", en: "C7 - root in the bass" },
         subtitle: { pt: "C7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "C7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3486,6 +3561,7 @@ export const sections: Section[] = [
       },
       {
         id: 74,
+        key: "inversions/root/7/F",
         title: { pt: "F7 - baixo na tônica", en: "F7 - root in the bass" },
         exerciseTitle: { pt: "F7 - baixo na tônica", en: "F7 - root in the bass" },
         subtitle: { pt: "F7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "F7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3538,6 +3614,7 @@ export const sections: Section[] = [
       },
       {
         id: 75,
+        key: "inversions/root/7/Bb",
         title: { pt: "B♭7 - baixo na tônica", en: "B♭7 - root in the bass" },
         exerciseTitle: { pt: "B♭7 - baixo na tônica", en: "B♭7 - root in the bass" },
         subtitle: { pt: "B♭7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "B♭7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3590,6 +3667,7 @@ export const sections: Section[] = [
       },
       {
         id: 76,
+        key: "inversions/root/7/Eb",
         title: { pt: "E♭7 - baixo na tônica", en: "E♭7 - root in the bass" },
         exerciseTitle: { pt: "E♭7 - baixo na tônica", en: "E♭7 - root in the bass" },
         subtitle: { pt: "E♭7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "E♭7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3642,6 +3720,7 @@ export const sections: Section[] = [
       },
       {
         id: 77,
+        key: "inversions/root/7/Ab",
         title: { pt: "A♭7 - baixo na tônica", en: "A♭7 - root in the bass" },
         exerciseTitle: { pt: "A♭7 - baixo na tônica", en: "A♭7 - root in the bass" },
         subtitle: { pt: "A♭7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "A♭7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3694,6 +3773,7 @@ export const sections: Section[] = [
       },
       {
         id: 78,
+        key: "inversions/root/7/Db",
         title: { pt: "D♭7 - baixo na tônica", en: "D♭7 - root in the bass" },
         exerciseTitle: { pt: "D♭7 - baixo na tônica", en: "D♭7 - root in the bass" },
         subtitle: { pt: "D♭7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "D♭7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3746,6 +3826,7 @@ export const sections: Section[] = [
       },
       {
         id: 79,
+        key: "inversions/root/7/F#",
         title: { pt: "F♯7 - baixo na tônica", en: "F♯7 - root in the bass" },
         exerciseTitle: { pt: "F♯7 - baixo na tônica", en: "F♯7 - root in the bass" },
         subtitle: { pt: "F♯7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "F♯7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3798,6 +3879,7 @@ export const sections: Section[] = [
       },
       {
         id: 80,
+        key: "inversions/root/7/B",
         title: { pt: "B7 - baixo na tônica", en: "B7 - root in the bass" },
         exerciseTitle: { pt: "B7 - baixo na tônica", en: "B7 - root in the bass" },
         subtitle: { pt: "B7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "B7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3850,6 +3932,7 @@ export const sections: Section[] = [
       },
       {
         id: 81,
+        key: "inversions/root/7/E",
         title: { pt: "E7 - baixo na tônica", en: "E7 - root in the bass" },
         exerciseTitle: { pt: "E7 - baixo na tônica", en: "E7 - root in the bass" },
         subtitle: { pt: "E7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "E7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3902,6 +3985,7 @@ export const sections: Section[] = [
       },
       {
         id: 82,
+        key: "inversions/root/7/A",
         title: { pt: "A7 - baixo na tônica", en: "A7 - root in the bass" },
         exerciseTitle: { pt: "A7 - baixo na tônica", en: "A7 - root in the bass" },
         subtitle: { pt: "A7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "A7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -3954,6 +4038,7 @@ export const sections: Section[] = [
       },
       {
         id: 83,
+        key: "inversions/root/7/D",
         title: { pt: "D7 - baixo na tônica", en: "D7 - root in the bass" },
         exerciseTitle: { pt: "D7 - baixo na tônica", en: "D7 - root in the bass" },
         subtitle: { pt: "D7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "D7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4006,6 +4091,7 @@ export const sections: Section[] = [
       },
       {
         id: 84,
+        key: "inversions/root/7/G",
         title: { pt: "G7 - baixo na tônica", en: "G7 - root in the bass" },
         exerciseTitle: { pt: "G7 - baixo na tônica", en: "G7 - root in the bass" },
         subtitle: { pt: "G7 com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "G7 with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4064,6 +4150,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 85,
+        key: "inversions/root/m7b5/C",
         title: { pt: "Cm7(♭5) - baixo na tônica", en: "Cm7(♭5) - root in the bass" },
         exerciseTitle: { pt: "Cm7(♭5) - baixo na tônica", en: "Cm7(♭5) - root in the bass" },
         subtitle: { pt: "Cm7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4116,6 +4203,7 @@ export const sections: Section[] = [
       },
       {
         id: 86,
+        key: "inversions/root/m7b5/F",
         title: { pt: "Fm7(♭5) - baixo na tônica", en: "Fm7(♭5) - root in the bass" },
         exerciseTitle: { pt: "Fm7(♭5) - baixo na tônica", en: "Fm7(♭5) - root in the bass" },
         subtitle: { pt: "Fm7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4168,6 +4256,7 @@ export const sections: Section[] = [
       },
       {
         id: 87,
+        key: "inversions/root/m7b5/A#",
         title: { pt: "A♯m7(♭5) - baixo na tônica", en: "A♯m7(♭5) - root in the bass" },
         exerciseTitle: { pt: "A♯m7(♭5) - baixo na tônica", en: "A♯m7(♭5) - root in the bass" },
         subtitle: { pt: "A♯m7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "A♯m7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4220,6 +4309,7 @@ export const sections: Section[] = [
       },
       {
         id: 88,
+        key: "inversions/root/m7b5/D#",
         title: { pt: "D♯m7(♭5) - baixo na tônica", en: "D♯m7(♭5) - root in the bass" },
         exerciseTitle: { pt: "D♯m7(♭5) - baixo na tônica", en: "D♯m7(♭5) - root in the bass" },
         subtitle: { pt: "D♯m7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "D♯m7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4272,6 +4362,7 @@ export const sections: Section[] = [
       },
       {
         id: 89,
+        key: "inversions/root/m7b5/G#",
         title: { pt: "G♯m7(♭5) - baixo na tônica", en: "G♯m7(♭5) - root in the bass" },
         exerciseTitle: { pt: "G♯m7(♭5) - baixo na tônica", en: "G♯m7(♭5) - root in the bass" },
         subtitle: { pt: "G♯m7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4324,6 +4415,7 @@ export const sections: Section[] = [
       },
       {
         id: 90,
+        key: "inversions/root/m7b5/C#",
         title: { pt: "C♯m7(♭5) - baixo na tônica", en: "C♯m7(♭5) - root in the bass" },
         exerciseTitle: { pt: "C♯m7(♭5) - baixo na tônica", en: "C♯m7(♭5) - root in the bass" },
         subtitle: { pt: "C♯m7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4376,6 +4468,7 @@ export const sections: Section[] = [
       },
       {
         id: 91,
+        key: "inversions/root/m7b5/F#",
         title: { pt: "F♯m7(♭5) - baixo na tônica", en: "F♯m7(♭5) - root in the bass" },
         exerciseTitle: { pt: "F♯m7(♭5) - baixo na tônica", en: "F♯m7(♭5) - root in the bass" },
         subtitle: { pt: "F♯m7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4428,6 +4521,7 @@ export const sections: Section[] = [
       },
       {
         id: 92,
+        key: "inversions/root/m7b5/B",
         title: { pt: "Bm7(♭5) - baixo na tônica", en: "Bm7(♭5) - root in the bass" },
         exerciseTitle: { pt: "Bm7(♭5) - baixo na tônica", en: "Bm7(♭5) - root in the bass" },
         subtitle: { pt: "Bm7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4480,6 +4574,7 @@ export const sections: Section[] = [
       },
       {
         id: 93,
+        key: "inversions/root/m7b5/E",
         title: { pt: "Em7(♭5) - baixo na tônica", en: "Em7(♭5) - root in the bass" },
         exerciseTitle: { pt: "Em7(♭5) - baixo na tônica", en: "Em7(♭5) - root in the bass" },
         subtitle: { pt: "Em7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Em7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4532,6 +4627,7 @@ export const sections: Section[] = [
       },
       {
         id: 94,
+        key: "inversions/root/m7b5/A",
         title: { pt: "Am7(♭5) - baixo na tônica", en: "Am7(♭5) - root in the bass" },
         exerciseTitle: { pt: "Am7(♭5) - baixo na tônica", en: "Am7(♭5) - root in the bass" },
         subtitle: { pt: "Am7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Am7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4584,6 +4680,7 @@ export const sections: Section[] = [
       },
       {
         id: 95,
+        key: "inversions/root/m7b5/D",
         title: { pt: "Dm7(♭5) - baixo na tônica", en: "Dm7(♭5) - root in the bass" },
         exerciseTitle: { pt: "Dm7(♭5) - baixo na tônica", en: "Dm7(♭5) - root in the bass" },
         subtitle: { pt: "Dm7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4636,6 +4733,7 @@ export const sections: Section[] = [
       },
       {
         id: 96,
+        key: "inversions/root/m7b5/G",
         title: { pt: "Gm7(♭5) - baixo na tônica", en: "Gm7(♭5) - root in the bass" },
         exerciseTitle: { pt: "Gm7(♭5) - baixo na tônica", en: "Gm7(♭5) - root in the bass" },
         subtitle: { pt: "Gm7(♭5) com a tônica no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7(♭5) with the root in the bass, on the 4th, 5th and 6th strings" },
@@ -4694,6 +4792,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 97,
+        key: "inversions/third/maj7/C",
         title: { pt: "C7M - baixo na terça", en: "Cmaj7 - third in the bass" },
         exerciseTitle: { pt: "C7M - baixo na terça", en: "Cmaj7 - third in the bass" },
         subtitle: { pt: "C7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -4746,6 +4845,7 @@ export const sections: Section[] = [
       },
       {
         id: 98,
+        key: "inversions/third/maj7/F",
         title: { pt: "F7M - baixo na terça", en: "Fmaj7 - third in the bass" },
         exerciseTitle: { pt: "F7M - baixo na terça", en: "Fmaj7 - third in the bass" },
         subtitle: { pt: "F7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -4798,6 +4898,7 @@ export const sections: Section[] = [
       },
       {
         id: 99,
+        key: "inversions/third/maj7/Bb",
         title: { pt: "B♭7M - baixo na terça", en: "B♭maj7 - third in the bass" },
         exerciseTitle: { pt: "B♭7M - baixo na terça", en: "B♭maj7 - third in the bass" },
         subtitle: { pt: "B♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -4850,6 +4951,7 @@ export const sections: Section[] = [
       },
       {
         id: 100,
+        key: "inversions/third/maj7/Eb",
         title: { pt: "E♭7M - baixo na terça", en: "E♭maj7 - third in the bass" },
         exerciseTitle: { pt: "E♭7M - baixo na terça", en: "E♭maj7 - third in the bass" },
         subtitle: { pt: "E♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -4902,6 +5004,7 @@ export const sections: Section[] = [
       },
       {
         id: 101,
+        key: "inversions/third/maj7/Ab",
         title: { pt: "A♭7M - baixo na terça", en: "A♭maj7 - third in the bass" },
         exerciseTitle: { pt: "A♭7M - baixo na terça", en: "A♭maj7 - third in the bass" },
         subtitle: { pt: "A♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -4954,6 +5057,7 @@ export const sections: Section[] = [
       },
       {
         id: 102,
+        key: "inversions/third/maj7/Db",
         title: { pt: "D♭7M - baixo na terça", en: "D♭maj7 - third in the bass" },
         exerciseTitle: { pt: "D♭7M - baixo na terça", en: "D♭maj7 - third in the bass" },
         subtitle: { pt: "D♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5006,6 +5110,7 @@ export const sections: Section[] = [
       },
       {
         id: 103,
+        key: "inversions/third/maj7/Gb",
         title: { pt: "G♭7M - baixo na terça", en: "G♭maj7 - third in the bass" },
         exerciseTitle: { pt: "G♭7M - baixo na terça", en: "G♭maj7 - third in the bass" },
         subtitle: { pt: "G♭7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5058,6 +5163,7 @@ export const sections: Section[] = [
       },
       {
         id: 104,
+        key: "inversions/third/maj7/B",
         title: { pt: "B7M - baixo na terça", en: "Bmaj7 - third in the bass" },
         exerciseTitle: { pt: "B7M - baixo na terça", en: "Bmaj7 - third in the bass" },
         subtitle: { pt: "B7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5110,6 +5216,7 @@ export const sections: Section[] = [
       },
       {
         id: 105,
+        key: "inversions/third/maj7/E",
         title: { pt: "E7M - baixo na terça", en: "Emaj7 - third in the bass" },
         exerciseTitle: { pt: "E7M - baixo na terça", en: "Emaj7 - third in the bass" },
         subtitle: { pt: "E7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5162,6 +5269,7 @@ export const sections: Section[] = [
       },
       {
         id: 106,
+        key: "inversions/third/maj7/A",
         title: { pt: "A7M - baixo na terça", en: "Amaj7 - third in the bass" },
         exerciseTitle: { pt: "A7M - baixo na terça", en: "Amaj7 - third in the bass" },
         subtitle: { pt: "A7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5214,6 +5322,7 @@ export const sections: Section[] = [
       },
       {
         id: 107,
+        key: "inversions/third/maj7/D",
         title: { pt: "D7M - baixo na terça", en: "Dmaj7 - third in the bass" },
         exerciseTitle: { pt: "D7M - baixo na terça", en: "Dmaj7 - third in the bass" },
         subtitle: { pt: "D7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5266,6 +5375,7 @@ export const sections: Section[] = [
       },
       {
         id: 108,
+        key: "inversions/third/maj7/G",
         title: { pt: "G7M - baixo na terça", en: "Gmaj7 - third in the bass" },
         exerciseTitle: { pt: "G7M - baixo na terça", en: "Gmaj7 - third in the bass" },
         subtitle: { pt: "G7M com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5324,6 +5434,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 109,
+        key: "inversions/third/m7/C",
         title: { pt: "Cm7 - baixo na terça", en: "Cm7 - third in the bass" },
         exerciseTitle: { pt: "Cm7 - baixo na terça", en: "Cm7 - third in the bass" },
         subtitle: { pt: "Cm7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5376,6 +5487,7 @@ export const sections: Section[] = [
       },
       {
         id: 110,
+        key: "inversions/third/m7/F",
         title: { pt: "Fm7 - baixo na terça", en: "Fm7 - third in the bass" },
         exerciseTitle: { pt: "Fm7 - baixo na terça", en: "Fm7 - third in the bass" },
         subtitle: { pt: "Fm7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5428,6 +5540,7 @@ export const sections: Section[] = [
       },
       {
         id: 111,
+        key: "inversions/third/m7/Bb",
         title: { pt: "B♭m7 - baixo na terça", en: "B♭m7 - third in the bass" },
         exerciseTitle: { pt: "B♭m7 - baixo na terça", en: "B♭m7 - third in the bass" },
         subtitle: { pt: "B♭m7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "B♭m7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5480,6 +5593,7 @@ export const sections: Section[] = [
       },
       {
         id: 112,
+        key: "inversions/third/m7/Eb",
         title: { pt: "E♭m7 - baixo na terça", en: "E♭m7 - third in the bass" },
         exerciseTitle: { pt: "E♭m7 - baixo na terça", en: "E♭m7 - third in the bass" },
         subtitle: { pt: "E♭m7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "E♭m7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5532,6 +5646,7 @@ export const sections: Section[] = [
       },
       {
         id: 113,
+        key: "inversions/third/m7/G#",
         title: { pt: "G♯m7 - baixo na terça", en: "G♯m7 - third in the bass" },
         exerciseTitle: { pt: "G♯m7 - baixo na terça", en: "G♯m7 - third in the bass" },
         subtitle: { pt: "G♯m7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5584,6 +5699,7 @@ export const sections: Section[] = [
       },
       {
         id: 114,
+        key: "inversions/third/m7/C#",
         title: { pt: "C♯m7 - baixo na terça", en: "C♯m7 - third in the bass" },
         exerciseTitle: { pt: "C♯m7 - baixo na terça", en: "C♯m7 - third in the bass" },
         subtitle: { pt: "C♯m7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5636,6 +5752,7 @@ export const sections: Section[] = [
       },
       {
         id: 115,
+        key: "inversions/third/m7/F#",
         title: { pt: "F♯m7 - baixo na terça", en: "F♯m7 - third in the bass" },
         exerciseTitle: { pt: "F♯m7 - baixo na terça", en: "F♯m7 - third in the bass" },
         subtitle: { pt: "F♯m7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5688,6 +5805,7 @@ export const sections: Section[] = [
       },
       {
         id: 116,
+        key: "inversions/third/m7/B",
         title: { pt: "Bm7 - baixo na terça", en: "Bm7 - third in the bass" },
         exerciseTitle: { pt: "Bm7 - baixo na terça", en: "Bm7 - third in the bass" },
         subtitle: { pt: "Bm7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5740,6 +5858,7 @@ export const sections: Section[] = [
       },
       {
         id: 117,
+        key: "inversions/third/m7/E",
         title: { pt: "Em7 - baixo na terça", en: "Em7 - third in the bass" },
         exerciseTitle: { pt: "Em7 - baixo na terça", en: "Em7 - third in the bass" },
         subtitle: { pt: "Em7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Em7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5792,6 +5911,7 @@ export const sections: Section[] = [
       },
       {
         id: 118,
+        key: "inversions/third/m7/A",
         title: { pt: "Am7 - baixo na terça", en: "Am7 - third in the bass" },
         exerciseTitle: { pt: "Am7 - baixo na terça", en: "Am7 - third in the bass" },
         subtitle: { pt: "Am7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Am7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5844,6 +5964,7 @@ export const sections: Section[] = [
       },
       {
         id: 119,
+        key: "inversions/third/m7/D",
         title: { pt: "Dm7 - baixo na terça", en: "Dm7 - third in the bass" },
         exerciseTitle: { pt: "Dm7 - baixo na terça", en: "Dm7 - third in the bass" },
         subtitle: { pt: "Dm7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5896,6 +6017,7 @@ export const sections: Section[] = [
       },
       {
         id: 120,
+        key: "inversions/third/m7/G",
         title: { pt: "Gm7 - baixo na terça", en: "Gm7 - third in the bass" },
         exerciseTitle: { pt: "Gm7 - baixo na terça", en: "Gm7 - third in the bass" },
         subtitle: { pt: "Gm7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -5954,6 +6076,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 121,
+        key: "inversions/third/7/C",
         title: { pt: "C7 - baixo na terça", en: "C7 - third in the bass" },
         exerciseTitle: { pt: "C7 - baixo na terça", en: "C7 - third in the bass" },
         subtitle: { pt: "C7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "C7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6006,6 +6129,7 @@ export const sections: Section[] = [
       },
       {
         id: 122,
+        key: "inversions/third/7/F",
         title: { pt: "F7 - baixo na terça", en: "F7 - third in the bass" },
         exerciseTitle: { pt: "F7 - baixo na terça", en: "F7 - third in the bass" },
         subtitle: { pt: "F7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "F7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6058,6 +6182,7 @@ export const sections: Section[] = [
       },
       {
         id: 123,
+        key: "inversions/third/7/Bb",
         title: { pt: "B♭7 - baixo na terça", en: "B♭7 - third in the bass" },
         exerciseTitle: { pt: "B♭7 - baixo na terça", en: "B♭7 - third in the bass" },
         subtitle: { pt: "B♭7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "B♭7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6110,6 +6235,7 @@ export const sections: Section[] = [
       },
       {
         id: 124,
+        key: "inversions/third/7/Eb",
         title: { pt: "E♭7 - baixo na terça", en: "E♭7 - third in the bass" },
         exerciseTitle: { pt: "E♭7 - baixo na terça", en: "E♭7 - third in the bass" },
         subtitle: { pt: "E♭7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "E♭7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6162,6 +6288,7 @@ export const sections: Section[] = [
       },
       {
         id: 125,
+        key: "inversions/third/7/Ab",
         title: { pt: "A♭7 - baixo na terça", en: "A♭7 - third in the bass" },
         exerciseTitle: { pt: "A♭7 - baixo na terça", en: "A♭7 - third in the bass" },
         subtitle: { pt: "A♭7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "A♭7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6214,6 +6341,7 @@ export const sections: Section[] = [
       },
       {
         id: 126,
+        key: "inversions/third/7/Db",
         title: { pt: "D♭7 - baixo na terça", en: "D♭7 - third in the bass" },
         exerciseTitle: { pt: "D♭7 - baixo na terça", en: "D♭7 - third in the bass" },
         subtitle: { pt: "D♭7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "D♭7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6266,6 +6394,7 @@ export const sections: Section[] = [
       },
       {
         id: 127,
+        key: "inversions/third/7/F#",
         title: { pt: "F♯7 - baixo na terça", en: "F♯7 - third in the bass" },
         exerciseTitle: { pt: "F♯7 - baixo na terça", en: "F♯7 - third in the bass" },
         subtitle: { pt: "F♯7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "F♯7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6318,6 +6447,7 @@ export const sections: Section[] = [
       },
       {
         id: 128,
+        key: "inversions/third/7/B",
         title: { pt: "B7 - baixo na terça", en: "B7 - third in the bass" },
         exerciseTitle: { pt: "B7 - baixo na terça", en: "B7 - third in the bass" },
         subtitle: { pt: "B7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "B7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6370,6 +6500,7 @@ export const sections: Section[] = [
       },
       {
         id: 129,
+        key: "inversions/third/7/E",
         title: { pt: "E7 - baixo na terça", en: "E7 - third in the bass" },
         exerciseTitle: { pt: "E7 - baixo na terça", en: "E7 - third in the bass" },
         subtitle: { pt: "E7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "E7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6422,6 +6553,7 @@ export const sections: Section[] = [
       },
       {
         id: 130,
+        key: "inversions/third/7/A",
         title: { pt: "A7 - baixo na terça", en: "A7 - third in the bass" },
         exerciseTitle: { pt: "A7 - baixo na terça", en: "A7 - third in the bass" },
         subtitle: { pt: "A7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "A7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6474,6 +6606,7 @@ export const sections: Section[] = [
       },
       {
         id: 131,
+        key: "inversions/third/7/D",
         title: { pt: "D7 - baixo na terça", en: "D7 - third in the bass" },
         exerciseTitle: { pt: "D7 - baixo na terça", en: "D7 - third in the bass" },
         subtitle: { pt: "D7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "D7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6526,6 +6659,7 @@ export const sections: Section[] = [
       },
       {
         id: 132,
+        key: "inversions/third/7/G",
         title: { pt: "G7 - baixo na terça", en: "G7 - third in the bass" },
         exerciseTitle: { pt: "G7 - baixo na terça", en: "G7 - third in the bass" },
         subtitle: { pt: "G7 com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "G7 with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6584,6 +6718,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 133,
+        key: "inversions/third/m7b5/C",
         title: { pt: "Cm7(♭5) - baixo na terça", en: "Cm7(♭5) - third in the bass" },
         exerciseTitle: { pt: "Cm7(♭5) - baixo na terça", en: "Cm7(♭5) - third in the bass" },
         subtitle: { pt: "Cm7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6636,6 +6771,7 @@ export const sections: Section[] = [
       },
       {
         id: 134,
+        key: "inversions/third/m7b5/F",
         title: { pt: "Fm7(♭5) - baixo na terça", en: "Fm7(♭5) - third in the bass" },
         exerciseTitle: { pt: "Fm7(♭5) - baixo na terça", en: "Fm7(♭5) - third in the bass" },
         subtitle: { pt: "Fm7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6688,6 +6824,7 @@ export const sections: Section[] = [
       },
       {
         id: 135,
+        key: "inversions/third/m7b5/A#",
         title: { pt: "A♯m7(♭5) - baixo na terça", en: "A♯m7(♭5) - third in the bass" },
         exerciseTitle: { pt: "A♯m7(♭5) - baixo na terça", en: "A♯m7(♭5) - third in the bass" },
         subtitle: { pt: "A♯m7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "A♯m7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6740,6 +6877,7 @@ export const sections: Section[] = [
       },
       {
         id: 136,
+        key: "inversions/third/m7b5/D#",
         title: { pt: "D♯m7(♭5) - baixo na terça", en: "D♯m7(♭5) - third in the bass" },
         exerciseTitle: { pt: "D♯m7(♭5) - baixo na terça", en: "D♯m7(♭5) - third in the bass" },
         subtitle: { pt: "D♯m7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "D♯m7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6792,6 +6930,7 @@ export const sections: Section[] = [
       },
       {
         id: 137,
+        key: "inversions/third/m7b5/G#",
         title: { pt: "G♯m7(♭5) - baixo na terça", en: "G♯m7(♭5) - third in the bass" },
         exerciseTitle: { pt: "G♯m7(♭5) - baixo na terça", en: "G♯m7(♭5) - third in the bass" },
         subtitle: { pt: "G♯m7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6844,6 +6983,7 @@ export const sections: Section[] = [
       },
       {
         id: 138,
+        key: "inversions/third/m7b5/C#",
         title: { pt: "C♯m7(♭5) - baixo na terça", en: "C♯m7(♭5) - third in the bass" },
         exerciseTitle: { pt: "C♯m7(♭5) - baixo na terça", en: "C♯m7(♭5) - third in the bass" },
         subtitle: { pt: "C♯m7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6896,6 +7036,7 @@ export const sections: Section[] = [
       },
       {
         id: 139,
+        key: "inversions/third/m7b5/F#",
         title: { pt: "F♯m7(♭5) - baixo na terça", en: "F♯m7(♭5) - third in the bass" },
         exerciseTitle: { pt: "F♯m7(♭5) - baixo na terça", en: "F♯m7(♭5) - third in the bass" },
         subtitle: { pt: "F♯m7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -6948,6 +7089,7 @@ export const sections: Section[] = [
       },
       {
         id: 140,
+        key: "inversions/third/m7b5/B",
         title: { pt: "Bm7(♭5) - baixo na terça", en: "Bm7(♭5) - third in the bass" },
         exerciseTitle: { pt: "Bm7(♭5) - baixo na terça", en: "Bm7(♭5) - third in the bass" },
         subtitle: { pt: "Bm7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -7000,6 +7142,7 @@ export const sections: Section[] = [
       },
       {
         id: 141,
+        key: "inversions/third/m7b5/E",
         title: { pt: "Em7(♭5) - baixo na terça", en: "Em7(♭5) - third in the bass" },
         exerciseTitle: { pt: "Em7(♭5) - baixo na terça", en: "Em7(♭5) - third in the bass" },
         subtitle: { pt: "Em7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Em7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -7052,6 +7195,7 @@ export const sections: Section[] = [
       },
       {
         id: 142,
+        key: "inversions/third/m7b5/A",
         title: { pt: "Am7(♭5) - baixo na terça", en: "Am7(♭5) - third in the bass" },
         exerciseTitle: { pt: "Am7(♭5) - baixo na terça", en: "Am7(♭5) - third in the bass" },
         subtitle: { pt: "Am7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Am7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -7104,6 +7248,7 @@ export const sections: Section[] = [
       },
       {
         id: 143,
+        key: "inversions/third/m7b5/D",
         title: { pt: "Dm7(♭5) - baixo na terça", en: "Dm7(♭5) - third in the bass" },
         exerciseTitle: { pt: "Dm7(♭5) - baixo na terça", en: "Dm7(♭5) - third in the bass" },
         subtitle: { pt: "Dm7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -7156,6 +7301,7 @@ export const sections: Section[] = [
       },
       {
         id: 144,
+        key: "inversions/third/m7b5/G",
         title: { pt: "Gm7(♭5) - baixo na terça", en: "Gm7(♭5) - third in the bass" },
         exerciseTitle: { pt: "Gm7(♭5) - baixo na terça", en: "Gm7(♭5) - third in the bass" },
         subtitle: { pt: "Gm7(♭5) com a terça no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7(♭5) with the third in the bass, on the 4th, 5th and 6th strings" },
@@ -7214,6 +7360,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 145,
+        key: "inversions/fifth/maj7/C",
         title: { pt: "C7M - baixo na quinta", en: "Cmaj7 - fifth in the bass" },
         exerciseTitle: { pt: "C7M - baixo na quinta", en: "Cmaj7 - fifth in the bass" },
         subtitle: { pt: "C7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7248,6 +7395,7 @@ export const sections: Section[] = [
       },
       {
         id: 146,
+        key: "inversions/fifth/maj7/F",
         title: { pt: "F7M - baixo na quinta", en: "Fmaj7 - fifth in the bass" },
         exerciseTitle: { pt: "F7M - baixo na quinta", en: "Fmaj7 - fifth in the bass" },
         subtitle: { pt: "F7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7282,6 +7430,7 @@ export const sections: Section[] = [
       },
       {
         id: 147,
+        key: "inversions/fifth/maj7/Bb",
         title: { pt: "B♭7M - baixo na quinta", en: "B♭maj7 - fifth in the bass" },
         exerciseTitle: { pt: "B♭7M - baixo na quinta", en: "B♭maj7 - fifth in the bass" },
         subtitle: { pt: "B♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7316,6 +7465,7 @@ export const sections: Section[] = [
       },
       {
         id: 148,
+        key: "inversions/fifth/maj7/Eb",
         title: { pt: "E♭7M - baixo na quinta", en: "E♭maj7 - fifth in the bass" },
         exerciseTitle: { pt: "E♭7M - baixo na quinta", en: "E♭maj7 - fifth in the bass" },
         subtitle: { pt: "E♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7350,6 +7500,7 @@ export const sections: Section[] = [
       },
       {
         id: 149,
+        key: "inversions/fifth/maj7/Ab",
         title: { pt: "A♭7M - baixo na quinta", en: "A♭maj7 - fifth in the bass" },
         exerciseTitle: { pt: "A♭7M - baixo na quinta", en: "A♭maj7 - fifth in the bass" },
         subtitle: { pt: "A♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7384,6 +7535,7 @@ export const sections: Section[] = [
       },
       {
         id: 150,
+        key: "inversions/fifth/maj7/Db",
         title: { pt: "D♭7M - baixo na quinta", en: "D♭maj7 - fifth in the bass" },
         exerciseTitle: { pt: "D♭7M - baixo na quinta", en: "D♭maj7 - fifth in the bass" },
         subtitle: { pt: "D♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7418,6 +7570,7 @@ export const sections: Section[] = [
       },
       {
         id: 151,
+        key: "inversions/fifth/maj7/Gb",
         title: { pt: "G♭7M - baixo na quinta", en: "G♭maj7 - fifth in the bass" },
         exerciseTitle: { pt: "G♭7M - baixo na quinta", en: "G♭maj7 - fifth in the bass" },
         subtitle: { pt: "G♭7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7452,6 +7605,7 @@ export const sections: Section[] = [
       },
       {
         id: 152,
+        key: "inversions/fifth/maj7/B",
         title: { pt: "B7M - baixo na quinta", en: "Bmaj7 - fifth in the bass" },
         exerciseTitle: { pt: "B7M - baixo na quinta", en: "Bmaj7 - fifth in the bass" },
         subtitle: { pt: "B7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7486,6 +7640,7 @@ export const sections: Section[] = [
       },
       {
         id: 153,
+        key: "inversions/fifth/maj7/E",
         title: { pt: "E7M - baixo na quinta", en: "Emaj7 - fifth in the bass" },
         exerciseTitle: { pt: "E7M - baixo na quinta", en: "Emaj7 - fifth in the bass" },
         subtitle: { pt: "E7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7520,6 +7675,7 @@ export const sections: Section[] = [
       },
       {
         id: 154,
+        key: "inversions/fifth/maj7/A",
         title: { pt: "A7M - baixo na quinta", en: "Amaj7 - fifth in the bass" },
         exerciseTitle: { pt: "A7M - baixo na quinta", en: "Amaj7 - fifth in the bass" },
         subtitle: { pt: "A7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7554,6 +7710,7 @@ export const sections: Section[] = [
       },
       {
         id: 155,
+        key: "inversions/fifth/maj7/D",
         title: { pt: "D7M - baixo na quinta", en: "Dmaj7 - fifth in the bass" },
         exerciseTitle: { pt: "D7M - baixo na quinta", en: "Dmaj7 - fifth in the bass" },
         subtitle: { pt: "D7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7588,6 +7745,7 @@ export const sections: Section[] = [
       },
       {
         id: 156,
+        key: "inversions/fifth/maj7/G",
         title: { pt: "G7M - baixo na quinta", en: "Gmaj7 - fifth in the bass" },
         exerciseTitle: { pt: "G7M - baixo na quinta", en: "Gmaj7 - fifth in the bass" },
         subtitle: { pt: "G7M com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7628,6 +7786,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 157,
+        key: "inversions/fifth/m7/C",
         title: { pt: "Cm7 - baixo na quinta", en: "Cm7 - fifth in the bass" },
         exerciseTitle: { pt: "Cm7 - baixo na quinta", en: "Cm7 - fifth in the bass" },
         subtitle: { pt: "Cm7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7662,6 +7821,7 @@ export const sections: Section[] = [
       },
       {
         id: 158,
+        key: "inversions/fifth/m7/F",
         title: { pt: "Fm7 - baixo na quinta", en: "Fm7 - fifth in the bass" },
         exerciseTitle: { pt: "Fm7 - baixo na quinta", en: "Fm7 - fifth in the bass" },
         subtitle: { pt: "Fm7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7696,6 +7856,7 @@ export const sections: Section[] = [
       },
       {
         id: 159,
+        key: "inversions/fifth/m7/Bb",
         title: { pt: "B♭m7 - baixo na quinta", en: "B♭m7 - fifth in the bass" },
         exerciseTitle: { pt: "B♭m7 - baixo na quinta", en: "B♭m7 - fifth in the bass" },
         subtitle: { pt: "B♭m7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "B♭m7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7730,6 +7891,7 @@ export const sections: Section[] = [
       },
       {
         id: 160,
+        key: "inversions/fifth/m7/Eb",
         title: { pt: "E♭m7 - baixo na quinta", en: "E♭m7 - fifth in the bass" },
         exerciseTitle: { pt: "E♭m7 - baixo na quinta", en: "E♭m7 - fifth in the bass" },
         subtitle: { pt: "E♭m7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "E♭m7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7764,6 +7926,7 @@ export const sections: Section[] = [
       },
       {
         id: 161,
+        key: "inversions/fifth/m7/G#",
         title: { pt: "G♯m7 - baixo na quinta", en: "G♯m7 - fifth in the bass" },
         exerciseTitle: { pt: "G♯m7 - baixo na quinta", en: "G♯m7 - fifth in the bass" },
         subtitle: { pt: "G♯m7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7798,6 +7961,7 @@ export const sections: Section[] = [
       },
       {
         id: 162,
+        key: "inversions/fifth/m7/C#",
         title: { pt: "C♯m7 - baixo na quinta", en: "C♯m7 - fifth in the bass" },
         exerciseTitle: { pt: "C♯m7 - baixo na quinta", en: "C♯m7 - fifth in the bass" },
         subtitle: { pt: "C♯m7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7832,6 +7996,7 @@ export const sections: Section[] = [
       },
       {
         id: 163,
+        key: "inversions/fifth/m7/F#",
         title: { pt: "F♯m7 - baixo na quinta", en: "F♯m7 - fifth in the bass" },
         exerciseTitle: { pt: "F♯m7 - baixo na quinta", en: "F♯m7 - fifth in the bass" },
         subtitle: { pt: "F♯m7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7866,6 +8031,7 @@ export const sections: Section[] = [
       },
       {
         id: 164,
+        key: "inversions/fifth/m7/B",
         title: { pt: "Bm7 - baixo na quinta", en: "Bm7 - fifth in the bass" },
         exerciseTitle: { pt: "Bm7 - baixo na quinta", en: "Bm7 - fifth in the bass" },
         subtitle: { pt: "Bm7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7900,6 +8066,7 @@ export const sections: Section[] = [
       },
       {
         id: 165,
+        key: "inversions/fifth/m7/E",
         title: { pt: "Em7 - baixo na quinta", en: "Em7 - fifth in the bass" },
         exerciseTitle: { pt: "Em7 - baixo na quinta", en: "Em7 - fifth in the bass" },
         subtitle: { pt: "Em7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Em7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7934,6 +8101,7 @@ export const sections: Section[] = [
       },
       {
         id: 166,
+        key: "inversions/fifth/m7/A",
         title: { pt: "Am7 - baixo na quinta", en: "Am7 - fifth in the bass" },
         exerciseTitle: { pt: "Am7 - baixo na quinta", en: "Am7 - fifth in the bass" },
         subtitle: { pt: "Am7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Am7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -7968,6 +8136,7 @@ export const sections: Section[] = [
       },
       {
         id: 167,
+        key: "inversions/fifth/m7/D",
         title: { pt: "Dm7 - baixo na quinta", en: "Dm7 - fifth in the bass" },
         exerciseTitle: { pt: "Dm7 - baixo na quinta", en: "Dm7 - fifth in the bass" },
         subtitle: { pt: "Dm7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8002,6 +8171,7 @@ export const sections: Section[] = [
       },
       {
         id: 168,
+        key: "inversions/fifth/m7/G",
         title: { pt: "Gm7 - baixo na quinta", en: "Gm7 - fifth in the bass" },
         exerciseTitle: { pt: "Gm7 - baixo na quinta", en: "Gm7 - fifth in the bass" },
         subtitle: { pt: "Gm7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8042,6 +8212,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 169,
+        key: "inversions/fifth/7/C",
         title: { pt: "C7 - baixo na quinta", en: "C7 - fifth in the bass" },
         exerciseTitle: { pt: "C7 - baixo na quinta", en: "C7 - fifth in the bass" },
         subtitle: { pt: "C7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "C7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8076,6 +8247,7 @@ export const sections: Section[] = [
       },
       {
         id: 170,
+        key: "inversions/fifth/7/F",
         title: { pt: "F7 - baixo na quinta", en: "F7 - fifth in the bass" },
         exerciseTitle: { pt: "F7 - baixo na quinta", en: "F7 - fifth in the bass" },
         subtitle: { pt: "F7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "F7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8110,6 +8282,7 @@ export const sections: Section[] = [
       },
       {
         id: 171,
+        key: "inversions/fifth/7/Bb",
         title: { pt: "B♭7 - baixo na quinta", en: "B♭7 - fifth in the bass" },
         exerciseTitle: { pt: "B♭7 - baixo na quinta", en: "B♭7 - fifth in the bass" },
         subtitle: { pt: "B♭7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "B♭7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8144,6 +8317,7 @@ export const sections: Section[] = [
       },
       {
         id: 172,
+        key: "inversions/fifth/7/Eb",
         title: { pt: "E♭7 - baixo na quinta", en: "E♭7 - fifth in the bass" },
         exerciseTitle: { pt: "E♭7 - baixo na quinta", en: "E♭7 - fifth in the bass" },
         subtitle: { pt: "E♭7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "E♭7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8178,6 +8352,7 @@ export const sections: Section[] = [
       },
       {
         id: 173,
+        key: "inversions/fifth/7/Ab",
         title: { pt: "A♭7 - baixo na quinta", en: "A♭7 - fifth in the bass" },
         exerciseTitle: { pt: "A♭7 - baixo na quinta", en: "A♭7 - fifth in the bass" },
         subtitle: { pt: "A♭7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "A♭7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8212,6 +8387,7 @@ export const sections: Section[] = [
       },
       {
         id: 174,
+        key: "inversions/fifth/7/Db",
         title: { pt: "D♭7 - baixo na quinta", en: "D♭7 - fifth in the bass" },
         exerciseTitle: { pt: "D♭7 - baixo na quinta", en: "D♭7 - fifth in the bass" },
         subtitle: { pt: "D♭7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "D♭7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8246,6 +8422,7 @@ export const sections: Section[] = [
       },
       {
         id: 175,
+        key: "inversions/fifth/7/F#",
         title: { pt: "F♯7 - baixo na quinta", en: "F♯7 - fifth in the bass" },
         exerciseTitle: { pt: "F♯7 - baixo na quinta", en: "F♯7 - fifth in the bass" },
         subtitle: { pt: "F♯7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "F♯7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8280,6 +8457,7 @@ export const sections: Section[] = [
       },
       {
         id: 176,
+        key: "inversions/fifth/7/B",
         title: { pt: "B7 - baixo na quinta", en: "B7 - fifth in the bass" },
         exerciseTitle: { pt: "B7 - baixo na quinta", en: "B7 - fifth in the bass" },
         subtitle: { pt: "B7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "B7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8314,6 +8492,7 @@ export const sections: Section[] = [
       },
       {
         id: 177,
+        key: "inversions/fifth/7/E",
         title: { pt: "E7 - baixo na quinta", en: "E7 - fifth in the bass" },
         exerciseTitle: { pt: "E7 - baixo na quinta", en: "E7 - fifth in the bass" },
         subtitle: { pt: "E7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "E7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8348,6 +8527,7 @@ export const sections: Section[] = [
       },
       {
         id: 178,
+        key: "inversions/fifth/7/A",
         title: { pt: "A7 - baixo na quinta", en: "A7 - fifth in the bass" },
         exerciseTitle: { pt: "A7 - baixo na quinta", en: "A7 - fifth in the bass" },
         subtitle: { pt: "A7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "A7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8382,6 +8562,7 @@ export const sections: Section[] = [
       },
       {
         id: 179,
+        key: "inversions/fifth/7/D",
         title: { pt: "D7 - baixo na quinta", en: "D7 - fifth in the bass" },
         exerciseTitle: { pt: "D7 - baixo na quinta", en: "D7 - fifth in the bass" },
         subtitle: { pt: "D7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "D7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8416,6 +8597,7 @@ export const sections: Section[] = [
       },
       {
         id: 180,
+        key: "inversions/fifth/7/G",
         title: { pt: "G7 - baixo na quinta", en: "G7 - fifth in the bass" },
         exerciseTitle: { pt: "G7 - baixo na quinta", en: "G7 - fifth in the bass" },
         subtitle: { pt: "G7 com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "G7 with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8456,6 +8638,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 181,
+        key: "inversions/fifth/m7b5/C",
         title: { pt: "Cm7(♭5) - baixo na quinta", en: "Cm7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "Cm7(♭5) - baixo na quinta", en: "Cm7(♭5) - fifth in the bass" },
         subtitle: { pt: "Cm7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8490,6 +8673,7 @@ export const sections: Section[] = [
       },
       {
         id: 182,
+        key: "inversions/fifth/m7b5/F",
         title: { pt: "Fm7(♭5) - baixo na quinta", en: "Fm7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "Fm7(♭5) - baixo na quinta", en: "Fm7(♭5) - fifth in the bass" },
         subtitle: { pt: "Fm7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8524,6 +8708,7 @@ export const sections: Section[] = [
       },
       {
         id: 183,
+        key: "inversions/fifth/m7b5/A#",
         title: { pt: "A♯m7(♭5) - baixo na quinta", en: "A♯m7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "A♯m7(♭5) - baixo na quinta", en: "A♯m7(♭5) - fifth in the bass" },
         subtitle: { pt: "A♯m7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "A♯m7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8558,6 +8743,7 @@ export const sections: Section[] = [
       },
       {
         id: 184,
+        key: "inversions/fifth/m7b5/D#",
         title: { pt: "D♯m7(♭5) - baixo na quinta", en: "D♯m7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "D♯m7(♭5) - baixo na quinta", en: "D♯m7(♭5) - fifth in the bass" },
         subtitle: { pt: "D♯m7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "D♯m7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8592,6 +8778,7 @@ export const sections: Section[] = [
       },
       {
         id: 185,
+        key: "inversions/fifth/m7b5/G#",
         title: { pt: "G♯m7(♭5) - baixo na quinta", en: "G♯m7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "G♯m7(♭5) - baixo na quinta", en: "G♯m7(♭5) - fifth in the bass" },
         subtitle: { pt: "G♯m7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8626,6 +8813,7 @@ export const sections: Section[] = [
       },
       {
         id: 186,
+        key: "inversions/fifth/m7b5/C#",
         title: { pt: "C♯m7(♭5) - baixo na quinta", en: "C♯m7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "C♯m7(♭5) - baixo na quinta", en: "C♯m7(♭5) - fifth in the bass" },
         subtitle: { pt: "C♯m7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8660,6 +8848,7 @@ export const sections: Section[] = [
       },
       {
         id: 187,
+        key: "inversions/fifth/m7b5/F#",
         title: { pt: "F♯m7(♭5) - baixo na quinta", en: "F♯m7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "F♯m7(♭5) - baixo na quinta", en: "F♯m7(♭5) - fifth in the bass" },
         subtitle: { pt: "F♯m7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8694,6 +8883,7 @@ export const sections: Section[] = [
       },
       {
         id: 188,
+        key: "inversions/fifth/m7b5/B",
         title: { pt: "Bm7(♭5) - baixo na quinta", en: "Bm7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "Bm7(♭5) - baixo na quinta", en: "Bm7(♭5) - fifth in the bass" },
         subtitle: { pt: "Bm7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8728,6 +8918,7 @@ export const sections: Section[] = [
       },
       {
         id: 189,
+        key: "inversions/fifth/m7b5/E",
         title: { pt: "Em7(♭5) - baixo na quinta", en: "Em7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "Em7(♭5) - baixo na quinta", en: "Em7(♭5) - fifth in the bass" },
         subtitle: { pt: "Em7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Em7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8762,6 +8953,7 @@ export const sections: Section[] = [
       },
       {
         id: 190,
+        key: "inversions/fifth/m7b5/A",
         title: { pt: "Am7(♭5) - baixo na quinta", en: "Am7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "Am7(♭5) - baixo na quinta", en: "Am7(♭5) - fifth in the bass" },
         subtitle: { pt: "Am7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Am7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8796,6 +8988,7 @@ export const sections: Section[] = [
       },
       {
         id: 191,
+        key: "inversions/fifth/m7b5/D",
         title: { pt: "Dm7(♭5) - baixo na quinta", en: "Dm7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "Dm7(♭5) - baixo na quinta", en: "Dm7(♭5) - fifth in the bass" },
         subtitle: { pt: "Dm7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8830,6 +9023,7 @@ export const sections: Section[] = [
       },
       {
         id: 192,
+        key: "inversions/fifth/m7b5/G",
         title: { pt: "Gm7(♭5) - baixo na quinta", en: "Gm7(♭5) - fifth in the bass" },
         exerciseTitle: { pt: "Gm7(♭5) - baixo na quinta", en: "Gm7(♭5) - fifth in the bass" },
         subtitle: { pt: "Gm7(♭5) com a quinta no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7(♭5) with the fifth in the bass, on the 4th, 5th and 6th strings" },
@@ -8870,6 +9064,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 193,
+        key: "inversions/seventh/maj7/C",
         title: { pt: "C7M - baixo na sétima", en: "Cmaj7 - seventh in the bass" },
         exerciseTitle: { pt: "C7M - baixo na sétima", en: "Cmaj7 - seventh in the bass" },
         subtitle: { pt: "C7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Cmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -8904,6 +9099,7 @@ export const sections: Section[] = [
       },
       {
         id: 194,
+        key: "inversions/seventh/maj7/F",
         title: { pt: "F7M - baixo na sétima", en: "Fmaj7 - seventh in the bass" },
         exerciseTitle: { pt: "F7M - baixo na sétima", en: "Fmaj7 - seventh in the bass" },
         subtitle: { pt: "F7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Fmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -8938,6 +9134,7 @@ export const sections: Section[] = [
       },
       {
         id: 195,
+        key: "inversions/seventh/maj7/Bb",
         title: { pt: "B♭7M - baixo na sétima", en: "B♭maj7 - seventh in the bass" },
         exerciseTitle: { pt: "B♭7M - baixo na sétima", en: "B♭maj7 - seventh in the bass" },
         subtitle: { pt: "B♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "B♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -8972,6 +9169,7 @@ export const sections: Section[] = [
       },
       {
         id: 196,
+        key: "inversions/seventh/maj7/Eb",
         title: { pt: "E♭7M - baixo na sétima", en: "E♭maj7 - seventh in the bass" },
         exerciseTitle: { pt: "E♭7M - baixo na sétima", en: "E♭maj7 - seventh in the bass" },
         subtitle: { pt: "E♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "E♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9006,6 +9204,7 @@ export const sections: Section[] = [
       },
       {
         id: 197,
+        key: "inversions/seventh/maj7/Ab",
         title: { pt: "A♭7M - baixo na sétima", en: "A♭maj7 - seventh in the bass" },
         exerciseTitle: { pt: "A♭7M - baixo na sétima", en: "A♭maj7 - seventh in the bass" },
         subtitle: { pt: "A♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "A♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9040,6 +9239,7 @@ export const sections: Section[] = [
       },
       {
         id: 198,
+        key: "inversions/seventh/maj7/Db",
         title: { pt: "D♭7M - baixo na sétima", en: "D♭maj7 - seventh in the bass" },
         exerciseTitle: { pt: "D♭7M - baixo na sétima", en: "D♭maj7 - seventh in the bass" },
         subtitle: { pt: "D♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "D♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9074,6 +9274,7 @@ export const sections: Section[] = [
       },
       {
         id: 199,
+        key: "inversions/seventh/maj7/Gb",
         title: { pt: "G♭7M - baixo na sétima", en: "G♭maj7 - seventh in the bass" },
         exerciseTitle: { pt: "G♭7M - baixo na sétima", en: "G♭maj7 - seventh in the bass" },
         subtitle: { pt: "G♭7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "G♭maj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9108,6 +9309,7 @@ export const sections: Section[] = [
       },
       {
         id: 200,
+        key: "inversions/seventh/maj7/B",
         title: { pt: "B7M - baixo na sétima", en: "Bmaj7 - seventh in the bass" },
         exerciseTitle: { pt: "B7M - baixo na sétima", en: "Bmaj7 - seventh in the bass" },
         subtitle: { pt: "B7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Bmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9142,6 +9344,7 @@ export const sections: Section[] = [
       },
       {
         id: 201,
+        key: "inversions/seventh/maj7/E",
         title: { pt: "E7M - baixo na sétima", en: "Emaj7 - seventh in the bass" },
         exerciseTitle: { pt: "E7M - baixo na sétima", en: "Emaj7 - seventh in the bass" },
         subtitle: { pt: "E7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Emaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9176,6 +9379,7 @@ export const sections: Section[] = [
       },
       {
         id: 202,
+        key: "inversions/seventh/maj7/A",
         title: { pt: "A7M - baixo na sétima", en: "Amaj7 - seventh in the bass" },
         exerciseTitle: { pt: "A7M - baixo na sétima", en: "Amaj7 - seventh in the bass" },
         subtitle: { pt: "A7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Amaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9210,6 +9414,7 @@ export const sections: Section[] = [
       },
       {
         id: 203,
+        key: "inversions/seventh/maj7/D",
         title: { pt: "D7M - baixo na sétima", en: "Dmaj7 - seventh in the bass" },
         exerciseTitle: { pt: "D7M - baixo na sétima", en: "Dmaj7 - seventh in the bass" },
         subtitle: { pt: "D7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Dmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9244,6 +9449,7 @@ export const sections: Section[] = [
       },
       {
         id: 204,
+        key: "inversions/seventh/maj7/G",
         title: { pt: "G7M - baixo na sétima", en: "Gmaj7 - seventh in the bass" },
         exerciseTitle: { pt: "G7M - baixo na sétima", en: "Gmaj7 - seventh in the bass" },
         subtitle: { pt: "G7M com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Gmaj7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9284,6 +9490,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 205,
+        key: "inversions/seventh/m7/C",
         title: { pt: "Cm7 - baixo na sétima", en: "Cm7 - seventh in the bass" },
         exerciseTitle: { pt: "Cm7 - baixo na sétima", en: "Cm7 - seventh in the bass" },
         subtitle: { pt: "Cm7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9318,6 +9525,7 @@ export const sections: Section[] = [
       },
       {
         id: 206,
+        key: "inversions/seventh/m7/F",
         title: { pt: "Fm7 - baixo na sétima", en: "Fm7 - seventh in the bass" },
         exerciseTitle: { pt: "Fm7 - baixo na sétima", en: "Fm7 - seventh in the bass" },
         subtitle: { pt: "Fm7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9352,6 +9560,7 @@ export const sections: Section[] = [
       },
       {
         id: 207,
+        key: "inversions/seventh/m7/Bb",
         title: { pt: "B♭m7 - baixo na sétima", en: "B♭m7 - seventh in the bass" },
         exerciseTitle: { pt: "B♭m7 - baixo na sétima", en: "B♭m7 - seventh in the bass" },
         subtitle: { pt: "B♭m7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "B♭m7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9386,6 +9595,7 @@ export const sections: Section[] = [
       },
       {
         id: 208,
+        key: "inversions/seventh/m7/Eb",
         title: { pt: "E♭m7 - baixo na sétima", en: "E♭m7 - seventh in the bass" },
         exerciseTitle: { pt: "E♭m7 - baixo na sétima", en: "E♭m7 - seventh in the bass" },
         subtitle: { pt: "E♭m7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "E♭m7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9420,6 +9630,7 @@ export const sections: Section[] = [
       },
       {
         id: 209,
+        key: "inversions/seventh/m7/G#",
         title: { pt: "G♯m7 - baixo na sétima", en: "G♯m7 - seventh in the bass" },
         exerciseTitle: { pt: "G♯m7 - baixo na sétima", en: "G♯m7 - seventh in the bass" },
         subtitle: { pt: "G♯m7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9454,6 +9665,7 @@ export const sections: Section[] = [
       },
       {
         id: 210,
+        key: "inversions/seventh/m7/C#",
         title: { pt: "C♯m7 - baixo na sétima", en: "C♯m7 - seventh in the bass" },
         exerciseTitle: { pt: "C♯m7 - baixo na sétima", en: "C♯m7 - seventh in the bass" },
         subtitle: { pt: "C♯m7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9488,6 +9700,7 @@ export const sections: Section[] = [
       },
       {
         id: 211,
+        key: "inversions/seventh/m7/F#",
         title: { pt: "F♯m7 - baixo na sétima", en: "F♯m7 - seventh in the bass" },
         exerciseTitle: { pt: "F♯m7 - baixo na sétima", en: "F♯m7 - seventh in the bass" },
         subtitle: { pt: "F♯m7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9522,6 +9735,7 @@ export const sections: Section[] = [
       },
       {
         id: 212,
+        key: "inversions/seventh/m7/B",
         title: { pt: "Bm7 - baixo na sétima", en: "Bm7 - seventh in the bass" },
         exerciseTitle: { pt: "Bm7 - baixo na sétima", en: "Bm7 - seventh in the bass" },
         subtitle: { pt: "Bm7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9556,6 +9770,7 @@ export const sections: Section[] = [
       },
       {
         id: 213,
+        key: "inversions/seventh/m7/E",
         title: { pt: "Em7 - baixo na sétima", en: "Em7 - seventh in the bass" },
         exerciseTitle: { pt: "Em7 - baixo na sétima", en: "Em7 - seventh in the bass" },
         subtitle: { pt: "Em7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Em7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9590,6 +9805,7 @@ export const sections: Section[] = [
       },
       {
         id: 214,
+        key: "inversions/seventh/m7/A",
         title: { pt: "Am7 - baixo na sétima", en: "Am7 - seventh in the bass" },
         exerciseTitle: { pt: "Am7 - baixo na sétima", en: "Am7 - seventh in the bass" },
         subtitle: { pt: "Am7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Am7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9624,6 +9840,7 @@ export const sections: Section[] = [
       },
       {
         id: 215,
+        key: "inversions/seventh/m7/D",
         title: { pt: "Dm7 - baixo na sétima", en: "Dm7 - seventh in the bass" },
         exerciseTitle: { pt: "Dm7 - baixo na sétima", en: "Dm7 - seventh in the bass" },
         subtitle: { pt: "Dm7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9658,6 +9875,7 @@ export const sections: Section[] = [
       },
       {
         id: 216,
+        key: "inversions/seventh/m7/G",
         title: { pt: "Gm7 - baixo na sétima", en: "Gm7 - seventh in the bass" },
         exerciseTitle: { pt: "Gm7 - baixo na sétima", en: "Gm7 - seventh in the bass" },
         subtitle: { pt: "Gm7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9698,6 +9916,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 217,
+        key: "inversions/seventh/7/C",
         title: { pt: "C7 - baixo na sétima", en: "C7 - seventh in the bass" },
         exerciseTitle: { pt: "C7 - baixo na sétima", en: "C7 - seventh in the bass" },
         subtitle: { pt: "C7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "C7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9732,6 +9951,7 @@ export const sections: Section[] = [
       },
       {
         id: 218,
+        key: "inversions/seventh/7/F",
         title: { pt: "F7 - baixo na sétima", en: "F7 - seventh in the bass" },
         exerciseTitle: { pt: "F7 - baixo na sétima", en: "F7 - seventh in the bass" },
         subtitle: { pt: "F7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "F7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9766,6 +9986,7 @@ export const sections: Section[] = [
       },
       {
         id: 219,
+        key: "inversions/seventh/7/Bb",
         title: { pt: "B♭7 - baixo na sétima", en: "B♭7 - seventh in the bass" },
         exerciseTitle: { pt: "B♭7 - baixo na sétima", en: "B♭7 - seventh in the bass" },
         subtitle: { pt: "B♭7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "B♭7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9800,6 +10021,7 @@ export const sections: Section[] = [
       },
       {
         id: 220,
+        key: "inversions/seventh/7/Eb",
         title: { pt: "E♭7 - baixo na sétima", en: "E♭7 - seventh in the bass" },
         exerciseTitle: { pt: "E♭7 - baixo na sétima", en: "E♭7 - seventh in the bass" },
         subtitle: { pt: "E♭7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "E♭7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9834,6 +10056,7 @@ export const sections: Section[] = [
       },
       {
         id: 221,
+        key: "inversions/seventh/7/Ab",
         title: { pt: "A♭7 - baixo na sétima", en: "A♭7 - seventh in the bass" },
         exerciseTitle: { pt: "A♭7 - baixo na sétima", en: "A♭7 - seventh in the bass" },
         subtitle: { pt: "A♭7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "A♭7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9868,6 +10091,7 @@ export const sections: Section[] = [
       },
       {
         id: 222,
+        key: "inversions/seventh/7/Db",
         title: { pt: "D♭7 - baixo na sétima", en: "D♭7 - seventh in the bass" },
         exerciseTitle: { pt: "D♭7 - baixo na sétima", en: "D♭7 - seventh in the bass" },
         subtitle: { pt: "D♭7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "D♭7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9902,6 +10126,7 @@ export const sections: Section[] = [
       },
       {
         id: 223,
+        key: "inversions/seventh/7/F#",
         title: { pt: "F♯7 - baixo na sétima", en: "F♯7 - seventh in the bass" },
         exerciseTitle: { pt: "F♯7 - baixo na sétima", en: "F♯7 - seventh in the bass" },
         subtitle: { pt: "F♯7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "F♯7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9936,6 +10161,7 @@ export const sections: Section[] = [
       },
       {
         id: 224,
+        key: "inversions/seventh/7/B",
         title: { pt: "B7 - baixo na sétima", en: "B7 - seventh in the bass" },
         exerciseTitle: { pt: "B7 - baixo na sétima", en: "B7 - seventh in the bass" },
         subtitle: { pt: "B7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "B7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -9970,6 +10196,7 @@ export const sections: Section[] = [
       },
       {
         id: 225,
+        key: "inversions/seventh/7/E",
         title: { pt: "E7 - baixo na sétima", en: "E7 - seventh in the bass" },
         exerciseTitle: { pt: "E7 - baixo na sétima", en: "E7 - seventh in the bass" },
         subtitle: { pt: "E7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "E7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10004,6 +10231,7 @@ export const sections: Section[] = [
       },
       {
         id: 226,
+        key: "inversions/seventh/7/A",
         title: { pt: "A7 - baixo na sétima", en: "A7 - seventh in the bass" },
         exerciseTitle: { pt: "A7 - baixo na sétima", en: "A7 - seventh in the bass" },
         subtitle: { pt: "A7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "A7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10038,6 +10266,7 @@ export const sections: Section[] = [
       },
       {
         id: 227,
+        key: "inversions/seventh/7/D",
         title: { pt: "D7 - baixo na sétima", en: "D7 - seventh in the bass" },
         exerciseTitle: { pt: "D7 - baixo na sétima", en: "D7 - seventh in the bass" },
         subtitle: { pt: "D7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "D7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10072,6 +10301,7 @@ export const sections: Section[] = [
       },
       {
         id: 228,
+        key: "inversions/seventh/7/G",
         title: { pt: "G7 - baixo na sétima", en: "G7 - seventh in the bass" },
         exerciseTitle: { pt: "G7 - baixo na sétima", en: "G7 - seventh in the bass" },
         subtitle: { pt: "G7 com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "G7 with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10112,6 +10342,7 @@ export const sections: Section[] = [
         lessons: [
       {
         id: 229,
+        key: "inversions/seventh/m7b5/C",
         title: { pt: "Cm7(♭5) - baixo na sétima", en: "Cm7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "Cm7(♭5) - baixo na sétima", en: "Cm7(♭5) - seventh in the bass" },
         subtitle: { pt: "Cm7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Cm7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10146,6 +10377,7 @@ export const sections: Section[] = [
       },
       {
         id: 230,
+        key: "inversions/seventh/m7b5/F",
         title: { pt: "Fm7(♭5) - baixo na sétima", en: "Fm7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "Fm7(♭5) - baixo na sétima", en: "Fm7(♭5) - seventh in the bass" },
         subtitle: { pt: "Fm7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Fm7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10180,6 +10412,7 @@ export const sections: Section[] = [
       },
       {
         id: 231,
+        key: "inversions/seventh/m7b5/A#",
         title: { pt: "A♯m7(♭5) - baixo na sétima", en: "A♯m7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "A♯m7(♭5) - baixo na sétima", en: "A♯m7(♭5) - seventh in the bass" },
         subtitle: { pt: "A♯m7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "A♯m7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10214,6 +10447,7 @@ export const sections: Section[] = [
       },
       {
         id: 232,
+        key: "inversions/seventh/m7b5/D#",
         title: { pt: "D♯m7(♭5) - baixo na sétima", en: "D♯m7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "D♯m7(♭5) - baixo na sétima", en: "D♯m7(♭5) - seventh in the bass" },
         subtitle: { pt: "D♯m7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "D♯m7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10248,6 +10482,7 @@ export const sections: Section[] = [
       },
       {
         id: 233,
+        key: "inversions/seventh/m7b5/G#",
         title: { pt: "G♯m7(♭5) - baixo na sétima", en: "G♯m7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "G♯m7(♭5) - baixo na sétima", en: "G♯m7(♭5) - seventh in the bass" },
         subtitle: { pt: "G♯m7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "G♯m7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10282,6 +10517,7 @@ export const sections: Section[] = [
       },
       {
         id: 234,
+        key: "inversions/seventh/m7b5/C#",
         title: { pt: "C♯m7(♭5) - baixo na sétima", en: "C♯m7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "C♯m7(♭5) - baixo na sétima", en: "C♯m7(♭5) - seventh in the bass" },
         subtitle: { pt: "C♯m7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "C♯m7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10316,6 +10552,7 @@ export const sections: Section[] = [
       },
       {
         id: 235,
+        key: "inversions/seventh/m7b5/F#",
         title: { pt: "F♯m7(♭5) - baixo na sétima", en: "F♯m7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "F♯m7(♭5) - baixo na sétima", en: "F♯m7(♭5) - seventh in the bass" },
         subtitle: { pt: "F♯m7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "F♯m7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10350,6 +10587,7 @@ export const sections: Section[] = [
       },
       {
         id: 236,
+        key: "inversions/seventh/m7b5/B",
         title: { pt: "Bm7(♭5) - baixo na sétima", en: "Bm7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "Bm7(♭5) - baixo na sétima", en: "Bm7(♭5) - seventh in the bass" },
         subtitle: { pt: "Bm7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Bm7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10384,6 +10622,7 @@ export const sections: Section[] = [
       },
       {
         id: 237,
+        key: "inversions/seventh/m7b5/E",
         title: { pt: "Em7(♭5) - baixo na sétima", en: "Em7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "Em7(♭5) - baixo na sétima", en: "Em7(♭5) - seventh in the bass" },
         subtitle: { pt: "Em7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Em7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10418,6 +10657,7 @@ export const sections: Section[] = [
       },
       {
         id: 238,
+        key: "inversions/seventh/m7b5/A",
         title: { pt: "Am7(♭5) - baixo na sétima", en: "Am7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "Am7(♭5) - baixo na sétima", en: "Am7(♭5) - seventh in the bass" },
         subtitle: { pt: "Am7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Am7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10452,6 +10692,7 @@ export const sections: Section[] = [
       },
       {
         id: 239,
+        key: "inversions/seventh/m7b5/D",
         title: { pt: "Dm7(♭5) - baixo na sétima", en: "Dm7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "Dm7(♭5) - baixo na sétima", en: "Dm7(♭5) - seventh in the bass" },
         subtitle: { pt: "Dm7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Dm7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
@@ -10486,6 +10727,7 @@ export const sections: Section[] = [
       },
       {
         id: 240,
+        key: "inversions/seventh/m7b5/G",
         title: { pt: "Gm7(♭5) - baixo na sétima", en: "Gm7(♭5) - seventh in the bass" },
         exerciseTitle: { pt: "Gm7(♭5) - baixo na sétima", en: "Gm7(♭5) - seventh in the bass" },
         subtitle: { pt: "Gm7(♭5) com a sétima no baixo, na 4ª, 5ª e 6ª corda", en: "Gm7(♭5) with the seventh in the bass, on the 4th, 5th and 6th strings" },
