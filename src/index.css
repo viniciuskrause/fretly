@@ -281,6 +281,199 @@
     color: var(--color-brand-ink);
   }
 
+  /* User menu (top bar): drop-down under the initials, with the language selector. */
+  .user-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 20;
+    width: 220px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    padding: 8px;
+    box-shadow: 0 12px 32px -12px rgb(10 15 28 / 0.25);
+  }
+
+  .user-menu__item {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-radius: 8px;
+    padding: 0 12px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-ink-2);
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+
+  .user-menu__item:hover,
+  .user-menu__item:focus-visible {
+    background: var(--color-sunken);
+    color: var(--color-ink);
+  }
+
+  .user-menu__item:focus-visible {
+    outline-offset: -2px;
+  }
+
+  .user-menu__item--selected,
+  .user-menu__item--selected:hover,
+  .user-menu__item--selected:focus-visible {
+    background: var(--color-brand-soft);
+    color: var(--color-brand-ink);
+  }
+
+  /* Lesson hub: big lesson icon, a progress ring and its 12 key variations around it. */
+  /* All lessons of a unit in one container, joined by the trail (drawn in SVG behind them). */
+  .unit-trail {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 40px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    padding: 28px 12px 32px;
+  }
+
+  .unit-trail__hub,
+  .unit-trail__heading {
+    position: relative;
+  }
+
+  .unit-trail__heading {
+    justify-self: center;
+    margin-top: 8px;
+  }
+
+  /* Group heading on the trail: large text, no box; the surface fill hides the trail behind it. */
+  .unit-trail__heading span {
+    display: inline-block;
+    background: var(--color-surface);
+    padding: 4px 12px;
+    text-align: center;
+    text-wrap: balance;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+
+  @media (min-width: 640px) {
+    .unit-trail__heading span {
+      font-size: 26px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .unit-trail {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      padding: 32px 24px 36px;
+    }
+
+    .unit-trail__hub {
+      grid-row: var(--row);
+      grid-column: var(--column);
+    }
+
+    .unit-trail__heading {
+      grid-row: var(--row);
+      grid-column: 1 / -1;
+    }
+  }
+
+  .lesson-hub__ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    overflow: visible;
+  }
+
+  .lesson-hub__segment {
+    stroke: var(--color-line);
+    stroke-width: 10;
+    cursor: pointer;
+    transition: stroke 160ms ease, stroke-width 160ms ease;
+  }
+
+  .lesson-hub__segment:hover {
+    stroke-width: 14;
+  }
+
+  .lesson-hub__segment:focus-visible {
+    outline: none;
+    stroke-width: 14;
+    filter: drop-shadow(0 0 2px var(--color-ink));
+  }
+
+  .lesson-hub__segment--todo:hover {
+    stroke: var(--color-line-strong);
+  }
+
+  .lesson-hub__segment--done {
+    stroke: var(--color-brand);
+  }
+
+  .lesson-hub__segment--next {
+    stroke: var(--color-accent);
+  }
+
+  .lesson-hub {
+    --hub-color: var(--color-brand);
+    position: absolute;
+    display: flex;
+    width: 96px;
+    height: 96px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--hub-color);
+    color: #fff;
+    transform: translate(-50%, -50%);
+    transition: transform 160ms ease, background-color 160ms ease;
+  }
+
+  .lesson-hub:hover {
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+
+  .lesson-hub:active {
+    transform: translate(-50%, -50%) scale(0.97);
+  }
+
+  .lesson-hub:focus-visible {
+    outline-offset: 6px;
+  }
+
+  .lesson-hub--current {
+    --hub-color: var(--color-accent);
+  }
+
+  .lesson-hub--locked {
+    --hub-color: var(--color-sunken);
+    border: 2px solid var(--color-line-strong);
+    color: var(--color-ink-2);
+  }
+
+  .lesson-hub__symbol {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
   .trail-trophy {
     display: flex;
     width: 72px;

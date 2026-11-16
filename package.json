@@ -8,10 +8,12 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "deploy": "./deploy.sh",
+    "landing": "node scripts/landing/build.mjs",
     "check:chords": "node scripts/chords/check.mjs",
     "chord": "node scripts/chords/generate.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

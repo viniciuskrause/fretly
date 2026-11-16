@@ -26,40 +26,69 @@ import {
   validate,
 } from "./lib.mjs";
 
+// Every text is bilingual ({ pt, en }); the app picks one with the language selector.
+/** A `Localized` value written as TypeScript source. */
+const loc = (text) => `{ pt: ${JSON.stringify(text.pt)}, en: ${JSON.stringify(text.en)} }`;
+/** Chord symbol in English: Brazilian "7M" is "maj7". */
+const englishSymbol = (symbol) => symbol.replace("7M", "maj7");
+const ORDINAL_EN = { 4: "4th", 5: "5th", 6: "6th" };
+
 const SECTION = {
-  title: "Acordes Básicos no CAGED",
-  subtitle: "Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço",
+  title: { pt: "Acordes Básicos no CAGED", en: "Basic Chords with CAGED" },
+  subtitle: {
+    pt: "Faça qualquer acorde em qualquer tonalidade em qualquer lugar do braço",
+    en: "Play any chord in any key anywhere on the neck",
+  },
 };
 const TRAILS = [
-  { suffix: "major", title: "Acordes maiores" },
-  { suffix: "minor", title: "Acordes menores" },
-  { suffix: "7", title: "Acordes de sétima dominante" },
-  { suffix: "m7b5", title: "Acordes meio diminutos" },
+  { suffix: "major", title: { pt: "Acordes maiores", en: "Major chords" } },
+  { suffix: "minor", title: { pt: "Acordes menores", en: "Minor chords" } },
+  { suffix: "7", title: { pt: "Acordes de sétima dominante", en: "Dominant seventh chords" } },
+  { suffix: "m7b5", title: { pt: "Acordes meio diminutos", en: "Half-diminished chords" } },
 ];
-/** Lesson title prefix: "C maior", "C menor", "C7", "Cm7(♭5)". */
-const lessonName = (root, suffix) =>
-  ({ major: `${root} maior`, minor: `${root} menor` })[suffix] ?? chordSymbol(root, suffix);
+/** Lesson title prefix: "C maior" / "C major", "C7", "Cm7(♭5)". */
+const lessonName = (root, suffix) => ({
+  pt: ({ major: `${root} maior`, minor: `${root} menor` })[suffix] ?? chordSymbol(root, suffix),
+  en: ({ major: `${root} major`, minor: `${root} minor` })[suffix] ?? englishSymbol(chordSymbol(root, suffix)),
+});
 
 const instruction = (shape, baseFret, suffix) => {
   if (suffix !== "major" && suffix !== "minor")
-    return baseFret === 1 ? `Forma de ${shape} na primeira posição.` : `Forma de ${shape} a partir da casa ${baseFret}.`;
+    return baseFret === 1
+      ? { pt: `Forma de ${shape} na primeira posição.`, en: `${shape} shape in first position.` }
+      : { pt: `Forma de ${shape} a partir da casa ${baseFret}.`, en: `${shape} shape from fret ${baseFret}.` };
   if (baseFret === 1)
     return {
-      C: "Forma aberta de C: toque da 5ª corda até a 1ª.",
-      A: "Forma aberta de A: tônica na 5ª corda solta.",
-      G: "Forma aberta de G: deixe as cordas do meio soarem soltas.",
-      E: "Forma aberta de E: todas as seis cordas soam.",
-      D: "Forma aberta de D: toque somente as quatro cordas agudas.",
+      C: { pt: "Forma aberta de C: toque da 5ª corda até a 1ª.", en: "Open C shape: play from the 5th string to the 1st." },
+      A: { pt: "Forma aberta de A: tônica na 5ª corda solta.", en: "Open A shape: root on the open 5th string." },
+      G: { pt: "Forma aberta de G: deixe as cordas do meio soarem soltas.", en: "Open G shape: let the middle strings ring open." },
+      E: { pt: "Forma aberta de E: todas as seis cordas soam.", en: "Open E shape: all six strings ring." },
+      D: { pt: "Forma aberta de D: toque somente as quatro cordas agudas.", en: "Open D shape: play only the top four strings." },
     }[shape];
   return {
-    C: `Forma de C a partir da casa ${baseFret}: tônica na 5ª corda com o dedo 4.`,
-    A: `Forma de A: pestana do dedo 1 na casa ${baseFret}, da 5ª à 1ª corda.`,
+    C: {
+      pt: `Forma de C a partir da casa ${baseFret}: tônica na 5ª corda com o dedo 4.`,
+      en: `C shape from fret ${baseFret}: root on the 5th string with finger 4.`,
+    },
+    A: {
+      pt: `Forma de A: pestana do dedo 1 na casa ${baseFret}, da 5ª à 1ª corda.`,
+      en: `A shape: finger-1 barre at fret ${baseFret}, from the 5th string to the 1st.`,
+    },
     G:
       suffix === "minor"
-        ? `Forma de G a partir da casa ${baseFret}: toque só as quatro cordas graves.`
-        : `Forma de G a partir da casa ${baseFret}: tônica na 6ª corda.`,
-    E: `Forma de E: pestana completa na casa ${baseFret}.`,
-    D: `Forma de D a partir da casa ${baseFret}: toque as quatro cordas agudas.`,
+        ? {
+            pt: `Forma de G a partir da casa ${baseFret}: toque só as quatro cordas graves.`,
+            en: `G shape from fret ${baseFret}: play only the four low strings.`,
+          }
+        : {
+            pt: `Forma de G a partir da casa ${baseFret}: tônica na 6ª corda.`,
+            en: `G shape from fret ${baseFret}: root on the 6th string.`,
+          },
+    E: { pt: `Forma de E: pestana completa na casa ${baseFret}.`, en: `E shape: full barre at fret ${baseFret}.` },
+    D: {
+      pt: `Forma de D a partir da casa ${baseFret}: toque as quatro cordas agudas.`,
+      en: `D shape from fret ${baseFret}: play the top four strings.`,
+    },
   }[shape];
 };
 
@@ -80,18 +109,23 @@ const trails = TRAILS.map((trail, trailIndex) => {
         `            chord: "${name}",`,
         ...(suffix === "major" ? [] : [`            suffix: "${suffix}",`]),
         `            shape: "${shape}",`,
-        `            instruction: "${instruction(shape, position.baseFret, suffix)}",`,
+        `            instruction: ${loc(instruction(shape, position.baseFret, suffix))},`,
         `            position: ${formatPosition(position)},`,
         "          },",
       ].join("\n");
     });
-    const title = `${lessonName(root, suffix)} - formas CAGED`;
+    const lessonTitle = lessonName(root, suffix);
+    const title = loc({ pt: `${lessonTitle.pt} - formas CAGED`, en: `${lessonTitle.en} - CAGED shapes` });
+    const subtitle = loc({
+      pt: `${name} nas cinco formas, subindo o braço`,
+      en: `${englishSymbol(name)} in all five shapes, moving up the neck`,
+    });
     const current = trailIndex === 0 && index === 0;
     return `      {
         id: ${nextId++},
-        title: "${title}",
-        exerciseTitle: "${title}",
-        subtitle: "${name} nas cinco formas, subindo o braço",
+        title: ${title},
+        exerciseTitle: ${title},
+        subtitle: ${subtitle},
         type: "chord",
         status: "${current ? "current" : "locked"}",
         steps: [
@@ -100,7 +134,7 @@ ${steps.join("\n")}
       },`;
   });
   return `      {
-        title: "${trail.title}",
+        title: ${loc(trail.title)},
         lessons: [
 ${lessons.join("\n")}
         ],
@@ -292,11 +326,17 @@ function inversionLesson(root, suffix, bass, label, model) {
       frets: moved.get(voicing).frets,
       fingers: moved.get(voicing).fingers,
       alternative: voicing.alternative,
-      instruction: `${label[0].toUpperCase()}${label.slice(1)} (${bassNote}) no baixo, na ${voicing.bassString}ª corda.`,
+      instruction: {
+        pt: `${label.pt[0].toUpperCase()}${label.pt.slice(1)} (${bassNote}) no baixo, na ${voicing.bassString}ª corda.`,
+        en: `${label.en[0].toUpperCase()}${label.en.slice(1)} (${bassNote}) in the bass, on the ${ORDINAL_EN[voicing.bassString]} string.`,
+      },
   }));
   return {
-    title: `${symbol} - baixo na ${label}`,
-    subtitle: `${symbol} com a ${label} no baixo, na 4ª, 5ª e 6ª corda`,
+    title: { pt: `${symbol} - baixo na ${label.pt}`, en: `${englishSymbol(symbol)} - ${label.en} in the bass` },
+    subtitle: {
+      pt: `${symbol} com a ${label.pt} no baixo, na 4ª, 5ª e 6ª corda`,
+      en: `${englishSymbol(symbol)} with the ${label.en} in the bass, on the 4th, 5th and 6th strings`,
+    },
     steps: lowToHigh(steps),
   };
 }
@@ -326,25 +366,28 @@ function lowToHigh(steps) {
 // Trails grouped by inversion (a collapsible category on the home page), one
 // trail per chord quality inside each group.
 const INVERSION_GROUPS = [
-  { title: "Ordem direta: baixo na tônica", bass: "root", label: "tônica",
+  { title: { pt: "Ordem direta: baixo na tônica", en: "Root position: root in the bass" }, bass: "root", label: { pt: "tônica", en: "root" },
     models: { maj7: ROOT_POSITION_C, m7: ROOT_POSITION_CM, "7": ROOT_POSITION_C7, m7b5: ROOT_POSITION_CM7B5 } },
-  { title: "1ª inversão: baixo na terça", bass: "third", label: "terça",
+  { title: { pt: "1ª inversão: baixo na terça", en: "1st inversion: third in the bass" }, bass: "third", label: { pt: "terça", en: "third" },
     models: { maj7: FIRST_INVERSION_C, m7: FIRST_INVERSION_CM, "7": FIRST_INVERSION_C7, m7b5: FIRST_INVERSION_CM7B5 } },
-  { title: "2ª inversão: baixo na quinta", bass: "fifth", label: "quinta",
+  { title: { pt: "2ª inversão: baixo na quinta", en: "2nd inversion: fifth in the bass" }, bass: "fifth", label: { pt: "quinta", en: "fifth" },
     models: { maj7: SECOND_INVERSION_C, m7: SECOND_INVERSION_CM, "7": SECOND_INVERSION_C7, m7b5: SECOND_INVERSION_CM7B5 } },
-  { title: "3ª inversão: baixo na sétima", bass: "seventh", label: "sétima",
+  { title: { pt: "3ª inversão: baixo na sétima", en: "3rd inversion: seventh in the bass" }, bass: "seventh", label: { pt: "sétima", en: "seventh" },
     models: { maj7: THIRD_INVERSION_C, m7: THIRD_INVERSION_CM, "7": THIRD_INVERSION_C7, m7b5: THIRD_INVERSION_CM7B5 } },
 ];
 const QUALITIES = [
-  { suffix: "maj7", title: "Acordes maiores", cycle: CYCLE_OF_FOURTHS },
-  { suffix: "m7", title: "Acordes menores", cycle: MINOR_CYCLE },
-  { suffix: "7", title: "Acordes de sétima dominante", cycle: DOMINANT_CYCLE },
-  { suffix: "m7b5", title: "Acordes meio diminutos", cycle: HALF_DIMINISHED_CYCLE },
+  { suffix: "maj7", title: { pt: "Acordes maiores", en: "Major seventh chords" }, cycle: CYCLE_OF_FOURTHS },
+  { suffix: "m7", title: { pt: "Acordes menores", en: "Minor seventh chords" }, cycle: MINOR_CYCLE },
+  { suffix: "7", title: { pt: "Acordes de sétima dominante", en: "Dominant seventh chords" }, cycle: DOMINANT_CYCLE },
+  { suffix: "m7b5", title: { pt: "Acordes meio diminutos", en: "Half-diminished chords" }, cycle: HALF_DIMINISHED_CYCLE },
 ];
 
 const INVERSIONS = {
-  title: "Inversões de Tétrades",
-  subtitle: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
+  title: { pt: "Inversões de Tétrades", en: "Seventh Chord Inversions" },
+  subtitle: {
+    pt: "Cada tétrade na ordem direta e com o baixo na terça, na quinta e na sétima, na 4ª, 5ª e 6ª corda",
+    en: "Every seventh chord in root position and with the third, fifth and seventh in the bass, on the 4th, 5th and 6th strings",
+  },
   trails: INVERSION_GROUPS.flatMap((group) =>
     QUALITIES.map((quality) => ({
       group: group.title,
@@ -379,7 +422,7 @@ const inversionTrails = INVERSIONS.trails.map((trail) => {
         `            suffix: "${step.suffix}",`,
         `            bass: "${step.bass}",`,
         `            bassString: ${step.bassString},`,
-        `            instruction: "${step.instruction}",`,
+        `            instruction: ${loc(step.instruction)},`,
         ...(step.alternative ? ["            alternative: true,"] : []),
         `            position: ${formatPosition(position)},`,
         "          },",
@@ -387,9 +430,9 @@ const inversionTrails = INVERSIONS.trails.map((trail) => {
     });
     return `      {
         id: ${nextId++},
-        title: "${lesson.title}",
-        exerciseTitle: "${lesson.title}",
-        subtitle: "${lesson.subtitle}",
+        title: ${loc(lesson.title)},
+        exerciseTitle: ${loc(lesson.title)},
+        subtitle: ${loc(lesson.subtitle)},
         type: "chord",
         status: "locked",
         steps: [
@@ -398,8 +441,8 @@ ${steps.join("\n")}
       },`;
   });
   return `      {
-        group: "${trail.group}",
-        title: "${trail.title}",
+        group: ${loc(trail.group)},
+        title: ${loc(trail.title)},
         lessons: [
 ${lessons.join("\n")}
         ],
@@ -407,6 +450,7 @@ ${lessons.join("\n")}
 });
 
 const file = `import type { ChordStep } from "./chords.ts";
+import type { Localized } from "./i18n.tsx";
 
 // One section with a trail per chord quality (major, minor, 7, m7(♭5)); in each trail, one
 // lesson per key (cycle of fourths): the chord in its five CAGED shapes,
@@ -417,9 +461,9 @@ const file = `import type { ChordStep } from "./chords.ts";
 
 export type Lesson = {
   id: number;
-  title: string;
-  exerciseTitle: string;
-  subtitle: string;
+  title: Localized;
+  exerciseTitle: Localized;
+  subtitle: Localized;
   type: "theory" | "chord" | "practice" | "review";
   status: "done" | "current" | "locked";
   steps: ChordStep[];
@@ -430,31 +474,31 @@ export type Lesson = {
 /** One trail of the home page, under a small heading ("Acordes maiores"). */
 export type Trail = {
   /** Collapsible category the trail sits in ("1ª inversão: baixo na terça"); omitted = none. */
-  group?: string;
-  title: string;
+  group?: Localized;
+  title: Localized;
   lessons: Lesson[];
 };
 
 export type Section = {
   id: number;
-  title: string;
-  subtitle: string;
+  title: Localized;
+  subtitle: Localized;
   trails: Trail[];
 };
 
 export const sections: Section[] = [
   {
     id: 1,
-    title: "${SECTION.title}",
-    subtitle: "${SECTION.subtitle}",
+    title: ${loc(SECTION.title)},
+    subtitle: ${loc(SECTION.subtitle)},
     trails: [
 ${trails.join("\n")}
     ],
   },
   {
     id: 2,
-    title: "${INVERSIONS.title}",
-    subtitle: "${INVERSIONS.subtitle}",
+    title: ${loc(INVERSIONS.title)},
+    subtitle: ${loc(INVERSIONS.subtitle)},
     trails: [
 ${inversionTrails.join("\n")}
     ],
