@@ -313,13 +313,20 @@ Nunca altere `reference/chords-db/guitar.json`: é a referência original.
 
 Módulo `scales` (seção id 4), gerado em `scripts/chords/build-key-lessons.mjs`
 (`scalePosition`, `scaleLesson`). **Uma aula por desenho** (pedido do usuário,
-2026-11-16): grupo "Escalas maiores" (`CYCLE_OF_FOURTHS`) com as aulas "Posição 1 -
-Jônio" … "Posição 7 - Lócrio", e grupo "Escalas menores" (`MINOR_CYCLE`, menor
-natural) com "Posição 1 - Eólio" … "Posição 7 - Mixolídio". Cada aula tem as 12
+2026-11-16): escalas maiores (`CYCLE_OF_FOURTHS`), sem título de grupo, com as aulas
+"Posição 1" … "Posição 7" (sem o nome do modo na trilha). As escalas menores foram removidas do módulo pelo
+usuário (2026-11-16); o gerador ainda as suporta (regras abaixo). Cada aula tem as 12
 tonalidades (chave `scales/<major|minor>/p<n>/<tônica>`), e cada tonalidade é um
 único exercício: um `ScaleStep` (src/chords.ts) em `lesson.scale` (`lesson.steps`
 fica vazio). Sem exercício final: tocar o desenho conclui a tonalidade. O hub
 inativo mostra o número da posição.
+
+**Aula preparatória** (pedido do usuário, 2026-11-16), antes da posição 1, sem
+grupo: `PREP` no gerador, chave `scales/prep/first-string`, uma variação só (E,
+corda solta). Na 1ª corda, pares 0-5, 3-7, 5-10, 7-12, 10-15 e volta (`PREP_FRETS`;
+o player toca a lista e depois ao contrário). Os pontos mostram o nome da nota;
+sem digitação definida (`finger` omitido). O `ScaleStep` usa `label` e
+`instruction` no lugar de "Posição n" e do título padrão.
 
 - **Posição n** começa no n-ésimo grau da escala maior na 6ª corda (casa 1–12)
   e vai até a 1ª com **três notas por corda, menos uma corda com duas** (17 notas,

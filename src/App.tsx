@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { Fragment, useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 import {
   barreSpans,
@@ -130,6 +130,11 @@ const SEGMENT_GAP = 5;
 /** Arc of the ring for key `index` of `count`, clockwise from the top. */
 function segmentPath(index: number, count: number) {
   const center = HUB_SIZE / 2;
+  // A lesson with a single variation (the preparatory lesson) gets the whole ring.
+  if (count === 1) {
+    const r = RING_RADIUS;
+    return `M${center} ${center - r} A${r} ${r} 0 1 1 ${center} ${center + r} A${r} ${r} 0 1 1 ${center} ${center - r}`;
+  }
   const span = 360 / count;
   const start = -90 + index * span + SEGMENT_GAP / 2;
   const end = start + span - SEGMENT_GAP;
@@ -153,13 +158,16 @@ function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: L
   const center = HUB_SIZE / 2;
   // The active lesson shows the chord of the key being studied ("C7+", "B♭m"); the others the quality ("7+").
   const quality = lessonSymbol(trail);
-  // Scale lessons are told apart by their shape, so an idle scale hub shows its position number.
-  const position = trail.lessons[0].scale?.[0].position;
+  // Scale lessons are told apart by their shape, so an idle scale hub shows its position number
+  // (the preparatory exercise, which is not a position, shows its key).
+  const scaleStep = trail.lessons[0].scale?.[0];
   const centerSymbol = chordName(
     status === "current"
       ? variationKey(next) + (quality === "M" ? "" : quality)
-      : position
-        ? String(position)
+      : scaleStep
+        ? scaleStep.position
+          ? String(scaleStep.position)
+          : scaleSymbol(scaleStep)
         : quality,
     lang,
   );
@@ -499,8 +507,15 @@ function NextLesson({ sections: all, onSelect }: { sections: Section[]; onSelect
 }
 
 /** The dashboard: home of the app, with the overall progress and the modules. */
+/** Module groups on the dashboard: chord modules, then scales and arpeggios (the scales module, id 4). */
+const SCALE_MODULES = new Set([4]);
+const DASHBOARD_GROUPS: Array<{ title: Localized; sections: (id: number) => boolean }> = [
+  { title: { pt: "Acordes", en: "Chords" }, sections: (id) => !SCALE_MODULES.has(id) },
+  { title: { pt: "Escalas e Arpejos", en: "Scales and Arpeggios" }, sections: (id) => SCALE_MODULES.has(id) },
+];
+
 function Dashboard({ sections: all, onSelect }: { sections: Section[]; onSelect: (lesson: Lesson) => void }) {
-  const { t } = useI18n();
+  const { t, l } = useI18n();
   const session = useSession();
   const firstName = String(session?.user.user_metadata?.first_name ?? "").trim();
   return (
@@ -514,12 +529,18 @@ function Dashboard({ sections: all, onSelect }: { sections: Section[]; onSelect:
           <ProgressHighlight trails={all.flatMap((section) => section.trails)} />
           <NextLesson sections={all} onSelect={onSelect} />
         </div>
-        <h2 className="mt-10 font-display text-[22px] font-bold tracking-[-0.03em] text-ink">{t("Módulos", "Modules")}</h2>
-        <div className="mt-4 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {all.map((section) => (
-            <ModuleCard key={section.id} section={section} />
-          ))}
-        </div>
+        {DASHBOARD_GROUPS.map((group) => (
+          <Fragment key={group.title.pt}>
+            <h2 className="mt-10 font-display text-[22px] font-bold tracking-[-0.03em] text-ink">{l(group.title)}</h2>
+            <div className="mt-4 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {all
+                .filter((section) => group.sections(section.id))
+                .map((section) => (
+                  <ModuleCard key={section.id} section={section} />
+                ))}
+            </div>
+          </Fragment>
+        ))}
       </main>
     </div>
   );
@@ -620,6 +641,7 @@ const SCALE_COLUMN = 36;
 const SCALE_ROW = 22;
 const SCALE_LEFT = 12;
 const SCALE_TOP = 14;
+const LEAP_ROOM = 34;
 
 /** A scale position on the neck: one dot per note with its degree; the tonic in blue. */
 function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index of the note sounding. */ activeNote?: number | null }) {
@@ -629,7 +651,9 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
   const high = Math.max(...frets);
   const columns = high - low + 1;
   const width = SCALE_LEFT * 2 + columns * SCALE_COLUMN;
-  const rowY = (string: number) => SCALE_TOP + (5 - string) * SCALE_ROW;
+  // Leap exercises draw arcs above the strings, so they get extra room on top.
+  const top = SCALE_TOP + (step.leaps ? LEAP_ROOM : 0);
+  const rowY = (string: number) => top + (5 - string) * SCALE_ROW;
   const columnX = (fret: number) => SCALE_LEFT + (fret - low + 0.5) * SCALE_COLUMN;
   const bottom = rowY(0);
   return (
@@ -637,10 +661,14 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
       viewBox={`0 0 ${width} ${bottom + 30}`}
       className="block w-full"
       role="img"
-      aria-label={t(
-        `${scaleName(step, lang)}, posição ${step.position} (${l(step.mode)}), casas ${low} a ${high}`,
-        `${scaleName(step, lang)}, position ${step.position} (${l(step.mode)}), frets ${low} to ${high}`,
-      )}
+      aria-label={
+        step.label
+          ? t(`${l(step.label)}, casas ${low} a ${high}`, `${l(step.label)}, frets ${low} to ${high}`)
+          : t(
+              `${scaleName(step, lang)}, posição ${step.position} (${l(step.mode)}), casas ${low} a ${high}`,
+              `${scaleName(step, lang)}, position ${step.position} (${l(step.mode)}), frets ${low} to ${high}`,
+            )
+      }
     >
       {[0, 1, 2, 3, 4, 5].map((string) => (
         <line
@@ -653,14 +681,15 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
           className="stroke-subtle"
         />
       ))}
-      {Array.from({ length: columns + 1 }, (_, line) => (
+      {/* With open strings (fret 0) the first column sits before the nut, with no fret line on its left. */}
+      {Array.from({ length: columns + 1 }, (_, line) => line).filter((line) => !(low === 0 && line === 0)).map((line) => (
         <line
           key={`fret-${line}`}
           x1={SCALE_LEFT + line * SCALE_COLUMN}
           y1={rowY(5)}
           x2={SCALE_LEFT + line * SCALE_COLUMN}
           y2={bottom}
-          strokeWidth={line === 0 && low === 1 ? 5 : 1.3}
+          strokeWidth={(line === 0 && low === 1) || (line === 1 && low === 0) ? 5 : 1.3}
           className="stroke-ink-2"
         />
       ))}
@@ -677,6 +706,26 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
           {fret}
         </text>
       ))}
+      {step.leaps &&
+        step.notes.flatMap((note, index) => {
+          const other = step.notes[index + 1];
+          if (index % 2 === 1 || !other) return [];
+          // An arc over the string from one note of the pair to the other, higher for a wider leap.
+          const [x1, x2] = [columnX(note.fret), columnX(other.fret)];
+          const y = rowY(note.string) - 11;
+          const lift = Math.min(LEAP_ROOM + 6, 14 + Math.abs(x2 - x1) * 0.18);
+          const isActive = activeNote === index || activeNote === index + 1;
+          return [
+            <path
+              key={`leap-${index}`}
+              d={`M${x1} ${y} Q${(x1 + x2) / 2} ${y - lift} ${x2} ${y}`}
+              fill="none"
+              strokeWidth={isActive ? 2.4 : 1.6}
+              strokeLinecap="round"
+              className={isActive ? "stroke-accent" : "stroke-muted"}
+            />,
+          ];
+        })}
       {step.notes.map((note, index) => {
         const isActive = index === activeNote;
         const isTonic = note.degree === "1";
@@ -726,13 +775,16 @@ function ScaleCard({
       className={`w-full rounded-card border border-line bg-surface p-4 sm:p-5 ${className}`}
       aria-current={current ? "true" : undefined}
     >
-      <div className="flex items-baseline justify-between gap-3">
-        <p className="font-display text-[18px] font-bold tracking-[-0.02em] text-ink">
-          {t(`Posição ${step.position}`, `Position ${step.position}`)}
-        </p>
-        <p className="text-sm font-medium text-muted">{l(step.mode)}</p>
-      </div>
-      <div className="mt-3">
+      {/* An exercise that is not a position (preparatory lesson) has no title: the heading says it all. */}
+      {!step.label && (
+        <div className="mb-3 flex items-baseline justify-between gap-3">
+          <p className="font-display text-[18px] font-bold tracking-[-0.02em] text-ink">
+            {t(`Posição ${step.position}`, `Position ${step.position}`)}
+          </p>
+          <p className="text-sm font-medium text-muted">{l(step.mode)}</p>
+        </div>
+      )}
+      <div>
         <ScaleDiagram step={step} activeNote={activeNote} />
       </div>
     </div>
@@ -1451,7 +1503,9 @@ function ExercisePage({
             <div className="rounded-card border border-line bg-surface p-5">
               <p className="font-display text-3xl font-bold tabular-nums text-accent-ink">{stepCount}</p>
               <p className="eyebrow mt-1 text-[10px]! text-muted">
-                {scale
+                {scale?.[0].label
+                  ? t("Exercício tocado", "Exercise played")
+                  : scale
                   ? stepCount === 1
                     ? t("Posição tocada", "Position played")
                     : t("Posições tocadas", "Positions played")
@@ -1653,10 +1707,14 @@ function ExercisePage({
         <>
           <ExerciseHeading
             path={path}
-            title={t(
-              `Toque ${scaleName(scaleStep, lang)} na posição ${scaleStep.position} (${l(scaleStep.mode)}), subindo e descendo.`,
-              `Play ${scaleName(scaleStep, lang)} in position ${scaleStep.position} (${l(scaleStep.mode)}), up and down.`,
-            )}
+            title={
+              scaleStep.instruction
+                ? l(scaleStep.instruction)
+                : t(
+                    `Toque ${scaleName(scaleStep, lang)} na posição ${scaleStep.position} (${l(scaleStep.mode)}), subindo e descendo.`,
+                    `Play ${scaleName(scaleStep, lang)} in position ${scaleStep.position} (${l(scaleStep.mode)}), up and down.`,
+                  )
+            }
           />
           <div className="mx-auto mt-12 w-full max-w-[560px]">
             <ScaleCard step={scaleStep} activeNote={activeNote} />
@@ -2457,12 +2515,12 @@ function ScalesGuide({ onBack }: { onBack: () => void }) {
       intro={t(
         <>
           A escala maior — o modo jônio — tem sete notas. Começando cada desenho numa nota diferente da
-          escala, você cobre o braço inteiro com sete posições e toca qualquer escala maior ou menor em
-          qualquer região.
+          escala, você cobre o braço inteiro com sete posições e toca qualquer escala maior em qualquer
+          região.
         </>,
         <>
           The major scale — the Ionian mode — has seven notes. Starting a shape on each note of the scale,
-          you cover the whole neck with seven positions and play any major or minor scale anywhere.
+          you cover the whole neck with seven positions and play any major scale anywhere.
         </>,
       )}
     >
@@ -2538,52 +2596,24 @@ function ScalesGuide({ onBack }: { onBack: () => void }) {
         </div>
       </GuideSection>
 
-      <GuideSection title={t("Escalas menores", "Minor scales")}>
-        {t(
-          <>
-          <p>
-            A escala menor natural usa as mesmas notas da escala maior que fica uma terça menor acima: A
-            menor tem as notas de C maior. Por isso as escalas menores usam as mesmas sete posições — só
-            muda a tônica, que passa a ser o 6º grau da maior. Os graus da menor são{" "}
-            <strong>1 2 ♭3 4 5 ♭6 ♭7</strong>.
-          </p>
-          <p>
-            Nas escalas menores, as posições são contadas a partir da tônica menor: a posição 1 começa na
-            tônica, com o desenho do eólio; a 2 no 2º grau, com o desenho do lócrio; e assim por diante
-            (3 jônio, 4 dórico, 5 frígio, 6 lídio, 7 mixolídio).
-          </p>
-          </>,
-          <>
-          <p>
-            The natural minor scale uses the same notes as the major scale a minor third above: A minor has
-            the notes of C major. That is why the minor scales use the same seven shapes — only the tonic
-            changes, to the 6th degree of the major. The minor degrees are <strong>1 2 ♭3 4 5 ♭6 ♭7</strong>.
-          </p>
-          <p>
-            In the minor scales, positions are counted from the minor tonic: position 1 starts on the tonic,
-            with the Aeolian shape; position 2 on the 2nd degree, with the Locrian shape; and so on (3 Ionian,
-            4 Dorian, 5 Phrygian, 6 Lydian, 7 Mixolydian).
-          </p>
-          </>,
-        )}
-      </GuideSection>
-
       <GuideSection title={t("Como estudar", "How to practise")}>
         {t(
           <ol className="list-decimal space-y-2 pl-5">
             <li>
-              Cada aula é um desenho: a posição 1, a posição 2 e assim por diante, primeiro nas escalas maiores
-              e depois nas menores.
+              Comece pela aula preparatória: pares de notas na 1ª corda (0-5, 3-7, 5-10, 7-12, 10-15),
+              subindo o braço e voltando, para soltar a mão nas mudanças de posição.
             </li>
+            <li>Depois, cada aula é um desenho: a posição 1, a posição 2 e assim por diante, até a 7.</li>
             <li>Cada aula tem uma variação para cada tonalidade, no ciclo de quartas.</li>
             <li>Toque o desenho subindo e descendo, com o metrônomo, e diga em voz alta onde estão as tônicas.</li>
             <li>Quando dominar as sete aulas, junte as posições vizinhas e percorra o braço inteiro na mesma tonalidade.</li>
           </ol>,
           <ol className="list-decimal space-y-2 pl-5">
             <li>
-              Each lesson is one shape: position 1, position 2 and so on, first in the major scales and then
-              in the minor ones.
+              Start with the preparatory lesson: pairs of notes on the 1st string (0-5, 3-7, 5-10, 7-12,
+              10-15), up the neck and back, to loosen the hand for position shifts.
             </li>
+            <li>Then each lesson is one shape: position 1, position 2 and so on, up to 7.</li>
             <li>Each lesson has a variation for every key, in the cycle of fourths.</li>
             <li>Play the shape up and down with the metronome, and say out loud where the tonics are.</li>
             <li>Once you know all seven lessons, join neighbouring positions and cover the whole neck in one key.</li>

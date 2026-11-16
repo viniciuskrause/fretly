@@ -705,30 +705,63 @@ function scaleLesson(root, quality, position) {
 }
 
 const SCALE_QUALITIES = [
-  { quality: "major", group: { pt: "Escalas maiores", en: "Major scales" }, cycle: CYCLE_OF_FOURTHS },
-  { quality: "minor", group: { pt: "Escalas menores", en: "Minor scales" }, cycle: MINOR_CYCLE },
+  // No group heading on the module page (removed by the user, 2026-11-16).
+  { quality: "major", cycle: CYCLE_OF_FOURTHS },
+  // Minor scales were removed from the module by the user (2026-11-16); scalePosition still supports them.
 ];
 
-/** Mode of the shape at `position` (1–7) of a major or minor key. */
-const modeAt = (quality, position) => MODES[(position - 1 + (quality === "major" ? 0 : MINOR_TONIC_DEGREE)) % 7];
+/**
+ * Preparatory lesson, set by the user (2026-11-16): on the 1st string, pairs of
+ * notes 0-5, 3-7, 5-10, 7-12, 10-15 and back (the player plays the list up and
+ * then in reverse). One variation only (open E string); no fingering given.
+ */
+const PREP_FRETS = [0, 5, 3, 7, 5, 10, 7, 12, 10, 15];
+const NOTE_NAMES = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"];
+const PREP = {
+  title: { pt: "Aula preparatória", en: "Preparatory lesson" },
+  lessons: [
+    {
+      key: "scales/prep/first-string",
+      title: { pt: "Aula preparatória - 1ª corda", en: "Preparatory lesson - 1st string" },
+      subtitle: {
+        pt: "Pares de notas na 1ª corda, subindo o braço e voltando",
+        en: "Pairs of notes on the 1st string, up the neck and back",
+      },
+      scale: [
+        {
+          root: "E",
+          quality: "major",
+          position: 0,
+          mode: { pt: "1ª corda", en: "1st string" },
+          label: { pt: "1ª corda", en: "1st string" },
+          leaps: true,
+          instruction: {
+            pt: "Toque os pares de notas na 1ª corda, subindo o braço e voltando.",
+            en: "Play the pairs of notes on the 1st string, up the neck and back.",
+          },
+          notes: PREP_FRETS.map((fret) => ({ string: 5, fret, degree: NOTE_NAMES[(OPEN_STRING_MIDI[5] + fret) % 12] })),
+        },
+      ],
+    },
+  ],
+};
 
 // One lesson (trail) per shape: position 1 … 7, each in the 12 keys.
 const SCALES = {
   title: { pt: "7 Posições do Modo Jônio", en: "7 Positions of the Ionian Mode" },
   subtitle: {
-    pt: "Toque as escalas maiores e menores em qualquer região do braço",
-    en: "Play the major and minor scales anywhere on the neck",
+    pt: "Aprenda a escala do modo jônio e a digitação base para todas as escalas maiores e menores em qualquer região do braço",
+    en: "Learn the Ionian mode scale and the base fingering for every major and minor scale anywhere on the neck",
   },
-  trails: SCALE_QUALITIES.flatMap((item) =>
+  trails: [PREP, ...SCALE_QUALITIES.flatMap((item) =>
     [1, 2, 3, 4, 5, 6, 7].map((position) => {
-      const mode = modeAt(item.quality, position);
       return {
-        group: item.group,
-        title: { pt: `Posição ${position} - ${mode.pt}`, en: `Position ${position} - ${mode.en}` },
+        // Only the position on the module page (mode names removed by the user, 2026-11-16).
+        title: { pt: `Posição ${position}`, en: `Position ${position}` },
         lessons: item.cycle.map((root) => scaleLesson(root, item.quality, position)),
       };
     }),
-  ),
+  )],
 };
 
 const renderScaleTrails = (module) => module.trails.map((trail) => {
@@ -739,7 +772,10 @@ const renderScaleTrails = (module) => module.trails.map((trail) => {
       `            quality: "${step.quality}",`,
       `            position: ${step.position},`,
       `            mode: ${loc(step.mode)},`,
-      `            notes: [${step.notes.map((note) => `{ string: ${note.string}, fret: ${note.fret}, finger: ${note.finger}, degree: "${note.degree}" }`).join(", ")}],`,
+      ...(step.label ? [`            label: ${loc(step.label)},`] : []),
+      ...(step.leaps ? ["            leaps: true,"] : []),
+      ...(step.instruction ? [`            instruction: ${loc(step.instruction)},`] : []),
+      `            notes: [${step.notes.map((note) => `{ string: ${note.string}, fret: ${note.fret}, ${note.finger ? `finger: ${note.finger}, ` : ""}degree: "${note.degree}" }`).join(", ")}],`,
       "          },",
     ].join("\n"));
     return `      {
@@ -756,8 +792,7 @@ ${steps.join("\n")}
         ],
       },`;
   });
-  return `      {
-        group: ${loc(trail.group)},
+  return `      {${trail.group ? `\n        group: ${loc(trail.group)},` : ""}
         title: ${loc(trail.title)},
         lessons: [
 ${lessons.join("\n")}

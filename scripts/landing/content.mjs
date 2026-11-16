@@ -69,7 +69,7 @@ export const content = {
       ["CAGED system exercises", "The Basic Chords with CAGED module teaches the CAGED system: the five open-chord shapes — C, A, G, E and D — moved up the neck. You play major, minor, dominant seventh and half-diminished chords in all five shapes, from the lowest to the highest, in all 12 keys."],
       ["Chord inversion exercises for beginners and experts", "The Seventh Chord Inversions module covers seventh-chord inversions: maj7, m7, 7 and m7(♭5) in root position and with the third, fifth and seventh in the bass, on the 4th, 5th and 6th strings — drop 2 voicings, plus drop 3 alternatives."],
       ["Triad inversion exercises", "The Triad Inversions module covers major, minor and diminished triads in root position and with the third and fifth in the bass, on the 4th, 5th and 6th strings, in all 12 keys — a short way to play any chord anywhere on the neck."],
-      ["Major and minor scale exercises", "The 7 Positions of the Ionian Mode module covers the major scale and its relative minor in seven positions, from the nut to the bridge, in all 12 keys."],
+      ["Major scale exercises", "The 7 Positions of the Ionian Mode module covers the major scale in seven positions, one shape per lesson, from the nut to the bridge, in all 12 keys."],
     ],
     faq: {
       h2: "Frequently asked questions",
@@ -144,7 +144,7 @@ export const content = {
       ["Exercícios do sistema CAGED", "O módulo Acordes Básicos no CAGED ensina o sistema CAGED: as cinco formas de acorde aberto — C, A, G, E e D — levadas para cima no braço. Você toca acordes maiores, menores, de sétima dominante e meio diminutos nas cinco formas, da mais grave à mais aguda, nas 12 tonalidades."],
       ["Exercícios de inversões de acordes para iniciantes e avançados", "O módulo Inversões de Tétrades trabalha as inversões de tétrades: 7+, m7, 7 e m7(♭5) na ordem direta e com a terça, a quinta e a sétima no baixo, na 4ª, 5ª e 6ª corda — voicings drop 2, com alternativas em drop 3."],
       ["Exercícios de inversões de tríades", "O módulo Inversões de Tríades trabalha as tríades maiores, menores e diminutas na ordem direta e com a terça e a quinta no baixo, na 4ª, 5ª e 6ª corda, nas 12 tonalidades — um jeito curto de tocar qualquer acorde em qualquer região do braço."],
-      ["Exercícios de escalas maiores e menores", "O módulo 7 Posições do Modo Jônio trabalha a escala maior e a sua relativa menor em sete posições, da pestana até a ponte, nas 12 tonalidades."],
+      ["Exercícios de escalas maiores", "O módulo 7 Posições do Modo Jônio trabalha a escala maior em sete posições, um desenho por aula, da pestana até a ponte, nas 12 tonalidades."],
     ],
     faq: {
       h2: "Perguntas frequentes",
