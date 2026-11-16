@@ -5,6 +5,12 @@ node scripts/chords/check.mjs
 node scripts/landing/build.mjs
 npx tsc --noEmit
 npx vite build --base=/fretly/
+# Keep the assets of the live version for pages still cached in browsers.
+PREVIOUS=$(mktemp -d)
+if git clone -q --depth 1 -b gh-pages "$(git remote get-url origin)" "$PREVIOUS" 2>/dev/null; then
+  node scripts/keep-previous-assets.mjs "$PREVIOUS" dist
+fi
+rm -rf "$PREVIOUS"
 cd dist
 touch .nojekyll
 git init -q -b gh-pages
