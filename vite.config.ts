@@ -5,7 +5,7 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  // Multi-page: the static homepage (en at the root, pt in pt/), the app in app/, sign-up and log-in.
+  // Multi-page: the static homepage (en at the root, pt in pt/), the app in app/, sign-up, log-in and the profile.
   build: {
     rollupOptions: {
       input: {
@@ -14,6 +14,7 @@ export default defineConfig({
         app: path.resolve(import.meta.dirname, "app/index.html"),
         signup: path.resolve(import.meta.dirname, "signup/index.html"),
         login: path.resolve(import.meta.dirname, "login/index.html"),
+        profile: path.resolve(import.meta.dirname, "profile/index.html"),
       },
     },
   },

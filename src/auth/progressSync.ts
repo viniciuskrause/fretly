@@ -1,4 +1,4 @@
-import { mergeProgress, type LessonResult, type Progress } from "../progress.ts";
+import { clearLocalProgress, mergeProgress, type LessonResult, type Progress } from "../progress.ts";
 import { supabase } from "./supabase.ts";
 
 // Progress in the account (table public.lesson_progress, see supabase/migrations):
@@ -6,6 +6,9 @@ import { supabase } from "./supabase.ts";
 // logged in every completion is also saved to the account. On log-in both sides
 // are merged (newest completion wins), so practice done before creating the
 // account, or on another device, is never lost.
+
+/** User metadata field with the ISO date of the last progress reset (profile page). */
+export const PROGRESS_RESET_AT = "progress_reset_at";
 
 type Row = { lesson_key: string; bpm: number; completed_at: string };
 
@@ -22,6 +25,11 @@ const toRow = (key: string, result: LessonResult): Row => ({
  */
 export async function syncProgress(local: Progress): Promise<Progress | null> {
   if (!supabase) return null;
+  // Progress reset on the profile page (maybe on another device): drop what this
+  // browser finished before the reset, so it is not uploaded back.
+  const { data: userData } = await supabase.auth.getUser();
+  const resetAt = String(userData.user?.user_metadata?.[PROGRESS_RESET_AT] ?? "");
+  if (resetAt) local = Object.fromEntries(Object.entries(local).filter(([, result]) => result.completedAt > resetAt));
   const { data, error } = await supabase.from("lesson_progress").select("lesson_key, bpm, completed_at");
   if (error) {
     console.warn("Fretly: could not load progress from the account", error.message);
@@ -49,4 +57,20 @@ export async function saveResultToAccount(key: string, result: LessonResult) {
   if (!supabase) return;
   const { error } = await supabase.from("lesson_progress").upsert(toRow(key, result), { onConflict: "user_id,lesson_key" });
   if (error) console.warn("Fretly: could not save progress to the account", error.message);
+}
+
+/**
+ * Erases the learner's progress: the account's rows, this browser's copy, and
+ * (through the reset date in the user metadata) older copies on other devices.
+ */
+export async function resetAccountProgress(): Promise<{ message: string } | null> {
+  if (!supabase) return null;
+  const { data } = await supabase.auth.getUser();
+  if (!data.user) return { message: "not authenticated" };
+  const { error: metaError } = await supabase.auth.updateUser({ data: { [PROGRESS_RESET_AT]: new Date().toISOString() } });
+  if (metaError) return metaError;
+  const { error } = await supabase.from("lesson_progress").delete().eq("user_id", data.user.id);
+  if (error) return error;
+  clearLocalProgress();
+  return null;
 }

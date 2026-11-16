@@ -119,6 +119,10 @@ export function UserMenu({
           </div>
           <div className="mt-2 border-t border-line pt-2">
             {session ? (
+              <>
+              <a role="menuitem" href={`${basePath}profile/?lang=${lang}`} className="user-menu__item">
+                {t("Meu perfil", "My profile")}
+              </a>
               <button
                 role="menuitem"
                 className="user-menu__item"
@@ -130,6 +134,7 @@ export function UserMenu({
               >
                 {t("Sair", "Log out")}
               </button>
+              </>
             ) : (
               <>
                 <a role="menuitem" href={`${basePath}login/?lang=${lang}`} className="user-menu__item">
