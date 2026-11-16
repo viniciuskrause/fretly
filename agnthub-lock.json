@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "agents": [
+    {
+      "source": {
+        "kind": "github",
+        "locator": "msitarzewski/agency-agents",
+        "revision": "8ae6164602c95ca78828b148b9052460ee426885"
+      },
+      "agent": "design-ui-designer",
+      "origin": "direct",
+      "artifacts": [
+        {
+          "harness": "claude",
+          "variant": "generated",
+          "sourcePath": "design/design-ui-designer.md",
+          "sourceDigest": "sha256:4dc51255ffcb47e2bf4289a7d49a7cc224238af759f9e6e3c56771c698575d6d",
+          "converter": "claude/v7",
+          "path": ".claude/agents/design-ui-designer.md",
+          "digest": "sha256:944612c12e3ed59365ce2ab341107997556d09cf7ef88b076aa9dab840727446",
+          "requires": []
+        }
+      ]
+    }
+  ]
+}
