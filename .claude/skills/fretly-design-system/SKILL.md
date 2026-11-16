@@ -123,33 +123,37 @@ Reutilize os componentes existentes em `src/App.tsx` antes de criar novos:
 `CurrentDot`, `PrimaryButton`, `SecondaryButton`, `ChordCard`, `ChordDiagram`,
 `GuideLayout`, `GuideSection`, `ExerciseShell`, `ExerciseHeading`.
 
-### Hierarquia recolhível (Home)
+### Painel (home do app) e páginas de módulo
 
-**Nomenclatura na interface:** os blocos principais da Home se chamam
+**Nomenclatura na interface:** os blocos principais se chamam
 **módulos** ("Módulo" / "Module", "Guia do módulo Inversões de Tétrades"),
 **sem número** — nunca "seção", "unidade" nem "lição" em texto visível ao usuário. Cada
 módulo contém **aulas** ("lessons" em en). No código e nesta skill eles seguem como
 `Section`/"seção principal".
 
-Módulo (seção principal) → (grupo) → subseção → trilha. **Tudo fechado por padrão**; estado salvo
-em `localStorage` (`fretly.open.v1`) via `useOutline`. Abrir uma seção abre
-também a subseção (e o grupo) da próxima aula a estudar.
+**Painel** (`Dashboard`, home de `app/`, `max-w-[1100px]`): título ("Olá, Nome" /
+"Seu painel"); embaixo, lado a lado (`md:grid-cols-2`), dois cards `bg-surface`:
+**Seu progresso** (`ProgressHighlight`: número grande x/240 em `font-display`,
+barra `bg-brand` sobre `bg-sunken` no rodapé do card) e **Próxima aula**
+(`NextLesson`: título e subtítulo da aula atual, módulo, botão laranja "Continuar
+praticando"). Depois a lista **Módulos**: grade de `ModuleCard`
+(`md:grid-cols-2 lg:grid-cols-3`).
 
-**1. Cabeçalho de seção principal** (`PathSection`) — o único bloco "forte":
-- Card `rounded-card border border-brand bg-brand text-white`, padding
-  `p-5 sm:p-6 sm:pr-5` (direita 20px para alinhar o chevron).
-- Esquerda (clicável, também alterna): overline `Módulo` / `Module` (sem número)
-  (`eyebrow eyebrow--lg text-brand-soft`),
-  título `font-display text-[24px] sm:text-[26px] font-bold`, subtítulo
-  `text-[15px] font-medium text-brand-soft`.
-- Direita, lado a lado: botão só-ícone do guia (ícone `notebook`, `size-6`,
-  sem borda/label, `aria-label` + `title`) e o **chevron** (botão `size-11`,
-  `-mr-1.5`, controle acessível com `aria-expanded`/`aria-controls`/`aria-label`).
-  Ambos `text-white hover:opacity-80`, foco `focus-visible:outline-white`.
-- Embaixo: **barra de progresso destacada** — linha com contador à esquerda
-  (`font-mono text-sm font-bold text-white`, "x/y exercícios") e barra
-  `h-3 flex-1 rounded-full bg-ink` com preenchimento `bg-accent`,
-  `role="progressbar"`. Barras de progresso **só** aqui e no exercício.
+**`ModuleCard`** — o único bloco "forte": card-link inteiro
+`rounded-card border border-brand bg-brand text-white p-5 sm:p-6`
+(hover `bg-brand-strong`), **sem overline** (o título da seção "Módulos" já diz o
+que são; a overline `Módulo` / `Module` fica só no cabeçalho da página do módulo), título `font-display text-[24px] sm:text-[26px] font-bold`,
+subtítulo `text-[15px] font-medium text-brand-soft`, chevron à direita
+(apontando para a direita) e embaixo a **barra de progresso destacada**
+(`ModuleProgress`: contador `font-mono text-sm font-bold` "x/y exercícios" — só na
+página do módulo; no painel, `showCount={false}`, só a barra —, barra
+`h-3 rounded-full bg-ink` com preenchimento `bg-accent`, `role="progressbar"`).
+
+**Página do módulo** (`ModulePage`, endereço `#modulo/<slug>`; slug = prefixo das
+chaves das aulas: `caged`, `inversions`): link "← Painel", cabeçalho azul igual ao
+card (com `h1` e o botão só-ícone do guia, `notebook size-6`) e, abaixo, a trilha
+de aulas (`UnitTrail`) sempre aberta. Voltar do exercício ou do guia retorna à
+página do módulo; o botão voltar do navegador volta ao painel.
 
 **2. Cabeçalho de subseção e de grupo** (`Trail`, `TrailGroup`) — mesmo estilo:
 - `rounded-card border bg-surface`, `border-line` fechado / `border-line-strong` aberto.

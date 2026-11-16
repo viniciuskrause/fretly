@@ -85,66 +85,6 @@ function doneCount(lessons: Lesson[]) {
 const doneShareOf = (lessons: Lesson[]) =>
   lessons.length ? lessons.filter((lesson) => lesson.status === "done").length / lessons.length : 0;
 
-/** Bare chevron (no background) that turns upward when its category is open. */
-function ChevronToggle({
-  open,
-  className = "",
-  iconClassName = "size-5",
-}: {
-  open: boolean;
-  className?: string;
-  /** Size of the chevron itself; the box stays centred so chevrons line up across headers. */
-  iconClassName?: string;
-}) {
-  return (
-    <span
-      className={`flex size-8 shrink-0 items-center justify-center transition-transform duration-[240ms] ${
-        open ? "rotate-180" : ""
-      } ${className}`}
-      aria-hidden="true"
-    >
-      <Icon name="chevron" className={iconClassName} />
-    </span>
-  );
-}
-
-/**
- * Animated region of a collapsible category. It stays mounted so it can slide
- * open and shut; while closed it is `inert` (no focus, hidden from assistive tech).
- */
-function Collapse({
-  id,
-  labelledBy,
-  open,
-  children,
-}: {
-  id: string;
-  labelledBy: string;
-  open: boolean;
-  children: ReactNode;
-}) {
-  return (
-    <div id={id} role="region" aria-labelledby={labelledBy} className="disclosure-region" data-open={open} inert={!open}>
-      <div className="disclosure-region__inner">{children}</div>
-    </div>
-  );
-}
-
-/** Small orange dot on a closed header whose lessons include the current one. */
-function CurrentDot() {
-  const { t } = useI18n();
-  const label = t("Aula atual", "Current lesson");
-  return (
-    <span className="size-2.5 shrink-0 rounded-full bg-accent" role="img" aria-label={label} title={label} />
-  );
-}
-
-/** Ids tying a disclosure button to its region (aria-controls / aria-labelledby). */
-function useDisclosureIds() {
-  const id = useId();
-  return { buttonId: `${id}-button`, regionId: `${id}-region` };
-}
-
 /** Chord of a key variation without its bass ("C7M/E" → "C7M"). */
 const variationChord = (lesson: Lesson) => lesson.steps[0].chord.split("/")[0];
 
@@ -248,39 +188,6 @@ function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: L
       <p className={`trail-label trail-label--${status} mt-2 max-w-none`}>{l(trail.title)}</p>
     </div>
   );
-}
-
-const OPEN_KEY = "fretly.open.v1";
-const sectionKey = (section: Section) => `s${section.id}`;
-
-/** Open sections and trails, remembered in this browser (all closed by default). */
-function useOutline() {
-  const [open, setOpen] = useState<Set<string>>(() => {
-    try {
-      const raw = window.localStorage.getItem(OPEN_KEY);
-      return new Set(raw ? (JSON.parse(raw) as string[]) : []);
-    } catch {
-      return new Set();
-    }
-  });
-  function update(next: Set<string>) {
-    setOpen(next);
-    try {
-      window.localStorage.setItem(OPEN_KEY, JSON.stringify([...next]));
-    } catch {
-      // Blocked storage: the state lasts for this visit only.
-    }
-  }
-  return {
-    open,
-    /** Opens or closes `key`; when opening, also opens the keys in `alsoOpen`. */
-    toggle(key: string, alsoOpen: string[] = []) {
-      const next = new Set(open);
-      if (next.has(key)) next.delete(key);
-      else [key, ...alsoOpen].forEach((k) => next.add(k));
-      update(next);
-    },
-  };
 }
 
 /** Consecutive trails of a section that share a group (or that have none). */
@@ -405,42 +312,214 @@ function UnitTrail({ section, onSelect }: { section: Section; onSelect: (lesson:
   );
 }
 
-function PathSection({
+/** Address of a module page ("#modulo/caged"), from the stable lesson keys ("caged/major/C"). */
+const MODULE_HASH = "#modulo/";
+const moduleSlug = (section: Section) => section.trails[0].lessons[0].key.split("/")[0];
+
+/** Module page open in the URL (#modulo/<slug>); the back button returns to the dashboard. */
+function useModuleRoute() {
+  const read = () => (window.location.hash.startsWith(MODULE_HASH) ? window.location.hash.slice(MODULE_HASH.length) : null);
+  const [slug, setSlug] = useState(read);
+  useEffect(() => {
+    const sync = () => {
+      setSlug(read());
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("hashchange", sync);
+    window.addEventListener("popstate", sync);
+    return () => {
+      window.removeEventListener("hashchange", sync);
+      window.removeEventListener("popstate", sync);
+    };
+  }, []);
+  return slug;
+}
+
+/** Progress bar on the blue module cards. */
+function ModuleProgress({ section, showCount = true }: { section: Section; /** "x/y exercícios" before the bar (module page only). */ showCount?: boolean }) {
+  const { t, l } = useI18n();
+  const lessons = section.trails.flatMap((trail) => trail.lessons);
+  const doneShare = doneShareOf(lessons);
+  return (
+    <div className="flex items-center gap-3">
+      {showCount && (
+        <span className="shrink-0 whitespace-nowrap font-mono text-sm font-bold tabular-nums text-white">
+          {doneCount(lessons)} {lessons.length === 1 ? t("exercício", "exercise") : t("exercícios", "exercises")}
+        </span>
+      )}
+      <div
+        className="h-3 flex-1 overflow-hidden rounded-full bg-ink"
+        role="progressbar"
+        aria-label={t(`Progresso do módulo ${l(section.title)}`, `${l(section.title)} module progress`)}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(doneShare * 100)}
+      >
+        <div className="h-full rounded-full bg-accent transition-[width] duration-500" style={{ width: `${doneShare * 100}%` }} />
+      </div>
+    </div>
+  );
+}
+
+/** Dashboard card of a module: the whole card links to the module page. */
+function ModuleCard({ section }: { section: Section }) {
+  const { l } = useI18n();
+  return (
+    <a
+      href={`${MODULE_HASH}${moduleSlug(section)}`}
+      className="group flex flex-col justify-between overflow-hidden rounded-card border border-brand bg-brand p-5 text-white transition-colors hover:border-brand-strong hover:bg-brand-strong sm:p-6"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <span className="block font-display text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[26px]">{l(section.title)}</span>
+          <span className="mt-1.5 block text-[15px] font-medium leading-relaxed text-brand-soft">{l(section.subtitle)}</span>
+        </div>
+        <span className="flex size-11 shrink-0 items-center justify-center transition-transform group-hover:translate-x-1" aria-hidden="true">
+          <Icon name="chevron" className="size-7 -rotate-90" />
+        </span>
+      </div>
+      <div className="mt-5">
+        <ModuleProgress section={section} showCount={false} />
+      </div>
+    </a>
+  );
+}
+
+/** Dashboard: progress in all exercises. */
+function ProgressHighlight({ lessons }: { lessons: Lesson[] }) {
+  const { t } = useI18n();
+  const done = lessons.filter((lesson) => lesson.status === "done").length;
+  const share = lessons.length ? done / lessons.length : 0;
+  return (
+    <section aria-labelledby="progress-title" className="flex flex-col rounded-card border border-line bg-surface p-5 sm:p-7">
+      <h2 id="progress-title" className="eyebrow eyebrow--lg text-muted">
+        {t("Seu progresso", "Your progress")}
+      </h2>
+      <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <span className="font-display text-[44px] font-bold leading-none tracking-[-0.04em] text-ink sm:text-[52px]">
+          {done}
+          <span className="text-muted">/{lessons.length}</span>
+        </span>
+        <span className="text-[15px] font-medium text-ink-2">{t("exercícios concluídos", "exercises completed")}</span>
+      </div>
+      <div className="mt-auto pt-6">
+        <div
+          className="h-3 overflow-hidden rounded-full bg-sunken"
+          role="progressbar"
+          aria-label={t("Exercícios concluídos em todas as aulas", "Exercises completed across all lessons")}
+          aria-valuemin={0}
+          aria-valuemax={lessons.length}
+          aria-valuenow={done}
+        >
+          <div className="h-full rounded-full bg-brand transition-[width] duration-500" style={{ width: `${share * 100}%` }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Dashboard: the next lesson to practice, with its module, and a button that opens it. */
+function NextLesson({ sections: all, onSelect }: { sections: Section[]; onSelect: (lesson: Lesson) => void }) {
+  const { t, l } = useI18n();
+  const section = all.find((item) => item.trails.some((trail) => trail.lessons.some((lesson) => lesson.status === "current")));
+  const next = section?.trails.flatMap((trail) => trail.lessons).find((lesson) => lesson.status === "current");
+  const started = all.some((item) => item.trails.some((trail) => trail.lessons.some((lesson) => lesson.status === "done")));
+  return (
+    <section aria-labelledby="next-title" className="flex flex-col justify-between rounded-card border border-line bg-surface p-5 sm:p-7">
+      <h2 id="next-title" className="eyebrow eyebrow--lg text-muted">
+        {t("Próxima aula", "Next lesson")}
+      </h2>
+      {next && section ? (
+        <>
+          <div className="mt-3">
+            <p className="font-display text-[24px] font-bold leading-tight tracking-[-0.03em] text-ink sm:text-[26px]">{l(next.title)}</p>
+            <p className="mt-1.5 text-[15px] text-ink-2">{l(next.subtitle)}</p>
+            <p className="mt-1 text-sm text-muted">
+              {t("Módulo", "Module")}: {l(section.title)}
+            </p>
+          </div>
+          <button
+            onClick={() => onSelect(next)}
+            className="mt-5 flex h-11 items-center justify-center gap-2 self-start rounded-control bg-accent px-5 text-[15px] font-semibold text-white transition-colors hover:bg-accent-strong"
+          >
+            <Icon name="play" className="size-4" />
+            {started ? t("Continuar praticando", "Continue practicing") : t("Começar a praticar", "Start practicing")}
+          </button>
+        </>
+      ) : (
+        <p className="mt-3 text-[16px] font-semibold text-ink">{t("Você concluiu todas as aulas!", "You've completed every lesson!")}</p>
+      )}
+    </section>
+  );
+}
+
+/** The dashboard: home of the app, with the overall progress and the modules. */
+function Dashboard({ sections: all, onSelect }: { sections: Section[]; onSelect: (lesson: Lesson) => void }) {
+  const { t } = useI18n();
+  const session = useSession();
+  const firstName = String(session?.user.user_metadata?.first_name ?? "").trim();
+  return (
+    <div className="min-h-screen bg-canvas text-ink">
+      <TopBar />
+      <main className="mx-auto max-w-[1100px] px-4 pb-16 pt-6 sm:px-8 sm:pt-8">
+        <h1 className="font-display text-[30px] font-bold leading-tight tracking-[-0.04em] text-ink sm:text-[36px]">
+          {firstName ? t(`Olá, ${firstName}`, `Hey, ${firstName}`) : t("Seu painel", "Your dashboard")}
+        </h1>
+        <div className="mt-6 grid gap-4 sm:gap-5 md:grid-cols-2">
+          <ProgressHighlight lessons={all.flatMap((section) => section.trails.flatMap((trail) => trail.lessons))} />
+          <NextLesson sections={all} onSelect={onSelect} />
+        </div>
+        <h2 className="mt-10 font-display text-[22px] font-bold tracking-[-0.03em] text-ink">{t("Módulos", "Modules")}</h2>
+        <div className="mt-4 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {all.map((section) => (
+            <ModuleCard key={section.id} section={section} />
+          ))}
+        </div>
+      </main>
+    </div>
+  );
+}
+
+/** Page of one module: its header (with the guide) and all its lessons on the trail. */
+function ModulePage({
   section,
-  openKeys,
-  onToggle,
   onSelect,
   onOpenGuide,
 }: {
   section: Section;
-  openKeys: Set<string>;
-  onToggle: (key: string, alsoOpen?: string[]) => void;
   onSelect: (lesson: Lesson) => void;
   onOpenGuide: () => void;
 }) {
   const { t, l } = useI18n();
-  const { buttonId, regionId } = useDisclosureIds();
-  const open = openKeys.has(sectionKey(section));
-  const lessons = section.trails.flatMap((trail) => trail.lessons);
-  const doneShare = doneShareOf(lessons);
-  function toggleSection() {
-    onToggle(sectionKey(section));
-  }
+  useEffect(() => {
+    document.title = `${l(section.title)} – Guitar Workouts for Nerds`;
+    return () => {
+      document.title = "Guitar Workouts for Nerds";
+    };
+  }, [section, l]);
   return (
-    <section>
-      <div className="overflow-hidden rounded-card border border-brand bg-brand text-white">
-        <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:p-6 sm:pr-5">
-          {/* The whole title area toggles too; the chevron button is the accessible control. */}
-          <div className="min-w-0 flex-1 cursor-pointer" onClick={toggleSection}>
-            <span className="eyebrow eyebrow--lg block text-brand-soft">
-              {t("Módulo", "Module")}
-            </span>
-            <span className="mt-2 block font-display text-[24px] font-bold leading-tight tracking-[-0.03em] sm:text-[26px]">
-              {l(section.title)}
-            </span>
-            <span className="mt-1.5 block text-[15px] font-medium leading-relaxed text-brand-soft">{l(section.subtitle)}</span>
-          </div>
-          <div className="flex shrink-0 items-center justify-end gap-2">
+    <div className="min-h-screen bg-canvas text-ink">
+      <TopBar />
+      <main className="mx-auto max-w-[720px] px-4 pb-16 pt-6 sm:px-8 sm:pt-8">
+        <a
+          href="./"
+          onClick={(event) => {
+            // Back to the dashboard without reloading the app.
+            event.preventDefault();
+            window.history.pushState(null, "", window.location.pathname + window.location.search);
+            window.dispatchEvent(new PopStateEvent("popstate"));
+          }}
+          className="-ml-2 inline-flex h-10 items-center gap-2 rounded-control px-3 text-sm font-semibold text-ink-2 transition hover:bg-sunken hover:text-ink"
+        >
+          <Icon name="back" className="size-4" /> {t("Painel", "Dashboard")}
+        </a>
+        <section className="mt-3 overflow-hidden rounded-card border border-brand bg-brand p-5 text-white sm:p-6">
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <span className="eyebrow eyebrow--lg block text-brand-soft">{t("Módulo", "Module")}</span>
+              <h1 className="mt-2 font-display text-[26px] font-bold leading-tight tracking-[-0.03em] sm:text-[30px]">{l(section.title)}</h1>
+              <p className="mt-1.5 text-[15px] font-medium leading-relaxed text-brand-soft">{l(section.subtitle)}</p>
+            </div>
             <button
               onClick={onOpenGuide}
               aria-label={t(`Guia do módulo ${l(section.title)}`, `${l(section.title)} module guide`)}
@@ -449,48 +528,16 @@ function PathSection({
             >
               <Icon name="notebook" className="size-6" />
             </button>
-            <button
-              id={buttonId}
-              onClick={toggleSection}
-              aria-expanded={open}
-              aria-controls={regionId}
-              aria-label={t(
-                `${open ? "Recolher" : "Expandir"} módulo ${l(section.title)}`,
-                `${open ? "Collapse" : "Expand"} module ${l(section.title)}`,
-              )}
-              className="-mr-1.5 flex size-11 items-center justify-center rounded-control text-white transition-opacity hover:opacity-80 focus-visible:outline-white"
-            >
-              <ChevronToggle open={open} iconClassName="size-7" />
-            </button>
           </div>
-        </div>
-        <div className="flex items-center gap-3 px-5 pb-5 sm:px-6 sm:pb-6">
-          <span className="shrink-0 whitespace-nowrap font-mono text-sm font-bold tabular-nums text-white">
-            {doneCount(lessons)}{" "}
-            {lessons.length === 1 ? t("exercício", "exercise") : t("exercícios", "exercises")}
-          </span>
-          <div
-            className="h-3 flex-1 overflow-hidden rounded-full bg-ink"
-            role="progressbar"
-            aria-label={t(`Progresso do módulo ${l(section.title)}`, `${l(section.title)} module progress`)}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.round(doneShare * 100)}
-          >
-            <div
-              className="h-full rounded-full bg-accent transition-[width] duration-500"
-              style={{ width: `${doneShare * 100}%` }}
-            />
+          <div className="mt-5">
+            <ModuleProgress section={section} />
           </div>
-        </div>
-      </div>
-
-      <Collapse id={regionId} labelledBy={buttonId} open={open}>
+        </section>
         <div className="pt-3">
           <UnitTrail section={section} onSelect={onSelect} />
         </div>
-      </Collapse>
-    </section>
+      </main>
+    </div>
   );
 }
 
@@ -716,7 +763,7 @@ function ExerciseShell({
         <button
           onClick={onExit}
           className="flex size-11 shrink-0 items-center justify-center rounded-control text-muted transition hover:bg-sunken hover:text-ink active:scale-95"
-          aria-label={t("Voltar à trilha", "Back to the path")}
+          aria-label={t("Voltar ao módulo", "Back to the module")}
         >
           <Icon name="close" className="size-6" />
         </button>
@@ -1174,7 +1221,7 @@ function ExercisePage({
             onClick={onExit}
             className="mt-8 h-12 w-full max-w-sm rounded-control bg-brand text-sm font-semibold text-white transition hover:bg-brand-strong active:scale-[0.98]"
           >
-            {t("Voltar à trilha", "Back to the path")}
+            {t("Voltar ao módulo", "Back to the module")}
           </button>
         </div>
       </div>
@@ -1395,7 +1442,7 @@ function GuideLayout({
           onClick={onBack}
           className="-ml-2 flex h-10 items-center gap-2 rounded-control px-3 text-sm font-semibold text-ink-2 transition hover:bg-sunken hover:text-ink"
         >
-          <Icon name="back" className="size-4" /> {t("Voltar à trilha", "Back to the path")}
+          <Icon name="back" className="size-4" /> {t("Voltar ao módulo", "Back to the module")}
         </button>
 
         <p className="eyebrow eyebrow--lg mt-8 text-accent-ink">{t("Guia", "Guide")}</p>
@@ -2278,7 +2325,7 @@ export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress>(loadProgress);
   const [guideSection, setGuideSection] = useState<number | null>(null);
-  const outline = useOutline();
+  const moduleRoute = useModuleRoute();
   const dictionary = useDictionaryRoute();
   const session = useSession();
   const userId = session?.user.id;
@@ -2326,26 +2373,19 @@ export default function App() {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-canvas text-ink">
-      <TopBar />
-      <main className="mx-auto max-w-[720px] px-4 pb-16 pt-6 sm:px-8 sm:pt-8">
-        <div className="space-y-6 sm:space-y-8">
-          {trailSections.map((section) => (
-            <PathSection
-              key={section.id}
-              section={section}
-              openKeys={outline.open}
-              onToggle={outline.toggle}
-              onSelect={setSelectedLesson}
-              onOpenGuide={() => {
-                setGuideSection(section.id);
-                window.scrollTo(0, 0);
-              }}
-            />
-          ))}
-        </div>
-      </main>
-    </div>
-  );
+  const moduleSection = trailSections.find((section) => moduleSlug(section) === moduleRoute);
+  if (moduleSection) {
+    return (
+      <ModulePage
+        section={moduleSection}
+        onSelect={setSelectedLesson}
+        onOpenGuide={() => {
+          setGuideSection(moduleSection.id);
+          window.scrollTo(0, 0);
+        }}
+      />
+    );
+  }
+
+  return <Dashboard sections={trailSections} onSelect={setSelectedLesson} />;
 }
