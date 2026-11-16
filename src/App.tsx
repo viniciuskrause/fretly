@@ -336,15 +336,19 @@ function useModuleRoute() {
 }
 
 /** Progress bar on the blue module cards. */
-function ModuleProgress({ section, showCount = true }: { section: Section; /** "x/y exercícios" before the bar (module page only). */ showCount?: boolean }) {
+/** Lessons (trails) of a module finished in all 12 keys. */
+const finishedTrails = (trails: TrailData[]) => trails.filter((trail) => lessonStatus(trail) === "done").length;
+
+function ModuleProgress({ section, showCount = true }: { section: Section; /** "x/y aulas" before the bar (module page only). */ showCount?: boolean }) {
   const { t, l } = useI18n();
-  const lessons = section.trails.flatMap((trail) => trail.lessons);
-  const doneShare = doneShareOf(lessons);
+  const done = finishedTrails(section.trails);
+  const total = section.trails.length;
+  const doneShare = total ? done / total : 0;
   return (
     <div className="flex items-center gap-3">
       {showCount && (
         <span className="shrink-0 whitespace-nowrap font-mono text-sm font-bold tabular-nums text-white">
-          {doneCount(lessons)} {lessons.length === 1 ? t("exercício", "exercise") : t("exercícios", "exercises")}
+          {done}/{total} {total === 1 ? t("aula", "lesson") : t("aulas", "lessons")}
         </span>
       )}
       <div
@@ -385,11 +389,11 @@ function ModuleCard({ section }: { section: Section }) {
   );
 }
 
-/** Dashboard: progress in all exercises. */
-function ProgressHighlight({ lessons }: { lessons: Lesson[] }) {
+/** Dashboard: lessons finished (all 12 keys) across every module. */
+function ProgressHighlight({ trails }: { trails: TrailData[] }) {
   const { t } = useI18n();
-  const done = lessons.filter((lesson) => lesson.status === "done").length;
-  const share = lessons.length ? done / lessons.length : 0;
+  const done = finishedTrails(trails);
+  const share = trails.length ? done / trails.length : 0;
   return (
     <section aria-labelledby="progress-title" className="flex flex-col rounded-card border border-line bg-surface p-5 sm:p-7">
       <h2 id="progress-title" className="eyebrow eyebrow--lg text-muted">
@@ -398,17 +402,17 @@ function ProgressHighlight({ lessons }: { lessons: Lesson[] }) {
       <div className="flex flex-1 flex-col justify-center gap-1.5 py-4">
         <span className="font-display text-[44px] font-bold leading-none tracking-[-0.04em] text-ink sm:text-[52px]">
           {done}
-          <span className="text-muted">/{lessons.length}</span>
+          <span className="text-muted">/{trails.length}</span>
         </span>
-        <span className="text-[15px] font-medium text-ink-2">{t("exercícios concluídos", "exercises completed")}</span>
+        <span className="text-[15px] font-bold text-ink-2">{t("Aulas concluídas", "Lessons completed")}</span>
       </div>
       <div>
         <div
           className="h-3 overflow-hidden rounded-full bg-sunken"
           role="progressbar"
-          aria-label={t("Exercícios concluídos em todas as aulas", "Exercises completed across all lessons")}
+          aria-label={t("Aulas concluídas em todos os módulos", "Lessons completed across all modules")}
           aria-valuemin={0}
-          aria-valuemax={lessons.length}
+          aria-valuemax={trails.length}
           aria-valuenow={done}
         >
           <div className="h-full rounded-full bg-brand transition-[width] duration-500" style={{ width: `${share * 100}%` }} />
@@ -468,7 +472,7 @@ function Dashboard({ sections: all, onSelect }: { sections: Section[]; onSelect:
           {firstName ? t(`Olá, ${firstName}`, `Hey, ${firstName}`) : t("Seu painel", "Your dashboard")}
         </h1>
         <div className="mt-6 grid gap-4 sm:gap-5 md:grid-cols-2">
-          <ProgressHighlight lessons={all.flatMap((section) => section.trails.flatMap((trail) => trail.lessons))} />
+          <ProgressHighlight trails={all.flatMap((section) => section.trails)} />
           <NextLesson sections={all} onSelect={onSelect} />
         </div>
         <h2 className="mt-10 font-display text-[22px] font-bold tracking-[-0.03em] text-ink">{t("Módulos", "Modules")}</h2>
