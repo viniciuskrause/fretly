@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://viniciuskrause.github.io/fretly/sitemap.xml

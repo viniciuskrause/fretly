@@ -82,18 +82,29 @@ function page(lang) {
   const otherHref = lang === "en" ? "pt/" : "../";
   const url = `${SITE_URL}${t.path}`;
 
+  const image = `${SITE_URL}og-${lang}.png`;
   const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: BRAND,
+      url: SITE_URL,
+      inLanguage: t.htmlLang,
+    },
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       name: BRAND,
       url,
       description: t.description,
+      image,
       applicationCategory: "EducationalApplication",
       operatingSystem: "Any (web browser)",
       inLanguage: ["en", "pt-BR"],
       isAccessibleForFree: true,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      featureList: t.curriculum.modules.map(([title]) => title),
+      educationalLevel: lang === "en" ? "Beginner to advanced" : "Iniciante a avançado",
     },
     {
       "@context": "https://schema.org",
@@ -107,9 +118,10 @@ function page(lang) {
     },
   ];
 
+  // Cards sit under a section h2, so their titles are h3 (one h1, then h2 → h3).
   const textCard = ([title, text]) => `
           <article class="rounded-card border border-line bg-surface p-6 sm:p-8">
-            <h2 class="font-display text-[22px] font-bold leading-tight tracking-[-0.025em] text-ink sm:text-[24px]">${escape(title)}</h2>
+            <h3 class="font-display text-[22px] font-bold leading-tight tracking-[-0.025em] text-ink sm:text-[24px]">${escape(title)}</h3>
             <p class="mt-3 text-[16px] leading-7 text-ink-2">${escape(text)}</p>
           </article>`;
 
@@ -133,9 +145,15 @@ function page(lang) {
     <meta property="og:url" content="${url}" />
     <meta property="og:locale" content="${t.ogLocale}" />
     <meta property="og:locale:alternate" content="${content[other].ogLocale}" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="${image}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${escape(t.hero.h1)}" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escape(t.title)}" />
     <meta name="twitter:description" content="${escape(t.description)}" />
+    <meta name="twitter:image" content="${image}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -224,22 +242,6 @@ ${t.hero
         </div>
       </section>
 
-      <!-- How it works -->
-      <section class="mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-8 sm:py-24">
-        <h2 class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.how.h2)}</h2>
-        <ol class="mt-10 grid gap-4 md:grid-cols-3">
-${t.how.cards
-  .map(
-    ([title, text], i) => `          <li class="rounded-card border border-line bg-surface p-6 sm:p-8">
-            <span class="flex size-10 items-center justify-center rounded-full bg-brand font-mono text-[15px] font-bold text-white" aria-hidden="true">${i + 1}</span>
-            <h3 class="mt-5 font-display text-[21px] font-bold tracking-[-0.02em] text-ink">${escape(title)}</h3>
-            <p class="mt-2 text-[16px] leading-7 text-ink-2">${escape(text)}</p>
-          </li>`,
-  )
-  .join("\n")}
-        </ol>
-      </section>
-
       <!-- Story -->
       <section class="bg-ink text-white">
         <div class="mx-auto w-full max-w-[860px] px-4 py-16 sm:px-8 sm:py-24">
@@ -248,8 +250,44 @@ ${t.story.paragraphs.map((p) => `          <p class="mt-6 text-[18px] leading-8 
         </div>
       </section>
 
-      <!-- Benefits -->
-      <section class="mx-auto grid w-full max-w-[1200px] gap-4 px-4 py-16 sm:px-8 sm:py-24 md:grid-cols-2">${t.grid1.map(textCard).join("")}
+      <!-- The modules -->
+      <section class="mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-8 sm:py-24" aria-labelledby="path">
+        <h2 id="path" class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.curriculum.h2)}</h2>
+        <p class="mt-4 max-w-[720px] text-[18px] leading-8 text-ink-2">${escape(t.curriculum.intro)}</p>
+        <div class="mt-10 grid gap-4 md:grid-cols-2">${t.curriculum.modules.map(textCard).join("")}
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="border-y border-line bg-surface">
+        <div class="mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-8 sm:py-24">
+        <h2 class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.how.h2)}</h2>
+        <ol class="mt-10 grid gap-4 md:grid-cols-3">
+${t.how.cards
+  .map(
+    ([title, text], i) => `          <li class="rounded-card border border-line bg-canvas p-6 sm:p-8">
+            <span class="flex size-10 items-center justify-center rounded-full bg-brand font-mono text-[15px] font-bold text-white" aria-hidden="true">${i + 1}</span>
+            <h3 class="mt-5 font-display text-[21px] font-bold tracking-[-0.02em] text-ink">${escape(title)}</h3>
+            <p class="mt-2 text-[16px] leading-7 text-ink-2">${escape(text)}</p>
+          </li>`,
+  )
+  .join("\n")}
+        </ol>
+        </div>
+      </section>
+
+      <!-- Play, compose, arrange -->
+      <section class="mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-8 sm:py-24">
+        <h2 class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.uses.h2)}</h2>
+        <div class="mt-10 grid gap-4 md:grid-cols-3">${t.uses.cards.map(textCard).join("")}
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-8 sm:pb-24">
+        <h2 class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.features.h2)}</h2>
+        <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">${t.features.cards.map(textCard).join("")}
+        </div>
       </section>
 
       <!-- Call to action -->
@@ -266,12 +304,8 @@ ${t.story.paragraphs.map((p) => `          <p class="mt-6 text-[18px] leading-8 
         </div>
       </section>
 
-      <!-- What you learn -->
-      <section class="mx-auto grid w-full max-w-[1200px] gap-4 px-4 py-16 sm:px-8 sm:py-24 md:grid-cols-2">${t.grid2.map(textCard).join("")}
-      </section>
-
       <!-- FAQ -->
-      <section class="mx-auto w-full max-w-[860px] px-4 pb-20 sm:px-8 sm:pb-28">
+      <section class="mx-auto w-full max-w-[860px] px-4 py-20 sm:px-8 sm:py-28">
         <h2 class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.faq.h2)}</h2>
         <div class="mt-8 divide-y divide-line border-y border-line">
 ${t.faq.items
@@ -323,4 +357,6 @@ ${["en", "pt"]
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, "public/sitemap.xml"), sitemap);
+// Account pages carry their own noindex; the sitemap lists the two homepages.
+fs.writeFileSync(path.join(ROOT, "public/robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`);
 console.log(`landing: index.html, pt/index.html, public/sitemap.xml (${numbers.lessons} aulas, ${numbers.exercises} exercícios, ${numbers.fingerings}+ digitações)`);
