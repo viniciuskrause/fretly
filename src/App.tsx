@@ -158,17 +158,19 @@ function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: L
   const center = HUB_SIZE / 2;
   // The active lesson shows the chord of the key being studied ("C7+", "B♭m"); the others the quality ("7+").
   const quality = lessonSymbol(trail);
-  // Scale lessons are told apart by their shape, so an idle scale hub shows its position number
-  // (the preparatory exercise, which is not a position, shows its key).
+  // Scale lessons are told apart by their shape, so an idle scale hub shows its position number;
+  // the preparatory exercise (a single key) shows its key, arpeggios the string of their root.
   const scaleStep = trail.lessons[0].scale?.[0];
   const centerSymbol = chordName(
     status === "current"
       ? variationKey(next) + (quality === "M" ? "" : quality)
-      : scaleStep
-        ? scaleStep.position
+      : scaleStep?.showFingers
+        ? t(`${6 - scaleStep.notes[0].string}ª`, ORDINAL_EN[6 - scaleStep.notes[0].string])
+        : scaleStep && !scaleStep.label
           ? String(scaleStep.position)
-          : scaleSymbol(scaleStep)
-        : quality,
+        : scaleStep && trail.lessons.length === 1
+          ? scaleSymbol(scaleStep)
+          : quality,
     lang,
   );
   // Segment under the pointer (or focused): its key shows in a tooltip outside the ring.
@@ -507,8 +509,8 @@ function NextLesson({ sections: all, onSelect }: { sections: Section[]; onSelect
 }
 
 /** The dashboard: home of the app, with the overall progress and the modules. */
-/** Module groups on the dashboard: chord modules, then scales and arpeggios (the scales module, id 4). */
-const SCALE_MODULES = new Set([4]);
+/** Module groups on the dashboard: chord modules, then scales and arpeggios (modules 4 and 5). */
+const SCALE_MODULES = new Set([4, 5]);
 const DASHBOARD_GROUPS: Array<{ title: Localized; sections: (id: number) => boolean }> = [
   { title: { pt: "Acordes", en: "Chords" }, sections: (id) => !SCALE_MODULES.has(id) },
   { title: { pt: "Escalas e Arpejos", en: "Scales and Arpeggios" }, sections: (id) => SCALE_MODULES.has(id) },
@@ -648,7 +650,8 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
   const { t, l, lang } = useI18n();
   const frets = step.notes.map((note) => note.fret);
   const low = Math.min(...frets);
-  const high = Math.max(...frets);
+  // Arpeggio diagrams show at least four frets, so a two-fret fingering isn't drawn huge.
+  const high = Math.max(...frets, step.showFingers ? low + 3 : 0);
   const columns = high - low + 1;
   const width = SCALE_LEFT * 2 + columns * SCALE_COLUMN;
   // Leap exercises draw arcs above the strings, so they get extra room on top.
@@ -659,7 +662,9 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
   return (
     <svg
       viewBox={`0 0 ${width} ${bottom + 30}`}
-      className="block w-full"
+      className="mx-auto block w-full"
+      // Arpeggio diagrams span only 4–5 frets: cap their size so they don't fill a wide card.
+      style={step.showFingers ? { maxWidth: width * 1.6 } : undefined}
       role="img"
       aria-label={
         step.label
@@ -741,12 +746,23 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
               x={columnX(note.fret)}
               y={rowY(note.string) + 3.5}
               textAnchor="middle"
-              fontSize={note.degree.length > 1 ? 8.5 : 10}
+              fontSize={note.degree.length > 1 && !step.showFingers ? 8.5 : 10}
               fontWeight="700"
               className="fill-white font-mono"
             >
-              {note.degree}
+              {step.showFingers ? (note.finger ?? "0") : note.degree}
             </text>
+            {step.showFingers && (
+              <text
+                x={columnX(note.fret) + 12}
+                y={rowY(note.string) - 8}
+                fontSize="9"
+                fontWeight="700"
+                className={`font-mono ${isTonic ? "fill-brand-ink" : "fill-muted"}`}
+              >
+                {note.degree}
+              </text>
+            )}
           </g>
         );
       })}
@@ -761,8 +777,11 @@ function ScaleCard({
   className = "",
   cardRef,
   current,
+  fingerHint = false,
 }: {
   step: ScaleStep;
+  /** Says that the numbers in the dots are fingers (the single-exercise view, which has room for it). */
+  fingerHint?: boolean;
   activeNote?: number | null;
   className?: string;
   cardRef?: (node: HTMLDivElement | null) => void;
@@ -775,13 +794,16 @@ function ScaleCard({
       className={`w-full rounded-card border border-line bg-surface p-4 sm:p-5 ${className}`}
       aria-current={current ? "true" : undefined}
     >
-      {/* An exercise that is not a position (preparatory lesson) has no title: the heading says it all. */}
-      {!step.label && (
+      {/* The leap exercise (preparatory lesson) has no title: the heading says it all. */}
+      {!step.leaps && (
         <div className="mb-3 flex items-baseline justify-between gap-3">
           <p className="font-display text-[18px] font-bold tracking-[-0.02em] text-ink">
-            {t(`Posição ${step.position}`, `Position ${step.position}`)}
+            {step.label ? l(step.label) : t(`Posição ${step.position}`, `Position ${step.position}`)}
           </p>
-          <p className="text-sm font-medium text-muted">{l(step.mode)}</p>
+          {!step.label && <p className="text-sm font-medium text-muted">{l(step.mode)}</p>}
+          {step.showFingers && fingerHint && (
+            <p className="text-sm font-medium text-muted">{t("Números: dedos", "Numbers: fingers")}</p>
+          )}
         </div>
       )}
       <div>
@@ -1504,7 +1526,9 @@ function ExercisePage({
               <p className="font-display text-3xl font-bold tabular-nums text-accent-ink">{stepCount}</p>
               <p className="eyebrow mt-1 text-[10px]! text-muted">
                 {scale?.[0].label
-                  ? t("Exercício tocado", "Exercise played")
+                  ? stepCount === 1
+                    ? t("Exercício tocado", "Exercise played")
+                    : t("Digitações tocadas", "Fingerings played")
                   : scale
                   ? stepCount === 1
                     ? t("Posição tocada", "Position played")
@@ -1717,7 +1741,7 @@ function ExercisePage({
             }
           />
           <div className="mx-auto mt-12 w-full max-w-[560px]">
-            <ScaleCard step={scaleStep} activeNote={activeNote} />
+            <ScaleCard step={scaleStep} activeNote={activeNote} fingerHint />
           </div>
         </>
       ) : (
@@ -2110,11 +2134,11 @@ const QUALITY_LABEL: Record<string, Localized> = {
   "Tríades diminutas": { pt: "Diminuta (dim)", en: "Diminished (dim)" },
 };
 
-const ORDINAL_EN: Record<number, string> = { 4: "4th", 5: "5th", 6: "6th" };
+const ORDINAL_EN: Record<number, string> = { 3: "3rd", 4: "4th", 5: "5th", 6: "6th" };
 
 /**
  * The C lesson of every trail of an inversion module (triads: id 3, seventh chords: id 2),
- * grouped by inversion: per chord quality, the main voicing on each bass string (6ª → 4ª),
+ * grouped by inversion: per chord quality, the main voicing on each bass string (6ª → 3ª),
  * leaving out the alternative fingerings.
  */
 function inversionTables(sectionId: number) {
@@ -2146,7 +2170,9 @@ function InversionShapeTables({ tables }: { tables: ReturnType<typeof inversionT
             {table.rows.map((row) => (
               <div key={row.quality.pt}>
                 <p className="eyebrow text-brand-ink">{l(row.quality)}</p>
-                <div className="mt-2 grid grid-cols-3 gap-2 sm:gap-3">
+                <div
+                  className={`mt-2 grid gap-2 sm:gap-3 ${row.steps.length === 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}
+                >
                   {row.steps.map((step) => (
                     <figure key={`${step.chord}-${step.bassString}`} className="min-w-0">
                       <ChordCard step={step} />
@@ -2624,6 +2650,134 @@ function ScalesGuide({ onBack }: { onBack: () => void }) {
   );
 }
 
+const ARPEGGIO_SOURCES: GuideSource[] = [
+  { label: "Wikipedia — Arpeggio", url: "https://en.wikipedia.org/wiki/Arpeggio" },
+  { label: "Wikipedia — Triad (music)", url: "https://en.wikipedia.org/wiki/Triad_(music)" },
+];
+
+function ArpeggiosGuide({ onBack }: { onBack: () => void }) {
+  const { t } = useI18n();
+  // The C lesson of each starting degree and string (6ª, 5ª, 4ª).
+  const cLesson = (start: string, string: number) =>
+    lessons.find((lesson) => lesson.key === `arpeggios/major/${start}/${string}/C`)?.scale ?? [];
+  const shapeGrid = (start: string, name: Localized) =>
+    [6, 5, 4].map((string) => (
+      <div key={`${start}-${string}`} className="!mt-6">
+        <p className="eyebrow text-brand-ink">
+          {t(`${name.pt} na ${string}ª corda`, `${name.en} on the ${ORDINAL_EN[string]} string`)}
+        </p>
+        <div className="mt-2 grid gap-3 sm:grid-cols-3">
+          {cLesson(start, string).map((step) => (
+            <ScaleCard key={step.position} step={step} />
+          ))}
+        </div>
+      </div>
+    ));
+  return (
+    <GuideLayout
+      title={t("Arpejos de tríades", "Triad arpeggios")}
+      sources={ARPEGGIO_SOURCES}
+      onBack={onBack}
+      intro={t(
+        <>
+          Um arpejo é um acorde tocado nota por nota. A tríade maior tem três notas — a tônica, a terça e a
+          quinta — e o módulo toca as três em três digitações a partir da tônica na 6ª, na 5ª e na 4ª corda.
+        </>,
+        <>
+          An arpeggio is a chord played one note at a time. The major triad has three notes — the root, the
+          third and the fifth — and the module plays them in three fingerings from the root on the 6th, 5th
+          and 4th strings.
+        </>,
+      )}
+    >
+      <GuideSection title={t("As digitações em C", "The fingerings in C")}>
+        {t(
+          <p>
+            As três digitações tocam as mesmas notas, C, E e G, mudando o dedo que começa na tônica: o dedo 1,
+            o 2 e o 4. Nos diagramas, o número dentro de cada ponto é o dedo e o número ao lado é o grau
+            (<strong>1</strong> tônica, <strong>3</strong> terça, <strong>5</strong> quinta).
+          </p>,
+          <p>
+            The three fingerings play the same notes, C, E and G, changing the finger that starts on the root:
+            finger 1, 2 and 4. In the diagrams, the number inside each dot is the finger and the number next to
+            it is the degree (<strong>1</strong> root, <strong>3</strong> third, <strong>5</strong> fifth).
+          </p>,
+        )}
+        {t(
+          <p>
+            Com a tônica na 5ª e na 4ª corda, as digitações são as mesmas, uma corda acima. Só a quinta da
+            digitação 3 com a tônica na 4ª corda muda de casa: ela cai na 2ª corda, que fica a uma terça maior
+            da 3ª (e não a uma quarta, como as outras), então sobe uma casa.
+          </p>,
+          <p>
+            With the root on the 5th and 4th strings, the fingerings are the same, one string higher. Only the
+            fifth of fingering 3 with the root on the 4th string changes fret: it falls on the 2nd string, a
+            major third above the 3rd (not a fourth, like the others), so it moves up one fret.
+          </p>,
+        )}
+        {shapeGrid("root", { pt: "Tônica", en: "Root" })}
+      </GuideSection>
+
+      <GuideSection title={t("Começando na terça", "Starting on the third")}>
+        {t(
+          <p>
+            O mesmo arpejo pode começar na terça: em C, E G C. As três digitações seguem a mesma ideia — o
+            dedo que toca a primeira nota muda (1, 2 e 3) — e a digitação 2 tem um pequeno salto do dedo 2 para
+            a tônica. Com a terça na 4ª corda, a tônica da digitação 3 cai na 2ª corda, uma casa acima, e é
+            tocada com o dedo 2.
+          </p>,
+          <p>
+            The same arpeggio can start on the third: in C, E G C. The three fingerings follow the same idea —
+            the finger on the first note changes (1, 2 and 3) — and fingering 2 has a small shift of finger 2
+            to the root. With the third on the 4th string, the root of fingering 3 falls on the 2nd string, one
+            fret higher, and is played with finger 2.
+          </p>,
+        )}
+        {shapeGrid("third", { pt: "Terça", en: "Third" })}
+      </GuideSection>
+
+      <GuideSection title={t("Começando na quinta", "Starting on the fifth")}>
+        {t(
+          <p>
+            Começando na quinta, o arpejo de C é G C E. As digitações têm saltos grandes de propósito: a
+            digitação 1 leva o dedo 4 cinco casas acima na mesma corda, e a 2 toca duas notas seguidas com o
+            dedo 1, mudando de corda. A digitação 3 usa os dedos 2, 3 e 1, uma nota por corda.
+          </p>,
+          <p>
+            Starting on the fifth, the C arpeggio is G C E. The fingerings have big shifts on purpose:
+            fingering 1 takes finger 4 five frets up the same string, and fingering 2 plays two notes in a row
+            with finger 1, changing strings. Fingering 3 uses fingers 2, 3 and 1, one note per string.
+          </p>,
+        )}
+        {shapeGrid("fifth", { pt: "Quinta", en: "Fifth" })}
+      </GuideSection>
+
+      <GuideSection title={t("Como estudar", "How to practise")}>
+        {t(
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>
+              Há uma aula para cada nota inicial (tônica, terça ou quinta) e cada corda, cada uma com uma
+              variação para cada tonalidade, no ciclo de quartas.
+            </li>
+            <li>Em cada tonalidade, toque cada digitação subindo e descendo, com o metrônomo.</li>
+            <li>Diga em voz alta o grau de cada nota enquanto toca: 1, 3, 5 (ou 3, 5, 1, ou 5, 1, 3) e de volta.</li>
+            <li>No exercício final, toque as digitações em sequência, no andamento do metrônomo.</li>
+          </ol>,
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>
+              There is a lesson for each starting note (root, third or fifth) and string, each with a variation
+              for every key, in the cycle of fourths.
+            </li>
+            <li>In each key, play each fingering up and down with the metronome.</li>
+            <li>Say each note's degree out loud as you play: 1, 3, 5 (or 3, 5, 1, or 5, 1, 3) and back.</li>
+            <li>In the final exercise, play the fingerings in sequence, in time with the metronome.</li>
+          </ol>,
+        )}
+      </GuideSection>
+    </GuideLayout>
+  );
+}
+
 /** Dictionary sections, one per chord quality, named after the home-page trails. */
 const TRIAD_SOURCES: GuideSource[] = [
   { label: "Wikipedia — Triad (music)", url: "https://en.wikipedia.org/wiki/Triad_(music)" },
@@ -2740,13 +2894,13 @@ function TriadsGuide({ onBack }: { onBack: () => void }) {
         {t(
           <p>
             Cada forma usa três cordas vizinhas, com as notas na ordem mais fechada possível. Abaixo, as
-            formas em C das três qualidades, com o baixo na 6ª, 5ª e 4ª corda. À esquerda de cada
+            formas em C das três qualidades, com o baixo na 6ª, 5ª, 4ª e 3ª corda. À esquerda de cada
             diagrama, cada corda que soa mostra o grau da nota: <strong>1</strong> é a fundamental,{" "}
             <strong>3</strong> a terça e <strong>5</strong> a quinta, com ♭ quando o intervalo é abaixado.
           </p>,
           <p>
             Every shape uses three neighbouring strings, with the notes as close together as possible.
-            Below are the C shapes of the three qualities, with the bass on the 6th, 5th and 4th string.
+            Below are the C shapes of the three qualities, with the bass on the 6th, 5th, 4th and 3rd string.
             To the left of each diagram, every sounding string shows the degree of its note:{" "}
             <strong>1</strong> is the root, <strong>3</strong> the third and <strong>5</strong> the fifth,
             with ♭ when the interval is lowered.
@@ -2760,9 +2914,9 @@ function TriadsGuide({ onBack }: { onBack: () => void }) {
           <ul className="list-disc space-y-2 pl-5">
             <li>
               Cada aula é uma qualidade numa inversão, nas 12 tonalidades; cada tonalidade traz a forma
-              com o baixo na 6ª, 5ª e 4ª corda, da mais perto da pestana para a mais perto do corpo.
+              com o baixo na 6ª, 5ª, 4ª e 3ª corda, da mais perto da pestana para a mais perto do corpo.
             </li>
-            <li>O exercício final toca as três formas em sequência, no andamento do metrônomo.</li>
+            <li>O exercício final toca as quatro formas em sequência, no andamento do metrônomo.</li>
             <li>
               Diga em voz alta a nota do baixo antes de tocar: é ela que muda de uma inversão para outra.
             </li>
@@ -2773,9 +2927,9 @@ function TriadsGuide({ onBack }: { onBack: () => void }) {
           <ul className="list-disc space-y-2 pl-5">
             <li>
               Each lesson is one quality in one inversion, in all 12 keys; each key has the shape with the
-              bass on the 6th, 5th and 4th string, from the one nearest the nut to the one nearest the body.
+              bass on the 6th, 5th, 4th and 3rd string, from the one nearest the nut to the one nearest the body.
             </li>
-            <li>The final exercise plays the three shapes in sequence, at the metronome tempo.</li>
+            <li>The final exercise plays the four shapes in sequence, at the metronome tempo.</li>
             <li>Say the bass note out loud before you play: it is what changes from one inversion to the next.</li>
             <li>Some diminished-triad shapes need a wide stretch between the fingers; take it slowly.</li>
           </ul>,
@@ -3058,7 +3212,7 @@ export default function App() {
 
   if (guideSection !== null) {
     const Guide =
-      guideSection === 2 ? InversionsGuide : guideSection === 3 ? TriadsGuide : guideSection === 4 ? ScalesGuide : CagedGuide;
+      guideSection === 2 ? InversionsGuide : guideSection === 3 ? TriadsGuide : guideSection === 4 ? ScalesGuide : guideSection === 5 ? ArpeggiosGuide : CagedGuide;
     return <Guide onBack={() => setGuideSection(null)} />;
   }
 
