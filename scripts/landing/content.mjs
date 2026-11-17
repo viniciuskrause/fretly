@@ -70,7 +70,8 @@ export const content = {
       ["Chord inversion exercises for beginners and experts", "The Seventh Chord Inversions module covers seventh-chord inversions: maj7, m7, 7 and m7(♭5) in root position and with the third, fifth and seventh in the bass, on the 4th, 5th and 6th strings — drop 2 voicings, plus drop 3 alternatives."],
       ["Triad inversion exercises", "The Triad Inversions module covers major, minor and diminished triads in root position and with the third and fifth in the bass, on the 3rd, 4th, 5th and 6th strings, in all 12 keys — a short way to play any chord anywhere on the neck."],
       ["Major scale exercises", "The 7 Positions of the Ionian Mode module covers the major scale in seven positions, one shape per lesson, from the nut to the bridge, in all 12 keys."],
-      ["Triad arpeggio exercises", "The Triad Arpeggios module plays the major triad note by note — root, third and fifth — in three fingerings starting on the root, the third or the fifth, in all 12 keys."],
+      ["Triad arpeggio exercises", "The Triad Arpeggios module plays major, minor and diminished triads note by note — root, third and fifth — in three fingerings starting on the root, the third or the fifth, in all 12 keys."],
+      ["Seventh chord arpeggio exercises", "The Seventh Chord Arpeggios module plays maj7, m7, 7 and m7(♭5) chords note by note, starting on the root, the third, the fifth or the seventh, from the 6th, 5th and 4th strings, in all 12 keys."],
     ],
     faq: {
       h2: "Frequently asked questions",
@@ -146,7 +147,8 @@ export const content = {
       ["Exercícios de inversões de acordes para iniciantes e avançados", "O módulo Inversões de Tétrades trabalha as inversões de tétrades: 7+, m7, 7 e m7(♭5) na ordem direta e com a terça, a quinta e a sétima no baixo, na 4ª, 5ª e 6ª corda — voicings drop 2, com alternativas em drop 3."],
       ["Exercícios de inversões de tríades", "O módulo Inversões de Tríades trabalha as tríades maiores, menores e diminutas na ordem direta e com a terça e a quinta no baixo, na 3ª, 4ª, 5ª e 6ª corda, nas 12 tonalidades — um jeito curto de tocar qualquer acorde em qualquer região do braço."],
       ["Exercícios de escalas maiores", "O módulo 7 Posições do Modo Jônio trabalha a escala maior em sete posições, um desenho por aula, da pestana até a ponte, nas 12 tonalidades."],
-      ["Exercícios de arpejos de tríades", "O módulo Arpejos de Tríades toca a tríade maior nota por nota — tônica, terça e quinta — em três digitações começando na tônica, na terça ou na quinta, nas 12 tonalidades."],
+      ["Exercícios de arpejos de tríades", "O módulo Arpejos de Tríades toca as tríades maiores, menores e diminutas nota por nota — tônica, terça e quinta — em três digitações começando na tônica, na terça ou na quinta, nas 12 tonalidades."],
+      ["Exercícios de arpejos de tétrades", "O módulo Arpejos de Tétrades toca os acordes 7+, m7, 7 e m7(♭5) nota por nota, começando na tônica, na terça, na quinta ou na sétima, a partir da 6ª, da 5ª e da 4ª corda, nas 12 tonalidades."],
     ],
     faq: {
       h2: "Perguntas frequentes",

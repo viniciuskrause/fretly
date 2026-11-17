@@ -63,13 +63,15 @@ export type ScaleNote = {
   finger?: number;
   /** Scale degree from the key's tonic ("1", "♭3", "7"…); in an exercise, the note name ("E"). */
   degree: string;
+  /** Sounding pitch spelled in the key ("B♭2"), for exercises written as staff notation. */
+  pitch?: string;
 };
 
 /** A scale in one position: three notes per string except one string with two, low E → high E. */
 export type ScaleStep = {
-  /** Tonic of the key ("C", "F♯"); the scale is major or natural minor. */
+  /** Tonic of the key ("C", "F♯"); the scale is major or natural minor (arpeggios: also a diminished triad). */
   root: string;
-  quality: "major" | "minor";
+  quality: "major" | "minor" | "dim" | "maj7" | "m7" | "7" | "m7b5";
   /** 1–7: the degree of the key (major or minor) the position starts on, on the 6th string. */
   position: number;
   /** Mode whose shape the position has ("Jônio" … "Lócrio"). */
@@ -84,6 +86,12 @@ export type ScaleStep = {
   leaps?: boolean;
   /** Exercise heading, replacing "Play C major in position n…". */
   instruction?: Localized;
+  /** Drawn as tablature / staff notation instead of fret dots (runs along the neck). */
+  notation?: boolean;
+  /** Major key whose signature the staff uses, when it isn't `root` (minor / diminished triads). */
+  signature?: string;
+  /** Consecutive notes that form one chord ("F": 3 notes), named above the notation. */
+  groups?: Array<{ label: string; count: number }>;
 };
 
 /** Frequency of a scale note. */

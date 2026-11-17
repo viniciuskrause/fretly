@@ -378,6 +378,56 @@
     }
   }
 
+  /* "How to read" modal: a solid canvas backdrop (no transparency, no blur). */
+  .notation-help::backdrop {
+    background: var(--color-canvas);
+  }
+
+  /* Collapsible heading: the title and a chevron, as one button. */
+  .unit-trail__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-surface);
+    padding: 4px 12px;
+    text-align: center;
+    text-wrap: balance;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--color-ink);
+    border-radius: var(--radius-control);
+    cursor: pointer;
+  }
+
+  .unit-trail__toggle:hover {
+    color: var(--color-brand-ink);
+  }
+
+  @media (min-width: 640px) {
+    .unit-trail__toggle {
+      font-size: 26px;
+    }
+  }
+
+  /* Subsection heading under a section heading ("Tríade maior" under "Começando na tônica"). */
+  .unit-trail__heading--sub {
+    margin-top: 0;
+  }
+
+  .unit-trail__heading--sub span {
+    font-size: 17px;
+    color: var(--color-ink-2);
+  }
+
+  @media (min-width: 640px) {
+    .unit-trail__heading--sub span {
+      font-size: 19px;
+    }
+  }
+
   @media (min-width: 640px) {
     .unit-trail {
       grid-template-columns: 1fr 1fr;
