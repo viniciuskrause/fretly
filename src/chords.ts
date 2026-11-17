@@ -21,7 +21,7 @@ export type ChordPosition = {
 
 export type CagedShape = "C" | "A" | "G" | "E" | "D";
 
-const ORDINAL_EN = { 4: "4th", 5: "5th", 6: "6th" } as const;
+const ORDINAL_EN = { 3: "3rd", 4: "4th", 5: "5th", 6: "6th" } as const;
 
 /**
  * Chord symbol with its CAGED shape ("D (Forma C)" / "D (C shape)") or, for
@@ -46,7 +46,7 @@ export type ChordStep = {
   /** CAGED shape the voicing comes from (root-position chords of section 1). */
   shape?: CagedShape;
   /** String holding the bass note (triad and seventh-chord inversions: 4, 5 or 6). */
-  bassString?: 4 | 5 | 6;
+  bassString?: 3 | 4 | 5 | 6;
   /** Alternative fingering of the previous step (labelled under the diagram). */
   alternative?: boolean;
   instruction: Localized;
@@ -78,6 +78,8 @@ export type ScaleStep = {
   notes: ScaleNote[];
   /** Exercise that is not a position (preparatory lesson): card title, replacing "Posição n" and the mode. */
   label?: Localized;
+  /** The dots show the left-hand finger (the degree goes above the dot): arpeggio fingerings. */
+  showFingers?: boolean;
   /** Notes come in pairs (1st-2nd, 3rd-4th…), drawn joined by an arc: the leaps of the exercise. */
   leaps?: boolean;
   /** Exercise heading, replacing "Play C major in position n…". */

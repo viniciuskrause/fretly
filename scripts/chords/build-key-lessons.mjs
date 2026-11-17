@@ -34,7 +34,16 @@ import {
 const loc = (text) => `{ pt: ${JSON.stringify(text.pt)}, en: ${JSON.stringify(text.en)} }`;
 /** Chord symbol in English: Brazilian "7+" is "maj7". */
 const englishSymbol = (symbol) => symbol.replace("7+", "maj7");
-const ORDINAL_EN = { 4: "4th", 5: "5th", 6: "6th" };
+const ORDINAL_EN = { 3: "3rd", 4: "4th", 5: "5th", 6: "6th" };
+/** Bass strings of a model, low to high in the text: "3ª, 4ª, 5ª e 6ª corda" / "3rd, 4th, 5th and 6th strings". */
+function bassStringList(model) {
+  const strings = [...new Set(model.map((voicing) => voicing.bassString))].sort((a, b) => a - b);
+  const join = (items, and) => (items.length > 1 ? `${items.slice(0, -1).join(", ")} ${and} ${items.at(-1)}` : items[0]);
+  return {
+    pt: `${join(strings.map((string) => `${string}ª`), "e")} corda`,
+    en: `${join(strings.map((string) => ORDINAL_EN[string]), "and")} strings`,
+  };
+}
 /**
  * Stable lesson key ("caged/major/Bb", "inversions/third/maj7/C"): progress is saved
  * under it, locally and in the account, so it must never change when lessons are
@@ -346,8 +355,8 @@ function inversionLesson(root, suffix, bass, label, model, module = "inversions"
     key: lessonKey(module, bass, suffix, ascii(root)),
     title: { pt: `${symbol} - baixo na ${label.pt}`, en: `${englishSymbol(symbol)} - ${label.en} in the bass` },
     subtitle: {
-      pt: `${symbol} com a ${label.pt} no baixo, na 4ª, 5ª e 6ª corda`,
-      en: `${englishSymbol(symbol)} with the ${label.en} in the bass, on the 4th, 5th and 6th strings`,
+      pt: `${symbol} com a ${label.pt} no baixo, na ${bassStringList(model).pt}`,
+      en: `${englishSymbol(symbol)} with the ${label.en} in the bass, on the ${bassStringList(model).en}`,
     },
     steps: lowToHigh(steps),
   };
@@ -448,7 +457,7 @@ const INVERSIONS = {
 
 // ---------------------------------------------------------------- triads
 // Triad inversions (module "Inversões de Tríades"): close voicings on three
-// adjacent strings, bass on the 6th, 5th or 4th string, in root position and
+// adjacent strings, bass on the 6th, 5th, 4th or 3rd string, in root position and
 // with the third or the fifth in the bass. C models proposed by Claude
 // (2026-11-16), pending the user's review; every key is the model moved up
 // the neck (`transpose`), as in the seventh-chord inversions.
@@ -456,46 +465,55 @@ const TRIAD_ROOT_C = [
   { bassString: 6, frets: [8, 7, 5, -1, -1, -1], fingers: [4, 3, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 15, 14, 12, -1, -1], fingers: [0, 4, 3, 1, 0, 0] }, // in C: x320xx
   { bassString: 4, frets: [-1, -1, 10, 9, 8, -1], fingers: [0, 0, 3, 2, 1, 0] },
+  { bassString: 3, frets: [-1, -1, -1, 5, 5, 3], fingers: [0, 0, 0, 3, 4, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_FIRST_C = [
   { bassString: 6, frets: [12, 10, 10, -1, -1, -1], fingers: [3, 1, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 7, 5, 5, -1, -1], fingers: [0, 3, 1, 1, 0, 0] },
   { bassString: 4, frets: [-1, -1, 14, 12, 13, -1], fingers: [0, 0, 3, 1, 2, 0] }, // in C: xx201x
+  { bassString: 3, frets: [-1, -1, -1, 9, 8, 8], fingers: [0, 0, 0, 2, 1, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_SECOND_C = [
   { bassString: 6, frets: [3, 3, 2, -1, -1, -1], fingers: [2, 3, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 10, 10, 9, -1, -1], fingers: [0, 2, 3, 1, 0, 0] },
   { bassString: 4, frets: [-1, -1, 5, 5, 5, -1], fingers: [0, 0, 1, 1, 1, 0] },
+  { bassString: 3, frets: [-1, -1, -1, 12, 13, 12], fingers: [0, 0, 0, 1, 2, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_ROOT_CM = [
   { bassString: 6, frets: [8, 6, 5, -1, -1, -1], fingers: [4, 2, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 15, 13, 12, -1, -1], fingers: [0, 4, 2, 1, 0, 0] }, // in C: x310xx
   { bassString: 4, frets: [-1, -1, 10, 8, 8, -1], fingers: [0, 0, 3, 1, 1, 0] },
+  { bassString: 3, frets: [-1, -1, -1, 5, 4, 3], fingers: [0, 0, 0, 3, 2, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_FIRST_CM = [
   { bassString: 6, frets: [11, 10, 10, -1, -1, -1], fingers: [2, 1, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 6, 5, 5, -1, -1], fingers: [0, 2, 1, 1, 0, 0] },
   { bassString: 4, frets: [-1, -1, 13, 12, 13, -1], fingers: [0, 0, 2, 1, 3, 0] }, // in C: xx101x
+  { bassString: 3, frets: [-1, -1, -1, 8, 8, 8], fingers: [0, 0, 0, 1, 1, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_SECOND_CM = [
   { bassString: 6, frets: [3, 3, 1, -1, -1, -1], fingers: [3, 4, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 10, 10, 8, -1, -1], fingers: [0, 3, 4, 1, 0, 0] },
   { bassString: 4, frets: [-1, -1, 5, 5, 4, -1], fingers: [0, 0, 2, 3, 1, 0] },
+  { bassString: 3, frets: [-1, -1, -1, 12, 13, 11], fingers: [0, 0, 0, 2, 3, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_ROOT_CDIM = [
   { bassString: 6, frets: [8, 6, 4, -1, -1, -1], fingers: [4, 2, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 15, 13, 11, -1, -1], fingers: [0, 4, 2, 1, 0, 0] },
   { bassString: 4, frets: [-1, -1, 10, 8, 7, -1], fingers: [0, 0, 4, 2, 1, 0] },
+  { bassString: 3, frets: [-1, -1, -1, 5, 4, 2], fingers: [0, 0, 0, 4, 3, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_FIRST_CDIM = [
   { bassString: 6, frets: [11, 9, 10, -1, -1, -1], fingers: [3, 1, 2, 0, 0, 0] },
   { bassString: 5, frets: [-1, 6, 4, 5, -1, -1], fingers: [0, 3, 1, 2, 0, 0] },
   { bassString: 4, frets: [-1, -1, 13, 11, 13, -1], fingers: [0, 0, 2, 1, 3, 0] },
+  { bassString: 3, frets: [-1, -1, -1, 8, 7, 8], fingers: [0, 0, 0, 2, 1, 3] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 const TRIAD_SECOND_CDIM = [
   { bassString: 6, frets: [2, 3, 1, -1, -1, -1], fingers: [2, 3, 1, 0, 0, 0] },
   { bassString: 5, frets: [-1, 9, 10, 8, -1, -1], fingers: [0, 2, 3, 1, 0, 0] },
   { bassString: 4, frets: [-1, -1, 4, 5, 4, -1], fingers: [0, 0, 1, 2, 1, 0] },
+  { bassString: 3, frets: [-1, -1, -1, 11, 13, 11], fingers: [0, 0, 0, 1, 3, 1] }, // 3rd-string set (G B E), added 2026-11-16
 ];
 
 const TRIAD_GROUPS = [
@@ -516,8 +534,8 @@ const TRIAD_QUALITIES = [
 const TRIADS = {
   title: { pt: "Inversões de Tríades", en: "Triad Inversions" },
   subtitle: {
-    pt: "Cada tríade na ordem direta e com o baixo na terça e na quinta, na 4ª, 5ª e 6ª corda",
-    en: "Every triad in root position and with the third and fifth in the bass, on the 4th, 5th and 6th strings",
+    pt: "Cada tríade na ordem direta e com o baixo na terça e na quinta, na 3ª, 4ª, 5ª e 6ª corda",
+    en: "Every triad in root position and with the third and fifth in the bass, on the 3rd, 4th, 5th and 6th strings",
   },
   trails: [
     ...TRIAD_GROUPS.flatMap((group) =>
@@ -774,6 +792,7 @@ const renderScaleTrails = (module) => module.trails.map((trail) => {
       `            mode: ${loc(step.mode)},`,
       ...(step.label ? [`            label: ${loc(step.label)},`] : []),
       ...(step.leaps ? ["            leaps: true,"] : []),
+      ...(step.showFingers ? ["            showFingers: true,"] : []),
       ...(step.instruction ? [`            instruction: ${loc(step.instruction)},`] : []),
       `            notes: [${step.notes.map((note) => `{ string: ${note.string}, fret: ${note.fret}, ${note.finger ? `finger: ${note.finger}, ` : ""}degree: "${note.degree}" }`).join(", ")}],`,
       "          },",
@@ -800,10 +819,163 @@ ${lessons.join("\n")}
       },`;
 });
 
+// ---------------------------------------------------------------- arpeggios
+// Module "Arpejos de Tríades": the major triad played note by note (1 3 5).
+// Three fingerings with the root on the 6th string set by the user (2026-11-16/17):
+// 1) C 6th string finger 1, E 6th string finger 4, G 5th string finger 2;
+// 2) C 6th string finger 2, E 5th string finger 1, G 5th string finger 4;
+// 3) C 6th string finger 4, E 5th string finger 3, G 4th string finger 1.
+// The user then asked for the same logic with the root on the 5th and 4th
+// strings (2026-11-17): the same notes on the same strings relative to the
+// root, same fingers. Strings 6-5-4-3 are a fourth apart, so the shapes keep
+// their frets; from the 3rd to the 2nd string the interval is a major third, so
+// a note moved onto the 2nd string goes one fret up (fingering 3 on the 4th
+// string: G on the 2nd string, fret 8).
+// Strings here are 0 = low E … 5 = high E. Every key moves the three together by
+// the smallest shift that keeps every fret ≥ 0, as `transpose` does for chords;
+// a note that falls on fret 0 is an open string (no finger).
+/**
+ * Fingerings per starting degree, note by note: string (offset from the reference
+ * string, + towards the 1st string), semitones above the first note and finger. The
+ * frets come from the pitches, so the major third between the 3rd and 2nd strings
+ * is taken care of. Set by the user:
+ * - root (2026-11-16/17, C on the 6th string): 1) C 1, E 4 same string, G 2 next;
+ *   2) C 2, E 1 and G 4 next string; 3) C 4, E 3 next string, G 1 the one after.
+ * - third (2026-11-17, E on the 5th string): 1) E 1, G 4 same string, C 4 next;
+ *   2) E 2, G 1 and C 2 next string (a small shift); 3) E 3, G 1 next, C 1 after.
+ * - fifth (2026-11-17, G on the 4th string): 1) G 1, C 4 same string, E 3 next;
+ *   2) G 1, C 1 and E 4 next string; 3) later changed to G 2, C 3 next string, E 1 the
+ *   one after (it first started on the string below, all finger 1). "The big shifts
+ *   are meant to be like that."
+ * The other strings follow the same logic: the whole set moves one string at a time.
+ */
+const ARPEGGIO_SHAPES = {
+  root: {
+    first: "C",
+    group: { pt: "Começando na tônica", en: "Starting on the root" },
+    degreeName: { pt: "tônica", en: "root" },
+    strings: [6, 5, 4],
+    shapes: [
+      [{ string: 0, semitones: 0, finger: 1, degree: "1" }, { string: 0, semitones: 4, finger: 4, degree: "3" }, { string: 1, semitones: 7, finger: 2, degree: "5" }],
+      [{ string: 0, semitones: 0, finger: 2, degree: "1" }, { string: 1, semitones: 4, finger: 1, degree: "3" }, { string: 1, semitones: 7, finger: 4, degree: "5" }],
+      [{ string: 0, semitones: 0, finger: 4, degree: "1" }, { string: 1, semitones: 4, finger: 3, degree: "3" }, { string: 2, semitones: 7, finger: 1, degree: "5" }],
+    ],
+  },
+  third: {
+    first: "E",
+    group: { pt: "Começando na terça", en: "Starting on the third" },
+    degreeName: { pt: "terça", en: "third" },
+    strings: [6, 5, 4],
+    shapes: [
+      [{ string: 0, semitones: 0, finger: 1, degree: "3" }, { string: 0, semitones: 3, finger: 4, degree: "5" }, { string: 1, semitones: 8, finger: 4, degree: "1" }],
+      [{ string: 0, semitones: 0, finger: 2, degree: "3" }, { string: 1, semitones: 3, finger: 1, degree: "5" }, { string: 1, semitones: 8, finger: 2, degree: "1" }],
+      // From the 4th string, C lands on the 2nd string one fret above G: finger 2 there (Claude's choice, to review).
+      [{ string: 0, semitones: 0, finger: 3, degree: "3" }, { string: 1, semitones: 3, finger: 1, degree: "5" }, { string: 2, semitones: 8, finger: 1, crossFinger: 2, degree: "1" }],
+    ],
+  },
+  fifth: {
+    first: "G",
+    group: { pt: "Começando na quinta", en: "Starting on the fifth" },
+    degreeName: { pt: "quinta", en: "fifth" },
+    // The 6th string first had two fingerings of its own; the user then added G 1 6th-3,
+    // C 1 5th-3, E 4 5th-7 as fingering 2 (2026-11-17), so it uses the same three as the others.
+    // The 3rd-string lesson was removed by the user (2026-11-17).
+    strings: [6, 5, 4],
+    shapes: [
+      [{ string: 0, semitones: 0, finger: 1, degree: "5" }, { string: 0, semitones: 5, finger: 4, degree: "1" }, { string: 1, semitones: 9, finger: 3, degree: "3" }],
+      [{ string: 0, semitones: 0, finger: 1, degree: "5" }, { string: 1, semitones: 5, finger: 1, degree: "1" }, { string: 1, semitones: 9, finger: 4, degree: "3" }],
+      // Changed by the user (2026-11-17), in C on the 5th string: G 5th-10 finger 2, C 4th-10
+      // finger 3, E 3rd-9 finger 1 (it used to start one string lower, all with finger 1).
+      [{ string: 0, semitones: 0, finger: 2, degree: "5" }, { string: 1, semitones: 5, finger: 3, degree: "1" }, { string: 2, semitones: 9, finger: 1, degree: "3" }],
+    ],
+  },
+};
+
+/** The shapes of `start` with the reference string `firstString` (its fingering 1 starts there), in C. */
+function arpeggioModel(start, firstString) {
+  const { first, byString } = ARPEGGIO_SHAPES[start];
+  const shapes = byString?.[firstString] ?? ARPEGGIO_SHAPES[start].shapes;
+  const reference = 6 - firstString; // 0-based index (0 = low E)
+  // The first note on the reference string, at its lowest fret (0–11); keys shift it later.
+  const firstMidi = OPEN_STRING_MIDI[reference] + ((rootPitchClass(first) - (OPEN_STRING_MIDI[reference] % 12) + 12) % 12);
+  return shapes.map((shape) =>
+    shape.map(({ crossFinger, semitones, ...note }) => {
+      const string = reference + note.string;
+      // A note on the 2nd or 1st string of a set that starts on the 3rd string or lower.
+      const crosses = crossFinger && string >= 4 && reference <= 3;
+      return { ...note, string, fret: firstMidi + semitones - OPEN_STRING_MIDI[string], finger: crosses ? crossFinger : note.finger };
+    }),
+  );
+}
+
+const COUNT_PT = { 2: "duas", 3: "três" };
+const COUNT_EN = { 2: "two", 3: "three" };
+
+function arpeggioLesson(root, start, firstString) {
+  const model = arpeggioModel(start, firstString);
+  const interval = (rootPitchClass(root) - rootPitchClass("C") + 12) % 12;
+  const lowest = Math.min(...model.flat().map((note) => note.fret));
+  // No open strings: the drill is the fingering, so every note stays fretted (lowest fret ≥ 1).
+  const shift = Math.min(...[interval - 12, interval, interval + 12].filter((value) => lowest + value >= 1));
+  const name = { pt: `${root} maior`, en: `${root} major` };
+  const degree = ARPEGGIO_SHAPES[start].degreeName;
+  const where =
+    start === "root"
+      ? { pt: `com a tônica na ${firstString}ª corda`, en: `with the root on the ${ORDINAL_EN[firstString]} string` }
+      : {
+          pt: `começando na ${degree.pt}, na ${firstString}ª corda`,
+          en: `starting on the ${degree.en}, on the ${ORDINAL_EN[firstString]} string`,
+        };
+  return {
+    key: lessonKey("arpeggios", "major", start, String(firstString), ascii(root)),
+    title: { pt: `${name.pt} - arpejo`, en: `${name.en} - arpeggio` },
+    subtitle: {
+      pt: `Arpejo de ${name.pt} em ${COUNT_PT[model.length]} digitações, ${where.pt}`,
+      en: `${name.en} arpeggio in ${COUNT_EN[model.length]} fingerings, ${where.en}`,
+    },
+    scale: model.map((notes, index) => ({
+      root,
+      quality: "major",
+      position: index + 1,
+      mode: { pt: `Digitação ${index + 1}`, en: `Fingering ${index + 1}` },
+      label: { pt: `Digitação ${index + 1}`, en: `Fingering ${index + 1}` },
+      showFingers: true,
+      instruction: {
+        pt: `Toque o arpejo de ${name.pt} na digitação ${index + 1}, ${where.pt}, subindo e descendo.`,
+        en: `Play the ${name.en} arpeggio in fingering ${index + 1}, ${where.en}, up and down.`,
+      },
+      notes: notes.map((note) => {
+        const fret = note.fret + shift;
+        return fret === 0 ? { string: note.string, fret, degree: note.degree } : { ...note, fret };
+      }),
+    })),
+  };
+}
+
+const ARPEGGIOS = {
+  title: { pt: "Arpejos de Tríades", en: "Triad Arpeggios" },
+  subtitle: {
+    pt: "Toque as tríades nota por nota, começando na tônica, na terça e na quinta",
+    en: "Play the triads note by note, starting on the root, the third and the fifth",
+  },
+  trails: ["root", "third", "fifth"].flatMap((start) =>
+    ARPEGGIO_SHAPES[start].strings.map((firstString) => {
+      const degree = ARPEGGIO_SHAPES[start].degreeName;
+      const name = { pt: degree.pt[0].toUpperCase() + degree.pt.slice(1), en: degree.en[0].toUpperCase() + degree.en.slice(1) };
+      return {
+        group: ARPEGGIO_SHAPES[start].group,
+        title: { pt: `${name.pt} na ${firstString}ª corda`, en: `${name.en} on the ${ORDINAL_EN[firstString]} string` },
+        lessons: CYCLE_OF_FOURTHS.map((root) => arpeggioLesson(root, start, firstString)),
+      };
+    }),
+  ),
+};
+
 // Module order on the dashboard: CAGED, triads, seventh chords (ids stay: 1, 3, 2).
 const triadTrails = renderInversionTrails(TRIADS);
 const inversionTrails = renderInversionTrails(INVERSIONS);
 const scaleTrails = renderScaleTrails(SCALES);
+const arpeggioTrails = renderScaleTrails(ARPEGGIOS);
 
 const file = `import type { ChordStep, ScaleStep } from "./chords.ts";
 import type { Localized } from "./i18n.tsx";
@@ -881,10 +1053,18 @@ ${inversionTrails.join("\n")}
 ${scaleTrails.join("\n")}
     ],
   },
+  {
+    id: 5,
+    title: ${loc(ARPEGGIOS.title)},
+    subtitle: ${loc(ARPEGGIOS.subtitle)},
+    trails: [
+${arpeggioTrails.join("\n")}
+    ],
+  },
 ];
 
 /** Every lesson of every trail, in order. */
 export const lessons: Lesson[] = sections.flatMap((section) => section.trails.flatMap((trail) => trail.lessons));
 `;
 fs.writeFileSync(path.resolve(import.meta.dirname, "../../src/lessons.ts"), file);
-console.log(`src/lessons.ts: 4 seções, ${TRAILS.length + TRIADS.trails.length + INVERSIONS.trails.length + SCALES.trails.length} trilhas, ${nextId - 1} aulas`);
+console.log(`src/lessons.ts: 5 seções, ${TRAILS.length + TRIADS.trails.length + INVERSIONS.trails.length + SCALES.trails.length + ARPEGGIOS.trails.length} trilhas, ${nextId - 1} aulas`);

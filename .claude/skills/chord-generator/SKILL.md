@@ -201,20 +201,20 @@ qualidades (`TRIAD_QUALITIES`): maior (`major`, ciclo das quartas), menor (`mino
 `MINOR_CYCLE`) e diminuta (`dim`, cifra "Cdim", `HALF_DIMINISHED_CYCLE`: VII grau de
 um tom maior). Três grupos (`TRIAD_GROUPS`): ordem direta, 1ª inversão (terça) e 2ª
 inversão (quinta). Cada aula tem a tríade fechada em três cordas vizinhas com o
-baixo na 6ª, 5ª e 4ª corda, sem alternativas. Modelos em C propostos pelo Claude em
+baixo na 6ª, 5ª, 4ª e 3ª corda (a 3ª corda, cordas 3-2-1, pedida pelo usuário em 2026-11-16), sem alternativas. Modelos em C propostos pelo Claude em
 2026-11-16, **a revisar com o usuário**:
 
-| | Baixo na 6ª | Baixo na 5ª | Baixo na 4ª |
-|---|---|---|---|
-| C | 875xxx (4,3,1) | x-15-14-12-x-x → em C x320xx | xx-10-9-8-x (3,2,1) |
-| C/E | 12-10-10-x-x-x (3,1,1) | x755xx (3,1,1) | xx-14-12-13-x → em C xx201x |
-| C/G | 332xxx (2,3,1) | x-10-10-9-x-x (2,3,1) | xx555x (pestana) |
-| Cm | 865xxx (4,2,1) | x-15-13-12-x-x → em C x310xx | xx-10-8-8-x (3,1,1) |
-| Cm/E♭ | 11-10-10-x-x-x (2,1,1) | x655xx (2,1,1) | xx-13-12-13-x → em C xx101x |
-| Cm/G | 331xxx (3,4,1) | x-10-10-8-x-x (3,4,1) | xx554x (2,3,1) |
-| Cdim | 864xxx (4,2,1) ⚠ 5 casas | x-15-13-11-x-x (4,2,1) ⚠ | xx-10-8-7-x (4,2,1) |
-| Cdim/E♭ | 11-9-10-x-x-x (3,1,2) | x645xx (3,1,2) | xx-13-11-13-x (2,1,3) |
-| Cdim/G♭ | 231xxx (2,3,1) | x-9-10-8-x-x (2,3,1) | xx454x (1,2,1) |
+| | Baixo na 6ª | Baixo na 5ª | Baixo na 4ª | Baixo na 3ª (2026-11-16) |
+|---|---|---|---|---|
+| C | 875xxx (4,3,1) | x-15-14-12-x-x → em C x320xx | xx-10-9-8-x (3,2,1) | xxx-553 (3,4,1) |
+| C/E | 12-10-10-x-x-x (3,1,1) | x755xx (3,1,1) | xx-14-12-13-x → em C xx201x | xxx-988 (2,1,1) |
+| C/G | 332xxx (2,3,1) | x-10-10-9-x-x (2,3,1) | xx555x (pestana) | xxx-12-13-12 (1,2,1) → em C xxx010 |
+| Cm | 865xxx (4,2,1) | x-15-13-12-x-x → em C x310xx | xx-10-8-8-x (3,1,1) | xxx-543 (3,2,1) |
+| Cm/E♭ | 11-10-10-x-x-x (2,1,1) | x655xx (2,1,1) | xx-13-12-13-x → em C xx101x | xxx-888 (pestana) |
+| Cm/G | 331xxx (3,4,1) | x-10-10-8-x-x (3,4,1) | xx554x (2,3,1) | xxx-12-13-11 (2,3,1) |
+| Cdim | 864xxx (4,2,1) ⚠ 5 casas | x-15-13-11-x-x (4,2,1) ⚠ | xx-10-8-7-x (4,2,1) | xxx-542 (4,3,1) |
+| Cdim/E♭ | 11-9-10-x-x-x (3,1,2) | x645xx (3,1,2) | xx-13-11-13-x (2,1,3) | xxx-878 (2,1,3) |
+| Cdim/G♭ | 231xxx (2,3,1) | x-9-10-8-x-x (2,3,1) | xx454x (1,2,1) | xxx-11-13-11 (1,3,1) |
 
 A tríade diminuta fechada na ordem direta tem abertura de 5 casas (aviso ⚠ do
 check). A ordem do painel é CAGED → Tríades → Tétrades (ids 1, 3, 2: o id não muda
@@ -346,3 +346,43 @@ sem digitação definida (`finger` omitido). O `ScaleStep` usa `label` e
 - **Dedos** por corda: tom-tom e semitom-tom → 1 2 4; tom-semitom → 1 3 4; duas notas a um tom → 2 4, a meio tom → 3 4. Posição que cabe em quatro casas (ex.: eólio) → um dedo por casa.
 - O gerador recusa casas fora de ordem ou abertura acima de 5 casas numa corda.
 - Digitações das 7 posições definidas pelo usuário (2026-11-16).
+
+## Arpejos de tríades (módulo "Arpejos de Tríades")
+
+Seção id 5, slug `arpeggios`, no grupo "Escalas e Arpejos" do painel (`SCALE_MODULES`
+em src/App.tsx). Gerado em `build-key-lessons.mjs` (`ARPEGGIO_SHAPES`,
+`arpeggioModel`, `arpeggioLesson`). Grupos "Começando na tônica", "na terça" e "na
+quinta", cada um com três aulas ("Tônica na 6ª corda"…, pela corda onde começa a
+digitação 1; quinta: 5ª, 4ª e 3ª), cada aula com as 12 tonalidades (ciclo das quartas, chave
+`arpeggios/major/<root|third|fifth>/<corda>/<tônica>`). Cada tonalidade tem três exercícios
+(`ScaleStep` com `label` "Digitação n", `showFingers` e `instruction`) e o exercício
+final toca os três. O hub inativo mostra a corda da primeira nota ("6ª").
+
+As digitações ficam em `ARPEGGIO_SHAPES`, relativas à primeira nota (corda e semitons;
+as casas saem das alturas, o que já resolve a terça maior entre a 3ª e a 2ª corda):
+
+- **Tônica** (usuário, 2026-11-16/17, em C na 6ª corda): 1) C dedo 1, E dedo 4 na
+  mesma corda, G dedo 2 na seguinte; 2) C dedo 2, E dedo 1 e G dedo 4 na seguinte;
+  3) C dedo 4, E dedo 3 na seguinte, G dedo 1 na outra.
+- **Terça** (usuário, 2026-11-17, em C na 5ª corda): 1) E 5ª-7 dedo 1, G 5ª-10 dedo 4,
+  C 4ª-10 dedo 4; 2) E 5ª-7 dedo 2, G 4ª-5 dedo 1, C 4ª-10 dedo 2 (um pequeno salto,
+  confirmado pelo usuário); 3) E 5ª-7 dedo 3, G 4ª-5 dedo 1, C 3ª-5 dedo 1.
+- **Quinta** (usuário, 2026-11-17, em C com G na 4ª corda): 1) G 4ª-5 dedo 1, C 4ª-10
+  dedo 4, E 3ª-9 dedo 3; 2) G 4ª-5 dedo 1, C 3ª-5 dedo 1, E 3ª-9 dedo 4; 3) G 5ª-10
+  dedo 1, C 3ª-5 dedo 1, E 2ª-5 dedo 1. "Os saltos grandes são assim mesmo." A
+  digitação 3 começa uma corda abaixo, então as aulas da quinta são na 6ª, 5ª e 4ª
+  corda (pela corda da digitação 1; a da 3ª foi removida pelo usuário). Na 6ª corda o usuário primeiro deixou só duas digitações e
+  depois acrescentou G 6ª-3 dedo 1, C 5ª-3 dedo 1, E 5ª-7 dedo 4 como digitação 2
+  (2026-11-17): a aula ficou com as mesmas três das outras cordas. Depois (usuário, 2026-11-17) a digitação 3 de todas as cordas
+  passou a ser a forma 2-3-1 (em C na 5ª corda: G 5ª-10 dedo 2, C 4ª-10 dedo 3, E 3ª-9
+  dedo 1), no lugar da que começava uma corda abaixo.
+
+As versões nas outras cordas seguem "a mesma lógica" (pedido do usuário): mesmas
+cordas relativas, mesmos dedos. Entre a 3ª e a 2ª corda o intervalo é uma terça maior,
+então uma nota que passa para a 2ª corda sobe uma casa (tônica na 4ª, digitação 3:
+G 2ª-8; terça na 4ª, digitação 3: C na 2ª corda com o dedo 2 — `crossFinger`, escolha
+do Claude, a revisar).
+
+Cada tom move as três digitações juntas pelo menor deslocamento que deixa todas as
+notas presas (casa ≥ 1, sem cordas soltas: o exercício é a digitação); a casa mais
+alta é a 19. Os pontos mostram o dedo, com o grau ao lado.
