@@ -386,3 +386,107 @@ do Claude, a revisar).
 Cada tom move as três digitações juntas pelo menor deslocamento que deixa todas as
 notas presas (casa ≥ 1, sem cordas soltas: o exercício é a digitação); a casa mais
 alta é a 19. Os pontos mostram o dedo, com o grau ao lado.
+
+### Tríades menores e diminutas
+
+Pedido do usuário (2026-11-17): em cada seção (começando na tônica, terça, quinta), uma
+subseção para a tríade menor e outra para a diminuta. Digitações derivadas pelo Claude
+("derive, I'll review"): as mesmas da maior (`ARPEGGIO_QUALITIES`, `arpeggioModel`),
+mesmas cordas e dedos, com a terça (e, na diminuta, a quinta) meio tom abaixo. Dois níveis
+(pedido do usuário, 2026-11-17): seção "Começando na tônica / terça / quinta" (`section`
+da trilha) e, dentro dela, subseções "Tríade maior / menor / diminuta" (`group`); chaves
+`arpeggios/<major|minor|dim>/<root|third|fifth>/<corda>/<tônica>`; ciclos: menor
+`MINOR_CYCLE`, diminuta `HALF_DIMINISHED_CYCLE`. Aberturas de 6 casas a revisar:
+diminuta começando na terça, digitação 2, e começando na quinta, digitação 1.
+
+### Exercícios: tríades diatônicas
+
+Seção "Exercícios" no fim do módulo de arpejos (pedido do usuário, 2026-11-17). Primeira
+aula: "Tríades diatônicas na 6ª corda" (`diatonicLesson`, chave
+`arpeggios/diatonic/6/<tom>`, só a 6ª corda por enquanto): as sete tríades do tom
+maior, uma depois da outra subindo o braço, sempre na mesma digitação da ordem
+fundamental. Exercício 1 = a digitação que começa no dedo 1 (`DIATONIC_FINGERINGS`;
+2026-11-17: o usuário pediu as outras duas digitações do módulo — agora `[0, 1, 2]`). Cada digitação começa no grau cujo desenho fica **mais perto da pestana** (casa
+mais baixa ≥ 1, tudo até a casa 19) — pedido do usuário em 2026-11-17; cada
+exercício da aula tem o seu início (em C, 5ª corda: Bdim, C, Dm). Os pontos mostram o dedo, com o grau do tom ao lado.
+Esses exercícios não usam o diagrama de bolinhas (que fica para shapes de escalas e
+arpejos): o passo leva `notation: true`, `groups` (nome de cada tríade e quantas notas)
+e cada nota um `pitch` soando, grafado no tom ("C♭3"). O app desenha `NotationCard`
+(src/Notation.tsx): tablatura (casas na ordem tocada, dedos abaixo) ou partitura (clave
+de sol com 8, armadura do tom, dedos acima, corda entre parênteses abaixo), escolhida
+pelo aluno e lembrada no navegador.
+
+2026-11-17: aulas também com a tônica na 5ª e na 4ª corda (`DIATONIC_STRINGS =
+[6, 5, 4]`, chaves `arpeggios/diatonic/<corda>/<tom>`), cada uma com as três
+digitações da ordem fundamental daquela corda.
+
+### Exercícios: tríades diatônicas na vertical
+
+Pedido do usuário (2026-11-17): "tocar as tríades diatonicamente e verticalmente em
+cada uma das posições do modo jônio". Grupo "Na vertical" (a seção Exercícios agora
+tem "Na horizontal" e "Na vertical"), uma aula por posição (`verticalLesson`, chave
+`arpeggios/diatonic-vertical/p<n>/<tom>`), um exercício por aula. Em cada posição do
+módulo de Escalas (`scalePosition`), as sete tríades do tom sem sair da posição:
+cada uma começa na nota mais grave da sua tônica na posição e sobe até a terça e a
+quinta seguintes; a sequência começa no grau da própria posição (posição 2: Dm, Em…
+C). Dedos = os da posição da escala (derivados pelo Claude, **a conferir** com o
+usuário).
+
+### Exercícios: inversões
+
+Pedido do usuário (2026-11-17, reorganizado no mesmo dia): grupo "Inversões" (o
+primeiro da seção Exercícios), **uma aula por corda** (6ª, 5ª, 4ª) para as tríades
+maiores (chave `arpeggios/inversions/<corda>/<tônica>`, ciclo de quartas) e, depois
+(pedido do mesmo dia), para as menores e diminutas (`arpeggios/inversions/<minor|dim>/<corda>/<tônica>`,
+`MINOR_CYCLE` / `HALF_DIMINISHED_CYCLE`; armadura do relativo maior / do tom de que a
+diminuta é o vii°). Uma subseção por qualidade ("Inversões maiores", "Inversões menores", "Inversões
+diminutas", nessa ordem, no começo de Exercícios); hub: a corda (6ª, 5ª, 4ª); título da aula "Inversões maiores na 6ª corda" /
+"Major Inversions on the 6th string". O
+exercício n toca todas as inversões (ordem fundamental, 1ª e 2ª inversão) na
+**digitação n** da seção correspondente do módulo; cada uma o mais perto da pestana
+(casa ≥ 1) e as três subindo o braço, um compasso cada (cifra com baixo: "C/G",
+"C", "C/E"); depois o exercício final. Armadura do tom maior (`signature`).
+
+## Arpejos de tétrades (módulo "Arpejos de Tétrades", id 6)
+
+Pedido em 2026-11-17 ("seguindo o padrão dos arpejos de tríades"). Gerador:
+`SEVENTHS` em `build-key-lessons.mjs`, chaves `arpeggios7/...`.
+
+- **Seções** por nota inicial: Ordem fundamental, Primeira, Segunda e **Terceira
+  inversão** (começa na sétima); **subseções** por qualidade (Acordes 7+, m7, 7,
+  m7(♭5)); uma aula por corda (6ª, 5ª, 4ª) com o anel das 12 tonalidades
+  (`CYCLE_OF_FOURTHS`, `MINOR_CYCLE`, `DOMINANT_CYCLE`, `HALF_DIMINISHED_CYCLE`).
+  Chave `arpeggios7/<maj7|m7|7|m7b5>/<root|third|fifth|seventh>/<corda>/<tônica>`.
+- **Digitações derivadas pelo Claude ("derive, eu reviso") — A REVISAR com o
+  usuário.** `seventhShapes(quality, tone, corda)` busca, em C, os shapes de uma
+  oitava (4 notas) com a mão numa posição (uma casa por dedo, abertura de 5 casas
+  no máximo, 1-2/3-4), sem dedo em duas casas, poucas repetições de dedo seguidas:
+  o shape que começa no dedo 1, o do dedo 2 e o melhor entre dedo 4 e dedo 3, com
+  cordas diferentes. Por isso algumas aulas têm só 2 digitações.
+- **Exercícios** (overline "Prática de Arpejos de Tétrades"): Inversões de 7+ / m7
+  / 7 / m7(♭5) (uma aula por corda, um exercício por digitação comum às 4
+  inversões, compassos ordenados pela casa), Na horizontal (tétrades diatônicas na
+  6ª, 5ª, 4ª, I7+ ii7 iii7 IV7+ V7 vi7 viiø, começando perto da pestana) e Na
+  vertical (posições 1–7 da escala maior). Notação em **4/8** (um compasso por
+  tétrade); armadura: 7+ o próprio tom, m7 o relativo maior, 7 o tom de que é o V,
+  m7(♭5) o tom de que é o vii.
+- **Digitações ditadas** ficam em `SEVENTH_DICTATED` (fonte da verdade; substituem a
+  derivada que começa com o mesmo dedo ou entram como digitação 3). 2026-11-17: C7+
+  na 6ª, digitação 3 = 6-8(4) 5-7(3) 4-5(1) 4-9(4) — o dedo 4 desliza da casa 8 para
+  a 9 (o gerador não aceitava o mesmo dedo em duas casas).
+- **Deslize do dedo 4 como padrão** (pedido em 2026-11-17: "aplique essa digitação
+  como padrão onde for necessário"): numa abertura de 5 casas, o dedo 4 pode tocar uma
+  nota na 4ª casa da mão e, depois, outra na 5ª. É tentado junto com os shapes normais,
+  com custo menor que repetir o mesmo dedo em notas seguidas e maior que um shape sem
+  deslize. Hoje aparece em C7+ (6ª e 5ª, digitação 3), C7 começando na sétima (6ª e 5ª,
+  digitação 3) e Cm7(♭5) na 4ª (digitação 2).
+- **Dedo 2 afastado do 1** (2026-11-17, Cm7 na 6ª ditado pelo usuário: 6-8(2) 5-6(1)
+  5-10(4) 4-8(2)): numa abertura de 5 casas, a digitação que começa no dedo 2 pode ter o
+  dedo 2 duas casas acima do 1 (a mão começa duas casas abaixo da primeira nota). Isso
+  deu digitação de dedo 2 também a Cm7 (5ª, 4ª), C7+ começando na terça (6ª, 5ª) e
+  Cm7(♭5) começando na terça (4ª) e na sétima (6ª, 5ª); a antiga digitação 2 passou a 3.
+- **Dedo 4 na ponta da abertura** (2026-11-17, Cm7(♭5) na 6ª ditado pelo usuário:
+  6-8(4) 5-6(2) 4-4(1) 4-8(4); ele disse "corda 5 casa 7", mas lá é E, fora do acorde —
+  usado E♭, casa 6): a digitação que começa no dedo 4 pode ter o dedo 4 quatro casas
+  acima do 1. **Nunca rode o Prettier nestes arquivos** (o projeto não usa; reformata
+  tudo).

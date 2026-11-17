@@ -21,7 +21,10 @@ export function Icon({
     | "target"
     | "close"
     | "back"
+    | "forward"
     | "replay"
+    | "stop"
+    | "help"
     | "metronome"
     | "chevron"
     | "trophy";
@@ -104,6 +107,12 @@ export function Icon({
         <path d="M9 12h10" />
       </>
     ),
+    forward: (
+      <>
+        <path d="m9 18 6-6-6-6" />
+        <path d="M15 12H5" />
+      </>
+    ),
     replay: (
       <>
         <path d="M20 12a8 8 0 1 1-2.3-5.7L20 9" />
@@ -117,6 +126,14 @@ export function Icon({
       </>
     ),
     chevron: <path d="m6 9 6 6 6-6" />,
+    stop: <rect x="6" y="6" width="12" height="12" rx="2" />,
+    help: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.8" />
+        <path d="M12 17h.01" />
+      </>
+    ),
     metronome: (
       <>
         <path d="M8 3h8l4 18H4Z" />

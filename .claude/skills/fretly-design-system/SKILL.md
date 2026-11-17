@@ -304,6 +304,27 @@ inversões, na ordem das aulas) **sem nenhum texto abaixo dos cards** — a
 cifra dentro do card e os graus no diagrama bastam. O conteúdo vem direto das aulas (`dictionaryOf`), então acordes
 novos aparecem sozinhos.
 
+### Notação (tablatura / partitura) e modal de ajuda
+
+> Regras completas: skill `fretly-music-notation`. Diagrama de bolinhas
+> (escalas e arpejos): skill `fretly-scale-diagrams`.
+
+Exercícios que correm pelo braço (`notation: true`) usam `NotationCard`
+(`src/Notation.tsx`) em vez dos pontos: card `rounded-card border-line bg-surface`
+só com o diagrama; embaixo, uma barra em grade `grid-cols-[1fr_auto_1fr]` com o
+**seletor de notação no centro** (dois botões só-ícone `h-9 w-11` num grupo
+`rounded-control border-line`, selecionado `bg-ink text-white`; ícones: "3 5" para
+tablatura, colcheia para partitura, sem linhas) e, no canto direito, o botão
+só-ícone `help` (ponto de interrogação) que abre o **modal** "Como ler a notação".
+Sem título ("Digitação 1") nem legenda no card. Dedos acima nas duas notações.
+
+**Modal** (padrão novo): `<dialog>` nativo com `showModal()` (foco preso, Esc
+fecha), painel `rounded-card border border-line-strong bg-surface`,
+`w-[min(640px,100vw-32px)]`, conteúdo rolável; fundo (`::backdrop`) **sólido
+`canvas`** (sem transparência nem blur); botão só-ícone `close` no canto; clique
+fora do painel fecha. Título H2 24px `font-display`, subtítulos 17px semibold,
+listas com `<strong>` no início do item.
+
 ### Páginas de aula (exercício)
 
 - **`ExerciseShell`:** topo com botão fechar só-ícone (`close`, `text-muted`)
@@ -328,8 +349,11 @@ novos aparecem sozinhos.
   tem alguma digitação alternativa e só alterna `invisible`. Na sequência, cada
   item é um `.sequence-slot` (largura da grade) com o `ChordCard` e a linha
   reservada embaixo.
-- **Rodapé:** esquerda `SecondaryButton` ("Anterior"/"Voltar", ícone `back`,
-  label some no celular); direita `PrimaryButton tone="accent"` ("Tocar",
+- **Rodapé:** esquerda `SecondaryButton` "Anterior" (ícone `back`) e, ao lado,
+  "Próximo" (ícone `forward`), ambos **só ícone** (`iconOnly`: quadrado 48px, nome
+  em `aria-label` e `title`; no exercício final o "Voltar" mantém o texto). "Próximo" pula para o próximo passo sem tocar (do último passo vai ao
+  exercício final; desabilitado tocando e no último passo de aula sem final;
+  nunca conclui a aula); direita `PrimaryButton tone="accent"` ("Tocar",
   "Iniciar", ícone `play`) e, depois de tocar, `SecondaryButton` "Repetir" +
   `PrimaryButton` azul ("Próximo", "Exercício final", "Concluir").
 - **`BpmControl`:** grupo `rounded-control border border-line bg-surface`,

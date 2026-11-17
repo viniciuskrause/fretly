@@ -782,22 +782,36 @@ const SCALES = {
   )],
 };
 
-const renderScaleTrails = (module) => module.trails.map((trail) => {
-  const lessons = trail.lessons.map((lesson) => {
-    const steps = lesson.scale.map((step) => [
-      "          {",
-      `            root: "${step.root}",`,
-      `            quality: "${step.quality}",`,
-      `            position: ${step.position},`,
-      `            mode: ${loc(step.mode)},`,
-      ...(step.label ? [`            label: ${loc(step.label)},`] : []),
-      ...(step.leaps ? ["            leaps: true,"] : []),
-      ...(step.showFingers ? ["            showFingers: true,"] : []),
-      ...(step.instruction ? [`            instruction: ${loc(step.instruction)},`] : []),
-      `            notes: [${step.notes.map((note) => `{ string: ${note.string}, fret: ${note.fret}, ${note.finger ? `finger: ${note.finger}, ` : ""}degree: "${note.degree}" }`).join(", ")}],`,
-      "          },",
-    ].join("\n"));
-    return `      {
+const renderScaleTrails = (module) =>
+  module.trails.map((trail) => {
+    const lessons = trail.lessons.map((lesson) => {
+      const steps = lesson.scale.map((step) =>
+        [
+          "          {",
+          `            root: "${step.root}",`,
+          `            quality: "${step.quality}",`,
+          `            position: ${step.position},`,
+          `            mode: ${loc(step.mode)},`,
+          ...(step.label ? [`            label: ${loc(step.label)},`] : []),
+          ...(step.leaps ? ["            leaps: true,"] : []),
+          ...(step.showFingers ? ["            showFingers: true,"] : []),
+          ...(step.instruction
+            ? [`            instruction: ${loc(step.instruction)},`]
+            : []),
+          ...(step.notation ? ["            notation: true,"] : []),
+          ...(step.signature
+            ? [`            signature: "${step.signature}",`]
+            : []),
+          ...(step.groups
+            ? [
+                `            groups: [${step.groups.map((group) => `{ label: "${group.label}", count: ${group.count} }`).join(", ")}],`,
+              ]
+            : []),
+          `            notes: [${step.notes.map((note) => `{ string: ${note.string}, fret: ${note.fret}, ${note.finger ? `finger: ${note.finger}, ` : ""}degree: "${note.degree}"${note.pitch ? `, pitch: "${note.pitch}"` : ""} }`).join(", ")}],`,
+          "          },",
+        ].join("\n"),
+      );
+      return `      {
         id: ${nextId++},
         key: "${lesson.key}",
         title: ${loc(lesson.title)},
@@ -810,8 +824,8 @@ const renderScaleTrails = (module) => module.trails.map((trail) => {
 ${steps.join("\n")}
         ],
       },`;
-  });
-  return `      {${trail.group ? `\n        group: ${loc(trail.group)},` : ""}
+    });
+    return `      {${trail.section ? `\n        section: ${loc(trail.section)},` : ""}${trail.overline ? `\n        overline: ${loc(trail.overline)},` : ""}${trail.group ? `\n        group: ${loc(trail.group)},` : ""}
         title: ${loc(trail.title)},
         lessons: [
 ${lessons.join("\n")}
@@ -852,7 +866,7 @@ ${lessons.join("\n")}
 const ARPEGGIO_SHAPES = {
   root: {
     first: "C",
-    group: { pt: "Começando na tônica", en: "Starting on the root" },
+    group: { pt: "Ordem fundamental", en: "Root position" },
     degreeName: { pt: "tônica", en: "root" },
     strings: [6, 5, 4],
     shapes: [
@@ -863,7 +877,7 @@ const ARPEGGIO_SHAPES = {
   },
   third: {
     first: "E",
-    group: { pt: "Começando na terça", en: "Starting on the third" },
+    group: { pt: "Primeira inversão", en: "First inversion" },
     degreeName: { pt: "terça", en: "third" },
     strings: [6, 5, 4],
     shapes: [
@@ -875,7 +889,7 @@ const ARPEGGIO_SHAPES = {
   },
   fifth: {
     first: "G",
-    group: { pt: "Começando na quinta", en: "Starting on the fifth" },
+    group: { pt: "Segunda inversão", en: "Second inversion" },
     degreeName: { pt: "quinta", en: "fifth" },
     // The 6th string first had two fingerings of its own; the user then added G 1 6th-3,
     // C 1 5th-3, E 4 5th-7 as fingering 2 (2026-11-17), so it uses the same three as the others.
@@ -892,18 +906,64 @@ const ARPEGGIO_SHAPES = {
 };
 
 /** The shapes of `start` with the reference string `firstString` (its fingering 1 starts there), in C. */
-function arpeggioModel(start, firstString) {
-  const { first, byString } = ARPEGGIO_SHAPES[start];
+/**
+ * Minor and diminished arpeggios (asked for by the user on 2026-11-17, fingerings
+ * derived by Claude, "derive, I'll review"): the major fingerings with the third
+ * (and, for diminished, the fifth) lowered a half step — same strings, same fingers.
+ */
+const ARPEGGIO_QUALITIES = {
+  major: {
+    offsets: { 1: 0, 3: 4, 5: 7 },
+    labels: { 1: "1", 3: "3", 5: "5" },
+    cycle: CYCLE_OF_FOURTHS,
+    name: (root) => ({ pt: `${root} maior`, en: `${root} major` }),
+    title: { pt: "tríade maior", en: "major triad" },
+  },
+  minor: {
+    offsets: { 1: 0, 3: 3, 5: 7 },
+    labels: { 1: "1", 3: "♭3", 5: "5" },
+    cycle: MINOR_CYCLE,
+    name: (root) => ({ pt: `${root} menor`, en: `${root} minor` }),
+    title: { pt: "tríade menor", en: "minor triad" },
+  },
+  dim: {
+    offsets: { 1: 0, 3: 3, 5: 6 },
+    labels: { 1: "1", 3: "♭3", 5: "♭5" },
+    cycle: HALF_DIMINISHED_CYCLE,
+    name: (root) => ({ pt: `${root} diminuto`, en: `${root} diminished` }),
+    title: { pt: "tríade diminuta", en: "diminished triad" },
+  },
+};
+const FIRST_TONE = { root: 1, third: 3, fifth: 5 };
+
+function arpeggioModel(start, firstString, quality = "major") {
+  const { byString } = ARPEGGIO_SHAPES[start];
   const shapes = byString?.[firstString] ?? ARPEGGIO_SHAPES[start].shapes;
+  const { offsets, labels } = ARPEGGIO_QUALITIES[quality];
+  const major = ARPEGGIO_QUALITIES.major.offsets;
+  const firstTone = FIRST_TONE[start];
+  // How far each chord tone moves from the major triad (the third, maybe the fifth: −1).
+  const moved = (tone) => offsets[tone] - major[tone];
   const reference = 6 - firstString; // 0-based index (0 = low E)
   // The first note on the reference string, at its lowest fret (0–11); keys shift it later.
-  const firstMidi = OPEN_STRING_MIDI[reference] + ((rootPitchClass(first) - (OPEN_STRING_MIDI[reference] % 12) + 12) % 12);
+  const firstPc = (rootPitchClass("C") + offsets[firstTone]) % 12;
+  const firstMidi =
+    OPEN_STRING_MIDI[reference] +
+    ((firstPc - (OPEN_STRING_MIDI[reference] % 12) + 12) % 12);
   return shapes.map((shape) =>
     shape.map(({ crossFinger, semitones, ...note }) => {
       const string = reference + note.string;
       // A note on the 2nd or 1st string of a set that starts on the 3rd string or lower.
       const crosses = crossFinger && string >= 4 && reference <= 3;
-      return { ...note, string, fret: firstMidi + semitones - OPEN_STRING_MIDI[string], finger: crosses ? crossFinger : note.finger };
+      const pitch =
+        firstMidi + semitones + moved(note.degree) - moved(firstTone);
+      return {
+        ...note,
+        degree: labels[note.degree],
+        string,
+        fret: pitch - OPEN_STRING_MIDI[string],
+        finger: crosses ? crossFinger : note.finger,
+      };
     }),
   );
 }
@@ -911,13 +971,17 @@ function arpeggioModel(start, firstString) {
 const COUNT_PT = { 2: "duas", 3: "três" };
 const COUNT_EN = { 2: "two", 3: "three" };
 
-function arpeggioLesson(root, start, firstString) {
-  const model = arpeggioModel(start, firstString);
+function arpeggioLesson(root, start, firstString, quality = "major") {
+  const model = arpeggioModel(start, firstString, quality);
   const interval = (rootPitchClass(root) - rootPitchClass("C") + 12) % 12;
   const lowest = Math.min(...model.flat().map((note) => note.fret));
   // No open strings: the drill is the fingering, so every note stays fretted (lowest fret ≥ 1).
-  const shift = Math.min(...[interval - 12, interval, interval + 12].filter((value) => lowest + value >= 1));
-  const name = { pt: `${root} maior`, en: `${root} major` };
+  const shift = Math.min(
+    ...[interval - 12, interval, interval + 12].filter(
+      (value) => lowest + value >= 1,
+    ),
+  );
+  const name = ARPEGGIO_QUALITIES[quality].name(root);
   const degree = ARPEGGIO_SHAPES[start].degreeName;
   const where =
     start === "root"
@@ -927,7 +991,13 @@ function arpeggioLesson(root, start, firstString) {
           en: `starting on the ${degree.en}, on the ${ORDINAL_EN[firstString]} string`,
         };
   return {
-    key: lessonKey("arpeggios", "major", start, String(firstString), ascii(root)),
+    key: lessonKey(
+      "arpeggios",
+      quality,
+      start,
+      String(firstString),
+      ascii(root),
+    ),
     title: { pt: `${name.pt} - arpejo`, en: `${name.en} - arpeggio` },
     subtitle: {
       pt: `Arpejo de ${name.pt} em ${COUNT_PT[model.length]} digitações, ${where.pt}`,
@@ -935,7 +1005,7 @@ function arpeggioLesson(root, start, firstString) {
     },
     scale: model.map((notes, index) => ({
       root,
-      quality: "major",
+      quality,
       position: index + 1,
       mode: { pt: `Digitação ${index + 1}`, en: `Fingering ${index + 1}` },
       label: { pt: `Digitação ${index + 1}`, en: `Fingering ${index + 1}` },
@@ -955,27 +1025,1059 @@ function arpeggioLesson(root, start, firstString) {
 const ARPEGGIOS = {
   title: { pt: "Arpejos de Tríades", en: "Triad Arpeggios" },
   subtitle: {
-    pt: "Toque as tríades nota por nota, começando na tônica, na terça e na quinta",
-    en: "Play the triads note by note, starting on the root, the third and the fifth",
+    pt: "Toque as tríades maiores, menores e diminutas nota por nota, começando na tônica, na terça e na quinta",
+    en: "Play major, minor and diminished triads note by note, starting on the root, the third and the fifth",
   },
+  // Sections by starting note, subsections (groups) by quality, a lesson per string in each.
   trails: ["root", "third", "fifth"].flatMap((start) =>
-    ARPEGGIO_SHAPES[start].strings.map((firstString) => {
-      const degree = ARPEGGIO_SHAPES[start].degreeName;
-      const name = { pt: degree.pt[0].toUpperCase() + degree.pt.slice(1), en: degree.en[0].toUpperCase() + degree.en.slice(1) };
-      return {
-        group: ARPEGGIO_SHAPES[start].group,
-        title: { pt: `${name.pt} na ${firstString}ª corda`, en: `${name.en} on the ${ORDINAL_EN[firstString]} string` },
-        lessons: CYCLE_OF_FOURTHS.map((root) => arpeggioLesson(root, start, firstString)),
-      };
-    }),
+    ["major", "minor", "dim"].flatMap((quality) =>
+      ARPEGGIO_SHAPES[start].strings.map((firstString) => {
+        const degree = ARPEGGIO_SHAPES[start].degreeName;
+        const name = {
+          pt: degree.pt[0].toUpperCase() + degree.pt.slice(1),
+          en: degree.en[0].toUpperCase() + degree.en.slice(1),
+        };
+        const kind = ARPEGGIO_QUALITIES[quality].title;
+        return {
+          section: ARPEGGIO_SHAPES[start].group,
+          group: {
+            pt: kind.pt[0].toUpperCase() + kind.pt.slice(1),
+            en: kind.en[0].toUpperCase() + kind.en.slice(1),
+          },
+          title: {
+            pt: `${name.pt} na ${firstString}ª corda`,
+            en: `${name.en} on the ${ORDINAL_EN[firstString]} string`,
+          },
+          lessons: ARPEGGIO_QUALITIES[quality].cycle.map((root) =>
+            arpeggioLesson(root, start, firstString, quality),
+          ),
+        };
+      }),
+    ),
   ),
 };
+
+// Exercises (section "Exercícios", asked for by the user on 2026-11-17): for each string
+// there are three root-position fingerings; the first lesson plays the seven diatonic
+// triads of a major key one after the other, up the neck, always in the same fingering.
+// Exercise 1: the fingering that starts with finger 1 (6th string: 1-4-2 for all three
+// qualities). Fingerings 2 and 3 come next, when the user dictates them.
+const DIATONIC_QUALITIES = [
+  "major",
+  "minor",
+  "minor",
+  "major",
+  "major",
+  "minor",
+  "dim",
+];
+const CHORD_SUFFIX = { major: "", minor: "m", dim: "dim" };
+// Lessons for the root on the 6th, then the 5th and 4th strings (asked for on 2026-11-17).
+const DIATONIC_STRINGS = [6, 5, 4];
+const DIATONIC_FINGERINGS = [0, 1, 2];
+
+const LETTER_PC = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+
+/** Sounding pitch spelled in the key, with its octave ("B♭2", "C♭3" = the B of octave 2). */
+function pitchName(key, scaleDegree, midi) {
+  const name = spell(key, MAJOR_SCALE[scaleDegree], scaleDegree);
+  const accidental = [...name.slice(1)].reduce(
+    (sum, sign) => sum + (sign === "♯" ? 1 : sign === "♭" ? -1 : 0),
+    0,
+  );
+  const octave = Math.round((midi - accidental - LETTER_PC[name[0]]) / 12) - 1;
+  return `${name}${octave}`;
+}
+
+/** One triad of the run: the module's fingering, moved so its root sits at `rootFret`; dots carry the key degree. */
+function diatonicTriad(rootString, rootFret, degree, fingering) {
+  const quality = DIATONIC_QUALITIES[degree];
+  const shape = arpeggioModel("root", rootString, quality)[fingering];
+  const shift = rootFret - shape[0].fret;
+  return shape.map((note, index) => ({
+    string: note.string,
+    fret: note.fret + shift,
+    finger: note.finger,
+    degree: String(((degree + index * 2) % 7) + 1),
+  }));
+}
+
+/**
+ * The seven triads up the string in one fingering, starting on the degree whose
+ * shape sits closest to the nut (lowest fret ≥ 1), with everything up to fret 19.
+ * Each fingering has its own start (2026-11-17: "comece sempre pela digitação mais
+ * próxima da pestana").
+ */
+function diatonicRun(rootString, key, fingering) {
+  const reference = 6 - rootString;
+  const tonicFret =
+    (rootPitchClass(key) - (OPEN_STRING_MIDI[reference] % 12) + 12) % 12;
+  const runs = [];
+  for (let first = 0; first < 7; first++) {
+    for (const octave of [0, 12]) {
+      const firstFret = ((tonicFret + MAJOR_SCALE[first]) % 12) + octave;
+      const roots = Array.from({ length: 7 }, (_, n) => {
+        const degree = (first + n) % 7;
+        return {
+          degree,
+          fret:
+            firstFret + ((MAJOR_SCALE[degree] - MAJOR_SCALE[first] + 12) % 12),
+        };
+      });
+      const frets = roots
+        .flatMap((root) =>
+          diatonicTriad(rootString, root.fret, root.degree, fingering),
+        )
+        .map((note) => note.fret);
+      if (Math.min(...frets) >= 1 && Math.max(...frets) <= 19)
+        runs.push({
+          first,
+          roots,
+          low: Math.min(...frets),
+          high: Math.max(...frets),
+        });
+    }
+  }
+  // Always the run closest to the nut (asked for by the user, 2026-11-17): lowest fret first.
+  return runs.sort((a, b) => a.low - b.low || a.high - b.high)[0].roots;
+}
+
+function diatonicLesson(rootString, key) {
+  const name = { pt: `${key} maior`, en: `${key} major` };
+  const where = {
+    pt: `na ${rootString}ª corda`,
+    en: `on the ${ORDINAL_EN[rootString]} string`,
+  };
+  return {
+    key: lessonKey("arpeggios", "diatonic", String(rootString), ascii(key)),
+    title: {
+      pt: `${name.pt} - tríades diatônicas`,
+      en: `${name.en} - diatonic triads`,
+    },
+    subtitle: {
+      pt: `As sete tríades de ${name.pt} em arpejo, subindo o braço com a tônica ${where.pt}`,
+      en: `The seven triads of ${name.en} as arpeggios, up the neck with the root ${where.en}`,
+    },
+    scale: DIATONIC_FINGERINGS.map((fingering) =>
+      diatonicRun(rootString, key, fingering),
+    ).map((roots, fingering) => ({
+      root: key,
+      quality: "major",
+      position: fingering + 1,
+      mode: {
+        pt: `Digitação ${fingering + 1}`,
+        en: `Fingering ${fingering + 1}`,
+      },
+      label: {
+        pt: `Digitação ${fingering + 1}`,
+        en: `Fingering ${fingering + 1}`,
+      },
+      showFingers: true,
+      // Heading and overline set by the user (2026-11-17).
+      instruction: {
+        pt: `Toque as tríades diatônicas de ${key} maior subindo o braço ${where.pt}, na digitação ${fingering + 1}`,
+        en: `Play the diatonic triads of ${key} Major up the neck ${where.en}, in fingering ${fingering + 1}`,
+      },
+      // Shown as tablature or staff (not fret dots): a run along the neck.
+      notation: true,
+      groups: roots.map(({ degree }) => ({
+        label:
+          spell(key, MAJOR_SCALE[degree], degree) +
+          CHORD_SUFFIX[DIATONIC_QUALITIES[degree]],
+        count: 3,
+      })),
+      notes: roots.flatMap((root) =>
+        diatonicTriad(rootString, root.fret, root.degree, fingering).map(
+          (note) => ({
+            ...note,
+            pitch: pitchName(
+              key,
+              Number(note.degree) - 1,
+              OPEN_STRING_MIDI[note.string] + note.fret,
+            ),
+          }),
+        ),
+      ),
+    })),
+  };
+}
+
+for (const rootString of DIATONIC_STRINGS) {
+  ARPEGGIOS.trails.push({
+    section: { pt: "Exercícios", en: "Exercises" },
+    group: { pt: "Na horizontal", en: "Horizontally" },
+    overline: {
+      pt: "Prática de Arpejos de Tríades",
+      en: "Triad Arpeggios Practice",
+    },
+    title: {
+      pt: `Tríades diatônicas na ${rootString}ª corda`,
+      en: `Diatonic triads on the ${ORDINAL_EN[rootString]} string`,
+    },
+    lessons: CYCLE_OF_FOURTHS.map((key) => diatonicLesson(rootString, key)),
+  });
+}
+
+/**
+ * Diatonic triads vertically (asked for by the user on 2026-11-17: "tocar as tríades
+ * diatonicamente e verticalmente em cada uma das posições do modo jônio"): in each of
+ * the 7 positions of the Scales module, the seven triads of the key one after the
+ * other, without leaving the position. Each triad starts on the lowest note of its
+ * root in the position and goes up to the next third and fifth; the run starts on the
+ * position's own degree (position 1: I ii iii…, position 2: ii iii … I). Fingers are
+ * the scale position's (one finger per fret, or 1-2-4 / 1-3-4 per string) — derived
+ * by Claude, to be checked with the user.
+ */
+function verticalTriads(key, index) {
+  const { notes } = scalePosition(key, "major", index);
+  const degreeOf = (note) => Number(note.degree) - 1;
+  const roots = [];
+  const triads = [];
+  for (let n = 0; n < 7; n++) {
+    const degree = (index + n) % 7;
+    const rootAt = notes.findIndex((note) => degreeOf(note) === degree);
+    const thirdAt = notes.findIndex(
+      (note, at) => at > rootAt && degreeOf(note) === (degree + 2) % 7,
+    );
+    const fifthAt = notes.findIndex(
+      (note, at) => at > thirdAt && degreeOf(note) === (degree + 4) % 7,
+    );
+    if (rootAt < 0 || thirdAt < 0 || fifthAt < 0)
+      throw new Error(
+        `${key} posição ${index + 1}: tríade do grau ${degree + 1} incompleta`,
+      );
+    roots.push(degree);
+    triads.push(
+      [rootAt, thirdAt, fifthAt].map((at) => {
+        const note = notes[at];
+        return {
+          string: note.string,
+          fret: note.fret,
+          finger: note.finger,
+          degree: note.degree,
+          pitch: pitchName(
+            key,
+            degreeOf(note),
+            OPEN_STRING_MIDI[note.string] + note.fret,
+          ),
+        };
+      }),
+    );
+  }
+  return { roots, notes: triads.flat() };
+}
+
+function verticalLesson(key, index) {
+  const { roots, notes } = verticalTriads(key, index);
+  const position = index + 1;
+  const name = { pt: `${key} maior`, en: `${key} major` };
+  return {
+    key: lessonKey(
+      "arpeggios",
+      "diatonic-vertical",
+      `p${position}`,
+      ascii(key),
+    ),
+    title: {
+      pt: `${name.pt} - tríades na posição ${position}`,
+      en: `${name.en} - triads in position ${position}`,
+    },
+    subtitle: {
+      pt: `As sete tríades de ${name.pt} em arpejo, sem sair da posição ${position}`,
+      en: `The seven triads of ${name.en} as arpeggios, staying in position ${position}`,
+    },
+    scale: [
+      {
+        root: key,
+        quality: "major",
+        position,
+        mode: MODES[index],
+        instruction: {
+          pt: `Toque as tríades diatônicas de ${key} maior na posição ${position}`,
+          en: `Play the diatonic triads of ${key} Major in position ${position}`,
+        },
+        notation: true,
+        groups: roots.map((degree) => ({
+          label:
+            spell(key, MAJOR_SCALE[degree], degree) +
+            CHORD_SUFFIX[DIATONIC_QUALITIES[degree]],
+          count: 3,
+        })),
+        notes,
+      },
+    ],
+  };
+}
+
+for (let index = 0; index < 7; index++) {
+  ARPEGGIOS.trails.push({
+    section: { pt: "Exercícios", en: "Exercises" },
+    group: { pt: "Na vertical", en: "Vertically" },
+    overline: {
+      pt: "Prática de Arpejos de Tríades",
+      en: "Triad Arpeggios Practice",
+    },
+    title: {
+      pt: `Tríades diatônicas na posição ${index + 1}`,
+      en: `Diatonic triads in position ${index + 1}`,
+    },
+    lessons: CYCLE_OF_FOURTHS.map((key) => verticalLesson(key, index)),
+  });
+}
+
+/**
+ * Inversions (asked for by the user on 2026-11-17, reorganised the same day): one
+ * lesson per string (6th, 5th, 4th), major triads only. Exercise n plays every
+ * inversion of the triad (root position, 1st and 2nd inversion) in fingering n of
+ * its section of the module, each placed as close to the nut as possible (fret ≥ 1),
+ * the three in order up the neck — one bar each.
+ */
+const INVERSION_STARTS = ["root", "third", "fifth"];
+const TONE_LETTERS = { 1: 0, 3: 2, 5: 4 };
+
+/** "E♭" at a MIDI pitch → "E♭3" (the octave follows the letter: C♭3 sounds as B2). */
+function withOctave(name, midi) {
+  const accidental = [...name.slice(1)].reduce(
+    (sum, sign) => sum + (sign === "♯" ? 1 : sign === "♭" ? -1 : 0),
+    0,
+  );
+  return `${name}${Math.round((midi - accidental - LETTER_PC[name[0]]) / 12) - 1}`;
+}
+
+/** Major key whose signature fits the triad: its own (major), relative major (minor), a half step up (diminished = vii°). */
+const SIGNATURE_KEY = {
+  major: (root) => root,
+  minor: (root) => spell(root, 3, 2),
+  dim: (root) => spell(root, 1, 1),
+};
+
+function inversionRun(root, quality, firstString, fingering) {
+  const interval = (rootPitchClass(root) - rootPitchClass("C") + 12) % 12;
+  const { offsets } = ARPEGGIO_QUALITIES[quality];
+  const suffix = CHORD_SUFFIX[quality];
+  const bars = INVERSION_STARTS.map((start) => {
+    const shape = arpeggioModel(start, firstString, quality)[fingering];
+    const lowest = Math.min(...shape.map((note) => note.fret));
+    const shift = Math.min(
+      ...[interval - 12, interval, interval + 12].filter(
+        (value) => lowest + value >= 1,
+      ),
+    );
+    const notes = shape.map((note) => {
+      const tone = Number(note.degree.replace("♭", ""));
+      const name = spell(root, offsets[tone], TONE_LETTERS[tone]);
+      const fret = note.fret + shift;
+      return {
+        string: note.string,
+        fret,
+        finger: note.finger,
+        degree: note.degree,
+        pitch: withOctave(name, OPEN_STRING_MIDI[note.string] + fret),
+        name,
+      };
+    });
+    const bass = notes[0].name;
+    return {
+      label: start === "root" ? `${root}${suffix}` : `${root}${suffix}/${bass}`,
+      notes,
+    };
+  });
+  // Up the neck: the inversion nearest the nut first.
+  return bars.sort((a, b) => a.notes[0].fret - b.notes[0].fret);
+}
+
+function arpeggioInversionLesson(root, firstString, quality) {
+  const name = ARPEGGIO_QUALITIES[quality].name(root);
+  const where = {
+    pt: `a partir da ${firstString}ª corda`,
+    en: `starting on the ${ORDINAL_EN[firstString]} string`,
+  };
+  return {
+    // Major keys came first (arpeggios/inversions/6/C); minor and diminished name their quality.
+    key: lessonKey(
+      "arpeggios",
+      "inversions",
+      ...(quality === "major" ? [] : [quality]),
+      String(firstString),
+      ascii(root),
+    ),
+    title: {
+      pt: `${name.pt} - inversões na ${firstString}ª corda`,
+      en: `${name.en} - inversions on the ${ORDINAL_EN[firstString]} string`,
+    },
+    subtitle: {
+      pt: `Todas as inversões de ${name.pt} em arpejo ${where.pt}, nas três digitações`,
+      en: `Every inversion of ${name.en} as arpeggios ${where.en}, in the three fingerings`,
+    },
+    scale: [0, 1, 2].map((fingering) => {
+      const bars = inversionRun(root, quality, firstString, fingering);
+      return {
+        root,
+        quality,
+        position: fingering + 1,
+        mode: {
+          pt: `Digitação ${fingering + 1}`,
+          en: `Fingering ${fingering + 1}`,
+        },
+        label: {
+          pt: `Digitação ${fingering + 1}`,
+          en: `Fingering ${fingering + 1}`,
+        },
+        // The hub shows the string (6ª, 5ª, 4ª); the subsection says the quality.
+        showFingers: true,
+        instruction: {
+          pt: `Toque as inversões de ${name.pt} ${where.pt}, na digitação ${fingering + 1}`,
+          en: `Play the inversions of ${name.en} ${where.en}, in fingering ${fingering + 1}`,
+        },
+        notation: true,
+        signature: SIGNATURE_KEY[quality](root),
+        groups: bars.map((bar) => ({ label: bar.label, count: 3 })),
+        notes: bars.flatMap((bar) =>
+          bar.notes.map(({ name: _name, ...note }) => note),
+        ),
+      };
+    }),
+  };
+}
+
+// The Inversões subsection comes first in Exercícios (the user's order, 2026-11-17).
+const firstExercise = ARPEGGIOS.trails.findIndex(
+  (trail) => trail.section?.pt === "Exercícios",
+);
+// Major, then minor and diminished (added 2026-11-17), each on the 6th, 5th and 4th strings.
+const INVERSION_QUALITIES = [
+  {
+    quality: "major",
+    cycle: CYCLE_OF_FOURTHS,
+    name: { pt: "maiores", en: "Major" },
+    group: { pt: "Inversões maiores", en: "Major inversions" },
+  },
+  {
+    quality: "minor",
+    cycle: MINOR_CYCLE,
+    name: { pt: "menores", en: "Minor" },
+    group: { pt: "Inversões menores", en: "Minor inversions" },
+  },
+  {
+    quality: "dim",
+    cycle: HALF_DIMINISHED_CYCLE,
+    name: { pt: "diminutas", en: "Diminished" },
+    group: { pt: "Inversões diminutas", en: "Diminished inversions" },
+  },
+];
+// One subsection per quality (the user's split, 2026-11-17).
+INVERSION_QUALITIES.flatMap(({ quality, cycle, name, group }) =>
+  [6, 5, 4].map((firstString) => ({
+    section: { pt: "Exercícios", en: "Exercises" },
+    group,
+    overline: {
+      pt: "Prática de Arpejos de Tríades",
+      en: "Triad Arpeggios Practice",
+    },
+    // "Major Inversions on the 6th string" (the user's pattern, 2026-11-17).
+    title: {
+      pt: `Inversões ${name.pt} na ${firstString}ª corda`,
+      en: `${name.en} Inversions on the ${ORDINAL_EN[firstString]} string`,
+    },
+    lessons: cycle.map((root) =>
+      arpeggioInversionLesson(root, firstString, quality),
+    ),
+  })),
+).forEach((trail, offset) =>
+  ARPEGGIOS.trails.splice(firstExercise + offset, 0, trail),
+);
+
+/* ------------------------------------------------------------------------ *
+ * Seventh-chord arpeggios ("Arpejos de Tétrades", asked for by the user on
+ * 2026-11-17: "seguindo o padrão dos arpejos de tríades"). Same structure:
+ * sections by starting tone (root, 3rd, 5th, 7th), subsections by quality
+ * (7+, m7, 7, m7(♭5)), a lesson per string (6th, 5th, 4th) with up to three
+ * fingerings; then the Exercícios section (inversions, horizontal, vertical).
+ * Fingerings derived by Claude ("derive, eu reviso"), to be checked with the user.
+ * ------------------------------------------------------------------------ */
+const SEVENTH_QUALITIES = {
+  maj7: {
+    offsets: [0, 4, 7, 11],
+    labels: ["1", "3", "5", "7"],
+    suffix: "7+",
+    cycle: CYCLE_OF_FOURTHS,
+    name: (root) => ({ pt: `${root}7+`, en: `${root}maj7` }),
+    title: { pt: "Acordes 7+", en: "Maj7 chords" },
+    inversions: { pt: "Inversões de 7+", en: "Maj7 Inversions" },
+  },
+  m7: {
+    offsets: [0, 3, 7, 10],
+    labels: ["1", "♭3", "5", "♭7"],
+    suffix: "m7",
+    cycle: MINOR_CYCLE,
+    name: (root) => ({ pt: `${root}m7`, en: `${root}m7` }),
+    title: { pt: "Acordes m7", en: "m7 chords" },
+    inversions: { pt: "Inversões de m7", en: "m7 Inversions" },
+  },
+  7: {
+    offsets: [0, 4, 7, 10],
+    labels: ["1", "3", "5", "♭7"],
+    suffix: "7",
+    cycle: DOMINANT_CYCLE,
+    name: (root) => ({ pt: `${root}7`, en: `${root}7` }),
+    title: { pt: "Acordes 7", en: "Dominant 7 chords" },
+    inversions: { pt: "Inversões de 7", en: "Dominant 7 Inversions" },
+  },
+  m7b5: {
+    offsets: [0, 3, 6, 10],
+    labels: ["1", "♭3", "♭5", "♭7"],
+    suffix: "m7(♭5)",
+    cycle: HALF_DIMINISHED_CYCLE,
+    name: (root) => ({ pt: `${root}m7(♭5)`, en: `${root}m7(♭5)` }),
+    title: { pt: "Acordes m7(♭5)", en: "m7(♭5) chords" },
+    inversions: { pt: "Inversões de m7(♭5)", en: "m7(♭5) Inversions" },
+  },
+};
+const SEVENTH_ORDER = ["maj7", "m7", "7", "m7b5"];
+const SEVENTH_STARTS = [
+  {
+    tone: 0,
+    key: "root",
+    section: { pt: "Ordem fundamental", en: "Root position" },
+    degree: { pt: "tônica", en: "root" },
+  },
+  {
+    tone: 1,
+    key: "third",
+    section: { pt: "Primeira inversão", en: "First inversion" },
+    degree: { pt: "terça", en: "third" },
+  },
+  {
+    tone: 2,
+    key: "fifth",
+    section: { pt: "Segunda inversão", en: "Second inversion" },
+    degree: { pt: "quinta", en: "fifth" },
+  },
+  {
+    tone: 3,
+    key: "seventh",
+    section: { pt: "Terceira inversão", en: "Third inversion" },
+    degree: { pt: "sétima", en: "seventh" },
+  },
+];
+const SEVENTH_LETTERS = [0, 2, 4, 6];
+
+/**
+ * Fingerings dictated by the user (source of truth over the derived ones), in C:
+ * [string (6 = low E), fret, finger] per note, in playing order. Key: quality/start tone/first string.
+ */
+const SEVENTH_DICTATED = {
+  // 2026-11-17: "faltou a digitação dedo 4 corda 6 casa 8, dedo 3 corda 5 casa 7, dedo 1 corda 4 casa 5 e dedo 4 corda 4 casa 9"
+  // (the pinky slides from fret 8 to 9).
+  // 2026-11-17: "nos acordes menores faltou a digitação corda 6 dedo 2 casa 8, corda 5 dedo 1 casa 6,
+  // corda 5 dedo 4 casa 10 e corda 4 dedo 2 casa 8".
+  "m7/0/6": [
+    [6, 8, 2],
+    [5, 6, 1],
+    [5, 10, 4],
+    [4, 8, 2],
+  ],
+  // 2026-11-17: "nos diminutos faltou a digitação corda 6 dedo 4 casa 8, corda 5 dedo 2 casa 7,
+  // corda 4 dedo 1 casa 4, corda 4 dedo 4 casa 8" — the 5th string at fret 7 is E, not in
+  // Cm7(♭5); the chord's E♭ is at fret 6.
+  "m7b5/0/6": [
+    [6, 8, 4],
+    [5, 6, 2],
+    [4, 4, 1],
+    [4, 8, 4],
+  ],
+  "maj7/0/6": [
+    [6, 8, 4],
+    [5, 7, 3],
+    [4, 5, 1],
+    [4, 9, 4],
+  ],
+};
+
+/** Fingers for fret offsets from the hand position: one per fret, or 1-2/3-4 over a five-fret stretch. */
+function stretchFingers(offsets) {
+  if (Math.max(...offsets) <= 3) return offsets.map((offset) => offset + 1);
+  const middle = [...new Set(offsets)].filter((offset) => offset > 0 && offset < 4).sort((a, b) => a - b);
+  const map = { 0: 1, 4: 4 };
+  if (middle.length === 1) map[middle[0]] = middle[0] <= 2 ? 2 : 3;
+  if (middle.length === 2) [map[middle[0]], map[middle[1]]] = [2, 3];
+  return offsets.map((offset) => map[offset]);
+}
+
+/**
+ * Up to three fingerings of a seventh arpeggio in C (one octave: four notes going up
+ * from the starting tone, first note on `firstString`): the shape starting with
+ * finger 1, the one with finger 2 and the better of finger 4 / finger 3 — like the
+ * triad fingerings. Each keeps the hand in one position (a fret per finger, a
+ * five-fret stretch at most), no finger on two frets, few same-finger rolls and
+ * strings; the three use different strings. Frets are relative (may be ≤ 0): the
+ * lessons move the shape to each key.
+ */
+function seventhShapes(quality, startTone, firstString) {
+  const { offsets, labels } = SEVENTH_QUALITIES[quality];
+  const reference = 6 - firstString;
+  const firstPc = offsets[startTone] % 12;
+  const firstFret = ((firstPc - (OPEN_STRING_MIDI[reference] % 12) + 12) % 12) + 12;
+  const firstMidi = OPEN_STRING_MIDI[reference] + firstFret;
+  const pitches = [0, 1, 2, 3].map((step) => {
+    const tone = (startTone + step) % 4;
+    const octave = Math.floor((startTone + step) / 4);
+    return {
+      midi: firstMidi + offsets[tone] + 12 * octave - offsets[startTone],
+      tone,
+    };
+  });
+  const assignments = [];
+  const walk = (strings) => {
+    if (strings.length === 4) return assignments.push(strings);
+    for (const next of [0, 1, 2].map((step) => strings.at(-1) + step))
+      if (next <= 5) walk([...strings, next]);
+  };
+  walk([reference]);
+  const used = [];
+  // Pinky slide (the user's C7+ fingering, 2026-11-17: "aplique como padrão onde for
+  // necessário"): in a five-fret stretch, finger 4 plays one note on the 4th fret of the
+  // hand and, later, one on the 5th — instead of rolling a finger across strings.
+  const best = (finger) => {
+    let choice = null;
+    for (const slide of [false, true]) {
+      for (const strings of assignments) {
+        if (used.some((other) => other.join() === strings.join())) continue;
+        const frets = pitches.map((pitch, index) => pitch.midi - OPEN_STRING_MIDI[strings[index]]);
+        if (
+          frets.some(
+            (fret, index) => index > 0 && strings[index] === strings[index - 1] && fret <= frets[index - 1],
+          )
+        )
+          continue;
+        // The hand starts at the first finger's fret minus (finger − 1). In a five-fret stretch
+        // finger 2 may sit two frets above finger 1 (the user's Cm7 fingering 6-8(2) 5-6(1)
+        // 5-10(4) 4-8(2)) and finger 4 four frets above it (the user's Cm7(♭5) fingering
+        // 6-8(4) 5-6(2) 4-4(1) 4-8(4)), both 2026-11-17.
+        const bases = { 2: [frets[0] - 1, frets[0] - 2], 4: [frets[0] - 3, frets[0] - 4] }[finger] ?? [frets[0] - (finger - 1)];
+        for (const base of bases) {
+          const offsetsFromBase = frets.map((fret) => fret - base);
+          if (offsetsFromBase.some((offset) => offset < 0 || offset > 4)) continue;
+          if (slide) {
+            const low = offsetsFromBase.filter((offset) => offset === 3).length;
+            const high = offsetsFromBase.filter((offset) => offset === 4).length;
+            if (low !== 1 || high !== 1 || offsetsFromBase.indexOf(3) > offsetsFromBase.indexOf(4)) continue;
+          }
+          const fingers = slide
+            ? offsetsFromBase.map((offset) => Math.min(offset + 1, 4))
+            : stretchFingers(offsetsFromBase);
+          if (fingers[0] !== finger) continue;
+          const fretOf = {};
+          if (
+            fingers.some((f, index) =>
+              f !== 4 || !slide ? (fretOf[f] ??= frets[index]) !== frets[index] : false,
+            )
+          )
+            continue;
+          const rolls = fingers.filter((f, index) => index > 0 && f === fingers[index - 1]).length;
+          const span = Math.max(...offsetsFromBase) - Math.min(...offsetsFromBase);
+          const score = rolls * 20 + (span === 4 ? 6 : 0) + (slide ? 10 : 0) + new Set(strings).size;
+          if (!choice || score < choice.score) {
+            choice = {
+              score,
+              strings,
+              notes: pitches.map((pitch, index) => ({
+                string: strings[index],
+                fret: frets[index] - 12,
+                finger: fingers[index],
+                degree: labels[pitch.tone],
+                tone: pitch.tone,
+              })),
+            };
+          }
+        }
+      }
+    }
+    return choice;
+  };
+  const take = (choice) => {
+    if (choice) used.push(choice.strings);
+    return choice;
+  };
+  const shapes = [take(best(1)), take(best(2))];
+  const last = take([best(4), best(3)].filter(Boolean).sort((a, b) => a.score - b.score)[0]);
+  const derived = [...shapes, last].filter(Boolean).map((shape) => shape.notes);
+  const dictated = SEVENTH_DICTATED[`${quality}/${startTone}/${firstString}`];
+  if (!dictated) return derived;
+  // A fingering dictated by the user replaces the derived one that starts with the same finger, or is added.
+  const shape = dictated.map(([string, fret, finger], index) => {
+    const tone = (startTone + index) % 4;
+    return { string: 6 - string, fret, finger, degree: labels[tone], tone };
+  });
+  const same = derived.findIndex((notes) => notes[0].finger === shape[0].finger);
+  return same >= 0
+    ? derived.map((notes, index) => (index === same ? shape : notes))
+    : [...derived, shape].slice(0, 3);
+}
+
+/** A C shape moved to `root`: the smallest shift that keeps every fret ≥ 1. */
+function placeShape(notes, root, quality, near = null) {
+  const interval = (rootPitchClass(root) - rootPitchClass("C") + 12) % 12;
+  const lowest = Math.min(...notes.map((note) => note.fret));
+  const shifts = [-24, -12, 0, 12, 24]
+    .map((octave) => interval + octave)
+    .filter((shift) => lowest + shift >= 1);
+  const shift =
+    near === null
+      ? Math.min(...shifts)
+      : shifts.sort((a, b) => Math.abs(lowest + a - near) - Math.abs(lowest + b - near))[0];
+  const { offsets } = SEVENTH_QUALITIES[quality];
+  return notes.map((note) => {
+    const fret = note.fret + shift;
+    const name = spell(root, offsets[note.tone], SEVENTH_LETTERS[note.tone]);
+    return {
+      string: note.string,
+      fret,
+      finger: note.finger,
+      degree: note.degree,
+      pitch: withOctave(name, OPEN_STRING_MIDI[note.string] + fret),
+      name,
+    };
+  });
+}
+
+const COUNT7_PT = {
+  1: "uma digitação",
+  2: "duas digitações",
+  3: "três digitações",
+};
+const COUNT7_EN = {
+  1: "one fingering",
+  2: "two fingerings",
+  3: "three fingerings",
+};
+
+function seventhLesson(root, quality, start, firstString) {
+  const shapes = seventhShapes(quality, start.tone, firstString);
+  const name = SEVENTH_QUALITIES[quality].name(root);
+  const where =
+    start.tone === 0
+      ? {
+          pt: `com a tônica na ${firstString}ª corda`,
+          en: `with the root on the ${ORDINAL_EN[firstString]} string`,
+        }
+      : {
+          pt: `começando na ${start.degree.pt}, na ${firstString}ª corda`,
+          en: `starting on the ${start.degree.en}, on the ${ORDINAL_EN[firstString]} string`,
+        };
+  return {
+    key: lessonKey("arpeggios7", quality, start.key, String(firstString), ascii(root)),
+    title: { pt: `${name.pt} - arpejo`, en: `${name.en} - arpeggio` },
+    subtitle: {
+      pt: `Arpejo de ${name.pt} em ${COUNT7_PT[shapes.length]}, ${where.pt}`,
+      en: `${name.en} arpeggio in ${COUNT7_EN[shapes.length]}, ${where.en}`,
+    },
+    scale: shapes.map((notes, index) => ({
+      root,
+      quality,
+      position: index + 1,
+      mode: { pt: `Digitação ${index + 1}`, en: `Fingering ${index + 1}` },
+      label: { pt: `Digitação ${index + 1}`, en: `Fingering ${index + 1}` },
+      showFingers: true,
+      instruction: {
+        pt: `Toque o arpejo de ${name.pt} na digitação ${index + 1}, ${where.pt}, subindo e descendo.`,
+        en: `Play the ${name.en} arpeggio in fingering ${index + 1}, ${where.en}, up and down.`,
+      },
+      notes: placeShape(notes, root, quality).map(({ string, fret, finger, degree }) => ({
+        string,
+        fret,
+        finger,
+        degree,
+      })),
+    })),
+  };
+}
+
+const SEVENTHS = {
+  title: { pt: "Arpejos de Tétrades", en: "Seventh Chord Arpeggios" },
+  subtitle: {
+    pt: "Toque os acordes 7+, m7, 7 e m7(♭5) nota por nota, começando na tônica, na terça, na quinta e na sétima",
+    en: "Play maj7, m7, 7 and m7(♭5) chords note by note, starting on the root, the third, the fifth and the seventh",
+  },
+  trails: SEVENTH_STARTS.flatMap((start) =>
+    SEVENTH_ORDER.flatMap((quality) =>
+      [6, 5, 4].map((firstString) => ({
+        section: start.section,
+        group: SEVENTH_QUALITIES[quality].title,
+        title: {
+          pt: `${start.degree.pt[0].toUpperCase() + start.degree.pt.slice(1)} na ${firstString}ª corda`,
+          en: `${start.degree.en[0].toUpperCase() + start.degree.en.slice(1)} on the ${ORDINAL_EN[firstString]} string`,
+        },
+        lessons: SEVENTH_QUALITIES[quality].cycle.map((root) =>
+          seventhLesson(root, quality, start, firstString),
+        ),
+      })),
+    ),
+  ),
+};
+
+// ---- Exercises (same as the triad module, with four-note chords) ----
+const SEVENTH_SECTION = { pt: "Exercícios", en: "Exercises" };
+const SEVENTH_OVERLINE = {
+  pt: "Prática de Arpejos de Tétrades",
+  en: "Seventh Arpeggios Practice",
+};
+const DIATONIC_SEVENTHS = ["maj7", "m7", "m7", "maj7", "7", "m7", "m7b5"];
+const seventhSymbol = (root, quality) => `${root}${SEVENTH_QUALITIES[quality].suffix}`;
+/** Major key whose signature fits the chord: its own (7+, 7 = V of the key a 4th up), relative major (m7), vii° (m7(♭5)). */
+const SEVENTH_SIGNATURE = {
+  maj7: (root) => root,
+  m7: (root) => spell(root, 3, 2),
+  7: (root) => spell(root, 5, 3),
+  m7b5: (root) => spell(root, 1, 1),
+};
+/** Shape n of a start and string, or the last one when that start has fewer fingerings. */
+const seventhShape = (quality, tone, string, fingering) => {
+  const shapes = seventhShapes(quality, tone, string);
+  return shapes[Math.min(fingering, shapes.length - 1)];
+};
+
+// Inversions: per quality and string, exercise n = every inversion in fingering n, up the neck.
+function seventhInversionLesson(root, quality, firstString) {
+  // As many exercises as every inversion has fingerings (no exercise repeats another).
+  const count = Math.min(
+    ...SEVENTH_STARTS.map((start) => seventhShapes(quality, start.tone, firstString).length),
+  );
+  const name = SEVENTH_QUALITIES[quality].name(root);
+  const where = {
+    pt: `a partir da ${firstString}ª corda`,
+    en: `starting on the ${ORDINAL_EN[firstString]} string`,
+  };
+  return {
+    key: lessonKey("arpeggios7", "inversions", quality, String(firstString), ascii(root)),
+    title: {
+      pt: `${name.pt} - inversões na ${firstString}ª corda`,
+      en: `${name.en} - inversions on the ${ORDINAL_EN[firstString]} string`,
+    },
+    subtitle: {
+      pt: `Todas as inversões de ${name.pt} em arpejo ${where.pt}, em ${COUNT7_PT[count]}`,
+      en: `Every inversion of ${name.en} as arpeggios ${where.en}, in ${COUNT7_EN[count]}`,
+    },
+    scale: Array.from({ length: count }, (_, fingering) => {
+      const bars = SEVENTH_STARTS.map((start) => {
+        const notes = placeShape(seventhShape(quality, start.tone, firstString, fingering), root, quality);
+        return {
+          label:
+            start.tone === 0
+              ? seventhSymbol(root, quality)
+              : `${seventhSymbol(root, quality)}/${notes[0].name}`,
+          notes,
+        };
+      }).sort((a, b) => a.notes[0].fret - b.notes[0].fret);
+      return {
+        root,
+        quality,
+        position: fingering + 1,
+        mode: {
+          pt: `Digitação ${fingering + 1}`,
+          en: `Fingering ${fingering + 1}`,
+        },
+        label: {
+          pt: `Digitação ${fingering + 1}`,
+          en: `Fingering ${fingering + 1}`,
+        },
+        showFingers: true,
+        instruction: {
+          pt: `Toque as inversões de ${name.pt} ${where.pt}, na digitação ${fingering + 1}`,
+          en: `Play the inversions of ${name.en} ${where.en}, in fingering ${fingering + 1}`,
+        },
+        notation: true,
+        signature: SEVENTH_SIGNATURE[quality](root),
+        groups: bars.map((bar) => ({ label: bar.label, count: 4 })),
+        notes: bars.flatMap((bar) => bar.notes.map(({ name: _name, ...note }) => note)),
+      };
+    }),
+  };
+}
+
+// Horizontal: the seven chords of the key up one string, in fingering n (closest to the nut).
+function seventhHorizontalRun(rootString, key, fingering) {
+  const reference = 6 - rootString;
+  const tonicFret = (rootPitchClass(key) - (OPEN_STRING_MIDI[reference] % 12) + 12) % 12;
+  const runs = [];
+  for (let first = 0; first < 7; first++) {
+    for (const octave of [0, 12]) {
+      const firstFret = ((tonicFret + MAJOR_SCALE[first]) % 12) + octave;
+      const chords = Array.from({ length: 7 }, (_, n) => {
+        const degree = (first + n) % 7;
+        const fret = firstFret + ((MAJOR_SCALE[degree] - MAJOR_SCALE[first] + 12) % 12);
+        const quality = DIATONIC_SEVENTHS[degree];
+        const chordRoot = spell(key, MAJOR_SCALE[degree], degree);
+        const shape = seventhShape(quality, 0, rootString, fingering);
+        const placed = placeShape(shape, chordRoot, quality, fret).map((note) => ({
+          ...note,
+          fret: note.fret - (placeShape(shape, chordRoot, quality, fret)[0].fret - fret),
+        }));
+        return {
+          degree,
+          label: seventhSymbol(chordRoot, quality),
+          notes: placed,
+        };
+      });
+      const frets = chords.flatMap((chord) => chord.notes.map((note) => note.fret));
+      if (Math.min(...frets) >= 1 && Math.max(...frets) <= 19)
+        runs.push({
+          chords,
+          low: Math.min(...frets),
+          high: Math.max(...frets),
+        });
+    }
+  }
+  return runs.sort((a, b) => a.low - b.low || a.high - b.high)[0].chords;
+}
+
+function seventhHorizontalLesson(rootString, key) {
+  const name = { pt: `${key} maior`, en: `${key} Major` };
+  const where = {
+    pt: `na ${rootString}ª corda`,
+    en: `on the ${ORDINAL_EN[rootString]} string`,
+  };
+  return {
+    key: lessonKey("arpeggios7", "diatonic", String(rootString), ascii(key)),
+    title: {
+      pt: `${key} maior - tétrades diatônicas`,
+      en: `${key} major - diatonic seventh chords`,
+    },
+    subtitle: {
+      pt: `As sete tétrades de ${key} maior em arpejo, subindo o braço com a tônica ${where.pt}`,
+      en: `The seven seventh chords of ${key} major as arpeggios, up the neck with the root ${where.en}`,
+    },
+    // As many exercises as every chord of the key has root-position fingerings.
+    scale: Array.from(
+      {
+        length: Math.min(...SEVENTH_ORDER.map((quality) => seventhShapes(quality, 0, rootString).length)),
+      },
+      (_, fingering) => {
+        const chords = seventhHorizontalRun(rootString, key, fingering);
+        return {
+          root: key,
+          quality: "maj7",
+          position: fingering + 1,
+          mode: {
+            pt: `Digitação ${fingering + 1}`,
+            en: `Fingering ${fingering + 1}`,
+          },
+          label: {
+            pt: `Digitação ${fingering + 1}`,
+            en: `Fingering ${fingering + 1}`,
+          },
+          showFingers: true,
+          instruction: {
+            pt: `Toque as tétrades diatônicas de ${name.pt} subindo o braço ${where.pt}, na digitação ${fingering + 1}`,
+            en: `Play the diatonic seventh chords of ${name.en} up the neck ${where.en}, in fingering ${fingering + 1}`,
+          },
+          notation: true,
+          groups: chords.map((chord) => ({ label: chord.label, count: 4 })),
+          notes: chords.flatMap((chord) => chord.notes.map(({ name: _name, ...note }) => note)),
+        };
+      },
+    ),
+  };
+}
+
+// Vertical: in each scale position, the seven chords from the lowest root up to its 7th.
+function seventhVerticalLesson(key, index) {
+  const { notes } = scalePosition(key, "major", index);
+  const degreeOf = (note) => Number(note.degree) - 1;
+  const chords = [];
+  for (let n = 0; n < 7; n++) {
+    const degree = (index + n) % 7;
+    const picked = [];
+    let from = -1;
+    for (const step of [0, 2, 4, 6]) {
+      from = notes.findIndex((note, at) => at > from && degreeOf(note) === (degree + step) % 7);
+      if (from < 0) throw new Error(`${key} posição ${index + 1}: tétrade do grau ${degree + 1} incompleta`);
+      picked.push(notes[from]);
+    }
+    const quality = DIATONIC_SEVENTHS[degree];
+    chords.push({
+      label: seventhSymbol(spell(key, MAJOR_SCALE[degree], degree), quality),
+      notes: picked.map((note) => ({
+        string: note.string,
+        fret: note.fret,
+        finger: note.finger,
+        degree: note.degree,
+        pitch: pitchName(key, degreeOf(note), OPEN_STRING_MIDI[note.string] + note.fret),
+      })),
+    });
+  }
+  const position = index + 1;
+  return {
+    key: lessonKey("arpeggios7", "diatonic-vertical", `p${position}`, ascii(key)),
+    title: {
+      pt: `${key} maior - tétrades na posição ${position}`,
+      en: `${key} major - seventh chords in position ${position}`,
+    },
+    subtitle: {
+      pt: `As sete tétrades de ${key} maior em arpejo, sem sair da posição ${position}`,
+      en: `The seven seventh chords of ${key} major as arpeggios, staying in position ${position}`,
+    },
+    scale: [
+      {
+        root: key,
+        quality: "maj7",
+        position,
+        mode: MODES[index],
+        instruction: {
+          pt: `Toque as tétrades diatônicas de ${key} maior na posição ${position}`,
+          en: `Play the diatonic seventh chords of ${key} Major in position ${position}`,
+        },
+        notation: true,
+        groups: chords.map((chord) => ({ label: chord.label, count: 4 })),
+        notes: chords.flatMap((chord) => chord.notes),
+      },
+    ],
+  };
+}
+
+SEVENTHS.trails.push(
+  ...SEVENTH_ORDER.flatMap((quality) =>
+    [6, 5, 4].map((firstString) => ({
+      section: SEVENTH_SECTION,
+      group: SEVENTH_QUALITIES[quality].inversions,
+      overline: SEVENTH_OVERLINE,
+      title: {
+        pt: `${SEVENTH_QUALITIES[quality].inversions.pt} na ${firstString}ª corda`,
+        en: `${SEVENTH_QUALITIES[quality].inversions.en} on the ${ORDINAL_EN[firstString]} string`,
+      },
+      lessons: SEVENTH_QUALITIES[quality].cycle.map((root) =>
+        seventhInversionLesson(root, quality, firstString),
+      ),
+    })),
+  ),
+  ...[6, 5, 4].map((rootString) => ({
+    section: SEVENTH_SECTION,
+    group: { pt: "Na horizontal", en: "Horizontally" },
+    overline: SEVENTH_OVERLINE,
+    title: {
+      pt: `Tétrades diatônicas na ${rootString}ª corda`,
+      en: `Diatonic seventh chords on the ${ORDINAL_EN[rootString]} string`,
+    },
+    lessons: CYCLE_OF_FOURTHS.map((key) => seventhHorizontalLesson(rootString, key)),
+  })),
+  ...[0, 1, 2, 3, 4, 5, 6].map((index) => ({
+    section: SEVENTH_SECTION,
+    group: { pt: "Na vertical", en: "Vertically" },
+    overline: SEVENTH_OVERLINE,
+    title: {
+      pt: `Tétrades diatônicas na posição ${index + 1}`,
+      en: `Diatonic seventh chords in position ${index + 1}`,
+    },
+    lessons: CYCLE_OF_FOURTHS.map((key) => seventhVerticalLesson(key, index)),
+  })),
+);
 
 // Module order on the dashboard: CAGED, triads, seventh chords (ids stay: 1, 3, 2).
 const triadTrails = renderInversionTrails(TRIADS);
 const inversionTrails = renderInversionTrails(INVERSIONS);
 const scaleTrails = renderScaleTrails(SCALES);
 const arpeggioTrails = renderScaleTrails(ARPEGGIOS);
+const seventhArpeggioTrails = renderScaleTrails(SEVENTHS);
 
 const file = `import type { ChordStep, ScaleStep } from "./chords.ts";
 import type { Localized } from "./i18n.tsx";
@@ -1005,6 +2107,10 @@ export type Lesson = {
 
 /** One trail of the home page, under a small heading ("Acordes maiores"). */
 export type Trail = {
+  /** Section heading above the groups ("Começando na tônica"), when the module has two levels. */
+  section?: Localized;
+  /** Overline of the trail's exercises, replacing the path and the key ("Triad Arpeggios Practice"). */
+  overline?: Localized;
   /** Collapsible category the trail sits in ("1ª inversão: baixo na terça"); omitted = none. */
   group?: Localized;
   /** Review trail: every inversion of a quality, along the neck (left out of guide tables and the dictionary). */
@@ -1061,10 +2167,23 @@ ${scaleTrails.join("\n")}
 ${arpeggioTrails.join("\n")}
     ],
   },
+  {
+    id: 6,
+    title: ${loc(SEVENTHS.title)},
+    subtitle: ${loc(SEVENTHS.subtitle)},
+    trails: [
+${seventhArpeggioTrails.join("\n")}
+    ],
+  },
 ];
 
 /** Every lesson of every trail, in order. */
 export const lessons: Lesson[] = sections.flatMap((section) => section.trails.flatMap((trail) => trail.lessons));
 `;
-fs.writeFileSync(path.resolve(import.meta.dirname, "../../src/lessons.ts"), file);
-console.log(`src/lessons.ts: 5 seções, ${TRAILS.length + TRIADS.trails.length + INVERSIONS.trails.length + SCALES.trails.length + ARPEGGIOS.trails.length} trilhas, ${nextId - 1} aulas`);
+fs.writeFileSync(
+  path.resolve(import.meta.dirname, "../../src/lessons.ts"),
+  file,
+);
+console.log(
+  `src/lessons.ts: 6 seções, ${TRAILS.length + TRIADS.trails.length + INVERSIONS.trails.length + SCALES.trails.length + ARPEGGIOS.trails.length + SEVENTHS.trails.length} trilhas, ${nextId - 1} aulas`,
+);

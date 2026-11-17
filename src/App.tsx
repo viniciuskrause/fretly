@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
+import { NotationCard, playingOrder } from "./Notation.tsx";
 import {
   barreSpans,
   chordLabel,
@@ -91,14 +92,24 @@ const doneShareOf = (lessons: Lesson[]) =>
 const variationChord = (lesson: Lesson) =>
   lesson.scale ? scaleSymbol(lesson.scale[0]) : lesson.steps[0].chord.split("/")[0];
 
-/** Key of a scale written as a chord symbol: "C" (major), "Am" (minor). */
-const scaleSymbol = (step: ScaleStep) => step.root + (step.quality === "minor" ? "m" : "");
+/** Key of a scale written as a chord symbol: "C" (major), "Am" (minor), "Bdim" (diminished arpeggio). */
+const scaleSymbol = (step: ScaleStep) =>
+  step.root +
+  {
+    major: "",
+    minor: "m",
+    dim: "dim",
+    maj7: "7+",
+    m7: "m7",
+    "7": "7",
+    m7b5: "m7(♭5)",
+  }[step.quality];
 
-/** Key of a scale in words: "C maior" / "A minor". */
+/** Key of a scale in words: "C maior" / "A minor" / "B diminuto". */
 const scaleName = (step: ScaleStep, lang: Lang) =>
-  lang === "en"
-    ? `${step.root} ${step.quality === "minor" ? "minor" : "major"}`
-    : `${step.root} ${step.quality === "minor" ? "menor" : "maior"}`;
+  ["major", "minor", "dim"].includes(step.quality)
+    ? `${step.root} ${(lang === "en" ? { major: "major", minor: "minor", dim: "diminished" } : { major: "maior", minor: "menor", dim: "diminuto" })[step.quality as "major" | "minor" | "dim"]}`
+    : chordName(scaleSymbol(step), lang);
 
 /** Key of a variation: the root of its chord ("B♭m7" → "B♭"). */
 const variationKey = (lesson: Lesson) => variationChord(lesson).match(/^[A-G][♯♭]?/)?.[0] ?? lesson.title.pt;
@@ -241,11 +252,25 @@ function LessonHub({ trail, onSelect }: { trail: TrailData; onSelect: (lesson: L
 
 /** Consecutive trails of a section that share a group (or that have none). */
 function trailBlocks(section: Section) {
-  const blocks: Array<{ group?: Localized; items: Array<{ trail: TrailData; index: number }> }> = [];
+  const blocks: Array<{
+    section?: Localized;
+    group?: Localized;
+    items: Array<{ trail: TrailData; index: number }>;
+  }> = [];
   section.trails.forEach((trail, index) => {
     const last = blocks.at(-1);
-    if (last && last.group?.pt === trail.group?.pt) last.items.push({ trail, index });
-    else blocks.push({ group: trail.group, items: [{ trail, index }] });
+    if (
+      last &&
+      last.group?.pt === trail.group?.pt &&
+      last.section?.pt === trail.section?.pt
+    )
+      last.items.push({ trail, index });
+    else
+      blocks.push({
+        section: trail.section,
+        group: trail.group,
+        items: [{ trail, index }],
+      });
   });
   return blocks;
 }
@@ -265,14 +290,80 @@ function UnitTrail({ section, onSelect }: { section: Section; onSelect: (lesson:
   const [segments, setSegments] = useState<TrailSegment[]>([]);
   const trails = section.trails;
 
+  // Collapsible parts of the trail: the top heading level (the section when the module has
+  // two levels, else the group). The part holding the current lesson starts open — or the
+  // first part, when no lesson is current here; the learner opens and closes the others.
+  const partOf = (trail: TrailData) => (trail.section ?? trail.group)?.pt;
+  const [open, setOpen] = useState<Set<string>>(() => {
+    const active =
+      trails.find((trail) => lessonStatus(trail) === "current") ??
+      trails.find((trail) => partOf(trail));
+    const part = active && partOf(active);
+    return new Set(part ? [part] : []);
+  });
+  const toggle = (part: string) =>
+    setOpen((current) => {
+      const next = new Set(current);
+      if (next.has(part)) next.delete(part);
+      else next.add(part);
+      return next;
+    });
+  const isOpen = (trail: TrailData) => {
+    const part = partOf(trail);
+    return !part || open.has(part);
+  };
+
   // Grid placement on wide screens: headings take a full row, lessons fill rows of two, alternating direction.
   let row = 0;
   let hubRow = 0;
   const placed: Array<
-    { kind: "heading"; title: string; row: number } | { kind: "hub"; trail: TrailData; index: number; row: number; column: number }
+    | {
+        kind: "heading";
+        title: string;
+        row: number;
+        sub?: boolean;
+        part?: string;
+        expanded?: boolean;
+      }
+    | {
+        kind: "hub";
+        trail: TrailData;
+        index: number;
+        row: number;
+        column: number;
+      }
   > = [];
+  let currentSection: string | undefined;
   trailBlocks(section).forEach((block) => {
-    if (block.group) placed.push({ kind: "heading", title: l(block.group), row: ++row });
+    const first = block.items[0].trail;
+    const expanded = isOpen(first);
+    // Two levels: a section heading ("Começando na tônica") over subsection headings ("Tríade maior").
+    if (block.section && block.section.pt !== currentSection) {
+      currentSection = block.section.pt;
+      placed.push({
+        kind: "heading",
+        title: l(block.section),
+        row: ++row,
+        part: block.section.pt,
+        expanded,
+      });
+    }
+    if (block.group && !block.section)
+      placed.push({
+        kind: "heading",
+        title: l(block.group),
+        row: ++row,
+        part: block.group.pt,
+        expanded,
+      });
+    if (!expanded) return;
+    if (block.group && block.section)
+      placed.push({
+        kind: "heading",
+        title: l(block.group),
+        row: ++row,
+        sub: true,
+      });
     block.items.forEach(({ trail, index }, position) => {
       if (position % 2 === 0) {
         row += 1;
@@ -319,7 +410,7 @@ function UnitTrail({ section, onSelect }: { section: Section; onSelect: (lesson:
     const observer = new ResizeObserver(measure);
     observer.observe(container);
     return () => observer.disconnect();
-  }, [trails]);
+  }, [trails, open]);
 
   return (
     <div ref={containerRef} className="unit-trail">
@@ -341,8 +432,27 @@ function UnitTrail({ section, onSelect }: { section: Section; onSelect: (lesson:
       </svg>
       {placed.map((item) =>
         item.kind === "heading" ? (
-          <h3 key={`h${item.row}`} className="unit-trail__heading" style={{ "--row": item.row } as CSSProperties}>
-            <span>{item.title}</span>
+          <h3
+            key={`h${item.row}`}
+            className={`unit-trail__heading ${item.sub ? "unit-trail__heading--sub" : ""}`}
+            style={{ "--row": item.row } as CSSProperties}
+          >
+            {item.part ? (
+              <button
+                type="button"
+                className="unit-trail__toggle"
+                aria-expanded={item.expanded}
+                onClick={() => toggle(item.part!)}
+              >
+                {item.title}
+                <Icon
+                  name="chevron"
+                  className={`size-5 shrink-0 transition-transform ${item.expanded ? "rotate-180" : ""}`}
+                />
+              </button>
+            ) : (
+              <span>{item.title}</span>
+            )}
           </h3>
         ) : (
           <div
@@ -510,10 +620,19 @@ function NextLesson({ sections: all, onSelect }: { sections: Section[]; onSelect
 
 /** The dashboard: home of the app, with the overall progress and the modules. */
 /** Module groups on the dashboard: chord modules, then scales and arpeggios (modules 4 and 5). */
-const SCALE_MODULES = new Set([4, 5]);
-const DASHBOARD_GROUPS: Array<{ title: Localized; sections: (id: number) => boolean }> = [
-  { title: { pt: "Acordes", en: "Chords" }, sections: (id) => !SCALE_MODULES.has(id) },
-  { title: { pt: "Escalas e Arpejos", en: "Scales and Arpeggios" }, sections: (id) => SCALE_MODULES.has(id) },
+const SCALE_MODULES = new Set([4, 5, 6]);
+const DASHBOARD_GROUPS: Array<{
+  title: Localized;
+  sections: (id: number) => boolean;
+}> = [
+  {
+    title: { pt: "Acordes", en: "Chords" },
+    sections: (id) => !SCALE_MODULES.has(id),
+  },
+  {
+    title: { pt: "Escalas e Arpejos", en: "Scales and Arpeggios" },
+    sections: (id) => SCALE_MODULES.has(id),
+  },
 ];
 
 function Dashboard({ sections: all, onSelect }: { sections: Section[]; onSelect: (lesson: Lesson) => void }) {
@@ -653,7 +772,9 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
   // Arpeggio diagrams show at least four frets, so a two-fret fingering isn't drawn huge.
   const high = Math.max(...frets, step.showFingers ? low + 3 : 0);
   const columns = high - low + 1;
-  const width = SCALE_LEFT * 2 + columns * SCALE_COLUMN;
+  // Arpeggio diagrams write the degree to the right of each dot ("♭3"): room for it on the last fret.
+  const width =
+    SCALE_LEFT * 2 + columns * SCALE_COLUMN + (step.showFingers ? 14 : 0);
   // Leap exercises draw arcs above the strings, so they get extra room on top.
   const top = SCALE_TOP + (step.leaps ? LEAP_ROOM : 0);
   const rowY = (string: number) => top + (5 - string) * SCALE_ROW;
@@ -680,7 +801,7 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
           key={`string-${string}`}
           x1={SCALE_LEFT}
           y1={rowY(string)}
-          x2={width - SCALE_LEFT}
+          x2={SCALE_LEFT + columns * SCALE_COLUMN}
           y2={rowY(string)}
           strokeWidth={string === 0 ? 1.6 : 1.2}
           className="stroke-subtle"
@@ -731,41 +852,55 @@ function ScaleDiagram({ step, activeNote = null }: { step: ScaleStep; /** Index 
             />,
           ];
         })}
-      {step.notes.map((note, index) => {
-        const isActive = index === activeNote;
-        const isTonic = note.degree === "1";
-        return (
-          <g key={`note-${index}`} className="transition-transform duration-150">
-            <circle
-              cx={columnX(note.fret)}
-              cy={rowY(note.string)}
-              r={isActive ? 10.5 : 9}
-              className={isActive ? "fill-accent" : isTonic ? "fill-brand" : "fill-ink"}
-            />
-            <text
-              x={columnX(note.fret)}
-              y={rowY(note.string) + 3.5}
-              textAnchor="middle"
-              fontSize={note.degree.length > 1 && !step.showFingers ? 8.5 : 10}
-              fontWeight="700"
-              className="fill-white font-mono"
+      {step.notes
+        .map((note, index) => ({ note, index }))
+        // The sounding note is drawn last: in long runs another note can sit on the same fret.
+        .sort(
+          (a, b) =>
+            Number(a.index === activeNote) - Number(b.index === activeNote),
+        )
+        .map(({ note, index }) => {
+          const isActive = index === activeNote;
+          const isTonic = note.degree === "1";
+          return (
+            <g
+              key={`note-${index}`}
+              className="transition-transform duration-150"
             >
-              {step.showFingers ? (note.finger ?? "0") : note.degree}
-            </text>
-            {step.showFingers && (
+              <circle
+                cx={columnX(note.fret)}
+                cy={rowY(note.string)}
+                r={isActive ? 10.5 : 9}
+                className={
+                  isActive ? "fill-accent" : isTonic ? "fill-brand" : "fill-ink"
+                }
+              />
               <text
-                x={columnX(note.fret) + 12}
-                y={rowY(note.string) - 8}
-                fontSize="9"
+                x={columnX(note.fret)}
+                y={rowY(note.string) + 3.5}
+                textAnchor="middle"
+                fontSize={
+                  note.degree.length > 1 && !step.showFingers ? 8.5 : 10
+                }
                 fontWeight="700"
-                className={`font-mono ${isTonic ? "fill-brand-ink" : "fill-muted"}`}
+                className="fill-white font-mono"
               >
-                {note.degree}
+                {step.showFingers ? (note.finger ?? "0") : note.degree}
               </text>
-            )}
-          </g>
-        );
-      })}
+              {step.showFingers && (
+                <text
+                  x={columnX(note.fret) + 12}
+                  y={rowY(note.string) - 8}
+                  fontSize="9"
+                  fontWeight="700"
+                  className={`font-mono ${isTonic ? "fill-brand-ink" : "fill-muted"}`}
+                >
+                  {note.degree}
+                </text>
+              )}
+            </g>
+          );
+        })}
     </svg>
   );
 }
@@ -1060,13 +1195,19 @@ type LessonPath = { headings: string[]; chord: string };
  * "1ª inversão: baixo na terça - Acordes maiores - C7+".
  */
 function lessonPath(lesson: Lesson, lang: Lang): LessonPath {
-  const trail = sections.flatMap((section) => section.trails).find((item) => item.lessons.some(({ id }) => id === lesson.id));
+  const trail = sections
+    .flatMap((section) => section.trails)
+    .find((item) => item.lessons.some(({ id }) => id === lesson.id));
+  // A trail can name its exercises itself ("Triad Arpeggios Practice"), with no key.
+  if (trail?.overline) return { headings: [trail.overline[lang]], chord: "" };
   const headings = trail
-    ? [trail.group, trail.title].filter((heading): heading is Localized => !!heading).map((heading) => heading[lang])
+    ? [trail.section, trail.group, trail.title]
+        .filter((heading): heading is Localized => !!heading)
+        .map((heading) => heading[lang])
     : [];
   // The chord without its bass ("C7+/E" → "C7+"); the lesson title is the fallback.
   const chord = lesson.scale
-    ? scaleSymbol(lesson.scale[0])
+    ? chordName(scaleSymbol(lesson.scale[0]), lang)
     : lesson.steps[0]
       ? chordName(lesson.steps[0].chord.split("/")[0], lang)
       : lesson.title[lang].split(" - ")[0];
@@ -1080,8 +1221,13 @@ function lessonPath(lesson: Lesson, lang: Lang): LessonPath {
 function LessonOverline({ path }: { path: LessonPath }) {
   return (
     <>
-      {path.headings.map((heading) => `${heading} - `).join("")}
-      <span className="normal-case">{path.chord}</span>
+      {path.headings.join(" - ")}
+      {path.chord && (
+        <>
+          {path.headings.length > 0 && " - "}
+          <span className="normal-case">{path.chord}</span>
+        </>
+      )}
     </>
   );
 }
@@ -1106,16 +1252,30 @@ type ActionButtonProps = {
   icon?: IconName;
 };
 
-function SecondaryButton({ label, onClick, disabled, icon }: ActionButtonProps) {
+function SecondaryButton({
+  label,
+  onClick,
+  disabled,
+  icon,
+  iconOnly = false,
+}: ActionButtonProps & {
+  /** Square button with the icon only (the label stays as aria-label and tooltip): previous / next. */
+  iconOnly?: boolean;
+}) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className="flex h-12 min-w-12 items-center justify-center gap-2 rounded-control border border-line-strong bg-surface px-4 text-sm font-semibold text-ink-2 transition hover:border-subtle hover:bg-sunken hover:text-ink active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong disabled:hover:bg-surface sm:min-w-[140px] sm:px-5"
+      title={iconOnly ? label : undefined}
+      className={`flex h-12 min-w-12 items-center justify-center gap-2 rounded-control border border-line-strong bg-surface text-sm font-semibold text-ink-2 transition hover:border-subtle hover:bg-sunken hover:text-ink active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong disabled:hover:bg-surface ${
+        iconOnly ? "w-12" : "px-4 sm:min-w-[140px] sm:px-5"
+      }`}
     >
       {icon && <Icon name={icon} className="size-5" />}
-      <span className={icon ? "hidden sm:inline" : undefined}>{label}</span>
+      {!iconOnly && (
+        <span className={icon ? "hidden sm:inline" : undefined}>{label}</span>
+      )}
     </button>
   );
 }
@@ -1250,14 +1410,19 @@ function ExercisePage({
   const [bpm, setBpm] = useState(lesson.lastBpm ?? 72);
   const [playbackStatus, setPlaybackStatus] = useState<"idle" | "playing" | "finished">("idle");
   const [activeStrings, setActiveStrings] = useState<number[]>([]);
-  // Scale note sounding (index into the position's notes).
+  // Scale note sounding (index into the position's notes) and its place in the playing order.
   const [activeNote, setActiveNote] = useState<number | null>(null);
-  const [finalExercise, setFinalExercise] = useState(reopensFinished && hasFinal);
+  const [activeOrder, setActiveOrder] = useState<number | null>(null);
+  const [finalExercise, setFinalExercise] = useState(
+    reopensFinished && hasFinal,
+  );
   const [sequenceIndex, setSequenceIndex] = useState(-1);
   const [sequenceStatus, setSequenceStatus] = useState<"idle" | "countdown" | "playing" | "finished">("idle");
   const [countdown, setCountdown] = useState<number | null>(null);
   const [complete, setComplete] = useState(false);
   const timeoutIds = useRef<number[]>([]);
+  // Bumped on every stop/restart: a start still waiting for the audio output gives up if it changed.
+  const playbackRun = useRef(0);
   const audioContext = useRef<AudioContext | null>(null);
   const scheduledSources = useRef<Array<{ source: AudioBufferSourceNode; startAt: number }>>([]);
   const step = lesson.steps[stepIndex];
@@ -1270,6 +1435,7 @@ function ExercisePage({
   // Cancels pending UI updates, the scheduler loop and every note that hasn't
   // started yet. Notes already sounding keep ringing naturally.
   function clearPlayback() {
+    playbackRun.current += 1;
     timeoutIds.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
     timeoutIds.current = [];
     const context = audioContext.current;
@@ -1389,18 +1555,32 @@ function ExercisePage({
     setPlaybackStatus("playing");
     setActiveStrings([]);
     setActiveNote(null);
+    const run = playbackRun.current;
     await prepareAudio();
+    if (run !== playbackRun.current) return; // stopped meanwhile
 
     if (scaleStep) {
       // Up and back down, two notes per beat (eighth notes).
-      const order = upAndDown(scaleStep);
+      // Written exercises (tab / staff) repeat the top note on the way down: one triad per bar.
+      const order = scaleStep.notation
+        ? playingOrder(scaleStep)
+        : upAndDown(scaleStep);
       const events: ScheduledEvent[] = order.map((index, n) => ({
         beat: n / 2,
-        notes: [{ frequency: scaleNoteFrequency(scaleStep.notes[index]), volume: 0.16 }],
-        onPlay: () => setActiveNote(index),
+        notes: [
+          {
+            frequency: scaleNoteFrequency(scaleStep.notes[index]),
+            volume: 0.16,
+          },
+        ],
+        onPlay: () => {
+          setActiveNote(index);
+          setActiveOrder(n);
+        },
       }));
       runSchedule(events, order.length / 2 + 0.5, () => {
         setActiveNote(null);
+        setActiveOrder(null);
         setPlaybackStatus("finished");
       });
       return;
@@ -1429,6 +1609,7 @@ function ExercisePage({
     setPlaybackStatus("idle");
     setActiveStrings([]);
     setActiveNote(null);
+    setActiveOrder(null);
   }
 
   function nextStep() {
@@ -1449,6 +1630,7 @@ function ExercisePage({
     clearPlayback();
     setSequenceIndex(-1);
     setActiveNote(null);
+    setActiveOrder(null);
     setCountdown(null);
     setSequenceStatus("idle");
   }
@@ -1460,8 +1642,11 @@ function ExercisePage({
     setSequenceIndex(-1);
     setSequenceStatus("countdown");
     setCountdown(3);
+    const run = playbackRun.current;
     await prepareAudio();
-    const later = (ms: number, fn: () => void) => timeoutIds.current.push(window.setTimeout(fn, ms));
+    if (run !== playbackRun.current) return; // stopped meanwhile
+    const later = (ms: number, fn: () => void) =>
+      timeoutIds.current.push(window.setTimeout(fn, ms));
     later(1000, () => setCountdown(2));
     later(2000, () => setCountdown(1));
     later(3000, () => {
@@ -1472,13 +1657,17 @@ function ExercisePage({
         const events: ScheduledEvent[] = [];
         let beat = 0;
         scale.forEach((scaleItem, position) => {
-          upAndDown(scaleItem).forEach((index) => {
+          (scaleItem.notation
+            ? playingOrder(scaleItem)
+            : upAndDown(scaleItem)
+          ).forEach((index, n) => {
             events.push({
               beat,
               notes: [{ frequency: scaleNoteFrequency(scaleItem.notes[index]), volume: 0.16 }],
               onPlay: () => {
                 setSequenceIndex(position);
                 setActiveNote(index);
+                setActiveOrder(n);
               },
             });
             beat += 0.5;
@@ -1605,18 +1794,12 @@ function ExercisePage({
                   />
                 </>
               ) : (
+                // While it plays (or counts down), the button stops it and goes back to the start.
                 <PrimaryButton
-                  label={
-                    sequenceStatus === "countdown"
-                      ? t("Preparando", "Get ready")
-                      : isPlaying
-                        ? t("Tocando", "Playing")
-                        : t("Iniciar", "Start")
-                  }
-                  icon="play"
+                  label={isPlaying ? t("Parar", "Stop") : t("Iniciar", "Start")}
+                  icon={isPlaying ? "stop" : "play"}
                   tone="accent"
-                  disabled={isPlaying}
-                  onClick={startChordSequence}
+                  onClick={isPlaying ? resetSequence : startChordSequence}
                 />
               )}
             </div>
@@ -1626,7 +1809,32 @@ function ExercisePage({
         <ExerciseHeading path={path} title={t("Sequência completa", "Full sequence")} />
 
         <div className="relative mt-12">
-          {scale ? (
+          {scale?.[0].notation ? (
+            // Written exercises: one notation card per fingering, one below the other.
+            <div className="mx-auto grid max-w-[880px] gap-4">
+              {scale.map((scaleItem, index) => {
+                const isSounding =
+                  sequenceStatus === "playing" && index === sequenceIndex;
+                const isDimmed = isPlaying && !isSounding;
+                return (
+                  <NotationCard
+                    key={scaleItem.position}
+                    step={scaleItem}
+                    activeOrder={isSounding ? activeOrder : null}
+                    current={isSounding}
+                    cardRef={(node) => {
+                      if (node && isSounding)
+                        node.scrollIntoView({
+                          block: "nearest",
+                          behavior: "smooth",
+                        });
+                    }}
+                    className={`sequence-card ${isSounding ? "sequence-card--sounding" : ""} ${isDimmed ? "sequence-card--dimmed" : ""}`}
+                  />
+                );
+              })}
+            </div>
+          ) : scale ? (
             <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
               {scale.map((scaleItem, index) => {
                 const isSounding = sequenceStatus === "playing" && index === sequenceIndex;
@@ -1683,22 +1891,44 @@ function ExercisePage({
   }
 
   const isPlaying = playbackStatus === "playing";
+  // Long runs along the neck (more than 10 frets) get a wider page, so the dots stay readable.
+  const runFrets = scaleStep?.notes.map((note) => note.fret) ?? [];
+  // Written exercises (tab / staff) always get the wide page: the score needs the width.
+  const longRun =
+    !!scaleStep?.notation ||
+    (runFrets.length > 0 && Math.max(...runFrets) - Math.min(...runFrets) > 10);
   return (
     <ExerciseShell
       progress={progress}
       onExit={onExit}
+      wide={longRun}
       footerCenter={bpmControl}
       footer={
         <>
-          <SecondaryButton
-            label={t("Anterior", "Previous")}
-            icon="back"
-            disabled={stepIndex === 0 || isPlaying}
-            onClick={() => {
-              resetPlayback();
-              setStepIndex((current) => Math.max(0, current - 1));
-            }}
-          />
+          <div className="flex gap-3">
+            <SecondaryButton
+              label={t("Anterior", "Previous")}
+              icon="back"
+              iconOnly
+              disabled={stepIndex === 0 || isPlaying}
+              onClick={() => {
+                resetPlayback();
+                setStepIndex((current) => Math.max(0, current - 1));
+              }}
+            />
+            {/* Skips ahead without playing (to the final exercise from the last step); never finishes the lesson. */}
+            <SecondaryButton
+              label={t("Próximo", "Next")}
+              icon="forward"
+              iconOnly
+              disabled={isPlaying || (stepIndex === stepCount - 1 && !hasFinal)}
+              onClick={() => {
+                resetPlayback();
+                if (stepIndex === stepCount - 1) setFinalExercise(true);
+                else setStepIndex((current) => current + 1);
+              }}
+            />
+          </div>
           <div className="flex gap-3">
             {playbackStatus === "finished" ? (
               <>
@@ -1715,12 +1945,12 @@ function ExercisePage({
                 />
               </>
             ) : (
+              // While it plays, the button stops it (the exercise goes back to "Tocar").
               <PrimaryButton
-                label={isPlaying ? t("Tocando", "Playing") : t("Tocar", "Play")}
-                icon="play"
+                label={isPlaying ? t("Parar", "Stop") : t("Tocar", "Play")}
+                icon={isPlaying ? "stop" : "play"}
                 tone="accent"
-                disabled={isPlaying}
-                onClick={startPlayback}
+                onClick={isPlaying ? resetPlayback : startPlayback}
               />
             )}
           </div>
@@ -1740,8 +1970,17 @@ function ExercisePage({
                   )
             }
           />
-          <div className="mx-auto mt-12 w-full max-w-[560px]">
-            <ScaleCard step={scaleStep} activeNote={activeNote} fingerHint />
+          <div
+            className={`mx-auto mt-12 w-full ${longRun ? "max-w-[880px]" : "max-w-[560px]"}`}
+          >
+            {scaleStep.notation ? (
+              <NotationCard
+                step={scaleStep}
+                activeOrder={playbackStatus === "playing" ? activeOrder : null}
+              />
+            ) : (
+              <ScaleCard step={scaleStep} activeNote={activeNote} fingerHint />
+            )}
           </div>
         </>
       ) : (
@@ -2752,12 +2991,51 @@ function ArpeggiosGuide({ onBack }: { onBack: () => void }) {
         {shapeGrid("fifth", { pt: "Quinta", en: "Fifth" })}
       </GuideSection>
 
+      <GuideSection
+        title={t("Tríades menores e diminutas", "Minor and diminished triads")}
+      >
+        {t(
+          <p>
+            Cada seção tem também as tríades menores (1 ♭3 5) e diminutas (1 ♭3
+            ♭5). As digitações são as mesmas da tríade maior, nas mesmas cordas
+            e com os mesmos dedos: só a terça (e, na diminuta, também a quinta)
+            desce uma casa. Abaixo, C menor e C diminuto com a tônica na 6ª
+            corda.
+          </p>,
+          <p>
+            Each section also has the minor (1 ♭3 5) and diminished (1 ♭3 ♭5)
+            triads. The fingerings are the same as for the major triad, on the
+            same strings and with the same fingers: only the third (and, in the
+            diminished triad, the fifth too) moves down one fret. Below, C minor
+            and C diminished with the root on the 6th string.
+          </p>,
+        )}
+        {(["minor", "dim"] as const).map((quality) => (
+          <div key={quality} className="!mt-6">
+            <p className="eyebrow text-brand-ink">
+              {quality === "minor"
+                ? t("C menor", "C minor")
+                : t("C diminuto", "C diminished")}
+            </p>
+            <div className="mt-2 grid gap-3 sm:grid-cols-3">
+              {(
+                lessons.find(
+                  (lesson) => lesson.key === `arpeggios/${quality}/root/6/C`,
+                )?.scale ?? []
+              ).map((step) => (
+                <ScaleCard key={step.position} step={step} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </GuideSection>
+
       <GuideSection title={t("Como estudar", "How to practise")}>
         {t(
           <ol className="list-decimal space-y-2 pl-5">
             <li>
-              Há uma aula para cada nota inicial (tônica, terça ou quinta) e cada corda, cada uma com uma
-              variação para cada tonalidade, no ciclo de quartas.
+              Há uma aula para cada nota inicial (tônica, terça ou quinta), qualidade (maior, menor ou
+              diminuta) e corda, cada uma com uma variação para cada tonalidade.
             </li>
             <li>Em cada tonalidade, toque cada digitação subindo e descendo, com o metrônomo.</li>
             <li>Diga em voz alta o grau de cada nota enquanto toca: 1, 3, 5 (ou 3, 5, 1, ou 5, 1, 3) e de volta.</li>
@@ -2765,12 +3043,112 @@ function ArpeggiosGuide({ onBack }: { onBack: () => void }) {
           </ol>,
           <ol className="list-decimal space-y-2 pl-5">
             <li>
-              There is a lesson for each starting note (root, third or fifth) and string, each with a variation
-              for every key, in the cycle of fourths.
+              There is a lesson for each starting note (root, third or fifth), quality (major, minor or
+              diminished) and string, each with a variation for every key.
             </li>
             <li>In each key, play each fingering up and down with the metronome.</li>
             <li>Say each note's degree out loud as you play: 1, 3, 5 (or 3, 5, 1, or 5, 1, 3) and back.</li>
             <li>In the final exercise, play the fingerings in sequence, in time with the metronome.</li>
+          </ol>,
+        )}
+      </GuideSection>
+    </GuideLayout>
+  );
+}
+
+const SEVENTH_ARPEGGIO_SOURCES: GuideSource[] = [
+  {
+    label: "Wikipedia — Arpeggio",
+    url: "https://en.wikipedia.org/wiki/Arpeggio",
+  },
+  {
+    label: "Wikipedia — Seventh chord",
+    url: "https://en.wikipedia.org/wiki/Seventh_chord",
+  },
+];
+
+function SeventhArpeggiosGuide({ onBack }: { onBack: () => void }) {
+  const { t } = useI18n();
+  const qualities = [
+    { id: "maj7", name: { pt: "C7+", en: "Cmaj7" }, degrees: "1 3 5 7" },
+    { id: "m7", name: { pt: "Cm7", en: "Cm7" }, degrees: "1 ♭3 5 ♭7" },
+    { id: "7", name: { pt: "C7", en: "C7" }, degrees: "1 3 5 ♭7" },
+    {
+      id: "m7b5",
+      name: { pt: "Cm7(♭5)", en: "Cm7(♭5)" },
+      degrees: "1 ♭3 ♭5 ♭7",
+    },
+  ];
+  return (
+    <GuideLayout
+      title={t("Arpejos de tétrades", "Seventh chord arpeggios")}
+      sources={SEVENTH_ARPEGGIO_SOURCES}
+      onBack={onBack}
+      intro={t(
+        <>
+          A tétrade é a tríade com a sétima: quatro notas. O módulo segue o de Arpejos de Tríades: cada acorde
+          começando na tônica, na terça, na quinta e na sétima, a partir da 6ª, da 5ª e da 4ª corda, em até
+          três digitações.
+        </>,
+        <>
+          A seventh chord is a triad plus the seventh: four notes. The module follows Triad Arpeggios: each
+          chord starting on the root, the third, the fifth and the seventh, from the 6th, 5th and 4th strings,
+          in up to three fingerings.
+        </>,
+      )}
+    >
+      <GuideSection title={t("As quatro tétrades", "The four seventh chords")}>
+        {t(
+          <p>
+            Nos diagramas, o número dentro de cada ponto é o dedo e o número ao lado é o grau. Abaixo, as
+            digitações de cada tétrade em C com a tônica na 6ª corda.
+          </p>,
+          <p>
+            In the diagrams, the number inside each dot is the finger and the number next to it is the degree.
+            Below, the fingerings of each seventh chord in C with the root on the 6th string.
+          </p>,
+        )}
+        {qualities.map((quality) => (
+          <div key={quality.id} className="!mt-6">
+            <p className="eyebrow text-brand-ink">
+              <span className="normal-case">{t(quality.name.pt, quality.name.en)}</span> · {quality.degrees}
+            </p>
+            <div className="mt-2 grid gap-3 sm:grid-cols-3">
+              {(
+                lessons.find((lesson) => lesson.key === `arpeggios7/${quality.id}/root/6/C`)?.scale ?? []
+              ).map((step) => (
+                <ScaleCard key={step.position} step={step} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </GuideSection>
+
+      <GuideSection title={t("Como estudar", "How to practise")}>
+        {t(
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>
+              Há uma aula para cada nota inicial (tônica, terça, quinta ou sétima), tétrade e corda, cada uma
+              com uma variação para cada tonalidade.
+            </li>
+            <li>Em cada tonalidade, toque cada digitação subindo e descendo, com o metrônomo.</li>
+            <li>Diga em voz alta o grau de cada nota enquanto toca.</li>
+            <li>
+              Nos exercícios, toque as inversões numa corda, as tétrades diatônicas subindo o braço e, por
+              fim, em cada posição da escala maior.
+            </li>
+          </ol>,
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>
+              There is a lesson for each starting note (root, third, fifth or seventh), chord and string, each
+              with a variation for every key.
+            </li>
+            <li>In each key, play each fingering up and down with the metronome.</li>
+            <li>Say each note's degree out loud as you play.</li>
+            <li>
+              In the exercises, play the inversions on one string, the diatonic seventh chords up the neck
+              and, last, in each position of the major scale.
+            </li>
           </ol>,
         )}
       </GuideSection>
@@ -3212,7 +3590,17 @@ export default function App() {
 
   if (guideSection !== null) {
     const Guide =
-      guideSection === 2 ? InversionsGuide : guideSection === 3 ? TriadsGuide : guideSection === 4 ? ScalesGuide : guideSection === 5 ? ArpeggiosGuide : CagedGuide;
+      guideSection === 2
+        ? InversionsGuide
+        : guideSection === 3
+          ? TriadsGuide
+          : guideSection === 4
+            ? ScalesGuide
+            : guideSection === 5
+              ? ArpeggiosGuide
+              : guideSection === 6
+                ? SeventhArpeggiosGuide
+                : CagedGuide;
     return <Guide onBack={() => setGuideSection(null)} />;
   }
 
