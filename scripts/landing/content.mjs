@@ -19,72 +19,101 @@ export const content = {
       "Guitar exercises, not video lessons: chords, inversions, scales and arpeggios in all 12 keys, with sound, metronome and tab. Practice to improvise in any style.",
     nav: { cta: "Start practicing for free", login: "Log in", continue: "Continue practicing", account: "Open the app" },
     hero: {
-      h1: "Guitar practice to break free from shapes and keys",
-      sub: "A complete, hands-on practice path for the whole fretboard: chords, inversions, scales and arpeggios in all 12 keys, with sound and a metronome — exercises you play right away, no video lessons to sit through. Level up so you can play, improvise, compose and arrange in any style — and find the sound you are after on your own.",
+      // The title is split around the highlighted words.
+      h1: ["Guitar practice to ", "break free", " from shapes and keys"],
+      sub: "Short exercises, not video lessons: chords, scales and arpeggios to play and improvise in any style, with your progress tracked lesson by lesson.",
       cta: "Start practicing for free",
-      ctaNote: "Free, no credit card",
-      checklist: [
-        "Chords with the CAGED system, all over the neck",
-        "Triad and seventh-chord inversions",
-        "The major scale in 7 positions",
-        "Triad and seventh-chord arpeggios",
-        "Diatonic chords of every key, up and across the neck",
-        "All 12 keys, in the cycle of fourths",
-      ],
+      checklist: ["CAGED system", "Chord inversions", "Major scale in 7 positions", "Arpeggios", "Diatonic chords", "Practice in all keys"],
       stats: (n) => [
         [`${n.lessons}`, "lessons"],
         [`${n.exercises}`, "exercises"],
-        [`${n.fingerings}+`, "chord fingerings"],
+        [`${n.voicings}`, "chord voicings"],
       ],
       statsLabel: "In numbers",
-      ringLabel: "A lesson with its 12 keys: done keys in blue, the next one in orange",
     },
     story: {
-      h2: "Stuck in the same shapes and keys?",
+      h2: "How to break free on the guitar neck without sitting through hours of video lessons",
       paragraphs: [
-        "Most guitarists learn a few open chords, a couple of barre shapes and one scale box — and then stay there. The songs they play, write and arrange end up sounding the same, because their hands always go back to the same spots on the neck and the same few keys.",
-        "Guitar Workouts is practice to get out of that box. Every lesson takes one idea — a chord shape, an inversion, a scale position, an arpeggio — and makes you play it in all 12 keys and all over the neck, until you stop thinking about shapes and start hearing music. That is what lets you play any song anywhere, improvise in any style, write your own parts and find the sound you hear in your head.",
-        "There are no video lessons to watch, pause and rewind. Each lesson is a short exercise you see, hear and play at once, so your practice time goes into your hands and ears, not into a screen.",
+        "Over the last few years, I built a method to help guitarists who already play a few chords master the whole fretboard, in all 12 keys.",
+        "The most interesting thing about this method is that you can master the fretboard without memorising theory, reading music or watching hours of video lessons: it is made of short exercises you see, hear and play right away, with sound and a metronome.",
+        "Many guitarists believe that to play freely and improvise in any style you need years of lessons, natural talent or hours of practice every day.",
+        "But the truth is that you need none of that to break free from the same old shapes and keys. You only need to practise every chord, scale and arpeggio in every key, a little each day.",
+        "If you want to find out how to break free on the guitar neck and would like my help, create your free account and start practicing today.",
       ],
+      cta: "Start practicing for free",
     },
-    curriculum: {
-      h2: "A complete guitar practice path",
-      intro: "Six modules that build on each other, from chords to melody. Each lesson has a version for every key.",
-      modules: [
-        ["CAGED system exercises", "Basic Chords with CAGED: the five open-chord shapes — C, A, G, E and D — moved up the neck. Major, minor, dominant seventh and half-diminished chords in five regions of the fretboard."],
-        ["Triad inversion exercises", "Triad Inversions: major, minor and diminished triads in root position and with the third or the fifth in the bass, on the 3rd, 4th, 5th and 6th strings — the smallest, most flexible voicings for comping and arranging."],
-        ["Seventh chord inversion exercises", "Seventh Chord Inversions: maj7, m7, 7 and m7(♭5) in root position and with the third, fifth and seventh in the bass, on the 4th, 5th and 6th strings — drop 2 voicings, with drop 3 alternatives."],
-        ["Major scale exercises in 7 positions", "7 Positions of the Ionian Mode: the major scale in seven three-notes-per-string shapes, from the nut to the bridge, plus a warm-up for position shifts."],
-        ["Triad arpeggio exercises", "Triad Arpeggios: major, minor and diminished triads note by note, starting on the root, third or fifth, in three fingerings — then their inversions and the diatonic triads of each key, across the neck and within each scale position."],
-        ["Seventh chord arpeggio exercises", "Seventh Chord Arpeggios: maj7, m7, 7 and m7(♭5) note by note, starting on the root, third, fifth or seventh — then their inversions and the diatonic seventh chords of each key, across the neck and within each scale position."],
+    practice: {
+      // Names of the modules (structured data featureList).
+      modules: ["CAGED system exercises", "Triad inversion exercises", "Seventh chord inversion exercises", "Major scale exercises in 7 positions", "Triad arpeggio exercises", "Seventh chord arpeggio exercises"],
+      articles: [
+        {
+          h: "A complete guitar practice path",
+          paragraphs: [
+            "Guitar Workouts is a practice path for the whole fretboard, in six modules that build on each other, from chords to melody. You start with the chord shapes you already half know and end up playing every chord tone, in every key, anywhere on the neck.",
+            "Practice in all keys to master and forget about it when playing for real, so there is no more avoiding A♭ or F♯: the shapes stop being positions you memorised and become patterns you understand.",
+          ],
+        },
+        {
+          h: "Exercises, not video lessons",
+          paragraphs: [
+            "There is nothing to watch, pause or rewind. Each exercise takes a few minutes: one key, a handful of shapes and one run with the metronome.",
+            "You see each shape, hear it with a guitar sound and play it right away, so your practice time goes into your hands and ears instead of into a screen.",
+          ],
+        },
+        {
+          h: "CAGED System",
+          paragraphs: [
+            "The CAGED system maps the whole guitar neck with five shapes you already know from open chords: C, A, G, E and D. Each one covers a region of the fretboard, and together they link up from the nut to the top of the neck without gaps.",
+            "Instead of memorising hundreds of chords, you learn a handful of base patterns once and move them: the same shape played higher up the neck gives you the same chord in another key, and the five shapes give you one chord in five regions. Major, minor, dominant seventh and half-diminished chords all follow these patterns.",
+          ],
+        },
+        {
+          h: "Scales and Arpeggios",
+          paragraphs: [
+            "The major scale is learned in seven shapes, three notes per string, that cover the whole fretboard from the nut to the bridge. These seven shapes are the base for the scales you will play: the same patterns give you the major scale, its relative minor and the modes that come from them.",
+            "Move them up or down the neck and they work in any key, in any position. Arpeggios then show where each chord tone sits inside those shapes, connecting chords and scales: the base for improvising over chord changes and writing melodies.",
+          ],
+        },
+        {
+          h: "Tab, notation and a guide for each module",
+          paragraphs: [
+            "Melodic exercises are written as tab, with fingers above and bar lines, or as standard notation with the string for each note. Switch with one tap; a built-in guide explains how to read both.",
+            "Every module has a guide that explains the theory behind it, and the chord dictionary lets you look up every voicing from the lessons by key and chord quality.",
+          ],
+        },
+        {
+          h: "Online guitar practice, nothing to install",
+          paragraphs: [
+            "Everything runs in the browser, on a computer, tablet or phone.",
+            "Finished lessons and tempos are saved in your free account and synced across your devices, so you can pick up right where you left off.",
+          ],
+        },
       ],
     },
     how: {
       h2: "How a lesson works",
+      visuals: {
+        see: "Cmaj7 chord diagram, with the finger on each note and the degree of each string",
+        hear: "A minor chord playing: the string sounding lights up in orange",
+        play: "Play",
+        time: "The metronome at 72 BPM, beat by beat; the app remembers the last tempo of each lesson",
+        last: "Last: 72 BPM",
+        keys: "A lesson with its 12 keys: done keys in blue, the next one in orange",
+      },
       cards: [
-        ["See it", "Chords appear as diagrams with fingers, barres and the degree of every string. Scales and arpeggios appear as fretboard shapes, and melodic exercises as tablature you can switch to standard notation."],
-        ["Hear it", "The app plays every chord and every note with a guitar sound, and the note that is sounding lights up, so you can check your hands by ear."],
-        ["Play it in time", "Each lesson ends with a run of all its shapes to a metronome. Raise the tempo little by little — the app remembers your last BPM for each lesson."],
+        ["See it", "Chords appear as diagrams with fingers, barres and the degree of each string; scales and arpeggios as tab or standard notation."],
+        ["Hear it", "The app plays every chord and note with a guitar sound, and the sounding note lights up so you can check by ear."],
+        ["Play it in time", "Each lesson ends with all its shapes in a row, to a metronome. Raise the tempo little by little: the app remembers your last BPM."],
+        ["Repeat in every key", "Each lesson has a version in each of the 12 keys, in the cycle of fourths: the shapes become patterns you use anywhere."],
       ],
     },
     uses: {
       h2: "From practice to music",
       cards: [
-        ["Improvise", "Arpeggios, scale positions and inversions are the vocabulary of improvisation in any style — rock, blues, pop, funk, jazz, MPB or bossa nova. Know where each chord tone is and aim for it over any chord change."],
-        ["Play", "Know every chord and scale in every key and region of the neck, so you can accompany any song, transpose on the spot and follow other musicians wherever they go."],
-        ["Compose", "Practise the diatonic chords of each key until you hear them, so chord progressions, riffs and melodies come from your ear instead of from the same old shapes."],
-        ["Arrange", "Use inversions and arpeggios to choose the bass note, the top note and the region of the neck — smoother voice leading, parts that fit around a singer and lines that sound like you."],
-      ],
-    },
-    features: {
-      h2: "Built for real, everyday practice",
-      cards: [
-        ["Exercises, not video lessons", "Nothing to watch or pause: each lesson is a short exercise you play right away — one key, a handful of shapes, one run with the metronome. One key a day covers a whole lesson in under two weeks."],
-        ["All 12 keys, not just the easy ones", "Every lesson has a variation for each key, in the cycle of fourths. A ring around the lesson fills in as you finish keys — no more avoiding A♭ or F♯."],
-        ["Tablature and standard notation", "Melodic exercises are written as tab, with fingers above and bar lines, or as standard notation with the string for each note. Switch with one tap; a built-in guide explains how to read both."],
-        ["A chord dictionary and a guide for each module", "Look up every voicing from the lessons by key and chord quality, and read the guide that explains the theory behind each module."],
-        ["Your progress saved to your account", "Finished lessons and tempos are saved in your free account and synced across your devices."],
-        ["Online guitar practice, nothing to install", "Everything runs in the browser, on a computer, tablet or phone, in English or Portuguese. The guitar sound is generated live."],
+        ["Improvise", "Arpeggios, scale positions and inversions are the vocabulary of improvising in rock, blues, jazz or any style. Aim for the chord tones."],
+        ["Play", "Know every chord and scale in every key and region of the neck to accompany any song, transpose on the spot and follow other musicians."],
+        ["Compose", "Practise the diatonic chords of each key until you hear them, so progressions, riffs and melodies come from your ear, not old shapes."],
+        ["Arrange", "Use inversions and arpeggios to choose the bass note, the top note and the region of the neck, for parts that fit and sound like you."],
       ],
     },
     ctaBand: {
@@ -92,6 +121,10 @@ export const content = {
       text: "Rock, pop, blues, funk, MPB, bossa nova or jazz: freedom on the fretboard is what lets you improvise, stop copying shapes and start making choices.",
       cta: "Start practicing for free",
       note: "Create your free account in less than a minute.",
+    },
+    faqPage: {
+      title: "Guitar Practice FAQ: Keys, Chords and Arpeggios | Guitar Workouts",
+      description: "Answers about Guitar Workouts: price, who it is for, acoustic or electric guitar, reading music, the 12 keys, CAGED, inversions and arpeggios.",
     },
     faq: {
       h2: "Frequently asked questions",
@@ -109,83 +142,111 @@ export const content = {
         ["Does it work on a phone?", "Yes. The app works in any modern browser on phones, tablets and computers. Use headphones or a speaker to hear the low strings well."],
       ],
     },
-    footer: { rights: "All rights reserved", app: "Open the app", dictionary: "Chord Dictionary", language: "Português" },
+    footer: { rights: "All rights reserved", faq: "FAQ", languageLabel: "Ver em português" },
   },
   pt: {
     htmlLang: "pt-BR",
     ogLocale: "pt_BR",
     path: "pt/",
-    title: "Exercícios de Guitarra e Violão: Acordes, Escalas e Arpejos | Guitar Workouts",
+    title: "Prática de Guitarra: Acordes, Escalas e Arpejos nos 12 Tons | Guitar Workouts",
     description:
-      "Exercícios de guitarra e violão sem videoaulas: acordes, inversões, escalas e arpejos nas 12 tonalidades, com som, metrônomo e tablatura. Para improvisar.",
+      "Exercícios de guitarra sem videoaulas: acordes, inversões, escalas e arpejos nos 12 tons, com som, metrônomo e tablatura. Para improvisar em qualquer estilo.",
     nav: { cta: "Comece a praticar grátis", login: "Entrar", continue: "Continuar praticando", account: "Abrir o app" },
     hero: {
-      h1: "Exercícios de guitarra e violão para se libertar dos desenhos e das tonalidades",
-      sub: "Uma prática completa e direta para o braço inteiro: acordes, inversões, escalas e arpejos nas 12 tonalidades, com som e metrônomo — exercícios para tocar na hora, sem videoaulas para assistir. Suba de nível para tocar, improvisar, compor e fazer arranjos em qualquer estilo — e encontrar por conta própria o som que você busca.",
+      h1: ["Prática de guitarra para ", "se libertar", " dos desenhos e das tonalidades"],
+      sub: "Exercícios curtos, não videoaulas: acordes, escalas e arpejos para tocar e improvisar em qualquer estilo, acompanhando o seu progresso aula a aula.",
       cta: "Comece a praticar grátis",
-      ctaNote: "Grátis, sem cartão de crédito",
-      checklist: [
-        "Acordes com o sistema CAGED, no braço inteiro",
-        "Inversões de tríades e de tétrades",
-        "A escala maior em 7 posições",
-        "Arpejos de tríades e de tétrades",
-        "O campo harmônico de cada tom, na horizontal e na vertical",
-        "As 12 tonalidades, no ciclo de quartas",
-      ],
+      checklist: ["Sistema CAGED", "Inversões de acordes", "Escala maior em 7 posições", "Arpejos", "Campo harmônico", "Prática em todos os tons"],
       stats: (n) => [
         [`${n.lessons}`, "aulas"],
         [`${n.exercises}`, "exercícios"],
-        [`${n.fingerings}+`, "digitações de acordes"],
+        [`${n.voicings}`, "voicings de acordes"],
       ],
       statsLabel: "Em números",
-      ringLabel: "Uma aula com as 12 tonalidades: em azul as feitas, em laranja a próxima",
     },
     story: {
-      h2: "Preso aos mesmos desenhos e tonalidades?",
+      h2: "Como se libertar no braço da guitarra sem passar horas assistindo videoaulas",
       paragraphs: [
-        "A maioria dos guitarristas e violonistas aprende alguns acordes abertos, duas ou três pestanas e um desenho de escala — e para por aí. O que eles tocam, compõem e arranjam acaba soando igual, porque a mão sempre volta para os mesmos lugares do braço e para os mesmos poucos tons.",
-        "O Guitar Workouts é uma prática para sair dessa caixa. Cada aula pega uma ideia — um desenho de acorde, uma inversão, uma posição de escala, um arpejo — e faz você tocá-la nas 12 tonalidades e no braço inteiro, até parar de pensar em desenhos e começar a ouvir música. É isso que deixa você tocar qualquer música em qualquer lugar, improvisar em qualquer estilo, criar as suas próprias partes e encontrar o som que você ouve na cabeça.",
-        "Não há videoaulas para assistir, pausar e voltar. Cada aula é um exercício curto que você vê, ouve e toca ao mesmo tempo, para o seu tempo de estudo ir para as mãos e o ouvido, não para a tela.",
+        "Nos últimos anos, eu construí um método para ajudar guitarristas e violonistas que já tocam alguns acordes a dominar o braço inteiro, nas 12 tonalidades.",
+        "O mais interessante desse método é que você pode dominar o braço sem precisar decorar teoria, ler partitura ou assistir a horas de videoaulas: são exercícios curtos, que você vê, ouve e toca na hora, com som e metrônomo.",
+        "Muitos guitarristas acreditam que, para tocar com liberdade e improvisar em qualquer estilo, é preciso anos de aulas, talento nato ou estudar horas por dia.",
+        "Mas a verdade é que nada disso é preciso para você se libertar dos mesmos desenhos e tonalidades. Basta praticar cada acorde, escala e arpejo em todos os tons, um pouco por dia.",
+        "Se você tem interesse em descobrir como se libertar no braço da guitarra e gostaria da minha ajuda, então crie sua conta grátis e comece a praticar hoje.",
       ],
+      cta: "Comece a praticar grátis",
     },
-    curriculum: {
-      h2: "Um caminho completo de prática de guitarra",
-      intro: "Seis módulos que se complementam, dos acordes à melodia. Cada aula tem uma versão para cada tonalidade.",
-      modules: [
-        ["Exercícios do sistema CAGED", "Acordes Básicos no CAGED: as cinco formas de acorde aberto — C, A, G, E e D — levadas para cima no braço. Acordes maiores, menores, de sétima dominante e meio diminutos em cinco regiões do braço."],
-        ["Exercícios de inversões de tríades", "Inversões de Tríades: tríades maiores, menores e diminutas na ordem direta e com a terça ou a quinta no baixo, na 3ª, 4ª, 5ª e 6ª corda — os voicings menores e mais versáteis para acompanhar e arranjar."],
-        ["Exercícios de inversões de tétrades", "Inversões de Tétrades: 7+, m7, 7 e m7(♭5) na ordem direta e com a terça, a quinta e a sétima no baixo, na 4ª, 5ª e 6ª corda — voicings drop 2, com alternativas em drop 3."],
-        ["Exercícios de escala maior em 7 posições", "7 Posições do Modo Jônio: a escala maior em sete desenhos de três notas por corda, da pestana até a ponte, com um aquecimento para as mudanças de posição."],
-        ["Exercícios de arpejos de tríades", "Arpejos de Tríades: tríades maiores, menores e diminutas nota por nota, começando na tônica, na terça ou na quinta, em três digitações — depois as inversões e as tríades do campo harmônico de cada tom, ao longo do braço e em cada posição da escala."],
-        ["Exercícios de arpejos de tétrades", "Arpejos de Tétrades: 7+, m7, 7 e m7(♭5) nota por nota, começando na tônica, na terça, na quinta ou na sétima — depois as inversões e as tétrades do campo harmônico de cada tom, ao longo do braço e em cada posição da escala."],
+    practice: {
+      // Names of the modules (structured data featureList).
+      modules: ["Exercícios do sistema CAGED", "Exercícios de inversões de tríades", "Exercícios de inversões de tétrades", "Exercícios de escala maior em 7 posições", "Exercícios de arpejos de tríades", "Exercícios de arpejos de tétrades"],
+      articles: [
+        {
+          h: "Um caminho completo de prática de guitarra",
+          paragraphs: [
+            "O Guitar Workouts é um caminho de prática para o braço inteiro, em seis módulos que se complementam, dos acordes à melodia. Você começa pelos desenhos de acorde que já conhece pela metade e termina tocando cada nota do acorde, em todos os tons, em qualquer lugar do braço.",
+            "Pratique em todos os tons até dominar e esqueça disso na hora de tocar de verdade, e nada de fugir de A♭ ou F♯: os desenhos deixam de ser posições decoradas e viram padrões que você entende.",
+          ],
+        },
+        {
+          h: "Exercícios, não videoaulas",
+          paragraphs: [
+            "Não há nada para assistir, pausar ou voltar. Cada exercício leva poucos minutos: uma tonalidade, alguns desenhos e uma execução no metrônomo.",
+            "Você vê cada desenho, ouve com som de violão e toca na hora, para o seu tempo de estudo ir para as mãos e o ouvido, e não para a tela.",
+          ],
+        },
+        {
+          h: "Sistema CAGED",
+          paragraphs: [
+            "O sistema CAGED mapeia o braço inteiro da guitarra com cinco formas que você já conhece dos acordes abertos: C, A, G, E e D. Cada uma cobre uma região do braço, e juntas elas se encadeiam da pestana até o fim do braço, sem buracos.",
+            "Em vez de decorar centenas de acordes, você aprende alguns padrões básicos uma vez e os desloca: a mesma forma tocada mais acima no braço dá o mesmo acorde em outro tom, e as cinco formas dão um acorde em cinco regiões. Acordes maiores, menores, de sétima dominante e meio diminutos seguem esses padrões.",
+          ],
+        },
+        {
+          h: "Escalas e Arpejos",
+          paragraphs: [
+            "A escala maior é aprendida em sete desenhos de três notas por corda, que cobrem o braço inteiro, da pestana até a ponte. Esses sete desenhos são a base das escalas que você vai tocar: os mesmos padrões dão a escala maior, a sua relativa menor e os modos que nascem delas.",
+            "Desloque os desenhos pelo braço e eles funcionam em qualquer tom, em qualquer posição. Os arpejos mostram onde está cada nota do acorde dentro desses desenhos e ligam acordes e escalas: a base para improvisar sobre uma harmonia e para criar melodias.",
+          ],
+        },
+        {
+          h: "Tablatura, partitura e um guia para cada módulo",
+          paragraphs: [
+            "Os exercícios melódicos vêm em tablatura, com os dedos em cima e as barras de compasso, ou em partitura com a corda de cada nota. Troque com um toque; um guia mostra como ler as duas.",
+            "Cada módulo tem um guia que explica a teoria por trás dele, e o dicionário de acordes reúne todos os voicings das aulas por tonalidade e tipo de acorde.",
+          ],
+        },
+        {
+          h: "Prática de guitarra online, sem instalar nada",
+          paragraphs: [
+            "Tudo funciona no navegador, no computador, tablet ou celular.",
+            "As aulas concluídas e os andamentos ficam salvos na sua conta grátis e sincronizados entre os seus aparelhos, para você continuar de onde parou.",
+          ],
+        },
       ],
     },
     how: {
       h2: "Como funciona uma aula",
+      visuals: {
+        see: "Diagrama do acorde C7+, com o dedo de cada nota e o grau de cada corda",
+        hear: "Acorde de Lá menor tocando: a corda que está soando acende em laranja",
+        play: "Tocar",
+        time: "O metrônomo em 72 BPM, tempo a tempo; o app guarda o último andamento de cada aula",
+        last: "Último: 72 BPM",
+        keys: "Uma aula com as 12 tonalidades: em azul as feitas, em laranja a próxima",
+      },
       cards: [
-        ["Veja", "Os acordes aparecem em diagramas com dedos, pestanas e o grau de cada corda. Escalas e arpejos aparecem como desenhos no braço, e os exercícios melódicos em tablatura, que pode virar partitura."],
+        ["Veja", "Os acordes aparecem em diagramas com dedos, pestanas e o grau de cada corda; escalas e arpejos, em tablatura ou partitura."],
         ["Ouça", "O app toca cada acorde e cada nota com som de violão, e a nota que está soando acende, para você conferir a mão de ouvido."],
-        ["Toque no tempo", "Cada aula termina com todos os desenhos em sequência, no metrônomo. Suba o andamento aos poucos: o app guarda o último BPM de cada aula."],
+        ["Toque no tempo", "Cada aula termina com os desenhos em sequência, no metrônomo. Suba o andamento aos poucos: o app guarda o BPM."],
+        ["Repita nos 12 tons", "Cada aula tem uma versão em cada um dos 12 tons, no ciclo de quartas: os desenhos viram padrões para usar em todo o braço."],
       ],
     },
     uses: {
       h2: "Da prática para a música",
       cards: [
-        ["Improvisar", "Arpejos, posições de escala e inversões são o vocabulário da improvisação em qualquer estilo — rock, blues, pop, funk, jazz, MPB ou bossa nova. Saiba onde está cada nota do acorde e mire nela em qualquer harmonia."],
-        ["Tocar", "Conheça cada acorde e cada escala em todos os tons e regiões do braço, para acompanhar qualquer música, transpor na hora e seguir outros músicos para onde eles forem."],
-        ["Compor", "Pratique o campo harmônico de cada tom até ouvi-lo, para que progressões, riffs e melodias venham do ouvido e não dos mesmos desenhos de sempre."],
-        ["Arranjar", "Use inversões e arpejos para escolher a nota do baixo, a nota mais aguda e a região do braço — condução de vozes mais suave, partes que abrem espaço para a voz e linhas com a sua cara."],
-      ],
-    },
-    features: {
-      h2: "Feito para a prática de verdade, todo dia",
-      cards: [
-        ["Exercícios, não videoaulas", "Nada para assistir ou pausar: cada aula é um exercício curto para tocar na hora — uma tonalidade, alguns desenhos e uma execução no metrônomo. Uma tonalidade por dia completa uma aula em menos de duas semanas."],
-        ["As 12 tonalidades, não só as fáceis", "Cada aula tem uma variação para cada tom, no ciclo de quartas. Um anel em volta da aula vai se completando — nada de fugir de A♭ ou F♯."],
-        ["Tablatura e partitura", "Os exercícios melódicos vêm em tablatura, com os dedos em cima e as barras de compasso, ou em partitura com a corda de cada nota. Troque com um toque; um guia mostra como ler as duas."],
-        ["Dicionário de acordes e um guia para cada módulo", "Consulte todos os voicings das aulas por tonalidade e tipo de acorde, e leia o guia que explica a teoria de cada módulo."],
-        ["Progresso salvo na sua conta", "As aulas concluídas e os andamentos ficam salvos na sua conta grátis e sincronizados entre os seus aparelhos."],
-        ["Prática online, sem instalar nada", "Tudo funciona no navegador, no computador, tablet ou celular, em português ou inglês. O som do violão é gerado na hora."],
+        ["Improvisar", "Arpejos, posições de escala e inversões são o vocabulário do improviso no rock, blues, jazz ou qualquer estilo. Mire nas notas do acorde."],
+        ["Tocar", "Conheça cada acorde e escala em todos os tons e regiões do braço para acompanhar qualquer música, transpor na hora e seguir outros músicos."],
+        ["Compor", "Pratique o campo harmônico de cada tom até ouvi-lo, para que progressões, riffs e melodias venham do ouvido, não de desenhos velhos."],
+        ["Arranjar", "Use inversões e arpejos para escolher o baixo, a nota mais aguda e a região do braço, para criar partes que se encaixam e têm a sua cara."],
       ],
     },
     ctaBand: {
@@ -193,6 +254,10 @@ export const content = {
       text: "Rock, pop, blues, funk, MPB, bossa nova ou jazz: liberdade no braço é o que faz você improvisar, parar de copiar desenhos e começar a fazer escolhas.",
       cta: "Comece a praticar grátis",
       note: "Crie sua conta grátis em menos de um minuto.",
+    },
+    faqPage: {
+      title: "Perguntas Frequentes: Tons, Acordes e Arpejos na Guitarra | Guitar Workouts",
+      description: "Respostas sobre o Guitar Workouts: preço, para quem é, violão ou guitarra, partitura, as 12 tonalidades, CAGED, inversões e arpejos.",
     },
     faq: {
       h2: "Perguntas frequentes",
@@ -210,6 +275,6 @@ export const content = {
         ["Funciona no celular?", "Sim. O app funciona em qualquer navegador moderno, no celular, tablet ou computador. Use fone ou caixa de som para ouvir bem as cordas graves."],
       ],
     },
-    footer: { rights: "Todos os direitos reservados", app: "Abrir o app", dictionary: "Dicionário de Acordes", language: "English" },
+    footer: { rights: "Todos os direitos reservados", faq: "Perguntas frequentes", languageLabel: "View in English" },
   },
 };
