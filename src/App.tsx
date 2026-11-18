@@ -19,7 +19,7 @@ import { chordName, useI18n, type Lang, type Localized } from "./i18n.tsx";
 import { useSession } from "./auth/supabase.ts";
 import { Icon, type IconName } from "./Icon.tsx";
 import { BpmControl } from "./BpmControl.tsx";
-import { adoptAccountDefaultBpm, loadDefaultBpm } from "./defaultBpm.ts";
+import { adoptAccountDefaults, loadDefaultBpm } from "./defaultBpm.ts";
 import { UserMenu } from "./UserMenu.tsx";
 import { saveResultToAccount, syncProgress } from "./auth/progressSync.ts";
 
@@ -1332,7 +1332,6 @@ function ExercisePage({
   // A lesson of a single shape (one scale position) has no final sequence: playing it finishes the lesson.
   const hasFinal = stepCount > 1;
   const [stepIndex, setStepIndex] = useState(reopensFinished ? stepCount - 1 : 0);
-  const [bpm, setBpm] = useState(() => lesson.lastBpm ?? loadDefaultBpm());
   const [playbackStatus, setPlaybackStatus] = useState<"idle" | "playing" | "finished">("idle");
   const [activeStrings, setActiveStrings] = useState<number[]>([]);
   // Scale note sounding (index into the position's notes) and its place in the playing order.
@@ -1341,6 +1340,13 @@ function ExercisePage({
   const [finalExercise, setFinalExercise] = useState(
     reopensFinished && hasFinal,
   );
+  // Two tempos: the steps start at the exercises' default, the final exercise at
+  // its own (slower) default. The last tempo (recorded on the trail) belongs to
+  // the run that finished the lesson: the final exercise, or the only step.
+  const [stepBpm, setStepBpm] = useState(() => (hasFinal ? undefined : lesson.lastBpm) ?? loadDefaultBpm("exercise"));
+  const [finalBpm, setFinalBpm] = useState(() => (hasFinal ? lesson.lastBpm : undefined) ?? loadDefaultBpm("sequence"));
+  const bpm = finalExercise ? finalBpm : stepBpm;
+  const setBpm = finalExercise ? setFinalBpm : setStepBpm;
   const [sequenceIndex, setSequenceIndex] = useState(-1);
   const [sequenceStatus, setSequenceStatus] = useState<"idle" | "countdown" | "playing" | "finished">("idle");
   const [countdown, setCountdown] = useState<number | null>(null);
@@ -3464,12 +3470,12 @@ export default function App() {
   const session = useSession();
   const userId = session?.user.id;
   const trailSections = applyProgress(sections, progress);
-  const accountDefaultBpm = session?.user.user_metadata?.default_bpm;
+  const accountMetadata = session?.user.user_metadata;
 
-  // The default tempo chosen on the profile page follows the account to this browser.
+  // The default tempos chosen on the profile page follow the account to this browser.
   useEffect(() => {
-    adoptAccountDefaultBpm(accountDefaultBpm);
-  }, [accountDefaultBpm]);
+    adoptAccountDefaults(accountMetadata);
+  }, [accountMetadata]);
 
   // Logged in (or switched account): merge this browser's progress with the account's.
   useEffect(() => {

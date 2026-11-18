@@ -9,7 +9,7 @@ import { sections } from "../lessons.ts";
 import { clearLocalProgress, loadProgress, saveProgress, type Progress } from "../progress.ts";
 import { UserMenu } from "../UserMenu.tsx";
 import { BpmControl } from "../BpmControl.tsx";
-import { adoptAccountDefaultBpm, DEFAULT_BPM_FIELD, loadDefaultBpm, saveDefaultBpm } from "../defaultBpm.ts";
+import { adoptAccountDefaults, loadDefaultBpm, saveDefaultBpm, type BpmKind } from "../defaultBpm.ts";
 
 // Profile page (profile/), modelled on the reference profile page: a greeting,
 // then cards with the account details, the progress in all exercises, the language,
@@ -22,7 +22,11 @@ function useVerifiedUser() {
   const [state, setState] = useState<State>({ status: "loading" });
   useEffect(() => {
     if (!supabase) return setState({ status: "out" });
-    void supabase.auth.getUser().then(({ data }) => setState(data.user ? { status: "in", user: data.user } : { status: "out" }));
+    void supabase.auth.getUser().then(({ data }) => {
+      // The account's default tempos come into this browser before the pickers read them.
+      if (data.user) adoptAccountDefaults(data.user.user_metadata);
+      setState(data.user ? { status: "in", user: data.user } : { status: "out" });
+    });
   }, []);
   return state;
 }
@@ -231,14 +235,11 @@ function LanguagePicker() {
   );
 }
 
-/** Default metronome tempo: where every exercise starts. Saved shortly after each change. */
-function DefaultBpmPicker({ user }: { user: User }) {
+/** A default metronome tempo (exercises or final exercise). Saved shortly after each change. */
+function DefaultBpmPicker({ kind, label, hint }: { kind: BpmKind; label: string; hint: string }) {
   const { t } = useI18n();
   const errorMessage = useErrorMessage();
-  const [bpm, setBpm] = useState(() => {
-    adoptAccountDefaultBpm(user.user_metadata?.[DEFAULT_BPM_FIELD]);
-    return loadDefaultBpm();
-  });
+  const [bpm, setBpm] = useState(() => loadDefaultBpm(kind));
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | { error: string }>("idle");
   const changed = useRef(false);
 
@@ -246,26 +247,30 @@ function DefaultBpmPicker({ user }: { user: User }) {
     if (!changed.current) return;
     setStatus("saving");
     const timer = window.setTimeout(() => {
-      void saveDefaultBpm(bpm).then((failure) => setStatus(failure ? { error: errorMessage(failure.message) } : "saved"));
+      void saveDefaultBpm(kind, bpm).then((failure) => setStatus(failure ? { error: errorMessage(failure.message) } : "saved"));
     }, 600);
     return () => window.clearTimeout(timer);
   }, [bpm]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="flex flex-wrap items-center gap-4">
-      <BpmControl
-        bpm={bpm}
-        disabled={false}
-        onChange={(update) => {
-          changed.current = true;
-          setBpm(update);
-        }}
-      />
-      <span role="status" className="text-sm text-muted">
-        {status === "saving" && t("Salvando…", "Saving…")}
-        {status === "saved" && t("Salvo", "Saved")}
-      </span>
-      {typeof status === "object" && <ErrorText message={status.error} />}
+    <div className="border-b border-line py-4 last:border-b-0 last:pb-0">
+      <h3 className="text-[16px] font-semibold text-ink">{label}</h3>
+      <p className="mt-1 mb-3 text-[15px] text-ink-2">{hint}</p>
+      <div className="flex flex-wrap items-center gap-4">
+        <BpmControl
+          bpm={bpm}
+          disabled={false}
+          onChange={(update) => {
+            changed.current = true;
+            setBpm(update);
+          }}
+        />
+        <span role="status" className="text-sm text-muted">
+          {status === "saving" && t("Salvando…", "Saving…")}
+          {status === "saved" && t("Salvo", "Saved")}
+        </span>
+        {typeof status === "object" && <ErrorText message={status.error} />}
+      </div>
     </div>
   );
 }
@@ -375,13 +380,25 @@ export function ProfilePage() {
         </Card>
 
         <Card title={t("Metrônomo", "Metronome")}>
-          <p className="mb-4 text-[15px] text-ink-2">
+          <p className="mb-1 text-[15px] text-ink-2">
             {t(
-              "Andamento inicial (BPM) de todos os exercícios. Uma aula já concluída reabre no andamento da sua última execução.",
-              "Starting tempo (BPM) of every exercise. A lesson you have finished reopens at the tempo of your last run.",
+              "Andamentos iniciais (BPM). Uma aula já concluída reabre no andamento da sua última execução, que fica registrado na trilha.",
+              "Starting tempos (BPM). A lesson you have finished reopens at the tempo of your last run, which is recorded on the trail.",
             )}
           </p>
-          <DefaultBpmPicker user={user} />
+          <DefaultBpmPicker
+            kind="exercise"
+            label={t("Exercícios", "Exercises")}
+            hint={t("Cada forma da aula, passo a passo.", "Each shape of the lesson, step by step.")}
+          />
+          <DefaultBpmPicker
+            kind="sequence"
+            label={t("Exercício final em sequência", "Final exercise in sequence")}
+            hint={t(
+              "Todas as formas da aula tocadas em seguida, no fim. Use um andamento mais lento para tocar tudo sem parar.",
+              "All the lesson's shapes played in a row, at the end. Use a slower tempo to play it all without stopping.",
+            )}
+          />
         </Card>
 
         <Card title={t("Idioma", "Language")}>
