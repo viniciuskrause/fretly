@@ -6,7 +6,7 @@ import { UserMenu } from "./UserMenu.tsx";
 
 /**
  * Mounts the app's user menu (initials + drop-down) in the homepage header.
- * Loaded by landing-auth.ts only after Supabase confirms the session, so
+ * Loaded by landing-auth.ts only after Firebase confirms the session, so
  * logged-out visitors never download React.
  */
 export function mountUserMenu(container: HTMLElement, { onSignOut }: { onSignOut: () => void }) {

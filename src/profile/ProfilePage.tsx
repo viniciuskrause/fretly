@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import type { User } from "@supabase/supabase-js";
 
 import { ErrorText, Field, homeHref, useErrorMessage } from "../auth/AuthPage.tsx";
-import { resetAccountProgress, syncProgress } from "../auth/progressSync.ts";
-import { siteUrl, supabase } from "../auth/supabase.ts";
+import { deleteAccountData, resetAccountProgress, syncProgress } from "../auth/progressSync.ts";
+import { confirmPassword, deleteAuthAccount, signOutAccount, siteUrl, useAccount, verifiedAccount, type Account } from "../auth/firebase.ts";
 import { LANGUAGES, useI18n, type Lang } from "../i18n.tsx";
 import { sections } from "../lessons.ts";
 import { clearLocalProgress, loadProgress, saveProgress, type Progress } from "../progress.ts";
@@ -16,19 +15,15 @@ import { adoptAccountDefaults, loadDefaultBpm, saveDefaultBpm, type BpmKind } fr
 // - profile/ ("Minha conta"): a greeting, the account details and the account deletion;
 // - settings/ ("Configurações"): lesson progress (and its reset), language and metronome.
 
-type State = { status: "loading" } | { status: "out" } | { status: "in"; user: User };
+type Status = "loading" | "out" | "in";
 
-function useVerifiedUser() {
-  const [state, setState] = useState<State>({ status: "loading" });
+/** Confirms the stored session with the server once; the account itself stays live (useAccount). */
+function useVerifiedStatus() {
+  const [status, setStatus] = useState<Status>("loading");
   useEffect(() => {
-    if (!supabase) return setState({ status: "out" });
-    void supabase.auth.getUser().then(({ data }) => {
-      // The account's default tempos come into this browser before the pickers read them.
-      if (data.user) adoptAccountDefaults(data.user.user_metadata);
-      setState(data.user ? { status: "in", user: data.user } : { status: "out" });
-    });
+    void verifiedAccount().then((account) => setStatus(account ? "in" : "out"));
   }, []);
-  return state;
+  return status;
 }
 
 function Card({ title, tone = "default", children }: { title: string; tone?: "default" | "danger"; children: ReactNode }) {
@@ -125,7 +120,7 @@ function ResetProgressDialog({ onClose, onDone }: { onClose: () => void; onDone:
             setBusy(true);
             const failure = await resetAccountProgress();
             setBusy(false);
-            if (failure) return setError(errorMessage(failure.message));
+            if (failure) return setError(errorMessage(failure.code));
             onDone();
           }}
         >
@@ -136,7 +131,7 @@ function ResetProgressDialog({ onClose, onDone }: { onClose: () => void; onDone:
   );
 }
 
-function DeleteAccountDialog({ user, onClose }: { user: User; onClose: () => void }) {
+function DeleteAccountDialog({ onClose }: { onClose: () => void }) {
   const { t, lang } = useI18n();
   const errorMessage = useErrorMessage();
   const [password, setPassword] = useState("");
@@ -145,22 +140,17 @@ function DeleteAccountDialog({ user, onClose }: { user: User; onClose: () => voi
 
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (!supabase || !user.email) return;
     setError(null);
     setBusy(true);
-    // Confirm it is really the owner: check the password again.
-    const { error: passwordError } = await supabase.auth.signInWithPassword({ email: user.email, password });
-    if (passwordError) {
+    // Confirm it is really the owner: check the password again (Firebase also asks
+    // for a recent log-in before deleting an account).
+    const failure = (await confirmPassword(password)) ?? (await deleteAccountData()) ?? (await deleteAuthAccount());
+    if (failure) {
       setBusy(false);
-      return setError(errorMessage(passwordError.message));
+      return setError(errorMessage(failure.code));
     }
-    const { error: deleteError } = await supabase.rpc("delete_own_account");
-    if (deleteError) {
-      setBusy(false);
-      return setError(errorMessage(deleteError.message));
-    }
-    // The account (and its sessions) no longer exist: forget them in this browser too.
-    await supabase.auth.signOut({ scope: "local" });
+    // The account no longer exists: forget it in this browser too.
+    await signOutAccount();
     clearLocalProgress();
     window.location.assign(siteUrl(homeHref(lang)));
   }
@@ -247,7 +237,7 @@ function DefaultBpmPicker({ kind, label, hint }: { kind: BpmKind; label: string;
     if (!changed.current) return;
     setStatus("saving");
     const timer = window.setTimeout(() => {
-      void saveDefaultBpm(kind, bpm).then((failure) => setStatus(failure ? { error: errorMessage(failure.message) } : "saved"));
+      void saveDefaultBpm(kind, bpm).then((failure) => setStatus(failure ? { error: errorMessage(failure.code) } : "saved"));
     }, 600);
     return () => window.clearTimeout(timer);
   }, [bpm]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -309,11 +299,20 @@ export function SettingsPage() {
 
 function AccountPage({ page }: { page: AccountPageKind }) {
   const { t, lang } = useI18n();
-  const state = useVerifiedUser();
+  const status = useVerifiedStatus();
+  const liveAccount = useAccount();
+  // Logged in once the server confirmed it and the account has loaded.
+  const account: Account | null = status === "in" ? liveAccount : null;
   const [progress, setProgress] = useState<Progress>(loadProgress);
   const [dialog, setDialog] = useState<"reset" | "delete" | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
-  const userId = state.status === "in" ? state.user.id : null;
+  const userId = account?.uid ?? null;
+  const accountData = account?.dataLoaded ? account.data : undefined;
+
+  // The account's default tempos come into this browser before the pickers read them.
+  useEffect(() => {
+    if (accountData) adoptAccountDefaults(accountData);
+  }, [accountData]);
 
   useEffect(() => {
     document.title =
@@ -336,9 +335,9 @@ function AccountPage({ page }: { page: AccountPageKind }) {
     iso ? new Intl.DateTimeFormat(lang === "pt" ? "pt-BR" : "en-US", { dateStyle: "long" }).format(new Date(iso)) : "—";
 
   let content: ReactNode;
-  if (state.status === "loading") {
+  if (status === "loading" || (status === "in" && !account?.dataLoaded)) {
     content = <p className="text-[16px] text-muted">{t("Carregando…", "Loading…")}</p>;
-  } else if (state.status === "out") {
+  } else if (status === "out" || !account) {
     content = (
       <div className="rounded-card border border-line bg-surface p-6 sm:p-8">
         <h1 className="font-display text-[30px] font-bold tracking-[-0.04em] text-ink">
@@ -355,9 +354,7 @@ function AccountPage({ page }: { page: AccountPageKind }) {
       </div>
     );
   } else {
-    const { user } = state;
-    const firstName = String(user.user_metadata?.first_name ?? "").trim();
-    const username = String(user.user_metadata?.username ?? "").trim();
+    const { firstName, username } = account;
     // An aula counts once all its 12 keys are done.
     const trails = sections.flatMap((section) => section.trails);
     const total = trails.length;
@@ -383,10 +380,10 @@ function AccountPage({ page }: { page: AccountPageKind }) {
             <Card title={t("Dados da conta", "Account details")}>
               <dl>
                 {firstName && <DetailRow label={t("Nome", "First name")} value={firstName} />}
-                <DetailRow label={t("E-mail", "E-mail")} value={user.email ?? "—"} />
+                <DetailRow label={t("E-mail", "E-mail")} value={account.email || "—"} />
                 {username && <DetailRow label={t("Nome de usuário", "Username")} value={username} />}
-                <DetailRow label={t("Membro desde", "Member since")} value={date(user.created_at)} />
-                <DetailRow label={t("Último acesso", "Last active")} value={date(user.last_sign_in_at)} />
+                <DetailRow label={t("Membro desde", "Member since")} value={date(account.createdAt)} />
+                <DetailRow label={t("Último acesso", "Last active")} value={date(account.lastSignInAt)} />
               </dl>
             </Card>
 
@@ -459,7 +456,7 @@ function AccountPage({ page }: { page: AccountPageKind }) {
             }}
           />
         )}
-        {dialog === "delete" && <DeleteAccountDialog user={user} onClose={() => setDialog(null)} />}
+        {dialog === "delete" && <DeleteAccountDialog onClose={() => setDialog(null)} />}
       </div>
     );
   }

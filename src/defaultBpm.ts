@@ -1,4 +1,4 @@
-import { supabase } from "./auth/supabase.ts";
+import { updateAccountData, type AccountData } from "./auth/firebase.ts";
 import { storageKey } from "./storage.ts";
 
 // Default metronome tempos: where the exercises start, and where the final
@@ -6,7 +6,7 @@ import { storageKey } from "./storage.ts";
 // finished lesson reopens on its final exercise at the tempo of its last run,
 // which is what the trail records. Chosen on the settings page,
 // kept in this browser (read synchronously when an exercise opens) and in the
-// account's user metadata, so it follows the learner to other devices.
+// account (Firestore users/{uid}), so it follows the learner to other devices.
 
 export const MIN_BPM = 40;
 export const MAX_BPM = 180;
@@ -16,8 +16,8 @@ export const clampBpm = (value: number) => Math.min(MAX_BPM, Math.max(MIN_BPM, M
 /** Which default: the exercises step by step, or the final exercise (the lesson's shapes in sequence). */
 export type BpmKind = "exercise" | "sequence";
 
-/** User metadata field of each default. */
-export const DEFAULT_BPM_FIELDS: Record<BpmKind, string> = { exercise: "default_bpm", sequence: "sequence_bpm" };
+/** Account field (users/{uid}) of each default. */
+export const DEFAULT_BPM_FIELDS: Record<BpmKind, "default_bpm" | "sequence_bpm"> = { exercise: "default_bpm", sequence: "sequence_bpm" };
 
 const STORAGE_KEYS: Record<BpmKind, string> = { exercise: storageKey("defaultBpm.v1"), sequence: storageKey("sequenceBpm.v1") };
 
@@ -42,8 +42,8 @@ function storeLocally(kind: BpmKind, bpm: number) {
   }
 }
 
-/** Takes the account's defaults (user metadata) into this browser. */
-export function adoptAccountDefaults(metadata: Record<string, unknown> | undefined) {
+/** Takes the account's defaults into this browser. */
+export function adoptAccountDefaults(metadata: AccountData | undefined) {
   for (const kind of ["exercise", "sequence"] as const) {
     const value = metadata?.[DEFAULT_BPM_FIELDS[kind]];
     if (valid(value)) storeLocally(kind, Math.round(value));
@@ -51,10 +51,10 @@ export function adoptAccountDefaults(metadata: Record<string, unknown> | undefin
 }
 
 /** Saves a default in this browser and, when logged in, in the account. */
-export async function saveDefaultBpm(kind: BpmKind, bpm: number): Promise<{ message: string } | null> {
+export async function saveDefaultBpm(kind: BpmKind, bpm: number): Promise<{ code: string } | null> {
   const value = clampBpm(bpm);
   storeLocally(kind, value);
-  if (!supabase) return null;
-  const { error } = await supabase.auth.updateUser({ data: { [DEFAULT_BPM_FIELDS[kind]]: value } });
-  return error;
+  const failure = await updateAccountData({ [DEFAULT_BPM_FIELDS[kind]]: value });
+  // Logged out: this browser keeps it.
+  return failure?.code === "not-authenticated" ? null : failure;
 }
