@@ -287,7 +287,7 @@ ${t.hero.checklist
       <!-- Stats -->
       <section class="border-y border-line bg-surface" aria-label="${escape(t.hero.statsLabel)}">
         <div class="mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-8">
-          <dl class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <dl class="grid grid-cols-3 gap-6">
 ${t.hero
   .stats(numbers)
   .map(
