@@ -1,11 +1,15 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <script>
+      // The site lives at guitarworkouts.app: the Firebase addresses send visitors there (same page).
+      if (/\.web\.app$|\.firebaseapp\.com$/.test(location.hostname)) location.replace("https://guitarworkouts.app" + location.pathname + location.search + location.hash);
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#F5F7FA" />
     <meta name="description" content="Interactive guitar practice: chords, inversions, scales and arpeggios in all 12 keys, with sound, metronome and tab." />
-    <link rel="canonical" href="https://guitar-workouts.web.app/app/" />
+    <link rel="canonical" href="https://guitarworkouts.app/app/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

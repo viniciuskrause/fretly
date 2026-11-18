@@ -5,7 +5,7 @@
 // Numbers come from src/lessons.ts (see build.mjs); keep claims factual —
 // no invented stats, testimonials or partner logos.
 
-export const SITE_URL = "https://guitar-workouts.web.app/";
+export const SITE_URL = "https://guitarworkouts.app/";
 export const BRAND = "Guitar Workouts";
 
 export const content = {
