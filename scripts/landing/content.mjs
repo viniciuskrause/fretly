@@ -16,11 +16,11 @@ export const content = {
     // ≤ 60 characters before the brand (what search results show); descriptions ≤ 160.
     title: "Guitar Practice: Chords, Scales & Arpeggios in 12 Keys | Guitar Workouts",
     description:
-      "Free guitar practice in your browser: chords, inversions, scales and arpeggios in all 12 keys, with sound, metronome and tab. Free yourself on the fretboard.",
+      "Guitar exercises, not video lessons: chords, inversions, scales and arpeggios in all 12 keys, with sound, metronome and tab. Practice to improvise in any style.",
     nav: { cta: "Start practicing for free", login: "Log in", continue: "Continue practicing", account: "Open the app" },
     hero: {
       h1: "Guitar practice to break free from shapes and keys",
-      sub: "A complete, hands-on practice path for the whole fretboard: chords, inversions, scales and arpeggios in all 12 keys, with sound and a metronome. Level up so you can play, compose and arrange — and find the sound you are after on your own.",
+      sub: "A complete, hands-on practice path for the whole fretboard: chords, inversions, scales and arpeggios in all 12 keys, with sound and a metronome — exercises you play right away, no video lessons to sit through. Level up so you can play, improvise, compose and arrange in any style — and find the sound you are after on your own.",
       cta: "Start practicing for free",
       ctaNote: "Free, no credit card",
       checklist: [
@@ -44,7 +44,8 @@ export const content = {
       h2: "Stuck in the same shapes and keys?",
       paragraphs: [
         "Most guitarists learn a few open chords, a couple of barre shapes and one scale box — and then stay there. The songs they play, write and arrange end up sounding the same, because their hands always go back to the same spots on the neck and the same few keys.",
-        "Guitar Workouts is practice to get out of that box. Every lesson takes one idea — a chord shape, an inversion, a scale position, an arpeggio — and makes you play it in all 12 keys and all over the neck, until you stop thinking about shapes and start hearing music. That is what lets you play any song anywhere, write your own parts and find the sound you hear in your head.",
+        "Guitar Workouts is practice to get out of that box. Every lesson takes one idea — a chord shape, an inversion, a scale position, an arpeggio — and makes you play it in all 12 keys and all over the neck, until you stop thinking about shapes and start hearing music. That is what lets you play any song anywhere, improvise in any style, write your own parts and find the sound you hear in your head.",
+        "There are no video lessons to watch, pause and rewind. Each lesson is a short exercise you see, hear and play at once, so your practice time goes into your hands and ears, not into a screen.",
       ],
     },
     curriculum: {
@@ -70,6 +71,7 @@ export const content = {
     uses: {
       h2: "From practice to music",
       cards: [
+        ["Improvise", "Arpeggios, scale positions and inversions are the vocabulary of improvisation in any style — rock, blues, pop, funk, jazz, MPB or bossa nova. Know where each chord tone is and aim for it over any chord change."],
         ["Play", "Know every chord and scale in every key and region of the neck, so you can accompany any song, transpose on the spot and follow other musicians wherever they go."],
         ["Compose", "Practise the diatonic chords of each key until you hear them, so chord progressions, riffs and melodies come from your ear instead of from the same old shapes."],
         ["Arrange", "Use inversions and arpeggios to choose the bass note, the top note and the region of the neck — smoother voice leading, parts that fit around a singer and lines that sound like you."],
@@ -78,7 +80,7 @@ export const content = {
     features: {
       h2: "Built for real, everyday practice",
       cards: [
-        ["Short sessions, real progress", "Each exercise takes a few minutes: one key, a handful of shapes, one run with the metronome. One key a day covers a whole lesson in under two weeks."],
+        ["Exercises, not video lessons", "Nothing to watch or pause: each lesson is a short exercise you play right away — one key, a handful of shapes, one run with the metronome. One key a day covers a whole lesson in under two weeks."],
         ["All 12 keys, not just the easy ones", "Every lesson has a variation for each key, in the cycle of fourths. A ring around the lesson fills in as you finish keys — no more avoiding A♭ or F♯."],
         ["Tablature and standard notation", "Melodic exercises are written as tab, with fingers above and bar lines, or as standard notation with the string for each note. Switch with one tap; a built-in guide explains how to read both."],
         ["A chord dictionary and a guide for each module", "Look up every voicing from the lessons by key and chord quality, and read the guide that explains the theory behind each module."],
@@ -88,7 +90,7 @@ export const content = {
     },
     ctaBand: {
       h2: "Find your own sound on the guitar",
-      text: "Rock, pop, blues, MPB, bossa nova or jazz: freedom on the fretboard is what lets you stop copying shapes and start making choices.",
+      text: "Rock, pop, blues, funk, MPB, bossa nova or jazz: freedom on the fretboard is what lets you improvise, stop copying shapes and start making choices.",
       cta: "Start practicing for free",
       note: "Create your free account in less than a minute.",
     },
@@ -96,6 +98,8 @@ export const content = {
       h2: "Frequently asked questions",
       items: [
         ["Is it free?", "Yes. All lessons, the chord dictionary and the guides are free. You just create a free account to start practicing and save your progress."],
+        ["Are there video lessons?", "No, on purpose. Guitar Workouts is made of exercises, not videos: each one shows the shapes as diagrams, tab or notation, plays them with a guitar sound and a metronome, and you play along right away. Less watching, more playing."],
+        ["Will it help me improvise?", "Yes, in any style. Improvising means knowing where the notes of each chord and scale are, in any key and anywhere on the neck. The arpeggio, scale and inversion exercises train exactly that, so over a chord progression you can choose the notes instead of repeating memorised licks."],
         ["Who is it for?", "Guitarists who already play a few chords and want to know the whole fretboard: to stop depending on a handful of shapes and keys, and to play, compose and arrange with more freedom. Beginners can start with the CAGED module."],
         ["Is it for acoustic or electric guitar?", "Both. The shapes are the same on acoustic, classical and electric guitar in standard tuning (E A D G B E)."],
         ["Do I need to read music?", "No. Chords are shown as diagrams and scales as fretboard shapes. Melodic exercises are in tablature by default, and standard notation is optional."],
@@ -114,11 +118,11 @@ export const content = {
     path: "pt/",
     title: "Exercícios de Guitarra e Violão: Acordes, Escalas e Arpejos | Guitar Workouts",
     description:
-      "Prática de guitarra e violão grátis: acordes, inversões, escalas e arpejos nas 12 tonalidades, com som, metrônomo e tablatura. Liberte-se no braço.",
+      "Exercícios de guitarra e violão sem videoaulas: acordes, inversões, escalas e arpejos nas 12 tonalidades, com som, metrônomo e tablatura. Para improvisar.",
     nav: { cta: "Comece a praticar grátis", login: "Entrar", continue: "Continuar praticando", account: "Abrir o app" },
     hero: {
       h1: "Exercícios de guitarra e violão para se libertar dos desenhos e das tonalidades",
-      sub: "Uma prática completa e direta para o braço inteiro: acordes, inversões, escalas e arpejos nas 12 tonalidades, com som e metrônomo. Suba de nível para tocar, compor e fazer arranjos — e encontrar por conta própria o som que você busca.",
+      sub: "Uma prática completa e direta para o braço inteiro: acordes, inversões, escalas e arpejos nas 12 tonalidades, com som e metrônomo — exercícios para tocar na hora, sem videoaulas para assistir. Suba de nível para tocar, improvisar, compor e fazer arranjos em qualquer estilo — e encontrar por conta própria o som que você busca.",
       cta: "Comece a praticar grátis",
       ctaNote: "Grátis, sem cartão de crédito",
       checklist: [
@@ -142,7 +146,8 @@ export const content = {
       h2: "Preso aos mesmos desenhos e tonalidades?",
       paragraphs: [
         "A maioria dos guitarristas e violonistas aprende alguns acordes abertos, duas ou três pestanas e um desenho de escala — e para por aí. O que eles tocam, compõem e arranjam acaba soando igual, porque a mão sempre volta para os mesmos lugares do braço e para os mesmos poucos tons.",
-        "O Guitar Workouts é uma prática para sair dessa caixa. Cada aula pega uma ideia — um desenho de acorde, uma inversão, uma posição de escala, um arpejo — e faz você tocá-la nas 12 tonalidades e no braço inteiro, até parar de pensar em desenhos e começar a ouvir música. É isso que deixa você tocar qualquer música em qualquer lugar, criar as suas próprias partes e encontrar o som que você ouve na cabeça.",
+        "O Guitar Workouts é uma prática para sair dessa caixa. Cada aula pega uma ideia — um desenho de acorde, uma inversão, uma posição de escala, um arpejo — e faz você tocá-la nas 12 tonalidades e no braço inteiro, até parar de pensar em desenhos e começar a ouvir música. É isso que deixa você tocar qualquer música em qualquer lugar, improvisar em qualquer estilo, criar as suas próprias partes e encontrar o som que você ouve na cabeça.",
+        "Não há videoaulas para assistir, pausar e voltar. Cada aula é um exercício curto que você vê, ouve e toca ao mesmo tempo, para o seu tempo de estudo ir para as mãos e o ouvido, não para a tela.",
       ],
     },
     curriculum: {
@@ -168,6 +173,7 @@ export const content = {
     uses: {
       h2: "Da prática para a música",
       cards: [
+        ["Improvisar", "Arpejos, posições de escala e inversões são o vocabulário da improvisação em qualquer estilo — rock, blues, pop, funk, jazz, MPB ou bossa nova. Saiba onde está cada nota do acorde e mire nela em qualquer harmonia."],
         ["Tocar", "Conheça cada acorde e cada escala em todos os tons e regiões do braço, para acompanhar qualquer música, transpor na hora e seguir outros músicos para onde eles forem."],
         ["Compor", "Pratique o campo harmônico de cada tom até ouvi-lo, para que progressões, riffs e melodias venham do ouvido e não dos mesmos desenhos de sempre."],
         ["Arranjar", "Use inversões e arpejos para escolher a nota do baixo, a nota mais aguda e a região do braço — condução de vozes mais suave, partes que abrem espaço para a voz e linhas com a sua cara."],
@@ -176,7 +182,7 @@ export const content = {
     features: {
       h2: "Feito para a prática de verdade, todo dia",
       cards: [
-        ["Sessões curtas, progresso real", "Cada exercício leva poucos minutos: uma tonalidade, alguns desenhos e uma execução no metrônomo. Uma tonalidade por dia completa uma aula em menos de duas semanas."],
+        ["Exercícios, não videoaulas", "Nada para assistir ou pausar: cada aula é um exercício curto para tocar na hora — uma tonalidade, alguns desenhos e uma execução no metrônomo. Uma tonalidade por dia completa uma aula em menos de duas semanas."],
         ["As 12 tonalidades, não só as fáceis", "Cada aula tem uma variação para cada tom, no ciclo de quartas. Um anel em volta da aula vai se completando — nada de fugir de A♭ ou F♯."],
         ["Tablatura e partitura", "Os exercícios melódicos vêm em tablatura, com os dedos em cima e as barras de compasso, ou em partitura com a corda de cada nota. Troque com um toque; um guia mostra como ler as duas."],
         ["Dicionário de acordes e um guia para cada módulo", "Consulte todos os voicings das aulas por tonalidade e tipo de acorde, e leia o guia que explica a teoria de cada módulo."],
@@ -186,7 +192,7 @@ export const content = {
     },
     ctaBand: {
       h2: "Encontre o seu som na guitarra",
-      text: "Rock, pop, blues, MPB, bossa nova ou jazz: liberdade no braço é o que faz você parar de copiar desenhos e começar a fazer escolhas.",
+      text: "Rock, pop, blues, funk, MPB, bossa nova ou jazz: liberdade no braço é o que faz você improvisar, parar de copiar desenhos e começar a fazer escolhas.",
       cta: "Comece a praticar grátis",
       note: "Crie sua conta grátis em menos de um minuto.",
     },
@@ -194,6 +200,8 @@ export const content = {
       h2: "Perguntas frequentes",
       items: [
         ["É grátis?", "Sim. Todas as aulas, o dicionário de acordes e os guias são gratuitos. Basta criar uma conta grátis para começar a praticar e salvar o seu progresso."],
+        ["Tem videoaulas?", "Não, de propósito. O Guitar Workouts é feito de exercícios, não de vídeos: cada um mostra os desenhos em diagrama, tablatura ou partitura, toca com som de violão e metrônomo, e você toca junto na hora. Menos assistir, mais tocar."],
+        ["Ajuda a improvisar?", "Sim, em qualquer estilo. Improvisar é saber onde estão as notas de cada acorde e escala, em qualquer tom e em qualquer lugar do braço. Os exercícios de arpejos, escalas e inversões treinam exatamente isso, para você escolher as notas sobre uma harmonia em vez de repetir frases decoradas."],
         ["Para quem é?", "Para quem já toca alguns acordes e quer conhecer o braço inteiro: parar de depender de poucos desenhos e tonalidades e tocar, compor e arranjar com mais liberdade. Quem está começando pode começar pelo módulo de CAGED."],
         ["Serve para violão ou guitarra?", "Para os dois. Os desenhos são os mesmos no violão de aço, no violão clássico e na guitarra, na afinação padrão (E A D G B E)."],
         ["Preciso saber ler partitura?", "Não. Os acordes aparecem em diagramas e as escalas como desenhos no braço. Os exercícios melódicos vêm em tablatura, e a partitura é opcional."],

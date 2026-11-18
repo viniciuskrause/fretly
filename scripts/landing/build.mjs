@@ -339,7 +339,7 @@ ${t.how.cards
       <!-- Play, compose, arrange -->
       <section class="mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-8 sm:py-24">
         <h2 class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.uses.h2)}</h2>
-        <div class="mt-10 grid gap-4 md:grid-cols-3">${t.uses.cards.map(textCard).join("")}
+        <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">${t.uses.cards.map(textCard).join("")}
         </div>
       </section>
 
