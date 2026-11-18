@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 
+import { track } from "../analytics.ts";
 import { useI18n } from "../i18n.tsx";
 import { accountsEnabled, resendConfirmation, sendPasswordReset, signIn, signUp, siteUrl } from "./firebase.ts";
 
@@ -212,6 +213,7 @@ function SignupForm() {
     const failure = await signUp({ email: email.trim(), password, firstName: firstName.trim(), username: username.trim(), lang });
     setBusy(false);
     if (failure) return setError(errorMessage(failure.code));
+    track("sign_up", { method: "password" });
     setSent(true);
   }
 
@@ -278,7 +280,10 @@ function LoginForm() {
     let failure: { code: string } | null;
     if (view === "password") {
       failure = await signIn(email.trim(), password);
-      if (!failure) window.location.assign(appUrl);
+      if (!failure) {
+        track("login", { method: "password" });
+        window.location.assign(appUrl);
+      }
     } else {
       failure = await sendPasswordReset(email.trim(), lang);
       if (!failure) setSent(true);

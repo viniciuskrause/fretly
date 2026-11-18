@@ -3,6 +3,7 @@ import type { ScaleStep } from "./chords.ts";
 import { Icon } from "./Icon.tsx";
 import { chordName, useI18n } from "./i18n.tsx";
 import { storageKey } from "./storage.ts";
+import { track } from "./analytics.ts";
 
 /**
  * Tablature / staff notation for exercises that run along the neck (diatonic triads):
@@ -28,6 +29,7 @@ function savedView(): NotationView {
 let currentView: NotationView | null = null;
 const viewListeners = new Set<() => void>();
 function setSharedView(view: NotationView) {
+  if (view !== currentView) track("change_setting", { setting: "notation", value: view });
   currentView = view;
   try {
     window.localStorage.setItem(VIEW_KEY, view);

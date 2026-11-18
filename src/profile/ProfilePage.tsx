@@ -8,6 +8,7 @@ import { sections } from "../lessons.ts";
 import { clearLocalProgress, loadProgress, saveProgress, type Progress } from "../progress.ts";
 import { UserMenu } from "../UserMenu.tsx";
 import { BpmControl } from "../BpmControl.tsx";
+import { track } from "../analytics.ts";
 import { adoptAccountDefaults, loadDefaultBpm, saveDefaultBpm, type BpmKind } from "../defaultBpm.ts";
 
 // Account pages, both opened from the user menu and only for logged-in users
@@ -190,6 +191,7 @@ function DeleteAccountDialog({ onClose }: { onClose: () => void }) {
 function LanguagePicker() {
   const { t, lang, setLang } = useI18n();
   function choose(next: Lang) {
+    if (next !== lang) track("change_language", { language: next });
     setLang(next);
     // Keep the address in step, so a reload doesn't bring back the old ?lang=.
     const url = new URL(window.location.href);
@@ -237,7 +239,10 @@ function DefaultBpmPicker({ kind, label, hint }: { kind: BpmKind; label: string;
     if (!changed.current) return;
     setStatus("saving");
     const timer = window.setTimeout(() => {
-      void saveDefaultBpm(kind, bpm).then((failure) => setStatus(failure ? { error: errorMessage(failure.code) } : "saved"));
+      void saveDefaultBpm(kind, bpm).then((failure) => {
+        setStatus(failure ? { error: errorMessage(failure.code) } : "saved");
+        if (!failure) track("change_setting", { setting: kind === "exercise" ? "default_bpm" : "sequence_bpm", value: bpm });
+      });
     }, 600);
     return () => window.clearTimeout(timer);
   }, [bpm]); // eslint-disable-line react-hooks/exhaustive-deps

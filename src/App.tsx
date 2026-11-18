@@ -19,6 +19,7 @@ import { chordName, useI18n, type Lang, type Localized } from "./i18n.tsx";
 import { useAccount } from "./auth/firebase.ts";
 import { Icon, type IconName } from "./Icon.tsx";
 import { BpmControl } from "./BpmControl.tsx";
+import { track, trackScreen } from "./analytics.ts";
 import { adoptAccountDefaults, loadDefaultBpm } from "./defaultBpm.ts";
 import { UserMenu } from "./UserMenu.tsx";
 import { saveResultToAccount, syncProgress } from "./auth/progressSync.ts";
@@ -3491,7 +3492,30 @@ export default function App() {
     };
   }, [userId]);
 
+  // Analytics: one page view per screen (virtual path), and the lesson opened.
+  const moduleOfLesson = (lesson: Lesson) => lesson.key.split("/")[0];
+  const screenModule = trailSections.find((section) => moduleSlug(section) === moduleRoute);
+  const screen = dictionary.open
+    ? { path: "/app/dicionario", title: "Chord Dictionary" }
+    : guideSection !== null
+      ? { path: `/app/modulo/${moduleSlug(sections.find((section) => section.id === guideSection) ?? sections[0])}/guia`, title: `Guide: ${sections.find((section) => section.id === guideSection)?.title.en ?? ""}` }
+      : selectedLesson
+        ? { path: `/app/aula/${selectedLesson.key}`, title: `${selectedLesson.title.en} (${selectedLesson.key})` }
+        : screenModule
+          ? { path: `/app/modulo/${moduleSlug(screenModule)}`, title: `Module: ${screenModule.title.en}` }
+          : { path: "/app/", title: "Dashboard" };
+  useEffect(() => {
+    trackScreen(screen.path, screen.title);
+  }, [screen.path]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const openedLesson = selectedLesson?.key;
+  useEffect(() => {
+    if (!selectedLesson) return;
+    track("lesson_start", { lesson_key: selectedLesson.key, module: moduleOfLesson(selectedLesson), lesson_title: selectedLesson.title.en, repeat: selectedLesson.status === "done" });
+  }, [openedLesson]); // eslint-disable-line react-hooks/exhaustive-deps
+
   function completeLesson(lesson: Lesson, bpm: number) {
+    track("lesson_complete", { lesson_key: lesson.key, module: moduleOfLesson(lesson), lesson_title: lesson.title.en, bpm, repeat: lesson.status === "done" });
     const result = { bpm, completedAt: new Date().toISOString() };
     setProgress((current) => {
       const next = { ...current, [lesson.key]: result };
