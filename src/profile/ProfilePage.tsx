@@ -8,6 +8,8 @@ import { LANGUAGES, useI18n, type Lang } from "../i18n.tsx";
 import { sections } from "../lessons.ts";
 import { clearLocalProgress, loadProgress, saveProgress, type Progress } from "../progress.ts";
 import { UserMenu } from "../UserMenu.tsx";
+import { BpmControl } from "../BpmControl.tsx";
+import { adoptAccountDefaultBpm, DEFAULT_BPM_FIELD, loadDefaultBpm, saveDefaultBpm } from "../defaultBpm.ts";
 
 // Profile page (profile/), modelled on the reference profile page: a greeting,
 // then cards with the account details, the progress in all exercises, the language,
@@ -229,6 +231,45 @@ function LanguagePicker() {
   );
 }
 
+/** Default metronome tempo: where every exercise starts. Saved shortly after each change. */
+function DefaultBpmPicker({ user }: { user: User }) {
+  const { t } = useI18n();
+  const errorMessage = useErrorMessage();
+  const [bpm, setBpm] = useState(() => {
+    adoptAccountDefaultBpm(user.user_metadata?.[DEFAULT_BPM_FIELD]);
+    return loadDefaultBpm();
+  });
+  const [status, setStatus] = useState<"idle" | "saving" | "saved" | { error: string }>("idle");
+  const changed = useRef(false);
+
+  useEffect(() => {
+    if (!changed.current) return;
+    setStatus("saving");
+    const timer = window.setTimeout(() => {
+      void saveDefaultBpm(bpm).then((failure) => setStatus(failure ? { error: errorMessage(failure.message) } : "saved"));
+    }, 600);
+    return () => window.clearTimeout(timer);
+  }, [bpm]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <div className="flex flex-wrap items-center gap-4">
+      <BpmControl
+        bpm={bpm}
+        disabled={false}
+        onChange={(update) => {
+          changed.current = true;
+          setBpm(update);
+        }}
+      />
+      <span role="status" className="text-sm text-muted">
+        {status === "saving" && t("Salvando…", "Saving…")}
+        {status === "saved" && t("Salvo", "Saved")}
+      </span>
+      {typeof status === "object" && <ErrorText message={status.error} />}
+    </div>
+  );
+}
+
 function Header() {
   const { t, lang } = useI18n();
   return (
@@ -331,6 +372,16 @@ export function ProfilePage() {
             </button>
           </div>
           <p className="mt-2 text-sm text-muted">{t("Comece do zero e refaça todas as aulas.", "Start fresh and go through all lessons again.")}</p>
+        </Card>
+
+        <Card title={t("Metrônomo", "Metronome")}>
+          <p className="mb-4 text-[15px] text-ink-2">
+            {t(
+              "Andamento inicial (BPM) de todos os exercícios. Uma aula já concluída reabre no andamento da sua última execução.",
+              "Starting tempo (BPM) of every exercise. A lesson you have finished reopens at the tempo of your last run.",
+            )}
+          </p>
+          <DefaultBpmPicker user={user} />
         </Card>
 
         <Card title={t("Idioma", "Language")}>
