@@ -92,7 +92,7 @@ export function UserMenu({
             {session ? (
               <>
               <a role="menuitem" href={`${basePath}profile/?lang=${lang}`} className="user-menu__item">
-                {t("Meu perfil", "My profile")}
+                {t("Minha conta", "My account")}
               </a>
               <a role="menuitem" href={`${basePath}settings/?lang=${lang}`} className="user-menu__item">
                 {t("Configurações", "Settings")}
