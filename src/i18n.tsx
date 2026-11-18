@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { cachedGeoLang, fetchGeoLang } from "./geo.ts";
 import { storageKey } from "./storage.ts";
 
 /**
@@ -17,7 +18,8 @@ export const LANGUAGES: Array<{ id: Lang; label: string; htmlLang: string }> = [
 
 const STORAGE_KEY = storageKey("lang.v1");
 
-function initialLang(): Lang {
+/** The language the learner chose (a ?lang= link counts as a choice and is remembered). */
+function chosenLang(): Lang | null {
   // A link from the homepage picks the language (?lang=pt); it is then remembered.
   const requested = new URLSearchParams(window.location.search).get("lang");
   if (requested === "pt" || requested === "en") {
@@ -32,9 +34,14 @@ function initialLang(): Lang {
     const saved = window.localStorage.getItem(STORAGE_KEY);
     if (saved === "pt" || saved === "en") return saved;
   } catch {
-    // Blocked storage: fall back to the browser language.
+    // Blocked storage: fall back to the default.
   }
-  return navigator.language.toLowerCase().startsWith("pt") ? "pt" : "en";
+  return null;
+}
+
+/** No choice yet: the default for the visitor's country (Brazil, Portugal → pt), known from an earlier visit or guessed from the browser until /geo.json answers. */
+function initialLang(): Lang {
+  return chosenLang() ?? cachedGeoLang() ?? (navigator.language.toLowerCase().startsWith("pt") ? "pt" : "en");
 }
 
 type I18n = {
@@ -50,6 +57,14 @@ const I18nContext = createContext<I18n | null>(null);
 
 export function I18nProvider({ children, lang: pageLang }: { children: ReactNode; /** Fixed by the page (the homepage is one page per language). */ lang?: Lang }) {
   const [lang, setLangState] = useState<Lang>(() => pageLang ?? initialLang());
+
+  // No language chosen yet: follow the visitor's country (only a default, never saved as a choice).
+  useEffect(() => {
+    if (pageLang || chosenLang()) return;
+    void fetchGeoLang().then((geo) => {
+      if (geo && !chosenLang()) setLangState(geo);
+    });
+  }, [pageLang]);
 
   useEffect(() => {
     document.documentElement.lang = LANGUAGES.find((item) => item.id === lang)!.htmlLang;
