@@ -5,7 +5,7 @@ import { useI18n } from "./i18n.tsx";
 import { clampBpm, MAX_BPM, MIN_BPM } from "./defaultBpm.ts";
 
 // Metronome tempo control: − / typed value / +. Used in the exercise footer and
-// on the profile page (default tempo).
+// on the settings page (default tempos).
 
 export function BpmControl({
   bpm,

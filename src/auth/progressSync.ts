@@ -7,7 +7,7 @@ import { supabase } from "./supabase.ts";
 // are merged (newest completion wins), so practice done before creating the
 // account, or on another device, is never lost.
 
-/** User metadata field with the ISO date of the last progress reset (profile page). */
+/** User metadata field with the ISO date of the last progress reset (settings page). */
 export const PROGRESS_RESET_AT = "progress_reset_at";
 
 type Row = { lesson_key: string; bpm: number; completed_at: string };
@@ -25,7 +25,7 @@ const toRow = (key: string, result: LessonResult): Row => ({
  */
 export async function syncProgress(local: Progress): Promise<Progress | null> {
   if (!supabase) return null;
-  // Progress reset on the profile page (maybe on another device): drop what this
+  // Progress reset on the settings page (maybe on another device): drop what this
   // browser finished before the reset, so it is not uploaded back.
   const { data: userData } = await supabase.auth.getUser();
   const resetAt = String(userData.user?.user_metadata?.[PROGRESS_RESET_AT] ?? "");

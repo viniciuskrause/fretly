@@ -3,7 +3,7 @@ import { supabase } from "./auth/supabase.ts";
 // Default metronome tempos: where the exercises start, and where the final
 // exercise (all the lesson's shapes in sequence) starts — usually slower. A
 // finished lesson reopens on its final exercise at the tempo of its last run,
-// which is what the trail records. Chosen on the profile page,
+// which is what the trail records. Chosen on the settings page,
 // kept in this browser (read synchronously when an exercise opens) and in the
 // account's user metadata, so it follows the learner to other devices.
 
