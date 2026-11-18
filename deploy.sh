@@ -4,7 +4,7 @@ set -e
 node scripts/chords/check.mjs
 node scripts/landing/build.mjs
 npx tsc --noEmit
-npx vite build --base=/fretly/
+npx vite build --base=/guitar-workouts/
 # Keep the assets of the live version for pages still cached in browsers.
 PREVIOUS=$(mktemp -d)
 if git clone -q --depth 1 -b gh-pages "$(git remote get-url origin)" "$PREVIOUS" 2>/dev/null; then

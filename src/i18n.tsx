@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { storageKey } from "./storage.ts";
 
 /**
- * Fretly is bilingual: every text exists in Brazilian Portuguese and English.
+ * Guitar Workouts is bilingual: every text exists in Brazilian Portuguese and English.
  * UI strings sit side by side in the code (`t("Voltar", "Back")`); generated
  * lesson data carries a `Localized` value ({ pt, en }) for each text.
  */
@@ -14,7 +15,7 @@ export const LANGUAGES: Array<{ id: Lang; label: string; htmlLang: string }> = [
   { id: "en", label: "English", htmlLang: "en" },
 ];
 
-const STORAGE_KEY = "fretly.lang.v1";
+const STORAGE_KEY = storageKey("lang.v1");
 
 function initialLang(): Lang {
   // A link from the homepage picks the language (?lang=pt); it is then remembered.

@@ -32,7 +32,7 @@ export async function syncProgress(local: Progress): Promise<Progress | null> {
   if (resetAt) local = Object.fromEntries(Object.entries(local).filter(([, result]) => result.completedAt > resetAt));
   const { data, error } = await supabase.from("lesson_progress").select("lesson_key, bpm, completed_at");
   if (error) {
-    console.warn("Fretly: could not load progress from the account", error.message);
+    console.warn("Guitar Workouts: could not load progress from the account", error.message);
     return null;
   }
   const remote: Progress = Object.fromEntries(
@@ -47,7 +47,7 @@ export async function syncProgress(local: Progress): Promise<Progress | null> {
     const { error: upsertError } = await supabase
       .from("lesson_progress")
       .upsert(missing.map(([key, result]) => toRow(key, result)), { onConflict: "user_id,lesson_key" });
-    if (upsertError) console.warn("Fretly: could not save progress to the account", upsertError.message);
+    if (upsertError) console.warn("Guitar Workouts: could not save progress to the account", upsertError.message);
   }
   return merged;
 }
@@ -56,7 +56,7 @@ export async function syncProgress(local: Progress): Promise<Progress | null> {
 export async function saveResultToAccount(key: string, result: LessonResult) {
   if (!supabase) return;
   const { error } = await supabase.from("lesson_progress").upsert(toRow(key, result), { onConflict: "user_id,lesson_key" });
-  if (error) console.warn("Fretly: could not save progress to the account", error.message);
+  if (error) console.warn("Guitar Workouts: could not save progress to the account", error.message);
 }
 
 /**

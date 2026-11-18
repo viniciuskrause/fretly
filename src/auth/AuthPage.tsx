@@ -148,7 +148,7 @@ function AuthHeader({ mode }: { mode: AuthMode }) {
     <header className="border-b border-line bg-canvas">
       <nav className="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-[88px] sm:px-8">
         <a href={homeHref(lang)} className="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
-          Guitar Workouts <span className="text-accent-ink">for Nerds</span>
+          Guitar <span className="text-accent-ink">Workouts</span>
         </a>
         <a
           href={mode === "signup" ? `../login/?lang=${lang}` : `../signup/?lang=${lang}`}
@@ -426,8 +426,8 @@ export function AuthPage({ mode }: { mode: AuthMode }) {
   useEffect(() => {
     document.title =
       mode === "signup"
-        ? t("Criar conta – Guitar Workouts for Nerds", "Sign up – Guitar Workouts for Nerds")
-        : t("Entrar – Guitar Workouts for Nerds", "Log in – Guitar Workouts for Nerds");
+        ? t("Criar conta – Guitar Workouts", "Sign up – Guitar Workouts")
+        : t("Entrar – Guitar Workouts", "Log in – Guitar Workouts");
   }, [mode, lang]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

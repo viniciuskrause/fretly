@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode
 import type { ScaleStep } from "./chords.ts";
 import { Icon } from "./Icon.tsx";
 import { chordName, useI18n } from "./i18n.tsx";
+import { storageKey } from "./storage.ts";
 
 /**
  * Tablature / staff notation for exercises that run along the neck (diatonic triads):
@@ -13,7 +14,7 @@ import { chordName, useI18n } from "./i18n.tsx";
  */
 export type NotationView = "tab" | "staff";
 
-const VIEW_KEY = "fretly.notation.v1";
+const VIEW_KEY = storageKey("notation.v1");
 
 function savedView(): NotationView {
   try {

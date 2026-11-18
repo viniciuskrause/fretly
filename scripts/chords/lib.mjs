@@ -1,4 +1,4 @@
-// Shared chord logic for the chord-generator skill: Fretly's conventions,
+// Shared chord logic for the chord-generator skill: the app's conventions,
 // CAGED templates, conversion of chords-db voicings, validation and comparison.
 // Positions use the chords-db format (strings low E → high E).
 import fs from "node:fs";
@@ -47,7 +47,7 @@ export const SUFFIX_INTERVALS = {
 // Open-position template of each shape (absolute frets, low E → high E) and its
 // fingering. When the shape moves up the neck, the strings that were open are
 // held by a finger-1 barre and the other notes use fingers 2–4 ("moved").
-// Strings below the root stay muted (Fretly convention: the bass is the root).
+// Strings below the root stay muted (app convention: the bass is the root).
 export const CAGED = {
   C: { rootPc: 0, frets: [-1, 3, 2, 0, 1, 0], open: [0, 3, 2, 0, 1, 0], moved: [0, 4, 3, 1, 2, 1] },
   A: { rootPc: 9, frets: [-1, 0, 2, 2, 2, 0], open: [0, 0, 1, 2, 3, 0], moved: [0, 1, 2, 3, 4, 1] },
@@ -197,11 +197,11 @@ export function dbPositions(chord, suffix = "major") {
 }
 
 /**
- * Applies Fretly's conventions to a chords-db position: mute every string below
+ * Applies the app's conventions to a chords-db position: mute every string below
  * the lowest root, drop `capo`, keep only finger-1 barres over 2+ strings, and
  * recompute MIDI.
  */
-export function toFretly(position, chord) {
+export function toAppConventions(position, chord) {
   const rootPc = rootPitchClass(chord);
   const frets = [...position.frets];
   const fingers = [...position.fingers];
@@ -225,7 +225,7 @@ export function toFretly(position, chord) {
 
 const absFrets = (p) => p.frets.map((f) => (f <= 0 ? f : p.baseFret + f - 1));
 
-/** How a Fretly position relates to chords-db: identical, db plays extra strings, or not listed. */
+/** How an app position relates to chords-db: identical, db plays extra strings, or not listed. */
 export function compareWithDb(position, chord, suffix = "major") {
   const mine = absFrets(position);
   let best = null;
@@ -276,7 +276,7 @@ export function shapeOf(position, chord, suffix = "major") {
 
 // ---------------------------------------------------------------- validation
 /**
- * Returns { errors, warnings } for a position against Fretly's conventions.
+ * Returns { errors, warnings } for a position against the app's conventions.
  * With `shape`, also checks it against the root/third rule (`shapeOf`).
  */
 export function validate(position, chord, suffix = "major", shape, bass = "root", bassString) {

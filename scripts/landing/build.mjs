@@ -178,7 +178,7 @@ function page(lang) {
     <header class="border-b border-line bg-canvas">
       <nav data-auth-root class="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-[88px] sm:px-8" aria-label="${lang === "en" ? "Main" : "Principal"}">
         <a href="${lang === "en" ? "./" : "./"}" class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
-          Guitar Workouts <span class="text-accent-ink">for Nerds</span>
+          Guitar <span class="text-accent-ink">Workouts</span>
         </a>
         <div class="flex shrink-0 items-center gap-2 sm:gap-3" data-auth="out">
           <a href="${loginHref}" class="flex h-11 items-center rounded-control border border-line-strong bg-surface px-4 text-[15px] font-semibold text-ink-2 transition-colors hover:border-subtle hover:text-ink">${escape(t.nav.login)}</a>

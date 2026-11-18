@@ -29,11 +29,11 @@ function Brand() {
   return (
     <a
       href={lang === "pt" ? "../pt/" : "../"}
-      aria-label={t("Guitar Workouts for Nerds: página inicial", "Guitar Workouts for Nerds: homepage")}
+      aria-label={t("Guitar Workouts: página inicial", "Guitar Workouts: homepage")}
       className="flex items-center"
     >
       <span className="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
-        Guitar Workouts <span className="text-accent-ink">for Nerds</span>
+        Guitar <span className="text-accent-ink">Workouts</span>
       </span>
     </a>
   );
@@ -681,9 +681,9 @@ function ModulePage({
 }) {
   const { t, l } = useI18n();
   useEffect(() => {
-    document.title = `${l(section.title)} – Guitar Workouts for Nerds`;
+    document.title = `${l(section.title)} – Guitar Workouts`;
     return () => {
-      document.title = "Guitar Workouts for Nerds";
+      document.title = "Guitar Workouts";
     };
   }, [section, l]);
   return (

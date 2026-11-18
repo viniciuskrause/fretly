@@ -1,11 +1,11 @@
 ---
-name: fretly-design-system
-description: Design system do Fretly (Guitar Workouts for Nerds) — tokens de cor, tipografia, raios, componentes e padrões de layout/interação da UI atual (azul, branco, laranja e preto, cores sólidas, sem gradientes). Use SEMPRE que for criar ou alterar qualquer tela, componente, estado visual, guia, card, botão, cabeçalho recolhível, barra de progresso, ícone ou diagrama do app, ou quando alguém pedir "crie uma tela/página/componente", "ajuste o visual", "siga o padrão da UI" ou "deixe igual ao resto do app".
+name: guitar-workouts-design-system
+description: Design system do Guitar Workouts — tokens de cor, tipografia, raios, componentes e padrões de layout/interação da UI atual (azul, branco, laranja e preto, cores sólidas, sem gradientes). Use SEMPRE que for criar ou alterar qualquer tela, componente, estado visual, guia, card, botão, cabeçalho recolhível, barra de progresso, ícone ou diagrama do app, ou quando alguém pedir "crie uma tela/página/componente", "ajuste o visual", "siga o padrão da UI" ou "deixe igual ao resto do app".
 ---
 
-# Design system do Fretly
+# Design system do Guitar Workouts
 
-A UI do Fretly foi definida e aprovada iterativamente. Toda interface nova
+A UI do Guitar Workouts foi definida e aprovada iterativamente. Toda interface nova
 deve **parecer que sempre esteve no app**: reutilize tokens, componentes e
 receitas abaixo antes de inventar qualquer coisa. Se algo novo for realmente
 necessário, construa-o só com os tokens e as regras desta skill e registre o
@@ -105,7 +105,7 @@ Outros tokens:
   `px-5 sm:px-8` (guias). Exercícios: até `max-w-[1040px]`.
 - **Header (TopBar):** faixa de largura total com conteúdo em `max-w-[1440px]`, `sticky top-0`, `bg-canvas` (mesma cor do
   fundo, nunca branco) com **só a linha** `border-b border-line` como
-  separador; nome do site (`font-display` bold 19px, 22px a partir de `sm`) à esquerda seguido (`gap-3 sm:gap-10`, **alinhados pela linha de
+  separador; nome do site "Guitar **Workouts**" ("Workouts" em `text-accent-ink`; `font-display` bold 19px, 22px a partir de `sm`) à esquerda seguido (`gap-3 sm:gap-10`, **alinhados pela linha de
   base do texto** com `sm:items-baseline`) do link de navegação
   "Dicionário de Acordes" (`DictionaryLink`: `text-base font-semibold
   text-ink-2 hover:text-brand-ink`, sem borda nem fundo, `aria-current` em
@@ -306,8 +306,8 @@ novos aparecem sozinhos.
 
 ### Notação (tablatura / partitura) e modal de ajuda
 
-> Regras completas: skill `fretly-music-notation`. Diagrama de bolinhas
-> (escalas e arpejos): skill `fretly-scale-diagrams`.
+> Regras completas: skill `guitar-workouts-music-notation`. Diagrama de bolinhas
+> (escalas e arpejos): skill `guitar-workouts-scale-diagrams`.
 
 Exercícios que correm pelo braço (`notation: true`) usam `NotationCard`
 (`src/Notation.tsx`) em vez dos pontos: card `rounded-card border-line bg-surface`
