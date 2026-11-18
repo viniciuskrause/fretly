@@ -10,4 +10,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/" />
   </url>
+  <url>
+    <loc>https://guitarworkouts.app/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/faq/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/faq/" />
+  </url>
+  <url>
+    <loc>https://guitarworkouts.app/pt/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/faq/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/faq/" />
+  </url>
 </urlset>
