@@ -1,0 +1,38 @@
+rules_version = '2';
+
+// Guitar Workouts: every learner reads and writes only their own documents.
+//   users/{uid}                    profile and settings (written at sign-up, before the e-mail is confirmed)
+//   users/{uid}/progress/{lesson}  finished lessons (only once the e-mail is confirmed)
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+    function verified() {
+      return request.auth.token.email_verified == true;
+    }
+
+    match /users/{uid} {
+      allow read, delete: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['first_name', 'username', 'language', 'default_bpm', 'sequence_bpm', 'progress_reset_at'])
+        && (!('first_name' in request.resource.data) || (request.resource.data.first_name is string && request.resource.data.first_name.size() <= 100))
+        && (!('username' in request.resource.data) || (request.resource.data.username is string && request.resource.data.username.size() <= 100))
+        && (!('language' in request.resource.data) || request.resource.data.language in ['pt', 'en'])
+        && (!('default_bpm' in request.resource.data) || (request.resource.data.default_bpm is int && request.resource.data.default_bpm >= 40 && request.resource.data.default_bpm <= 180))
+        && (!('sequence_bpm' in request.resource.data) || (request.resource.data.sequence_bpm is int && request.resource.data.sequence_bpm >= 40 && request.resource.data.sequence_bpm <= 180))
+        && (!('progress_reset_at' in request.resource.data) || request.resource.data.progress_reset_at is string);
+
+      match /progress/{lesson} {
+        allow read, delete: if isOwner(uid) && verified();
+        allow create, update: if isOwner(uid) && verified()
+          && request.resource.data.keys().hasOnly(['lesson_key', 'bpm', 'completed_at'])
+          && request.resource.data.lesson_key is string && request.resource.data.lesson_key.size() <= 100
+          && request.resource.data.bpm is int && request.resource.data.bpm >= 20 && request.resource.data.bpm <= 400
+          && request.resource.data.completed_at is string
+          // Two devices may sync out of order: never replace a newer completion with an older one.
+          && (resource == null || request.resource.data.completed_at >= resource.data.completed_at);
+      }
+    }
+  }
+}

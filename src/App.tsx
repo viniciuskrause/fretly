@@ -16,7 +16,7 @@ import {
 import { lessons, sections, type Lesson, type Section, type Trail as TrailData } from "./lessons.ts";
 import { applyProgress, loadProgress, saveProgress, type Progress } from "./progress.ts";
 import { chordName, useI18n, type Lang, type Localized } from "./i18n.tsx";
-import { useSession } from "./auth/supabase.ts";
+import { useAccount } from "./auth/firebase.ts";
 import { Icon, type IconName } from "./Icon.tsx";
 import { BpmControl } from "./BpmControl.tsx";
 import { adoptAccountDefaults, loadDefaultBpm } from "./defaultBpm.ts";
@@ -639,8 +639,8 @@ const DASHBOARD_GROUPS: Array<{
 
 function Dashboard({ sections: all, onSelect }: { sections: Section[]; onSelect: (lesson: Lesson) => void }) {
   const { t, l } = useI18n();
-  const session = useSession();
-  const firstName = String(session?.user.user_metadata?.first_name ?? "").trim();
+  const account = useAccount();
+  const firstName = account?.firstName ?? "";
   return (
     <div className="min-h-screen bg-canvas text-ink">
       <TopBar />
@@ -3467,15 +3467,15 @@ export default function App() {
   const [guideSection, setGuideSection] = useState<number | null>(null);
   const moduleRoute = useModuleRoute();
   const dictionary = useDictionaryRoute();
-  const session = useSession();
-  const userId = session?.user.id;
+  const account = useAccount();
+  const userId = account?.uid;
   const trailSections = applyProgress(sections, progress);
-  const accountMetadata = session?.user.user_metadata;
+  const accountData = account?.data;
 
   // The default tempos chosen on the settings page follow the account to this browser.
   useEffect(() => {
-    adoptAccountDefaults(accountMetadata);
-  }, [accountMetadata]);
+    adoptAccountDefaults(accountData);
+  }, [accountData]);
 
   // Logged in (or switched account): merge this browser's progress with the account's.
   useEffect(() => {

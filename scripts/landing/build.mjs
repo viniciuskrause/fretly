@@ -13,14 +13,16 @@ import { BRAND, SITE_URL, content } from "./content.mjs";
 const ROOT = path.resolve(import.meta.dirname, "../..");
 
 /**
- * localStorage key where supabase-js keeps the session ("sb-<project ref>-auth-token"),
- * from VITE_SUPABASE_URL in .env.local; null when accounts are not configured.
+ * localStorage key where Firebase Auth keeps the session
+ * ("firebase:authUser:<api key>:[DEFAULT]", src/auth/firebase.ts uses local
+ * persistence), from VITE_FIREBASE_API_KEY in .env.local; null when accounts
+ * are not configured.
  */
 function sessionStorageKey() {
   try {
     const env = fs.readFileSync(path.join(ROOT, ".env.local"), "utf8");
-    const url = env.match(/^VITE_SUPABASE_URL=(.+)$/m)?.[1].trim();
-    return url ? `sb-${new URL(url).hostname.split(".")[0]}-auth-token` : null;
+    const apiKey = env.match(/^VITE_FIREBASE_API_KEY=(.+)$/m)?.[1].trim();
+    return apiKey ? `firebase:authUser:${apiKey}:[DEFAULT]` : null;
   } catch {
     return null;
   }
@@ -189,7 +191,7 @@ function page(lang) {
           <div data-auth-menu class="size-9"></div>
         </div>${SESSION_KEY ? `
         <script>
-          // A session stored by Supabase in this browser: hide the header buttons until
+          // A session stored by Firebase in this browser: hide the header buttons until
           // src/landing-auth.ts confirms it with the server (then it shows the right state).
           try {
             if (localStorage.getItem(${JSON.stringify(SESSION_KEY)})) document.querySelector("[data-auth-root]").setAttribute("data-auth-pending", "");

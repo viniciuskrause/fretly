@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 
-import { initialsOf, supabase, useSession } from "./auth/supabase.ts";
+import { initialsOf, signOutAccount, useAccount } from "./auth/firebase.ts";
 import { useI18n } from "./i18n.tsx";
 import { Icon } from "./Icon.tsx";
 
@@ -20,7 +20,7 @@ export function UserMenu({
   onSignOut?: () => void;
 } = {}) {
   const { t, lang } = useI18n();
-  const session = useSession();
+  const account = useAccount();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -61,7 +61,7 @@ export function UserMenu({
           open ? "bg-ink-2" : "bg-ink"
         }`}
       >
-        {session ? initialsOf(session) : <Icon name="profile" className="size-5" />}
+        {account ? initialsOf(account) : <Icon name="profile" className="size-5" />}
       </button>
       {open && (
         <div
@@ -78,18 +78,14 @@ export function UserMenu({
             items[next]?.focus();
           }}
         >
-          {session ? (
+          {account ? (
             <div className="border-b border-line px-3 pb-3 pt-1">
-              <p className="truncate text-sm font-semibold text-ink">
-                {String(session.user.user_metadata?.first_name || session.user.email)}
-              </p>
-              {session.user.user_metadata?.first_name && (
-                <p className="truncate text-xs text-muted">{session.user.email}</p>
-              )}
+              <p className="truncate text-sm font-semibold text-ink">{account.firstName || account.email}</p>
+              {account.firstName && <p className="truncate text-xs text-muted">{account.email}</p>}
             </div>
           ) : null}
-          <div className={session ? "pt-2" : ""}>
-            {session ? (
+          <div className={account ? "pt-2" : ""}>
+            {account ? (
               <>
               <a role="menuitem" href={`${basePath}profile/?lang=${lang}`} className="user-menu__item">
                 {t("Minha conta", "My account")}
@@ -101,7 +97,7 @@ export function UserMenu({
                 role="menuitem"
                 className="user-menu__item"
                 onClick={async () => {
-                  await supabase?.auth.signOut();
+                  await signOutAccount();
                   setOpen(false);
                   onSignOut?.();
                 }}

@@ -1,40 +1,55 @@
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 import { useI18n } from "../i18n.tsx";
-import { siteUrl, supabase } from "./supabase.ts";
+import { accountsEnabled, resendConfirmation, sendPasswordReset, signIn, signUp, siteUrl } from "./firebase.ts";
 
 // Sign-up and log-in pages (signup/ and login/), modelled on the reference
 // register/login pages: a profile form that saves progress, and a log-in with
-// e-mail and password (plus password reset).
+// e-mail and password (plus password reset). Accounts live in Firebase
+// Authentication (see firebase.ts); the e-mail links (confirmation, new
+// password) open Firebase's own page, which then returns to the log-in page.
 
 export type AuthMode = "signup" | "login";
 
-/** Log-in page views: e-mail + password (default), reset request, new password (after a reset link). */
-type LoginView = "password" | "reset" | "newPassword";
+/** Log-in page views: e-mail + password (default), or the password reset request. */
+type LoginView = "password" | "reset";
 
 const MIN_PASSWORD = 8;
 
 /** The homepage in the current language (en at the site root, pt in pt/). */
 export const homeHref = (lang: string) => (lang === "pt" ? "../pt/" : "../");
 
+/** Message for an account error code (Firebase's "auth/…", Firestore's, or ours). */
 export function useErrorMessage() {
   const { t } = useI18n();
-  return (message: string) => {
-    const text = message.toLowerCase();
-    if (text.includes("invalid login credentials")) return t("E-mail ou senha incorretos.", "Wrong e-mail or password.");
-    if (text.includes("already registered")) return t("Já existe uma conta com este e-mail. Entre na sua conta.", "There is already an account with this e-mail. Log in instead.");
-    if (text.includes("signups not allowed") || text.includes("user not found"))
-      return t("Não encontramos uma conta com este e-mail.", "We couldn't find an account with this e-mail.");
-    if (text.includes("email not confirmed")) return t("Confirme seu e-mail pelo link que enviamos antes de entrar.", "Confirm your e-mail with the link we sent before logging in.");
-    // Supabase's built-in e-mail service sends only a few e-mails per hour for the whole site.
-    if (text.includes("email rate limit"))
-      return t(
-        "Limite de envio de e-mails atingido. Tente de novo mais tarde (pode levar até uma hora).",
-        "The e-mail sending limit was reached. Try again later (it can take up to an hour).",
-      );
-    if (text.includes("rate limit") || text.includes("security purposes"))
-      return t("Muitas tentativas. Espere um minuto e tente de novo.", "Too many attempts. Wait a minute and try again.");
-    return t(`Algo deu errado: ${message}`, `Something went wrong: ${message}`);
+  return (code: string) => {
+    switch (code) {
+      case "auth/invalid-credential":
+      case "auth/invalid-login-credentials":
+      case "auth/wrong-password":
+        return t("E-mail ou senha incorretos.", "Wrong e-mail or password.");
+      case "auth/user-not-found":
+        return t("Não encontramos uma conta com este e-mail.", "We couldn't find an account with this e-mail.");
+      case "auth/email-already-in-use":
+        return t("Já existe uma conta com este e-mail. Entre na sua conta.", "There is already an account with this e-mail. Log in instead.");
+      case "auth/invalid-email":
+        return t("Este e-mail não é válido.", "This e-mail address is not valid.");
+      case "auth/weak-password":
+        return t(`A senha precisa ter pelo menos ${MIN_PASSWORD} caracteres.`, `The password needs at least ${MIN_PASSWORD} characters.`);
+      case "email-not-verified":
+        return t("Confirme seu e-mail pelo link que enviamos antes de entrar.", "Confirm your e-mail with the link we sent before logging in.");
+      case "auth/too-many-requests":
+        return t("Muitas tentativas. Espere alguns minutos e tente de novo.", "Too many attempts. Wait a few minutes and try again.");
+      case "auth/network-request-failed":
+      case "unavailable":
+        return t("Sem conexão. Confira sua internet e tente de novo.", "No connection. Check your internet and try again.");
+      case "auth/user-disabled":
+        return t("Esta conta foi desativada.", "This account has been disabled.");
+      case "not-configured":
+        return t("O login ainda não está configurado neste site.", "Log-in is not set up on this site yet.");
+      default:
+        return t(`Algo deu errado (${code}).`, `Something went wrong (${code}).`);
+    }
   };
 }
 
@@ -192,26 +207,17 @@ function SignupForm() {
       return setError(t("Os e-mails não são iguais.", "The e-mail addresses don't match."));
     if (password.length < MIN_PASSWORD)
       return setError(t(`A senha precisa ter pelo menos ${MIN_PASSWORD} caracteres.`, `The password needs at least ${MIN_PASSWORD} characters.`));
-    if (!supabase) return;
+    if (!accountsEnabled) return;
     setBusy(true);
-    const { data, error: signUpError } = await supabase.auth.signUp({
-      email: email.trim(),
-      password,
-      options: {
-        data: { first_name: firstName.trim(), username: username.trim(), language: lang },
-        emailRedirectTo: siteUrl(`../app/?lang=${lang}`),
-      },
-    });
+    const failure = await signUp({ email: email.trim(), password, firstName: firstName.trim(), username: username.trim(), lang });
     setBusy(false);
-    if (signUpError) return setError(errorMessage(signUpError.message));
-    // E-mail confirmation off: the session starts right away.
-    if (data.session) window.location.assign(siteUrl(`../app/?lang=${lang}`));
-    else setSent(true);
+    if (failure) return setError(errorMessage(failure.code));
+    setSent(true);
   }
 
   return (
     <form onSubmit={submit} className="space-y-5">
-      {!supabase && <NotConfigured />}
+      {!accountsEnabled && <NotConfigured />}
       <Field label={t("Nome", "First name")} value={firstName} onChange={setFirstName} autoComplete="given-name" />
       {/* A display handle, not the log-in id (that is the e-mail): "nickname" keeps password
           managers off this field — "username" here made Brave crash while typing. */}
@@ -243,48 +249,21 @@ function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
-  const [passwordChanged, setPasswordChanged] = useState(false);
-  // The e-mail is not confirmed yet (log-in refused, or the confirmation link failed): offer a new link.
+  // The e-mail is not confirmed yet (log-in refused): offer a new link.
   const [needsConfirmation, setNeedsConfirmation] = useState(false);
+  // Back from the confirmation link (Firebase's page sends the learner here).
+  const verified = new URLSearchParams(window.location.search).has("verified");
   const appUrl = siteUrl(`../app/?lang=${lang}`);
 
-  // Sent here by the app after an e-mail link failed (see src/main.tsx).
-  useEffect(() => {
-    const code = new URLSearchParams(window.location.search).get("auth_error");
-    if (!code) return;
-    setNeedsConfirmation(true);
-    setError(
-      code === "otp_expired" || code === "access_denied"
-        ? t(
-            "O link do e-mail expirou ou já foi usado. Digite seu e-mail e peça um novo link de confirmação abaixo.",
-            "The e-mail link has expired or was already used. Enter your e-mail and request a new confirmation link below.",
-          )
-        : t(
-            "Não foi possível confirmar pelo link do e-mail. Digite seu e-mail e peça um novo link abaixo.",
-            "We couldn't confirm you with the e-mail link. Enter your e-mail and request a new link below.",
-          ),
-    );
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  async function resendConfirmation() {
-    if (!supabase) return;
-    if (!email.trim()) return setError(t("Digite seu e-mail acima.", "Enter your e-mail above."));
+  async function resend() {
+    if (!email.trim() || !password) return setError(t("Digite seu e-mail e sua senha acima.", "Enter your e-mail and password above."));
     setError(null);
     setBusy(true);
-    const { error: resendError } = await supabase.auth.resend({ type: "signup", email: email.trim(), options: { emailRedirectTo: appUrl } });
+    const failure = await resendConfirmation(email.trim(), password, lang);
     setBusy(false);
-    if (resendError) return setError(errorMessage(resendError.message));
+    if (failure) return setError(errorMessage(failure.code));
     setSent(true);
   }
-
-  // Coming back from a password-reset e-mail: ask for the new password.
-  useEffect(() => {
-    if (!supabase) return;
-    const { data } = supabase.auth.onAuthStateChange((event) => {
-      if (event === "PASSWORD_RECOVERY") setView("newPassword");
-    });
-    return () => data.subscription.unsubscribe();
-  }, []);
 
   function go(next: LoginView) {
     setError(null);
@@ -294,53 +273,36 @@ function LoginForm() {
   async function submit(event: FormEvent) {
     event.preventDefault();
     setError(null);
-    if (!supabase) return;
+    if (!accountsEnabled) return;
     setBusy(true);
-    let failure: { message: string } | null = null;
+    let failure: { code: string } | null;
     if (view === "password") {
-      ({ error: failure } = await supabase.auth.signInWithPassword({ email: email.trim(), password }));
+      failure = await signIn(email.trim(), password);
       if (!failure) window.location.assign(appUrl);
-    } else if (view === "reset") {
-      ({ error: failure } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-        redirectTo: siteUrl(`../login/?lang=${lang}`),
-      }));
-      if (!failure) setSent(true);
     } else {
-      if (password.length < MIN_PASSWORD) {
-        setBusy(false);
-        return setError(t(`A senha precisa ter pelo menos ${MIN_PASSWORD} caracteres.`, `The password needs at least ${MIN_PASSWORD} characters.`));
-      }
-      ({ error: failure } = await supabase.auth.updateUser({ password }));
-      if (!failure) setPasswordChanged(true);
+      failure = await sendPasswordReset(email.trim(), lang);
+      if (!failure) setSent(true);
     }
     setBusy(false);
     if (failure) {
-      setError(errorMessage(failure.message));
-      if (failure.message.toLowerCase().includes("email not confirmed")) setNeedsConfirmation(true);
+      setError(errorMessage(failure.code));
+      if (failure.code === "email-not-verified") setNeedsConfirmation(true);
     }
   }
 
   const heading = {
     password: t("Entrar", "Log in"),
     reset: t("Redefinir senha", "Reset password"),
-    newPassword: t("Nova senha", "New password"),
   }[view];
-
-  if (passwordChanged) {
-    return (
-      <div className="space-y-5">
-        <h1 className="font-display text-[34px] font-bold leading-tight tracking-[-0.04em] text-ink">{heading}</h1>
-        <p className="text-[16px] leading-7 text-ink-2">{t("Sua senha foi alterada.", "Your password has been changed.")}</p>
-        <a href={appUrl} className="flex h-12 items-center justify-center rounded-control bg-brand text-[16px] font-semibold text-white hover:bg-brand-strong">
-          {t("Continuar praticando", "Continue practicing")}
-        </a>
-      </div>
-    );
-  }
 
   return (
     <div>
       <h1 className="font-display text-[34px] font-bold leading-tight tracking-[-0.04em] text-ink sm:text-[40px]">{heading}</h1>
+      {view === "password" && verified && (
+        <p role="status" className="mt-4 rounded-control border border-success bg-success-soft p-4 text-sm font-medium text-ink">
+          {t("E-mail confirmado! Entre para começar a praticar.", "E-mail confirmed! Log in to start practicing.")}
+        </p>
+      )}
       {view === "password" && (
         <p className="mt-3 text-[16px] text-ink-2">
           {t("Ainda não tem conta?", "Don't have an account yet?")}{" "}
@@ -355,19 +317,10 @@ function LoginForm() {
         </p>
       )}
       <form onSubmit={submit} className="mt-8 space-y-5">
-        {!supabase && <NotConfigured />}
-        {view !== "newPassword" && (
-          <Field label={t("E-mail", "E-mail address")} type="email" value={email} onChange={setEmail} autoComplete="email" />
-        )}
-        {(view === "password" || view === "newPassword") && (
-          <Field
-            label={view === "newPassword" ? t("Nova senha", "New password") : t("Senha", "Password")}
-            type="password"
-            value={password}
-            onChange={setPassword}
-            autoComplete={view === "newPassword" ? "new-password" : "current-password"}
-            minLength={view === "newPassword" ? MIN_PASSWORD : undefined}
-          />
+        {!accountsEnabled && <NotConfigured />}
+        <Field label={t("E-mail", "E-mail address")} type="email" value={email} onChange={setEmail} autoComplete="email" />
+        {view === "password" && (
+          <Field label={t("Senha", "Password")} type="password" value={password} onChange={setPassword} autoComplete="current-password" />
         )}
         <ErrorText message={error} />
         <SubmitButton
@@ -376,14 +329,13 @@ function LoginForm() {
             {
               password: t("Entrar", "Log in"),
               reset: t("Redefinir senha", "Reset password"),
-              newPassword: t("Salvar nova senha", "Save new password"),
             }[view]
           }
         />
         <div className="flex flex-wrap justify-between gap-3">
           {view === "password" && <TextButton onClick={() => go("reset")}>{t("Esqueceu a senha?", "Forgot password?")}</TextButton>}
           {view === "password" && needsConfirmation && (
-            <TextButton onClick={() => void resendConfirmation()}>{t("Reenviar e-mail de confirmação", "Resend confirmation e-mail")}</TextButton>
+            <TextButton onClick={() => void resend()}>{t("Reenviar e-mail de confirmação", "Resend confirmation e-mail")}</TextButton>
           )}
           {view === "reset" && <TextButton onClick={() => go("password")}>{t("Voltar ao login", "Back to log in")}</TextButton>}
         </div>
