@@ -147,10 +147,39 @@ function page(lang) {
     <script>
       // The site lives at guitarworkouts.app: the Firebase addresses send visitors there (same page).
       if (/\\.web\\.app$|\\.firebaseapp\\.com$/.test(location.hostname)) location.replace("https://guitarworkouts.app" + location.pathname + location.search + location.hash);
-    </script>${MEASUREMENT_ID ? `
+    </script>${lang === "en" ? `
+    <script>
+      // Default language by country (src/geo.ts): no language chosen yet and the visitor
+      // is in Brazil or Portugal → the Portuguese homepage. Firebase Hosting answers
+      // /geo.json per country; while it answers the page stays hidden (at most 1.5 s).
+      (function () {
+        var chosen = null, geo = null;
+        try {
+          chosen = localStorage.getItem("guitar-workouts.lang.v1");
+          geo = localStorage.getItem("guitar-workouts.geo.v1");
+        } catch (error) {}
+        if (chosen === "pt" || chosen === "en") return;
+        function toPortuguese() {
+          window.gwRedirecting = true;
+          location.replace("pt/" + location.search + location.hash);
+        }
+        if (geo === "pt") return toPortuguese();
+        if (geo === "en") return;
+        var root = document.documentElement;
+        root.style.visibility = "hidden";
+        function show() { root.style.visibility = ""; }
+        setTimeout(show, 1500);
+        fetch("/geo.json", { cache: "no-store" })
+          .then(function (response) { return response.json(); })
+          .then(function (answer) {
+            try { localStorage.setItem("guitar-workouts.geo.v1", answer.lang); } catch (error) {}
+            if (answer.lang === "pt") toPortuguese(); else show();
+          }, show);
+      })();
+    </script>` : ""}${MEASUREMENT_ID ? `
     <script>
       // Google Analytics 4 (same tag as the app, src/analytics.ts); not on localhost.
-      if (!/^(localhost|127\\.0\\.0\\.1)$/.test(location.hostname)) {
+      if (!window.gwRedirecting && !/^(localhost|127\\.0\\.0\\.1)$/.test(location.hostname)) {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function () { dataLayer.push(arguments); };
         gtag("js", new Date());
@@ -360,7 +389,7 @@ ${t.faq.items
         <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
           <li><a href="${appHref}" class="text-ink-2 hover:text-brand-ink">${escape(t.footer.app)}</a></li>
           <li><a href="${dictionaryHref}" class="text-ink-2 hover:text-brand-ink">${escape(t.footer.dictionary)}</a></li>
-          <li><a href="${otherHref}" hreflang="${content[other].htmlLang}" lang="${content[other].htmlLang}" class="text-ink-2 hover:text-brand-ink">${escape(t.footer.language)}</a></li>
+          <li><a href="${otherHref}" hreflang="${content[other].htmlLang}" lang="${content[other].htmlLang}" onclick="try { localStorage.setItem('guitar-workouts.lang.v1', '${other}') } catch (error) {}" class="text-ink-2 hover:text-brand-ink">${escape(t.footer.language)}</a></li>
         </ul>
       </div>
     </footer>${SESSION_KEY ? `
