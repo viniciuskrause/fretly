@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// Generates chord positions in the chords-db format following Fretly's conventions.
+// Generates chord positions in the chords-db format following the app's conventions.
 //
 //   node scripts/chords/generate.mjs <chord> [--position 1-5 | --shape C|A|G|E|D] [--fret N] [--suffix major]
 //
 //   major|minor|7|m7b5 + --position  the N-th CAGED shape up the neck ("posição N")
 //   major|minor|7|m7b5 + --shape     CAGED shape placed where the root falls (or at --fret)
 //   major|minor|7|m7b5, no shape     all five CAGED shapes
-//   other suffixes            chords-db positions converted to Fretly conventions
+//   other suffixes            chords-db positions converted to the app's conventions
 //
 // Every result is validated and compared with reference/chords-db/guitar.json.
 import {
@@ -19,7 +19,7 @@ import {
   shapeForPosition,
   shapeOf,
   chordSymbol,
-  toFretly,
+  toAppConventions,
   validate,
 } from "./lib.mjs";
 
@@ -50,7 +50,7 @@ if (cagedTemplates(suffix)) {
 } else {
   if (positionArg) throw new Error("--position só vale para major, minor, 7 e m7b5");
   dbPositions(chord, suffix).forEach((dbPosition, index) => {
-    candidates.push({ source: `chords-db posição ${index + 1}`, position: toFretly(dbPosition, chord) });
+    candidates.push({ source: `chords-db posição ${index + 1}`, position: toAppConventions(dbPosition, chord) });
   });
 }
 

@@ -1,12 +1,12 @@
-// Content of the marketing homepage, in both languages (Fretly is bilingual:
+// Content of the marketing homepage, in both languages (Guitar Workouts is bilingual:
 // every text exists in pt and en). Rendered to static HTML by build.mjs so
 // search engines read it without running JavaScript.
 //
 // Numbers come from src/lessons.ts (see build.mjs); keep claims factual —
 // no invented stats, testimonials or partner logos.
 
-export const SITE_URL = "https://viniciuskrause.github.io/fretly/";
-export const BRAND = "Guitar Workouts for Nerds";
+export const SITE_URL = "https://viniciuskrause.github.io/guitar-workouts/";
+export const BRAND = "Guitar Workouts";
 
 export const content = {
   en: {
@@ -14,7 +14,7 @@ export const content = {
     ogLocale: "en_US",
     path: "",
     // ≤ 60 characters before the brand (what search results show); descriptions ≤ 160.
-    title: "Guitar Practice: Chords, Scales & Arpeggios in 12 Keys | Guitar Workouts for Nerds",
+    title: "Guitar Practice: Chords, Scales & Arpeggios in 12 Keys | Guitar Workouts",
     description:
       "Free guitar practice in your browser: chords, inversions, scales and arpeggios in all 12 keys, with sound, metronome and tab. Free yourself on the fretboard.",
     nav: { cta: "Start practicing for free", login: "Log in", continue: "Continue practicing", account: "Open the app" },
@@ -44,7 +44,7 @@ export const content = {
       h2: "Stuck in the same shapes and keys?",
       paragraphs: [
         "Most guitarists learn a few open chords, a couple of barre shapes and one scale box — and then stay there. The songs they play, write and arrange end up sounding the same, because their hands always go back to the same spots on the neck and the same few keys.",
-        "Guitar Workouts for Nerds is practice to get out of that box. Every lesson takes one idea — a chord shape, an inversion, a scale position, an arpeggio — and makes you play it in all 12 keys and all over the neck, until you stop thinking about shapes and start hearing music. That is what lets you play any song anywhere, write your own parts and find the sound you hear in your head.",
+        "Guitar Workouts is practice to get out of that box. Every lesson takes one idea — a chord shape, an inversion, a scale position, an arpeggio — and makes you play it in all 12 keys and all over the neck, until you stop thinking about shapes and start hearing music. That is what lets you play any song anywhere, write your own parts and find the sound you hear in your head.",
       ],
     },
     curriculum: {
@@ -112,7 +112,7 @@ export const content = {
     htmlLang: "pt-BR",
     ogLocale: "pt_BR",
     path: "pt/",
-    title: "Exercícios de Guitarra e Violão: Acordes, Escalas e Arpejos | Guitar Workouts for Nerds",
+    title: "Exercícios de Guitarra e Violão: Acordes, Escalas e Arpejos | Guitar Workouts",
     description:
       "Prática de guitarra e violão grátis: acordes, inversões, escalas e arpejos nas 12 tonalidades, com som, metrônomo e tablatura. Liberte-se no braço.",
     nav: { cta: "Comece a praticar grátis", login: "Entrar", continue: "Continuar praticando", account: "Abrir o app" },
@@ -142,7 +142,7 @@ export const content = {
       h2: "Preso aos mesmos desenhos e tonalidades?",
       paragraphs: [
         "A maioria dos guitarristas e violonistas aprende alguns acordes abertos, duas ou três pestanas e um desenho de escala — e para por aí. O que eles tocam, compõem e arranjam acaba soando igual, porque a mão sempre volta para os mesmos lugares do braço e para os mesmos poucos tons.",
-        "O Guitar Workouts for Nerds é uma prática para sair dessa caixa. Cada aula pega uma ideia — um desenho de acorde, uma inversão, uma posição de escala, um arpejo — e faz você tocá-la nas 12 tonalidades e no braço inteiro, até parar de pensar em desenhos e começar a ouvir música. É isso que deixa você tocar qualquer música em qualquer lugar, criar as suas próprias partes e encontrar o som que você ouve na cabeça.",
+        "O Guitar Workouts é uma prática para sair dessa caixa. Cada aula pega uma ideia — um desenho de acorde, uma inversão, uma posição de escala, um arpejo — e faz você tocá-la nas 12 tonalidades e no braço inteiro, até parar de pensar em desenhos e começar a ouvir música. É isso que deixa você tocar qualquer música em qualquer lugar, criar as suas próprias partes e encontrar o som que você ouve na cabeça.",
       ],
     },
     curriculum: {

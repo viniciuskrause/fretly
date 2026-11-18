@@ -1,18 +1,18 @@
 ---
-name: fretly-music-notation
-description: Padrão de notação musical do Fretly — tablatura e partitura (NotationCard em src/Notation.tsx) para exercícios melódicos que correm pelo braço, com dedos, cordas, compassos, seletor de notação e modal "Como ler a notação". Use SEMPRE que for criar ou alterar um exercício escrito como tablatura ou partitura, uma sequência de notas tocadas em ordem (arpejos diatônicos, frases, escalas na horizontal), o componente de notação, o modal de ajuda, ou quando alguém pedir "mostre em tablatura", "coloque em partitura", "adicione compassos/dedos/cordas na notação" ou "crie um exercício como o das tríades diatônicas".
+name: guitar-workouts-music-notation
+description: Padrão de notação musical do Guitar Workouts — tablatura e partitura (NotationCard em src/Notation.tsx) para exercícios melódicos que correm pelo braço, com dedos, cordas, compassos, seletor de notação e modal "Como ler a notação". Use SEMPRE que for criar ou alterar um exercício escrito como tablatura ou partitura, uma sequência de notas tocadas em ordem (arpejos diatônicos, frases, escalas na horizontal), o componente de notação, o modal de ajuda, ou quando alguém pedir "mostre em tablatura", "coloque em partitura", "adicione compassos/dedos/cordas na notação" ou "crie um exercício como o das tríades diatônicas".
 ---
 
-# Notação musical do Fretly (tablatura / partitura)
+# Notação musical do Guitar Workouts (tablatura / partitura)
 
 Padrão aprovado pelo usuário em 2026-11-17 ("esse será nosso padrão de notação
 musical a partir de agora"), a partir do exercício **Tríades diatônicas na 6ª
 corda** (módulo Arpejos de Tríades, seção Exercícios). Todo exercício novo que
 é uma **melodia tocada em ordem** usa este padrão. Os **shapes** (posições de
 escala, digitações de arpejo) continuam com o diagrama de bolinhas: veja a skill
-`fretly-scale-diagrams`. Acordes continuam com `ChordCard`.
+`guitar-workouts-scale-diagrams`. Acordes continuam com `ChordCard`.
 
-Siga também `fretly-design-system` (tokens, raios, botões) e a regra bilíngue
+Siga também `guitar-workouts-design-system` (tokens, raios, botões) e a regra bilíngue
 (todo texto em pt e en).
 
 ## Quando usar
@@ -70,7 +70,7 @@ sem título, sem legenda.
   diagonal (mono bold); partitura = uma colcheia.
 - **Direita: ajuda** — botão só-ícone `size-11` com `Icon name="help"`, abre o
   modal "Como ler a notação".
-- A escolha (tab/partitura) fica em `localStorage` (`fretly.notation.v1`, com
+- A escolha (tab/partitura) fica em `localStorage` (`guitar-workouts.notation.v1`, com
   try/catch); padrão: tablatura.
 
 **Layout comum às duas vistas** (SVG em px reais, largura medida com

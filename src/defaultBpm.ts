@@ -1,4 +1,5 @@
 import { supabase } from "./auth/supabase.ts";
+import { storageKey } from "./storage.ts";
 
 // Default metronome tempos: where the exercises start, and where the final
 // exercise (all the lesson's shapes in sequence) starts — usually slower. A
@@ -18,7 +19,7 @@ export type BpmKind = "exercise" | "sequence";
 /** User metadata field of each default. */
 export const DEFAULT_BPM_FIELDS: Record<BpmKind, string> = { exercise: "default_bpm", sequence: "sequence_bpm" };
 
-const STORAGE_KEYS: Record<BpmKind, string> = { exercise: "fretly.defaultBpm.v1", sequence: "fretly.sequenceBpm.v1" };
+const STORAGE_KEYS: Record<BpmKind, string> = { exercise: storageKey("defaultBpm.v1"), sequence: storageKey("sequenceBpm.v1") };
 
 const valid = (value: unknown): value is number => typeof value === "number" && Number.isFinite(value) && value >= MIN_BPM && value <= MAX_BPM;
 

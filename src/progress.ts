@@ -1,4 +1,5 @@
 import { lessons, type Lesson, type Section } from "./lessons.ts";
+import { storageKey } from "./storage.ts";
 
 /** What the learner did in a finished lesson (one key variation). */
 export type LessonResult = {
@@ -11,8 +12,8 @@ export type LessonResult = {
 /** Finished lessons by stable lesson key ("caged/major/C"), never by the sequential id. */
 export type Progress = Record<string, LessonResult>;
 
-const STORAGE_KEY = "fretly.progress.v3";
-/** v2 saved progress by sequential lesson id; it is converted to keys once. */
+const STORAGE_KEY = storageKey("progress.v3");
+/** v2 (from when the app was called Fretly) saved progress by sequential lesson id; it is converted to keys once. */
 const LEGACY_KEY = "fretly.progress.v2";
 
 const isResult = (value: unknown): value is LessonResult =>

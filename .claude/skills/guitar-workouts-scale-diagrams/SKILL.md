@@ -1,6 +1,6 @@
 ---
-name: fretly-scale-diagrams
-description: Padrão do diagrama de escalas e arpejos do Fretly — o braço com bolinhas (ScaleDiagram / ScaleCard em src/App.tsx) usado para shapes de escala (as 7 posições), a aula preparatória de saltos e as digitações de arpejo, com graus, dedos, tônica em azul e nota soando em laranja. Use SEMPRE que for criar ou alterar uma aula de escala, posição, shape ou digitação de arpejo, o diagrama de bolinhas, o card de posição, a sequência final de escalas, ou quando alguém pedir "mostre o desenho da escala", "adicione uma posição/digitação", "mostre os dedos/graus nas bolinhas".
+name: guitar-workouts-scale-diagrams
+description: Padrão do diagrama de escalas e arpejos do Guitar Workouts — o braço com bolinhas (ScaleDiagram / ScaleCard em src/App.tsx) usado para shapes de escala (as 7 posições), a aula preparatória de saltos e as digitações de arpejo, com graus, dedos, tônica em azul e nota soando em laranja. Use SEMPRE que for criar ou alterar uma aula de escala, posição, shape ou digitação de arpejo, o diagrama de bolinhas, o card de posição, a sequência final de escalas, ou quando alguém pedir "mostre o desenho da escala", "adicione uma posição/digitação", "mostre os dedos/graus nas bolinhas".
 ---
 
 # Diagrama de escalas e arpejos (bolinhas)
@@ -8,9 +8,9 @@ description: Padrão do diagrama de escalas e arpejos do Fretly — o braço com
 Representação dos **shapes**: um trecho do braço visto de frente com uma bolinha
 por nota. Serve para memorizar um desenho numa região do braço. Para melodias
 tocadas em ordem ao longo do braço (sequências diatônicas, frases), use a skill
-`fretly-music-notation` (tablatura/partitura). Para acordes, `ChordCard`.
+`guitar-workouts-music-notation` (tablatura/partitura). Para acordes, `ChordCard`.
 
-Siga também `fretly-design-system` e a regra bilíngue (pt + en em tudo).
+Siga também `guitar-workouts-design-system` e a regra bilíngue (pt + en em tudo).
 
 ## Onde é usado hoje
 

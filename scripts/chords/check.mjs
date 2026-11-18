@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Validates every chord in src/lessons.ts against Fretly's conventions and
+// Validates every chord in src/lessons.ts against the app's conventions and
 // compares it with reference/chords-db. Exits 1 on any convention error.
 //   npm run check:chords
 import { lessons } from "../../src/lessons.ts";
@@ -29,8 +29,8 @@ for (const lesson of lessons) {
 
 const total = Object.values(tally).reduce((a, b) => a + b, 0);
 console.log(
-  `\n${total} acordes · idênticos ao chords-db: ${tally.identical} · chords-db com cordas extras: ${tally["db-extra-strings"]} · próprios do Fretly: ${tally["not-in-db"]}`,
+  `\n${total} acordes · idênticos ao chords-db: ${tally.identical} · chords-db com cordas extras: ${tally["db-extra-strings"]} · próprios do app: ${tally["not-in-db"]}`,
 );
-if (notInDb.length) console.log(`Próprios do Fretly (sem equivalente no chords-db): ${[...new Set(notInDb)].join(", ")}`);
+if (notInDb.length) console.log(`Próprios do app (sem equivalente no chords-db): ${[...new Set(notInDb)].join(", ")}`);
 console.log(errors ? `\n❌ ${errors} erro(s) de convenção` : "\n✓ todos os acordes seguem as convenções");
 process.exit(errors ? 1 : 0);

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://viniciuskrause.github.io/fretly/sitemap.xml
+Sitemap: https://viniciuskrause.github.io/guitar-workouts/sitemap.xml

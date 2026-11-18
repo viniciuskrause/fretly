@@ -281,7 +281,7 @@ function Header() {
     <header className="border-b border-line bg-canvas">
       <nav className="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-[88px] sm:px-8">
         <a href={homeHref(lang)} className="font-display text-[19px] font-bold leading-none tracking-[-0.03em] text-ink sm:text-[22px]">
-          Guitar Workouts <span className="text-accent-ink">for Nerds</span>
+          Guitar <span className="text-accent-ink">Workouts</span>
         </a>
         <div className="flex items-center gap-3">
           <a
@@ -318,8 +318,8 @@ function AccountPage({ page }: { page: AccountPageKind }) {
   useEffect(() => {
     document.title =
       page === "profile"
-        ? t("Minha conta – Guitar Workouts for Nerds", "My account – Guitar Workouts for Nerds")
-        : t("Configurações – Guitar Workouts for Nerds", "Settings – Guitar Workouts for Nerds");
+        ? t("Minha conta – Guitar Workouts", "My account – Guitar Workouts")
+        : t("Configurações – Guitar Workouts", "Settings – Guitar Workouts");
   }, [lang, page]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Show the account's progress (merged with this browser's, as in the app).

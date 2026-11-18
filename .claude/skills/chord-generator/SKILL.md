@@ -1,9 +1,9 @@
 ---
 name: chord-generator
-description: Gera, registra e confere acordes de violão do Fretly por extenso no formato chords-db (casa e dedo por corda, baseFret, barres, midi), seguindo as convenções de digitação, pestana e diagrama do app. Use sempre que for criar ou alterar um acorde, uma aula ou um exercício com acordes, revisar digitações, ou quando alguém pedir "gere o acorde X", "adicione a aula Y" ou "corrija os dedos do acorde Z".
+description: Gera, registra e confere acordes de violão do Guitar Workouts por extenso no formato chords-db (casa e dedo por corda, baseFret, barres, midi), seguindo as convenções de digitação, pestana e diagrama do app. Use sempre que for criar ou alterar um acorde, uma aula ou um exercício com acordes, revisar digitações, ou quando alguém pedir "gere o acorde X", "adicione a aula Y" ou "corrija os dedos do acorde Z".
 ---
 
-# Gerador de acordes do Fretly
+# Gerador de acordes do Guitar Workouts
 
 Todo acorde do app é registrado **por extenso, no formato do chords-db**. Nunca
 derive um acorde de tabelas de forma genéricas dentro do componente: gere a
@@ -33,9 +33,9 @@ position: {
 ```
 
 Casa absoluta = `baseFret + fret - 1` (para `fret > 0`). Não use `capo` (o chords-db
-usa para pestana de braço inteiro; o Fretly desenha a pestana pelas cordas reais).
+usa para pestana de braço inteiro; o Guitar Workouts desenha a pestana pelas cordas reais).
 
-## Convenções do Fretly (todas obrigatórias)
+## Convenções do Guitar Workouts (todas obrigatórias)
 
 1. **O baixo é a tônica.** A nota mais grave tem que ser a fundamental; toda corda
    abaixo dela fica muda (`-1`). Por isso *não* adotamos as cordas extras que o
@@ -303,7 +303,7 @@ quando a ordem muda).
 4. **Verificar:** `npm run check:chords` precisa terminar com
    "✓ todos os acordes seguem as convenções". Ele também informa quais acordes
    são idênticos ao chords-db, quais o chords-db toca com cordas extras e quais
-   são próprios do Fretly.
+   são próprios do Guitar Workouts.
 5. **Ver no app:** `npm run dev`, abra a aula e confira diagrama e som.
 6. **Publicar:** `npm run deploy` (roda a verificação antes do build).
 
