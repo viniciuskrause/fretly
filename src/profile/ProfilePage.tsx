@@ -13,7 +13,7 @@ import { adoptAccountDefaults, loadDefaultBpm, saveDefaultBpm, type BpmKind } fr
 
 // Account pages, both opened from the user menu and only for logged-in users
 // (the session is confirmed with the server first):
-// - profile/ ("Meu perfil"): a greeting, the account details and the account deletion;
+// - profile/ ("Minha conta"): a greeting, the account details and the account deletion;
 // - settings/ ("Configurações"): lesson progress (and its reset), language and metronome.
 
 type State = { status: "loading" } | { status: "out" } | { status: "in"; user: User };
@@ -318,7 +318,7 @@ function AccountPage({ page }: { page: AccountPageKind }) {
   useEffect(() => {
     document.title =
       page === "profile"
-        ? t("Meu perfil – Guitar Workouts for Nerds", "My profile – Guitar Workouts for Nerds")
+        ? t("Minha conta – Guitar Workouts for Nerds", "My account – Guitar Workouts for Nerds")
         : t("Configurações – Guitar Workouts for Nerds", "Settings – Guitar Workouts for Nerds");
   }, [lang, page]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -342,11 +342,11 @@ function AccountPage({ page }: { page: AccountPageKind }) {
     content = (
       <div className="rounded-card border border-line bg-surface p-6 sm:p-8">
         <h1 className="font-display text-[30px] font-bold tracking-[-0.04em] text-ink">
-          {page === "profile" ? t("Meu perfil", "My profile") : t("Configurações", "Settings")}
+          {page === "profile" ? t("Minha conta", "My account") : t("Configurações", "Settings")}
         </h1>
         <p className="mt-3 text-[16px] text-ink-2">
           {page === "profile"
-            ? t("Entre na sua conta para ver o seu perfil.", "Log in to see your profile.")
+            ? t("Entre na sua conta para vê-la.", "Log in to see your account.")
             : t("Entre na sua conta para ver as suas configurações.", "Log in to see your settings.")}
         </p>
         <a href={`../login/?lang=${lang}`} className="mt-6 inline-flex h-12 items-center rounded-control bg-brand px-5 text-[16px] font-semibold text-white hover:bg-brand-strong">
@@ -370,7 +370,7 @@ function AccountPage({ page }: { page: AccountPageKind }) {
             ? t("Configurações", "Settings")
             : firstName
               ? t(`Olá, ${firstName}`, `Hey, ${firstName}`)
-              : t("Meu perfil", "My profile")}
+              : t("Minha conta", "My account")}
         </h1>
         {notice && (
           <p role="status" className="rounded-control border border-success bg-success-soft p-4 text-sm font-medium text-ink">
