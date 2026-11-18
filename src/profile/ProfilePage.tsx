@@ -11,10 +11,10 @@ import { UserMenu } from "../UserMenu.tsx";
 import { BpmControl } from "../BpmControl.tsx";
 import { adoptAccountDefaults, loadDefaultBpm, saveDefaultBpm, type BpmKind } from "../defaultBpm.ts";
 
-// Profile page (profile/), modelled on the reference profile page: a greeting,
-// then cards with the account details, the progress in all exercises, the language,
-// a progress reset and the account deletion. Only for logged-in users: the
-// session is confirmed with the server first.
+// Account pages, both opened from the user menu and only for logged-in users
+// (the session is confirmed with the server first):
+// - profile/ ("Meu perfil"): a greeting, the account details and the account deletion;
+// - settings/ ("Configurações"): lesson progress (and its reset), language and metronome.
 
 type State = { status: "loading" } | { status: "out" } | { status: "in"; user: User };
 
@@ -297,7 +297,17 @@ function Header() {
   );
 }
 
+type AccountPageKind = "profile" | "settings";
+
 export function ProfilePage() {
+  return <AccountPage page="profile" />;
+}
+
+export function SettingsPage() {
+  return <AccountPage page="settings" />;
+}
+
+function AccountPage({ page }: { page: AccountPageKind }) {
   const { t, lang } = useI18n();
   const state = useVerifiedUser();
   const [progress, setProgress] = useState<Progress>(loadProgress);
@@ -306,8 +316,11 @@ export function ProfilePage() {
   const userId = state.status === "in" ? state.user.id : null;
 
   useEffect(() => {
-    document.title = t("Meu perfil – Guitar Workouts for Nerds", "My profile – Guitar Workouts for Nerds");
-  }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
+    document.title =
+      page === "profile"
+        ? t("Meu perfil – Guitar Workouts for Nerds", "My profile – Guitar Workouts for Nerds")
+        : t("Configurações – Guitar Workouts for Nerds", "Settings – Guitar Workouts for Nerds");
+  }, [lang, page]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Show the account's progress (merged with this browser's, as in the app).
   useEffect(() => {
@@ -328,8 +341,14 @@ export function ProfilePage() {
   } else if (state.status === "out") {
     content = (
       <div className="rounded-card border border-line bg-surface p-6 sm:p-8">
-        <h1 className="font-display text-[30px] font-bold tracking-[-0.04em] text-ink">{t("Meu perfil", "My profile")}</h1>
-        <p className="mt-3 text-[16px] text-ink-2">{t("Entre na sua conta para ver o seu perfil.", "Log in to see your profile.")}</p>
+        <h1 className="font-display text-[30px] font-bold tracking-[-0.04em] text-ink">
+          {page === "profile" ? t("Meu perfil", "My profile") : t("Configurações", "Settings")}
+        </h1>
+        <p className="mt-3 text-[16px] text-ink-2">
+          {page === "profile"
+            ? t("Entre na sua conta para ver o seu perfil.", "Log in to see your profile.")
+            : t("Entre na sua conta para ver as suas configurações.", "Log in to see your settings.")}
+        </p>
         <a href={`../login/?lang=${lang}`} className="mt-6 inline-flex h-12 items-center rounded-control bg-brand px-5 text-[16px] font-semibold text-white hover:bg-brand-strong">
           {t("Entrar", "Log in")}
         </a>
@@ -347,7 +366,11 @@ export function ProfilePage() {
     content = (
       <div className="space-y-6">
         <h1 className="font-display text-[34px] font-bold leading-tight tracking-[-0.04em] text-ink sm:text-[40px]">
-          {firstName ? t(`Olá, ${firstName}`, `Hey, ${firstName}`) : t("Meu perfil", "My profile")}
+          {page === "settings"
+            ? t("Configurações", "Settings")
+            : firstName
+              ? t(`Olá, ${firstName}`, `Hey, ${firstName}`)
+              : t("Meu perfil", "My profile")}
         </h1>
         {notice && (
           <p role="status" className="rounded-control border border-success bg-success-soft p-4 text-sm font-medium text-ink">
@@ -355,70 +378,76 @@ export function ProfilePage() {
           </p>
         )}
 
-        <Card title={t("Dados da conta", "Account details")}>
-          <dl>
-            {firstName && <DetailRow label={t("Nome", "First name")} value={firstName} />}
-            <DetailRow label={t("E-mail", "E-mail")} value={user.email ?? "—"} />
-            {username && <DetailRow label={t("Nome de usuário", "Username")} value={username} />}
-            <DetailRow label={t("Membro desde", "Member since")} value={date(user.created_at)} />
-            <DetailRow label={t("Último acesso", "Last active")} value={date(user.last_sign_in_at)} />
-          </dl>
-        </Card>
+        {page === "profile" ? (
+          <>
+            <Card title={t("Dados da conta", "Account details")}>
+              <dl>
+                {firstName && <DetailRow label={t("Nome", "First name")} value={firstName} />}
+                <DetailRow label={t("E-mail", "E-mail")} value={user.email ?? "—"} />
+                {username && <DetailRow label={t("Nome de usuário", "Username")} value={username} />}
+                <DetailRow label={t("Membro desde", "Member since")} value={date(user.created_at)} />
+                <DetailRow label={t("Último acesso", "Last active")} value={date(user.last_sign_in_at)} />
+              </dl>
+            </Card>
 
-        <Card title={t("Progresso nas aulas", "Lesson progress")}>
-          <ProgressBar done={done} total={total} />
-          <p className="mt-2 text-sm text-muted">{t("Aulas concluídas, cada uma nas 12 tonalidades.", "Lessons completed, each in all 12 keys.")}</p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a href={`../app/?lang=${lang}`} className={`${buttonBase} bg-brand text-white hover:bg-brand-strong`}>
-              {t("Ir para as aulas →", "Go to lessons →")}
-            </a>
-            <button type="button" className={outlineButton} onClick={() => setDialog("reset")} disabled={done === 0}>
-              {t("Zerar progresso", "Reset progress")}
-            </button>
-          </div>
-          <p className="mt-2 text-sm text-muted">{t("Comece do zero e refaça todas as aulas.", "Start fresh and go through all lessons again.")}</p>
-        </Card>
+            <Card title={t("Excluir conta", "Delete account")} tone="danger">
+              <p className="text-[16px] leading-7 text-ink-2">
+                {t(
+                  "Exclua para sempre a sua conta e tudo o que está salvo nela: o seu progresso e os dados do perfil. Isso não pode ser desfeito.",
+                  "Permanently delete your account and everything saved with it: your progress and profile details. This cannot be undone.",
+                )}
+              </p>
+              <button type="button" className={`${dangerOutline} mt-5`} onClick={() => setDialog("delete")}>
+                {t("Excluir minha conta", "Delete my account")}
+              </button>
+            </Card>
+          </>
+        ) : (
+          <>
+            <Card title={t("Progresso nas aulas", "Lesson progress")}>
+              <ProgressBar done={done} total={total} />
+              <p className="mt-2 text-sm text-muted">{t("Aulas concluídas, cada uma nas 12 tonalidades.", "Lessons completed, each in all 12 keys.")}</p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <a href={`../app/?lang=${lang}`} className={`${buttonBase} bg-brand text-white hover:bg-brand-strong`}>
+                  {t("Ir para as aulas →", "Go to lessons →")}
+                </a>
+                <button type="button" className={outlineButton} onClick={() => setDialog("reset")} disabled={done === 0}>
+                  {t("Zerar progresso", "Reset progress")}
+                </button>
+              </div>
+              <p className="mt-2 text-sm text-muted">{t("Comece do zero e refaça todas as aulas.", "Start fresh and go through all lessons again.")}</p>
+            </Card>
 
-        <Card title={t("Metrônomo", "Metronome")}>
-          <p className="mb-1 text-[15px] text-ink-2">
-            {t(
-              "Andamentos iniciais (BPM). Uma aula já concluída reabre no andamento da sua última execução, que fica registrado na trilha.",
-              "Starting tempos (BPM). A lesson you have finished reopens at the tempo of your last run, which is recorded on the trail.",
-            )}
-          </p>
-          <DefaultBpmPicker
-            kind="exercise"
-            label={t("Exercícios", "Exercises")}
-            hint={t("Cada forma da aula, passo a passo.", "Each shape of the lesson, step by step.")}
-          />
-          <DefaultBpmPicker
-            kind="sequence"
-            label={t("Exercício final em sequência", "Final exercise in sequence")}
-            hint={t(
-              "Todas as formas da aula tocadas em seguida, no fim. Use um andamento mais lento para tocar tudo sem parar.",
-              "All the lesson's shapes played in a row, at the end. Use a slower tempo to play it all without stopping.",
-            )}
-          />
-        </Card>
+            <Card title={t("Metrônomo", "Metronome")}>
+              <p className="mb-1 text-[15px] text-ink-2">
+                {t(
+                  "Andamentos iniciais (BPM). Uma aula já concluída reabre no andamento da sua última execução, que fica registrado na trilha.",
+                  "Starting tempos (BPM). A lesson you have finished reopens at the tempo of your last run, which is recorded on the trail.",
+                )}
+              </p>
+              <DefaultBpmPicker
+                kind="exercise"
+                label={t("Exercícios", "Exercises")}
+                hint={t("Cada forma da aula, passo a passo.", "Each shape of the lesson, step by step.")}
+              />
+              <DefaultBpmPicker
+                kind="sequence"
+                label={t("Exercício final em sequência", "Final exercise in sequence")}
+                hint={t(
+                  "Todas as formas da aula tocadas em seguida, no fim. Use um andamento mais lento para tocar tudo sem parar.",
+                  "All the lesson's shapes played in a row, at the end. Use a slower tempo to play it all without stopping.",
+                )}
+              />
+            </Card>
 
-        <Card title={t("Idioma", "Language")}>
-          <p className="mb-4 text-[15px] text-ink-2">
-            {t("Idioma das aulas e de todo o site.", "Language of the lessons and the whole site.")}
-          </p>
-          <LanguagePicker />
-        </Card>
-
-        <Card title={t("Excluir conta", "Delete account")} tone="danger">
-          <p className="text-[16px] leading-7 text-ink-2">
-            {t(
-              "Exclua para sempre a sua conta e tudo o que está salvo nela: o seu progresso e os dados do perfil. Isso não pode ser desfeito.",
-              "Permanently delete your account and everything saved with it: your progress and profile details. This cannot be undone.",
-            )}
-          </p>
-          <button type="button" className={`${dangerOutline} mt-5`} onClick={() => setDialog("delete")}>
-            {t("Excluir minha conta", "Delete my account")}
-          </button>
-        </Card>
+            <Card title={t("Idioma", "Language")}>
+              <p className="mb-4 text-[15px] text-ink-2">
+                {t("Idioma das aulas e de todo o site.", "Language of the lessons and the whole site.")}
+              </p>
+              <LanguagePicker />
+            </Card>
+          </>
+        )}
 
         {dialog === "reset" && (
           <ResetProgressDialog

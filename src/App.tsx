@@ -3472,7 +3472,7 @@ export default function App() {
   const trailSections = applyProgress(sections, progress);
   const accountMetadata = session?.user.user_metadata;
 
-  // The default tempos chosen on the profile page follow the account to this browser.
+  // The default tempos chosen on the settings page follow the account to this browser.
   useEffect(() => {
     adoptAccountDefaults(accountMetadata);
   }, [accountMetadata]);

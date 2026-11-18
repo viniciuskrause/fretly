@@ -60,7 +60,7 @@ export function saveProgress(progress: Progress) {
   }
 }
 
-/** Forgets this browser's progress (profile page: reset progress, delete account). */
+/** Forgets this browser's progress (settings page: reset progress; profile page: delete account). */
 export function clearLocalProgress() {
   try {
     window.localStorage.removeItem(STORAGE_KEY);

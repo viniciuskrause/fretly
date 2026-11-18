@@ -6,8 +6,8 @@ import { Icon } from "./Icon.tsx";
 
 /**
  * Avatar with the user's initials (a profile icon when logged out); opens a menu
- * with the account: profile and log out, or log in / sign up. The language is
- * chosen on the profile page.
+ * with the account: profile, settings and log out, or log in / sign up. The
+ * language is chosen on the settings page.
  * Used by the app's top bar and, for logged-in users, by the homepage header.
  */
 export function UserMenu({
@@ -93,6 +93,9 @@ export function UserMenu({
               <>
               <a role="menuitem" href={`${basePath}profile/?lang=${lang}`} className="user-menu__item">
                 {t("Meu perfil", "My profile")}
+              </a>
+              <a role="menuitem" href={`${basePath}settings/?lang=${lang}`} className="user-menu__item">
+                {t("Configurações", "Settings")}
               </a>
               <button
                 role="menuitem"
