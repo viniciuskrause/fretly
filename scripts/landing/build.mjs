@@ -142,8 +142,10 @@ function howVisuals(t, lang) {
   const maj7 = lang === "en" ? "Cmaj7" : "C7+";
   const name = (text, cls = "text-[22px]") => `<p class="text-center font-display ${cls} font-bold tracking-[-0.03em] text-ink">${text}</p>`;
   const see = `<div class="w-full max-w-[210px]">${name(maj7)}${chordDiagram(CHORDS.cmaj7, v.see, "mt-1")}</div>`;
-  const hear = `<div class="flex w-full max-w-[210px] flex-col items-center">${name("Am")}${chordDiagram(CHORDS.am, v.hear, "mt-1")}
-            <span class="mt-2 flex h-9 items-center gap-1.5 rounded-control bg-accent px-4 text-sm font-semibold text-white">${icon(PLAY, "size-4")}${escape(v.play)}</span></div>`;
+  // Name, diagram and button kept close (the diagram has its own margin) so the card's
+  // padding matches the others.
+  const hear = `<div class="flex w-full max-w-[196px] flex-col items-center">${name("Am")}${chordDiagram(CHORDS.am, v.hear, "-mt-1")}
+            <span class="-mt-1 flex h-9 items-center gap-1.5 rounded-control bg-accent px-4 text-sm font-semibold text-white">${icon(PLAY, "size-4")}${escape(v.play)}</span></div>`;
   // Four beats of the metronome, the second one sounding, over the tempo control.
   const beat = (on) => `<span class="block size-5 rounded-full ${on ? "bg-accent shadow-[0_0_0_4px_var(--color-accent-soft)]" : "bg-line-strong"}"></span>`;
   const time = `<div class="flex w-full flex-col items-center" role="img" aria-label="${escape(v.time)}">
@@ -381,25 +383,11 @@ ${t.story.paragraphs.map((p) => `          <p class="mt-6 text-[18px] leading-8 
         </div>
       </section>
 
-      <!-- The practice path and what the app offers: articles with a marked heading, in two columns -->
-      <section class="mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-8 sm:py-24">
-        <div class="gap-16 lg:columns-2">
-${t.practice.articles
-  .map(
-    ({ h, paragraphs }, i) => `          <article class="mb-12 break-inside-avoid last:mb-0">
-            <h2${i === 0 ? ' id="path"' : ""} class="border-l-4 border-brand pl-4 font-display text-[26px] font-bold leading-tight tracking-[-0.03em] text-ink sm:text-[28px]">${escape(h)}</h2>
-${paragraphs.map((p) => `            <p class="mt-4 text-[17px] leading-8 text-ink-2">${escape(p)}</p>`).join("\n")}
-          </article>`,
-  )
-  .join("\n")}
-        </div>
-      </section>
-
       <!-- How it works -->
       <section class="border-y border-line bg-surface">
         <div class="mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-8 sm:py-24">
-        <h2 class="font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.how.h2)}</h2>
-        <ol class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <h2 class="text-center font-display text-[30px] font-bold leading-tight tracking-[-0.035em] text-ink sm:text-[40px]">${escape(t.how.h2)}</h2>
+        <ol class="mt-12 grid gap-4 sm:mt-16 md:grid-cols-2 lg:grid-cols-4">
 ${t.how.cards
   .map(
     ([title, text], i) => `          <li class="flex flex-col">
@@ -415,6 +403,21 @@ ${t.how.cards
   )
   .join("\n")}
         </ol>
+        </div>
+      </section>
+
+      <!-- The practice path and what the app offers: articles with a marked heading, in two columns
+           (same background as the next section: a smaller gap below) -->
+      <section class="mx-auto w-full max-w-[1200px] px-4 pb-4 pt-16 sm:px-8 sm:pb-8 sm:pt-24">
+        <div class="gap-16 lg:columns-2">
+${t.practice.articles
+  .map(
+    ({ h, paragraphs }, i) => `          <article class="mb-12 break-inside-avoid last:mb-0">
+            <h2${i === 0 ? ' id="path"' : ""} class="border-l-4 border-brand pl-4 font-display text-[26px] font-bold leading-tight tracking-[-0.03em] text-ink sm:text-[28px]">${escape(h)}</h2>
+${paragraphs.map((p) => `            <p class="mt-4 text-[17px] leading-8 text-ink-2">${escape(p)}</p>`).join("\n")}
+          </article>`,
+  )
+  .join("\n")}
         </div>
       </section>
 
