@@ -3,6 +3,7 @@ rules_version = '2';
 // Guitar Workouts: every learner reads and writes only their own documents.
 //   users/{uid}                    profile and settings (written at sign-up, before the e-mail is confirmed)
 //   users/{uid}/progress/{lesson}  finished lessons (only once the e-mail is confirmed)
+//   billing/{uid}                  Premium status, written only by the Stripe functions (functions/)
 service cloud.firestore {
   match /databases/{database}/documents {
     function isOwner(uid) {
@@ -33,6 +34,12 @@ service cloud.firestore {
           // Two devices may sync out of order: never replace a newer completion with an older one.
           && (resource == null || request.resource.data.completed_at >= resource.data.completed_at);
       }
+    }
+
+    // Read-only for the learner: only the Cloud Functions (Admin SDK) write it.
+    match /billing/{uid} {
+      allow read: if isOwner(uid);
+      allow write: if false;
     }
   }
 }

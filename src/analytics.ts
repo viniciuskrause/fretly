@@ -4,7 +4,10 @@
 // changes screen without loading a new page, so each screen gets a virtual path
 // ("/app/modulo/caged", "/app/aula/caged/major/C"). The static homepage loads the
 // same tag from its own HTML (scripts/landing/build.mjs).
-// Never send personal data (e-mail, name) in an event.
+// Never send personal data (e-mail, name) in an event. Loads only after the visitor
+// accepts it (src/consent.ts).
+
+import { withConsent } from "./consent.ts";
 
 const MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID as string | undefined;
 const LOCAL_HOSTS = ["localhost", "127.0.0.1"];
@@ -24,7 +27,12 @@ const enabled = !!MEASUREMENT_ID && !LOCAL_HOSTS.includes(window.location.hostna
  * (the app); the other pages let gtag count the page load.
  */
 export function initAnalytics({ pageViews = true }: { pageViews?: boolean } = {}) {
-  if (!enabled || window.gtag) return;
+  if (!enabled) return;
+  withConsent(() => start(pageViews));
+}
+
+function start(pageViews: boolean) {
+  if (window.gtag) return;
   window.dataLayer = window.dataLayer ?? [];
   window.gtag = function gtag() {
     // gtag.js reads the arguments object itself, not an array.

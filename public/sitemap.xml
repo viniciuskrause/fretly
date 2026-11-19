@@ -20,4 +20,34 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/faq/" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/faq/" />
   </url>
+  <url>
+    <loc>https://guitarworkouts.app/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/terms/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/termos/" />
+  </url>
+  <url>
+    <loc>https://guitarworkouts.app/pt/termos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/terms/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/termos/" />
+  </url>
+  <url>
+    <loc>https://guitarworkouts.app/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/privacidade/" />
+  </url>
+  <url>
+    <loc>https://guitarworkouts.app/pt/privacidade/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/privacidade/" />
+  </url>
+  <url>
+    <loc>https://guitarworkouts.app/imprint/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/imprint/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/impressum/" />
+  </url>
+  <url>
+    <loc>https://guitarworkouts.app/pt/impressum/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitarworkouts.app/imprint/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://guitarworkouts.app/pt/impressum/" />
+  </url>
 </urlset>

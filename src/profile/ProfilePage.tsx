@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 
 import { ErrorText, Field, homeHref, useErrorMessage } from "../auth/AuthPage.tsx";
 import { deleteAccountData, resetAccountProgress, syncProgress } from "../auth/progressSync.ts";
-import { confirmPassword, deleteAuthAccount, signOutAccount, siteUrl, useAccount, verifiedAccount, type Account } from "../auth/firebase.ts";
+import { confirmPassword, deleteAuthAccount, openBillingPortal, signOutAccount, siteUrl, useAccount, verifiedAccount, type Account } from "../auth/firebase.ts";
 import { LANGUAGES, useI18n, type Lang } from "../i18n.tsx";
 import { sections } from "../lessons.ts";
 import { clearLocalProgress, loadProgress, saveProgress, type Progress } from "../progress.ts";
@@ -10,6 +10,7 @@ import { UserMenu } from "../UserMenu.tsx";
 import { BpmControl } from "../BpmControl.tsx";
 import { track } from "../analytics.ts";
 import { adoptAccountDefaults, loadDefaultBpm, saveDefaultBpm, type BpmKind } from "../defaultBpm.ts";
+import { FREE_LESSONS, useBilling } from "../premium.ts";
 
 // Account pages, both opened from the user menu and only for logged-in users
 // (the session is confirmed with the server first):
@@ -270,7 +271,7 @@ function DefaultBpmPicker({ kind, label, hint }: { kind: BpmKind; label: string;
   );
 }
 
-function Header() {
+export function Header() {
   const { t, lang } = useI18n();
   return (
     <header className="border-b border-line bg-canvas">
@@ -312,6 +313,15 @@ function AccountPage({ page }: { page: AccountPageKind }) {
   const [dialog, setDialog] = useState<"reset" | "delete" | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const userId = account?.uid ?? null;
+  const billing = useBilling();
+  const premium = billing?.premium === true;
+  // A subscription that will still renew: cancel it before deleting the account
+  // (deleting the account does not stop the billing in Stripe).
+  const renewing = premium && billing?.plan !== "lifetime" && !billing?.cancel_at_period_end;
+  const [portalBusy, setPortalBusy] = useState(false);
+  const [portalError, setPortalError] = useState(false);
+  // Back from Stripe Checkout (functions/: success_url): the webhook turns Premium on within seconds.
+  const [justPaid] = useState(() => new URLSearchParams(window.location.search).get("checkout") === "success");
   const accountData = account?.dataLoaded ? account.data : undefined;
 
   // The account's default tempos come into this browser before the pickers read them.
@@ -392,6 +402,60 @@ function AccountPage({ page }: { page: AccountPageKind }) {
               </dl>
             </Card>
 
+            <Card title={t("Assinatura", "Subscription")}>
+              {justPaid && (
+                <p role="status" className="mb-4 rounded-control border border-success bg-success-soft p-4 text-sm font-medium text-ink">
+                  {premium
+                    ? t("Pagamento confirmado. Bem-vindo ao Premium!", "Payment confirmed. Welcome to Premium!")
+                    : t("Pagamento recebido. Seu Premium é ativado em instantes.", "Payment received. Your Premium will be active in a moment.")}
+                </p>
+              )}
+              <dl>
+                <DetailRow label={t("Nível de acesso", "Access level")} value={premium ? "Premium" : t("Grátis", "Free")} />
+                {premium && billing?.plan && (
+                  <DetailRow
+                    label={t("Plano", "Plan")}
+                    value={billing.plan === "lifetime" ? t("Vitalício", "Lifetime") : billing.plan === "annual" ? t("Anual", "Annual") : t("Mensal", "Monthly")}
+                  />
+                )}
+                {premium && billing?.plan !== "lifetime" && billing?.current_period_end && (
+                  <DetailRow
+                    label={billing.cancel_at_period_end ? t("Acesso até", "Access until") : t("Próxima renovação", "Renews on")}
+                    value={date(billing.current_period_end)}
+                  />
+                )}
+                {!premium && <DetailRow label={t("Aulas grátis concluídas", "Free lessons completed")} value={`${Math.min(done, FREE_LESSONS)}/${FREE_LESSONS}`} />}
+              </dl>
+              {billing?.customer_id && (
+                <button
+                  type="button"
+                  disabled={portalBusy}
+                  className={`${outlineButton} mt-5 mr-3`}
+                  onClick={async () => {
+                    setPortalError(false);
+                    setPortalBusy(true);
+                    const failure = await openBillingPortal(lang);
+                    if (failure) {
+                      setPortalBusy(false);
+                      setPortalError(true);
+                    }
+                  }}
+                >
+                  {portalBusy
+                    ? t("Abrindo…", "Opening…")
+                    : billing.plan === "lifetime"
+                      ? t("Ver pagamentos e faturas", "View payments and invoices")
+                      : t("Gerenciar assinatura e faturas", "Manage subscription and invoices")}
+                </button>
+              )}
+              {portalError && <ErrorText message={t("Não foi possível abrir o portal. Tente de novo.", "Couldn't open the portal. Please try again.")} />}
+              {!premium && (
+                <a href={`../upgrade/?lang=${lang}`} className={`${buttonBase} mt-5 bg-brand text-white hover:bg-brand-strong`}>
+                  {t("Fazer upgrade para Premium", "Upgrade to Premium")}
+                </a>
+              )}
+            </Card>
+
             <Card title={t("Excluir conta", "Delete account")} tone="danger">
               <p className="text-[16px] leading-7 text-ink-2">
                 {t(
@@ -399,7 +463,15 @@ function AccountPage({ page }: { page: AccountPageKind }) {
                   "Permanently delete your account and everything saved with it: your progress and profile details. This cannot be undone.",
                 )}
               </p>
-              <button type="button" className={`${dangerOutline} mt-5`} onClick={() => setDialog("delete")}>
+              {renewing && (
+                <p className="mt-3 text-[15px] font-medium leading-6 text-ink">
+                  {t(
+                    "Você tem uma assinatura ativa. Cancele-a antes em Assinatura → Gerenciar assinatura e faturas.",
+                    "You have an active subscription. Cancel it first under Subscription → Manage subscription and invoices.",
+                  )}
+                </p>
+              )}
+              <button type="button" className={`${dangerOutline} mt-5`} onClick={() => setDialog("delete")} disabled={renewing}>
                 {t("Excluir minha conta", "Delete my account")}
               </button>
             </Card>

@@ -16,6 +16,7 @@ import {
   type User,
 } from "firebase/auth";
 import { doc, getFirestore, onSnapshot, setDoc, type Firestore } from "firebase/firestore";
+import { getFunctions, httpsCallable, type Functions } from "firebase/functions";
 import { useSyncExternalStore } from "react";
 
 /**
@@ -45,6 +46,8 @@ const app = config.apiKey && config.projectId ? initializeApp(config) : null;
 export const auth: Auth | null = app ? initializeAuth(app, { persistence: browserLocalPersistence }) : null;
 export const db: Firestore | null = app ? getFirestore(app) : null;
 export const accountsEnabled = !!app;
+/** Cloud Functions (functions/): Stripe checkout and customer portal. */
+export const functions: Functions | null = app ? getFunctions(app) : null;
 
 /** Fields of users/{uid}. */
 export type AccountData = {
@@ -269,4 +272,22 @@ export async function verifiedAccount(): Promise<Account | null> {
     return null;
   }
   return user.emailVerified ? accountOf(state) : null;
+}
+
+/** Opens Stripe Checkout for a Premium plan (functions/: createCheckout); returns an error code on failure. */
+export function startCheckout(plan: "annual" | "monthly" | "lifetime", lang: string) {
+  return attempt(async () => {
+    if (!functions) throw new AccountError("not-configured");
+    const { data } = await httpsCallable<{ plan: string; lang: string }, { url: string }>(functions, "createCheckout")({ plan, lang });
+    window.location.assign(data.url);
+  });
+}
+
+/** Opens the Stripe customer portal (card, invoices, cancellation). */
+export function openBillingPortal(lang: string) {
+  return attempt(async () => {
+    if (!functions) throw new AccountError("not-configured");
+    const { data } = await httpsCallable<{ lang: string }, { url: string }>(functions, "createPortal")({ lang });
+    window.location.assign(data.url);
+  });
 }
