@@ -7,19 +7,8 @@
       // The site lives at guitarworkouts.app: the Firebase addresses send visitors there (same page).
       if (/\.web\.app$|\.firebaseapp\.com$/.test(location.hostname)) location.replace("https://guitarworkouts.app" + location.pathname + location.search + location.hash);
     </script>
-    <script>
-      // Google Analytics 4 (same tag as the app, src/analytics.ts); not on localhost.
-      if (!window.gwRedirecting && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function () { dataLayer.push(arguments); };
-        gtag("js", new Date());
-        gtag("config", "G-NYV7FZS0W7");
-        var tag = document.createElement("script");
-        tag.async = true;
-        tag.src = "https://www.googletagmanager.com/gtag/js?id=G-NYV7FZS0W7";
-        document.head.appendChild(tag);
-      }
-    </script>
+    <!-- Google Analytics 4, only after consent (src/consent.ts); not on localhost. -->
+    <script type="module" src="/src/landing-analytics.ts"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#F5F7FA" />
     <title>Prática de Guitarra: Acordes, Escalas e Arpejos nos 12 Tons | Guitar Workouts</title>
@@ -281,7 +270,7 @@
           </div>
           <div class="flex flex-col items-center">
             <a href="../signup/?lang=pt" class="flex h-14 items-center justify-center rounded-control bg-accent px-8 text-[17px] font-semibold text-white transition-colors hover:bg-accent-strong">Comece a praticar grátis</a>
-            <p class="mt-3 text-sm text-brand-soft">Crie sua conta grátis em menos de um minuto.</p>
+            <p class="mt-3 text-sm text-brand-soft">Crie sua conta grátis em menos de um minuto. As primeiras 20 aulas são grátis.</p>
           </div>
         </div>
       </section>
@@ -294,6 +283,10 @@
         <p class="text-sm text-brand-soft">© 2026 Guitar Workouts · Todos os direitos reservados</p>
         <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold">
           <li><a href="../pt/faq/" class="text-white underline-offset-4 hover:underline">Perguntas frequentes</a></li>
+          <li><a href="../pt/termos/" class="text-white underline-offset-4 hover:underline">Termos</a></li>
+          <li><a href="../pt/privacidade/" class="text-white underline-offset-4 hover:underline">Privacidade</a></li>
+          <li><a href="../pt/impressum/" class="text-white underline-offset-4 hover:underline">Impressum</a></li>
+          <li><a href="../pt/privacidade/" data-consent-open class="text-white underline-offset-4 hover:underline">Cookies</a></li>
           <li><a href="../" hreflang="en" lang="en" onclick="try { localStorage.setItem('guitar-workouts.lang.v1', 'en') } catch (error) {}" class="flex h-10 items-center gap-2 rounded-control border border-brand-line px-3 text-white transition-colors hover:bg-brand-strong" aria-label="View in English" title="View in English"><svg class="size-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></svg><span>EN</span></a></li>
         </ul>
       </div>

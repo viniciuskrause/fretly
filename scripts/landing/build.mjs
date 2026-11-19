@@ -9,6 +9,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { lessons, sections } from "../../src/lessons.ts";
 import { BRAND, SITE_URL, content } from "./content.mjs";
+import { OPERATOR, UPDATED, legal } from "./legal.mjs";
+
+// The legal pages need the operator's details (legal.mjs): never publish them empty.
+const missing = ["name", "street", "city", "email"].filter((field) => !OPERATOR[field]);
+if (missing.length) throw new Error(`scripts/landing/legal.mjs: fill in OPERATOR.${missing.join(", OPERATOR.")}`);
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
 
@@ -158,9 +163,15 @@ const escape = (text) =>
   String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 /** Path of a page from the site root: the homepage ("", "pt/") or the FAQ ("faq/", "pt/faq/"). */
-const pathOf = (lang, kind) => content[lang].path + (kind === "faq" ? "faq/" : "");
+// Folder of each page under the language's root ("" for English, "pt/" for Portuguese).
+const SLUGS = {
+  en: { home: "", faq: "faq/", terms: "terms/", privacy: "privacy/", imprint: "imprint/" },
+  pt: { home: "", faq: "faq/", terms: "termos/", privacy: "privacidade/", imprint: "impressum/" },
+};
+const LEGAL = ["terms", "privacy", "imprint"];
+const pathOf = (lang, kind) => content[lang].path + SLUGS[lang][kind];
 
-/** One static page: the homepage or the FAQ, in one language (same head, header and footer). */
+/** One static page: the homepage, the FAQ or a legal page, in one language (same head, header and footer). */
 function page(lang, kind = "home") {
   const t = content[lang];
   const other = lang === "en" ? "pt" : "en";
@@ -173,11 +184,14 @@ function page(lang, kind = "home") {
   const homeHref = `${up}${pathOf(lang, "home")}` || "./";
   const faqHref = `${up}${pathOf(lang, "faq")}`;
   const url = `${SITE_URL}${here}`;
-  const title = kind === "faq" ? t.faqPage.title : t.title;
-  const description = kind === "faq" ? t.faqPage.description : t.description;
+  const l = legal[lang];
+  const isLegal = LEGAL.includes(kind);
+  const title = kind === "faq" ? t.faqPage.title : isLegal ? l[kind].title : t.title;
+  const description = kind === "faq" ? t.faqPage.description : isLegal ? l[kind].description : t.description;
+  const linkTo = (target) => `${up}${pathOf(lang, target)}`;
 
   const image = `${SITE_URL}og-${lang}.png`;
-  const jsonLd = kind === "faq" ? [
+  const jsonLd = isLegal ? [] : kind === "faq" ? [
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -226,7 +240,7 @@ function page(lang, kind = "home") {
       // Default language by country (src/geo.ts): no language chosen yet and the visitor
       // is in Brazil or Portugal → the Portuguese homepage. Firebase Hosting answers
       // /geo.json per country; while it answers the page stays hidden (at most 1.5 s).
-      // The same page in Portuguese: / → /pt/, /faq/ → /pt/faq/.
+      // The same page in Portuguese: / → /pt/, /faq/ → /pt/faq/, /terms/ → /pt/termos/.
       (function () {
         var chosen = null, geo = null;
         try {
@@ -236,7 +250,7 @@ function page(lang, kind = "home") {
         if (chosen === "pt" || chosen === "en") return;
         function toPortuguese() {
           window.gwRedirecting = true;
-          location.replace("/pt" + location.pathname + location.search + location.hash);
+          location.replace("/${pathOf("pt", kind)}" + location.search + location.hash);
         }
         if (geo === "pt") return toPortuguese();
         if (geo === "en") return;
@@ -252,19 +266,8 @@ function page(lang, kind = "home") {
           }, show);
       })();
     </script>` : ""}${MEASUREMENT_ID ? `
-    <script>
-      // Google Analytics 4 (same tag as the app, src/analytics.ts); not on localhost.
-      if (!window.gwRedirecting && !/^(localhost|127\\.0\\.0\\.1)$/.test(location.hostname)) {
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function () { dataLayer.push(arguments); };
-        gtag("js", new Date());
-        gtag("config", "${MEASUREMENT_ID}");
-        var tag = document.createElement("script");
-        tag.async = true;
-        tag.src = "https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}";
-        document.head.appendChild(tag);
-      }
-    </script>` : ""}
+    <!-- Google Analytics 4, only after consent (src/consent.ts); not on localhost. -->
+    <script type="module" src="/src/landing-analytics.ts"></script>` : ""}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#F5F7FA" />
     <title>${escape(title)}</title>
@@ -283,7 +286,7 @@ function page(lang, kind = "home") {
     <meta property="og:image" content="${image}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="${escape(kind === "faq" ? title : t.hero.h1.join(""))}" />
+    <meta property="og:image:alt" content="${escape(kind === "home" ? t.hero.h1.join("") : title)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escape(title)}" />
     <meta name="twitter:description" content="${escape(description)}" />
@@ -444,7 +447,21 @@ ${t.uses.cards
         </div>
       </section>
 
-` : `
+` : isLegal ? `
+      <!-- ${kind} -->
+      <article class="mx-auto w-full max-w-[760px] px-4 py-16 sm:px-8 sm:py-24">
+        <h1 class="font-display text-[36px] font-bold leading-tight tracking-[-0.04em] text-ink sm:text-[48px]">${escape(l[kind].h1)}</h1>
+        <p class="mt-3 text-sm text-muted">${escape(l.labels.updated)}: ${escape(UPDATED[lang])}</p>
+${l[kind]
+  .sections()
+  .map(
+    ([h, paragraphs]) => `        <section class="mt-10">
+          <h2 class="font-display text-[22px] font-bold tracking-[-0.02em] text-ink">${escape(h)}</h2>
+${paragraphs.map((text) => `          <p class="mt-3 text-[16px] leading-7 text-ink-2">${escape(text)}</p>`).join("\n")}
+        </section>`,
+  )
+  .join("\n")}
+      </article>` : `
       <!-- FAQ page -->
       <section class="mx-auto w-full max-w-[860px] px-4 py-16 sm:px-8 sm:py-24">
         <h1 class="font-display text-[36px] font-bold leading-tight tracking-[-0.04em] text-ink sm:text-[48px]">${escape(t.faq.h2)}</h1>
@@ -473,6 +490,8 @@ ${t.faq.items
         <p class="text-sm text-brand-soft">© ${new Date().getFullYear()} ${BRAND} · ${escape(t.footer.rights)}</p>
         <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold">
           <li><a href="${faqHref}"${kind === "faq" ? ' aria-current="page"' : ""} class="text-white underline-offset-4 hover:underline">${escape(t.footer.faq)}</a></li>
+${LEGAL.map((target) => `          <li><a href="${linkTo(target)}"${kind === target ? ' aria-current="page"' : ""} class="text-white underline-offset-4 hover:underline">${escape(l.labels[target])}</a></li>`).join("\n")}${MEASUREMENT_ID ? `
+          <li><a href="${linkTo("privacy")}" data-consent-open class="text-white underline-offset-4 hover:underline">${escape(l.labels.cookies)}</a></li>` : ""}
           <li><a href="${otherHref}" hreflang="${content[other].htmlLang}" lang="${content[other].htmlLang}" onclick="try { localStorage.setItem('guitar-workouts.lang.v1', '${other}') } catch (error) {}" class="flex h-10 items-center gap-2 rounded-control border border-brand-line px-3 text-white transition-colors hover:bg-brand-strong" aria-label="${escape(t.footer.languageLabel)}" title="${escape(t.footer.languageLabel)}">${icon(GLOBE, "size-5")}<span>${other.toUpperCase()}</span></a></li>
         </ul>
       </div>
@@ -483,7 +502,7 @@ ${t.faq.items
 `;
 }
 
-const KINDS = ["home", "faq"];
+const KINDS = ["home", "faq", ...LEGAL];
 for (const kind of KINDS) {
   for (const lang of ["en", "pt"]) {
     const file = path.join(ROOT, pathOf(lang, kind), "index.html");
@@ -501,6 +520,6 @@ ${KINDS.flatMap((kind) => ["en", "pt"].map((l) => `  <url>\n    <loc>${SITE_URL}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, "public/sitemap.xml"), sitemap);
-// Account pages carry their own noindex; the sitemap lists the homepages and the FAQ.
+// Account pages carry their own noindex; the sitemap lists the homepages, the FAQ and the legal pages.
 fs.writeFileSync(path.join(ROOT, "public/robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`);
-console.log(`landing: index.html, pt/index.html, faq/, pt/faq/, public/sitemap.xml (${numbers.lessons} aulas, ${numbers.exercises} exercícios, ${numbers.voicings} voicings)`);
+console.log(`landing: ${KINDS.flatMap((kind) => ["en", "pt"].map((l) => pathOf(l, kind) || "/")).join(", ")}, public/sitemap.xml (${numbers.lessons} aulas, ${numbers.exercises} exercícios, ${numbers.voicings} voicings)`);

@@ -120,16 +120,17 @@ export const content = {
       h2: "Find your own sound on the guitar",
       text: "Rock, pop, blues, funk, MPB, bossa nova or jazz: freedom on the fretboard is what lets you improvise, stop copying shapes and start making choices.",
       cta: "Start practicing for free",
-      note: "Create your free account in less than a minute.",
+      note: "Create your free account in less than a minute. The first 20 lessons are free.",
     },
     faqPage: {
       title: "Guitar Practice FAQ: Keys, Chords and Arpeggios | Guitar Workouts",
-      description: "Answers about Guitar Workouts: price, who it is for, acoustic or electric guitar, reading music, the 12 keys, CAGED, inversions and arpeggios.",
+      description: "Answers about Guitar Workouts: free lessons and Premium, who it is for, acoustic or electric guitar, reading music, the 12 keys, CAGED, inversions and arpeggios.",
     },
     faq: {
       h2: "Frequently asked questions",
       items: [
-        ["Is it free?", "Yes. All lessons, the chord dictionary and the guides are free. You just create a free account to start practicing and save your progress."],
+        ["Is it free?", "You can start for free: the first 20 lessons, the chord dictionary and the module guides are free, with no credit card. Premium unlocks every lesson, including the ones still to come: $3.99 a month billed yearly ($47.88), $15.99 a month, or $90.99 once for lifetime access. Prices include taxes."],
+        ["How do I cancel Premium?", "On the My account page, under Subscription, at any time. You keep Premium until the end of the period you've paid for, and the subscription isn't renewed. Your progress stays saved."],
         ["Are there video lessons?", "No, on purpose. Guitar Workouts is made of exercises, not videos: each one shows the shapes as diagrams, tab or notation, plays them with a guitar sound and a metronome, and you play along right away. Less watching, more playing."],
         ["Will it help me improvise?", "Yes, in any style. Improvising means knowing where the notes of each chord and scale are, in any key and anywhere on the neck. The arpeggio, scale and inversion exercises train exactly that, so over a chord progression you can choose the notes instead of repeating memorised licks."],
         ["Who is it for?", "Guitarists who already play a few chords and want to know the whole fretboard: to stop depending on a handful of shapes and keys, and to play, compose and arrange with more freedom. Beginners can start with the CAGED module."],
@@ -253,16 +254,17 @@ export const content = {
       h2: "Encontre o seu som na guitarra",
       text: "Rock, pop, blues, funk, MPB, bossa nova ou jazz: liberdade no braço é o que faz você improvisar, parar de copiar desenhos e começar a fazer escolhas.",
       cta: "Comece a praticar grátis",
-      note: "Crie sua conta grátis em menos de um minuto.",
+      note: "Crie sua conta grátis em menos de um minuto. As primeiras 20 aulas são grátis.",
     },
     faqPage: {
       title: "Perguntas Frequentes: Tons, Acordes e Arpejos na Guitarra | Guitar Workouts",
-      description: "Respostas sobre o Guitar Workouts: preço, para quem é, violão ou guitarra, partitura, as 12 tonalidades, CAGED, inversões e arpejos.",
+      description: "Respostas sobre o Guitar Workouts: aulas grátis e Premium, para quem é, violão ou guitarra, partitura, as 12 tonalidades, CAGED, inversões e arpejos.",
     },
     faq: {
       h2: "Perguntas frequentes",
       items: [
-        ["É grátis?", "Sim. Todas as aulas, o dicionário de acordes e os guias são gratuitos. Basta criar uma conta grátis para começar a praticar e salvar o seu progresso."],
+        ["É grátis?", "Você começa de graça: as primeiras 20 aulas, o dicionário de acordes e os guias dos módulos são gratuitos, sem cartão de crédito. O Premium libera todas as aulas, inclusive as que ainda vão chegar: R$ 14,99 por mês no plano anual (R$ 179,88), R$ 59,90 por mês no mensal, ou R$ 339,90 uma vez para acesso vitalício. Impostos incluídos."],
+        ["Como cancelo o Premium?", "Na página Minha conta, em Assinatura, a qualquer momento. Você continua com o Premium até o fim do período já pago, e a assinatura não é renovada. O seu progresso continua salvo."],
         ["Tem videoaulas?", "Não, de propósito. O Guitar Workouts é feito de exercícios, não de vídeos: cada um mostra os desenhos em diagrama, tablatura ou partitura, toca com som de violão e metrônomo, e você toca junto na hora. Menos assistir, mais tocar."],
         ["Ajuda a improvisar?", "Sim, em qualquer estilo. Improvisar é saber onde estão as notas de cada acorde e escala, em qualquer tom e em qualquer lugar do braço. Os exercícios de arpejos, escalas e inversões treinam exatamente isso, para você escolher as notas sobre uma harmonia em vez de repetir frases decoradas."],
         ["Para quem é?", "Para quem já toca alguns acordes e quer conhecer o braço inteiro: parar de depender de poucos desenhos e tonalidades e tocar, compor e arranjar com mais liberdade. Quem está começando pode começar pelo módulo de CAGED."],

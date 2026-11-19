@@ -23,6 +23,8 @@ import { track, trackScreen } from "./analytics.ts";
 import { adoptAccountDefaults, loadDefaultBpm } from "./defaultBpm.ts";
 import { UserMenu } from "./UserMenu.tsx";
 import { saveResultToAccount, syncProgress } from "./auth/progressSync.ts";
+import { isLocked, usePremium } from "./premium.ts";
+import { UpgradeView } from "./premium/UpgradeView.tsx";
 
 /** App name; links to the homepage in the current language (en at the site root, pt in pt/). */
 function Brand() {
@@ -3466,6 +3468,8 @@ export default function App() {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress>(loadProgress);
   const [guideSection, setGuideSection] = useState<number | null>(null);
+  const [paywall, setPaywall] = useState(false);
+  const premium = usePremium();
   const moduleRoute = useModuleRoute();
   const dictionary = useDictionaryRoute();
   const account = useAccount();
@@ -3495,7 +3499,9 @@ export default function App() {
   // Analytics: one page view per screen (virtual path), and the lesson opened.
   const moduleOfLesson = (lesson: Lesson) => lesson.key.split("/")[0];
   const screenModule = trailSections.find((section) => moduleSlug(section) === moduleRoute);
-  const screen = dictionary.open
+  const screen = paywall
+    ? { path: "/app/premium", title: "Paywall" }
+    : dictionary.open
     ? { path: "/app/dicionario", title: "Chord Dictionary" }
     : guideSection !== null
       ? { path: `/app/modulo/${moduleSlug(sections.find((section) => section.id === guideSection) ?? sections[0])}/guia`, title: `Guide: ${sections.find((section) => section.id === guideSection)?.title.en ?? ""}` }
@@ -3513,6 +3519,17 @@ export default function App() {
     if (!selectedLesson) return;
     track("lesson_start", { lesson_key: selectedLesson.key, module: moduleOfLesson(selectedLesson), lesson_title: selectedLesson.title.en, repeat: selectedLesson.status === "done" });
   }, [openedLesson]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Opens an exercise, or the paywall once the free lessons are used up (src/premium.ts).
+  function openLesson(lesson: Lesson) {
+    if (isLocked({ premium, progress, lessonKey: lesson.key })) {
+      setSelectedLesson(null);
+      setPaywall(true);
+      window.scrollTo(0, 0);
+      return;
+    }
+    setSelectedLesson(lesson);
+  }
 
   function completeLesson(lesson: Lesson, bpm: number) {
     track("lesson_complete", { lesson_key: lesson.key, module: moduleOfLesson(lesson), lesson_title: lesson.title.en, bpm, repeat: lesson.status === "done" });
@@ -3533,7 +3550,7 @@ export default function App() {
     return {
       label: variationKey(next),
       open: () => {
-        setSelectedLesson(next);
+        openLesson(next);
         window.scrollTo(0, 0);
       },
     };
@@ -3548,6 +3565,15 @@ export default function App() {
   }
 
   if (dictionary.open) return <DictionaryPage onBack={dictionary.close} />;
+
+  if (paywall) {
+    return (
+      <div className="min-h-dvh bg-canvas text-ink">
+        <TopBar />
+        <UpgradeView reason="limit" onBack={() => setPaywall(false)} />
+      </div>
+    );
+  }
 
   if (guideSection !== null) {
     const Guide =
@@ -3582,7 +3608,7 @@ export default function App() {
     return (
       <ModulePage
         section={moduleSection}
-        onSelect={setSelectedLesson}
+        onSelect={openLesson}
         onOpenGuide={() => {
           setGuideSection(moduleSection.id);
           window.scrollTo(0, 0);
@@ -3591,5 +3617,5 @@ export default function App() {
     );
   }
 
-  return <Dashboard sections={trailSections} onSelect={setSelectedLesson} />;
+  return <Dashboard sections={trailSections} onSelect={openLesson} />;
 }
