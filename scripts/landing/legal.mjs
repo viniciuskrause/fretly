@@ -5,7 +5,7 @@
 
 /** Who runs the site (Impressum, § 5 DDG). Filled in by the operator. */
 export const OPERATOR = {
-  name: "Guitar Workouts", // full legal name
+  name: "Vinicius Krause, Guitar Workouts", // full legal name
   street: "Kreith 8a", // street and number
   city: "85664 Hohenlinden", // postal code and city
   country: { en: "Germany", pt: "Alemanha" },
