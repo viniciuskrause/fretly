@@ -69,9 +69,9 @@ export type ScaleNote = {
 
 /** A scale in one position: three notes per string except one string with two, low E → high E. */
 export type ScaleStep = {
-  /** Tonic of the key ("C", "F♯"); the scale is major or natural minor (arpeggios: also a diminished triad). */
+  /** Tonic of the key ("C", "F♯"); the scale is major, natural minor or altered (arpeggios: also a diminished triad). */
   root: string;
-  quality: "major" | "minor" | "dim" | "maj7" | "m7" | "7" | "m7b5";
+  quality: "major" | "minor" | "dim" | "maj7" | "m7" | "7" | "m7b5" | "altered";
   /** 1–7: the degree of the key (major or minor) the position starts on, on the 6th string. */
   position: number;
   /** Mode whose shape the position has ("Jônio" … "Lócrio"). */

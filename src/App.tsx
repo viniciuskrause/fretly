@@ -108,11 +108,14 @@ const scaleSymbol = (step: ScaleStep) =>
     m7: "m7",
     "7": "7",
     m7b5: "m7(♭5)",
+    altered: "alt",
   }[step.quality];
 
-/** Key of a scale in words: "C maior" / "A minor" / "B diminuto". */
+/** Key of a scale in words: "C maior" / "A minor" / "B diminuto" / "C alterada". */
 const scaleName = (step: ScaleStep, lang: Lang) =>
-  ["major", "minor", "dim"].includes(step.quality)
+  step.quality === "altered"
+    ? `${step.root} ${lang === "en" ? "altered" : "alterada"}`
+    : ["major", "minor", "dim"].includes(step.quality)
     ? `${step.root} ${(lang === "en" ? { major: "major", minor: "minor", dim: "diminished" } : { major: "maior", minor: "menor", dim: "diminuto" })[step.quality as "major" | "minor" | "dim"]}`
     : chordName(scaleSymbol(step), lang);
 
@@ -624,8 +627,8 @@ function NextLesson({ sections: all, onSelect }: { sections: Section[]; onSelect
 }
 
 /** The dashboard: home of the app, with the overall progress and the modules. */
-/** Module groups on the dashboard: chord modules, then scales and arpeggios (modules 4 and 5). */
-const SCALE_MODULES = new Set([4, 5, 6]);
+/** Module groups on the dashboard: chord modules, then scales and arpeggios (modules 4–7). */
+const SCALE_MODULES = new Set([4, 5, 6, 7]);
 const DASHBOARD_GROUPS: Array<{
   title: Localized;
   sections: (id: number) => boolean;
@@ -2823,6 +2826,144 @@ function ScalesGuide({ onBack }: { onBack: () => void }) {
   );
 }
 
+const ALTERED_SOURCES: GuideSource[] = [
+  { label: "Wikipedia — Altered scale", url: "https://en.wikipedia.org/wiki/Altered_scale" },
+  { label: "Wikipedia — Melodic minor scale", url: "https://en.wikipedia.org/wiki/Minor_scale#Melodic_minor_scale" },
+];
+
+/** The seven positions of C altered: the degree and note each one starts on (6th string) and its mode. */
+const ALTERED_POSITIONS: Array<{ degree: string; note: string; mode: Localized }> = [
+  { degree: "1", note: "C", mode: { pt: "Alterado", en: "Altered" } },
+  { degree: "♭2", note: "D♭", mode: { pt: "Menor melódica", en: "Melodic minor" } },
+  { degree: "♯2", note: "E♭", mode: { pt: "Dórico ♭2", en: "Dorian ♭2" } },
+  { degree: "3", note: "E", mode: { pt: "Lídio aumentado", en: "Lydian augmented" } },
+  { degree: "♯4", note: "F♯", mode: { pt: "Lídio dominante", en: "Lydian dominant" } },
+  { degree: "♯5", note: "G♯", mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" } },
+  { degree: "♭7", note: "B♭", mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" } },
+];
+
+function AlteredGuide({ onBack }: { onBack: () => void }) {
+  const { t, l } = useI18n();
+  // C altered in each position, from the shape lessons ("altered/p1/C" … "p7/C").
+  const byPosition = [1, 2, 3, 4, 5, 6, 7].flatMap(
+    (position) => lessons.find((lesson) => lesson.key === `altered/p${position}/C`)?.scale ?? [],
+  );
+  return (
+    <GuideLayout
+      title={t("7 posições da escala alterada", "7 positions of the altered scale")}
+      sources={ALTERED_SOURCES}
+      onBack={onBack}
+      intro={t(
+        <>
+          A escala alterada é a escala do acorde dominante com todas as tensões alteradas. Com sete
+          posições, uma começando em cada nota da escala, você a toca em qualquer região do braço.
+        </>,
+        <>
+          The altered scale is the scale of the dominant chord with every tension altered. With seven
+          positions, one starting on each note of the scale, you play it anywhere on the neck.
+        </>,
+      )}
+    >
+      <GuideSection title={t("A escala alterada", "The altered scale")}>
+        {t(
+          <p>
+            Em C: <strong>C D♭ E♭ E F♯ G♯ B♭</strong>. Ela tem a tônica, a terça maior (3) e a sétima menor
+            (♭7) do acorde C7, e todas as outras notas são tensões alteradas: <strong>♭2</strong> (♭9),{" "}
+            <strong>♯2</strong> (♯9), <strong>♯4</strong> (♯11) e <strong>♯5</strong> (♭13). É o 7º modo da
+            escala menor melódica: C alterada tem as mesmas notas de D♭ menor melódica. Use-a sobre um
+            acorde dominante que resolve, como o C7 de um V–I em F.
+          </p>,
+          <p>
+            In C: <strong>C D♭ E♭ E F♯ G♯ B♭</strong>. It has the root, the major third (3) and the minor
+            seventh (♭7) of C7, and every other note is an altered tension: <strong>♭2</strong> (♭9),{" "}
+            <strong>♯2</strong> (♯9), <strong>♯4</strong> (♯11) and <strong>♯5</strong> (♭13). It is the 7th
+            mode of the melodic minor scale: C altered has the same notes as D♭ melodic minor. Use it over a
+            dominant chord that resolves, like the C7 of a V–I in F.
+          </p>,
+        )}
+      </GuideSection>
+
+      <GuideSection title={t("As sete posições", "The seven positions")}>
+        {t(
+          <p>
+            Como no módulo do modo jônio, cada posição começa num grau diferente da escala na 6ª corda e vai
+            até a 1ª com <strong>três notas por corda, menos uma corda com duas</strong>. O desenho de cada
+            posição é o de um modo da escala menor melódica. Em C:
+          </p>,
+          <p>
+            As in the Ionian module, each position starts on a different degree of the scale on the 6th
+            string and goes up to the 1st with <strong>three notes per string, except one string with
+            two</strong>. The shape of each position is that of a mode of the melodic minor scale. In C:
+          </p>,
+        )}
+        <div className="!mt-6 overflow-x-auto rounded-card border border-line bg-surface">
+          <table className="w-full min-w-[420px] text-left text-sm">
+            <thead className="border-b border-line text-muted">
+              <tr>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Posição", "Position")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Começa no grau", "Starts on degree")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Nota em C", "Note in C")}</th>
+                <th className="eyebrow px-4 py-3 font-medium">{t("Modo", "Mode")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ALTERED_POSITIONS.map((item, index) => (
+                <tr key={item.note} className="border-b border-line last:border-b-0">
+                  <td className="px-4 py-3 font-semibold text-ink">{index + 1}</td>
+                  <td className="px-4 py-3 font-mono text-ink">{item.degree}</td>
+                  <td className="px-4 py-3 text-ink-2">{item.note}</td>
+                  <td className="px-4 py-3 text-ink-2">{l(item.mode)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </GuideSection>
+
+      <GuideSection title={t("As posições em C alterada", "The positions in C altered")}>
+        {t(
+          <p>
+            Cada ponto mostra o grau da nota; os pontos azuis são a tônica (C). Os números abaixo do
+            diagrama são as casas.
+          </p>,
+          <p>
+            Each dot shows the degree of its note; the blue dots are the tonic (C). The numbers under the
+            diagram are the frets.
+          </p>,
+        )}
+        <div className="!mt-6 grid gap-4 sm:grid-cols-2">
+          {byPosition.map((step) => (
+            <ScaleCard key={step.position} step={step} />
+          ))}
+        </div>
+      </GuideSection>
+
+      <GuideSection title={t("Como estudar", "How to practise")}>
+        {t(
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Cada aula é um desenho: a posição 1, a posição 2 e assim por diante, até a 7.</li>
+            <li>Cada aula tem uma variação para cada tonalidade, no ciclo de quartas.</li>
+            <li>
+              Toque o desenho subindo e descendo, com o metrônomo, e localize a tônica, a terça e a sétima
+              do acorde dominante: as outras notas são as tensões.
+            </li>
+            <li>Depois, improvise sobre um V–I (C7 → F) usando a escala alterada no acorde dominante.</li>
+          </ol>,
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Each lesson is one shape: position 1, position 2 and so on, up to 7.</li>
+            <li>Each lesson has a variation for every key, in the cycle of fourths.</li>
+            <li>
+              Play the shape up and down with the metronome, and find the root, third and seventh of the
+              dominant chord: the other notes are the tensions.
+            </li>
+            <li>Then improvise over a V–I (C7 → F) using the altered scale on the dominant chord.</li>
+          </ol>,
+        )}
+      </GuideSection>
+    </GuideLayout>
+  );
+}
+
 const ARPEGGIO_SOURCES: GuideSource[] = [
   { label: "Wikipedia — Arpeggio", url: "https://en.wikipedia.org/wiki/Arpeggio" },
   { label: "Wikipedia — Triad (music)", url: "https://en.wikipedia.org/wiki/Triad_(music)" },
@@ -3587,7 +3728,9 @@ export default function App() {
               ? ArpeggiosGuide
               : guideSection === 6
                 ? SeventhArpeggiosGuide
-                : CagedGuide;
+                : guideSection === 7
+                  ? AlteredGuide
+                  : CagedGuide;
     return <Guide onBack={() => setGuideSection(null)} />;
   }
 

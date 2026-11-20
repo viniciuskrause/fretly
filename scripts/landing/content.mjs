@@ -44,12 +44,12 @@ export const content = {
     },
     practice: {
       // Names of the modules (structured data featureList).
-      modules: ["CAGED system exercises", "Triad inversion exercises", "Seventh chord inversion exercises", "Major scale exercises in 7 positions", "Triad arpeggio exercises", "Seventh chord arpeggio exercises"],
+      modules: ["CAGED system exercises", "Triad inversion exercises", "Seventh chord inversion exercises", "Major scale exercises in 7 positions", "Triad arpeggio exercises", "Seventh chord arpeggio exercises", "Altered scale exercises in 7 positions"],
       articles: [
         {
           h: "A complete guitar practice path",
           paragraphs: [
-            "Guitar Workouts is a practice path for the whole fretboard, in six modules that build on each other, from chords to melody. You start with the chord shapes you already half know and end up playing every chord tone, in every key, anywhere on the neck.",
+            "Guitar Workouts is a practice path for the whole fretboard, in modules that build on each other, from chords to melody. You start with the chord shapes you already half know and end up playing every chord tone, in every key, anywhere on the neck.",
             "Practice in all keys to master and forget about it when playing for real, so there is no more avoiding A♭ or F♯: the shapes stop being positions you memorised and become patterns you understand.",
           ],
         },
@@ -178,12 +178,12 @@ export const content = {
     },
     practice: {
       // Names of the modules (structured data featureList).
-      modules: ["Exercícios do sistema CAGED", "Exercícios de inversões de tríades", "Exercícios de inversões de tétrades", "Exercícios de escala maior em 7 posições", "Exercícios de arpejos de tríades", "Exercícios de arpejos de tétrades"],
+      modules: ["Exercícios do sistema CAGED", "Exercícios de inversões de tríades", "Exercícios de inversões de tétrades", "Exercícios de escala maior em 7 posições", "Exercícios de arpejos de tríades", "Exercícios de arpejos de tétrades", "Exercícios de escala alterada em 7 posições"],
       articles: [
         {
           h: "Um caminho completo de prática de guitarra",
           paragraphs: [
-            "O Guitar Workouts é um caminho de prática para o braço inteiro, em seis módulos que se complementam, dos acordes à melodia. Você começa pelos desenhos de acorde que já conhece pela metade e termina tocando cada nota do acorde, em todos os tons, em qualquer lugar do braço.",
+            "O Guitar Workouts é um caminho de prática para o braço inteiro, em módulos que se complementam, dos acordes à melodia. Você começa pelos desenhos de acorde que já conhece pela metade e termina tocando cada nota do acorde, em todos os tons, em qualquer lugar do braço.",
             "Pratique em todos os tons até dominar e esqueça disso na hora de tocar de verdade, e nada de fugir de A♭ ou F♯: os desenhos deixam de ser posições decoradas e viram padrões que você entende.",
           ],
         },

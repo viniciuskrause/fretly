@@ -25902,7 +25902,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 6ª corda", en: "Root on the 6th string" },
         lessons: [
       {
-        id: 518,
+        id: 602,
         key: "arpeggios/major/root/6/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -25944,7 +25944,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 519,
+        id: 603,
         key: "arpeggios/major/root/6/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -25986,7 +25986,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 520,
+        id: 604,
         key: "arpeggios/major/root/6/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -26028,7 +26028,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 521,
+        id: 605,
         key: "arpeggios/major/root/6/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -26070,7 +26070,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 522,
+        id: 606,
         key: "arpeggios/major/root/6/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -26112,7 +26112,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 523,
+        id: 607,
         key: "arpeggios/major/root/6/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -26154,7 +26154,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 524,
+        id: 608,
         key: "arpeggios/major/root/6/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -26196,7 +26196,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 525,
+        id: 609,
         key: "arpeggios/major/root/6/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -26238,7 +26238,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 526,
+        id: 610,
         key: "arpeggios/major/root/6/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -26280,7 +26280,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 527,
+        id: 611,
         key: "arpeggios/major/root/6/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -26322,7 +26322,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 528,
+        id: 612,
         key: "arpeggios/major/root/6/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -26364,7 +26364,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 529,
+        id: 613,
         key: "arpeggios/major/root/6/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -26413,7 +26413,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 5ª corda", en: "Root on the 5th string" },
         lessons: [
       {
-        id: 530,
+        id: 614,
         key: "arpeggios/major/root/5/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -26455,7 +26455,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 531,
+        id: 615,
         key: "arpeggios/major/root/5/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -26497,7 +26497,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 532,
+        id: 616,
         key: "arpeggios/major/root/5/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -26539,7 +26539,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 533,
+        id: 617,
         key: "arpeggios/major/root/5/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -26581,7 +26581,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 534,
+        id: 618,
         key: "arpeggios/major/root/5/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -26623,7 +26623,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 535,
+        id: 619,
         key: "arpeggios/major/root/5/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -26665,7 +26665,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 536,
+        id: 620,
         key: "arpeggios/major/root/5/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -26707,7 +26707,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 537,
+        id: 621,
         key: "arpeggios/major/root/5/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -26749,7 +26749,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 538,
+        id: 622,
         key: "arpeggios/major/root/5/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -26791,7 +26791,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 539,
+        id: 623,
         key: "arpeggios/major/root/5/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -26833,7 +26833,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 540,
+        id: 624,
         key: "arpeggios/major/root/5/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -26875,7 +26875,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 541,
+        id: 625,
         key: "arpeggios/major/root/5/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -26924,7 +26924,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 4ª corda", en: "Root on the 4th string" },
         lessons: [
       {
-        id: 542,
+        id: 626,
         key: "arpeggios/major/root/4/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -26966,7 +26966,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 543,
+        id: 627,
         key: "arpeggios/major/root/4/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -27008,7 +27008,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 544,
+        id: 628,
         key: "arpeggios/major/root/4/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -27050,7 +27050,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 545,
+        id: 629,
         key: "arpeggios/major/root/4/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -27092,7 +27092,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 546,
+        id: 630,
         key: "arpeggios/major/root/4/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -27134,7 +27134,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 547,
+        id: 631,
         key: "arpeggios/major/root/4/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -27176,7 +27176,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 548,
+        id: 632,
         key: "arpeggios/major/root/4/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -27218,7 +27218,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 549,
+        id: 633,
         key: "arpeggios/major/root/4/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -27260,7 +27260,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 550,
+        id: 634,
         key: "arpeggios/major/root/4/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -27302,7 +27302,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 551,
+        id: 635,
         key: "arpeggios/major/root/4/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -27344,7 +27344,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 552,
+        id: 636,
         key: "arpeggios/major/root/4/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -27386,7 +27386,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 553,
+        id: 637,
         key: "arpeggios/major/root/4/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -27435,7 +27435,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 6ª corda", en: "Root on the 6th string" },
         lessons: [
       {
-        id: 554,
+        id: 638,
         key: "arpeggios/minor/root/6/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -27477,7 +27477,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 555,
+        id: 639,
         key: "arpeggios/minor/root/6/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -27519,7 +27519,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 556,
+        id: 640,
         key: "arpeggios/minor/root/6/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -27561,7 +27561,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 557,
+        id: 641,
         key: "arpeggios/minor/root/6/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -27603,7 +27603,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 558,
+        id: 642,
         key: "arpeggios/minor/root/6/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -27645,7 +27645,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 559,
+        id: 643,
         key: "arpeggios/minor/root/6/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -27687,7 +27687,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 560,
+        id: 644,
         key: "arpeggios/minor/root/6/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -27729,7 +27729,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 561,
+        id: 645,
         key: "arpeggios/minor/root/6/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -27771,7 +27771,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 562,
+        id: 646,
         key: "arpeggios/minor/root/6/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -27813,7 +27813,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 563,
+        id: 647,
         key: "arpeggios/minor/root/6/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -27855,7 +27855,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 564,
+        id: 648,
         key: "arpeggios/minor/root/6/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -27897,7 +27897,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 565,
+        id: 649,
         key: "arpeggios/minor/root/6/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -27946,7 +27946,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 5ª corda", en: "Root on the 5th string" },
         lessons: [
       {
-        id: 566,
+        id: 650,
         key: "arpeggios/minor/root/5/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -27988,7 +27988,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 567,
+        id: 651,
         key: "arpeggios/minor/root/5/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -28030,7 +28030,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 568,
+        id: 652,
         key: "arpeggios/minor/root/5/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -28072,7 +28072,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 569,
+        id: 653,
         key: "arpeggios/minor/root/5/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -28114,7 +28114,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 570,
+        id: 654,
         key: "arpeggios/minor/root/5/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -28156,7 +28156,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 571,
+        id: 655,
         key: "arpeggios/minor/root/5/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -28198,7 +28198,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 572,
+        id: 656,
         key: "arpeggios/minor/root/5/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -28240,7 +28240,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 573,
+        id: 657,
         key: "arpeggios/minor/root/5/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -28282,7 +28282,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 574,
+        id: 658,
         key: "arpeggios/minor/root/5/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -28324,7 +28324,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 575,
+        id: 659,
         key: "arpeggios/minor/root/5/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -28366,7 +28366,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 576,
+        id: 660,
         key: "arpeggios/minor/root/5/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -28408,7 +28408,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 577,
+        id: 661,
         key: "arpeggios/minor/root/5/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -28457,7 +28457,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 4ª corda", en: "Root on the 4th string" },
         lessons: [
       {
-        id: 578,
+        id: 662,
         key: "arpeggios/minor/root/4/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -28499,7 +28499,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 579,
+        id: 663,
         key: "arpeggios/minor/root/4/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -28541,7 +28541,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 580,
+        id: 664,
         key: "arpeggios/minor/root/4/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -28583,7 +28583,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 581,
+        id: 665,
         key: "arpeggios/minor/root/4/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -28625,7 +28625,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 582,
+        id: 666,
         key: "arpeggios/minor/root/4/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -28667,7 +28667,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 583,
+        id: 667,
         key: "arpeggios/minor/root/4/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -28709,7 +28709,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 584,
+        id: 668,
         key: "arpeggios/minor/root/4/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -28751,7 +28751,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 585,
+        id: 669,
         key: "arpeggios/minor/root/4/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -28793,7 +28793,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 586,
+        id: 670,
         key: "arpeggios/minor/root/4/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -28835,7 +28835,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 587,
+        id: 671,
         key: "arpeggios/minor/root/4/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -28877,7 +28877,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 588,
+        id: 672,
         key: "arpeggios/minor/root/4/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -28919,7 +28919,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 589,
+        id: 673,
         key: "arpeggios/minor/root/4/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -28968,7 +28968,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 6ª corda", en: "Root on the 6th string" },
         lessons: [
       {
-        id: 590,
+        id: 674,
         key: "arpeggios/dim/root/6/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -29010,7 +29010,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 591,
+        id: 675,
         key: "arpeggios/dim/root/6/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -29052,7 +29052,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 592,
+        id: 676,
         key: "arpeggios/dim/root/6/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -29094,7 +29094,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 593,
+        id: 677,
         key: "arpeggios/dim/root/6/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -29136,7 +29136,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 594,
+        id: 678,
         key: "arpeggios/dim/root/6/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -29178,7 +29178,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 595,
+        id: 679,
         key: "arpeggios/dim/root/6/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -29220,7 +29220,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 596,
+        id: 680,
         key: "arpeggios/dim/root/6/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -29262,7 +29262,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 597,
+        id: 681,
         key: "arpeggios/dim/root/6/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -29304,7 +29304,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 598,
+        id: 682,
         key: "arpeggios/dim/root/6/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -29346,7 +29346,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 599,
+        id: 683,
         key: "arpeggios/dim/root/6/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -29388,7 +29388,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 600,
+        id: 684,
         key: "arpeggios/dim/root/6/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -29430,7 +29430,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 601,
+        id: 685,
         key: "arpeggios/dim/root/6/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -29479,7 +29479,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 5ª corda", en: "Root on the 5th string" },
         lessons: [
       {
-        id: 602,
+        id: 686,
         key: "arpeggios/dim/root/5/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -29521,7 +29521,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 603,
+        id: 687,
         key: "arpeggios/dim/root/5/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -29563,7 +29563,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 604,
+        id: 688,
         key: "arpeggios/dim/root/5/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -29605,7 +29605,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 605,
+        id: 689,
         key: "arpeggios/dim/root/5/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -29647,7 +29647,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 606,
+        id: 690,
         key: "arpeggios/dim/root/5/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -29689,7 +29689,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 607,
+        id: 691,
         key: "arpeggios/dim/root/5/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -29731,7 +29731,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 608,
+        id: 692,
         key: "arpeggios/dim/root/5/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -29773,7 +29773,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 609,
+        id: 693,
         key: "arpeggios/dim/root/5/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -29815,7 +29815,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 610,
+        id: 694,
         key: "arpeggios/dim/root/5/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -29857,7 +29857,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 611,
+        id: 695,
         key: "arpeggios/dim/root/5/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -29899,7 +29899,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 612,
+        id: 696,
         key: "arpeggios/dim/root/5/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -29941,7 +29941,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 613,
+        id: 697,
         key: "arpeggios/dim/root/5/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -29990,7 +29990,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 4ª corda", en: "Root on the 4th string" },
         lessons: [
       {
-        id: 614,
+        id: 698,
         key: "arpeggios/dim/root/4/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -30032,7 +30032,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 615,
+        id: 699,
         key: "arpeggios/dim/root/4/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -30074,7 +30074,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 616,
+        id: 700,
         key: "arpeggios/dim/root/4/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -30116,7 +30116,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 617,
+        id: 701,
         key: "arpeggios/dim/root/4/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -30158,7 +30158,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 618,
+        id: 702,
         key: "arpeggios/dim/root/4/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -30200,7 +30200,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 619,
+        id: 703,
         key: "arpeggios/dim/root/4/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -30242,7 +30242,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 620,
+        id: 704,
         key: "arpeggios/dim/root/4/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -30284,7 +30284,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 621,
+        id: 705,
         key: "arpeggios/dim/root/4/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -30326,7 +30326,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 622,
+        id: 706,
         key: "arpeggios/dim/root/4/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -30368,7 +30368,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 623,
+        id: 707,
         key: "arpeggios/dim/root/4/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -30410,7 +30410,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 624,
+        id: 708,
         key: "arpeggios/dim/root/4/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -30452,7 +30452,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 625,
+        id: 709,
         key: "arpeggios/dim/root/4/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -30501,7 +30501,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 6ª corda", en: "Third on the 6th string" },
         lessons: [
       {
-        id: 626,
+        id: 710,
         key: "arpeggios/major/third/6/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -30543,7 +30543,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 627,
+        id: 711,
         key: "arpeggios/major/third/6/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -30585,7 +30585,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 628,
+        id: 712,
         key: "arpeggios/major/third/6/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -30627,7 +30627,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 629,
+        id: 713,
         key: "arpeggios/major/third/6/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -30669,7 +30669,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 630,
+        id: 714,
         key: "arpeggios/major/third/6/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -30711,7 +30711,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 631,
+        id: 715,
         key: "arpeggios/major/third/6/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -30753,7 +30753,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 632,
+        id: 716,
         key: "arpeggios/major/third/6/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -30795,7 +30795,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 633,
+        id: 717,
         key: "arpeggios/major/third/6/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -30837,7 +30837,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 634,
+        id: 718,
         key: "arpeggios/major/third/6/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -30879,7 +30879,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 635,
+        id: 719,
         key: "arpeggios/major/third/6/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -30921,7 +30921,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 636,
+        id: 720,
         key: "arpeggios/major/third/6/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -30963,7 +30963,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 637,
+        id: 721,
         key: "arpeggios/major/third/6/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -31012,7 +31012,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 5ª corda", en: "Third on the 5th string" },
         lessons: [
       {
-        id: 638,
+        id: 722,
         key: "arpeggios/major/third/5/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -31054,7 +31054,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 639,
+        id: 723,
         key: "arpeggios/major/third/5/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -31096,7 +31096,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 640,
+        id: 724,
         key: "arpeggios/major/third/5/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -31138,7 +31138,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 641,
+        id: 725,
         key: "arpeggios/major/third/5/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -31180,7 +31180,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 642,
+        id: 726,
         key: "arpeggios/major/third/5/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -31222,7 +31222,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 643,
+        id: 727,
         key: "arpeggios/major/third/5/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -31264,7 +31264,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 644,
+        id: 728,
         key: "arpeggios/major/third/5/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -31306,7 +31306,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 645,
+        id: 729,
         key: "arpeggios/major/third/5/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -31348,7 +31348,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 646,
+        id: 730,
         key: "arpeggios/major/third/5/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -31390,7 +31390,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 647,
+        id: 731,
         key: "arpeggios/major/third/5/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -31432,7 +31432,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 648,
+        id: 732,
         key: "arpeggios/major/third/5/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -31474,7 +31474,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 649,
+        id: 733,
         key: "arpeggios/major/third/5/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -31523,7 +31523,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 4ª corda", en: "Third on the 4th string" },
         lessons: [
       {
-        id: 650,
+        id: 734,
         key: "arpeggios/major/third/4/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -31565,7 +31565,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 651,
+        id: 735,
         key: "arpeggios/major/third/4/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -31607,7 +31607,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 652,
+        id: 736,
         key: "arpeggios/major/third/4/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -31649,7 +31649,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 653,
+        id: 737,
         key: "arpeggios/major/third/4/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -31691,7 +31691,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 654,
+        id: 738,
         key: "arpeggios/major/third/4/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -31733,7 +31733,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 655,
+        id: 739,
         key: "arpeggios/major/third/4/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -31775,7 +31775,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 656,
+        id: 740,
         key: "arpeggios/major/third/4/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -31817,7 +31817,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 657,
+        id: 741,
         key: "arpeggios/major/third/4/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -31859,7 +31859,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 658,
+        id: 742,
         key: "arpeggios/major/third/4/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -31901,7 +31901,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 659,
+        id: 743,
         key: "arpeggios/major/third/4/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -31943,7 +31943,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 660,
+        id: 744,
         key: "arpeggios/major/third/4/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -31985,7 +31985,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 661,
+        id: 745,
         key: "arpeggios/major/third/4/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -32034,7 +32034,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 6ª corda", en: "Third on the 6th string" },
         lessons: [
       {
-        id: 662,
+        id: 746,
         key: "arpeggios/minor/third/6/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -32076,7 +32076,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 663,
+        id: 747,
         key: "arpeggios/minor/third/6/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -32118,7 +32118,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 664,
+        id: 748,
         key: "arpeggios/minor/third/6/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -32160,7 +32160,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 665,
+        id: 749,
         key: "arpeggios/minor/third/6/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -32202,7 +32202,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 666,
+        id: 750,
         key: "arpeggios/minor/third/6/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -32244,7 +32244,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 667,
+        id: 751,
         key: "arpeggios/minor/third/6/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -32286,7 +32286,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 668,
+        id: 752,
         key: "arpeggios/minor/third/6/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -32328,7 +32328,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 669,
+        id: 753,
         key: "arpeggios/minor/third/6/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -32370,7 +32370,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 670,
+        id: 754,
         key: "arpeggios/minor/third/6/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -32412,7 +32412,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 671,
+        id: 755,
         key: "arpeggios/minor/third/6/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -32454,7 +32454,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 672,
+        id: 756,
         key: "arpeggios/minor/third/6/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -32496,7 +32496,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 673,
+        id: 757,
         key: "arpeggios/minor/third/6/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -32545,7 +32545,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 5ª corda", en: "Third on the 5th string" },
         lessons: [
       {
-        id: 674,
+        id: 758,
         key: "arpeggios/minor/third/5/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -32587,7 +32587,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 675,
+        id: 759,
         key: "arpeggios/minor/third/5/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -32629,7 +32629,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 676,
+        id: 760,
         key: "arpeggios/minor/third/5/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -32671,7 +32671,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 677,
+        id: 761,
         key: "arpeggios/minor/third/5/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -32713,7 +32713,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 678,
+        id: 762,
         key: "arpeggios/minor/third/5/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -32755,7 +32755,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 679,
+        id: 763,
         key: "arpeggios/minor/third/5/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -32797,7 +32797,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 680,
+        id: 764,
         key: "arpeggios/minor/third/5/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -32839,7 +32839,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 681,
+        id: 765,
         key: "arpeggios/minor/third/5/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -32881,7 +32881,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 682,
+        id: 766,
         key: "arpeggios/minor/third/5/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -32923,7 +32923,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 683,
+        id: 767,
         key: "arpeggios/minor/third/5/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -32965,7 +32965,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 684,
+        id: 768,
         key: "arpeggios/minor/third/5/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -33007,7 +33007,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 685,
+        id: 769,
         key: "arpeggios/minor/third/5/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -33056,7 +33056,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 4ª corda", en: "Third on the 4th string" },
         lessons: [
       {
-        id: 686,
+        id: 770,
         key: "arpeggios/minor/third/4/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -33098,7 +33098,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 687,
+        id: 771,
         key: "arpeggios/minor/third/4/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -33140,7 +33140,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 688,
+        id: 772,
         key: "arpeggios/minor/third/4/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -33182,7 +33182,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 689,
+        id: 773,
         key: "arpeggios/minor/third/4/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -33224,7 +33224,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 690,
+        id: 774,
         key: "arpeggios/minor/third/4/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -33266,7 +33266,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 691,
+        id: 775,
         key: "arpeggios/minor/third/4/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -33308,7 +33308,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 692,
+        id: 776,
         key: "arpeggios/minor/third/4/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -33350,7 +33350,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 693,
+        id: 777,
         key: "arpeggios/minor/third/4/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -33392,7 +33392,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 694,
+        id: 778,
         key: "arpeggios/minor/third/4/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -33434,7 +33434,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 695,
+        id: 779,
         key: "arpeggios/minor/third/4/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -33476,7 +33476,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 696,
+        id: 780,
         key: "arpeggios/minor/third/4/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -33518,7 +33518,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 697,
+        id: 781,
         key: "arpeggios/minor/third/4/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -33567,7 +33567,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 6ª corda", en: "Third on the 6th string" },
         lessons: [
       {
-        id: 698,
+        id: 782,
         key: "arpeggios/dim/third/6/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -33609,7 +33609,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 699,
+        id: 783,
         key: "arpeggios/dim/third/6/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -33651,7 +33651,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 700,
+        id: 784,
         key: "arpeggios/dim/third/6/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -33693,7 +33693,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 701,
+        id: 785,
         key: "arpeggios/dim/third/6/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -33735,7 +33735,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 702,
+        id: 786,
         key: "arpeggios/dim/third/6/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -33777,7 +33777,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 703,
+        id: 787,
         key: "arpeggios/dim/third/6/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -33819,7 +33819,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 704,
+        id: 788,
         key: "arpeggios/dim/third/6/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -33861,7 +33861,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 705,
+        id: 789,
         key: "arpeggios/dim/third/6/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -33903,7 +33903,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 706,
+        id: 790,
         key: "arpeggios/dim/third/6/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -33945,7 +33945,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 707,
+        id: 791,
         key: "arpeggios/dim/third/6/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -33987,7 +33987,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 708,
+        id: 792,
         key: "arpeggios/dim/third/6/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -34029,7 +34029,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 709,
+        id: 793,
         key: "arpeggios/dim/third/6/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -34078,7 +34078,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 5ª corda", en: "Third on the 5th string" },
         lessons: [
       {
-        id: 710,
+        id: 794,
         key: "arpeggios/dim/third/5/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -34120,7 +34120,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 711,
+        id: 795,
         key: "arpeggios/dim/third/5/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -34162,7 +34162,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 712,
+        id: 796,
         key: "arpeggios/dim/third/5/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -34204,7 +34204,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 713,
+        id: 797,
         key: "arpeggios/dim/third/5/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -34246,7 +34246,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 714,
+        id: 798,
         key: "arpeggios/dim/third/5/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -34288,7 +34288,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 715,
+        id: 799,
         key: "arpeggios/dim/third/5/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -34330,7 +34330,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 716,
+        id: 800,
         key: "arpeggios/dim/third/5/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -34372,7 +34372,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 717,
+        id: 801,
         key: "arpeggios/dim/third/5/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -34414,7 +34414,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 718,
+        id: 802,
         key: "arpeggios/dim/third/5/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -34456,7 +34456,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 719,
+        id: 803,
         key: "arpeggios/dim/third/5/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -34498,7 +34498,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 720,
+        id: 804,
         key: "arpeggios/dim/third/5/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -34540,7 +34540,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 721,
+        id: 805,
         key: "arpeggios/dim/third/5/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -34589,7 +34589,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 4ª corda", en: "Third on the 4th string" },
         lessons: [
       {
-        id: 722,
+        id: 806,
         key: "arpeggios/dim/third/4/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -34631,7 +34631,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 723,
+        id: 807,
         key: "arpeggios/dim/third/4/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -34673,7 +34673,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 724,
+        id: 808,
         key: "arpeggios/dim/third/4/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -34715,7 +34715,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 725,
+        id: 809,
         key: "arpeggios/dim/third/4/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -34757,7 +34757,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 726,
+        id: 810,
         key: "arpeggios/dim/third/4/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -34799,7 +34799,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 727,
+        id: 811,
         key: "arpeggios/dim/third/4/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -34841,7 +34841,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 728,
+        id: 812,
         key: "arpeggios/dim/third/4/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -34883,7 +34883,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 729,
+        id: 813,
         key: "arpeggios/dim/third/4/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -34925,7 +34925,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 730,
+        id: 814,
         key: "arpeggios/dim/third/4/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -34967,7 +34967,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 731,
+        id: 815,
         key: "arpeggios/dim/third/4/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -35009,7 +35009,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 732,
+        id: 816,
         key: "arpeggios/dim/third/4/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -35051,7 +35051,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 733,
+        id: 817,
         key: "arpeggios/dim/third/4/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -35100,7 +35100,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 6ª corda", en: "Fifth on the 6th string" },
         lessons: [
       {
-        id: 734,
+        id: 818,
         key: "arpeggios/major/fifth/6/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -35142,7 +35142,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 735,
+        id: 819,
         key: "arpeggios/major/fifth/6/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -35184,7 +35184,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 736,
+        id: 820,
         key: "arpeggios/major/fifth/6/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -35226,7 +35226,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 737,
+        id: 821,
         key: "arpeggios/major/fifth/6/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -35268,7 +35268,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 738,
+        id: 822,
         key: "arpeggios/major/fifth/6/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -35310,7 +35310,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 739,
+        id: 823,
         key: "arpeggios/major/fifth/6/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -35352,7 +35352,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 740,
+        id: 824,
         key: "arpeggios/major/fifth/6/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -35394,7 +35394,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 741,
+        id: 825,
         key: "arpeggios/major/fifth/6/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -35436,7 +35436,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 742,
+        id: 826,
         key: "arpeggios/major/fifth/6/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -35478,7 +35478,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 743,
+        id: 827,
         key: "arpeggios/major/fifth/6/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -35520,7 +35520,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 744,
+        id: 828,
         key: "arpeggios/major/fifth/6/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -35562,7 +35562,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 745,
+        id: 829,
         key: "arpeggios/major/fifth/6/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -35611,7 +35611,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 5ª corda", en: "Fifth on the 5th string" },
         lessons: [
       {
-        id: 746,
+        id: 830,
         key: "arpeggios/major/fifth/5/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -35653,7 +35653,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 747,
+        id: 831,
         key: "arpeggios/major/fifth/5/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -35695,7 +35695,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 748,
+        id: 832,
         key: "arpeggios/major/fifth/5/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -35737,7 +35737,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 749,
+        id: 833,
         key: "arpeggios/major/fifth/5/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -35779,7 +35779,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 750,
+        id: 834,
         key: "arpeggios/major/fifth/5/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -35821,7 +35821,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 751,
+        id: 835,
         key: "arpeggios/major/fifth/5/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -35863,7 +35863,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 752,
+        id: 836,
         key: "arpeggios/major/fifth/5/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -35905,7 +35905,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 753,
+        id: 837,
         key: "arpeggios/major/fifth/5/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -35947,7 +35947,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 754,
+        id: 838,
         key: "arpeggios/major/fifth/5/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -35989,7 +35989,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 755,
+        id: 839,
         key: "arpeggios/major/fifth/5/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -36031,7 +36031,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 756,
+        id: 840,
         key: "arpeggios/major/fifth/5/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -36073,7 +36073,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 757,
+        id: 841,
         key: "arpeggios/major/fifth/5/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -36122,7 +36122,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 4ª corda", en: "Fifth on the 4th string" },
         lessons: [
       {
-        id: 758,
+        id: 842,
         key: "arpeggios/major/fifth/4/C",
         title: { pt: "C maior - arpejo", en: "C major - arpeggio" },
         exerciseTitle: { pt: "C maior - arpejo", en: "C major - arpeggio" },
@@ -36164,7 +36164,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 759,
+        id: 843,
         key: "arpeggios/major/fifth/4/F",
         title: { pt: "F maior - arpejo", en: "F major - arpeggio" },
         exerciseTitle: { pt: "F maior - arpejo", en: "F major - arpeggio" },
@@ -36206,7 +36206,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 760,
+        id: 844,
         key: "arpeggios/major/fifth/4/Bb",
         title: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
         exerciseTitle: { pt: "B♭ maior - arpejo", en: "B♭ major - arpeggio" },
@@ -36248,7 +36248,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 761,
+        id: 845,
         key: "arpeggios/major/fifth/4/Eb",
         title: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
         exerciseTitle: { pt: "E♭ maior - arpejo", en: "E♭ major - arpeggio" },
@@ -36290,7 +36290,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 762,
+        id: 846,
         key: "arpeggios/major/fifth/4/Ab",
         title: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
         exerciseTitle: { pt: "A♭ maior - arpejo", en: "A♭ major - arpeggio" },
@@ -36332,7 +36332,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 763,
+        id: 847,
         key: "arpeggios/major/fifth/4/Db",
         title: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
         exerciseTitle: { pt: "D♭ maior - arpejo", en: "D♭ major - arpeggio" },
@@ -36374,7 +36374,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 764,
+        id: 848,
         key: "arpeggios/major/fifth/4/Gb",
         title: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
         exerciseTitle: { pt: "G♭ maior - arpejo", en: "G♭ major - arpeggio" },
@@ -36416,7 +36416,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 765,
+        id: 849,
         key: "arpeggios/major/fifth/4/B",
         title: { pt: "B maior - arpejo", en: "B major - arpeggio" },
         exerciseTitle: { pt: "B maior - arpejo", en: "B major - arpeggio" },
@@ -36458,7 +36458,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 766,
+        id: 850,
         key: "arpeggios/major/fifth/4/E",
         title: { pt: "E maior - arpejo", en: "E major - arpeggio" },
         exerciseTitle: { pt: "E maior - arpejo", en: "E major - arpeggio" },
@@ -36500,7 +36500,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 767,
+        id: 851,
         key: "arpeggios/major/fifth/4/A",
         title: { pt: "A maior - arpejo", en: "A major - arpeggio" },
         exerciseTitle: { pt: "A maior - arpejo", en: "A major - arpeggio" },
@@ -36542,7 +36542,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 768,
+        id: 852,
         key: "arpeggios/major/fifth/4/D",
         title: { pt: "D maior - arpejo", en: "D major - arpeggio" },
         exerciseTitle: { pt: "D maior - arpejo", en: "D major - arpeggio" },
@@ -36584,7 +36584,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 769,
+        id: 853,
         key: "arpeggios/major/fifth/4/G",
         title: { pt: "G maior - arpejo", en: "G major - arpeggio" },
         exerciseTitle: { pt: "G maior - arpejo", en: "G major - arpeggio" },
@@ -36633,7 +36633,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 6ª corda", en: "Fifth on the 6th string" },
         lessons: [
       {
-        id: 770,
+        id: 854,
         key: "arpeggios/minor/fifth/6/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -36675,7 +36675,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 771,
+        id: 855,
         key: "arpeggios/minor/fifth/6/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -36717,7 +36717,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 772,
+        id: 856,
         key: "arpeggios/minor/fifth/6/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -36759,7 +36759,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 773,
+        id: 857,
         key: "arpeggios/minor/fifth/6/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -36801,7 +36801,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 774,
+        id: 858,
         key: "arpeggios/minor/fifth/6/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -36843,7 +36843,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 775,
+        id: 859,
         key: "arpeggios/minor/fifth/6/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -36885,7 +36885,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 776,
+        id: 860,
         key: "arpeggios/minor/fifth/6/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -36927,7 +36927,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 777,
+        id: 861,
         key: "arpeggios/minor/fifth/6/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -36969,7 +36969,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 778,
+        id: 862,
         key: "arpeggios/minor/fifth/6/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -37011,7 +37011,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 779,
+        id: 863,
         key: "arpeggios/minor/fifth/6/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -37053,7 +37053,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 780,
+        id: 864,
         key: "arpeggios/minor/fifth/6/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -37095,7 +37095,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 781,
+        id: 865,
         key: "arpeggios/minor/fifth/6/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -37144,7 +37144,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 5ª corda", en: "Fifth on the 5th string" },
         lessons: [
       {
-        id: 782,
+        id: 866,
         key: "arpeggios/minor/fifth/5/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -37186,7 +37186,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 783,
+        id: 867,
         key: "arpeggios/minor/fifth/5/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -37228,7 +37228,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 784,
+        id: 868,
         key: "arpeggios/minor/fifth/5/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -37270,7 +37270,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 785,
+        id: 869,
         key: "arpeggios/minor/fifth/5/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -37312,7 +37312,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 786,
+        id: 870,
         key: "arpeggios/minor/fifth/5/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -37354,7 +37354,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 787,
+        id: 871,
         key: "arpeggios/minor/fifth/5/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -37396,7 +37396,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 788,
+        id: 872,
         key: "arpeggios/minor/fifth/5/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -37438,7 +37438,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 789,
+        id: 873,
         key: "arpeggios/minor/fifth/5/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -37480,7 +37480,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 790,
+        id: 874,
         key: "arpeggios/minor/fifth/5/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -37522,7 +37522,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 791,
+        id: 875,
         key: "arpeggios/minor/fifth/5/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -37564,7 +37564,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 792,
+        id: 876,
         key: "arpeggios/minor/fifth/5/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -37606,7 +37606,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 793,
+        id: 877,
         key: "arpeggios/minor/fifth/5/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -37655,7 +37655,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 4ª corda", en: "Fifth on the 4th string" },
         lessons: [
       {
-        id: 794,
+        id: 878,
         key: "arpeggios/minor/fifth/4/C",
         title: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
         exerciseTitle: { pt: "C menor - arpejo", en: "C minor - arpeggio" },
@@ -37697,7 +37697,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 795,
+        id: 879,
         key: "arpeggios/minor/fifth/4/F",
         title: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
         exerciseTitle: { pt: "F menor - arpejo", en: "F minor - arpeggio" },
@@ -37739,7 +37739,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 796,
+        id: 880,
         key: "arpeggios/minor/fifth/4/Bb",
         title: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
         exerciseTitle: { pt: "B♭ menor - arpejo", en: "B♭ minor - arpeggio" },
@@ -37781,7 +37781,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 797,
+        id: 881,
         key: "arpeggios/minor/fifth/4/Eb",
         title: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
         exerciseTitle: { pt: "E♭ menor - arpejo", en: "E♭ minor - arpeggio" },
@@ -37823,7 +37823,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 798,
+        id: 882,
         key: "arpeggios/minor/fifth/4/G#",
         title: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
         exerciseTitle: { pt: "G♯ menor - arpejo", en: "G♯ minor - arpeggio" },
@@ -37865,7 +37865,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 799,
+        id: 883,
         key: "arpeggios/minor/fifth/4/C#",
         title: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
         exerciseTitle: { pt: "C♯ menor - arpejo", en: "C♯ minor - arpeggio" },
@@ -37907,7 +37907,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 800,
+        id: 884,
         key: "arpeggios/minor/fifth/4/F#",
         title: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
         exerciseTitle: { pt: "F♯ menor - arpejo", en: "F♯ minor - arpeggio" },
@@ -37949,7 +37949,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 801,
+        id: 885,
         key: "arpeggios/minor/fifth/4/B",
         title: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
         exerciseTitle: { pt: "B menor - arpejo", en: "B minor - arpeggio" },
@@ -37991,7 +37991,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 802,
+        id: 886,
         key: "arpeggios/minor/fifth/4/E",
         title: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
         exerciseTitle: { pt: "E menor - arpejo", en: "E minor - arpeggio" },
@@ -38033,7 +38033,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 803,
+        id: 887,
         key: "arpeggios/minor/fifth/4/A",
         title: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
         exerciseTitle: { pt: "A menor - arpejo", en: "A minor - arpeggio" },
@@ -38075,7 +38075,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 804,
+        id: 888,
         key: "arpeggios/minor/fifth/4/D",
         title: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
         exerciseTitle: { pt: "D menor - arpejo", en: "D minor - arpeggio" },
@@ -38117,7 +38117,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 805,
+        id: 889,
         key: "arpeggios/minor/fifth/4/G",
         title: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
         exerciseTitle: { pt: "G menor - arpejo", en: "G minor - arpeggio" },
@@ -38166,7 +38166,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 6ª corda", en: "Fifth on the 6th string" },
         lessons: [
       {
-        id: 806,
+        id: 890,
         key: "arpeggios/dim/fifth/6/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -38208,7 +38208,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 807,
+        id: 891,
         key: "arpeggios/dim/fifth/6/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -38250,7 +38250,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 808,
+        id: 892,
         key: "arpeggios/dim/fifth/6/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -38292,7 +38292,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 809,
+        id: 893,
         key: "arpeggios/dim/fifth/6/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -38334,7 +38334,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 810,
+        id: 894,
         key: "arpeggios/dim/fifth/6/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -38376,7 +38376,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 811,
+        id: 895,
         key: "arpeggios/dim/fifth/6/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -38418,7 +38418,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 812,
+        id: 896,
         key: "arpeggios/dim/fifth/6/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -38460,7 +38460,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 813,
+        id: 897,
         key: "arpeggios/dim/fifth/6/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -38502,7 +38502,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 814,
+        id: 898,
         key: "arpeggios/dim/fifth/6/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -38544,7 +38544,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 815,
+        id: 899,
         key: "arpeggios/dim/fifth/6/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -38586,7 +38586,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 816,
+        id: 900,
         key: "arpeggios/dim/fifth/6/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -38628,7 +38628,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 817,
+        id: 901,
         key: "arpeggios/dim/fifth/6/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -38677,7 +38677,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 5ª corda", en: "Fifth on the 5th string" },
         lessons: [
       {
-        id: 818,
+        id: 902,
         key: "arpeggios/dim/fifth/5/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -38719,7 +38719,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 819,
+        id: 903,
         key: "arpeggios/dim/fifth/5/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -38761,7 +38761,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 820,
+        id: 904,
         key: "arpeggios/dim/fifth/5/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -38803,7 +38803,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 821,
+        id: 905,
         key: "arpeggios/dim/fifth/5/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -38845,7 +38845,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 822,
+        id: 906,
         key: "arpeggios/dim/fifth/5/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -38887,7 +38887,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 823,
+        id: 907,
         key: "arpeggios/dim/fifth/5/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -38929,7 +38929,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 824,
+        id: 908,
         key: "arpeggios/dim/fifth/5/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -38971,7 +38971,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 825,
+        id: 909,
         key: "arpeggios/dim/fifth/5/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -39013,7 +39013,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 826,
+        id: 910,
         key: "arpeggios/dim/fifth/5/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -39055,7 +39055,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 827,
+        id: 911,
         key: "arpeggios/dim/fifth/5/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -39097,7 +39097,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 828,
+        id: 912,
         key: "arpeggios/dim/fifth/5/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -39139,7 +39139,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 829,
+        id: 913,
         key: "arpeggios/dim/fifth/5/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -39188,7 +39188,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 4ª corda", en: "Fifth on the 4th string" },
         lessons: [
       {
-        id: 830,
+        id: 914,
         key: "arpeggios/dim/fifth/4/C",
         title: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
         exerciseTitle: { pt: "C diminuto - arpejo", en: "C diminished - arpeggio" },
@@ -39230,7 +39230,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 831,
+        id: 915,
         key: "arpeggios/dim/fifth/4/F",
         title: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
         exerciseTitle: { pt: "F diminuto - arpejo", en: "F diminished - arpeggio" },
@@ -39272,7 +39272,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 832,
+        id: 916,
         key: "arpeggios/dim/fifth/4/A#",
         title: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
         exerciseTitle: { pt: "A♯ diminuto - arpejo", en: "A♯ diminished - arpeggio" },
@@ -39314,7 +39314,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 833,
+        id: 917,
         key: "arpeggios/dim/fifth/4/D#",
         title: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
         exerciseTitle: { pt: "D♯ diminuto - arpejo", en: "D♯ diminished - arpeggio" },
@@ -39356,7 +39356,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 834,
+        id: 918,
         key: "arpeggios/dim/fifth/4/G#",
         title: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
         exerciseTitle: { pt: "G♯ diminuto - arpejo", en: "G♯ diminished - arpeggio" },
@@ -39398,7 +39398,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 835,
+        id: 919,
         key: "arpeggios/dim/fifth/4/C#",
         title: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
         exerciseTitle: { pt: "C♯ diminuto - arpejo", en: "C♯ diminished - arpeggio" },
@@ -39440,7 +39440,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 836,
+        id: 920,
         key: "arpeggios/dim/fifth/4/F#",
         title: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
         exerciseTitle: { pt: "F♯ diminuto - arpejo", en: "F♯ diminished - arpeggio" },
@@ -39482,7 +39482,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 837,
+        id: 921,
         key: "arpeggios/dim/fifth/4/B",
         title: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
         exerciseTitle: { pt: "B diminuto - arpejo", en: "B diminished - arpeggio" },
@@ -39524,7 +39524,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 838,
+        id: 922,
         key: "arpeggios/dim/fifth/4/E",
         title: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
         exerciseTitle: { pt: "E diminuto - arpejo", en: "E diminished - arpeggio" },
@@ -39566,7 +39566,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 839,
+        id: 923,
         key: "arpeggios/dim/fifth/4/A",
         title: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
         exerciseTitle: { pt: "A diminuto - arpejo", en: "A diminished - arpeggio" },
@@ -39608,7 +39608,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 840,
+        id: 924,
         key: "arpeggios/dim/fifth/4/D",
         title: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
         exerciseTitle: { pt: "D diminuto - arpejo", en: "D diminished - arpeggio" },
@@ -39650,7 +39650,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 841,
+        id: 925,
         key: "arpeggios/dim/fifth/4/G",
         title: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
         exerciseTitle: { pt: "G diminuto - arpejo", en: "G diminished - arpeggio" },
@@ -39700,7 +39700,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões maiores na 6ª corda", en: "Major Inversions on the 6th string" },
         lessons: [
       {
-        id: 842,
+        id: 926,
         key: "arpeggios/inversions/6/C",
         title: { pt: "C maior - inversões na 6ª corda", en: "C major - inversions on the 6th string" },
         exerciseTitle: { pt: "C maior - inversões na 6ª corda", en: "C major - inversions on the 6th string" },
@@ -39751,7 +39751,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 843,
+        id: 927,
         key: "arpeggios/inversions/6/F",
         title: { pt: "F maior - inversões na 6ª corda", en: "F major - inversions on the 6th string" },
         exerciseTitle: { pt: "F maior - inversões na 6ª corda", en: "F major - inversions on the 6th string" },
@@ -39802,7 +39802,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 844,
+        id: 928,
         key: "arpeggios/inversions/6/Bb",
         title: { pt: "B♭ maior - inversões na 6ª corda", en: "B♭ major - inversions on the 6th string" },
         exerciseTitle: { pt: "B♭ maior - inversões na 6ª corda", en: "B♭ major - inversions on the 6th string" },
@@ -39853,7 +39853,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 845,
+        id: 929,
         key: "arpeggios/inversions/6/Eb",
         title: { pt: "E♭ maior - inversões na 6ª corda", en: "E♭ major - inversions on the 6th string" },
         exerciseTitle: { pt: "E♭ maior - inversões na 6ª corda", en: "E♭ major - inversions on the 6th string" },
@@ -39904,7 +39904,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 846,
+        id: 930,
         key: "arpeggios/inversions/6/Ab",
         title: { pt: "A♭ maior - inversões na 6ª corda", en: "A♭ major - inversions on the 6th string" },
         exerciseTitle: { pt: "A♭ maior - inversões na 6ª corda", en: "A♭ major - inversions on the 6th string" },
@@ -39955,7 +39955,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 847,
+        id: 931,
         key: "arpeggios/inversions/6/Db",
         title: { pt: "D♭ maior - inversões na 6ª corda", en: "D♭ major - inversions on the 6th string" },
         exerciseTitle: { pt: "D♭ maior - inversões na 6ª corda", en: "D♭ major - inversions on the 6th string" },
@@ -40006,7 +40006,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 848,
+        id: 932,
         key: "arpeggios/inversions/6/Gb",
         title: { pt: "G♭ maior - inversões na 6ª corda", en: "G♭ major - inversions on the 6th string" },
         exerciseTitle: { pt: "G♭ maior - inversões na 6ª corda", en: "G♭ major - inversions on the 6th string" },
@@ -40057,7 +40057,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 849,
+        id: 933,
         key: "arpeggios/inversions/6/B",
         title: { pt: "B maior - inversões na 6ª corda", en: "B major - inversions on the 6th string" },
         exerciseTitle: { pt: "B maior - inversões na 6ª corda", en: "B major - inversions on the 6th string" },
@@ -40108,7 +40108,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 850,
+        id: 934,
         key: "arpeggios/inversions/6/E",
         title: { pt: "E maior - inversões na 6ª corda", en: "E major - inversions on the 6th string" },
         exerciseTitle: { pt: "E maior - inversões na 6ª corda", en: "E major - inversions on the 6th string" },
@@ -40159,7 +40159,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 851,
+        id: 935,
         key: "arpeggios/inversions/6/A",
         title: { pt: "A maior - inversões na 6ª corda", en: "A major - inversions on the 6th string" },
         exerciseTitle: { pt: "A maior - inversões na 6ª corda", en: "A major - inversions on the 6th string" },
@@ -40210,7 +40210,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 852,
+        id: 936,
         key: "arpeggios/inversions/6/D",
         title: { pt: "D maior - inversões na 6ª corda", en: "D major - inversions on the 6th string" },
         exerciseTitle: { pt: "D maior - inversões na 6ª corda", en: "D major - inversions on the 6th string" },
@@ -40261,7 +40261,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 853,
+        id: 937,
         key: "arpeggios/inversions/6/G",
         title: { pt: "G maior - inversões na 6ª corda", en: "G major - inversions on the 6th string" },
         exerciseTitle: { pt: "G maior - inversões na 6ª corda", en: "G major - inversions on the 6th string" },
@@ -40320,7 +40320,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões maiores na 5ª corda", en: "Major Inversions on the 5th string" },
         lessons: [
       {
-        id: 854,
+        id: 938,
         key: "arpeggios/inversions/5/C",
         title: { pt: "C maior - inversões na 5ª corda", en: "C major - inversions on the 5th string" },
         exerciseTitle: { pt: "C maior - inversões na 5ª corda", en: "C major - inversions on the 5th string" },
@@ -40371,7 +40371,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 855,
+        id: 939,
         key: "arpeggios/inversions/5/F",
         title: { pt: "F maior - inversões na 5ª corda", en: "F major - inversions on the 5th string" },
         exerciseTitle: { pt: "F maior - inversões na 5ª corda", en: "F major - inversions on the 5th string" },
@@ -40422,7 +40422,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 856,
+        id: 940,
         key: "arpeggios/inversions/5/Bb",
         title: { pt: "B♭ maior - inversões na 5ª corda", en: "B♭ major - inversions on the 5th string" },
         exerciseTitle: { pt: "B♭ maior - inversões na 5ª corda", en: "B♭ major - inversions on the 5th string" },
@@ -40473,7 +40473,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 857,
+        id: 941,
         key: "arpeggios/inversions/5/Eb",
         title: { pt: "E♭ maior - inversões na 5ª corda", en: "E♭ major - inversions on the 5th string" },
         exerciseTitle: { pt: "E♭ maior - inversões na 5ª corda", en: "E♭ major - inversions on the 5th string" },
@@ -40524,7 +40524,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 858,
+        id: 942,
         key: "arpeggios/inversions/5/Ab",
         title: { pt: "A♭ maior - inversões na 5ª corda", en: "A♭ major - inversions on the 5th string" },
         exerciseTitle: { pt: "A♭ maior - inversões na 5ª corda", en: "A♭ major - inversions on the 5th string" },
@@ -40575,7 +40575,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 859,
+        id: 943,
         key: "arpeggios/inversions/5/Db",
         title: { pt: "D♭ maior - inversões na 5ª corda", en: "D♭ major - inversions on the 5th string" },
         exerciseTitle: { pt: "D♭ maior - inversões na 5ª corda", en: "D♭ major - inversions on the 5th string" },
@@ -40626,7 +40626,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 860,
+        id: 944,
         key: "arpeggios/inversions/5/Gb",
         title: { pt: "G♭ maior - inversões na 5ª corda", en: "G♭ major - inversions on the 5th string" },
         exerciseTitle: { pt: "G♭ maior - inversões na 5ª corda", en: "G♭ major - inversions on the 5th string" },
@@ -40677,7 +40677,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 861,
+        id: 945,
         key: "arpeggios/inversions/5/B",
         title: { pt: "B maior - inversões na 5ª corda", en: "B major - inversions on the 5th string" },
         exerciseTitle: { pt: "B maior - inversões na 5ª corda", en: "B major - inversions on the 5th string" },
@@ -40728,7 +40728,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 862,
+        id: 946,
         key: "arpeggios/inversions/5/E",
         title: { pt: "E maior - inversões na 5ª corda", en: "E major - inversions on the 5th string" },
         exerciseTitle: { pt: "E maior - inversões na 5ª corda", en: "E major - inversions on the 5th string" },
@@ -40779,7 +40779,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 863,
+        id: 947,
         key: "arpeggios/inversions/5/A",
         title: { pt: "A maior - inversões na 5ª corda", en: "A major - inversions on the 5th string" },
         exerciseTitle: { pt: "A maior - inversões na 5ª corda", en: "A major - inversions on the 5th string" },
@@ -40830,7 +40830,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 864,
+        id: 948,
         key: "arpeggios/inversions/5/D",
         title: { pt: "D maior - inversões na 5ª corda", en: "D major - inversions on the 5th string" },
         exerciseTitle: { pt: "D maior - inversões na 5ª corda", en: "D major - inversions on the 5th string" },
@@ -40881,7 +40881,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 865,
+        id: 949,
         key: "arpeggios/inversions/5/G",
         title: { pt: "G maior - inversões na 5ª corda", en: "G major - inversions on the 5th string" },
         exerciseTitle: { pt: "G maior - inversões na 5ª corda", en: "G major - inversions on the 5th string" },
@@ -40940,7 +40940,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões maiores na 4ª corda", en: "Major Inversions on the 4th string" },
         lessons: [
       {
-        id: 866,
+        id: 950,
         key: "arpeggios/inversions/4/C",
         title: { pt: "C maior - inversões na 4ª corda", en: "C major - inversions on the 4th string" },
         exerciseTitle: { pt: "C maior - inversões na 4ª corda", en: "C major - inversions on the 4th string" },
@@ -40991,7 +40991,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 867,
+        id: 951,
         key: "arpeggios/inversions/4/F",
         title: { pt: "F maior - inversões na 4ª corda", en: "F major - inversions on the 4th string" },
         exerciseTitle: { pt: "F maior - inversões na 4ª corda", en: "F major - inversions on the 4th string" },
@@ -41042,7 +41042,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 868,
+        id: 952,
         key: "arpeggios/inversions/4/Bb",
         title: { pt: "B♭ maior - inversões na 4ª corda", en: "B♭ major - inversions on the 4th string" },
         exerciseTitle: { pt: "B♭ maior - inversões na 4ª corda", en: "B♭ major - inversions on the 4th string" },
@@ -41093,7 +41093,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 869,
+        id: 953,
         key: "arpeggios/inversions/4/Eb",
         title: { pt: "E♭ maior - inversões na 4ª corda", en: "E♭ major - inversions on the 4th string" },
         exerciseTitle: { pt: "E♭ maior - inversões na 4ª corda", en: "E♭ major - inversions on the 4th string" },
@@ -41144,7 +41144,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 870,
+        id: 954,
         key: "arpeggios/inversions/4/Ab",
         title: { pt: "A♭ maior - inversões na 4ª corda", en: "A♭ major - inversions on the 4th string" },
         exerciseTitle: { pt: "A♭ maior - inversões na 4ª corda", en: "A♭ major - inversions on the 4th string" },
@@ -41195,7 +41195,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 871,
+        id: 955,
         key: "arpeggios/inversions/4/Db",
         title: { pt: "D♭ maior - inversões na 4ª corda", en: "D♭ major - inversions on the 4th string" },
         exerciseTitle: { pt: "D♭ maior - inversões na 4ª corda", en: "D♭ major - inversions on the 4th string" },
@@ -41246,7 +41246,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 872,
+        id: 956,
         key: "arpeggios/inversions/4/Gb",
         title: { pt: "G♭ maior - inversões na 4ª corda", en: "G♭ major - inversions on the 4th string" },
         exerciseTitle: { pt: "G♭ maior - inversões na 4ª corda", en: "G♭ major - inversions on the 4th string" },
@@ -41297,7 +41297,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 873,
+        id: 957,
         key: "arpeggios/inversions/4/B",
         title: { pt: "B maior - inversões na 4ª corda", en: "B major - inversions on the 4th string" },
         exerciseTitle: { pt: "B maior - inversões na 4ª corda", en: "B major - inversions on the 4th string" },
@@ -41348,7 +41348,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 874,
+        id: 958,
         key: "arpeggios/inversions/4/E",
         title: { pt: "E maior - inversões na 4ª corda", en: "E major - inversions on the 4th string" },
         exerciseTitle: { pt: "E maior - inversões na 4ª corda", en: "E major - inversions on the 4th string" },
@@ -41399,7 +41399,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 875,
+        id: 959,
         key: "arpeggios/inversions/4/A",
         title: { pt: "A maior - inversões na 4ª corda", en: "A major - inversions on the 4th string" },
         exerciseTitle: { pt: "A maior - inversões na 4ª corda", en: "A major - inversions on the 4th string" },
@@ -41450,7 +41450,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 876,
+        id: 960,
         key: "arpeggios/inversions/4/D",
         title: { pt: "D maior - inversões na 4ª corda", en: "D major - inversions on the 4th string" },
         exerciseTitle: { pt: "D maior - inversões na 4ª corda", en: "D major - inversions on the 4th string" },
@@ -41501,7 +41501,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 877,
+        id: 961,
         key: "arpeggios/inversions/4/G",
         title: { pt: "G maior - inversões na 4ª corda", en: "G major - inversions on the 4th string" },
         exerciseTitle: { pt: "G maior - inversões na 4ª corda", en: "G major - inversions on the 4th string" },
@@ -41560,7 +41560,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões menores na 6ª corda", en: "Minor Inversions on the 6th string" },
         lessons: [
       {
-        id: 878,
+        id: 962,
         key: "arpeggios/inversions/minor/6/C",
         title: { pt: "C menor - inversões na 6ª corda", en: "C minor - inversions on the 6th string" },
         exerciseTitle: { pt: "C menor - inversões na 6ª corda", en: "C minor - inversions on the 6th string" },
@@ -41611,7 +41611,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 879,
+        id: 963,
         key: "arpeggios/inversions/minor/6/F",
         title: { pt: "F menor - inversões na 6ª corda", en: "F minor - inversions on the 6th string" },
         exerciseTitle: { pt: "F menor - inversões na 6ª corda", en: "F minor - inversions on the 6th string" },
@@ -41662,7 +41662,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 880,
+        id: 964,
         key: "arpeggios/inversions/minor/6/Bb",
         title: { pt: "B♭ menor - inversões na 6ª corda", en: "B♭ minor - inversions on the 6th string" },
         exerciseTitle: { pt: "B♭ menor - inversões na 6ª corda", en: "B♭ minor - inversions on the 6th string" },
@@ -41713,7 +41713,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 881,
+        id: 965,
         key: "arpeggios/inversions/minor/6/Eb",
         title: { pt: "E♭ menor - inversões na 6ª corda", en: "E♭ minor - inversions on the 6th string" },
         exerciseTitle: { pt: "E♭ menor - inversões na 6ª corda", en: "E♭ minor - inversions on the 6th string" },
@@ -41764,7 +41764,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 882,
+        id: 966,
         key: "arpeggios/inversions/minor/6/G#",
         title: { pt: "G♯ menor - inversões na 6ª corda", en: "G♯ minor - inversions on the 6th string" },
         exerciseTitle: { pt: "G♯ menor - inversões na 6ª corda", en: "G♯ minor - inversions on the 6th string" },
@@ -41815,7 +41815,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 883,
+        id: 967,
         key: "arpeggios/inversions/minor/6/C#",
         title: { pt: "C♯ menor - inversões na 6ª corda", en: "C♯ minor - inversions on the 6th string" },
         exerciseTitle: { pt: "C♯ menor - inversões na 6ª corda", en: "C♯ minor - inversions on the 6th string" },
@@ -41866,7 +41866,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 884,
+        id: 968,
         key: "arpeggios/inversions/minor/6/F#",
         title: { pt: "F♯ menor - inversões na 6ª corda", en: "F♯ minor - inversions on the 6th string" },
         exerciseTitle: { pt: "F♯ menor - inversões na 6ª corda", en: "F♯ minor - inversions on the 6th string" },
@@ -41917,7 +41917,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 885,
+        id: 969,
         key: "arpeggios/inversions/minor/6/B",
         title: { pt: "B menor - inversões na 6ª corda", en: "B minor - inversions on the 6th string" },
         exerciseTitle: { pt: "B menor - inversões na 6ª corda", en: "B minor - inversions on the 6th string" },
@@ -41968,7 +41968,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 886,
+        id: 970,
         key: "arpeggios/inversions/minor/6/E",
         title: { pt: "E menor - inversões na 6ª corda", en: "E minor - inversions on the 6th string" },
         exerciseTitle: { pt: "E menor - inversões na 6ª corda", en: "E minor - inversions on the 6th string" },
@@ -42019,7 +42019,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 887,
+        id: 971,
         key: "arpeggios/inversions/minor/6/A",
         title: { pt: "A menor - inversões na 6ª corda", en: "A minor - inversions on the 6th string" },
         exerciseTitle: { pt: "A menor - inversões na 6ª corda", en: "A minor - inversions on the 6th string" },
@@ -42070,7 +42070,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 888,
+        id: 972,
         key: "arpeggios/inversions/minor/6/D",
         title: { pt: "D menor - inversões na 6ª corda", en: "D minor - inversions on the 6th string" },
         exerciseTitle: { pt: "D menor - inversões na 6ª corda", en: "D minor - inversions on the 6th string" },
@@ -42121,7 +42121,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 889,
+        id: 973,
         key: "arpeggios/inversions/minor/6/G",
         title: { pt: "G menor - inversões na 6ª corda", en: "G minor - inversions on the 6th string" },
         exerciseTitle: { pt: "G menor - inversões na 6ª corda", en: "G minor - inversions on the 6th string" },
@@ -42180,7 +42180,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões menores na 5ª corda", en: "Minor Inversions on the 5th string" },
         lessons: [
       {
-        id: 890,
+        id: 974,
         key: "arpeggios/inversions/minor/5/C",
         title: { pt: "C menor - inversões na 5ª corda", en: "C minor - inversions on the 5th string" },
         exerciseTitle: { pt: "C menor - inversões na 5ª corda", en: "C minor - inversions on the 5th string" },
@@ -42231,7 +42231,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 891,
+        id: 975,
         key: "arpeggios/inversions/minor/5/F",
         title: { pt: "F menor - inversões na 5ª corda", en: "F minor - inversions on the 5th string" },
         exerciseTitle: { pt: "F menor - inversões na 5ª corda", en: "F minor - inversions on the 5th string" },
@@ -42282,7 +42282,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 892,
+        id: 976,
         key: "arpeggios/inversions/minor/5/Bb",
         title: { pt: "B♭ menor - inversões na 5ª corda", en: "B♭ minor - inversions on the 5th string" },
         exerciseTitle: { pt: "B♭ menor - inversões na 5ª corda", en: "B♭ minor - inversions on the 5th string" },
@@ -42333,7 +42333,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 893,
+        id: 977,
         key: "arpeggios/inversions/minor/5/Eb",
         title: { pt: "E♭ menor - inversões na 5ª corda", en: "E♭ minor - inversions on the 5th string" },
         exerciseTitle: { pt: "E♭ menor - inversões na 5ª corda", en: "E♭ minor - inversions on the 5th string" },
@@ -42384,7 +42384,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 894,
+        id: 978,
         key: "arpeggios/inversions/minor/5/G#",
         title: { pt: "G♯ menor - inversões na 5ª corda", en: "G♯ minor - inversions on the 5th string" },
         exerciseTitle: { pt: "G♯ menor - inversões na 5ª corda", en: "G♯ minor - inversions on the 5th string" },
@@ -42435,7 +42435,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 895,
+        id: 979,
         key: "arpeggios/inversions/minor/5/C#",
         title: { pt: "C♯ menor - inversões na 5ª corda", en: "C♯ minor - inversions on the 5th string" },
         exerciseTitle: { pt: "C♯ menor - inversões na 5ª corda", en: "C♯ minor - inversions on the 5th string" },
@@ -42486,7 +42486,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 896,
+        id: 980,
         key: "arpeggios/inversions/minor/5/F#",
         title: { pt: "F♯ menor - inversões na 5ª corda", en: "F♯ minor - inversions on the 5th string" },
         exerciseTitle: { pt: "F♯ menor - inversões na 5ª corda", en: "F♯ minor - inversions on the 5th string" },
@@ -42537,7 +42537,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 897,
+        id: 981,
         key: "arpeggios/inversions/minor/5/B",
         title: { pt: "B menor - inversões na 5ª corda", en: "B minor - inversions on the 5th string" },
         exerciseTitle: { pt: "B menor - inversões na 5ª corda", en: "B minor - inversions on the 5th string" },
@@ -42588,7 +42588,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 898,
+        id: 982,
         key: "arpeggios/inversions/minor/5/E",
         title: { pt: "E menor - inversões na 5ª corda", en: "E minor - inversions on the 5th string" },
         exerciseTitle: { pt: "E menor - inversões na 5ª corda", en: "E minor - inversions on the 5th string" },
@@ -42639,7 +42639,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 899,
+        id: 983,
         key: "arpeggios/inversions/minor/5/A",
         title: { pt: "A menor - inversões na 5ª corda", en: "A minor - inversions on the 5th string" },
         exerciseTitle: { pt: "A menor - inversões na 5ª corda", en: "A minor - inversions on the 5th string" },
@@ -42690,7 +42690,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 900,
+        id: 984,
         key: "arpeggios/inversions/minor/5/D",
         title: { pt: "D menor - inversões na 5ª corda", en: "D minor - inversions on the 5th string" },
         exerciseTitle: { pt: "D menor - inversões na 5ª corda", en: "D minor - inversions on the 5th string" },
@@ -42741,7 +42741,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 901,
+        id: 985,
         key: "arpeggios/inversions/minor/5/G",
         title: { pt: "G menor - inversões na 5ª corda", en: "G minor - inversions on the 5th string" },
         exerciseTitle: { pt: "G menor - inversões na 5ª corda", en: "G minor - inversions on the 5th string" },
@@ -42800,7 +42800,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões menores na 4ª corda", en: "Minor Inversions on the 4th string" },
         lessons: [
       {
-        id: 902,
+        id: 986,
         key: "arpeggios/inversions/minor/4/C",
         title: { pt: "C menor - inversões na 4ª corda", en: "C minor - inversions on the 4th string" },
         exerciseTitle: { pt: "C menor - inversões na 4ª corda", en: "C minor - inversions on the 4th string" },
@@ -42851,7 +42851,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 903,
+        id: 987,
         key: "arpeggios/inversions/minor/4/F",
         title: { pt: "F menor - inversões na 4ª corda", en: "F minor - inversions on the 4th string" },
         exerciseTitle: { pt: "F menor - inversões na 4ª corda", en: "F minor - inversions on the 4th string" },
@@ -42902,7 +42902,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 904,
+        id: 988,
         key: "arpeggios/inversions/minor/4/Bb",
         title: { pt: "B♭ menor - inversões na 4ª corda", en: "B♭ minor - inversions on the 4th string" },
         exerciseTitle: { pt: "B♭ menor - inversões na 4ª corda", en: "B♭ minor - inversions on the 4th string" },
@@ -42953,7 +42953,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 905,
+        id: 989,
         key: "arpeggios/inversions/minor/4/Eb",
         title: { pt: "E♭ menor - inversões na 4ª corda", en: "E♭ minor - inversions on the 4th string" },
         exerciseTitle: { pt: "E♭ menor - inversões na 4ª corda", en: "E♭ minor - inversions on the 4th string" },
@@ -43004,7 +43004,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 906,
+        id: 990,
         key: "arpeggios/inversions/minor/4/G#",
         title: { pt: "G♯ menor - inversões na 4ª corda", en: "G♯ minor - inversions on the 4th string" },
         exerciseTitle: { pt: "G♯ menor - inversões na 4ª corda", en: "G♯ minor - inversions on the 4th string" },
@@ -43055,7 +43055,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 907,
+        id: 991,
         key: "arpeggios/inversions/minor/4/C#",
         title: { pt: "C♯ menor - inversões na 4ª corda", en: "C♯ minor - inversions on the 4th string" },
         exerciseTitle: { pt: "C♯ menor - inversões na 4ª corda", en: "C♯ minor - inversions on the 4th string" },
@@ -43106,7 +43106,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 908,
+        id: 992,
         key: "arpeggios/inversions/minor/4/F#",
         title: { pt: "F♯ menor - inversões na 4ª corda", en: "F♯ minor - inversions on the 4th string" },
         exerciseTitle: { pt: "F♯ menor - inversões na 4ª corda", en: "F♯ minor - inversions on the 4th string" },
@@ -43157,7 +43157,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 909,
+        id: 993,
         key: "arpeggios/inversions/minor/4/B",
         title: { pt: "B menor - inversões na 4ª corda", en: "B minor - inversions on the 4th string" },
         exerciseTitle: { pt: "B menor - inversões na 4ª corda", en: "B minor - inversions on the 4th string" },
@@ -43208,7 +43208,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 910,
+        id: 994,
         key: "arpeggios/inversions/minor/4/E",
         title: { pt: "E menor - inversões na 4ª corda", en: "E minor - inversions on the 4th string" },
         exerciseTitle: { pt: "E menor - inversões na 4ª corda", en: "E minor - inversions on the 4th string" },
@@ -43259,7 +43259,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 911,
+        id: 995,
         key: "arpeggios/inversions/minor/4/A",
         title: { pt: "A menor - inversões na 4ª corda", en: "A minor - inversions on the 4th string" },
         exerciseTitle: { pt: "A menor - inversões na 4ª corda", en: "A minor - inversions on the 4th string" },
@@ -43310,7 +43310,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 912,
+        id: 996,
         key: "arpeggios/inversions/minor/4/D",
         title: { pt: "D menor - inversões na 4ª corda", en: "D minor - inversions on the 4th string" },
         exerciseTitle: { pt: "D menor - inversões na 4ª corda", en: "D minor - inversions on the 4th string" },
@@ -43361,7 +43361,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 913,
+        id: 997,
         key: "arpeggios/inversions/minor/4/G",
         title: { pt: "G menor - inversões na 4ª corda", en: "G minor - inversions on the 4th string" },
         exerciseTitle: { pt: "G menor - inversões na 4ª corda", en: "G minor - inversions on the 4th string" },
@@ -43420,7 +43420,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões diminutas na 6ª corda", en: "Diminished Inversions on the 6th string" },
         lessons: [
       {
-        id: 914,
+        id: 998,
         key: "arpeggios/inversions/dim/6/C",
         title: { pt: "C diminuto - inversões na 6ª corda", en: "C diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "C diminuto - inversões na 6ª corda", en: "C diminished - inversions on the 6th string" },
@@ -43471,7 +43471,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 915,
+        id: 999,
         key: "arpeggios/inversions/dim/6/F",
         title: { pt: "F diminuto - inversões na 6ª corda", en: "F diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "F diminuto - inversões na 6ª corda", en: "F diminished - inversions on the 6th string" },
@@ -43522,7 +43522,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 916,
+        id: 1000,
         key: "arpeggios/inversions/dim/6/A#",
         title: { pt: "A♯ diminuto - inversões na 6ª corda", en: "A♯ diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "A♯ diminuto - inversões na 6ª corda", en: "A♯ diminished - inversions on the 6th string" },
@@ -43573,7 +43573,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 917,
+        id: 1001,
         key: "arpeggios/inversions/dim/6/D#",
         title: { pt: "D♯ diminuto - inversões na 6ª corda", en: "D♯ diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "D♯ diminuto - inversões na 6ª corda", en: "D♯ diminished - inversions on the 6th string" },
@@ -43624,7 +43624,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 918,
+        id: 1002,
         key: "arpeggios/inversions/dim/6/G#",
         title: { pt: "G♯ diminuto - inversões na 6ª corda", en: "G♯ diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "G♯ diminuto - inversões na 6ª corda", en: "G♯ diminished - inversions on the 6th string" },
@@ -43675,7 +43675,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 919,
+        id: 1003,
         key: "arpeggios/inversions/dim/6/C#",
         title: { pt: "C♯ diminuto - inversões na 6ª corda", en: "C♯ diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "C♯ diminuto - inversões na 6ª corda", en: "C♯ diminished - inversions on the 6th string" },
@@ -43726,7 +43726,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 920,
+        id: 1004,
         key: "arpeggios/inversions/dim/6/F#",
         title: { pt: "F♯ diminuto - inversões na 6ª corda", en: "F♯ diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "F♯ diminuto - inversões na 6ª corda", en: "F♯ diminished - inversions on the 6th string" },
@@ -43777,7 +43777,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 921,
+        id: 1005,
         key: "arpeggios/inversions/dim/6/B",
         title: { pt: "B diminuto - inversões na 6ª corda", en: "B diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "B diminuto - inversões na 6ª corda", en: "B diminished - inversions on the 6th string" },
@@ -43828,7 +43828,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 922,
+        id: 1006,
         key: "arpeggios/inversions/dim/6/E",
         title: { pt: "E diminuto - inversões na 6ª corda", en: "E diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "E diminuto - inversões na 6ª corda", en: "E diminished - inversions on the 6th string" },
@@ -43879,7 +43879,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 923,
+        id: 1007,
         key: "arpeggios/inversions/dim/6/A",
         title: { pt: "A diminuto - inversões na 6ª corda", en: "A diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "A diminuto - inversões na 6ª corda", en: "A diminished - inversions on the 6th string" },
@@ -43930,7 +43930,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 924,
+        id: 1008,
         key: "arpeggios/inversions/dim/6/D",
         title: { pt: "D diminuto - inversões na 6ª corda", en: "D diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "D diminuto - inversões na 6ª corda", en: "D diminished - inversions on the 6th string" },
@@ -43981,7 +43981,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 925,
+        id: 1009,
         key: "arpeggios/inversions/dim/6/G",
         title: { pt: "G diminuto - inversões na 6ª corda", en: "G diminished - inversions on the 6th string" },
         exerciseTitle: { pt: "G diminuto - inversões na 6ª corda", en: "G diminished - inversions on the 6th string" },
@@ -44040,7 +44040,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões diminutas na 5ª corda", en: "Diminished Inversions on the 5th string" },
         lessons: [
       {
-        id: 926,
+        id: 1010,
         key: "arpeggios/inversions/dim/5/C",
         title: { pt: "C diminuto - inversões na 5ª corda", en: "C diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "C diminuto - inversões na 5ª corda", en: "C diminished - inversions on the 5th string" },
@@ -44091,7 +44091,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 927,
+        id: 1011,
         key: "arpeggios/inversions/dim/5/F",
         title: { pt: "F diminuto - inversões na 5ª corda", en: "F diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "F diminuto - inversões na 5ª corda", en: "F diminished - inversions on the 5th string" },
@@ -44142,7 +44142,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 928,
+        id: 1012,
         key: "arpeggios/inversions/dim/5/A#",
         title: { pt: "A♯ diminuto - inversões na 5ª corda", en: "A♯ diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "A♯ diminuto - inversões na 5ª corda", en: "A♯ diminished - inversions on the 5th string" },
@@ -44193,7 +44193,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 929,
+        id: 1013,
         key: "arpeggios/inversions/dim/5/D#",
         title: { pt: "D♯ diminuto - inversões na 5ª corda", en: "D♯ diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "D♯ diminuto - inversões na 5ª corda", en: "D♯ diminished - inversions on the 5th string" },
@@ -44244,7 +44244,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 930,
+        id: 1014,
         key: "arpeggios/inversions/dim/5/G#",
         title: { pt: "G♯ diminuto - inversões na 5ª corda", en: "G♯ diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "G♯ diminuto - inversões na 5ª corda", en: "G♯ diminished - inversions on the 5th string" },
@@ -44295,7 +44295,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 931,
+        id: 1015,
         key: "arpeggios/inversions/dim/5/C#",
         title: { pt: "C♯ diminuto - inversões na 5ª corda", en: "C♯ diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "C♯ diminuto - inversões na 5ª corda", en: "C♯ diminished - inversions on the 5th string" },
@@ -44346,7 +44346,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 932,
+        id: 1016,
         key: "arpeggios/inversions/dim/5/F#",
         title: { pt: "F♯ diminuto - inversões na 5ª corda", en: "F♯ diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "F♯ diminuto - inversões na 5ª corda", en: "F♯ diminished - inversions on the 5th string" },
@@ -44397,7 +44397,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 933,
+        id: 1017,
         key: "arpeggios/inversions/dim/5/B",
         title: { pt: "B diminuto - inversões na 5ª corda", en: "B diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "B diminuto - inversões na 5ª corda", en: "B diminished - inversions on the 5th string" },
@@ -44448,7 +44448,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 934,
+        id: 1018,
         key: "arpeggios/inversions/dim/5/E",
         title: { pt: "E diminuto - inversões na 5ª corda", en: "E diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "E diminuto - inversões na 5ª corda", en: "E diminished - inversions on the 5th string" },
@@ -44499,7 +44499,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 935,
+        id: 1019,
         key: "arpeggios/inversions/dim/5/A",
         title: { pt: "A diminuto - inversões na 5ª corda", en: "A diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "A diminuto - inversões na 5ª corda", en: "A diminished - inversions on the 5th string" },
@@ -44550,7 +44550,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 936,
+        id: 1020,
         key: "arpeggios/inversions/dim/5/D",
         title: { pt: "D diminuto - inversões na 5ª corda", en: "D diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "D diminuto - inversões na 5ª corda", en: "D diminished - inversions on the 5th string" },
@@ -44601,7 +44601,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 937,
+        id: 1021,
         key: "arpeggios/inversions/dim/5/G",
         title: { pt: "G diminuto - inversões na 5ª corda", en: "G diminished - inversions on the 5th string" },
         exerciseTitle: { pt: "G diminuto - inversões na 5ª corda", en: "G diminished - inversions on the 5th string" },
@@ -44660,7 +44660,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões diminutas na 4ª corda", en: "Diminished Inversions on the 4th string" },
         lessons: [
       {
-        id: 938,
+        id: 1022,
         key: "arpeggios/inversions/dim/4/C",
         title: { pt: "C diminuto - inversões na 4ª corda", en: "C diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "C diminuto - inversões na 4ª corda", en: "C diminished - inversions on the 4th string" },
@@ -44711,7 +44711,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 939,
+        id: 1023,
         key: "arpeggios/inversions/dim/4/F",
         title: { pt: "F diminuto - inversões na 4ª corda", en: "F diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "F diminuto - inversões na 4ª corda", en: "F diminished - inversions on the 4th string" },
@@ -44762,7 +44762,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 940,
+        id: 1024,
         key: "arpeggios/inversions/dim/4/A#",
         title: { pt: "A♯ diminuto - inversões na 4ª corda", en: "A♯ diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "A♯ diminuto - inversões na 4ª corda", en: "A♯ diminished - inversions on the 4th string" },
@@ -44813,7 +44813,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 941,
+        id: 1025,
         key: "arpeggios/inversions/dim/4/D#",
         title: { pt: "D♯ diminuto - inversões na 4ª corda", en: "D♯ diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "D♯ diminuto - inversões na 4ª corda", en: "D♯ diminished - inversions on the 4th string" },
@@ -44864,7 +44864,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 942,
+        id: 1026,
         key: "arpeggios/inversions/dim/4/G#",
         title: { pt: "G♯ diminuto - inversões na 4ª corda", en: "G♯ diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "G♯ diminuto - inversões na 4ª corda", en: "G♯ diminished - inversions on the 4th string" },
@@ -44915,7 +44915,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 943,
+        id: 1027,
         key: "arpeggios/inversions/dim/4/C#",
         title: { pt: "C♯ diminuto - inversões na 4ª corda", en: "C♯ diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "C♯ diminuto - inversões na 4ª corda", en: "C♯ diminished - inversions on the 4th string" },
@@ -44966,7 +44966,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 944,
+        id: 1028,
         key: "arpeggios/inversions/dim/4/F#",
         title: { pt: "F♯ diminuto - inversões na 4ª corda", en: "F♯ diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "F♯ diminuto - inversões na 4ª corda", en: "F♯ diminished - inversions on the 4th string" },
@@ -45017,7 +45017,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 945,
+        id: 1029,
         key: "arpeggios/inversions/dim/4/B",
         title: { pt: "B diminuto - inversões na 4ª corda", en: "B diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "B diminuto - inversões na 4ª corda", en: "B diminished - inversions on the 4th string" },
@@ -45068,7 +45068,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 946,
+        id: 1030,
         key: "arpeggios/inversions/dim/4/E",
         title: { pt: "E diminuto - inversões na 4ª corda", en: "E diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "E diminuto - inversões na 4ª corda", en: "E diminished - inversions on the 4th string" },
@@ -45119,7 +45119,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 947,
+        id: 1031,
         key: "arpeggios/inversions/dim/4/A",
         title: { pt: "A diminuto - inversões na 4ª corda", en: "A diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "A diminuto - inversões na 4ª corda", en: "A diminished - inversions on the 4th string" },
@@ -45170,7 +45170,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 948,
+        id: 1032,
         key: "arpeggios/inversions/dim/4/D",
         title: { pt: "D diminuto - inversões na 4ª corda", en: "D diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "D diminuto - inversões na 4ª corda", en: "D diminished - inversions on the 4th string" },
@@ -45221,7 +45221,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 949,
+        id: 1033,
         key: "arpeggios/inversions/dim/4/G",
         title: { pt: "G diminuto - inversões na 4ª corda", en: "G diminished - inversions on the 4th string" },
         exerciseTitle: { pt: "G diminuto - inversões na 4ª corda", en: "G diminished - inversions on the 4th string" },
@@ -45280,7 +45280,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na 6ª corda", en: "Diatonic triads on the 6th string" },
         lessons: [
       {
-        id: 950,
+        id: 1034,
         key: "arpeggios/diatonic/6/C",
         title: { pt: "C maior - tríades diatônicas", en: "C major - diatonic triads" },
         exerciseTitle: { pt: "C maior - tríades diatônicas", en: "C major - diatonic triads" },
@@ -45328,7 +45328,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 951,
+        id: 1035,
         key: "arpeggios/diatonic/6/F",
         title: { pt: "F maior - tríades diatônicas", en: "F major - diatonic triads" },
         exerciseTitle: { pt: "F maior - tríades diatônicas", en: "F major - diatonic triads" },
@@ -45376,7 +45376,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 952,
+        id: 1036,
         key: "arpeggios/diatonic/6/Bb",
         title: { pt: "B♭ maior - tríades diatônicas", en: "B♭ major - diatonic triads" },
         exerciseTitle: { pt: "B♭ maior - tríades diatônicas", en: "B♭ major - diatonic triads" },
@@ -45424,7 +45424,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 953,
+        id: 1037,
         key: "arpeggios/diatonic/6/Eb",
         title: { pt: "E♭ maior - tríades diatônicas", en: "E♭ major - diatonic triads" },
         exerciseTitle: { pt: "E♭ maior - tríades diatônicas", en: "E♭ major - diatonic triads" },
@@ -45472,7 +45472,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 954,
+        id: 1038,
         key: "arpeggios/diatonic/6/Ab",
         title: { pt: "A♭ maior - tríades diatônicas", en: "A♭ major - diatonic triads" },
         exerciseTitle: { pt: "A♭ maior - tríades diatônicas", en: "A♭ major - diatonic triads" },
@@ -45520,7 +45520,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 955,
+        id: 1039,
         key: "arpeggios/diatonic/6/Db",
         title: { pt: "D♭ maior - tríades diatônicas", en: "D♭ major - diatonic triads" },
         exerciseTitle: { pt: "D♭ maior - tríades diatônicas", en: "D♭ major - diatonic triads" },
@@ -45568,7 +45568,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 956,
+        id: 1040,
         key: "arpeggios/diatonic/6/Gb",
         title: { pt: "G♭ maior - tríades diatônicas", en: "G♭ major - diatonic triads" },
         exerciseTitle: { pt: "G♭ maior - tríades diatônicas", en: "G♭ major - diatonic triads" },
@@ -45616,7 +45616,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 957,
+        id: 1041,
         key: "arpeggios/diatonic/6/B",
         title: { pt: "B maior - tríades diatônicas", en: "B major - diatonic triads" },
         exerciseTitle: { pt: "B maior - tríades diatônicas", en: "B major - diatonic triads" },
@@ -45664,7 +45664,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 958,
+        id: 1042,
         key: "arpeggios/diatonic/6/E",
         title: { pt: "E maior - tríades diatônicas", en: "E major - diatonic triads" },
         exerciseTitle: { pt: "E maior - tríades diatônicas", en: "E major - diatonic triads" },
@@ -45712,7 +45712,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 959,
+        id: 1043,
         key: "arpeggios/diatonic/6/A",
         title: { pt: "A maior - tríades diatônicas", en: "A major - diatonic triads" },
         exerciseTitle: { pt: "A maior - tríades diatônicas", en: "A major - diatonic triads" },
@@ -45760,7 +45760,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 960,
+        id: 1044,
         key: "arpeggios/diatonic/6/D",
         title: { pt: "D maior - tríades diatônicas", en: "D major - diatonic triads" },
         exerciseTitle: { pt: "D maior - tríades diatônicas", en: "D major - diatonic triads" },
@@ -45808,7 +45808,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 961,
+        id: 1045,
         key: "arpeggios/diatonic/6/G",
         title: { pt: "G maior - tríades diatônicas", en: "G major - diatonic triads" },
         exerciseTitle: { pt: "G maior - tríades diatônicas", en: "G major - diatonic triads" },
@@ -45864,7 +45864,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na 5ª corda", en: "Diatonic triads on the 5th string" },
         lessons: [
       {
-        id: 962,
+        id: 1046,
         key: "arpeggios/diatonic/5/C",
         title: { pt: "C maior - tríades diatônicas", en: "C major - diatonic triads" },
         exerciseTitle: { pt: "C maior - tríades diatônicas", en: "C major - diatonic triads" },
@@ -45912,7 +45912,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 963,
+        id: 1047,
         key: "arpeggios/diatonic/5/F",
         title: { pt: "F maior - tríades diatônicas", en: "F major - diatonic triads" },
         exerciseTitle: { pt: "F maior - tríades diatônicas", en: "F major - diatonic triads" },
@@ -45960,7 +45960,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 964,
+        id: 1048,
         key: "arpeggios/diatonic/5/Bb",
         title: { pt: "B♭ maior - tríades diatônicas", en: "B♭ major - diatonic triads" },
         exerciseTitle: { pt: "B♭ maior - tríades diatônicas", en: "B♭ major - diatonic triads" },
@@ -46008,7 +46008,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 965,
+        id: 1049,
         key: "arpeggios/diatonic/5/Eb",
         title: { pt: "E♭ maior - tríades diatônicas", en: "E♭ major - diatonic triads" },
         exerciseTitle: { pt: "E♭ maior - tríades diatônicas", en: "E♭ major - diatonic triads" },
@@ -46056,7 +46056,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 966,
+        id: 1050,
         key: "arpeggios/diatonic/5/Ab",
         title: { pt: "A♭ maior - tríades diatônicas", en: "A♭ major - diatonic triads" },
         exerciseTitle: { pt: "A♭ maior - tríades diatônicas", en: "A♭ major - diatonic triads" },
@@ -46104,7 +46104,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 967,
+        id: 1051,
         key: "arpeggios/diatonic/5/Db",
         title: { pt: "D♭ maior - tríades diatônicas", en: "D♭ major - diatonic triads" },
         exerciseTitle: { pt: "D♭ maior - tríades diatônicas", en: "D♭ major - diatonic triads" },
@@ -46152,7 +46152,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 968,
+        id: 1052,
         key: "arpeggios/diatonic/5/Gb",
         title: { pt: "G♭ maior - tríades diatônicas", en: "G♭ major - diatonic triads" },
         exerciseTitle: { pt: "G♭ maior - tríades diatônicas", en: "G♭ major - diatonic triads" },
@@ -46200,7 +46200,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 969,
+        id: 1053,
         key: "arpeggios/diatonic/5/B",
         title: { pt: "B maior - tríades diatônicas", en: "B major - diatonic triads" },
         exerciseTitle: { pt: "B maior - tríades diatônicas", en: "B major - diatonic triads" },
@@ -46248,7 +46248,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 970,
+        id: 1054,
         key: "arpeggios/diatonic/5/E",
         title: { pt: "E maior - tríades diatônicas", en: "E major - diatonic triads" },
         exerciseTitle: { pt: "E maior - tríades diatônicas", en: "E major - diatonic triads" },
@@ -46296,7 +46296,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 971,
+        id: 1055,
         key: "arpeggios/diatonic/5/A",
         title: { pt: "A maior - tríades diatônicas", en: "A major - diatonic triads" },
         exerciseTitle: { pt: "A maior - tríades diatônicas", en: "A major - diatonic triads" },
@@ -46344,7 +46344,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 972,
+        id: 1056,
         key: "arpeggios/diatonic/5/D",
         title: { pt: "D maior - tríades diatônicas", en: "D major - diatonic triads" },
         exerciseTitle: { pt: "D maior - tríades diatônicas", en: "D major - diatonic triads" },
@@ -46392,7 +46392,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 973,
+        id: 1057,
         key: "arpeggios/diatonic/5/G",
         title: { pt: "G maior - tríades diatônicas", en: "G major - diatonic triads" },
         exerciseTitle: { pt: "G maior - tríades diatônicas", en: "G major - diatonic triads" },
@@ -46448,7 +46448,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na 4ª corda", en: "Diatonic triads on the 4th string" },
         lessons: [
       {
-        id: 974,
+        id: 1058,
         key: "arpeggios/diatonic/4/C",
         title: { pt: "C maior - tríades diatônicas", en: "C major - diatonic triads" },
         exerciseTitle: { pt: "C maior - tríades diatônicas", en: "C major - diatonic triads" },
@@ -46496,7 +46496,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 975,
+        id: 1059,
         key: "arpeggios/diatonic/4/F",
         title: { pt: "F maior - tríades diatônicas", en: "F major - diatonic triads" },
         exerciseTitle: { pt: "F maior - tríades diatônicas", en: "F major - diatonic triads" },
@@ -46544,7 +46544,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 976,
+        id: 1060,
         key: "arpeggios/diatonic/4/Bb",
         title: { pt: "B♭ maior - tríades diatônicas", en: "B♭ major - diatonic triads" },
         exerciseTitle: { pt: "B♭ maior - tríades diatônicas", en: "B♭ major - diatonic triads" },
@@ -46592,7 +46592,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 977,
+        id: 1061,
         key: "arpeggios/diatonic/4/Eb",
         title: { pt: "E♭ maior - tríades diatônicas", en: "E♭ major - diatonic triads" },
         exerciseTitle: { pt: "E♭ maior - tríades diatônicas", en: "E♭ major - diatonic triads" },
@@ -46640,7 +46640,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 978,
+        id: 1062,
         key: "arpeggios/diatonic/4/Ab",
         title: { pt: "A♭ maior - tríades diatônicas", en: "A♭ major - diatonic triads" },
         exerciseTitle: { pt: "A♭ maior - tríades diatônicas", en: "A♭ major - diatonic triads" },
@@ -46688,7 +46688,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 979,
+        id: 1063,
         key: "arpeggios/diatonic/4/Db",
         title: { pt: "D♭ maior - tríades diatônicas", en: "D♭ major - diatonic triads" },
         exerciseTitle: { pt: "D♭ maior - tríades diatônicas", en: "D♭ major - diatonic triads" },
@@ -46736,7 +46736,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 980,
+        id: 1064,
         key: "arpeggios/diatonic/4/Gb",
         title: { pt: "G♭ maior - tríades diatônicas", en: "G♭ major - diatonic triads" },
         exerciseTitle: { pt: "G♭ maior - tríades diatônicas", en: "G♭ major - diatonic triads" },
@@ -46784,7 +46784,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 981,
+        id: 1065,
         key: "arpeggios/diatonic/4/B",
         title: { pt: "B maior - tríades diatônicas", en: "B major - diatonic triads" },
         exerciseTitle: { pt: "B maior - tríades diatônicas", en: "B major - diatonic triads" },
@@ -46832,7 +46832,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 982,
+        id: 1066,
         key: "arpeggios/diatonic/4/E",
         title: { pt: "E maior - tríades diatônicas", en: "E major - diatonic triads" },
         exerciseTitle: { pt: "E maior - tríades diatônicas", en: "E major - diatonic triads" },
@@ -46880,7 +46880,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 983,
+        id: 1067,
         key: "arpeggios/diatonic/4/A",
         title: { pt: "A maior - tríades diatônicas", en: "A major - diatonic triads" },
         exerciseTitle: { pt: "A maior - tríades diatônicas", en: "A major - diatonic triads" },
@@ -46928,7 +46928,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 984,
+        id: 1068,
         key: "arpeggios/diatonic/4/D",
         title: { pt: "D maior - tríades diatônicas", en: "D major - diatonic triads" },
         exerciseTitle: { pt: "D maior - tríades diatônicas", en: "D major - diatonic triads" },
@@ -46976,7 +46976,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 985,
+        id: 1069,
         key: "arpeggios/diatonic/4/G",
         title: { pt: "G maior - tríades diatônicas", en: "G major - diatonic triads" },
         exerciseTitle: { pt: "G maior - tríades diatônicas", en: "G major - diatonic triads" },
@@ -47032,7 +47032,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na posição 1", en: "Diatonic triads in position 1" },
         lessons: [
       {
-        id: 986,
+        id: 1070,
         key: "arpeggios/diatonic-vertical/p1/C",
         title: { pt: "C maior - tríades na posição 1", en: "C major - triads in position 1" },
         exerciseTitle: { pt: "C maior - tríades na posição 1", en: "C major - triads in position 1" },
@@ -47054,7 +47054,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 987,
+        id: 1071,
         key: "arpeggios/diatonic-vertical/p1/F",
         title: { pt: "F maior - tríades na posição 1", en: "F major - triads in position 1" },
         exerciseTitle: { pt: "F maior - tríades na posição 1", en: "F major - triads in position 1" },
@@ -47076,7 +47076,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 988,
+        id: 1072,
         key: "arpeggios/diatonic-vertical/p1/Bb",
         title: { pt: "B♭ maior - tríades na posição 1", en: "B♭ major - triads in position 1" },
         exerciseTitle: { pt: "B♭ maior - tríades na posição 1", en: "B♭ major - triads in position 1" },
@@ -47098,7 +47098,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 989,
+        id: 1073,
         key: "arpeggios/diatonic-vertical/p1/Eb",
         title: { pt: "E♭ maior - tríades na posição 1", en: "E♭ major - triads in position 1" },
         exerciseTitle: { pt: "E♭ maior - tríades na posição 1", en: "E♭ major - triads in position 1" },
@@ -47120,7 +47120,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 990,
+        id: 1074,
         key: "arpeggios/diatonic-vertical/p1/Ab",
         title: { pt: "A♭ maior - tríades na posição 1", en: "A♭ major - triads in position 1" },
         exerciseTitle: { pt: "A♭ maior - tríades na posição 1", en: "A♭ major - triads in position 1" },
@@ -47142,7 +47142,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 991,
+        id: 1075,
         key: "arpeggios/diatonic-vertical/p1/Db",
         title: { pt: "D♭ maior - tríades na posição 1", en: "D♭ major - triads in position 1" },
         exerciseTitle: { pt: "D♭ maior - tríades na posição 1", en: "D♭ major - triads in position 1" },
@@ -47164,7 +47164,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 992,
+        id: 1076,
         key: "arpeggios/diatonic-vertical/p1/Gb",
         title: { pt: "G♭ maior - tríades na posição 1", en: "G♭ major - triads in position 1" },
         exerciseTitle: { pt: "G♭ maior - tríades na posição 1", en: "G♭ major - triads in position 1" },
@@ -47186,7 +47186,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 993,
+        id: 1077,
         key: "arpeggios/diatonic-vertical/p1/B",
         title: { pt: "B maior - tríades na posição 1", en: "B major - triads in position 1" },
         exerciseTitle: { pt: "B maior - tríades na posição 1", en: "B major - triads in position 1" },
@@ -47208,7 +47208,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 994,
+        id: 1078,
         key: "arpeggios/diatonic-vertical/p1/E",
         title: { pt: "E maior - tríades na posição 1", en: "E major - triads in position 1" },
         exerciseTitle: { pt: "E maior - tríades na posição 1", en: "E major - triads in position 1" },
@@ -47230,7 +47230,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 995,
+        id: 1079,
         key: "arpeggios/diatonic-vertical/p1/A",
         title: { pt: "A maior - tríades na posição 1", en: "A major - triads in position 1" },
         exerciseTitle: { pt: "A maior - tríades na posição 1", en: "A major - triads in position 1" },
@@ -47252,7 +47252,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 996,
+        id: 1080,
         key: "arpeggios/diatonic-vertical/p1/D",
         title: { pt: "D maior - tríades na posição 1", en: "D major - triads in position 1" },
         exerciseTitle: { pt: "D maior - tríades na posição 1", en: "D major - triads in position 1" },
@@ -47274,7 +47274,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 997,
+        id: 1081,
         key: "arpeggios/diatonic-vertical/p1/G",
         title: { pt: "G maior - tríades na posição 1", en: "G major - triads in position 1" },
         exerciseTitle: { pt: "G maior - tríades na posição 1", en: "G major - triads in position 1" },
@@ -47304,7 +47304,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na posição 2", en: "Diatonic triads in position 2" },
         lessons: [
       {
-        id: 998,
+        id: 1082,
         key: "arpeggios/diatonic-vertical/p2/C",
         title: { pt: "C maior - tríades na posição 2", en: "C major - triads in position 2" },
         exerciseTitle: { pt: "C maior - tríades na posição 2", en: "C major - triads in position 2" },
@@ -47326,7 +47326,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 999,
+        id: 1083,
         key: "arpeggios/diatonic-vertical/p2/F",
         title: { pt: "F maior - tríades na posição 2", en: "F major - triads in position 2" },
         exerciseTitle: { pt: "F maior - tríades na posição 2", en: "F major - triads in position 2" },
@@ -47348,7 +47348,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1000,
+        id: 1084,
         key: "arpeggios/diatonic-vertical/p2/Bb",
         title: { pt: "B♭ maior - tríades na posição 2", en: "B♭ major - triads in position 2" },
         exerciseTitle: { pt: "B♭ maior - tríades na posição 2", en: "B♭ major - triads in position 2" },
@@ -47370,7 +47370,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1001,
+        id: 1085,
         key: "arpeggios/diatonic-vertical/p2/Eb",
         title: { pt: "E♭ maior - tríades na posição 2", en: "E♭ major - triads in position 2" },
         exerciseTitle: { pt: "E♭ maior - tríades na posição 2", en: "E♭ major - triads in position 2" },
@@ -47392,7 +47392,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1002,
+        id: 1086,
         key: "arpeggios/diatonic-vertical/p2/Ab",
         title: { pt: "A♭ maior - tríades na posição 2", en: "A♭ major - triads in position 2" },
         exerciseTitle: { pt: "A♭ maior - tríades na posição 2", en: "A♭ major - triads in position 2" },
@@ -47414,7 +47414,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1003,
+        id: 1087,
         key: "arpeggios/diatonic-vertical/p2/Db",
         title: { pt: "D♭ maior - tríades na posição 2", en: "D♭ major - triads in position 2" },
         exerciseTitle: { pt: "D♭ maior - tríades na posição 2", en: "D♭ major - triads in position 2" },
@@ -47436,7 +47436,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1004,
+        id: 1088,
         key: "arpeggios/diatonic-vertical/p2/Gb",
         title: { pt: "G♭ maior - tríades na posição 2", en: "G♭ major - triads in position 2" },
         exerciseTitle: { pt: "G♭ maior - tríades na posição 2", en: "G♭ major - triads in position 2" },
@@ -47458,7 +47458,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1005,
+        id: 1089,
         key: "arpeggios/diatonic-vertical/p2/B",
         title: { pt: "B maior - tríades na posição 2", en: "B major - triads in position 2" },
         exerciseTitle: { pt: "B maior - tríades na posição 2", en: "B major - triads in position 2" },
@@ -47480,7 +47480,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1006,
+        id: 1090,
         key: "arpeggios/diatonic-vertical/p2/E",
         title: { pt: "E maior - tríades na posição 2", en: "E major - triads in position 2" },
         exerciseTitle: { pt: "E maior - tríades na posição 2", en: "E major - triads in position 2" },
@@ -47502,7 +47502,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1007,
+        id: 1091,
         key: "arpeggios/diatonic-vertical/p2/A",
         title: { pt: "A maior - tríades na posição 2", en: "A major - triads in position 2" },
         exerciseTitle: { pt: "A maior - tríades na posição 2", en: "A major - triads in position 2" },
@@ -47524,7 +47524,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1008,
+        id: 1092,
         key: "arpeggios/diatonic-vertical/p2/D",
         title: { pt: "D maior - tríades na posição 2", en: "D major - triads in position 2" },
         exerciseTitle: { pt: "D maior - tríades na posição 2", en: "D major - triads in position 2" },
@@ -47546,7 +47546,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1009,
+        id: 1093,
         key: "arpeggios/diatonic-vertical/p2/G",
         title: { pt: "G maior - tríades na posição 2", en: "G major - triads in position 2" },
         exerciseTitle: { pt: "G maior - tríades na posição 2", en: "G major - triads in position 2" },
@@ -47576,7 +47576,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na posição 3", en: "Diatonic triads in position 3" },
         lessons: [
       {
-        id: 1010,
+        id: 1094,
         key: "arpeggios/diatonic-vertical/p3/C",
         title: { pt: "C maior - tríades na posição 3", en: "C major - triads in position 3" },
         exerciseTitle: { pt: "C maior - tríades na posição 3", en: "C major - triads in position 3" },
@@ -47598,7 +47598,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1011,
+        id: 1095,
         key: "arpeggios/diatonic-vertical/p3/F",
         title: { pt: "F maior - tríades na posição 3", en: "F major - triads in position 3" },
         exerciseTitle: { pt: "F maior - tríades na posição 3", en: "F major - triads in position 3" },
@@ -47620,7 +47620,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1012,
+        id: 1096,
         key: "arpeggios/diatonic-vertical/p3/Bb",
         title: { pt: "B♭ maior - tríades na posição 3", en: "B♭ major - triads in position 3" },
         exerciseTitle: { pt: "B♭ maior - tríades na posição 3", en: "B♭ major - triads in position 3" },
@@ -47642,7 +47642,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1013,
+        id: 1097,
         key: "arpeggios/diatonic-vertical/p3/Eb",
         title: { pt: "E♭ maior - tríades na posição 3", en: "E♭ major - triads in position 3" },
         exerciseTitle: { pt: "E♭ maior - tríades na posição 3", en: "E♭ major - triads in position 3" },
@@ -47664,7 +47664,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1014,
+        id: 1098,
         key: "arpeggios/diatonic-vertical/p3/Ab",
         title: { pt: "A♭ maior - tríades na posição 3", en: "A♭ major - triads in position 3" },
         exerciseTitle: { pt: "A♭ maior - tríades na posição 3", en: "A♭ major - triads in position 3" },
@@ -47686,7 +47686,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1015,
+        id: 1099,
         key: "arpeggios/diatonic-vertical/p3/Db",
         title: { pt: "D♭ maior - tríades na posição 3", en: "D♭ major - triads in position 3" },
         exerciseTitle: { pt: "D♭ maior - tríades na posição 3", en: "D♭ major - triads in position 3" },
@@ -47708,7 +47708,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1016,
+        id: 1100,
         key: "arpeggios/diatonic-vertical/p3/Gb",
         title: { pt: "G♭ maior - tríades na posição 3", en: "G♭ major - triads in position 3" },
         exerciseTitle: { pt: "G♭ maior - tríades na posição 3", en: "G♭ major - triads in position 3" },
@@ -47730,7 +47730,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1017,
+        id: 1101,
         key: "arpeggios/diatonic-vertical/p3/B",
         title: { pt: "B maior - tríades na posição 3", en: "B major - triads in position 3" },
         exerciseTitle: { pt: "B maior - tríades na posição 3", en: "B major - triads in position 3" },
@@ -47752,7 +47752,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1018,
+        id: 1102,
         key: "arpeggios/diatonic-vertical/p3/E",
         title: { pt: "E maior - tríades na posição 3", en: "E major - triads in position 3" },
         exerciseTitle: { pt: "E maior - tríades na posição 3", en: "E major - triads in position 3" },
@@ -47774,7 +47774,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1019,
+        id: 1103,
         key: "arpeggios/diatonic-vertical/p3/A",
         title: { pt: "A maior - tríades na posição 3", en: "A major - triads in position 3" },
         exerciseTitle: { pt: "A maior - tríades na posição 3", en: "A major - triads in position 3" },
@@ -47796,7 +47796,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1020,
+        id: 1104,
         key: "arpeggios/diatonic-vertical/p3/D",
         title: { pt: "D maior - tríades na posição 3", en: "D major - triads in position 3" },
         exerciseTitle: { pt: "D maior - tríades na posição 3", en: "D major - triads in position 3" },
@@ -47818,7 +47818,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1021,
+        id: 1105,
         key: "arpeggios/diatonic-vertical/p3/G",
         title: { pt: "G maior - tríades na posição 3", en: "G major - triads in position 3" },
         exerciseTitle: { pt: "G maior - tríades na posição 3", en: "G major - triads in position 3" },
@@ -47848,7 +47848,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na posição 4", en: "Diatonic triads in position 4" },
         lessons: [
       {
-        id: 1022,
+        id: 1106,
         key: "arpeggios/diatonic-vertical/p4/C",
         title: { pt: "C maior - tríades na posição 4", en: "C major - triads in position 4" },
         exerciseTitle: { pt: "C maior - tríades na posição 4", en: "C major - triads in position 4" },
@@ -47870,7 +47870,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1023,
+        id: 1107,
         key: "arpeggios/diatonic-vertical/p4/F",
         title: { pt: "F maior - tríades na posição 4", en: "F major - triads in position 4" },
         exerciseTitle: { pt: "F maior - tríades na posição 4", en: "F major - triads in position 4" },
@@ -47892,7 +47892,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1024,
+        id: 1108,
         key: "arpeggios/diatonic-vertical/p4/Bb",
         title: { pt: "B♭ maior - tríades na posição 4", en: "B♭ major - triads in position 4" },
         exerciseTitle: { pt: "B♭ maior - tríades na posição 4", en: "B♭ major - triads in position 4" },
@@ -47914,7 +47914,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1025,
+        id: 1109,
         key: "arpeggios/diatonic-vertical/p4/Eb",
         title: { pt: "E♭ maior - tríades na posição 4", en: "E♭ major - triads in position 4" },
         exerciseTitle: { pt: "E♭ maior - tríades na posição 4", en: "E♭ major - triads in position 4" },
@@ -47936,7 +47936,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1026,
+        id: 1110,
         key: "arpeggios/diatonic-vertical/p4/Ab",
         title: { pt: "A♭ maior - tríades na posição 4", en: "A♭ major - triads in position 4" },
         exerciseTitle: { pt: "A♭ maior - tríades na posição 4", en: "A♭ major - triads in position 4" },
@@ -47958,7 +47958,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1027,
+        id: 1111,
         key: "arpeggios/diatonic-vertical/p4/Db",
         title: { pt: "D♭ maior - tríades na posição 4", en: "D♭ major - triads in position 4" },
         exerciseTitle: { pt: "D♭ maior - tríades na posição 4", en: "D♭ major - triads in position 4" },
@@ -47980,7 +47980,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1028,
+        id: 1112,
         key: "arpeggios/diatonic-vertical/p4/Gb",
         title: { pt: "G♭ maior - tríades na posição 4", en: "G♭ major - triads in position 4" },
         exerciseTitle: { pt: "G♭ maior - tríades na posição 4", en: "G♭ major - triads in position 4" },
@@ -48002,7 +48002,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1029,
+        id: 1113,
         key: "arpeggios/diatonic-vertical/p4/B",
         title: { pt: "B maior - tríades na posição 4", en: "B major - triads in position 4" },
         exerciseTitle: { pt: "B maior - tríades na posição 4", en: "B major - triads in position 4" },
@@ -48024,7 +48024,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1030,
+        id: 1114,
         key: "arpeggios/diatonic-vertical/p4/E",
         title: { pt: "E maior - tríades na posição 4", en: "E major - triads in position 4" },
         exerciseTitle: { pt: "E maior - tríades na posição 4", en: "E major - triads in position 4" },
@@ -48046,7 +48046,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1031,
+        id: 1115,
         key: "arpeggios/diatonic-vertical/p4/A",
         title: { pt: "A maior - tríades na posição 4", en: "A major - triads in position 4" },
         exerciseTitle: { pt: "A maior - tríades na posição 4", en: "A major - triads in position 4" },
@@ -48068,7 +48068,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1032,
+        id: 1116,
         key: "arpeggios/diatonic-vertical/p4/D",
         title: { pt: "D maior - tríades na posição 4", en: "D major - triads in position 4" },
         exerciseTitle: { pt: "D maior - tríades na posição 4", en: "D major - triads in position 4" },
@@ -48090,7 +48090,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1033,
+        id: 1117,
         key: "arpeggios/diatonic-vertical/p4/G",
         title: { pt: "G maior - tríades na posição 4", en: "G major - triads in position 4" },
         exerciseTitle: { pt: "G maior - tríades na posição 4", en: "G major - triads in position 4" },
@@ -48120,7 +48120,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na posição 5", en: "Diatonic triads in position 5" },
         lessons: [
       {
-        id: 1034,
+        id: 1118,
         key: "arpeggios/diatonic-vertical/p5/C",
         title: { pt: "C maior - tríades na posição 5", en: "C major - triads in position 5" },
         exerciseTitle: { pt: "C maior - tríades na posição 5", en: "C major - triads in position 5" },
@@ -48142,7 +48142,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1035,
+        id: 1119,
         key: "arpeggios/diatonic-vertical/p5/F",
         title: { pt: "F maior - tríades na posição 5", en: "F major - triads in position 5" },
         exerciseTitle: { pt: "F maior - tríades na posição 5", en: "F major - triads in position 5" },
@@ -48164,7 +48164,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1036,
+        id: 1120,
         key: "arpeggios/diatonic-vertical/p5/Bb",
         title: { pt: "B♭ maior - tríades na posição 5", en: "B♭ major - triads in position 5" },
         exerciseTitle: { pt: "B♭ maior - tríades na posição 5", en: "B♭ major - triads in position 5" },
@@ -48186,7 +48186,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1037,
+        id: 1121,
         key: "arpeggios/diatonic-vertical/p5/Eb",
         title: { pt: "E♭ maior - tríades na posição 5", en: "E♭ major - triads in position 5" },
         exerciseTitle: { pt: "E♭ maior - tríades na posição 5", en: "E♭ major - triads in position 5" },
@@ -48208,7 +48208,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1038,
+        id: 1122,
         key: "arpeggios/diatonic-vertical/p5/Ab",
         title: { pt: "A♭ maior - tríades na posição 5", en: "A♭ major - triads in position 5" },
         exerciseTitle: { pt: "A♭ maior - tríades na posição 5", en: "A♭ major - triads in position 5" },
@@ -48230,7 +48230,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1039,
+        id: 1123,
         key: "arpeggios/diatonic-vertical/p5/Db",
         title: { pt: "D♭ maior - tríades na posição 5", en: "D♭ major - triads in position 5" },
         exerciseTitle: { pt: "D♭ maior - tríades na posição 5", en: "D♭ major - triads in position 5" },
@@ -48252,7 +48252,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1040,
+        id: 1124,
         key: "arpeggios/diatonic-vertical/p5/Gb",
         title: { pt: "G♭ maior - tríades na posição 5", en: "G♭ major - triads in position 5" },
         exerciseTitle: { pt: "G♭ maior - tríades na posição 5", en: "G♭ major - triads in position 5" },
@@ -48274,7 +48274,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1041,
+        id: 1125,
         key: "arpeggios/diatonic-vertical/p5/B",
         title: { pt: "B maior - tríades na posição 5", en: "B major - triads in position 5" },
         exerciseTitle: { pt: "B maior - tríades na posição 5", en: "B major - triads in position 5" },
@@ -48296,7 +48296,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1042,
+        id: 1126,
         key: "arpeggios/diatonic-vertical/p5/E",
         title: { pt: "E maior - tríades na posição 5", en: "E major - triads in position 5" },
         exerciseTitle: { pt: "E maior - tríades na posição 5", en: "E major - triads in position 5" },
@@ -48318,7 +48318,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1043,
+        id: 1127,
         key: "arpeggios/diatonic-vertical/p5/A",
         title: { pt: "A maior - tríades na posição 5", en: "A major - triads in position 5" },
         exerciseTitle: { pt: "A maior - tríades na posição 5", en: "A major - triads in position 5" },
@@ -48340,7 +48340,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1044,
+        id: 1128,
         key: "arpeggios/diatonic-vertical/p5/D",
         title: { pt: "D maior - tríades na posição 5", en: "D major - triads in position 5" },
         exerciseTitle: { pt: "D maior - tríades na posição 5", en: "D major - triads in position 5" },
@@ -48362,7 +48362,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1045,
+        id: 1129,
         key: "arpeggios/diatonic-vertical/p5/G",
         title: { pt: "G maior - tríades na posição 5", en: "G major - triads in position 5" },
         exerciseTitle: { pt: "G maior - tríades na posição 5", en: "G major - triads in position 5" },
@@ -48392,7 +48392,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na posição 6", en: "Diatonic triads in position 6" },
         lessons: [
       {
-        id: 1046,
+        id: 1130,
         key: "arpeggios/diatonic-vertical/p6/C",
         title: { pt: "C maior - tríades na posição 6", en: "C major - triads in position 6" },
         exerciseTitle: { pt: "C maior - tríades na posição 6", en: "C major - triads in position 6" },
@@ -48414,7 +48414,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1047,
+        id: 1131,
         key: "arpeggios/diatonic-vertical/p6/F",
         title: { pt: "F maior - tríades na posição 6", en: "F major - triads in position 6" },
         exerciseTitle: { pt: "F maior - tríades na posição 6", en: "F major - triads in position 6" },
@@ -48436,7 +48436,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1048,
+        id: 1132,
         key: "arpeggios/diatonic-vertical/p6/Bb",
         title: { pt: "B♭ maior - tríades na posição 6", en: "B♭ major - triads in position 6" },
         exerciseTitle: { pt: "B♭ maior - tríades na posição 6", en: "B♭ major - triads in position 6" },
@@ -48458,7 +48458,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1049,
+        id: 1133,
         key: "arpeggios/diatonic-vertical/p6/Eb",
         title: { pt: "E♭ maior - tríades na posição 6", en: "E♭ major - triads in position 6" },
         exerciseTitle: { pt: "E♭ maior - tríades na posição 6", en: "E♭ major - triads in position 6" },
@@ -48480,7 +48480,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1050,
+        id: 1134,
         key: "arpeggios/diatonic-vertical/p6/Ab",
         title: { pt: "A♭ maior - tríades na posição 6", en: "A♭ major - triads in position 6" },
         exerciseTitle: { pt: "A♭ maior - tríades na posição 6", en: "A♭ major - triads in position 6" },
@@ -48502,7 +48502,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1051,
+        id: 1135,
         key: "arpeggios/diatonic-vertical/p6/Db",
         title: { pt: "D♭ maior - tríades na posição 6", en: "D♭ major - triads in position 6" },
         exerciseTitle: { pt: "D♭ maior - tríades na posição 6", en: "D♭ major - triads in position 6" },
@@ -48524,7 +48524,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1052,
+        id: 1136,
         key: "arpeggios/diatonic-vertical/p6/Gb",
         title: { pt: "G♭ maior - tríades na posição 6", en: "G♭ major - triads in position 6" },
         exerciseTitle: { pt: "G♭ maior - tríades na posição 6", en: "G♭ major - triads in position 6" },
@@ -48546,7 +48546,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1053,
+        id: 1137,
         key: "arpeggios/diatonic-vertical/p6/B",
         title: { pt: "B maior - tríades na posição 6", en: "B major - triads in position 6" },
         exerciseTitle: { pt: "B maior - tríades na posição 6", en: "B major - triads in position 6" },
@@ -48568,7 +48568,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1054,
+        id: 1138,
         key: "arpeggios/diatonic-vertical/p6/E",
         title: { pt: "E maior - tríades na posição 6", en: "E major - triads in position 6" },
         exerciseTitle: { pt: "E maior - tríades na posição 6", en: "E major - triads in position 6" },
@@ -48590,7 +48590,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1055,
+        id: 1139,
         key: "arpeggios/diatonic-vertical/p6/A",
         title: { pt: "A maior - tríades na posição 6", en: "A major - triads in position 6" },
         exerciseTitle: { pt: "A maior - tríades na posição 6", en: "A major - triads in position 6" },
@@ -48612,7 +48612,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1056,
+        id: 1140,
         key: "arpeggios/diatonic-vertical/p6/D",
         title: { pt: "D maior - tríades na posição 6", en: "D major - triads in position 6" },
         exerciseTitle: { pt: "D maior - tríades na posição 6", en: "D major - triads in position 6" },
@@ -48634,7 +48634,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1057,
+        id: 1141,
         key: "arpeggios/diatonic-vertical/p6/G",
         title: { pt: "G maior - tríades na posição 6", en: "G major - triads in position 6" },
         exerciseTitle: { pt: "G maior - tríades na posição 6", en: "G major - triads in position 6" },
@@ -48664,7 +48664,7 @@ export const sections: Section[] = [
         title: { pt: "Tríades diatônicas na posição 7", en: "Diatonic triads in position 7" },
         lessons: [
       {
-        id: 1058,
+        id: 1142,
         key: "arpeggios/diatonic-vertical/p7/C",
         title: { pt: "C maior - tríades na posição 7", en: "C major - triads in position 7" },
         exerciseTitle: { pt: "C maior - tríades na posição 7", en: "C major - triads in position 7" },
@@ -48686,7 +48686,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1059,
+        id: 1143,
         key: "arpeggios/diatonic-vertical/p7/F",
         title: { pt: "F maior - tríades na posição 7", en: "F major - triads in position 7" },
         exerciseTitle: { pt: "F maior - tríades na posição 7", en: "F major - triads in position 7" },
@@ -48708,7 +48708,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1060,
+        id: 1144,
         key: "arpeggios/diatonic-vertical/p7/Bb",
         title: { pt: "B♭ maior - tríades na posição 7", en: "B♭ major - triads in position 7" },
         exerciseTitle: { pt: "B♭ maior - tríades na posição 7", en: "B♭ major - triads in position 7" },
@@ -48730,7 +48730,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1061,
+        id: 1145,
         key: "arpeggios/diatonic-vertical/p7/Eb",
         title: { pt: "E♭ maior - tríades na posição 7", en: "E♭ major - triads in position 7" },
         exerciseTitle: { pt: "E♭ maior - tríades na posição 7", en: "E♭ major - triads in position 7" },
@@ -48752,7 +48752,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1062,
+        id: 1146,
         key: "arpeggios/diatonic-vertical/p7/Ab",
         title: { pt: "A♭ maior - tríades na posição 7", en: "A♭ major - triads in position 7" },
         exerciseTitle: { pt: "A♭ maior - tríades na posição 7", en: "A♭ major - triads in position 7" },
@@ -48774,7 +48774,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1063,
+        id: 1147,
         key: "arpeggios/diatonic-vertical/p7/Db",
         title: { pt: "D♭ maior - tríades na posição 7", en: "D♭ major - triads in position 7" },
         exerciseTitle: { pt: "D♭ maior - tríades na posição 7", en: "D♭ major - triads in position 7" },
@@ -48796,7 +48796,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1064,
+        id: 1148,
         key: "arpeggios/diatonic-vertical/p7/Gb",
         title: { pt: "G♭ maior - tríades na posição 7", en: "G♭ major - triads in position 7" },
         exerciseTitle: { pt: "G♭ maior - tríades na posição 7", en: "G♭ major - triads in position 7" },
@@ -48818,7 +48818,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1065,
+        id: 1149,
         key: "arpeggios/diatonic-vertical/p7/B",
         title: { pt: "B maior - tríades na posição 7", en: "B major - triads in position 7" },
         exerciseTitle: { pt: "B maior - tríades na posição 7", en: "B major - triads in position 7" },
@@ -48840,7 +48840,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1066,
+        id: 1150,
         key: "arpeggios/diatonic-vertical/p7/E",
         title: { pt: "E maior - tríades na posição 7", en: "E major - triads in position 7" },
         exerciseTitle: { pt: "E maior - tríades na posição 7", en: "E major - triads in position 7" },
@@ -48862,7 +48862,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1067,
+        id: 1151,
         key: "arpeggios/diatonic-vertical/p7/A",
         title: { pt: "A maior - tríades na posição 7", en: "A major - triads in position 7" },
         exerciseTitle: { pt: "A maior - tríades na posição 7", en: "A major - triads in position 7" },
@@ -48884,7 +48884,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1068,
+        id: 1152,
         key: "arpeggios/diatonic-vertical/p7/D",
         title: { pt: "D maior - tríades na posição 7", en: "D major - triads in position 7" },
         exerciseTitle: { pt: "D maior - tríades na posição 7", en: "D major - triads in position 7" },
@@ -48906,7 +48906,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1069,
+        id: 1153,
         key: "arpeggios/diatonic-vertical/p7/G",
         title: { pt: "G maior - tríades na posição 7", en: "G major - triads in position 7" },
         exerciseTitle: { pt: "G maior - tríades na posição 7", en: "G major - triads in position 7" },
@@ -48942,7 +48942,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 6ª corda", en: "Root on the 6th string" },
         lessons: [
       {
-        id: 1070,
+        id: 1154,
         key: "arpeggios7/maj7/root/6/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -48984,7 +48984,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1071,
+        id: 1155,
         key: "arpeggios7/maj7/root/6/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -49026,7 +49026,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1072,
+        id: 1156,
         key: "arpeggios7/maj7/root/6/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -49068,7 +49068,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1073,
+        id: 1157,
         key: "arpeggios7/maj7/root/6/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -49110,7 +49110,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1074,
+        id: 1158,
         key: "arpeggios7/maj7/root/6/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -49152,7 +49152,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1075,
+        id: 1159,
         key: "arpeggios7/maj7/root/6/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -49194,7 +49194,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1076,
+        id: 1160,
         key: "arpeggios7/maj7/root/6/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -49236,7 +49236,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1077,
+        id: 1161,
         key: "arpeggios7/maj7/root/6/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -49278,7 +49278,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1078,
+        id: 1162,
         key: "arpeggios7/maj7/root/6/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -49320,7 +49320,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1079,
+        id: 1163,
         key: "arpeggios7/maj7/root/6/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -49362,7 +49362,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1080,
+        id: 1164,
         key: "arpeggios7/maj7/root/6/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -49404,7 +49404,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1081,
+        id: 1165,
         key: "arpeggios7/maj7/root/6/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -49453,7 +49453,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 5ª corda", en: "Root on the 5th string" },
         lessons: [
       {
-        id: 1082,
+        id: 1166,
         key: "arpeggios7/maj7/root/5/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -49495,7 +49495,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1083,
+        id: 1167,
         key: "arpeggios7/maj7/root/5/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -49537,7 +49537,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1084,
+        id: 1168,
         key: "arpeggios7/maj7/root/5/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -49579,7 +49579,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1085,
+        id: 1169,
         key: "arpeggios7/maj7/root/5/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -49621,7 +49621,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1086,
+        id: 1170,
         key: "arpeggios7/maj7/root/5/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -49663,7 +49663,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1087,
+        id: 1171,
         key: "arpeggios7/maj7/root/5/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -49705,7 +49705,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1088,
+        id: 1172,
         key: "arpeggios7/maj7/root/5/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -49747,7 +49747,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1089,
+        id: 1173,
         key: "arpeggios7/maj7/root/5/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -49789,7 +49789,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1090,
+        id: 1174,
         key: "arpeggios7/maj7/root/5/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -49831,7 +49831,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1091,
+        id: 1175,
         key: "arpeggios7/maj7/root/5/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -49873,7 +49873,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1092,
+        id: 1176,
         key: "arpeggios7/maj7/root/5/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -49915,7 +49915,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1093,
+        id: 1177,
         key: "arpeggios7/maj7/root/5/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -49964,7 +49964,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 4ª corda", en: "Root on the 4th string" },
         lessons: [
       {
-        id: 1094,
+        id: 1178,
         key: "arpeggios7/maj7/root/4/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -50006,7 +50006,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1095,
+        id: 1179,
         key: "arpeggios7/maj7/root/4/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -50048,7 +50048,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1096,
+        id: 1180,
         key: "arpeggios7/maj7/root/4/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -50090,7 +50090,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1097,
+        id: 1181,
         key: "arpeggios7/maj7/root/4/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -50132,7 +50132,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1098,
+        id: 1182,
         key: "arpeggios7/maj7/root/4/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -50174,7 +50174,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1099,
+        id: 1183,
         key: "arpeggios7/maj7/root/4/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -50216,7 +50216,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1100,
+        id: 1184,
         key: "arpeggios7/maj7/root/4/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -50258,7 +50258,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1101,
+        id: 1185,
         key: "arpeggios7/maj7/root/4/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -50300,7 +50300,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1102,
+        id: 1186,
         key: "arpeggios7/maj7/root/4/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -50342,7 +50342,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1103,
+        id: 1187,
         key: "arpeggios7/maj7/root/4/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -50384,7 +50384,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1104,
+        id: 1188,
         key: "arpeggios7/maj7/root/4/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -50426,7 +50426,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1105,
+        id: 1189,
         key: "arpeggios7/maj7/root/4/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -50475,7 +50475,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 6ª corda", en: "Root on the 6th string" },
         lessons: [
       {
-        id: 1106,
+        id: 1190,
         key: "arpeggios7/m7/root/6/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -50517,7 +50517,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1107,
+        id: 1191,
         key: "arpeggios7/m7/root/6/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -50559,7 +50559,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1108,
+        id: 1192,
         key: "arpeggios7/m7/root/6/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -50601,7 +50601,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1109,
+        id: 1193,
         key: "arpeggios7/m7/root/6/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -50643,7 +50643,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1110,
+        id: 1194,
         key: "arpeggios7/m7/root/6/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -50685,7 +50685,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1111,
+        id: 1195,
         key: "arpeggios7/m7/root/6/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -50727,7 +50727,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1112,
+        id: 1196,
         key: "arpeggios7/m7/root/6/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -50769,7 +50769,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1113,
+        id: 1197,
         key: "arpeggios7/m7/root/6/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -50811,7 +50811,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1114,
+        id: 1198,
         key: "arpeggios7/m7/root/6/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -50853,7 +50853,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1115,
+        id: 1199,
         key: "arpeggios7/m7/root/6/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -50895,7 +50895,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1116,
+        id: 1200,
         key: "arpeggios7/m7/root/6/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -50937,7 +50937,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1117,
+        id: 1201,
         key: "arpeggios7/m7/root/6/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -50986,7 +50986,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 5ª corda", en: "Root on the 5th string" },
         lessons: [
       {
-        id: 1118,
+        id: 1202,
         key: "arpeggios7/m7/root/5/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -51028,7 +51028,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1119,
+        id: 1203,
         key: "arpeggios7/m7/root/5/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -51070,7 +51070,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1120,
+        id: 1204,
         key: "arpeggios7/m7/root/5/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -51112,7 +51112,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1121,
+        id: 1205,
         key: "arpeggios7/m7/root/5/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -51154,7 +51154,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1122,
+        id: 1206,
         key: "arpeggios7/m7/root/5/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -51196,7 +51196,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1123,
+        id: 1207,
         key: "arpeggios7/m7/root/5/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -51238,7 +51238,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1124,
+        id: 1208,
         key: "arpeggios7/m7/root/5/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -51280,7 +51280,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1125,
+        id: 1209,
         key: "arpeggios7/m7/root/5/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -51322,7 +51322,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1126,
+        id: 1210,
         key: "arpeggios7/m7/root/5/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -51364,7 +51364,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1127,
+        id: 1211,
         key: "arpeggios7/m7/root/5/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -51406,7 +51406,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1128,
+        id: 1212,
         key: "arpeggios7/m7/root/5/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -51448,7 +51448,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1129,
+        id: 1213,
         key: "arpeggios7/m7/root/5/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -51497,7 +51497,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 4ª corda", en: "Root on the 4th string" },
         lessons: [
       {
-        id: 1130,
+        id: 1214,
         key: "arpeggios7/m7/root/4/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -51539,7 +51539,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1131,
+        id: 1215,
         key: "arpeggios7/m7/root/4/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -51581,7 +51581,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1132,
+        id: 1216,
         key: "arpeggios7/m7/root/4/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -51623,7 +51623,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1133,
+        id: 1217,
         key: "arpeggios7/m7/root/4/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -51665,7 +51665,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1134,
+        id: 1218,
         key: "arpeggios7/m7/root/4/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -51707,7 +51707,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1135,
+        id: 1219,
         key: "arpeggios7/m7/root/4/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -51749,7 +51749,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1136,
+        id: 1220,
         key: "arpeggios7/m7/root/4/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -51791,7 +51791,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1137,
+        id: 1221,
         key: "arpeggios7/m7/root/4/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -51833,7 +51833,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1138,
+        id: 1222,
         key: "arpeggios7/m7/root/4/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -51875,7 +51875,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1139,
+        id: 1223,
         key: "arpeggios7/m7/root/4/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -51917,7 +51917,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1140,
+        id: 1224,
         key: "arpeggios7/m7/root/4/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -51959,7 +51959,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1141,
+        id: 1225,
         key: "arpeggios7/m7/root/4/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -52008,7 +52008,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 6ª corda", en: "Root on the 6th string" },
         lessons: [
       {
-        id: 1142,
+        id: 1226,
         key: "arpeggios7/7/root/6/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -52050,7 +52050,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1143,
+        id: 1227,
         key: "arpeggios7/7/root/6/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -52092,7 +52092,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1144,
+        id: 1228,
         key: "arpeggios7/7/root/6/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -52134,7 +52134,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1145,
+        id: 1229,
         key: "arpeggios7/7/root/6/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -52176,7 +52176,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1146,
+        id: 1230,
         key: "arpeggios7/7/root/6/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -52218,7 +52218,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1147,
+        id: 1231,
         key: "arpeggios7/7/root/6/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -52260,7 +52260,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1148,
+        id: 1232,
         key: "arpeggios7/7/root/6/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -52302,7 +52302,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1149,
+        id: 1233,
         key: "arpeggios7/7/root/6/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -52344,7 +52344,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1150,
+        id: 1234,
         key: "arpeggios7/7/root/6/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -52386,7 +52386,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1151,
+        id: 1235,
         key: "arpeggios7/7/root/6/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -52428,7 +52428,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1152,
+        id: 1236,
         key: "arpeggios7/7/root/6/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -52470,7 +52470,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1153,
+        id: 1237,
         key: "arpeggios7/7/root/6/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -52519,7 +52519,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 5ª corda", en: "Root on the 5th string" },
         lessons: [
       {
-        id: 1154,
+        id: 1238,
         key: "arpeggios7/7/root/5/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -52561,7 +52561,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1155,
+        id: 1239,
         key: "arpeggios7/7/root/5/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -52603,7 +52603,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1156,
+        id: 1240,
         key: "arpeggios7/7/root/5/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -52645,7 +52645,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1157,
+        id: 1241,
         key: "arpeggios7/7/root/5/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -52687,7 +52687,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1158,
+        id: 1242,
         key: "arpeggios7/7/root/5/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -52729,7 +52729,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1159,
+        id: 1243,
         key: "arpeggios7/7/root/5/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -52771,7 +52771,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1160,
+        id: 1244,
         key: "arpeggios7/7/root/5/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -52813,7 +52813,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1161,
+        id: 1245,
         key: "arpeggios7/7/root/5/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -52855,7 +52855,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1162,
+        id: 1246,
         key: "arpeggios7/7/root/5/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -52897,7 +52897,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1163,
+        id: 1247,
         key: "arpeggios7/7/root/5/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -52939,7 +52939,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1164,
+        id: 1248,
         key: "arpeggios7/7/root/5/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -52981,7 +52981,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1165,
+        id: 1249,
         key: "arpeggios7/7/root/5/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -53030,7 +53030,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 4ª corda", en: "Root on the 4th string" },
         lessons: [
       {
-        id: 1166,
+        id: 1250,
         key: "arpeggios7/7/root/4/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -53072,7 +53072,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1167,
+        id: 1251,
         key: "arpeggios7/7/root/4/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -53114,7 +53114,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1168,
+        id: 1252,
         key: "arpeggios7/7/root/4/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -53156,7 +53156,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1169,
+        id: 1253,
         key: "arpeggios7/7/root/4/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -53198,7 +53198,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1170,
+        id: 1254,
         key: "arpeggios7/7/root/4/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -53240,7 +53240,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1171,
+        id: 1255,
         key: "arpeggios7/7/root/4/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -53282,7 +53282,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1172,
+        id: 1256,
         key: "arpeggios7/7/root/4/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -53324,7 +53324,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1173,
+        id: 1257,
         key: "arpeggios7/7/root/4/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -53366,7 +53366,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1174,
+        id: 1258,
         key: "arpeggios7/7/root/4/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -53408,7 +53408,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1175,
+        id: 1259,
         key: "arpeggios7/7/root/4/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -53450,7 +53450,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1176,
+        id: 1260,
         key: "arpeggios7/7/root/4/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -53492,7 +53492,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1177,
+        id: 1261,
         key: "arpeggios7/7/root/4/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -53541,7 +53541,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 6ª corda", en: "Root on the 6th string" },
         lessons: [
       {
-        id: 1178,
+        id: 1262,
         key: "arpeggios7/m7b5/root/6/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -53583,7 +53583,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1179,
+        id: 1263,
         key: "arpeggios7/m7b5/root/6/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -53625,7 +53625,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1180,
+        id: 1264,
         key: "arpeggios7/m7b5/root/6/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -53667,7 +53667,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1181,
+        id: 1265,
         key: "arpeggios7/m7b5/root/6/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -53709,7 +53709,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1182,
+        id: 1266,
         key: "arpeggios7/m7b5/root/6/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -53751,7 +53751,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1183,
+        id: 1267,
         key: "arpeggios7/m7b5/root/6/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -53793,7 +53793,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1184,
+        id: 1268,
         key: "arpeggios7/m7b5/root/6/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -53835,7 +53835,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1185,
+        id: 1269,
         key: "arpeggios7/m7b5/root/6/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -53877,7 +53877,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1186,
+        id: 1270,
         key: "arpeggios7/m7b5/root/6/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -53919,7 +53919,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1187,
+        id: 1271,
         key: "arpeggios7/m7b5/root/6/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -53961,7 +53961,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1188,
+        id: 1272,
         key: "arpeggios7/m7b5/root/6/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -54003,7 +54003,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1189,
+        id: 1273,
         key: "arpeggios7/m7b5/root/6/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -54052,7 +54052,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 5ª corda", en: "Root on the 5th string" },
         lessons: [
       {
-        id: 1190,
+        id: 1274,
         key: "arpeggios7/m7b5/root/5/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -54084,7 +54084,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1191,
+        id: 1275,
         key: "arpeggios7/m7b5/root/5/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -54116,7 +54116,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1192,
+        id: 1276,
         key: "arpeggios7/m7b5/root/5/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -54148,7 +54148,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1193,
+        id: 1277,
         key: "arpeggios7/m7b5/root/5/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -54180,7 +54180,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1194,
+        id: 1278,
         key: "arpeggios7/m7b5/root/5/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -54212,7 +54212,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1195,
+        id: 1279,
         key: "arpeggios7/m7b5/root/5/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -54244,7 +54244,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1196,
+        id: 1280,
         key: "arpeggios7/m7b5/root/5/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -54276,7 +54276,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1197,
+        id: 1281,
         key: "arpeggios7/m7b5/root/5/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -54308,7 +54308,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1198,
+        id: 1282,
         key: "arpeggios7/m7b5/root/5/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -54340,7 +54340,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1199,
+        id: 1283,
         key: "arpeggios7/m7b5/root/5/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -54372,7 +54372,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1200,
+        id: 1284,
         key: "arpeggios7/m7b5/root/5/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -54404,7 +54404,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1201,
+        id: 1285,
         key: "arpeggios7/m7b5/root/5/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -54443,7 +54443,7 @@ export const sections: Section[] = [
         title: { pt: "Tônica na 4ª corda", en: "Root on the 4th string" },
         lessons: [
       {
-        id: 1202,
+        id: 1286,
         key: "arpeggios7/m7b5/root/4/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -54475,7 +54475,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1203,
+        id: 1287,
         key: "arpeggios7/m7b5/root/4/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -54507,7 +54507,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1204,
+        id: 1288,
         key: "arpeggios7/m7b5/root/4/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -54539,7 +54539,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1205,
+        id: 1289,
         key: "arpeggios7/m7b5/root/4/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -54571,7 +54571,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1206,
+        id: 1290,
         key: "arpeggios7/m7b5/root/4/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -54603,7 +54603,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1207,
+        id: 1291,
         key: "arpeggios7/m7b5/root/4/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -54635,7 +54635,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1208,
+        id: 1292,
         key: "arpeggios7/m7b5/root/4/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -54667,7 +54667,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1209,
+        id: 1293,
         key: "arpeggios7/m7b5/root/4/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -54699,7 +54699,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1210,
+        id: 1294,
         key: "arpeggios7/m7b5/root/4/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -54731,7 +54731,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1211,
+        id: 1295,
         key: "arpeggios7/m7b5/root/4/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -54763,7 +54763,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1212,
+        id: 1296,
         key: "arpeggios7/m7b5/root/4/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -54795,7 +54795,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1213,
+        id: 1297,
         key: "arpeggios7/m7b5/root/4/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -54834,7 +54834,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 6ª corda", en: "Third on the 6th string" },
         lessons: [
       {
-        id: 1214,
+        id: 1298,
         key: "arpeggios7/maj7/third/6/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -54876,7 +54876,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1215,
+        id: 1299,
         key: "arpeggios7/maj7/third/6/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -54918,7 +54918,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1216,
+        id: 1300,
         key: "arpeggios7/maj7/third/6/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -54960,7 +54960,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1217,
+        id: 1301,
         key: "arpeggios7/maj7/third/6/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -55002,7 +55002,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1218,
+        id: 1302,
         key: "arpeggios7/maj7/third/6/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -55044,7 +55044,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1219,
+        id: 1303,
         key: "arpeggios7/maj7/third/6/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -55086,7 +55086,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1220,
+        id: 1304,
         key: "arpeggios7/maj7/third/6/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -55128,7 +55128,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1221,
+        id: 1305,
         key: "arpeggios7/maj7/third/6/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -55170,7 +55170,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1222,
+        id: 1306,
         key: "arpeggios7/maj7/third/6/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -55212,7 +55212,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1223,
+        id: 1307,
         key: "arpeggios7/maj7/third/6/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -55254,7 +55254,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1224,
+        id: 1308,
         key: "arpeggios7/maj7/third/6/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -55296,7 +55296,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1225,
+        id: 1309,
         key: "arpeggios7/maj7/third/6/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -55345,7 +55345,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 5ª corda", en: "Third on the 5th string" },
         lessons: [
       {
-        id: 1226,
+        id: 1310,
         key: "arpeggios7/maj7/third/5/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -55387,7 +55387,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1227,
+        id: 1311,
         key: "arpeggios7/maj7/third/5/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -55429,7 +55429,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1228,
+        id: 1312,
         key: "arpeggios7/maj7/third/5/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -55471,7 +55471,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1229,
+        id: 1313,
         key: "arpeggios7/maj7/third/5/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -55513,7 +55513,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1230,
+        id: 1314,
         key: "arpeggios7/maj7/third/5/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -55555,7 +55555,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1231,
+        id: 1315,
         key: "arpeggios7/maj7/third/5/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -55597,7 +55597,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1232,
+        id: 1316,
         key: "arpeggios7/maj7/third/5/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -55639,7 +55639,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1233,
+        id: 1317,
         key: "arpeggios7/maj7/third/5/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -55681,7 +55681,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1234,
+        id: 1318,
         key: "arpeggios7/maj7/third/5/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -55723,7 +55723,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1235,
+        id: 1319,
         key: "arpeggios7/maj7/third/5/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -55765,7 +55765,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1236,
+        id: 1320,
         key: "arpeggios7/maj7/third/5/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -55807,7 +55807,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1237,
+        id: 1321,
         key: "arpeggios7/maj7/third/5/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -55856,7 +55856,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 4ª corda", en: "Third on the 4th string" },
         lessons: [
       {
-        id: 1238,
+        id: 1322,
         key: "arpeggios7/maj7/third/4/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -55898,7 +55898,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1239,
+        id: 1323,
         key: "arpeggios7/maj7/third/4/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -55940,7 +55940,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1240,
+        id: 1324,
         key: "arpeggios7/maj7/third/4/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -55982,7 +55982,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1241,
+        id: 1325,
         key: "arpeggios7/maj7/third/4/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -56024,7 +56024,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1242,
+        id: 1326,
         key: "arpeggios7/maj7/third/4/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -56066,7 +56066,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1243,
+        id: 1327,
         key: "arpeggios7/maj7/third/4/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -56108,7 +56108,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1244,
+        id: 1328,
         key: "arpeggios7/maj7/third/4/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -56150,7 +56150,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1245,
+        id: 1329,
         key: "arpeggios7/maj7/third/4/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -56192,7 +56192,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1246,
+        id: 1330,
         key: "arpeggios7/maj7/third/4/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -56234,7 +56234,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1247,
+        id: 1331,
         key: "arpeggios7/maj7/third/4/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -56276,7 +56276,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1248,
+        id: 1332,
         key: "arpeggios7/maj7/third/4/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -56318,7 +56318,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1249,
+        id: 1333,
         key: "arpeggios7/maj7/third/4/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -56367,7 +56367,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 6ª corda", en: "Third on the 6th string" },
         lessons: [
       {
-        id: 1250,
+        id: 1334,
         key: "arpeggios7/m7/third/6/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -56409,7 +56409,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1251,
+        id: 1335,
         key: "arpeggios7/m7/third/6/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -56451,7 +56451,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1252,
+        id: 1336,
         key: "arpeggios7/m7/third/6/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -56493,7 +56493,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1253,
+        id: 1337,
         key: "arpeggios7/m7/third/6/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -56535,7 +56535,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1254,
+        id: 1338,
         key: "arpeggios7/m7/third/6/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -56577,7 +56577,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1255,
+        id: 1339,
         key: "arpeggios7/m7/third/6/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -56619,7 +56619,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1256,
+        id: 1340,
         key: "arpeggios7/m7/third/6/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -56661,7 +56661,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1257,
+        id: 1341,
         key: "arpeggios7/m7/third/6/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -56703,7 +56703,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1258,
+        id: 1342,
         key: "arpeggios7/m7/third/6/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -56745,7 +56745,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1259,
+        id: 1343,
         key: "arpeggios7/m7/third/6/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -56787,7 +56787,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1260,
+        id: 1344,
         key: "arpeggios7/m7/third/6/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -56829,7 +56829,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1261,
+        id: 1345,
         key: "arpeggios7/m7/third/6/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -56878,7 +56878,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 5ª corda", en: "Third on the 5th string" },
         lessons: [
       {
-        id: 1262,
+        id: 1346,
         key: "arpeggios7/m7/third/5/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -56920,7 +56920,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1263,
+        id: 1347,
         key: "arpeggios7/m7/third/5/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -56962,7 +56962,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1264,
+        id: 1348,
         key: "arpeggios7/m7/third/5/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -57004,7 +57004,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1265,
+        id: 1349,
         key: "arpeggios7/m7/third/5/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -57046,7 +57046,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1266,
+        id: 1350,
         key: "arpeggios7/m7/third/5/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -57088,7 +57088,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1267,
+        id: 1351,
         key: "arpeggios7/m7/third/5/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -57130,7 +57130,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1268,
+        id: 1352,
         key: "arpeggios7/m7/third/5/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -57172,7 +57172,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1269,
+        id: 1353,
         key: "arpeggios7/m7/third/5/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -57214,7 +57214,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1270,
+        id: 1354,
         key: "arpeggios7/m7/third/5/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -57256,7 +57256,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1271,
+        id: 1355,
         key: "arpeggios7/m7/third/5/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -57298,7 +57298,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1272,
+        id: 1356,
         key: "arpeggios7/m7/third/5/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -57340,7 +57340,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1273,
+        id: 1357,
         key: "arpeggios7/m7/third/5/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -57389,7 +57389,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 4ª corda", en: "Third on the 4th string" },
         lessons: [
       {
-        id: 1274,
+        id: 1358,
         key: "arpeggios7/m7/third/4/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -57431,7 +57431,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1275,
+        id: 1359,
         key: "arpeggios7/m7/third/4/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -57473,7 +57473,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1276,
+        id: 1360,
         key: "arpeggios7/m7/third/4/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -57515,7 +57515,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1277,
+        id: 1361,
         key: "arpeggios7/m7/third/4/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -57557,7 +57557,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1278,
+        id: 1362,
         key: "arpeggios7/m7/third/4/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -57599,7 +57599,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1279,
+        id: 1363,
         key: "arpeggios7/m7/third/4/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -57641,7 +57641,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1280,
+        id: 1364,
         key: "arpeggios7/m7/third/4/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -57683,7 +57683,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1281,
+        id: 1365,
         key: "arpeggios7/m7/third/4/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -57725,7 +57725,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1282,
+        id: 1366,
         key: "arpeggios7/m7/third/4/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -57767,7 +57767,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1283,
+        id: 1367,
         key: "arpeggios7/m7/third/4/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -57809,7 +57809,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1284,
+        id: 1368,
         key: "arpeggios7/m7/third/4/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -57851,7 +57851,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1285,
+        id: 1369,
         key: "arpeggios7/m7/third/4/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -57900,7 +57900,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 6ª corda", en: "Third on the 6th string" },
         lessons: [
       {
-        id: 1286,
+        id: 1370,
         key: "arpeggios7/7/third/6/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -57932,7 +57932,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1287,
+        id: 1371,
         key: "arpeggios7/7/third/6/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -57964,7 +57964,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1288,
+        id: 1372,
         key: "arpeggios7/7/third/6/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -57996,7 +57996,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1289,
+        id: 1373,
         key: "arpeggios7/7/third/6/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -58028,7 +58028,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1290,
+        id: 1374,
         key: "arpeggios7/7/third/6/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -58060,7 +58060,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1291,
+        id: 1375,
         key: "arpeggios7/7/third/6/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -58092,7 +58092,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1292,
+        id: 1376,
         key: "arpeggios7/7/third/6/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -58124,7 +58124,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1293,
+        id: 1377,
         key: "arpeggios7/7/third/6/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -58156,7 +58156,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1294,
+        id: 1378,
         key: "arpeggios7/7/third/6/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -58188,7 +58188,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1295,
+        id: 1379,
         key: "arpeggios7/7/third/6/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -58220,7 +58220,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1296,
+        id: 1380,
         key: "arpeggios7/7/third/6/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -58252,7 +58252,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1297,
+        id: 1381,
         key: "arpeggios7/7/third/6/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -58291,7 +58291,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 5ª corda", en: "Third on the 5th string" },
         lessons: [
       {
-        id: 1298,
+        id: 1382,
         key: "arpeggios7/7/third/5/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -58323,7 +58323,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1299,
+        id: 1383,
         key: "arpeggios7/7/third/5/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -58355,7 +58355,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1300,
+        id: 1384,
         key: "arpeggios7/7/third/5/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -58387,7 +58387,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1301,
+        id: 1385,
         key: "arpeggios7/7/third/5/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -58419,7 +58419,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1302,
+        id: 1386,
         key: "arpeggios7/7/third/5/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -58451,7 +58451,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1303,
+        id: 1387,
         key: "arpeggios7/7/third/5/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -58483,7 +58483,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1304,
+        id: 1388,
         key: "arpeggios7/7/third/5/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -58515,7 +58515,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1305,
+        id: 1389,
         key: "arpeggios7/7/third/5/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -58547,7 +58547,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1306,
+        id: 1390,
         key: "arpeggios7/7/third/5/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -58579,7 +58579,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1307,
+        id: 1391,
         key: "arpeggios7/7/third/5/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -58611,7 +58611,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1308,
+        id: 1392,
         key: "arpeggios7/7/third/5/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -58643,7 +58643,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1309,
+        id: 1393,
         key: "arpeggios7/7/third/5/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -58682,7 +58682,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 4ª corda", en: "Third on the 4th string" },
         lessons: [
       {
-        id: 1310,
+        id: 1394,
         key: "arpeggios7/7/third/4/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -58724,7 +58724,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1311,
+        id: 1395,
         key: "arpeggios7/7/third/4/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -58766,7 +58766,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1312,
+        id: 1396,
         key: "arpeggios7/7/third/4/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -58808,7 +58808,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1313,
+        id: 1397,
         key: "arpeggios7/7/third/4/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -58850,7 +58850,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1314,
+        id: 1398,
         key: "arpeggios7/7/third/4/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -58892,7 +58892,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1315,
+        id: 1399,
         key: "arpeggios7/7/third/4/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -58934,7 +58934,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1316,
+        id: 1400,
         key: "arpeggios7/7/third/4/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -58976,7 +58976,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1317,
+        id: 1401,
         key: "arpeggios7/7/third/4/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -59018,7 +59018,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1318,
+        id: 1402,
         key: "arpeggios7/7/third/4/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -59060,7 +59060,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1319,
+        id: 1403,
         key: "arpeggios7/7/third/4/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -59102,7 +59102,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1320,
+        id: 1404,
         key: "arpeggios7/7/third/4/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -59144,7 +59144,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1321,
+        id: 1405,
         key: "arpeggios7/7/third/4/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -59193,7 +59193,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 6ª corda", en: "Third on the 6th string" },
         lessons: [
       {
-        id: 1322,
+        id: 1406,
         key: "arpeggios7/m7b5/third/6/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -59235,7 +59235,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1323,
+        id: 1407,
         key: "arpeggios7/m7b5/third/6/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -59277,7 +59277,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1324,
+        id: 1408,
         key: "arpeggios7/m7b5/third/6/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -59319,7 +59319,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1325,
+        id: 1409,
         key: "arpeggios7/m7b5/third/6/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -59361,7 +59361,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1326,
+        id: 1410,
         key: "arpeggios7/m7b5/third/6/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -59403,7 +59403,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1327,
+        id: 1411,
         key: "arpeggios7/m7b5/third/6/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -59445,7 +59445,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1328,
+        id: 1412,
         key: "arpeggios7/m7b5/third/6/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -59487,7 +59487,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1329,
+        id: 1413,
         key: "arpeggios7/m7b5/third/6/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -59529,7 +59529,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1330,
+        id: 1414,
         key: "arpeggios7/m7b5/third/6/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -59571,7 +59571,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1331,
+        id: 1415,
         key: "arpeggios7/m7b5/third/6/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -59613,7 +59613,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1332,
+        id: 1416,
         key: "arpeggios7/m7b5/third/6/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -59655,7 +59655,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1333,
+        id: 1417,
         key: "arpeggios7/m7b5/third/6/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -59704,7 +59704,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 5ª corda", en: "Third on the 5th string" },
         lessons: [
       {
-        id: 1334,
+        id: 1418,
         key: "arpeggios7/m7b5/third/5/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -59746,7 +59746,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1335,
+        id: 1419,
         key: "arpeggios7/m7b5/third/5/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -59788,7 +59788,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1336,
+        id: 1420,
         key: "arpeggios7/m7b5/third/5/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -59830,7 +59830,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1337,
+        id: 1421,
         key: "arpeggios7/m7b5/third/5/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -59872,7 +59872,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1338,
+        id: 1422,
         key: "arpeggios7/m7b5/third/5/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -59914,7 +59914,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1339,
+        id: 1423,
         key: "arpeggios7/m7b5/third/5/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -59956,7 +59956,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1340,
+        id: 1424,
         key: "arpeggios7/m7b5/third/5/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -59998,7 +59998,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1341,
+        id: 1425,
         key: "arpeggios7/m7b5/third/5/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -60040,7 +60040,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1342,
+        id: 1426,
         key: "arpeggios7/m7b5/third/5/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -60082,7 +60082,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1343,
+        id: 1427,
         key: "arpeggios7/m7b5/third/5/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -60124,7 +60124,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1344,
+        id: 1428,
         key: "arpeggios7/m7b5/third/5/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -60166,7 +60166,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1345,
+        id: 1429,
         key: "arpeggios7/m7b5/third/5/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -60215,7 +60215,7 @@ export const sections: Section[] = [
         title: { pt: "Terça na 4ª corda", en: "Third on the 4th string" },
         lessons: [
       {
-        id: 1346,
+        id: 1430,
         key: "arpeggios7/m7b5/third/4/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -60257,7 +60257,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1347,
+        id: 1431,
         key: "arpeggios7/m7b5/third/4/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -60299,7 +60299,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1348,
+        id: 1432,
         key: "arpeggios7/m7b5/third/4/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -60341,7 +60341,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1349,
+        id: 1433,
         key: "arpeggios7/m7b5/third/4/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -60383,7 +60383,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1350,
+        id: 1434,
         key: "arpeggios7/m7b5/third/4/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -60425,7 +60425,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1351,
+        id: 1435,
         key: "arpeggios7/m7b5/third/4/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -60467,7 +60467,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1352,
+        id: 1436,
         key: "arpeggios7/m7b5/third/4/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -60509,7 +60509,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1353,
+        id: 1437,
         key: "arpeggios7/m7b5/third/4/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -60551,7 +60551,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1354,
+        id: 1438,
         key: "arpeggios7/m7b5/third/4/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -60593,7 +60593,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1355,
+        id: 1439,
         key: "arpeggios7/m7b5/third/4/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -60635,7 +60635,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1356,
+        id: 1440,
         key: "arpeggios7/m7b5/third/4/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -60677,7 +60677,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1357,
+        id: 1441,
         key: "arpeggios7/m7b5/third/4/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -60726,7 +60726,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 6ª corda", en: "Fifth on the 6th string" },
         lessons: [
       {
-        id: 1358,
+        id: 1442,
         key: "arpeggios7/maj7/fifth/6/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -60758,7 +60758,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1359,
+        id: 1443,
         key: "arpeggios7/maj7/fifth/6/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -60790,7 +60790,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1360,
+        id: 1444,
         key: "arpeggios7/maj7/fifth/6/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -60822,7 +60822,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1361,
+        id: 1445,
         key: "arpeggios7/maj7/fifth/6/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -60854,7 +60854,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1362,
+        id: 1446,
         key: "arpeggios7/maj7/fifth/6/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -60886,7 +60886,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1363,
+        id: 1447,
         key: "arpeggios7/maj7/fifth/6/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -60918,7 +60918,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1364,
+        id: 1448,
         key: "arpeggios7/maj7/fifth/6/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -60950,7 +60950,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1365,
+        id: 1449,
         key: "arpeggios7/maj7/fifth/6/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -60982,7 +60982,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1366,
+        id: 1450,
         key: "arpeggios7/maj7/fifth/6/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -61014,7 +61014,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1367,
+        id: 1451,
         key: "arpeggios7/maj7/fifth/6/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -61046,7 +61046,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1368,
+        id: 1452,
         key: "arpeggios7/maj7/fifth/6/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -61078,7 +61078,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1369,
+        id: 1453,
         key: "arpeggios7/maj7/fifth/6/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -61117,7 +61117,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 5ª corda", en: "Fifth on the 5th string" },
         lessons: [
       {
-        id: 1370,
+        id: 1454,
         key: "arpeggios7/maj7/fifth/5/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -61149,7 +61149,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1371,
+        id: 1455,
         key: "arpeggios7/maj7/fifth/5/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -61181,7 +61181,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1372,
+        id: 1456,
         key: "arpeggios7/maj7/fifth/5/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -61213,7 +61213,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1373,
+        id: 1457,
         key: "arpeggios7/maj7/fifth/5/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -61245,7 +61245,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1374,
+        id: 1458,
         key: "arpeggios7/maj7/fifth/5/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -61277,7 +61277,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1375,
+        id: 1459,
         key: "arpeggios7/maj7/fifth/5/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -61309,7 +61309,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1376,
+        id: 1460,
         key: "arpeggios7/maj7/fifth/5/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -61341,7 +61341,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1377,
+        id: 1461,
         key: "arpeggios7/maj7/fifth/5/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -61373,7 +61373,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1378,
+        id: 1462,
         key: "arpeggios7/maj7/fifth/5/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -61405,7 +61405,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1379,
+        id: 1463,
         key: "arpeggios7/maj7/fifth/5/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -61437,7 +61437,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1380,
+        id: 1464,
         key: "arpeggios7/maj7/fifth/5/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -61469,7 +61469,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1381,
+        id: 1465,
         key: "arpeggios7/maj7/fifth/5/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -61508,7 +61508,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 4ª corda", en: "Fifth on the 4th string" },
         lessons: [
       {
-        id: 1382,
+        id: 1466,
         key: "arpeggios7/maj7/fifth/4/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -61550,7 +61550,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1383,
+        id: 1467,
         key: "arpeggios7/maj7/fifth/4/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -61592,7 +61592,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1384,
+        id: 1468,
         key: "arpeggios7/maj7/fifth/4/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -61634,7 +61634,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1385,
+        id: 1469,
         key: "arpeggios7/maj7/fifth/4/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -61676,7 +61676,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1386,
+        id: 1470,
         key: "arpeggios7/maj7/fifth/4/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -61718,7 +61718,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1387,
+        id: 1471,
         key: "arpeggios7/maj7/fifth/4/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -61760,7 +61760,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1388,
+        id: 1472,
         key: "arpeggios7/maj7/fifth/4/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -61802,7 +61802,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1389,
+        id: 1473,
         key: "arpeggios7/maj7/fifth/4/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -61844,7 +61844,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1390,
+        id: 1474,
         key: "arpeggios7/maj7/fifth/4/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -61886,7 +61886,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1391,
+        id: 1475,
         key: "arpeggios7/maj7/fifth/4/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -61928,7 +61928,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1392,
+        id: 1476,
         key: "arpeggios7/maj7/fifth/4/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -61970,7 +61970,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1393,
+        id: 1477,
         key: "arpeggios7/maj7/fifth/4/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -62019,7 +62019,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 6ª corda", en: "Fifth on the 6th string" },
         lessons: [
       {
-        id: 1394,
+        id: 1478,
         key: "arpeggios7/m7/fifth/6/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -62051,7 +62051,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1395,
+        id: 1479,
         key: "arpeggios7/m7/fifth/6/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -62083,7 +62083,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1396,
+        id: 1480,
         key: "arpeggios7/m7/fifth/6/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -62115,7 +62115,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1397,
+        id: 1481,
         key: "arpeggios7/m7/fifth/6/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -62147,7 +62147,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1398,
+        id: 1482,
         key: "arpeggios7/m7/fifth/6/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -62179,7 +62179,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1399,
+        id: 1483,
         key: "arpeggios7/m7/fifth/6/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -62211,7 +62211,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1400,
+        id: 1484,
         key: "arpeggios7/m7/fifth/6/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -62243,7 +62243,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1401,
+        id: 1485,
         key: "arpeggios7/m7/fifth/6/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -62275,7 +62275,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1402,
+        id: 1486,
         key: "arpeggios7/m7/fifth/6/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -62307,7 +62307,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1403,
+        id: 1487,
         key: "arpeggios7/m7/fifth/6/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -62339,7 +62339,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1404,
+        id: 1488,
         key: "arpeggios7/m7/fifth/6/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -62371,7 +62371,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1405,
+        id: 1489,
         key: "arpeggios7/m7/fifth/6/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -62410,7 +62410,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 5ª corda", en: "Fifth on the 5th string" },
         lessons: [
       {
-        id: 1406,
+        id: 1490,
         key: "arpeggios7/m7/fifth/5/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -62442,7 +62442,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1407,
+        id: 1491,
         key: "arpeggios7/m7/fifth/5/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -62474,7 +62474,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1408,
+        id: 1492,
         key: "arpeggios7/m7/fifth/5/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -62506,7 +62506,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1409,
+        id: 1493,
         key: "arpeggios7/m7/fifth/5/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -62538,7 +62538,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1410,
+        id: 1494,
         key: "arpeggios7/m7/fifth/5/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -62570,7 +62570,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1411,
+        id: 1495,
         key: "arpeggios7/m7/fifth/5/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -62602,7 +62602,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1412,
+        id: 1496,
         key: "arpeggios7/m7/fifth/5/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -62634,7 +62634,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1413,
+        id: 1497,
         key: "arpeggios7/m7/fifth/5/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -62666,7 +62666,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1414,
+        id: 1498,
         key: "arpeggios7/m7/fifth/5/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -62698,7 +62698,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1415,
+        id: 1499,
         key: "arpeggios7/m7/fifth/5/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -62730,7 +62730,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1416,
+        id: 1500,
         key: "arpeggios7/m7/fifth/5/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -62762,7 +62762,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1417,
+        id: 1501,
         key: "arpeggios7/m7/fifth/5/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -62801,7 +62801,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 4ª corda", en: "Fifth on the 4th string" },
         lessons: [
       {
-        id: 1418,
+        id: 1502,
         key: "arpeggios7/m7/fifth/4/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -62843,7 +62843,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1419,
+        id: 1503,
         key: "arpeggios7/m7/fifth/4/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -62885,7 +62885,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1420,
+        id: 1504,
         key: "arpeggios7/m7/fifth/4/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -62927,7 +62927,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1421,
+        id: 1505,
         key: "arpeggios7/m7/fifth/4/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -62969,7 +62969,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1422,
+        id: 1506,
         key: "arpeggios7/m7/fifth/4/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -63011,7 +63011,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1423,
+        id: 1507,
         key: "arpeggios7/m7/fifth/4/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -63053,7 +63053,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1424,
+        id: 1508,
         key: "arpeggios7/m7/fifth/4/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -63095,7 +63095,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1425,
+        id: 1509,
         key: "arpeggios7/m7/fifth/4/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -63137,7 +63137,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1426,
+        id: 1510,
         key: "arpeggios7/m7/fifth/4/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -63179,7 +63179,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1427,
+        id: 1511,
         key: "arpeggios7/m7/fifth/4/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -63221,7 +63221,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1428,
+        id: 1512,
         key: "arpeggios7/m7/fifth/4/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -63263,7 +63263,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1429,
+        id: 1513,
         key: "arpeggios7/m7/fifth/4/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -63312,7 +63312,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 6ª corda", en: "Fifth on the 6th string" },
         lessons: [
       {
-        id: 1430,
+        id: 1514,
         key: "arpeggios7/7/fifth/6/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -63354,7 +63354,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1431,
+        id: 1515,
         key: "arpeggios7/7/fifth/6/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -63396,7 +63396,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1432,
+        id: 1516,
         key: "arpeggios7/7/fifth/6/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -63438,7 +63438,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1433,
+        id: 1517,
         key: "arpeggios7/7/fifth/6/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -63480,7 +63480,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1434,
+        id: 1518,
         key: "arpeggios7/7/fifth/6/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -63522,7 +63522,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1435,
+        id: 1519,
         key: "arpeggios7/7/fifth/6/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -63564,7 +63564,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1436,
+        id: 1520,
         key: "arpeggios7/7/fifth/6/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -63606,7 +63606,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1437,
+        id: 1521,
         key: "arpeggios7/7/fifth/6/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -63648,7 +63648,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1438,
+        id: 1522,
         key: "arpeggios7/7/fifth/6/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -63690,7 +63690,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1439,
+        id: 1523,
         key: "arpeggios7/7/fifth/6/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -63732,7 +63732,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1440,
+        id: 1524,
         key: "arpeggios7/7/fifth/6/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -63774,7 +63774,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1441,
+        id: 1525,
         key: "arpeggios7/7/fifth/6/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -63823,7 +63823,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 5ª corda", en: "Fifth on the 5th string" },
         lessons: [
       {
-        id: 1442,
+        id: 1526,
         key: "arpeggios7/7/fifth/5/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -63865,7 +63865,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1443,
+        id: 1527,
         key: "arpeggios7/7/fifth/5/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -63907,7 +63907,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1444,
+        id: 1528,
         key: "arpeggios7/7/fifth/5/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -63949,7 +63949,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1445,
+        id: 1529,
         key: "arpeggios7/7/fifth/5/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -63991,7 +63991,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1446,
+        id: 1530,
         key: "arpeggios7/7/fifth/5/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -64033,7 +64033,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1447,
+        id: 1531,
         key: "arpeggios7/7/fifth/5/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -64075,7 +64075,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1448,
+        id: 1532,
         key: "arpeggios7/7/fifth/5/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -64117,7 +64117,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1449,
+        id: 1533,
         key: "arpeggios7/7/fifth/5/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -64159,7 +64159,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1450,
+        id: 1534,
         key: "arpeggios7/7/fifth/5/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -64201,7 +64201,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1451,
+        id: 1535,
         key: "arpeggios7/7/fifth/5/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -64243,7 +64243,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1452,
+        id: 1536,
         key: "arpeggios7/7/fifth/5/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -64285,7 +64285,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1453,
+        id: 1537,
         key: "arpeggios7/7/fifth/5/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -64334,7 +64334,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 4ª corda", en: "Fifth on the 4th string" },
         lessons: [
       {
-        id: 1454,
+        id: 1538,
         key: "arpeggios7/7/fifth/4/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -64376,7 +64376,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1455,
+        id: 1539,
         key: "arpeggios7/7/fifth/4/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -64418,7 +64418,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1456,
+        id: 1540,
         key: "arpeggios7/7/fifth/4/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -64460,7 +64460,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1457,
+        id: 1541,
         key: "arpeggios7/7/fifth/4/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -64502,7 +64502,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1458,
+        id: 1542,
         key: "arpeggios7/7/fifth/4/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -64544,7 +64544,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1459,
+        id: 1543,
         key: "arpeggios7/7/fifth/4/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -64586,7 +64586,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1460,
+        id: 1544,
         key: "arpeggios7/7/fifth/4/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -64628,7 +64628,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1461,
+        id: 1545,
         key: "arpeggios7/7/fifth/4/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -64670,7 +64670,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1462,
+        id: 1546,
         key: "arpeggios7/7/fifth/4/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -64712,7 +64712,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1463,
+        id: 1547,
         key: "arpeggios7/7/fifth/4/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -64754,7 +64754,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1464,
+        id: 1548,
         key: "arpeggios7/7/fifth/4/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -64796,7 +64796,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1465,
+        id: 1549,
         key: "arpeggios7/7/fifth/4/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -64845,7 +64845,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 6ª corda", en: "Fifth on the 6th string" },
         lessons: [
       {
-        id: 1466,
+        id: 1550,
         key: "arpeggios7/m7b5/fifth/6/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -64887,7 +64887,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1467,
+        id: 1551,
         key: "arpeggios7/m7b5/fifth/6/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -64929,7 +64929,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1468,
+        id: 1552,
         key: "arpeggios7/m7b5/fifth/6/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -64971,7 +64971,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1469,
+        id: 1553,
         key: "arpeggios7/m7b5/fifth/6/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -65013,7 +65013,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1470,
+        id: 1554,
         key: "arpeggios7/m7b5/fifth/6/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -65055,7 +65055,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1471,
+        id: 1555,
         key: "arpeggios7/m7b5/fifth/6/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -65097,7 +65097,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1472,
+        id: 1556,
         key: "arpeggios7/m7b5/fifth/6/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -65139,7 +65139,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1473,
+        id: 1557,
         key: "arpeggios7/m7b5/fifth/6/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -65181,7 +65181,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1474,
+        id: 1558,
         key: "arpeggios7/m7b5/fifth/6/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -65223,7 +65223,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1475,
+        id: 1559,
         key: "arpeggios7/m7b5/fifth/6/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -65265,7 +65265,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1476,
+        id: 1560,
         key: "arpeggios7/m7b5/fifth/6/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -65307,7 +65307,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1477,
+        id: 1561,
         key: "arpeggios7/m7b5/fifth/6/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -65356,7 +65356,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 5ª corda", en: "Fifth on the 5th string" },
         lessons: [
       {
-        id: 1478,
+        id: 1562,
         key: "arpeggios7/m7b5/fifth/5/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -65398,7 +65398,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1479,
+        id: 1563,
         key: "arpeggios7/m7b5/fifth/5/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -65440,7 +65440,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1480,
+        id: 1564,
         key: "arpeggios7/m7b5/fifth/5/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -65482,7 +65482,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1481,
+        id: 1565,
         key: "arpeggios7/m7b5/fifth/5/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -65524,7 +65524,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1482,
+        id: 1566,
         key: "arpeggios7/m7b5/fifth/5/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -65566,7 +65566,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1483,
+        id: 1567,
         key: "arpeggios7/m7b5/fifth/5/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -65608,7 +65608,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1484,
+        id: 1568,
         key: "arpeggios7/m7b5/fifth/5/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -65650,7 +65650,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1485,
+        id: 1569,
         key: "arpeggios7/m7b5/fifth/5/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -65692,7 +65692,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1486,
+        id: 1570,
         key: "arpeggios7/m7b5/fifth/5/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -65734,7 +65734,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1487,
+        id: 1571,
         key: "arpeggios7/m7b5/fifth/5/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -65776,7 +65776,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1488,
+        id: 1572,
         key: "arpeggios7/m7b5/fifth/5/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -65818,7 +65818,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1489,
+        id: 1573,
         key: "arpeggios7/m7b5/fifth/5/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -65867,7 +65867,7 @@ export const sections: Section[] = [
         title: { pt: "Quinta na 4ª corda", en: "Fifth on the 4th string" },
         lessons: [
       {
-        id: 1490,
+        id: 1574,
         key: "arpeggios7/m7b5/fifth/4/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -65909,7 +65909,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1491,
+        id: 1575,
         key: "arpeggios7/m7b5/fifth/4/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -65951,7 +65951,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1492,
+        id: 1576,
         key: "arpeggios7/m7b5/fifth/4/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -65993,7 +65993,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1493,
+        id: 1577,
         key: "arpeggios7/m7b5/fifth/4/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -66035,7 +66035,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1494,
+        id: 1578,
         key: "arpeggios7/m7b5/fifth/4/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -66077,7 +66077,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1495,
+        id: 1579,
         key: "arpeggios7/m7b5/fifth/4/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -66119,7 +66119,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1496,
+        id: 1580,
         key: "arpeggios7/m7b5/fifth/4/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -66161,7 +66161,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1497,
+        id: 1581,
         key: "arpeggios7/m7b5/fifth/4/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -66203,7 +66203,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1498,
+        id: 1582,
         key: "arpeggios7/m7b5/fifth/4/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -66245,7 +66245,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1499,
+        id: 1583,
         key: "arpeggios7/m7b5/fifth/4/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -66287,7 +66287,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1500,
+        id: 1584,
         key: "arpeggios7/m7b5/fifth/4/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -66329,7 +66329,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1501,
+        id: 1585,
         key: "arpeggios7/m7b5/fifth/4/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -66378,7 +66378,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 6ª corda", en: "Seventh on the 6th string" },
         lessons: [
       {
-        id: 1502,
+        id: 1586,
         key: "arpeggios7/maj7/seventh/6/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -66410,7 +66410,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1503,
+        id: 1587,
         key: "arpeggios7/maj7/seventh/6/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -66442,7 +66442,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1504,
+        id: 1588,
         key: "arpeggios7/maj7/seventh/6/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -66474,7 +66474,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1505,
+        id: 1589,
         key: "arpeggios7/maj7/seventh/6/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -66506,7 +66506,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1506,
+        id: 1590,
         key: "arpeggios7/maj7/seventh/6/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -66538,7 +66538,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1507,
+        id: 1591,
         key: "arpeggios7/maj7/seventh/6/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -66570,7 +66570,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1508,
+        id: 1592,
         key: "arpeggios7/maj7/seventh/6/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -66602,7 +66602,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1509,
+        id: 1593,
         key: "arpeggios7/maj7/seventh/6/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -66634,7 +66634,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1510,
+        id: 1594,
         key: "arpeggios7/maj7/seventh/6/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -66666,7 +66666,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1511,
+        id: 1595,
         key: "arpeggios7/maj7/seventh/6/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -66698,7 +66698,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1512,
+        id: 1596,
         key: "arpeggios7/maj7/seventh/6/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -66730,7 +66730,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1513,
+        id: 1597,
         key: "arpeggios7/maj7/seventh/6/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -66769,7 +66769,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 5ª corda", en: "Seventh on the 5th string" },
         lessons: [
       {
-        id: 1514,
+        id: 1598,
         key: "arpeggios7/maj7/seventh/5/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -66801,7 +66801,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1515,
+        id: 1599,
         key: "arpeggios7/maj7/seventh/5/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -66833,7 +66833,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1516,
+        id: 1600,
         key: "arpeggios7/maj7/seventh/5/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -66865,7 +66865,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1517,
+        id: 1601,
         key: "arpeggios7/maj7/seventh/5/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -66897,7 +66897,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1518,
+        id: 1602,
         key: "arpeggios7/maj7/seventh/5/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -66929,7 +66929,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1519,
+        id: 1603,
         key: "arpeggios7/maj7/seventh/5/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -66961,7 +66961,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1520,
+        id: 1604,
         key: "arpeggios7/maj7/seventh/5/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -66993,7 +66993,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1521,
+        id: 1605,
         key: "arpeggios7/maj7/seventh/5/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -67025,7 +67025,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1522,
+        id: 1606,
         key: "arpeggios7/maj7/seventh/5/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -67057,7 +67057,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1523,
+        id: 1607,
         key: "arpeggios7/maj7/seventh/5/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -67089,7 +67089,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1524,
+        id: 1608,
         key: "arpeggios7/maj7/seventh/5/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -67121,7 +67121,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1525,
+        id: 1609,
         key: "arpeggios7/maj7/seventh/5/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -67160,7 +67160,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 4ª corda", en: "Seventh on the 4th string" },
         lessons: [
       {
-        id: 1526,
+        id: 1610,
         key: "arpeggios7/maj7/seventh/4/C",
         title: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
         exerciseTitle: { pt: "C7+ - arpejo", en: "Cmaj7 - arpeggio" },
@@ -67202,7 +67202,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1527,
+        id: 1611,
         key: "arpeggios7/maj7/seventh/4/F",
         title: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
         exerciseTitle: { pt: "F7+ - arpejo", en: "Fmaj7 - arpeggio" },
@@ -67244,7 +67244,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1528,
+        id: 1612,
         key: "arpeggios7/maj7/seventh/4/Bb",
         title: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
         exerciseTitle: { pt: "B♭7+ - arpejo", en: "B♭maj7 - arpeggio" },
@@ -67286,7 +67286,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1529,
+        id: 1613,
         key: "arpeggios7/maj7/seventh/4/Eb",
         title: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
         exerciseTitle: { pt: "E♭7+ - arpejo", en: "E♭maj7 - arpeggio" },
@@ -67328,7 +67328,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1530,
+        id: 1614,
         key: "arpeggios7/maj7/seventh/4/Ab",
         title: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
         exerciseTitle: { pt: "A♭7+ - arpejo", en: "A♭maj7 - arpeggio" },
@@ -67370,7 +67370,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1531,
+        id: 1615,
         key: "arpeggios7/maj7/seventh/4/Db",
         title: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
         exerciseTitle: { pt: "D♭7+ - arpejo", en: "D♭maj7 - arpeggio" },
@@ -67412,7 +67412,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1532,
+        id: 1616,
         key: "arpeggios7/maj7/seventh/4/Gb",
         title: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
         exerciseTitle: { pt: "G♭7+ - arpejo", en: "G♭maj7 - arpeggio" },
@@ -67454,7 +67454,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1533,
+        id: 1617,
         key: "arpeggios7/maj7/seventh/4/B",
         title: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
         exerciseTitle: { pt: "B7+ - arpejo", en: "Bmaj7 - arpeggio" },
@@ -67496,7 +67496,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1534,
+        id: 1618,
         key: "arpeggios7/maj7/seventh/4/E",
         title: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
         exerciseTitle: { pt: "E7+ - arpejo", en: "Emaj7 - arpeggio" },
@@ -67538,7 +67538,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1535,
+        id: 1619,
         key: "arpeggios7/maj7/seventh/4/A",
         title: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
         exerciseTitle: { pt: "A7+ - arpejo", en: "Amaj7 - arpeggio" },
@@ -67580,7 +67580,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1536,
+        id: 1620,
         key: "arpeggios7/maj7/seventh/4/D",
         title: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
         exerciseTitle: { pt: "D7+ - arpejo", en: "Dmaj7 - arpeggio" },
@@ -67622,7 +67622,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1537,
+        id: 1621,
         key: "arpeggios7/maj7/seventh/4/G",
         title: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
         exerciseTitle: { pt: "G7+ - arpejo", en: "Gmaj7 - arpeggio" },
@@ -67671,7 +67671,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 6ª corda", en: "Seventh on the 6th string" },
         lessons: [
       {
-        id: 1538,
+        id: 1622,
         key: "arpeggios7/m7/seventh/6/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -67713,7 +67713,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1539,
+        id: 1623,
         key: "arpeggios7/m7/seventh/6/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -67755,7 +67755,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1540,
+        id: 1624,
         key: "arpeggios7/m7/seventh/6/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -67797,7 +67797,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1541,
+        id: 1625,
         key: "arpeggios7/m7/seventh/6/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -67839,7 +67839,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1542,
+        id: 1626,
         key: "arpeggios7/m7/seventh/6/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -67881,7 +67881,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1543,
+        id: 1627,
         key: "arpeggios7/m7/seventh/6/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -67923,7 +67923,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1544,
+        id: 1628,
         key: "arpeggios7/m7/seventh/6/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -67965,7 +67965,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1545,
+        id: 1629,
         key: "arpeggios7/m7/seventh/6/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -68007,7 +68007,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1546,
+        id: 1630,
         key: "arpeggios7/m7/seventh/6/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -68049,7 +68049,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1547,
+        id: 1631,
         key: "arpeggios7/m7/seventh/6/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -68091,7 +68091,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1548,
+        id: 1632,
         key: "arpeggios7/m7/seventh/6/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -68133,7 +68133,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1549,
+        id: 1633,
         key: "arpeggios7/m7/seventh/6/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -68182,7 +68182,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 5ª corda", en: "Seventh on the 5th string" },
         lessons: [
       {
-        id: 1550,
+        id: 1634,
         key: "arpeggios7/m7/seventh/5/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -68224,7 +68224,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1551,
+        id: 1635,
         key: "arpeggios7/m7/seventh/5/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -68266,7 +68266,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1552,
+        id: 1636,
         key: "arpeggios7/m7/seventh/5/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -68308,7 +68308,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1553,
+        id: 1637,
         key: "arpeggios7/m7/seventh/5/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -68350,7 +68350,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1554,
+        id: 1638,
         key: "arpeggios7/m7/seventh/5/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -68392,7 +68392,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1555,
+        id: 1639,
         key: "arpeggios7/m7/seventh/5/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -68434,7 +68434,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1556,
+        id: 1640,
         key: "arpeggios7/m7/seventh/5/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -68476,7 +68476,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1557,
+        id: 1641,
         key: "arpeggios7/m7/seventh/5/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -68518,7 +68518,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1558,
+        id: 1642,
         key: "arpeggios7/m7/seventh/5/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -68560,7 +68560,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1559,
+        id: 1643,
         key: "arpeggios7/m7/seventh/5/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -68602,7 +68602,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1560,
+        id: 1644,
         key: "arpeggios7/m7/seventh/5/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -68644,7 +68644,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1561,
+        id: 1645,
         key: "arpeggios7/m7/seventh/5/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -68693,7 +68693,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 4ª corda", en: "Seventh on the 4th string" },
         lessons: [
       {
-        id: 1562,
+        id: 1646,
         key: "arpeggios7/m7/seventh/4/C",
         title: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
         exerciseTitle: { pt: "Cm7 - arpejo", en: "Cm7 - arpeggio" },
@@ -68735,7 +68735,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1563,
+        id: 1647,
         key: "arpeggios7/m7/seventh/4/F",
         title: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
         exerciseTitle: { pt: "Fm7 - arpejo", en: "Fm7 - arpeggio" },
@@ -68777,7 +68777,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1564,
+        id: 1648,
         key: "arpeggios7/m7/seventh/4/Bb",
         title: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
         exerciseTitle: { pt: "B♭m7 - arpejo", en: "B♭m7 - arpeggio" },
@@ -68819,7 +68819,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1565,
+        id: 1649,
         key: "arpeggios7/m7/seventh/4/Eb",
         title: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
         exerciseTitle: { pt: "E♭m7 - arpejo", en: "E♭m7 - arpeggio" },
@@ -68861,7 +68861,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1566,
+        id: 1650,
         key: "arpeggios7/m7/seventh/4/G#",
         title: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
         exerciseTitle: { pt: "G♯m7 - arpejo", en: "G♯m7 - arpeggio" },
@@ -68903,7 +68903,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1567,
+        id: 1651,
         key: "arpeggios7/m7/seventh/4/C#",
         title: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
         exerciseTitle: { pt: "C♯m7 - arpejo", en: "C♯m7 - arpeggio" },
@@ -68945,7 +68945,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1568,
+        id: 1652,
         key: "arpeggios7/m7/seventh/4/F#",
         title: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
         exerciseTitle: { pt: "F♯m7 - arpejo", en: "F♯m7 - arpeggio" },
@@ -68987,7 +68987,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1569,
+        id: 1653,
         key: "arpeggios7/m7/seventh/4/B",
         title: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
         exerciseTitle: { pt: "Bm7 - arpejo", en: "Bm7 - arpeggio" },
@@ -69029,7 +69029,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1570,
+        id: 1654,
         key: "arpeggios7/m7/seventh/4/E",
         title: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
         exerciseTitle: { pt: "Em7 - arpejo", en: "Em7 - arpeggio" },
@@ -69071,7 +69071,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1571,
+        id: 1655,
         key: "arpeggios7/m7/seventh/4/A",
         title: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
         exerciseTitle: { pt: "Am7 - arpejo", en: "Am7 - arpeggio" },
@@ -69113,7 +69113,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1572,
+        id: 1656,
         key: "arpeggios7/m7/seventh/4/D",
         title: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
         exerciseTitle: { pt: "Dm7 - arpejo", en: "Dm7 - arpeggio" },
@@ -69155,7 +69155,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1573,
+        id: 1657,
         key: "arpeggios7/m7/seventh/4/G",
         title: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
         exerciseTitle: { pt: "Gm7 - arpejo", en: "Gm7 - arpeggio" },
@@ -69204,7 +69204,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 6ª corda", en: "Seventh on the 6th string" },
         lessons: [
       {
-        id: 1574,
+        id: 1658,
         key: "arpeggios7/7/seventh/6/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -69246,7 +69246,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1575,
+        id: 1659,
         key: "arpeggios7/7/seventh/6/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -69288,7 +69288,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1576,
+        id: 1660,
         key: "arpeggios7/7/seventh/6/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -69330,7 +69330,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1577,
+        id: 1661,
         key: "arpeggios7/7/seventh/6/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -69372,7 +69372,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1578,
+        id: 1662,
         key: "arpeggios7/7/seventh/6/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -69414,7 +69414,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1579,
+        id: 1663,
         key: "arpeggios7/7/seventh/6/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -69456,7 +69456,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1580,
+        id: 1664,
         key: "arpeggios7/7/seventh/6/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -69498,7 +69498,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1581,
+        id: 1665,
         key: "arpeggios7/7/seventh/6/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -69540,7 +69540,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1582,
+        id: 1666,
         key: "arpeggios7/7/seventh/6/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -69582,7 +69582,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1583,
+        id: 1667,
         key: "arpeggios7/7/seventh/6/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -69624,7 +69624,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1584,
+        id: 1668,
         key: "arpeggios7/7/seventh/6/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -69666,7 +69666,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1585,
+        id: 1669,
         key: "arpeggios7/7/seventh/6/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -69715,7 +69715,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 5ª corda", en: "Seventh on the 5th string" },
         lessons: [
       {
-        id: 1586,
+        id: 1670,
         key: "arpeggios7/7/seventh/5/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -69757,7 +69757,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1587,
+        id: 1671,
         key: "arpeggios7/7/seventh/5/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -69799,7 +69799,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1588,
+        id: 1672,
         key: "arpeggios7/7/seventh/5/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -69841,7 +69841,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1589,
+        id: 1673,
         key: "arpeggios7/7/seventh/5/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -69883,7 +69883,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1590,
+        id: 1674,
         key: "arpeggios7/7/seventh/5/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -69925,7 +69925,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1591,
+        id: 1675,
         key: "arpeggios7/7/seventh/5/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -69967,7 +69967,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1592,
+        id: 1676,
         key: "arpeggios7/7/seventh/5/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -70009,7 +70009,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1593,
+        id: 1677,
         key: "arpeggios7/7/seventh/5/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -70051,7 +70051,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1594,
+        id: 1678,
         key: "arpeggios7/7/seventh/5/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -70093,7 +70093,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1595,
+        id: 1679,
         key: "arpeggios7/7/seventh/5/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -70135,7 +70135,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1596,
+        id: 1680,
         key: "arpeggios7/7/seventh/5/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -70177,7 +70177,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1597,
+        id: 1681,
         key: "arpeggios7/7/seventh/5/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -70226,7 +70226,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 4ª corda", en: "Seventh on the 4th string" },
         lessons: [
       {
-        id: 1598,
+        id: 1682,
         key: "arpeggios7/7/seventh/4/C",
         title: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
         exerciseTitle: { pt: "C7 - arpejo", en: "C7 - arpeggio" },
@@ -70258,7 +70258,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1599,
+        id: 1683,
         key: "arpeggios7/7/seventh/4/F",
         title: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
         exerciseTitle: { pt: "F7 - arpejo", en: "F7 - arpeggio" },
@@ -70290,7 +70290,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1600,
+        id: 1684,
         key: "arpeggios7/7/seventh/4/Bb",
         title: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
         exerciseTitle: { pt: "B♭7 - arpejo", en: "B♭7 - arpeggio" },
@@ -70322,7 +70322,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1601,
+        id: 1685,
         key: "arpeggios7/7/seventh/4/Eb",
         title: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
         exerciseTitle: { pt: "E♭7 - arpejo", en: "E♭7 - arpeggio" },
@@ -70354,7 +70354,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1602,
+        id: 1686,
         key: "arpeggios7/7/seventh/4/Ab",
         title: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
         exerciseTitle: { pt: "A♭7 - arpejo", en: "A♭7 - arpeggio" },
@@ -70386,7 +70386,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1603,
+        id: 1687,
         key: "arpeggios7/7/seventh/4/Db",
         title: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
         exerciseTitle: { pt: "D♭7 - arpejo", en: "D♭7 - arpeggio" },
@@ -70418,7 +70418,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1604,
+        id: 1688,
         key: "arpeggios7/7/seventh/4/F#",
         title: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
         exerciseTitle: { pt: "F♯7 - arpejo", en: "F♯7 - arpeggio" },
@@ -70450,7 +70450,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1605,
+        id: 1689,
         key: "arpeggios7/7/seventh/4/B",
         title: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
         exerciseTitle: { pt: "B7 - arpejo", en: "B7 - arpeggio" },
@@ -70482,7 +70482,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1606,
+        id: 1690,
         key: "arpeggios7/7/seventh/4/E",
         title: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
         exerciseTitle: { pt: "E7 - arpejo", en: "E7 - arpeggio" },
@@ -70514,7 +70514,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1607,
+        id: 1691,
         key: "arpeggios7/7/seventh/4/A",
         title: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
         exerciseTitle: { pt: "A7 - arpejo", en: "A7 - arpeggio" },
@@ -70546,7 +70546,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1608,
+        id: 1692,
         key: "arpeggios7/7/seventh/4/D",
         title: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
         exerciseTitle: { pt: "D7 - arpejo", en: "D7 - arpeggio" },
@@ -70578,7 +70578,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1609,
+        id: 1693,
         key: "arpeggios7/7/seventh/4/G",
         title: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
         exerciseTitle: { pt: "G7 - arpejo", en: "G7 - arpeggio" },
@@ -70617,7 +70617,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 6ª corda", en: "Seventh on the 6th string" },
         lessons: [
       {
-        id: 1610,
+        id: 1694,
         key: "arpeggios7/m7b5/seventh/6/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -70659,7 +70659,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1611,
+        id: 1695,
         key: "arpeggios7/m7b5/seventh/6/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -70701,7 +70701,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1612,
+        id: 1696,
         key: "arpeggios7/m7b5/seventh/6/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -70743,7 +70743,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1613,
+        id: 1697,
         key: "arpeggios7/m7b5/seventh/6/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -70785,7 +70785,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1614,
+        id: 1698,
         key: "arpeggios7/m7b5/seventh/6/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -70827,7 +70827,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1615,
+        id: 1699,
         key: "arpeggios7/m7b5/seventh/6/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -70869,7 +70869,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1616,
+        id: 1700,
         key: "arpeggios7/m7b5/seventh/6/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -70911,7 +70911,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1617,
+        id: 1701,
         key: "arpeggios7/m7b5/seventh/6/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -70953,7 +70953,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1618,
+        id: 1702,
         key: "arpeggios7/m7b5/seventh/6/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -70995,7 +70995,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1619,
+        id: 1703,
         key: "arpeggios7/m7b5/seventh/6/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -71037,7 +71037,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1620,
+        id: 1704,
         key: "arpeggios7/m7b5/seventh/6/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -71079,7 +71079,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1621,
+        id: 1705,
         key: "arpeggios7/m7b5/seventh/6/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -71128,7 +71128,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 5ª corda", en: "Seventh on the 5th string" },
         lessons: [
       {
-        id: 1622,
+        id: 1706,
         key: "arpeggios7/m7b5/seventh/5/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -71170,7 +71170,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1623,
+        id: 1707,
         key: "arpeggios7/m7b5/seventh/5/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -71212,7 +71212,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1624,
+        id: 1708,
         key: "arpeggios7/m7b5/seventh/5/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -71254,7 +71254,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1625,
+        id: 1709,
         key: "arpeggios7/m7b5/seventh/5/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -71296,7 +71296,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1626,
+        id: 1710,
         key: "arpeggios7/m7b5/seventh/5/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -71338,7 +71338,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1627,
+        id: 1711,
         key: "arpeggios7/m7b5/seventh/5/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -71380,7 +71380,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1628,
+        id: 1712,
         key: "arpeggios7/m7b5/seventh/5/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -71422,7 +71422,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1629,
+        id: 1713,
         key: "arpeggios7/m7b5/seventh/5/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -71464,7 +71464,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1630,
+        id: 1714,
         key: "arpeggios7/m7b5/seventh/5/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -71506,7 +71506,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1631,
+        id: 1715,
         key: "arpeggios7/m7b5/seventh/5/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -71548,7 +71548,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1632,
+        id: 1716,
         key: "arpeggios7/m7b5/seventh/5/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -71590,7 +71590,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1633,
+        id: 1717,
         key: "arpeggios7/m7b5/seventh/5/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -71639,7 +71639,7 @@ export const sections: Section[] = [
         title: { pt: "Sétima na 4ª corda", en: "Seventh on the 4th string" },
         lessons: [
       {
-        id: 1634,
+        id: 1718,
         key: "arpeggios7/m7b5/seventh/4/C",
         title: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Cm7(♭5) - arpejo", en: "Cm7(♭5) - arpeggio" },
@@ -71681,7 +71681,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1635,
+        id: 1719,
         key: "arpeggios7/m7b5/seventh/4/F",
         title: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Fm7(♭5) - arpejo", en: "Fm7(♭5) - arpeggio" },
@@ -71723,7 +71723,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1636,
+        id: 1720,
         key: "arpeggios7/m7b5/seventh/4/A#",
         title: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "A♯m7(♭5) - arpejo", en: "A♯m7(♭5) - arpeggio" },
@@ -71765,7 +71765,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1637,
+        id: 1721,
         key: "arpeggios7/m7b5/seventh/4/D#",
         title: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "D♯m7(♭5) - arpejo", en: "D♯m7(♭5) - arpeggio" },
@@ -71807,7 +71807,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1638,
+        id: 1722,
         key: "arpeggios7/m7b5/seventh/4/G#",
         title: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "G♯m7(♭5) - arpejo", en: "G♯m7(♭5) - arpeggio" },
@@ -71849,7 +71849,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1639,
+        id: 1723,
         key: "arpeggios7/m7b5/seventh/4/C#",
         title: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "C♯m7(♭5) - arpejo", en: "C♯m7(♭5) - arpeggio" },
@@ -71891,7 +71891,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1640,
+        id: 1724,
         key: "arpeggios7/m7b5/seventh/4/F#",
         title: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
         exerciseTitle: { pt: "F♯m7(♭5) - arpejo", en: "F♯m7(♭5) - arpeggio" },
@@ -71933,7 +71933,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1641,
+        id: 1725,
         key: "arpeggios7/m7b5/seventh/4/B",
         title: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Bm7(♭5) - arpejo", en: "Bm7(♭5) - arpeggio" },
@@ -71975,7 +71975,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1642,
+        id: 1726,
         key: "arpeggios7/m7b5/seventh/4/E",
         title: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Em7(♭5) - arpejo", en: "Em7(♭5) - arpeggio" },
@@ -72017,7 +72017,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1643,
+        id: 1727,
         key: "arpeggios7/m7b5/seventh/4/A",
         title: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Am7(♭5) - arpejo", en: "Am7(♭5) - arpeggio" },
@@ -72059,7 +72059,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1644,
+        id: 1728,
         key: "arpeggios7/m7b5/seventh/4/D",
         title: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Dm7(♭5) - arpejo", en: "Dm7(♭5) - arpeggio" },
@@ -72101,7 +72101,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1645,
+        id: 1729,
         key: "arpeggios7/m7b5/seventh/4/G",
         title: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
         exerciseTitle: { pt: "Gm7(♭5) - arpejo", en: "Gm7(♭5) - arpeggio" },
@@ -72151,7 +72151,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de 7+ na 6ª corda", en: "Maj7 Inversions on the 6th string" },
         lessons: [
       {
-        id: 1646,
+        id: 1730,
         key: "arpeggios7/inversions/maj7/6/C",
         title: { pt: "C7+ - inversões na 6ª corda", en: "Cmaj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "C7+ - inversões na 6ª corda", en: "Cmaj7 - inversions on the 6th string" },
@@ -72189,7 +72189,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1647,
+        id: 1731,
         key: "arpeggios7/inversions/maj7/6/F",
         title: { pt: "F7+ - inversões na 6ª corda", en: "Fmaj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "F7+ - inversões na 6ª corda", en: "Fmaj7 - inversions on the 6th string" },
@@ -72227,7 +72227,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1648,
+        id: 1732,
         key: "arpeggios7/inversions/maj7/6/Bb",
         title: { pt: "B♭7+ - inversões na 6ª corda", en: "B♭maj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "B♭7+ - inversões na 6ª corda", en: "B♭maj7 - inversions on the 6th string" },
@@ -72265,7 +72265,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1649,
+        id: 1733,
         key: "arpeggios7/inversions/maj7/6/Eb",
         title: { pt: "E♭7+ - inversões na 6ª corda", en: "E♭maj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "E♭7+ - inversões na 6ª corda", en: "E♭maj7 - inversions on the 6th string" },
@@ -72303,7 +72303,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1650,
+        id: 1734,
         key: "arpeggios7/inversions/maj7/6/Ab",
         title: { pt: "A♭7+ - inversões na 6ª corda", en: "A♭maj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "A♭7+ - inversões na 6ª corda", en: "A♭maj7 - inversions on the 6th string" },
@@ -72341,7 +72341,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1651,
+        id: 1735,
         key: "arpeggios7/inversions/maj7/6/Db",
         title: { pt: "D♭7+ - inversões na 6ª corda", en: "D♭maj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "D♭7+ - inversões na 6ª corda", en: "D♭maj7 - inversions on the 6th string" },
@@ -72379,7 +72379,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1652,
+        id: 1736,
         key: "arpeggios7/inversions/maj7/6/Gb",
         title: { pt: "G♭7+ - inversões na 6ª corda", en: "G♭maj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "G♭7+ - inversões na 6ª corda", en: "G♭maj7 - inversions on the 6th string" },
@@ -72417,7 +72417,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1653,
+        id: 1737,
         key: "arpeggios7/inversions/maj7/6/B",
         title: { pt: "B7+ - inversões na 6ª corda", en: "Bmaj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "B7+ - inversões na 6ª corda", en: "Bmaj7 - inversions on the 6th string" },
@@ -72455,7 +72455,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1654,
+        id: 1738,
         key: "arpeggios7/inversions/maj7/6/E",
         title: { pt: "E7+ - inversões na 6ª corda", en: "Emaj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "E7+ - inversões na 6ª corda", en: "Emaj7 - inversions on the 6th string" },
@@ -72493,7 +72493,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1655,
+        id: 1739,
         key: "arpeggios7/inversions/maj7/6/A",
         title: { pt: "A7+ - inversões na 6ª corda", en: "Amaj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "A7+ - inversões na 6ª corda", en: "Amaj7 - inversions on the 6th string" },
@@ -72531,7 +72531,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1656,
+        id: 1740,
         key: "arpeggios7/inversions/maj7/6/D",
         title: { pt: "D7+ - inversões na 6ª corda", en: "Dmaj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "D7+ - inversões na 6ª corda", en: "Dmaj7 - inversions on the 6th string" },
@@ -72569,7 +72569,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1657,
+        id: 1741,
         key: "arpeggios7/inversions/maj7/6/G",
         title: { pt: "G7+ - inversões na 6ª corda", en: "Gmaj7 - inversions on the 6th string" },
         exerciseTitle: { pt: "G7+ - inversões na 6ª corda", en: "Gmaj7 - inversions on the 6th string" },
@@ -72615,7 +72615,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de 7+ na 5ª corda", en: "Maj7 Inversions on the 5th string" },
         lessons: [
       {
-        id: 1658,
+        id: 1742,
         key: "arpeggios7/inversions/maj7/5/C",
         title: { pt: "C7+ - inversões na 5ª corda", en: "Cmaj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "C7+ - inversões na 5ª corda", en: "Cmaj7 - inversions on the 5th string" },
@@ -72653,7 +72653,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1659,
+        id: 1743,
         key: "arpeggios7/inversions/maj7/5/F",
         title: { pt: "F7+ - inversões na 5ª corda", en: "Fmaj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "F7+ - inversões na 5ª corda", en: "Fmaj7 - inversions on the 5th string" },
@@ -72691,7 +72691,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1660,
+        id: 1744,
         key: "arpeggios7/inversions/maj7/5/Bb",
         title: { pt: "B♭7+ - inversões na 5ª corda", en: "B♭maj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "B♭7+ - inversões na 5ª corda", en: "B♭maj7 - inversions on the 5th string" },
@@ -72729,7 +72729,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1661,
+        id: 1745,
         key: "arpeggios7/inversions/maj7/5/Eb",
         title: { pt: "E♭7+ - inversões na 5ª corda", en: "E♭maj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "E♭7+ - inversões na 5ª corda", en: "E♭maj7 - inversions on the 5th string" },
@@ -72767,7 +72767,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1662,
+        id: 1746,
         key: "arpeggios7/inversions/maj7/5/Ab",
         title: { pt: "A♭7+ - inversões na 5ª corda", en: "A♭maj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "A♭7+ - inversões na 5ª corda", en: "A♭maj7 - inversions on the 5th string" },
@@ -72805,7 +72805,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1663,
+        id: 1747,
         key: "arpeggios7/inversions/maj7/5/Db",
         title: { pt: "D♭7+ - inversões na 5ª corda", en: "D♭maj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "D♭7+ - inversões na 5ª corda", en: "D♭maj7 - inversions on the 5th string" },
@@ -72843,7 +72843,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1664,
+        id: 1748,
         key: "arpeggios7/inversions/maj7/5/Gb",
         title: { pt: "G♭7+ - inversões na 5ª corda", en: "G♭maj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "G♭7+ - inversões na 5ª corda", en: "G♭maj7 - inversions on the 5th string" },
@@ -72881,7 +72881,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1665,
+        id: 1749,
         key: "arpeggios7/inversions/maj7/5/B",
         title: { pt: "B7+ - inversões na 5ª corda", en: "Bmaj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "B7+ - inversões na 5ª corda", en: "Bmaj7 - inversions on the 5th string" },
@@ -72919,7 +72919,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1666,
+        id: 1750,
         key: "arpeggios7/inversions/maj7/5/E",
         title: { pt: "E7+ - inversões na 5ª corda", en: "Emaj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "E7+ - inversões na 5ª corda", en: "Emaj7 - inversions on the 5th string" },
@@ -72957,7 +72957,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1667,
+        id: 1751,
         key: "arpeggios7/inversions/maj7/5/A",
         title: { pt: "A7+ - inversões na 5ª corda", en: "Amaj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "A7+ - inversões na 5ª corda", en: "Amaj7 - inversions on the 5th string" },
@@ -72995,7 +72995,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1668,
+        id: 1752,
         key: "arpeggios7/inversions/maj7/5/D",
         title: { pt: "D7+ - inversões na 5ª corda", en: "Dmaj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "D7+ - inversões na 5ª corda", en: "Dmaj7 - inversions on the 5th string" },
@@ -73033,7 +73033,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1669,
+        id: 1753,
         key: "arpeggios7/inversions/maj7/5/G",
         title: { pt: "G7+ - inversões na 5ª corda", en: "Gmaj7 - inversions on the 5th string" },
         exerciseTitle: { pt: "G7+ - inversões na 5ª corda", en: "Gmaj7 - inversions on the 5th string" },
@@ -73079,7 +73079,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de 7+ na 4ª corda", en: "Maj7 Inversions on the 4th string" },
         lessons: [
       {
-        id: 1670,
+        id: 1754,
         key: "arpeggios7/inversions/maj7/4/C",
         title: { pt: "C7+ - inversões na 4ª corda", en: "Cmaj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "C7+ - inversões na 4ª corda", en: "Cmaj7 - inversions on the 4th string" },
@@ -73130,7 +73130,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1671,
+        id: 1755,
         key: "arpeggios7/inversions/maj7/4/F",
         title: { pt: "F7+ - inversões na 4ª corda", en: "Fmaj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "F7+ - inversões na 4ª corda", en: "Fmaj7 - inversions on the 4th string" },
@@ -73181,7 +73181,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1672,
+        id: 1756,
         key: "arpeggios7/inversions/maj7/4/Bb",
         title: { pt: "B♭7+ - inversões na 4ª corda", en: "B♭maj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "B♭7+ - inversões na 4ª corda", en: "B♭maj7 - inversions on the 4th string" },
@@ -73232,7 +73232,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1673,
+        id: 1757,
         key: "arpeggios7/inversions/maj7/4/Eb",
         title: { pt: "E♭7+ - inversões na 4ª corda", en: "E♭maj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "E♭7+ - inversões na 4ª corda", en: "E♭maj7 - inversions on the 4th string" },
@@ -73283,7 +73283,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1674,
+        id: 1758,
         key: "arpeggios7/inversions/maj7/4/Ab",
         title: { pt: "A♭7+ - inversões na 4ª corda", en: "A♭maj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "A♭7+ - inversões na 4ª corda", en: "A♭maj7 - inversions on the 4th string" },
@@ -73334,7 +73334,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1675,
+        id: 1759,
         key: "arpeggios7/inversions/maj7/4/Db",
         title: { pt: "D♭7+ - inversões na 4ª corda", en: "D♭maj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "D♭7+ - inversões na 4ª corda", en: "D♭maj7 - inversions on the 4th string" },
@@ -73385,7 +73385,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1676,
+        id: 1760,
         key: "arpeggios7/inversions/maj7/4/Gb",
         title: { pt: "G♭7+ - inversões na 4ª corda", en: "G♭maj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "G♭7+ - inversões na 4ª corda", en: "G♭maj7 - inversions on the 4th string" },
@@ -73436,7 +73436,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1677,
+        id: 1761,
         key: "arpeggios7/inversions/maj7/4/B",
         title: { pt: "B7+ - inversões na 4ª corda", en: "Bmaj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "B7+ - inversões na 4ª corda", en: "Bmaj7 - inversions on the 4th string" },
@@ -73487,7 +73487,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1678,
+        id: 1762,
         key: "arpeggios7/inversions/maj7/4/E",
         title: { pt: "E7+ - inversões na 4ª corda", en: "Emaj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "E7+ - inversões na 4ª corda", en: "Emaj7 - inversions on the 4th string" },
@@ -73538,7 +73538,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1679,
+        id: 1763,
         key: "arpeggios7/inversions/maj7/4/A",
         title: { pt: "A7+ - inversões na 4ª corda", en: "Amaj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "A7+ - inversões na 4ª corda", en: "Amaj7 - inversions on the 4th string" },
@@ -73589,7 +73589,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1680,
+        id: 1764,
         key: "arpeggios7/inversions/maj7/4/D",
         title: { pt: "D7+ - inversões na 4ª corda", en: "Dmaj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "D7+ - inversões na 4ª corda", en: "Dmaj7 - inversions on the 4th string" },
@@ -73640,7 +73640,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1681,
+        id: 1765,
         key: "arpeggios7/inversions/maj7/4/G",
         title: { pt: "G7+ - inversões na 4ª corda", en: "Gmaj7 - inversions on the 4th string" },
         exerciseTitle: { pt: "G7+ - inversões na 4ª corda", en: "Gmaj7 - inversions on the 4th string" },
@@ -73699,7 +73699,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de m7 na 6ª corda", en: "m7 Inversions on the 6th string" },
         lessons: [
       {
-        id: 1682,
+        id: 1766,
         key: "arpeggios7/inversions/m7/6/C",
         title: { pt: "Cm7 - inversões na 6ª corda", en: "Cm7 - inversions on the 6th string" },
         exerciseTitle: { pt: "Cm7 - inversões na 6ª corda", en: "Cm7 - inversions on the 6th string" },
@@ -73737,7 +73737,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1683,
+        id: 1767,
         key: "arpeggios7/inversions/m7/6/F",
         title: { pt: "Fm7 - inversões na 6ª corda", en: "Fm7 - inversions on the 6th string" },
         exerciseTitle: { pt: "Fm7 - inversões na 6ª corda", en: "Fm7 - inversions on the 6th string" },
@@ -73775,7 +73775,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1684,
+        id: 1768,
         key: "arpeggios7/inversions/m7/6/Bb",
         title: { pt: "B♭m7 - inversões na 6ª corda", en: "B♭m7 - inversions on the 6th string" },
         exerciseTitle: { pt: "B♭m7 - inversões na 6ª corda", en: "B♭m7 - inversions on the 6th string" },
@@ -73813,7 +73813,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1685,
+        id: 1769,
         key: "arpeggios7/inversions/m7/6/Eb",
         title: { pt: "E♭m7 - inversões na 6ª corda", en: "E♭m7 - inversions on the 6th string" },
         exerciseTitle: { pt: "E♭m7 - inversões na 6ª corda", en: "E♭m7 - inversions on the 6th string" },
@@ -73851,7 +73851,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1686,
+        id: 1770,
         key: "arpeggios7/inversions/m7/6/G#",
         title: { pt: "G♯m7 - inversões na 6ª corda", en: "G♯m7 - inversions on the 6th string" },
         exerciseTitle: { pt: "G♯m7 - inversões na 6ª corda", en: "G♯m7 - inversions on the 6th string" },
@@ -73889,7 +73889,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1687,
+        id: 1771,
         key: "arpeggios7/inversions/m7/6/C#",
         title: { pt: "C♯m7 - inversões na 6ª corda", en: "C♯m7 - inversions on the 6th string" },
         exerciseTitle: { pt: "C♯m7 - inversões na 6ª corda", en: "C♯m7 - inversions on the 6th string" },
@@ -73927,7 +73927,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1688,
+        id: 1772,
         key: "arpeggios7/inversions/m7/6/F#",
         title: { pt: "F♯m7 - inversões na 6ª corda", en: "F♯m7 - inversions on the 6th string" },
         exerciseTitle: { pt: "F♯m7 - inversões na 6ª corda", en: "F♯m7 - inversions on the 6th string" },
@@ -73965,7 +73965,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1689,
+        id: 1773,
         key: "arpeggios7/inversions/m7/6/B",
         title: { pt: "Bm7 - inversões na 6ª corda", en: "Bm7 - inversions on the 6th string" },
         exerciseTitle: { pt: "Bm7 - inversões na 6ª corda", en: "Bm7 - inversions on the 6th string" },
@@ -74003,7 +74003,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1690,
+        id: 1774,
         key: "arpeggios7/inversions/m7/6/E",
         title: { pt: "Em7 - inversões na 6ª corda", en: "Em7 - inversions on the 6th string" },
         exerciseTitle: { pt: "Em7 - inversões na 6ª corda", en: "Em7 - inversions on the 6th string" },
@@ -74041,7 +74041,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1691,
+        id: 1775,
         key: "arpeggios7/inversions/m7/6/A",
         title: { pt: "Am7 - inversões na 6ª corda", en: "Am7 - inversions on the 6th string" },
         exerciseTitle: { pt: "Am7 - inversões na 6ª corda", en: "Am7 - inversions on the 6th string" },
@@ -74079,7 +74079,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1692,
+        id: 1776,
         key: "arpeggios7/inversions/m7/6/D",
         title: { pt: "Dm7 - inversões na 6ª corda", en: "Dm7 - inversions on the 6th string" },
         exerciseTitle: { pt: "Dm7 - inversões na 6ª corda", en: "Dm7 - inversions on the 6th string" },
@@ -74117,7 +74117,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1693,
+        id: 1777,
         key: "arpeggios7/inversions/m7/6/G",
         title: { pt: "Gm7 - inversões na 6ª corda", en: "Gm7 - inversions on the 6th string" },
         exerciseTitle: { pt: "Gm7 - inversões na 6ª corda", en: "Gm7 - inversions on the 6th string" },
@@ -74163,7 +74163,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de m7 na 5ª corda", en: "m7 Inversions on the 5th string" },
         lessons: [
       {
-        id: 1694,
+        id: 1778,
         key: "arpeggios7/inversions/m7/5/C",
         title: { pt: "Cm7 - inversões na 5ª corda", en: "Cm7 - inversions on the 5th string" },
         exerciseTitle: { pt: "Cm7 - inversões na 5ª corda", en: "Cm7 - inversions on the 5th string" },
@@ -74201,7 +74201,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1695,
+        id: 1779,
         key: "arpeggios7/inversions/m7/5/F",
         title: { pt: "Fm7 - inversões na 5ª corda", en: "Fm7 - inversions on the 5th string" },
         exerciseTitle: { pt: "Fm7 - inversões na 5ª corda", en: "Fm7 - inversions on the 5th string" },
@@ -74239,7 +74239,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1696,
+        id: 1780,
         key: "arpeggios7/inversions/m7/5/Bb",
         title: { pt: "B♭m7 - inversões na 5ª corda", en: "B♭m7 - inversions on the 5th string" },
         exerciseTitle: { pt: "B♭m7 - inversões na 5ª corda", en: "B♭m7 - inversions on the 5th string" },
@@ -74277,7 +74277,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1697,
+        id: 1781,
         key: "arpeggios7/inversions/m7/5/Eb",
         title: { pt: "E♭m7 - inversões na 5ª corda", en: "E♭m7 - inversions on the 5th string" },
         exerciseTitle: { pt: "E♭m7 - inversões na 5ª corda", en: "E♭m7 - inversions on the 5th string" },
@@ -74315,7 +74315,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1698,
+        id: 1782,
         key: "arpeggios7/inversions/m7/5/G#",
         title: { pt: "G♯m7 - inversões na 5ª corda", en: "G♯m7 - inversions on the 5th string" },
         exerciseTitle: { pt: "G♯m7 - inversões na 5ª corda", en: "G♯m7 - inversions on the 5th string" },
@@ -74353,7 +74353,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1699,
+        id: 1783,
         key: "arpeggios7/inversions/m7/5/C#",
         title: { pt: "C♯m7 - inversões na 5ª corda", en: "C♯m7 - inversions on the 5th string" },
         exerciseTitle: { pt: "C♯m7 - inversões na 5ª corda", en: "C♯m7 - inversions on the 5th string" },
@@ -74391,7 +74391,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1700,
+        id: 1784,
         key: "arpeggios7/inversions/m7/5/F#",
         title: { pt: "F♯m7 - inversões na 5ª corda", en: "F♯m7 - inversions on the 5th string" },
         exerciseTitle: { pt: "F♯m7 - inversões na 5ª corda", en: "F♯m7 - inversions on the 5th string" },
@@ -74429,7 +74429,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1701,
+        id: 1785,
         key: "arpeggios7/inversions/m7/5/B",
         title: { pt: "Bm7 - inversões na 5ª corda", en: "Bm7 - inversions on the 5th string" },
         exerciseTitle: { pt: "Bm7 - inversões na 5ª corda", en: "Bm7 - inversions on the 5th string" },
@@ -74467,7 +74467,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1702,
+        id: 1786,
         key: "arpeggios7/inversions/m7/5/E",
         title: { pt: "Em7 - inversões na 5ª corda", en: "Em7 - inversions on the 5th string" },
         exerciseTitle: { pt: "Em7 - inversões na 5ª corda", en: "Em7 - inversions on the 5th string" },
@@ -74505,7 +74505,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1703,
+        id: 1787,
         key: "arpeggios7/inversions/m7/5/A",
         title: { pt: "Am7 - inversões na 5ª corda", en: "Am7 - inversions on the 5th string" },
         exerciseTitle: { pt: "Am7 - inversões na 5ª corda", en: "Am7 - inversions on the 5th string" },
@@ -74543,7 +74543,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1704,
+        id: 1788,
         key: "arpeggios7/inversions/m7/5/D",
         title: { pt: "Dm7 - inversões na 5ª corda", en: "Dm7 - inversions on the 5th string" },
         exerciseTitle: { pt: "Dm7 - inversões na 5ª corda", en: "Dm7 - inversions on the 5th string" },
@@ -74581,7 +74581,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1705,
+        id: 1789,
         key: "arpeggios7/inversions/m7/5/G",
         title: { pt: "Gm7 - inversões na 5ª corda", en: "Gm7 - inversions on the 5th string" },
         exerciseTitle: { pt: "Gm7 - inversões na 5ª corda", en: "Gm7 - inversions on the 5th string" },
@@ -74627,7 +74627,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de m7 na 4ª corda", en: "m7 Inversions on the 4th string" },
         lessons: [
       {
-        id: 1706,
+        id: 1790,
         key: "arpeggios7/inversions/m7/4/C",
         title: { pt: "Cm7 - inversões na 4ª corda", en: "Cm7 - inversions on the 4th string" },
         exerciseTitle: { pt: "Cm7 - inversões na 4ª corda", en: "Cm7 - inversions on the 4th string" },
@@ -74678,7 +74678,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1707,
+        id: 1791,
         key: "arpeggios7/inversions/m7/4/F",
         title: { pt: "Fm7 - inversões na 4ª corda", en: "Fm7 - inversions on the 4th string" },
         exerciseTitle: { pt: "Fm7 - inversões na 4ª corda", en: "Fm7 - inversions on the 4th string" },
@@ -74729,7 +74729,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1708,
+        id: 1792,
         key: "arpeggios7/inversions/m7/4/Bb",
         title: { pt: "B♭m7 - inversões na 4ª corda", en: "B♭m7 - inversions on the 4th string" },
         exerciseTitle: { pt: "B♭m7 - inversões na 4ª corda", en: "B♭m7 - inversions on the 4th string" },
@@ -74780,7 +74780,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1709,
+        id: 1793,
         key: "arpeggios7/inversions/m7/4/Eb",
         title: { pt: "E♭m7 - inversões na 4ª corda", en: "E♭m7 - inversions on the 4th string" },
         exerciseTitle: { pt: "E♭m7 - inversões na 4ª corda", en: "E♭m7 - inversions on the 4th string" },
@@ -74831,7 +74831,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1710,
+        id: 1794,
         key: "arpeggios7/inversions/m7/4/G#",
         title: { pt: "G♯m7 - inversões na 4ª corda", en: "G♯m7 - inversions on the 4th string" },
         exerciseTitle: { pt: "G♯m7 - inversões na 4ª corda", en: "G♯m7 - inversions on the 4th string" },
@@ -74882,7 +74882,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1711,
+        id: 1795,
         key: "arpeggios7/inversions/m7/4/C#",
         title: { pt: "C♯m7 - inversões na 4ª corda", en: "C♯m7 - inversions on the 4th string" },
         exerciseTitle: { pt: "C♯m7 - inversões na 4ª corda", en: "C♯m7 - inversions on the 4th string" },
@@ -74933,7 +74933,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1712,
+        id: 1796,
         key: "arpeggios7/inversions/m7/4/F#",
         title: { pt: "F♯m7 - inversões na 4ª corda", en: "F♯m7 - inversions on the 4th string" },
         exerciseTitle: { pt: "F♯m7 - inversões na 4ª corda", en: "F♯m7 - inversions on the 4th string" },
@@ -74984,7 +74984,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1713,
+        id: 1797,
         key: "arpeggios7/inversions/m7/4/B",
         title: { pt: "Bm7 - inversões na 4ª corda", en: "Bm7 - inversions on the 4th string" },
         exerciseTitle: { pt: "Bm7 - inversões na 4ª corda", en: "Bm7 - inversions on the 4th string" },
@@ -75035,7 +75035,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1714,
+        id: 1798,
         key: "arpeggios7/inversions/m7/4/E",
         title: { pt: "Em7 - inversões na 4ª corda", en: "Em7 - inversions on the 4th string" },
         exerciseTitle: { pt: "Em7 - inversões na 4ª corda", en: "Em7 - inversions on the 4th string" },
@@ -75086,7 +75086,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1715,
+        id: 1799,
         key: "arpeggios7/inversions/m7/4/A",
         title: { pt: "Am7 - inversões na 4ª corda", en: "Am7 - inversions on the 4th string" },
         exerciseTitle: { pt: "Am7 - inversões na 4ª corda", en: "Am7 - inversions on the 4th string" },
@@ -75137,7 +75137,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1716,
+        id: 1800,
         key: "arpeggios7/inversions/m7/4/D",
         title: { pt: "Dm7 - inversões na 4ª corda", en: "Dm7 - inversions on the 4th string" },
         exerciseTitle: { pt: "Dm7 - inversões na 4ª corda", en: "Dm7 - inversions on the 4th string" },
@@ -75188,7 +75188,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1717,
+        id: 1801,
         key: "arpeggios7/inversions/m7/4/G",
         title: { pt: "Gm7 - inversões na 4ª corda", en: "Gm7 - inversions on the 4th string" },
         exerciseTitle: { pt: "Gm7 - inversões na 4ª corda", en: "Gm7 - inversions on the 4th string" },
@@ -75247,7 +75247,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de 7 na 6ª corda", en: "Dominant 7 Inversions on the 6th string" },
         lessons: [
       {
-        id: 1718,
+        id: 1802,
         key: "arpeggios7/inversions/7/6/C",
         title: { pt: "C7 - inversões na 6ª corda", en: "C7 - inversions on the 6th string" },
         exerciseTitle: { pt: "C7 - inversões na 6ª corda", en: "C7 - inversions on the 6th string" },
@@ -75285,7 +75285,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1719,
+        id: 1803,
         key: "arpeggios7/inversions/7/6/F",
         title: { pt: "F7 - inversões na 6ª corda", en: "F7 - inversions on the 6th string" },
         exerciseTitle: { pt: "F7 - inversões na 6ª corda", en: "F7 - inversions on the 6th string" },
@@ -75323,7 +75323,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1720,
+        id: 1804,
         key: "arpeggios7/inversions/7/6/Bb",
         title: { pt: "B♭7 - inversões na 6ª corda", en: "B♭7 - inversions on the 6th string" },
         exerciseTitle: { pt: "B♭7 - inversões na 6ª corda", en: "B♭7 - inversions on the 6th string" },
@@ -75361,7 +75361,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1721,
+        id: 1805,
         key: "arpeggios7/inversions/7/6/Eb",
         title: { pt: "E♭7 - inversões na 6ª corda", en: "E♭7 - inversions on the 6th string" },
         exerciseTitle: { pt: "E♭7 - inversões na 6ª corda", en: "E♭7 - inversions on the 6th string" },
@@ -75399,7 +75399,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1722,
+        id: 1806,
         key: "arpeggios7/inversions/7/6/Ab",
         title: { pt: "A♭7 - inversões na 6ª corda", en: "A♭7 - inversions on the 6th string" },
         exerciseTitle: { pt: "A♭7 - inversões na 6ª corda", en: "A♭7 - inversions on the 6th string" },
@@ -75437,7 +75437,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1723,
+        id: 1807,
         key: "arpeggios7/inversions/7/6/Db",
         title: { pt: "D♭7 - inversões na 6ª corda", en: "D♭7 - inversions on the 6th string" },
         exerciseTitle: { pt: "D♭7 - inversões na 6ª corda", en: "D♭7 - inversions on the 6th string" },
@@ -75475,7 +75475,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1724,
+        id: 1808,
         key: "arpeggios7/inversions/7/6/F#",
         title: { pt: "F♯7 - inversões na 6ª corda", en: "F♯7 - inversions on the 6th string" },
         exerciseTitle: { pt: "F♯7 - inversões na 6ª corda", en: "F♯7 - inversions on the 6th string" },
@@ -75513,7 +75513,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1725,
+        id: 1809,
         key: "arpeggios7/inversions/7/6/B",
         title: { pt: "B7 - inversões na 6ª corda", en: "B7 - inversions on the 6th string" },
         exerciseTitle: { pt: "B7 - inversões na 6ª corda", en: "B7 - inversions on the 6th string" },
@@ -75551,7 +75551,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1726,
+        id: 1810,
         key: "arpeggios7/inversions/7/6/E",
         title: { pt: "E7 - inversões na 6ª corda", en: "E7 - inversions on the 6th string" },
         exerciseTitle: { pt: "E7 - inversões na 6ª corda", en: "E7 - inversions on the 6th string" },
@@ -75589,7 +75589,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1727,
+        id: 1811,
         key: "arpeggios7/inversions/7/6/A",
         title: { pt: "A7 - inversões na 6ª corda", en: "A7 - inversions on the 6th string" },
         exerciseTitle: { pt: "A7 - inversões na 6ª corda", en: "A7 - inversions on the 6th string" },
@@ -75627,7 +75627,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1728,
+        id: 1812,
         key: "arpeggios7/inversions/7/6/D",
         title: { pt: "D7 - inversões na 6ª corda", en: "D7 - inversions on the 6th string" },
         exerciseTitle: { pt: "D7 - inversões na 6ª corda", en: "D7 - inversions on the 6th string" },
@@ -75665,7 +75665,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1729,
+        id: 1813,
         key: "arpeggios7/inversions/7/6/G",
         title: { pt: "G7 - inversões na 6ª corda", en: "G7 - inversions on the 6th string" },
         exerciseTitle: { pt: "G7 - inversões na 6ª corda", en: "G7 - inversions on the 6th string" },
@@ -75711,7 +75711,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de 7 na 5ª corda", en: "Dominant 7 Inversions on the 5th string" },
         lessons: [
       {
-        id: 1730,
+        id: 1814,
         key: "arpeggios7/inversions/7/5/C",
         title: { pt: "C7 - inversões na 5ª corda", en: "C7 - inversions on the 5th string" },
         exerciseTitle: { pt: "C7 - inversões na 5ª corda", en: "C7 - inversions on the 5th string" },
@@ -75749,7 +75749,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1731,
+        id: 1815,
         key: "arpeggios7/inversions/7/5/F",
         title: { pt: "F7 - inversões na 5ª corda", en: "F7 - inversions on the 5th string" },
         exerciseTitle: { pt: "F7 - inversões na 5ª corda", en: "F7 - inversions on the 5th string" },
@@ -75787,7 +75787,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1732,
+        id: 1816,
         key: "arpeggios7/inversions/7/5/Bb",
         title: { pt: "B♭7 - inversões na 5ª corda", en: "B♭7 - inversions on the 5th string" },
         exerciseTitle: { pt: "B♭7 - inversões na 5ª corda", en: "B♭7 - inversions on the 5th string" },
@@ -75825,7 +75825,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1733,
+        id: 1817,
         key: "arpeggios7/inversions/7/5/Eb",
         title: { pt: "E♭7 - inversões na 5ª corda", en: "E♭7 - inversions on the 5th string" },
         exerciseTitle: { pt: "E♭7 - inversões na 5ª corda", en: "E♭7 - inversions on the 5th string" },
@@ -75863,7 +75863,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1734,
+        id: 1818,
         key: "arpeggios7/inversions/7/5/Ab",
         title: { pt: "A♭7 - inversões na 5ª corda", en: "A♭7 - inversions on the 5th string" },
         exerciseTitle: { pt: "A♭7 - inversões na 5ª corda", en: "A♭7 - inversions on the 5th string" },
@@ -75901,7 +75901,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1735,
+        id: 1819,
         key: "arpeggios7/inversions/7/5/Db",
         title: { pt: "D♭7 - inversões na 5ª corda", en: "D♭7 - inversions on the 5th string" },
         exerciseTitle: { pt: "D♭7 - inversões na 5ª corda", en: "D♭7 - inversions on the 5th string" },
@@ -75939,7 +75939,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1736,
+        id: 1820,
         key: "arpeggios7/inversions/7/5/F#",
         title: { pt: "F♯7 - inversões na 5ª corda", en: "F♯7 - inversions on the 5th string" },
         exerciseTitle: { pt: "F♯7 - inversões na 5ª corda", en: "F♯7 - inversions on the 5th string" },
@@ -75977,7 +75977,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1737,
+        id: 1821,
         key: "arpeggios7/inversions/7/5/B",
         title: { pt: "B7 - inversões na 5ª corda", en: "B7 - inversions on the 5th string" },
         exerciseTitle: { pt: "B7 - inversões na 5ª corda", en: "B7 - inversions on the 5th string" },
@@ -76015,7 +76015,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1738,
+        id: 1822,
         key: "arpeggios7/inversions/7/5/E",
         title: { pt: "E7 - inversões na 5ª corda", en: "E7 - inversions on the 5th string" },
         exerciseTitle: { pt: "E7 - inversões na 5ª corda", en: "E7 - inversions on the 5th string" },
@@ -76053,7 +76053,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1739,
+        id: 1823,
         key: "arpeggios7/inversions/7/5/A",
         title: { pt: "A7 - inversões na 5ª corda", en: "A7 - inversions on the 5th string" },
         exerciseTitle: { pt: "A7 - inversões na 5ª corda", en: "A7 - inversions on the 5th string" },
@@ -76091,7 +76091,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1740,
+        id: 1824,
         key: "arpeggios7/inversions/7/5/D",
         title: { pt: "D7 - inversões na 5ª corda", en: "D7 - inversions on the 5th string" },
         exerciseTitle: { pt: "D7 - inversões na 5ª corda", en: "D7 - inversions on the 5th string" },
@@ -76129,7 +76129,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1741,
+        id: 1825,
         key: "arpeggios7/inversions/7/5/G",
         title: { pt: "G7 - inversões na 5ª corda", en: "G7 - inversions on the 5th string" },
         exerciseTitle: { pt: "G7 - inversões na 5ª corda", en: "G7 - inversions on the 5th string" },
@@ -76175,7 +76175,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de 7 na 4ª corda", en: "Dominant 7 Inversions on the 4th string" },
         lessons: [
       {
-        id: 1742,
+        id: 1826,
         key: "arpeggios7/inversions/7/4/C",
         title: { pt: "C7 - inversões na 4ª corda", en: "C7 - inversions on the 4th string" },
         exerciseTitle: { pt: "C7 - inversões na 4ª corda", en: "C7 - inversions on the 4th string" },
@@ -76213,7 +76213,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1743,
+        id: 1827,
         key: "arpeggios7/inversions/7/4/F",
         title: { pt: "F7 - inversões na 4ª corda", en: "F7 - inversions on the 4th string" },
         exerciseTitle: { pt: "F7 - inversões na 4ª corda", en: "F7 - inversions on the 4th string" },
@@ -76251,7 +76251,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1744,
+        id: 1828,
         key: "arpeggios7/inversions/7/4/Bb",
         title: { pt: "B♭7 - inversões na 4ª corda", en: "B♭7 - inversions on the 4th string" },
         exerciseTitle: { pt: "B♭7 - inversões na 4ª corda", en: "B♭7 - inversions on the 4th string" },
@@ -76289,7 +76289,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1745,
+        id: 1829,
         key: "arpeggios7/inversions/7/4/Eb",
         title: { pt: "E♭7 - inversões na 4ª corda", en: "E♭7 - inversions on the 4th string" },
         exerciseTitle: { pt: "E♭7 - inversões na 4ª corda", en: "E♭7 - inversions on the 4th string" },
@@ -76327,7 +76327,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1746,
+        id: 1830,
         key: "arpeggios7/inversions/7/4/Ab",
         title: { pt: "A♭7 - inversões na 4ª corda", en: "A♭7 - inversions on the 4th string" },
         exerciseTitle: { pt: "A♭7 - inversões na 4ª corda", en: "A♭7 - inversions on the 4th string" },
@@ -76365,7 +76365,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1747,
+        id: 1831,
         key: "arpeggios7/inversions/7/4/Db",
         title: { pt: "D♭7 - inversões na 4ª corda", en: "D♭7 - inversions on the 4th string" },
         exerciseTitle: { pt: "D♭7 - inversões na 4ª corda", en: "D♭7 - inversions on the 4th string" },
@@ -76403,7 +76403,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1748,
+        id: 1832,
         key: "arpeggios7/inversions/7/4/F#",
         title: { pt: "F♯7 - inversões na 4ª corda", en: "F♯7 - inversions on the 4th string" },
         exerciseTitle: { pt: "F♯7 - inversões na 4ª corda", en: "F♯7 - inversions on the 4th string" },
@@ -76441,7 +76441,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1749,
+        id: 1833,
         key: "arpeggios7/inversions/7/4/B",
         title: { pt: "B7 - inversões na 4ª corda", en: "B7 - inversions on the 4th string" },
         exerciseTitle: { pt: "B7 - inversões na 4ª corda", en: "B7 - inversions on the 4th string" },
@@ -76479,7 +76479,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1750,
+        id: 1834,
         key: "arpeggios7/inversions/7/4/E",
         title: { pt: "E7 - inversões na 4ª corda", en: "E7 - inversions on the 4th string" },
         exerciseTitle: { pt: "E7 - inversões na 4ª corda", en: "E7 - inversions on the 4th string" },
@@ -76517,7 +76517,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1751,
+        id: 1835,
         key: "arpeggios7/inversions/7/4/A",
         title: { pt: "A7 - inversões na 4ª corda", en: "A7 - inversions on the 4th string" },
         exerciseTitle: { pt: "A7 - inversões na 4ª corda", en: "A7 - inversions on the 4th string" },
@@ -76555,7 +76555,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1752,
+        id: 1836,
         key: "arpeggios7/inversions/7/4/D",
         title: { pt: "D7 - inversões na 4ª corda", en: "D7 - inversions on the 4th string" },
         exerciseTitle: { pt: "D7 - inversões na 4ª corda", en: "D7 - inversions on the 4th string" },
@@ -76593,7 +76593,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1753,
+        id: 1837,
         key: "arpeggios7/inversions/7/4/G",
         title: { pt: "G7 - inversões na 4ª corda", en: "G7 - inversions on the 4th string" },
         exerciseTitle: { pt: "G7 - inversões na 4ª corda", en: "G7 - inversions on the 4th string" },
@@ -76639,7 +76639,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de m7(♭5) na 6ª corda", en: "m7(♭5) Inversions on the 6th string" },
         lessons: [
       {
-        id: 1754,
+        id: 1838,
         key: "arpeggios7/inversions/m7b5/6/C",
         title: { pt: "Cm7(♭5) - inversões na 6ª corda", en: "Cm7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "Cm7(♭5) - inversões na 6ª corda", en: "Cm7(♭5) - inversions on the 6th string" },
@@ -76690,7 +76690,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1755,
+        id: 1839,
         key: "arpeggios7/inversions/m7b5/6/F",
         title: { pt: "Fm7(♭5) - inversões na 6ª corda", en: "Fm7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "Fm7(♭5) - inversões na 6ª corda", en: "Fm7(♭5) - inversions on the 6th string" },
@@ -76741,7 +76741,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1756,
+        id: 1840,
         key: "arpeggios7/inversions/m7b5/6/A#",
         title: { pt: "A♯m7(♭5) - inversões na 6ª corda", en: "A♯m7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "A♯m7(♭5) - inversões na 6ª corda", en: "A♯m7(♭5) - inversions on the 6th string" },
@@ -76792,7 +76792,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1757,
+        id: 1841,
         key: "arpeggios7/inversions/m7b5/6/D#",
         title: { pt: "D♯m7(♭5) - inversões na 6ª corda", en: "D♯m7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "D♯m7(♭5) - inversões na 6ª corda", en: "D♯m7(♭5) - inversions on the 6th string" },
@@ -76843,7 +76843,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1758,
+        id: 1842,
         key: "arpeggios7/inversions/m7b5/6/G#",
         title: { pt: "G♯m7(♭5) - inversões na 6ª corda", en: "G♯m7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "G♯m7(♭5) - inversões na 6ª corda", en: "G♯m7(♭5) - inversions on the 6th string" },
@@ -76894,7 +76894,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1759,
+        id: 1843,
         key: "arpeggios7/inversions/m7b5/6/C#",
         title: { pt: "C♯m7(♭5) - inversões na 6ª corda", en: "C♯m7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "C♯m7(♭5) - inversões na 6ª corda", en: "C♯m7(♭5) - inversions on the 6th string" },
@@ -76945,7 +76945,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1760,
+        id: 1844,
         key: "arpeggios7/inversions/m7b5/6/F#",
         title: { pt: "F♯m7(♭5) - inversões na 6ª corda", en: "F♯m7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "F♯m7(♭5) - inversões na 6ª corda", en: "F♯m7(♭5) - inversions on the 6th string" },
@@ -76996,7 +76996,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1761,
+        id: 1845,
         key: "arpeggios7/inversions/m7b5/6/B",
         title: { pt: "Bm7(♭5) - inversões na 6ª corda", en: "Bm7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "Bm7(♭5) - inversões na 6ª corda", en: "Bm7(♭5) - inversions on the 6th string" },
@@ -77047,7 +77047,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1762,
+        id: 1846,
         key: "arpeggios7/inversions/m7b5/6/E",
         title: { pt: "Em7(♭5) - inversões na 6ª corda", en: "Em7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "Em7(♭5) - inversões na 6ª corda", en: "Em7(♭5) - inversions on the 6th string" },
@@ -77098,7 +77098,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1763,
+        id: 1847,
         key: "arpeggios7/inversions/m7b5/6/A",
         title: { pt: "Am7(♭5) - inversões na 6ª corda", en: "Am7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "Am7(♭5) - inversões na 6ª corda", en: "Am7(♭5) - inversions on the 6th string" },
@@ -77149,7 +77149,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1764,
+        id: 1848,
         key: "arpeggios7/inversions/m7b5/6/D",
         title: { pt: "Dm7(♭5) - inversões na 6ª corda", en: "Dm7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "Dm7(♭5) - inversões na 6ª corda", en: "Dm7(♭5) - inversions on the 6th string" },
@@ -77200,7 +77200,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1765,
+        id: 1849,
         key: "arpeggios7/inversions/m7b5/6/G",
         title: { pt: "Gm7(♭5) - inversões na 6ª corda", en: "Gm7(♭5) - inversions on the 6th string" },
         exerciseTitle: { pt: "Gm7(♭5) - inversões na 6ª corda", en: "Gm7(♭5) - inversions on the 6th string" },
@@ -77259,7 +77259,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de m7(♭5) na 5ª corda", en: "m7(♭5) Inversions on the 5th string" },
         lessons: [
       {
-        id: 1766,
+        id: 1850,
         key: "arpeggios7/inversions/m7b5/5/C",
         title: { pt: "Cm7(♭5) - inversões na 5ª corda", en: "Cm7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "Cm7(♭5) - inversões na 5ª corda", en: "Cm7(♭5) - inversions on the 5th string" },
@@ -77297,7 +77297,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1767,
+        id: 1851,
         key: "arpeggios7/inversions/m7b5/5/F",
         title: { pt: "Fm7(♭5) - inversões na 5ª corda", en: "Fm7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "Fm7(♭5) - inversões na 5ª corda", en: "Fm7(♭5) - inversions on the 5th string" },
@@ -77335,7 +77335,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1768,
+        id: 1852,
         key: "arpeggios7/inversions/m7b5/5/A#",
         title: { pt: "A♯m7(♭5) - inversões na 5ª corda", en: "A♯m7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "A♯m7(♭5) - inversões na 5ª corda", en: "A♯m7(♭5) - inversions on the 5th string" },
@@ -77373,7 +77373,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1769,
+        id: 1853,
         key: "arpeggios7/inversions/m7b5/5/D#",
         title: { pt: "D♯m7(♭5) - inversões na 5ª corda", en: "D♯m7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "D♯m7(♭5) - inversões na 5ª corda", en: "D♯m7(♭5) - inversions on the 5th string" },
@@ -77411,7 +77411,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1770,
+        id: 1854,
         key: "arpeggios7/inversions/m7b5/5/G#",
         title: { pt: "G♯m7(♭5) - inversões na 5ª corda", en: "G♯m7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "G♯m7(♭5) - inversões na 5ª corda", en: "G♯m7(♭5) - inversions on the 5th string" },
@@ -77449,7 +77449,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1771,
+        id: 1855,
         key: "arpeggios7/inversions/m7b5/5/C#",
         title: { pt: "C♯m7(♭5) - inversões na 5ª corda", en: "C♯m7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "C♯m7(♭5) - inversões na 5ª corda", en: "C♯m7(♭5) - inversions on the 5th string" },
@@ -77487,7 +77487,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1772,
+        id: 1856,
         key: "arpeggios7/inversions/m7b5/5/F#",
         title: { pt: "F♯m7(♭5) - inversões na 5ª corda", en: "F♯m7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "F♯m7(♭5) - inversões na 5ª corda", en: "F♯m7(♭5) - inversions on the 5th string" },
@@ -77525,7 +77525,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1773,
+        id: 1857,
         key: "arpeggios7/inversions/m7b5/5/B",
         title: { pt: "Bm7(♭5) - inversões na 5ª corda", en: "Bm7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "Bm7(♭5) - inversões na 5ª corda", en: "Bm7(♭5) - inversions on the 5th string" },
@@ -77563,7 +77563,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1774,
+        id: 1858,
         key: "arpeggios7/inversions/m7b5/5/E",
         title: { pt: "Em7(♭5) - inversões na 5ª corda", en: "Em7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "Em7(♭5) - inversões na 5ª corda", en: "Em7(♭5) - inversions on the 5th string" },
@@ -77601,7 +77601,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1775,
+        id: 1859,
         key: "arpeggios7/inversions/m7b5/5/A",
         title: { pt: "Am7(♭5) - inversões na 5ª corda", en: "Am7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "Am7(♭5) - inversões na 5ª corda", en: "Am7(♭5) - inversions on the 5th string" },
@@ -77639,7 +77639,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1776,
+        id: 1860,
         key: "arpeggios7/inversions/m7b5/5/D",
         title: { pt: "Dm7(♭5) - inversões na 5ª corda", en: "Dm7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "Dm7(♭5) - inversões na 5ª corda", en: "Dm7(♭5) - inversions on the 5th string" },
@@ -77677,7 +77677,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1777,
+        id: 1861,
         key: "arpeggios7/inversions/m7b5/5/G",
         title: { pt: "Gm7(♭5) - inversões na 5ª corda", en: "Gm7(♭5) - inversions on the 5th string" },
         exerciseTitle: { pt: "Gm7(♭5) - inversões na 5ª corda", en: "Gm7(♭5) - inversions on the 5th string" },
@@ -77723,7 +77723,7 @@ export const sections: Section[] = [
         title: { pt: "Inversões de m7(♭5) na 4ª corda", en: "m7(♭5) Inversions on the 4th string" },
         lessons: [
       {
-        id: 1778,
+        id: 1862,
         key: "arpeggios7/inversions/m7b5/4/C",
         title: { pt: "Cm7(♭5) - inversões na 4ª corda", en: "Cm7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "Cm7(♭5) - inversões na 4ª corda", en: "Cm7(♭5) - inversions on the 4th string" },
@@ -77761,7 +77761,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1779,
+        id: 1863,
         key: "arpeggios7/inversions/m7b5/4/F",
         title: { pt: "Fm7(♭5) - inversões na 4ª corda", en: "Fm7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "Fm7(♭5) - inversões na 4ª corda", en: "Fm7(♭5) - inversions on the 4th string" },
@@ -77799,7 +77799,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1780,
+        id: 1864,
         key: "arpeggios7/inversions/m7b5/4/A#",
         title: { pt: "A♯m7(♭5) - inversões na 4ª corda", en: "A♯m7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "A♯m7(♭5) - inversões na 4ª corda", en: "A♯m7(♭5) - inversions on the 4th string" },
@@ -77837,7 +77837,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1781,
+        id: 1865,
         key: "arpeggios7/inversions/m7b5/4/D#",
         title: { pt: "D♯m7(♭5) - inversões na 4ª corda", en: "D♯m7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "D♯m7(♭5) - inversões na 4ª corda", en: "D♯m7(♭5) - inversions on the 4th string" },
@@ -77875,7 +77875,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1782,
+        id: 1866,
         key: "arpeggios7/inversions/m7b5/4/G#",
         title: { pt: "G♯m7(♭5) - inversões na 4ª corda", en: "G♯m7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "G♯m7(♭5) - inversões na 4ª corda", en: "G♯m7(♭5) - inversions on the 4th string" },
@@ -77913,7 +77913,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1783,
+        id: 1867,
         key: "arpeggios7/inversions/m7b5/4/C#",
         title: { pt: "C♯m7(♭5) - inversões na 4ª corda", en: "C♯m7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "C♯m7(♭5) - inversões na 4ª corda", en: "C♯m7(♭5) - inversions on the 4th string" },
@@ -77951,7 +77951,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1784,
+        id: 1868,
         key: "arpeggios7/inversions/m7b5/4/F#",
         title: { pt: "F♯m7(♭5) - inversões na 4ª corda", en: "F♯m7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "F♯m7(♭5) - inversões na 4ª corda", en: "F♯m7(♭5) - inversions on the 4th string" },
@@ -77989,7 +77989,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1785,
+        id: 1869,
         key: "arpeggios7/inversions/m7b5/4/B",
         title: { pt: "Bm7(♭5) - inversões na 4ª corda", en: "Bm7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "Bm7(♭5) - inversões na 4ª corda", en: "Bm7(♭5) - inversions on the 4th string" },
@@ -78027,7 +78027,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1786,
+        id: 1870,
         key: "arpeggios7/inversions/m7b5/4/E",
         title: { pt: "Em7(♭5) - inversões na 4ª corda", en: "Em7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "Em7(♭5) - inversões na 4ª corda", en: "Em7(♭5) - inversions on the 4th string" },
@@ -78065,7 +78065,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1787,
+        id: 1871,
         key: "arpeggios7/inversions/m7b5/4/A",
         title: { pt: "Am7(♭5) - inversões na 4ª corda", en: "Am7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "Am7(♭5) - inversões na 4ª corda", en: "Am7(♭5) - inversions on the 4th string" },
@@ -78103,7 +78103,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1788,
+        id: 1872,
         key: "arpeggios7/inversions/m7b5/4/D",
         title: { pt: "Dm7(♭5) - inversões na 4ª corda", en: "Dm7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "Dm7(♭5) - inversões na 4ª corda", en: "Dm7(♭5) - inversions on the 4th string" },
@@ -78141,7 +78141,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1789,
+        id: 1873,
         key: "arpeggios7/inversions/m7b5/4/G",
         title: { pt: "Gm7(♭5) - inversões na 4ª corda", en: "Gm7(♭5) - inversions on the 4th string" },
         exerciseTitle: { pt: "Gm7(♭5) - inversões na 4ª corda", en: "Gm7(♭5) - inversions on the 4th string" },
@@ -78187,7 +78187,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na 6ª corda", en: "Diatonic seventh chords on the 6th string" },
         lessons: [
       {
-        id: 1790,
+        id: 1874,
         key: "arpeggios7/diatonic/6/C",
         title: { pt: "C maior - tétrades diatônicas", en: "C major - diatonic seventh chords" },
         exerciseTitle: { pt: "C maior - tétrades diatônicas", en: "C major - diatonic seventh chords" },
@@ -78235,7 +78235,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1791,
+        id: 1875,
         key: "arpeggios7/diatonic/6/F",
         title: { pt: "F maior - tétrades diatônicas", en: "F major - diatonic seventh chords" },
         exerciseTitle: { pt: "F maior - tétrades diatônicas", en: "F major - diatonic seventh chords" },
@@ -78283,7 +78283,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1792,
+        id: 1876,
         key: "arpeggios7/diatonic/6/Bb",
         title: { pt: "B♭ maior - tétrades diatônicas", en: "B♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "B♭ maior - tétrades diatônicas", en: "B♭ major - diatonic seventh chords" },
@@ -78331,7 +78331,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1793,
+        id: 1877,
         key: "arpeggios7/diatonic/6/Eb",
         title: { pt: "E♭ maior - tétrades diatônicas", en: "E♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "E♭ maior - tétrades diatônicas", en: "E♭ major - diatonic seventh chords" },
@@ -78379,7 +78379,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1794,
+        id: 1878,
         key: "arpeggios7/diatonic/6/Ab",
         title: { pt: "A♭ maior - tétrades diatônicas", en: "A♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "A♭ maior - tétrades diatônicas", en: "A♭ major - diatonic seventh chords" },
@@ -78427,7 +78427,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1795,
+        id: 1879,
         key: "arpeggios7/diatonic/6/Db",
         title: { pt: "D♭ maior - tétrades diatônicas", en: "D♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "D♭ maior - tétrades diatônicas", en: "D♭ major - diatonic seventh chords" },
@@ -78475,7 +78475,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1796,
+        id: 1880,
         key: "arpeggios7/diatonic/6/Gb",
         title: { pt: "G♭ maior - tétrades diatônicas", en: "G♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "G♭ maior - tétrades diatônicas", en: "G♭ major - diatonic seventh chords" },
@@ -78523,7 +78523,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1797,
+        id: 1881,
         key: "arpeggios7/diatonic/6/B",
         title: { pt: "B maior - tétrades diatônicas", en: "B major - diatonic seventh chords" },
         exerciseTitle: { pt: "B maior - tétrades diatônicas", en: "B major - diatonic seventh chords" },
@@ -78571,7 +78571,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1798,
+        id: 1882,
         key: "arpeggios7/diatonic/6/E",
         title: { pt: "E maior - tétrades diatônicas", en: "E major - diatonic seventh chords" },
         exerciseTitle: { pt: "E maior - tétrades diatônicas", en: "E major - diatonic seventh chords" },
@@ -78619,7 +78619,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1799,
+        id: 1883,
         key: "arpeggios7/diatonic/6/A",
         title: { pt: "A maior - tétrades diatônicas", en: "A major - diatonic seventh chords" },
         exerciseTitle: { pt: "A maior - tétrades diatônicas", en: "A major - diatonic seventh chords" },
@@ -78667,7 +78667,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1800,
+        id: 1884,
         key: "arpeggios7/diatonic/6/D",
         title: { pt: "D maior - tétrades diatônicas", en: "D major - diatonic seventh chords" },
         exerciseTitle: { pt: "D maior - tétrades diatônicas", en: "D major - diatonic seventh chords" },
@@ -78715,7 +78715,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1801,
+        id: 1885,
         key: "arpeggios7/diatonic/6/G",
         title: { pt: "G maior - tétrades diatônicas", en: "G major - diatonic seventh chords" },
         exerciseTitle: { pt: "G maior - tétrades diatônicas", en: "G major - diatonic seventh chords" },
@@ -78771,7 +78771,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na 5ª corda", en: "Diatonic seventh chords on the 5th string" },
         lessons: [
       {
-        id: 1802,
+        id: 1886,
         key: "arpeggios7/diatonic/5/C",
         title: { pt: "C maior - tétrades diatônicas", en: "C major - diatonic seventh chords" },
         exerciseTitle: { pt: "C maior - tétrades diatônicas", en: "C major - diatonic seventh chords" },
@@ -78807,7 +78807,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1803,
+        id: 1887,
         key: "arpeggios7/diatonic/5/F",
         title: { pt: "F maior - tétrades diatônicas", en: "F major - diatonic seventh chords" },
         exerciseTitle: { pt: "F maior - tétrades diatônicas", en: "F major - diatonic seventh chords" },
@@ -78843,7 +78843,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1804,
+        id: 1888,
         key: "arpeggios7/diatonic/5/Bb",
         title: { pt: "B♭ maior - tétrades diatônicas", en: "B♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "B♭ maior - tétrades diatônicas", en: "B♭ major - diatonic seventh chords" },
@@ -78879,7 +78879,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1805,
+        id: 1889,
         key: "arpeggios7/diatonic/5/Eb",
         title: { pt: "E♭ maior - tétrades diatônicas", en: "E♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "E♭ maior - tétrades diatônicas", en: "E♭ major - diatonic seventh chords" },
@@ -78915,7 +78915,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1806,
+        id: 1890,
         key: "arpeggios7/diatonic/5/Ab",
         title: { pt: "A♭ maior - tétrades diatônicas", en: "A♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "A♭ maior - tétrades diatônicas", en: "A♭ major - diatonic seventh chords" },
@@ -78951,7 +78951,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1807,
+        id: 1891,
         key: "arpeggios7/diatonic/5/Db",
         title: { pt: "D♭ maior - tétrades diatônicas", en: "D♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "D♭ maior - tétrades diatônicas", en: "D♭ major - diatonic seventh chords" },
@@ -78987,7 +78987,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1808,
+        id: 1892,
         key: "arpeggios7/diatonic/5/Gb",
         title: { pt: "G♭ maior - tétrades diatônicas", en: "G♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "G♭ maior - tétrades diatônicas", en: "G♭ major - diatonic seventh chords" },
@@ -79023,7 +79023,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1809,
+        id: 1893,
         key: "arpeggios7/diatonic/5/B",
         title: { pt: "B maior - tétrades diatônicas", en: "B major - diatonic seventh chords" },
         exerciseTitle: { pt: "B maior - tétrades diatônicas", en: "B major - diatonic seventh chords" },
@@ -79059,7 +79059,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1810,
+        id: 1894,
         key: "arpeggios7/diatonic/5/E",
         title: { pt: "E maior - tétrades diatônicas", en: "E major - diatonic seventh chords" },
         exerciseTitle: { pt: "E maior - tétrades diatônicas", en: "E major - diatonic seventh chords" },
@@ -79095,7 +79095,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1811,
+        id: 1895,
         key: "arpeggios7/diatonic/5/A",
         title: { pt: "A maior - tétrades diatônicas", en: "A major - diatonic seventh chords" },
         exerciseTitle: { pt: "A maior - tétrades diatônicas", en: "A major - diatonic seventh chords" },
@@ -79131,7 +79131,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1812,
+        id: 1896,
         key: "arpeggios7/diatonic/5/D",
         title: { pt: "D maior - tétrades diatônicas", en: "D major - diatonic seventh chords" },
         exerciseTitle: { pt: "D maior - tétrades diatônicas", en: "D major - diatonic seventh chords" },
@@ -79167,7 +79167,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1813,
+        id: 1897,
         key: "arpeggios7/diatonic/5/G",
         title: { pt: "G maior - tétrades diatônicas", en: "G major - diatonic seventh chords" },
         exerciseTitle: { pt: "G maior - tétrades diatônicas", en: "G major - diatonic seventh chords" },
@@ -79211,7 +79211,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na 4ª corda", en: "Diatonic seventh chords on the 4th string" },
         lessons: [
       {
-        id: 1814,
+        id: 1898,
         key: "arpeggios7/diatonic/4/C",
         title: { pt: "C maior - tétrades diatônicas", en: "C major - diatonic seventh chords" },
         exerciseTitle: { pt: "C maior - tétrades diatônicas", en: "C major - diatonic seventh chords" },
@@ -79247,7 +79247,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1815,
+        id: 1899,
         key: "arpeggios7/diatonic/4/F",
         title: { pt: "F maior - tétrades diatônicas", en: "F major - diatonic seventh chords" },
         exerciseTitle: { pt: "F maior - tétrades diatônicas", en: "F major - diatonic seventh chords" },
@@ -79283,7 +79283,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1816,
+        id: 1900,
         key: "arpeggios7/diatonic/4/Bb",
         title: { pt: "B♭ maior - tétrades diatônicas", en: "B♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "B♭ maior - tétrades diatônicas", en: "B♭ major - diatonic seventh chords" },
@@ -79319,7 +79319,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1817,
+        id: 1901,
         key: "arpeggios7/diatonic/4/Eb",
         title: { pt: "E♭ maior - tétrades diatônicas", en: "E♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "E♭ maior - tétrades diatônicas", en: "E♭ major - diatonic seventh chords" },
@@ -79355,7 +79355,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1818,
+        id: 1902,
         key: "arpeggios7/diatonic/4/Ab",
         title: { pt: "A♭ maior - tétrades diatônicas", en: "A♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "A♭ maior - tétrades diatônicas", en: "A♭ major - diatonic seventh chords" },
@@ -79391,7 +79391,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1819,
+        id: 1903,
         key: "arpeggios7/diatonic/4/Db",
         title: { pt: "D♭ maior - tétrades diatônicas", en: "D♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "D♭ maior - tétrades diatônicas", en: "D♭ major - diatonic seventh chords" },
@@ -79427,7 +79427,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1820,
+        id: 1904,
         key: "arpeggios7/diatonic/4/Gb",
         title: { pt: "G♭ maior - tétrades diatônicas", en: "G♭ major - diatonic seventh chords" },
         exerciseTitle: { pt: "G♭ maior - tétrades diatônicas", en: "G♭ major - diatonic seventh chords" },
@@ -79463,7 +79463,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1821,
+        id: 1905,
         key: "arpeggios7/diatonic/4/B",
         title: { pt: "B maior - tétrades diatônicas", en: "B major - diatonic seventh chords" },
         exerciseTitle: { pt: "B maior - tétrades diatônicas", en: "B major - diatonic seventh chords" },
@@ -79499,7 +79499,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1822,
+        id: 1906,
         key: "arpeggios7/diatonic/4/E",
         title: { pt: "E maior - tétrades diatônicas", en: "E major - diatonic seventh chords" },
         exerciseTitle: { pt: "E maior - tétrades diatônicas", en: "E major - diatonic seventh chords" },
@@ -79535,7 +79535,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1823,
+        id: 1907,
         key: "arpeggios7/diatonic/4/A",
         title: { pt: "A maior - tétrades diatônicas", en: "A major - diatonic seventh chords" },
         exerciseTitle: { pt: "A maior - tétrades diatônicas", en: "A major - diatonic seventh chords" },
@@ -79571,7 +79571,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1824,
+        id: 1908,
         key: "arpeggios7/diatonic/4/D",
         title: { pt: "D maior - tétrades diatônicas", en: "D major - diatonic seventh chords" },
         exerciseTitle: { pt: "D maior - tétrades diatônicas", en: "D major - diatonic seventh chords" },
@@ -79607,7 +79607,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1825,
+        id: 1909,
         key: "arpeggios7/diatonic/4/G",
         title: { pt: "G maior - tétrades diatônicas", en: "G major - diatonic seventh chords" },
         exerciseTitle: { pt: "G maior - tétrades diatônicas", en: "G major - diatonic seventh chords" },
@@ -79651,7 +79651,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na posição 1", en: "Diatonic seventh chords in position 1" },
         lessons: [
       {
-        id: 1826,
+        id: 1910,
         key: "arpeggios7/diatonic-vertical/p1/C",
         title: { pt: "C maior - tétrades na posição 1", en: "C major - seventh chords in position 1" },
         exerciseTitle: { pt: "C maior - tétrades na posição 1", en: "C major - seventh chords in position 1" },
@@ -79673,7 +79673,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1827,
+        id: 1911,
         key: "arpeggios7/diatonic-vertical/p1/F",
         title: { pt: "F maior - tétrades na posição 1", en: "F major - seventh chords in position 1" },
         exerciseTitle: { pt: "F maior - tétrades na posição 1", en: "F major - seventh chords in position 1" },
@@ -79695,7 +79695,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1828,
+        id: 1912,
         key: "arpeggios7/diatonic-vertical/p1/Bb",
         title: { pt: "B♭ maior - tétrades na posição 1", en: "B♭ major - seventh chords in position 1" },
         exerciseTitle: { pt: "B♭ maior - tétrades na posição 1", en: "B♭ major - seventh chords in position 1" },
@@ -79717,7 +79717,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1829,
+        id: 1913,
         key: "arpeggios7/diatonic-vertical/p1/Eb",
         title: { pt: "E♭ maior - tétrades na posição 1", en: "E♭ major - seventh chords in position 1" },
         exerciseTitle: { pt: "E♭ maior - tétrades na posição 1", en: "E♭ major - seventh chords in position 1" },
@@ -79739,7 +79739,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1830,
+        id: 1914,
         key: "arpeggios7/diatonic-vertical/p1/Ab",
         title: { pt: "A♭ maior - tétrades na posição 1", en: "A♭ major - seventh chords in position 1" },
         exerciseTitle: { pt: "A♭ maior - tétrades na posição 1", en: "A♭ major - seventh chords in position 1" },
@@ -79761,7 +79761,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1831,
+        id: 1915,
         key: "arpeggios7/diatonic-vertical/p1/Db",
         title: { pt: "D♭ maior - tétrades na posição 1", en: "D♭ major - seventh chords in position 1" },
         exerciseTitle: { pt: "D♭ maior - tétrades na posição 1", en: "D♭ major - seventh chords in position 1" },
@@ -79783,7 +79783,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1832,
+        id: 1916,
         key: "arpeggios7/diatonic-vertical/p1/Gb",
         title: { pt: "G♭ maior - tétrades na posição 1", en: "G♭ major - seventh chords in position 1" },
         exerciseTitle: { pt: "G♭ maior - tétrades na posição 1", en: "G♭ major - seventh chords in position 1" },
@@ -79805,7 +79805,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1833,
+        id: 1917,
         key: "arpeggios7/diatonic-vertical/p1/B",
         title: { pt: "B maior - tétrades na posição 1", en: "B major - seventh chords in position 1" },
         exerciseTitle: { pt: "B maior - tétrades na posição 1", en: "B major - seventh chords in position 1" },
@@ -79827,7 +79827,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1834,
+        id: 1918,
         key: "arpeggios7/diatonic-vertical/p1/E",
         title: { pt: "E maior - tétrades na posição 1", en: "E major - seventh chords in position 1" },
         exerciseTitle: { pt: "E maior - tétrades na posição 1", en: "E major - seventh chords in position 1" },
@@ -79849,7 +79849,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1835,
+        id: 1919,
         key: "arpeggios7/diatonic-vertical/p1/A",
         title: { pt: "A maior - tétrades na posição 1", en: "A major - seventh chords in position 1" },
         exerciseTitle: { pt: "A maior - tétrades na posição 1", en: "A major - seventh chords in position 1" },
@@ -79871,7 +79871,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1836,
+        id: 1920,
         key: "arpeggios7/diatonic-vertical/p1/D",
         title: { pt: "D maior - tétrades na posição 1", en: "D major - seventh chords in position 1" },
         exerciseTitle: { pt: "D maior - tétrades na posição 1", en: "D major - seventh chords in position 1" },
@@ -79893,7 +79893,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1837,
+        id: 1921,
         key: "arpeggios7/diatonic-vertical/p1/G",
         title: { pt: "G maior - tétrades na posição 1", en: "G major - seventh chords in position 1" },
         exerciseTitle: { pt: "G maior - tétrades na posição 1", en: "G major - seventh chords in position 1" },
@@ -79923,7 +79923,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na posição 2", en: "Diatonic seventh chords in position 2" },
         lessons: [
       {
-        id: 1838,
+        id: 1922,
         key: "arpeggios7/diatonic-vertical/p2/C",
         title: { pt: "C maior - tétrades na posição 2", en: "C major - seventh chords in position 2" },
         exerciseTitle: { pt: "C maior - tétrades na posição 2", en: "C major - seventh chords in position 2" },
@@ -79945,7 +79945,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1839,
+        id: 1923,
         key: "arpeggios7/diatonic-vertical/p2/F",
         title: { pt: "F maior - tétrades na posição 2", en: "F major - seventh chords in position 2" },
         exerciseTitle: { pt: "F maior - tétrades na posição 2", en: "F major - seventh chords in position 2" },
@@ -79967,7 +79967,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1840,
+        id: 1924,
         key: "arpeggios7/diatonic-vertical/p2/Bb",
         title: { pt: "B♭ maior - tétrades na posição 2", en: "B♭ major - seventh chords in position 2" },
         exerciseTitle: { pt: "B♭ maior - tétrades na posição 2", en: "B♭ major - seventh chords in position 2" },
@@ -79989,7 +79989,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1841,
+        id: 1925,
         key: "arpeggios7/diatonic-vertical/p2/Eb",
         title: { pt: "E♭ maior - tétrades na posição 2", en: "E♭ major - seventh chords in position 2" },
         exerciseTitle: { pt: "E♭ maior - tétrades na posição 2", en: "E♭ major - seventh chords in position 2" },
@@ -80011,7 +80011,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1842,
+        id: 1926,
         key: "arpeggios7/diatonic-vertical/p2/Ab",
         title: { pt: "A♭ maior - tétrades na posição 2", en: "A♭ major - seventh chords in position 2" },
         exerciseTitle: { pt: "A♭ maior - tétrades na posição 2", en: "A♭ major - seventh chords in position 2" },
@@ -80033,7 +80033,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1843,
+        id: 1927,
         key: "arpeggios7/diatonic-vertical/p2/Db",
         title: { pt: "D♭ maior - tétrades na posição 2", en: "D♭ major - seventh chords in position 2" },
         exerciseTitle: { pt: "D♭ maior - tétrades na posição 2", en: "D♭ major - seventh chords in position 2" },
@@ -80055,7 +80055,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1844,
+        id: 1928,
         key: "arpeggios7/diatonic-vertical/p2/Gb",
         title: { pt: "G♭ maior - tétrades na posição 2", en: "G♭ major - seventh chords in position 2" },
         exerciseTitle: { pt: "G♭ maior - tétrades na posição 2", en: "G♭ major - seventh chords in position 2" },
@@ -80077,7 +80077,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1845,
+        id: 1929,
         key: "arpeggios7/diatonic-vertical/p2/B",
         title: { pt: "B maior - tétrades na posição 2", en: "B major - seventh chords in position 2" },
         exerciseTitle: { pt: "B maior - tétrades na posição 2", en: "B major - seventh chords in position 2" },
@@ -80099,7 +80099,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1846,
+        id: 1930,
         key: "arpeggios7/diatonic-vertical/p2/E",
         title: { pt: "E maior - tétrades na posição 2", en: "E major - seventh chords in position 2" },
         exerciseTitle: { pt: "E maior - tétrades na posição 2", en: "E major - seventh chords in position 2" },
@@ -80121,7 +80121,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1847,
+        id: 1931,
         key: "arpeggios7/diatonic-vertical/p2/A",
         title: { pt: "A maior - tétrades na posição 2", en: "A major - seventh chords in position 2" },
         exerciseTitle: { pt: "A maior - tétrades na posição 2", en: "A major - seventh chords in position 2" },
@@ -80143,7 +80143,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1848,
+        id: 1932,
         key: "arpeggios7/diatonic-vertical/p2/D",
         title: { pt: "D maior - tétrades na posição 2", en: "D major - seventh chords in position 2" },
         exerciseTitle: { pt: "D maior - tétrades na posição 2", en: "D major - seventh chords in position 2" },
@@ -80165,7 +80165,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1849,
+        id: 1933,
         key: "arpeggios7/diatonic-vertical/p2/G",
         title: { pt: "G maior - tétrades na posição 2", en: "G major - seventh chords in position 2" },
         exerciseTitle: { pt: "G maior - tétrades na posição 2", en: "G major - seventh chords in position 2" },
@@ -80195,7 +80195,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na posição 3", en: "Diatonic seventh chords in position 3" },
         lessons: [
       {
-        id: 1850,
+        id: 1934,
         key: "arpeggios7/diatonic-vertical/p3/C",
         title: { pt: "C maior - tétrades na posição 3", en: "C major - seventh chords in position 3" },
         exerciseTitle: { pt: "C maior - tétrades na posição 3", en: "C major - seventh chords in position 3" },
@@ -80217,7 +80217,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1851,
+        id: 1935,
         key: "arpeggios7/diatonic-vertical/p3/F",
         title: { pt: "F maior - tétrades na posição 3", en: "F major - seventh chords in position 3" },
         exerciseTitle: { pt: "F maior - tétrades na posição 3", en: "F major - seventh chords in position 3" },
@@ -80239,7 +80239,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1852,
+        id: 1936,
         key: "arpeggios7/diatonic-vertical/p3/Bb",
         title: { pt: "B♭ maior - tétrades na posição 3", en: "B♭ major - seventh chords in position 3" },
         exerciseTitle: { pt: "B♭ maior - tétrades na posição 3", en: "B♭ major - seventh chords in position 3" },
@@ -80261,7 +80261,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1853,
+        id: 1937,
         key: "arpeggios7/diatonic-vertical/p3/Eb",
         title: { pt: "E♭ maior - tétrades na posição 3", en: "E♭ major - seventh chords in position 3" },
         exerciseTitle: { pt: "E♭ maior - tétrades na posição 3", en: "E♭ major - seventh chords in position 3" },
@@ -80283,7 +80283,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1854,
+        id: 1938,
         key: "arpeggios7/diatonic-vertical/p3/Ab",
         title: { pt: "A♭ maior - tétrades na posição 3", en: "A♭ major - seventh chords in position 3" },
         exerciseTitle: { pt: "A♭ maior - tétrades na posição 3", en: "A♭ major - seventh chords in position 3" },
@@ -80305,7 +80305,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1855,
+        id: 1939,
         key: "arpeggios7/diatonic-vertical/p3/Db",
         title: { pt: "D♭ maior - tétrades na posição 3", en: "D♭ major - seventh chords in position 3" },
         exerciseTitle: { pt: "D♭ maior - tétrades na posição 3", en: "D♭ major - seventh chords in position 3" },
@@ -80327,7 +80327,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1856,
+        id: 1940,
         key: "arpeggios7/diatonic-vertical/p3/Gb",
         title: { pt: "G♭ maior - tétrades na posição 3", en: "G♭ major - seventh chords in position 3" },
         exerciseTitle: { pt: "G♭ maior - tétrades na posição 3", en: "G♭ major - seventh chords in position 3" },
@@ -80349,7 +80349,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1857,
+        id: 1941,
         key: "arpeggios7/diatonic-vertical/p3/B",
         title: { pt: "B maior - tétrades na posição 3", en: "B major - seventh chords in position 3" },
         exerciseTitle: { pt: "B maior - tétrades na posição 3", en: "B major - seventh chords in position 3" },
@@ -80371,7 +80371,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1858,
+        id: 1942,
         key: "arpeggios7/diatonic-vertical/p3/E",
         title: { pt: "E maior - tétrades na posição 3", en: "E major - seventh chords in position 3" },
         exerciseTitle: { pt: "E maior - tétrades na posição 3", en: "E major - seventh chords in position 3" },
@@ -80393,7 +80393,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1859,
+        id: 1943,
         key: "arpeggios7/diatonic-vertical/p3/A",
         title: { pt: "A maior - tétrades na posição 3", en: "A major - seventh chords in position 3" },
         exerciseTitle: { pt: "A maior - tétrades na posição 3", en: "A major - seventh chords in position 3" },
@@ -80415,7 +80415,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1860,
+        id: 1944,
         key: "arpeggios7/diatonic-vertical/p3/D",
         title: { pt: "D maior - tétrades na posição 3", en: "D major - seventh chords in position 3" },
         exerciseTitle: { pt: "D maior - tétrades na posição 3", en: "D major - seventh chords in position 3" },
@@ -80437,7 +80437,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1861,
+        id: 1945,
         key: "arpeggios7/diatonic-vertical/p3/G",
         title: { pt: "G maior - tétrades na posição 3", en: "G major - seventh chords in position 3" },
         exerciseTitle: { pt: "G maior - tétrades na posição 3", en: "G major - seventh chords in position 3" },
@@ -80467,7 +80467,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na posição 4", en: "Diatonic seventh chords in position 4" },
         lessons: [
       {
-        id: 1862,
+        id: 1946,
         key: "arpeggios7/diatonic-vertical/p4/C",
         title: { pt: "C maior - tétrades na posição 4", en: "C major - seventh chords in position 4" },
         exerciseTitle: { pt: "C maior - tétrades na posição 4", en: "C major - seventh chords in position 4" },
@@ -80489,7 +80489,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1863,
+        id: 1947,
         key: "arpeggios7/diatonic-vertical/p4/F",
         title: { pt: "F maior - tétrades na posição 4", en: "F major - seventh chords in position 4" },
         exerciseTitle: { pt: "F maior - tétrades na posição 4", en: "F major - seventh chords in position 4" },
@@ -80511,7 +80511,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1864,
+        id: 1948,
         key: "arpeggios7/diatonic-vertical/p4/Bb",
         title: { pt: "B♭ maior - tétrades na posição 4", en: "B♭ major - seventh chords in position 4" },
         exerciseTitle: { pt: "B♭ maior - tétrades na posição 4", en: "B♭ major - seventh chords in position 4" },
@@ -80533,7 +80533,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1865,
+        id: 1949,
         key: "arpeggios7/diatonic-vertical/p4/Eb",
         title: { pt: "E♭ maior - tétrades na posição 4", en: "E♭ major - seventh chords in position 4" },
         exerciseTitle: { pt: "E♭ maior - tétrades na posição 4", en: "E♭ major - seventh chords in position 4" },
@@ -80555,7 +80555,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1866,
+        id: 1950,
         key: "arpeggios7/diatonic-vertical/p4/Ab",
         title: { pt: "A♭ maior - tétrades na posição 4", en: "A♭ major - seventh chords in position 4" },
         exerciseTitle: { pt: "A♭ maior - tétrades na posição 4", en: "A♭ major - seventh chords in position 4" },
@@ -80577,7 +80577,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1867,
+        id: 1951,
         key: "arpeggios7/diatonic-vertical/p4/Db",
         title: { pt: "D♭ maior - tétrades na posição 4", en: "D♭ major - seventh chords in position 4" },
         exerciseTitle: { pt: "D♭ maior - tétrades na posição 4", en: "D♭ major - seventh chords in position 4" },
@@ -80599,7 +80599,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1868,
+        id: 1952,
         key: "arpeggios7/diatonic-vertical/p4/Gb",
         title: { pt: "G♭ maior - tétrades na posição 4", en: "G♭ major - seventh chords in position 4" },
         exerciseTitle: { pt: "G♭ maior - tétrades na posição 4", en: "G♭ major - seventh chords in position 4" },
@@ -80621,7 +80621,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1869,
+        id: 1953,
         key: "arpeggios7/diatonic-vertical/p4/B",
         title: { pt: "B maior - tétrades na posição 4", en: "B major - seventh chords in position 4" },
         exerciseTitle: { pt: "B maior - tétrades na posição 4", en: "B major - seventh chords in position 4" },
@@ -80643,7 +80643,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1870,
+        id: 1954,
         key: "arpeggios7/diatonic-vertical/p4/E",
         title: { pt: "E maior - tétrades na posição 4", en: "E major - seventh chords in position 4" },
         exerciseTitle: { pt: "E maior - tétrades na posição 4", en: "E major - seventh chords in position 4" },
@@ -80665,7 +80665,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1871,
+        id: 1955,
         key: "arpeggios7/diatonic-vertical/p4/A",
         title: { pt: "A maior - tétrades na posição 4", en: "A major - seventh chords in position 4" },
         exerciseTitle: { pt: "A maior - tétrades na posição 4", en: "A major - seventh chords in position 4" },
@@ -80687,7 +80687,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1872,
+        id: 1956,
         key: "arpeggios7/diatonic-vertical/p4/D",
         title: { pt: "D maior - tétrades na posição 4", en: "D major - seventh chords in position 4" },
         exerciseTitle: { pt: "D maior - tétrades na posição 4", en: "D major - seventh chords in position 4" },
@@ -80709,7 +80709,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1873,
+        id: 1957,
         key: "arpeggios7/diatonic-vertical/p4/G",
         title: { pt: "G maior - tétrades na posição 4", en: "G major - seventh chords in position 4" },
         exerciseTitle: { pt: "G maior - tétrades na posição 4", en: "G major - seventh chords in position 4" },
@@ -80739,7 +80739,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na posição 5", en: "Diatonic seventh chords in position 5" },
         lessons: [
       {
-        id: 1874,
+        id: 1958,
         key: "arpeggios7/diatonic-vertical/p5/C",
         title: { pt: "C maior - tétrades na posição 5", en: "C major - seventh chords in position 5" },
         exerciseTitle: { pt: "C maior - tétrades na posição 5", en: "C major - seventh chords in position 5" },
@@ -80761,7 +80761,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1875,
+        id: 1959,
         key: "arpeggios7/diatonic-vertical/p5/F",
         title: { pt: "F maior - tétrades na posição 5", en: "F major - seventh chords in position 5" },
         exerciseTitle: { pt: "F maior - tétrades na posição 5", en: "F major - seventh chords in position 5" },
@@ -80783,7 +80783,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1876,
+        id: 1960,
         key: "arpeggios7/diatonic-vertical/p5/Bb",
         title: { pt: "B♭ maior - tétrades na posição 5", en: "B♭ major - seventh chords in position 5" },
         exerciseTitle: { pt: "B♭ maior - tétrades na posição 5", en: "B♭ major - seventh chords in position 5" },
@@ -80805,7 +80805,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1877,
+        id: 1961,
         key: "arpeggios7/diatonic-vertical/p5/Eb",
         title: { pt: "E♭ maior - tétrades na posição 5", en: "E♭ major - seventh chords in position 5" },
         exerciseTitle: { pt: "E♭ maior - tétrades na posição 5", en: "E♭ major - seventh chords in position 5" },
@@ -80827,7 +80827,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1878,
+        id: 1962,
         key: "arpeggios7/diatonic-vertical/p5/Ab",
         title: { pt: "A♭ maior - tétrades na posição 5", en: "A♭ major - seventh chords in position 5" },
         exerciseTitle: { pt: "A♭ maior - tétrades na posição 5", en: "A♭ major - seventh chords in position 5" },
@@ -80849,7 +80849,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1879,
+        id: 1963,
         key: "arpeggios7/diatonic-vertical/p5/Db",
         title: { pt: "D♭ maior - tétrades na posição 5", en: "D♭ major - seventh chords in position 5" },
         exerciseTitle: { pt: "D♭ maior - tétrades na posição 5", en: "D♭ major - seventh chords in position 5" },
@@ -80871,7 +80871,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1880,
+        id: 1964,
         key: "arpeggios7/diatonic-vertical/p5/Gb",
         title: { pt: "G♭ maior - tétrades na posição 5", en: "G♭ major - seventh chords in position 5" },
         exerciseTitle: { pt: "G♭ maior - tétrades na posição 5", en: "G♭ major - seventh chords in position 5" },
@@ -80893,7 +80893,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1881,
+        id: 1965,
         key: "arpeggios7/diatonic-vertical/p5/B",
         title: { pt: "B maior - tétrades na posição 5", en: "B major - seventh chords in position 5" },
         exerciseTitle: { pt: "B maior - tétrades na posição 5", en: "B major - seventh chords in position 5" },
@@ -80915,7 +80915,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1882,
+        id: 1966,
         key: "arpeggios7/diatonic-vertical/p5/E",
         title: { pt: "E maior - tétrades na posição 5", en: "E major - seventh chords in position 5" },
         exerciseTitle: { pt: "E maior - tétrades na posição 5", en: "E major - seventh chords in position 5" },
@@ -80937,7 +80937,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1883,
+        id: 1967,
         key: "arpeggios7/diatonic-vertical/p5/A",
         title: { pt: "A maior - tétrades na posição 5", en: "A major - seventh chords in position 5" },
         exerciseTitle: { pt: "A maior - tétrades na posição 5", en: "A major - seventh chords in position 5" },
@@ -80959,7 +80959,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1884,
+        id: 1968,
         key: "arpeggios7/diatonic-vertical/p5/D",
         title: { pt: "D maior - tétrades na posição 5", en: "D major - seventh chords in position 5" },
         exerciseTitle: { pt: "D maior - tétrades na posição 5", en: "D major - seventh chords in position 5" },
@@ -80981,7 +80981,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1885,
+        id: 1969,
         key: "arpeggios7/diatonic-vertical/p5/G",
         title: { pt: "G maior - tétrades na posição 5", en: "G major - seventh chords in position 5" },
         exerciseTitle: { pt: "G maior - tétrades na posição 5", en: "G major - seventh chords in position 5" },
@@ -81011,7 +81011,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na posição 6", en: "Diatonic seventh chords in position 6" },
         lessons: [
       {
-        id: 1886,
+        id: 1970,
         key: "arpeggios7/diatonic-vertical/p6/C",
         title: { pt: "C maior - tétrades na posição 6", en: "C major - seventh chords in position 6" },
         exerciseTitle: { pt: "C maior - tétrades na posição 6", en: "C major - seventh chords in position 6" },
@@ -81033,7 +81033,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1887,
+        id: 1971,
         key: "arpeggios7/diatonic-vertical/p6/F",
         title: { pt: "F maior - tétrades na posição 6", en: "F major - seventh chords in position 6" },
         exerciseTitle: { pt: "F maior - tétrades na posição 6", en: "F major - seventh chords in position 6" },
@@ -81055,7 +81055,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1888,
+        id: 1972,
         key: "arpeggios7/diatonic-vertical/p6/Bb",
         title: { pt: "B♭ maior - tétrades na posição 6", en: "B♭ major - seventh chords in position 6" },
         exerciseTitle: { pt: "B♭ maior - tétrades na posição 6", en: "B♭ major - seventh chords in position 6" },
@@ -81077,7 +81077,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1889,
+        id: 1973,
         key: "arpeggios7/diatonic-vertical/p6/Eb",
         title: { pt: "E♭ maior - tétrades na posição 6", en: "E♭ major - seventh chords in position 6" },
         exerciseTitle: { pt: "E♭ maior - tétrades na posição 6", en: "E♭ major - seventh chords in position 6" },
@@ -81099,7 +81099,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1890,
+        id: 1974,
         key: "arpeggios7/diatonic-vertical/p6/Ab",
         title: { pt: "A♭ maior - tétrades na posição 6", en: "A♭ major - seventh chords in position 6" },
         exerciseTitle: { pt: "A♭ maior - tétrades na posição 6", en: "A♭ major - seventh chords in position 6" },
@@ -81121,7 +81121,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1891,
+        id: 1975,
         key: "arpeggios7/diatonic-vertical/p6/Db",
         title: { pt: "D♭ maior - tétrades na posição 6", en: "D♭ major - seventh chords in position 6" },
         exerciseTitle: { pt: "D♭ maior - tétrades na posição 6", en: "D♭ major - seventh chords in position 6" },
@@ -81143,7 +81143,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1892,
+        id: 1976,
         key: "arpeggios7/diatonic-vertical/p6/Gb",
         title: { pt: "G♭ maior - tétrades na posição 6", en: "G♭ major - seventh chords in position 6" },
         exerciseTitle: { pt: "G♭ maior - tétrades na posição 6", en: "G♭ major - seventh chords in position 6" },
@@ -81165,7 +81165,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1893,
+        id: 1977,
         key: "arpeggios7/diatonic-vertical/p6/B",
         title: { pt: "B maior - tétrades na posição 6", en: "B major - seventh chords in position 6" },
         exerciseTitle: { pt: "B maior - tétrades na posição 6", en: "B major - seventh chords in position 6" },
@@ -81187,7 +81187,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1894,
+        id: 1978,
         key: "arpeggios7/diatonic-vertical/p6/E",
         title: { pt: "E maior - tétrades na posição 6", en: "E major - seventh chords in position 6" },
         exerciseTitle: { pt: "E maior - tétrades na posição 6", en: "E major - seventh chords in position 6" },
@@ -81209,7 +81209,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1895,
+        id: 1979,
         key: "arpeggios7/diatonic-vertical/p6/A",
         title: { pt: "A maior - tétrades na posição 6", en: "A major - seventh chords in position 6" },
         exerciseTitle: { pt: "A maior - tétrades na posição 6", en: "A major - seventh chords in position 6" },
@@ -81231,7 +81231,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1896,
+        id: 1980,
         key: "arpeggios7/diatonic-vertical/p6/D",
         title: { pt: "D maior - tétrades na posição 6", en: "D major - seventh chords in position 6" },
         exerciseTitle: { pt: "D maior - tétrades na posição 6", en: "D major - seventh chords in position 6" },
@@ -81253,7 +81253,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1897,
+        id: 1981,
         key: "arpeggios7/diatonic-vertical/p6/G",
         title: { pt: "G maior - tétrades na posição 6", en: "G major - seventh chords in position 6" },
         exerciseTitle: { pt: "G maior - tétrades na posição 6", en: "G major - seventh chords in position 6" },
@@ -81283,7 +81283,7 @@ export const sections: Section[] = [
         title: { pt: "Tétrades diatônicas na posição 7", en: "Diatonic seventh chords in position 7" },
         lessons: [
       {
-        id: 1898,
+        id: 1982,
         key: "arpeggios7/diatonic-vertical/p7/C",
         title: { pt: "C maior - tétrades na posição 7", en: "C major - seventh chords in position 7" },
         exerciseTitle: { pt: "C maior - tétrades na posição 7", en: "C major - seventh chords in position 7" },
@@ -81305,7 +81305,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1899,
+        id: 1983,
         key: "arpeggios7/diatonic-vertical/p7/F",
         title: { pt: "F maior - tétrades na posição 7", en: "F major - seventh chords in position 7" },
         exerciseTitle: { pt: "F maior - tétrades na posição 7", en: "F major - seventh chords in position 7" },
@@ -81327,7 +81327,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1900,
+        id: 1984,
         key: "arpeggios7/diatonic-vertical/p7/Bb",
         title: { pt: "B♭ maior - tétrades na posição 7", en: "B♭ major - seventh chords in position 7" },
         exerciseTitle: { pt: "B♭ maior - tétrades na posição 7", en: "B♭ major - seventh chords in position 7" },
@@ -81349,7 +81349,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1901,
+        id: 1985,
         key: "arpeggios7/diatonic-vertical/p7/Eb",
         title: { pt: "E♭ maior - tétrades na posição 7", en: "E♭ major - seventh chords in position 7" },
         exerciseTitle: { pt: "E♭ maior - tétrades na posição 7", en: "E♭ major - seventh chords in position 7" },
@@ -81371,7 +81371,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1902,
+        id: 1986,
         key: "arpeggios7/diatonic-vertical/p7/Ab",
         title: { pt: "A♭ maior - tétrades na posição 7", en: "A♭ major - seventh chords in position 7" },
         exerciseTitle: { pt: "A♭ maior - tétrades na posição 7", en: "A♭ major - seventh chords in position 7" },
@@ -81393,7 +81393,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1903,
+        id: 1987,
         key: "arpeggios7/diatonic-vertical/p7/Db",
         title: { pt: "D♭ maior - tétrades na posição 7", en: "D♭ major - seventh chords in position 7" },
         exerciseTitle: { pt: "D♭ maior - tétrades na posição 7", en: "D♭ major - seventh chords in position 7" },
@@ -81415,7 +81415,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1904,
+        id: 1988,
         key: "arpeggios7/diatonic-vertical/p7/Gb",
         title: { pt: "G♭ maior - tétrades na posição 7", en: "G♭ major - seventh chords in position 7" },
         exerciseTitle: { pt: "G♭ maior - tétrades na posição 7", en: "G♭ major - seventh chords in position 7" },
@@ -81437,7 +81437,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1905,
+        id: 1989,
         key: "arpeggios7/diatonic-vertical/p7/B",
         title: { pt: "B maior - tétrades na posição 7", en: "B major - seventh chords in position 7" },
         exerciseTitle: { pt: "B maior - tétrades na posição 7", en: "B major - seventh chords in position 7" },
@@ -81459,7 +81459,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1906,
+        id: 1990,
         key: "arpeggios7/diatonic-vertical/p7/E",
         title: { pt: "E maior - tétrades na posição 7", en: "E major - seventh chords in position 7" },
         exerciseTitle: { pt: "E maior - tétrades na posição 7", en: "E major - seventh chords in position 7" },
@@ -81481,7 +81481,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1907,
+        id: 1991,
         key: "arpeggios7/diatonic-vertical/p7/A",
         title: { pt: "A maior - tétrades na posição 7", en: "A major - seventh chords in position 7" },
         exerciseTitle: { pt: "A maior - tétrades na posição 7", en: "A major - seventh chords in position 7" },
@@ -81503,7 +81503,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1908,
+        id: 1992,
         key: "arpeggios7/diatonic-vertical/p7/D",
         title: { pt: "D maior - tétrades na posição 7", en: "D major - seventh chords in position 7" },
         exerciseTitle: { pt: "D maior - tétrades na posição 7", en: "D major - seventh chords in position 7" },
@@ -81525,7 +81525,7 @@ export const sections: Section[] = [
         ],
       },
       {
-        id: 1909,
+        id: 1993,
         key: "arpeggios7/diatonic-vertical/p7/G",
         title: { pt: "G maior - tétrades na posição 7", en: "G major - seventh chords in position 7" },
         exerciseTitle: { pt: "G maior - tétrades na posição 7", en: "G major - seventh chords in position 7" },
@@ -81543,6 +81543,1644 @@ export const sections: Section[] = [
             notation: true,
             groups: [{ label: "F♯m7(♭5)", count: 4 }, { label: "G7+", count: 4 }, { label: "Am7", count: 4 }, { label: "Bm7", count: 4 }, { label: "C7+", count: 4 }, { label: "D7", count: 4 }, { label: "Em7", count: 4 }],
             notes: [{ string: 0, fret: 2, finger: 1, degree: "7", pitch: "F♯2" }, { string: 0, fret: 5, finger: 4, degree: "2", pitch: "A2" }, { string: 1, fret: 3, finger: 2, degree: "4", pitch: "C3" }, { string: 2, fret: 2, finger: 1, degree: "6", pitch: "E3" }, { string: 0, fret: 3, finger: 2, degree: "1", pitch: "G2" }, { string: 1, fret: 2, finger: 1, degree: "3", pitch: "B2" }, { string: 1, fret: 5, finger: 4, degree: "5", pitch: "D3" }, { string: 2, fret: 4, finger: 3, degree: "7", pitch: "F♯3" }, { string: 0, fret: 5, finger: 4, degree: "2", pitch: "A2" }, { string: 1, fret: 3, finger: 2, degree: "4", pitch: "C3" }, { string: 2, fret: 2, finger: 1, degree: "6", pitch: "E3" }, { string: 2, fret: 5, finger: 4, degree: "1", pitch: "G3" }, { string: 1, fret: 2, finger: 1, degree: "3", pitch: "B2" }, { string: 1, fret: 5, finger: 4, degree: "5", pitch: "D3" }, { string: 2, fret: 4, finger: 3, degree: "7", pitch: "F♯3" }, { string: 3, fret: 2, finger: 1, degree: "2", pitch: "A3" }, { string: 1, fret: 3, finger: 2, degree: "4", pitch: "C3" }, { string: 2, fret: 2, finger: 1, degree: "6", pitch: "E3" }, { string: 2, fret: 5, finger: 4, degree: "1", pitch: "G3" }, { string: 3, fret: 4, finger: 3, degree: "3", pitch: "B3" }, { string: 1, fret: 5, finger: 4, degree: "5", pitch: "D3" }, { string: 2, fret: 4, finger: 3, degree: "7", pitch: "F♯3" }, { string: 3, fret: 2, finger: 1, degree: "2", pitch: "A3" }, { string: 3, fret: 5, finger: 4, degree: "4", pitch: "C4" }, { string: 2, fret: 2, finger: 1, degree: "6", pitch: "E3" }, { string: 2, fret: 5, finger: 4, degree: "1", pitch: "G3" }, { string: 3, fret: 4, finger: 3, degree: "3", pitch: "B3" }, { string: 4, fret: 3, finger: 2, degree: "5", pitch: "D4" }],
+          },
+        ],
+      },
+        ],
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: { pt: "7 Posições da Escala Alterada", en: "7 Positions of the Altered Scale" },
+    subtitle: { pt: "Aprenda a escala alterada em sete posições e use as tensões do acorde dominante em qualquer região do braço", en: "Learn the altered scale in seven positions and use the dominant chord's tensions anywhere on the neck" },
+    trails: [
+      {
+        title: { pt: "Posição 1", en: "Position 1" },
+        lessons: [
+      {
+        id: 518,
+        key: "altered/p1/C",
+        title: { pt: "C alterada - posição 1", en: "C altered - position 1" },
+        exerciseTitle: { pt: "C alterada - posição 1", en: "C altered - position 1" },
+        subtitle: { pt: "C alterada na posição 1 (Alterado), subindo e descendo", en: "C altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "C",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 8, finger: 1, degree: "1" }, { string: 0, fret: 9, finger: 2, degree: "♭2" }, { string: 0, fret: 11, finger: 4, degree: "♯2" }, { string: 1, fret: 7, finger: 1, degree: "3" }, { string: 1, fret: 9, finger: 2, degree: "♯4" }, { string: 1, fret: 11, finger: 4, degree: "♯5" }, { string: 2, fret: 8, finger: 1, degree: "♭7" }, { string: 2, fret: 10, finger: 3, degree: "1" }, { string: 2, fret: 11, finger: 4, degree: "♭2" }, { string: 3, fret: 8, finger: 1, degree: "♯2" }, { string: 3, fret: 9, finger: 2, degree: "3" }, { string: 3, fret: 11, finger: 4, degree: "♯4" }, { string: 4, fret: 9, finger: 2, degree: "♯5" }, { string: 4, fret: 11, finger: 4, degree: "♭7" }, { string: 5, fret: 8, finger: 1, degree: "1" }, { string: 5, fret: 9, finger: 2, degree: "♭2" }, { string: 5, fret: 11, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 519,
+        key: "altered/p1/F",
+        title: { pt: "F alterada - posição 1", en: "F altered - position 1" },
+        exerciseTitle: { pt: "F alterada - posição 1", en: "F altered - position 1" },
+        subtitle: { pt: "F alterada na posição 1 (Alterado), subindo e descendo", en: "F altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "F",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 1, finger: 1, degree: "1" }, { string: 0, fret: 2, finger: 2, degree: "♭2" }, { string: 0, fret: 4, finger: 4, degree: "♯2" }, { string: 1, fret: 0, finger: 1, degree: "3" }, { string: 1, fret: 2, finger: 2, degree: "♯4" }, { string: 1, fret: 4, finger: 4, degree: "♯5" }, { string: 2, fret: 1, finger: 1, degree: "♭7" }, { string: 2, fret: 3, finger: 3, degree: "1" }, { string: 2, fret: 4, finger: 4, degree: "♭2" }, { string: 3, fret: 1, finger: 1, degree: "♯2" }, { string: 3, fret: 2, finger: 2, degree: "3" }, { string: 3, fret: 4, finger: 4, degree: "♯4" }, { string: 4, fret: 2, finger: 2, degree: "♯5" }, { string: 4, fret: 4, finger: 4, degree: "♭7" }, { string: 5, fret: 1, finger: 1, degree: "1" }, { string: 5, fret: 2, finger: 2, degree: "♭2" }, { string: 5, fret: 4, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 520,
+        key: "altered/p1/Bb",
+        title: { pt: "B♭ alterada - posição 1", en: "B♭ altered - position 1" },
+        exerciseTitle: { pt: "B♭ alterada - posição 1", en: "B♭ altered - position 1" },
+        subtitle: { pt: "B♭ alterada na posição 1 (Alterado), subindo e descendo", en: "B♭ altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B♭",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 6, finger: 1, degree: "1" }, { string: 0, fret: 7, finger: 2, degree: "♭2" }, { string: 0, fret: 9, finger: 4, degree: "♯2" }, { string: 1, fret: 5, finger: 1, degree: "3" }, { string: 1, fret: 7, finger: 2, degree: "♯4" }, { string: 1, fret: 9, finger: 4, degree: "♯5" }, { string: 2, fret: 6, finger: 1, degree: "♭7" }, { string: 2, fret: 8, finger: 3, degree: "1" }, { string: 2, fret: 9, finger: 4, degree: "♭2" }, { string: 3, fret: 6, finger: 1, degree: "♯2" }, { string: 3, fret: 7, finger: 2, degree: "3" }, { string: 3, fret: 9, finger: 4, degree: "♯4" }, { string: 4, fret: 7, finger: 2, degree: "♯5" }, { string: 4, fret: 9, finger: 4, degree: "♭7" }, { string: 5, fret: 6, finger: 1, degree: "1" }, { string: 5, fret: 7, finger: 2, degree: "♭2" }, { string: 5, fret: 9, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 521,
+        key: "altered/p1/Eb",
+        title: { pt: "E♭ alterada - posição 1", en: "E♭ altered - position 1" },
+        exerciseTitle: { pt: "E♭ alterada - posição 1", en: "E♭ altered - position 1" },
+        subtitle: { pt: "E♭ alterada na posição 1 (Alterado), subindo e descendo", en: "E♭ altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E♭",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 11, finger: 1, degree: "1" }, { string: 0, fret: 12, finger: 2, degree: "♭2" }, { string: 0, fret: 14, finger: 4, degree: "♯2" }, { string: 1, fret: 10, finger: 1, degree: "3" }, { string: 1, fret: 12, finger: 2, degree: "♯4" }, { string: 1, fret: 14, finger: 4, degree: "♯5" }, { string: 2, fret: 11, finger: 1, degree: "♭7" }, { string: 2, fret: 13, finger: 3, degree: "1" }, { string: 2, fret: 14, finger: 4, degree: "♭2" }, { string: 3, fret: 11, finger: 1, degree: "♯2" }, { string: 3, fret: 12, finger: 2, degree: "3" }, { string: 3, fret: 14, finger: 4, degree: "♯4" }, { string: 4, fret: 12, finger: 2, degree: "♯5" }, { string: 4, fret: 14, finger: 4, degree: "♭7" }, { string: 5, fret: 11, finger: 1, degree: "1" }, { string: 5, fret: 12, finger: 2, degree: "♭2" }, { string: 5, fret: 14, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 522,
+        key: "altered/p1/Ab",
+        title: { pt: "A♭ alterada - posição 1", en: "A♭ altered - position 1" },
+        exerciseTitle: { pt: "A♭ alterada - posição 1", en: "A♭ altered - position 1" },
+        subtitle: { pt: "A♭ alterada na posição 1 (Alterado), subindo e descendo", en: "A♭ altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A♭",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 4, finger: 1, degree: "1" }, { string: 0, fret: 5, finger: 2, degree: "♭2" }, { string: 0, fret: 7, finger: 4, degree: "♯2" }, { string: 1, fret: 3, finger: 1, degree: "3" }, { string: 1, fret: 5, finger: 2, degree: "♯4" }, { string: 1, fret: 7, finger: 4, degree: "♯5" }, { string: 2, fret: 4, finger: 1, degree: "♭7" }, { string: 2, fret: 6, finger: 3, degree: "1" }, { string: 2, fret: 7, finger: 4, degree: "♭2" }, { string: 3, fret: 4, finger: 1, degree: "♯2" }, { string: 3, fret: 5, finger: 2, degree: "3" }, { string: 3, fret: 7, finger: 4, degree: "♯4" }, { string: 4, fret: 5, finger: 2, degree: "♯5" }, { string: 4, fret: 7, finger: 4, degree: "♭7" }, { string: 5, fret: 4, finger: 1, degree: "1" }, { string: 5, fret: 5, finger: 2, degree: "♭2" }, { string: 5, fret: 7, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 523,
+        key: "altered/p1/Db",
+        title: { pt: "D♭ alterada - posição 1", en: "D♭ altered - position 1" },
+        exerciseTitle: { pt: "D♭ alterada - posição 1", en: "D♭ altered - position 1" },
+        subtitle: { pt: "D♭ alterada na posição 1 (Alterado), subindo e descendo", en: "D♭ altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D♭",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 9, finger: 1, degree: "1" }, { string: 0, fret: 10, finger: 2, degree: "♭2" }, { string: 0, fret: 12, finger: 4, degree: "♯2" }, { string: 1, fret: 8, finger: 1, degree: "3" }, { string: 1, fret: 10, finger: 2, degree: "♯4" }, { string: 1, fret: 12, finger: 4, degree: "♯5" }, { string: 2, fret: 9, finger: 1, degree: "♭7" }, { string: 2, fret: 11, finger: 3, degree: "1" }, { string: 2, fret: 12, finger: 4, degree: "♭2" }, { string: 3, fret: 9, finger: 1, degree: "♯2" }, { string: 3, fret: 10, finger: 2, degree: "3" }, { string: 3, fret: 12, finger: 4, degree: "♯4" }, { string: 4, fret: 10, finger: 2, degree: "♯5" }, { string: 4, fret: 12, finger: 4, degree: "♭7" }, { string: 5, fret: 9, finger: 1, degree: "1" }, { string: 5, fret: 10, finger: 2, degree: "♭2" }, { string: 5, fret: 12, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 524,
+        key: "altered/p1/Gb",
+        title: { pt: "G♭ alterada - posição 1", en: "G♭ altered - position 1" },
+        exerciseTitle: { pt: "G♭ alterada - posição 1", en: "G♭ altered - position 1" },
+        subtitle: { pt: "G♭ alterada na posição 1 (Alterado), subindo e descendo", en: "G♭ altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G♭",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 2, finger: 1, degree: "1" }, { string: 0, fret: 3, finger: 2, degree: "♭2" }, { string: 0, fret: 5, finger: 4, degree: "♯2" }, { string: 1, fret: 1, finger: 1, degree: "3" }, { string: 1, fret: 3, finger: 2, degree: "♯4" }, { string: 1, fret: 5, finger: 4, degree: "♯5" }, { string: 2, fret: 2, finger: 1, degree: "♭7" }, { string: 2, fret: 4, finger: 3, degree: "1" }, { string: 2, fret: 5, finger: 4, degree: "♭2" }, { string: 3, fret: 2, finger: 1, degree: "♯2" }, { string: 3, fret: 3, finger: 2, degree: "3" }, { string: 3, fret: 5, finger: 4, degree: "♯4" }, { string: 4, fret: 3, finger: 2, degree: "♯5" }, { string: 4, fret: 5, finger: 4, degree: "♭7" }, { string: 5, fret: 2, finger: 1, degree: "1" }, { string: 5, fret: 3, finger: 2, degree: "♭2" }, { string: 5, fret: 5, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 525,
+        key: "altered/p1/B",
+        title: { pt: "B alterada - posição 1", en: "B altered - position 1" },
+        exerciseTitle: { pt: "B alterada - posição 1", en: "B altered - position 1" },
+        subtitle: { pt: "B alterada na posição 1 (Alterado), subindo e descendo", en: "B altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 7, finger: 1, degree: "1" }, { string: 0, fret: 8, finger: 2, degree: "♭2" }, { string: 0, fret: 10, finger: 4, degree: "♯2" }, { string: 1, fret: 6, finger: 1, degree: "3" }, { string: 1, fret: 8, finger: 2, degree: "♯4" }, { string: 1, fret: 10, finger: 4, degree: "♯5" }, { string: 2, fret: 7, finger: 1, degree: "♭7" }, { string: 2, fret: 9, finger: 3, degree: "1" }, { string: 2, fret: 10, finger: 4, degree: "♭2" }, { string: 3, fret: 7, finger: 1, degree: "♯2" }, { string: 3, fret: 8, finger: 2, degree: "3" }, { string: 3, fret: 10, finger: 4, degree: "♯4" }, { string: 4, fret: 8, finger: 2, degree: "♯5" }, { string: 4, fret: 10, finger: 4, degree: "♭7" }, { string: 5, fret: 7, finger: 1, degree: "1" }, { string: 5, fret: 8, finger: 2, degree: "♭2" }, { string: 5, fret: 10, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 526,
+        key: "altered/p1/E",
+        title: { pt: "E alterada - posição 1", en: "E altered - position 1" },
+        exerciseTitle: { pt: "E alterada - posição 1", en: "E altered - position 1" },
+        subtitle: { pt: "E alterada na posição 1 (Alterado), subindo e descendo", en: "E altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 12, finger: 1, degree: "1" }, { string: 0, fret: 13, finger: 2, degree: "♭2" }, { string: 0, fret: 15, finger: 4, degree: "♯2" }, { string: 1, fret: 11, finger: 1, degree: "3" }, { string: 1, fret: 13, finger: 2, degree: "♯4" }, { string: 1, fret: 15, finger: 4, degree: "♯5" }, { string: 2, fret: 12, finger: 1, degree: "♭7" }, { string: 2, fret: 14, finger: 3, degree: "1" }, { string: 2, fret: 15, finger: 4, degree: "♭2" }, { string: 3, fret: 12, finger: 1, degree: "♯2" }, { string: 3, fret: 13, finger: 2, degree: "3" }, { string: 3, fret: 15, finger: 4, degree: "♯4" }, { string: 4, fret: 13, finger: 2, degree: "♯5" }, { string: 4, fret: 15, finger: 4, degree: "♭7" }, { string: 5, fret: 12, finger: 1, degree: "1" }, { string: 5, fret: 13, finger: 2, degree: "♭2" }, { string: 5, fret: 15, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 527,
+        key: "altered/p1/A",
+        title: { pt: "A alterada - posição 1", en: "A altered - position 1" },
+        exerciseTitle: { pt: "A alterada - posição 1", en: "A altered - position 1" },
+        subtitle: { pt: "A alterada na posição 1 (Alterado), subindo e descendo", en: "A altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 5, finger: 1, degree: "1" }, { string: 0, fret: 6, finger: 2, degree: "♭2" }, { string: 0, fret: 8, finger: 4, degree: "♯2" }, { string: 1, fret: 4, finger: 1, degree: "3" }, { string: 1, fret: 6, finger: 2, degree: "♯4" }, { string: 1, fret: 8, finger: 4, degree: "♯5" }, { string: 2, fret: 5, finger: 1, degree: "♭7" }, { string: 2, fret: 7, finger: 3, degree: "1" }, { string: 2, fret: 8, finger: 4, degree: "♭2" }, { string: 3, fret: 5, finger: 1, degree: "♯2" }, { string: 3, fret: 6, finger: 2, degree: "3" }, { string: 3, fret: 8, finger: 4, degree: "♯4" }, { string: 4, fret: 6, finger: 2, degree: "♯5" }, { string: 4, fret: 8, finger: 4, degree: "♭7" }, { string: 5, fret: 5, finger: 1, degree: "1" }, { string: 5, fret: 6, finger: 2, degree: "♭2" }, { string: 5, fret: 8, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 528,
+        key: "altered/p1/D",
+        title: { pt: "D alterada - posição 1", en: "D altered - position 1" },
+        exerciseTitle: { pt: "D alterada - posição 1", en: "D altered - position 1" },
+        subtitle: { pt: "D alterada na posição 1 (Alterado), subindo e descendo", en: "D altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 10, finger: 1, degree: "1" }, { string: 0, fret: 11, finger: 2, degree: "♭2" }, { string: 0, fret: 13, finger: 4, degree: "♯2" }, { string: 1, fret: 9, finger: 1, degree: "3" }, { string: 1, fret: 11, finger: 2, degree: "♯4" }, { string: 1, fret: 13, finger: 4, degree: "♯5" }, { string: 2, fret: 10, finger: 1, degree: "♭7" }, { string: 2, fret: 12, finger: 3, degree: "1" }, { string: 2, fret: 13, finger: 4, degree: "♭2" }, { string: 3, fret: 10, finger: 1, degree: "♯2" }, { string: 3, fret: 11, finger: 2, degree: "3" }, { string: 3, fret: 13, finger: 4, degree: "♯4" }, { string: 4, fret: 11, finger: 2, degree: "♯5" }, { string: 4, fret: 13, finger: 4, degree: "♭7" }, { string: 5, fret: 10, finger: 1, degree: "1" }, { string: 5, fret: 11, finger: 2, degree: "♭2" }, { string: 5, fret: 13, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+      {
+        id: 529,
+        key: "altered/p1/G",
+        title: { pt: "G alterada - posição 1", en: "G altered - position 1" },
+        exerciseTitle: { pt: "G alterada - posição 1", en: "G altered - position 1" },
+        subtitle: { pt: "G alterada na posição 1 (Alterado), subindo e descendo", en: "G altered in position 1 (Altered), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G",
+            quality: "altered",
+            position: 1,
+            mode: { pt: "Alterado", en: "Altered" },
+            notes: [{ string: 0, fret: 3, finger: 1, degree: "1" }, { string: 0, fret: 4, finger: 2, degree: "♭2" }, { string: 0, fret: 6, finger: 4, degree: "♯2" }, { string: 1, fret: 2, finger: 1, degree: "3" }, { string: 1, fret: 4, finger: 2, degree: "♯4" }, { string: 1, fret: 6, finger: 4, degree: "♯5" }, { string: 2, fret: 3, finger: 1, degree: "♭7" }, { string: 2, fret: 5, finger: 3, degree: "1" }, { string: 2, fret: 6, finger: 4, degree: "♭2" }, { string: 3, fret: 3, finger: 1, degree: "♯2" }, { string: 3, fret: 4, finger: 2, degree: "3" }, { string: 3, fret: 6, finger: 4, degree: "♯4" }, { string: 4, fret: 4, finger: 2, degree: "♯5" }, { string: 4, fret: 6, finger: 4, degree: "♭7" }, { string: 5, fret: 3, finger: 1, degree: "1" }, { string: 5, fret: 4, finger: 2, degree: "♭2" }, { string: 5, fret: 6, finger: 4, degree: "♯2" }],
+          },
+        ],
+      },
+        ],
+      },
+      {
+        title: { pt: "Posição 2", en: "Position 2" },
+        lessons: [
+      {
+        id: 530,
+        key: "altered/p2/C",
+        title: { pt: "C alterada - posição 2", en: "C altered - position 2" },
+        exerciseTitle: { pt: "C alterada - posição 2", en: "C altered - position 2" },
+        subtitle: { pt: "C alterada na posição 2 (Menor melódica), subindo e descendo", en: "C altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "C",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 9, finger: 1, degree: "♭2" }, { string: 0, fret: 11, finger: 3, degree: "♯2" }, { string: 0, fret: 12, finger: 4, degree: "3" }, { string: 1, fret: 9, finger: 1, degree: "♯4" }, { string: 1, fret: 11, finger: 2, degree: "♯5" }, { string: 1, fret: 13, finger: 4, degree: "♭7" }, { string: 2, fret: 10, finger: 1, degree: "1" }, { string: 2, fret: 11, finger: 2, degree: "♭2" }, { string: 2, fret: 13, finger: 4, degree: "♯2" }, { string: 3, fret: 9, finger: 1, degree: "3" }, { string: 3, fret: 11, finger: 2, degree: "♯4" }, { string: 3, fret: 13, finger: 4, degree: "♯5" }, { string: 4, fret: 11, finger: 2, degree: "♭7" }, { string: 4, fret: 13, finger: 4, degree: "1" }, { string: 5, fret: 9, finger: 1, degree: "♭2" }, { string: 5, fret: 11, finger: 3, degree: "♯2" }, { string: 5, fret: 12, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 531,
+        key: "altered/p2/F",
+        title: { pt: "F alterada - posição 2", en: "F altered - position 2" },
+        exerciseTitle: { pt: "F alterada - posição 2", en: "F altered - position 2" },
+        subtitle: { pt: "F alterada na posição 2 (Menor melódica), subindo e descendo", en: "F altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "F",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 2, finger: 1, degree: "♭2" }, { string: 0, fret: 4, finger: 3, degree: "♯2" }, { string: 0, fret: 5, finger: 4, degree: "3" }, { string: 1, fret: 2, finger: 1, degree: "♯4" }, { string: 1, fret: 4, finger: 2, degree: "♯5" }, { string: 1, fret: 6, finger: 4, degree: "♭7" }, { string: 2, fret: 3, finger: 1, degree: "1" }, { string: 2, fret: 4, finger: 2, degree: "♭2" }, { string: 2, fret: 6, finger: 4, degree: "♯2" }, { string: 3, fret: 2, finger: 1, degree: "3" }, { string: 3, fret: 4, finger: 2, degree: "♯4" }, { string: 3, fret: 6, finger: 4, degree: "♯5" }, { string: 4, fret: 4, finger: 2, degree: "♭7" }, { string: 4, fret: 6, finger: 4, degree: "1" }, { string: 5, fret: 2, finger: 1, degree: "♭2" }, { string: 5, fret: 4, finger: 3, degree: "♯2" }, { string: 5, fret: 5, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 532,
+        key: "altered/p2/Bb",
+        title: { pt: "B♭ alterada - posição 2", en: "B♭ altered - position 2" },
+        exerciseTitle: { pt: "B♭ alterada - posição 2", en: "B♭ altered - position 2" },
+        subtitle: { pt: "B♭ alterada na posição 2 (Menor melódica), subindo e descendo", en: "B♭ altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B♭",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 7, finger: 1, degree: "♭2" }, { string: 0, fret: 9, finger: 3, degree: "♯2" }, { string: 0, fret: 10, finger: 4, degree: "3" }, { string: 1, fret: 7, finger: 1, degree: "♯4" }, { string: 1, fret: 9, finger: 2, degree: "♯5" }, { string: 1, fret: 11, finger: 4, degree: "♭7" }, { string: 2, fret: 8, finger: 1, degree: "1" }, { string: 2, fret: 9, finger: 2, degree: "♭2" }, { string: 2, fret: 11, finger: 4, degree: "♯2" }, { string: 3, fret: 7, finger: 1, degree: "3" }, { string: 3, fret: 9, finger: 2, degree: "♯4" }, { string: 3, fret: 11, finger: 4, degree: "♯5" }, { string: 4, fret: 9, finger: 2, degree: "♭7" }, { string: 4, fret: 11, finger: 4, degree: "1" }, { string: 5, fret: 7, finger: 1, degree: "♭2" }, { string: 5, fret: 9, finger: 3, degree: "♯2" }, { string: 5, fret: 10, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 533,
+        key: "altered/p2/Eb",
+        title: { pt: "E♭ alterada - posição 2", en: "E♭ altered - position 2" },
+        exerciseTitle: { pt: "E♭ alterada - posição 2", en: "E♭ altered - position 2" },
+        subtitle: { pt: "E♭ alterada na posição 2 (Menor melódica), subindo e descendo", en: "E♭ altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E♭",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 12, finger: 1, degree: "♭2" }, { string: 0, fret: 14, finger: 3, degree: "♯2" }, { string: 0, fret: 15, finger: 4, degree: "3" }, { string: 1, fret: 12, finger: 1, degree: "♯4" }, { string: 1, fret: 14, finger: 2, degree: "♯5" }, { string: 1, fret: 16, finger: 4, degree: "♭7" }, { string: 2, fret: 13, finger: 1, degree: "1" }, { string: 2, fret: 14, finger: 2, degree: "♭2" }, { string: 2, fret: 16, finger: 4, degree: "♯2" }, { string: 3, fret: 12, finger: 1, degree: "3" }, { string: 3, fret: 14, finger: 2, degree: "♯4" }, { string: 3, fret: 16, finger: 4, degree: "♯5" }, { string: 4, fret: 14, finger: 2, degree: "♭7" }, { string: 4, fret: 16, finger: 4, degree: "1" }, { string: 5, fret: 12, finger: 1, degree: "♭2" }, { string: 5, fret: 14, finger: 3, degree: "♯2" }, { string: 5, fret: 15, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 534,
+        key: "altered/p2/Ab",
+        title: { pt: "A♭ alterada - posição 2", en: "A♭ altered - position 2" },
+        exerciseTitle: { pt: "A♭ alterada - posição 2", en: "A♭ altered - position 2" },
+        subtitle: { pt: "A♭ alterada na posição 2 (Menor melódica), subindo e descendo", en: "A♭ altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A♭",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 5, finger: 1, degree: "♭2" }, { string: 0, fret: 7, finger: 3, degree: "♯2" }, { string: 0, fret: 8, finger: 4, degree: "3" }, { string: 1, fret: 5, finger: 1, degree: "♯4" }, { string: 1, fret: 7, finger: 2, degree: "♯5" }, { string: 1, fret: 9, finger: 4, degree: "♭7" }, { string: 2, fret: 6, finger: 1, degree: "1" }, { string: 2, fret: 7, finger: 2, degree: "♭2" }, { string: 2, fret: 9, finger: 4, degree: "♯2" }, { string: 3, fret: 5, finger: 1, degree: "3" }, { string: 3, fret: 7, finger: 2, degree: "♯4" }, { string: 3, fret: 9, finger: 4, degree: "♯5" }, { string: 4, fret: 7, finger: 2, degree: "♭7" }, { string: 4, fret: 9, finger: 4, degree: "1" }, { string: 5, fret: 5, finger: 1, degree: "♭2" }, { string: 5, fret: 7, finger: 3, degree: "♯2" }, { string: 5, fret: 8, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 535,
+        key: "altered/p2/Db",
+        title: { pt: "D♭ alterada - posição 2", en: "D♭ altered - position 2" },
+        exerciseTitle: { pt: "D♭ alterada - posição 2", en: "D♭ altered - position 2" },
+        subtitle: { pt: "D♭ alterada na posição 2 (Menor melódica), subindo e descendo", en: "D♭ altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D♭",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 10, finger: 1, degree: "♭2" }, { string: 0, fret: 12, finger: 3, degree: "♯2" }, { string: 0, fret: 13, finger: 4, degree: "3" }, { string: 1, fret: 10, finger: 1, degree: "♯4" }, { string: 1, fret: 12, finger: 2, degree: "♯5" }, { string: 1, fret: 14, finger: 4, degree: "♭7" }, { string: 2, fret: 11, finger: 1, degree: "1" }, { string: 2, fret: 12, finger: 2, degree: "♭2" }, { string: 2, fret: 14, finger: 4, degree: "♯2" }, { string: 3, fret: 10, finger: 1, degree: "3" }, { string: 3, fret: 12, finger: 2, degree: "♯4" }, { string: 3, fret: 14, finger: 4, degree: "♯5" }, { string: 4, fret: 12, finger: 2, degree: "♭7" }, { string: 4, fret: 14, finger: 4, degree: "1" }, { string: 5, fret: 10, finger: 1, degree: "♭2" }, { string: 5, fret: 12, finger: 3, degree: "♯2" }, { string: 5, fret: 13, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 536,
+        key: "altered/p2/Gb",
+        title: { pt: "G♭ alterada - posição 2", en: "G♭ altered - position 2" },
+        exerciseTitle: { pt: "G♭ alterada - posição 2", en: "G♭ altered - position 2" },
+        subtitle: { pt: "G♭ alterada na posição 2 (Menor melódica), subindo e descendo", en: "G♭ altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G♭",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 3, finger: 1, degree: "♭2" }, { string: 0, fret: 5, finger: 3, degree: "♯2" }, { string: 0, fret: 6, finger: 4, degree: "3" }, { string: 1, fret: 3, finger: 1, degree: "♯4" }, { string: 1, fret: 5, finger: 2, degree: "♯5" }, { string: 1, fret: 7, finger: 4, degree: "♭7" }, { string: 2, fret: 4, finger: 1, degree: "1" }, { string: 2, fret: 5, finger: 2, degree: "♭2" }, { string: 2, fret: 7, finger: 4, degree: "♯2" }, { string: 3, fret: 3, finger: 1, degree: "3" }, { string: 3, fret: 5, finger: 2, degree: "♯4" }, { string: 3, fret: 7, finger: 4, degree: "♯5" }, { string: 4, fret: 5, finger: 2, degree: "♭7" }, { string: 4, fret: 7, finger: 4, degree: "1" }, { string: 5, fret: 3, finger: 1, degree: "♭2" }, { string: 5, fret: 5, finger: 3, degree: "♯2" }, { string: 5, fret: 6, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 537,
+        key: "altered/p2/B",
+        title: { pt: "B alterada - posição 2", en: "B altered - position 2" },
+        exerciseTitle: { pt: "B alterada - posição 2", en: "B altered - position 2" },
+        subtitle: { pt: "B alterada na posição 2 (Menor melódica), subindo e descendo", en: "B altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 8, finger: 1, degree: "♭2" }, { string: 0, fret: 10, finger: 3, degree: "♯2" }, { string: 0, fret: 11, finger: 4, degree: "3" }, { string: 1, fret: 8, finger: 1, degree: "♯4" }, { string: 1, fret: 10, finger: 2, degree: "♯5" }, { string: 1, fret: 12, finger: 4, degree: "♭7" }, { string: 2, fret: 9, finger: 1, degree: "1" }, { string: 2, fret: 10, finger: 2, degree: "♭2" }, { string: 2, fret: 12, finger: 4, degree: "♯2" }, { string: 3, fret: 8, finger: 1, degree: "3" }, { string: 3, fret: 10, finger: 2, degree: "♯4" }, { string: 3, fret: 12, finger: 4, degree: "♯5" }, { string: 4, fret: 10, finger: 2, degree: "♭7" }, { string: 4, fret: 12, finger: 4, degree: "1" }, { string: 5, fret: 8, finger: 1, degree: "♭2" }, { string: 5, fret: 10, finger: 3, degree: "♯2" }, { string: 5, fret: 11, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 538,
+        key: "altered/p2/E",
+        title: { pt: "E alterada - posição 2", en: "E altered - position 2" },
+        exerciseTitle: { pt: "E alterada - posição 2", en: "E altered - position 2" },
+        subtitle: { pt: "E alterada na posição 2 (Menor melódica), subindo e descendo", en: "E altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 1, finger: 1, degree: "♭2" }, { string: 0, fret: 3, finger: 3, degree: "♯2" }, { string: 0, fret: 4, finger: 4, degree: "3" }, { string: 1, fret: 1, finger: 1, degree: "♯4" }, { string: 1, fret: 3, finger: 2, degree: "♯5" }, { string: 1, fret: 5, finger: 4, degree: "♭7" }, { string: 2, fret: 2, finger: 1, degree: "1" }, { string: 2, fret: 3, finger: 2, degree: "♭2" }, { string: 2, fret: 5, finger: 4, degree: "♯2" }, { string: 3, fret: 1, finger: 1, degree: "3" }, { string: 3, fret: 3, finger: 2, degree: "♯4" }, { string: 3, fret: 5, finger: 4, degree: "♯5" }, { string: 4, fret: 3, finger: 2, degree: "♭7" }, { string: 4, fret: 5, finger: 4, degree: "1" }, { string: 5, fret: 1, finger: 1, degree: "♭2" }, { string: 5, fret: 3, finger: 3, degree: "♯2" }, { string: 5, fret: 4, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 539,
+        key: "altered/p2/A",
+        title: { pt: "A alterada - posição 2", en: "A altered - position 2" },
+        exerciseTitle: { pt: "A alterada - posição 2", en: "A altered - position 2" },
+        subtitle: { pt: "A alterada na posição 2 (Menor melódica), subindo e descendo", en: "A altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 6, finger: 1, degree: "♭2" }, { string: 0, fret: 8, finger: 3, degree: "♯2" }, { string: 0, fret: 9, finger: 4, degree: "3" }, { string: 1, fret: 6, finger: 1, degree: "♯4" }, { string: 1, fret: 8, finger: 2, degree: "♯5" }, { string: 1, fret: 10, finger: 4, degree: "♭7" }, { string: 2, fret: 7, finger: 1, degree: "1" }, { string: 2, fret: 8, finger: 2, degree: "♭2" }, { string: 2, fret: 10, finger: 4, degree: "♯2" }, { string: 3, fret: 6, finger: 1, degree: "3" }, { string: 3, fret: 8, finger: 2, degree: "♯4" }, { string: 3, fret: 10, finger: 4, degree: "♯5" }, { string: 4, fret: 8, finger: 2, degree: "♭7" }, { string: 4, fret: 10, finger: 4, degree: "1" }, { string: 5, fret: 6, finger: 1, degree: "♭2" }, { string: 5, fret: 8, finger: 3, degree: "♯2" }, { string: 5, fret: 9, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 540,
+        key: "altered/p2/D",
+        title: { pt: "D alterada - posição 2", en: "D altered - position 2" },
+        exerciseTitle: { pt: "D alterada - posição 2", en: "D altered - position 2" },
+        subtitle: { pt: "D alterada na posição 2 (Menor melódica), subindo e descendo", en: "D altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 11, finger: 1, degree: "♭2" }, { string: 0, fret: 13, finger: 3, degree: "♯2" }, { string: 0, fret: 14, finger: 4, degree: "3" }, { string: 1, fret: 11, finger: 1, degree: "♯4" }, { string: 1, fret: 13, finger: 2, degree: "♯5" }, { string: 1, fret: 15, finger: 4, degree: "♭7" }, { string: 2, fret: 12, finger: 1, degree: "1" }, { string: 2, fret: 13, finger: 2, degree: "♭2" }, { string: 2, fret: 15, finger: 4, degree: "♯2" }, { string: 3, fret: 11, finger: 1, degree: "3" }, { string: 3, fret: 13, finger: 2, degree: "♯4" }, { string: 3, fret: 15, finger: 4, degree: "♯5" }, { string: 4, fret: 13, finger: 2, degree: "♭7" }, { string: 4, fret: 15, finger: 4, degree: "1" }, { string: 5, fret: 11, finger: 1, degree: "♭2" }, { string: 5, fret: 13, finger: 3, degree: "♯2" }, { string: 5, fret: 14, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+      {
+        id: 541,
+        key: "altered/p2/G",
+        title: { pt: "G alterada - posição 2", en: "G altered - position 2" },
+        exerciseTitle: { pt: "G alterada - posição 2", en: "G altered - position 2" },
+        subtitle: { pt: "G alterada na posição 2 (Menor melódica), subindo e descendo", en: "G altered in position 2 (Melodic minor), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G",
+            quality: "altered",
+            position: 2,
+            mode: { pt: "Menor melódica", en: "Melodic minor" },
+            notes: [{ string: 0, fret: 4, finger: 1, degree: "♭2" }, { string: 0, fret: 6, finger: 3, degree: "♯2" }, { string: 0, fret: 7, finger: 4, degree: "3" }, { string: 1, fret: 4, finger: 1, degree: "♯4" }, { string: 1, fret: 6, finger: 2, degree: "♯5" }, { string: 1, fret: 8, finger: 4, degree: "♭7" }, { string: 2, fret: 5, finger: 1, degree: "1" }, { string: 2, fret: 6, finger: 2, degree: "♭2" }, { string: 2, fret: 8, finger: 4, degree: "♯2" }, { string: 3, fret: 4, finger: 1, degree: "3" }, { string: 3, fret: 6, finger: 2, degree: "♯4" }, { string: 3, fret: 8, finger: 4, degree: "♯5" }, { string: 4, fret: 6, finger: 2, degree: "♭7" }, { string: 4, fret: 8, finger: 4, degree: "1" }, { string: 5, fret: 4, finger: 1, degree: "♭2" }, { string: 5, fret: 6, finger: 3, degree: "♯2" }, { string: 5, fret: 7, finger: 4, degree: "3" }],
+          },
+        ],
+      },
+        ],
+      },
+      {
+        title: { pt: "Posição 3", en: "Position 3" },
+        lessons: [
+      {
+        id: 542,
+        key: "altered/p3/C",
+        title: { pt: "C alterada - posição 3", en: "C altered - position 3" },
+        exerciseTitle: { pt: "C alterada - posição 3", en: "C altered - position 3" },
+        subtitle: { pt: "C alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "C altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "C",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 11, finger: 1, degree: "♯2" }, { string: 0, fret: 12, finger: 2, degree: "3" }, { string: 0, fret: 14, finger: 4, degree: "♯4" }, { string: 1, fret: 11, finger: 1, degree: "♯5" }, { string: 1, fret: 13, finger: 2, degree: "♭7" }, { string: 1, fret: 15, finger: 4, degree: "1" }, { string: 2, fret: 11, finger: 1, degree: "♭2" }, { string: 2, fret: 13, finger: 3, degree: "♯2" }, { string: 2, fret: 14, finger: 4, degree: "3" }, { string: 3, fret: 11, finger: 2, degree: "♯4" }, { string: 3, fret: 13, finger: 4, degree: "♯5" }, { string: 4, fret: 11, finger: 1, degree: "♭7" }, { string: 4, fret: 13, finger: 3, degree: "1" }, { string: 4, fret: 14, finger: 4, degree: "♭2" }, { string: 5, fret: 11, finger: 1, degree: "♯2" }, { string: 5, fret: 12, finger: 2, degree: "3" }, { string: 5, fret: 14, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 543,
+        key: "altered/p3/F",
+        title: { pt: "F alterada - posição 3", en: "F altered - position 3" },
+        exerciseTitle: { pt: "F alterada - posição 3", en: "F altered - position 3" },
+        subtitle: { pt: "F alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "F altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "F",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 4, finger: 1, degree: "♯2" }, { string: 0, fret: 5, finger: 2, degree: "3" }, { string: 0, fret: 7, finger: 4, degree: "♯4" }, { string: 1, fret: 4, finger: 1, degree: "♯5" }, { string: 1, fret: 6, finger: 2, degree: "♭7" }, { string: 1, fret: 8, finger: 4, degree: "1" }, { string: 2, fret: 4, finger: 1, degree: "♭2" }, { string: 2, fret: 6, finger: 3, degree: "♯2" }, { string: 2, fret: 7, finger: 4, degree: "3" }, { string: 3, fret: 4, finger: 2, degree: "♯4" }, { string: 3, fret: 6, finger: 4, degree: "♯5" }, { string: 4, fret: 4, finger: 1, degree: "♭7" }, { string: 4, fret: 6, finger: 3, degree: "1" }, { string: 4, fret: 7, finger: 4, degree: "♭2" }, { string: 5, fret: 4, finger: 1, degree: "♯2" }, { string: 5, fret: 5, finger: 2, degree: "3" }, { string: 5, fret: 7, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 544,
+        key: "altered/p3/Bb",
+        title: { pt: "B♭ alterada - posição 3", en: "B♭ altered - position 3" },
+        exerciseTitle: { pt: "B♭ alterada - posição 3", en: "B♭ altered - position 3" },
+        subtitle: { pt: "B♭ alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "B♭ altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B♭",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 9, finger: 1, degree: "♯2" }, { string: 0, fret: 10, finger: 2, degree: "3" }, { string: 0, fret: 12, finger: 4, degree: "♯4" }, { string: 1, fret: 9, finger: 1, degree: "♯5" }, { string: 1, fret: 11, finger: 2, degree: "♭7" }, { string: 1, fret: 13, finger: 4, degree: "1" }, { string: 2, fret: 9, finger: 1, degree: "♭2" }, { string: 2, fret: 11, finger: 3, degree: "♯2" }, { string: 2, fret: 12, finger: 4, degree: "3" }, { string: 3, fret: 9, finger: 2, degree: "♯4" }, { string: 3, fret: 11, finger: 4, degree: "♯5" }, { string: 4, fret: 9, finger: 1, degree: "♭7" }, { string: 4, fret: 11, finger: 3, degree: "1" }, { string: 4, fret: 12, finger: 4, degree: "♭2" }, { string: 5, fret: 9, finger: 1, degree: "♯2" }, { string: 5, fret: 10, finger: 2, degree: "3" }, { string: 5, fret: 12, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 545,
+        key: "altered/p3/Eb",
+        title: { pt: "E♭ alterada - posição 3", en: "E♭ altered - position 3" },
+        exerciseTitle: { pt: "E♭ alterada - posição 3", en: "E♭ altered - position 3" },
+        subtitle: { pt: "E♭ alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "E♭ altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E♭",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 2, finger: 1, degree: "♯2" }, { string: 0, fret: 3, finger: 2, degree: "3" }, { string: 0, fret: 5, finger: 4, degree: "♯4" }, { string: 1, fret: 2, finger: 1, degree: "♯5" }, { string: 1, fret: 4, finger: 2, degree: "♭7" }, { string: 1, fret: 6, finger: 4, degree: "1" }, { string: 2, fret: 2, finger: 1, degree: "♭2" }, { string: 2, fret: 4, finger: 3, degree: "♯2" }, { string: 2, fret: 5, finger: 4, degree: "3" }, { string: 3, fret: 2, finger: 2, degree: "♯4" }, { string: 3, fret: 4, finger: 4, degree: "♯5" }, { string: 4, fret: 2, finger: 1, degree: "♭7" }, { string: 4, fret: 4, finger: 3, degree: "1" }, { string: 4, fret: 5, finger: 4, degree: "♭2" }, { string: 5, fret: 2, finger: 1, degree: "♯2" }, { string: 5, fret: 3, finger: 2, degree: "3" }, { string: 5, fret: 5, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 546,
+        key: "altered/p3/Ab",
+        title: { pt: "A♭ alterada - posição 3", en: "A♭ altered - position 3" },
+        exerciseTitle: { pt: "A♭ alterada - posição 3", en: "A♭ altered - position 3" },
+        subtitle: { pt: "A♭ alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "A♭ altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A♭",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 7, finger: 1, degree: "♯2" }, { string: 0, fret: 8, finger: 2, degree: "3" }, { string: 0, fret: 10, finger: 4, degree: "♯4" }, { string: 1, fret: 7, finger: 1, degree: "♯5" }, { string: 1, fret: 9, finger: 2, degree: "♭7" }, { string: 1, fret: 11, finger: 4, degree: "1" }, { string: 2, fret: 7, finger: 1, degree: "♭2" }, { string: 2, fret: 9, finger: 3, degree: "♯2" }, { string: 2, fret: 10, finger: 4, degree: "3" }, { string: 3, fret: 7, finger: 2, degree: "♯4" }, { string: 3, fret: 9, finger: 4, degree: "♯5" }, { string: 4, fret: 7, finger: 1, degree: "♭7" }, { string: 4, fret: 9, finger: 3, degree: "1" }, { string: 4, fret: 10, finger: 4, degree: "♭2" }, { string: 5, fret: 7, finger: 1, degree: "♯2" }, { string: 5, fret: 8, finger: 2, degree: "3" }, { string: 5, fret: 10, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 547,
+        key: "altered/p3/Db",
+        title: { pt: "D♭ alterada - posição 3", en: "D♭ altered - position 3" },
+        exerciseTitle: { pt: "D♭ alterada - posição 3", en: "D♭ altered - position 3" },
+        subtitle: { pt: "D♭ alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "D♭ altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D♭",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 12, finger: 1, degree: "♯2" }, { string: 0, fret: 13, finger: 2, degree: "3" }, { string: 0, fret: 15, finger: 4, degree: "♯4" }, { string: 1, fret: 12, finger: 1, degree: "♯5" }, { string: 1, fret: 14, finger: 2, degree: "♭7" }, { string: 1, fret: 16, finger: 4, degree: "1" }, { string: 2, fret: 12, finger: 1, degree: "♭2" }, { string: 2, fret: 14, finger: 3, degree: "♯2" }, { string: 2, fret: 15, finger: 4, degree: "3" }, { string: 3, fret: 12, finger: 2, degree: "♯4" }, { string: 3, fret: 14, finger: 4, degree: "♯5" }, { string: 4, fret: 12, finger: 1, degree: "♭7" }, { string: 4, fret: 14, finger: 3, degree: "1" }, { string: 4, fret: 15, finger: 4, degree: "♭2" }, { string: 5, fret: 12, finger: 1, degree: "♯2" }, { string: 5, fret: 13, finger: 2, degree: "3" }, { string: 5, fret: 15, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 548,
+        key: "altered/p3/Gb",
+        title: { pt: "G♭ alterada - posição 3", en: "G♭ altered - position 3" },
+        exerciseTitle: { pt: "G♭ alterada - posição 3", en: "G♭ altered - position 3" },
+        subtitle: { pt: "G♭ alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "G♭ altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G♭",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 5, finger: 1, degree: "♯2" }, { string: 0, fret: 6, finger: 2, degree: "3" }, { string: 0, fret: 8, finger: 4, degree: "♯4" }, { string: 1, fret: 5, finger: 1, degree: "♯5" }, { string: 1, fret: 7, finger: 2, degree: "♭7" }, { string: 1, fret: 9, finger: 4, degree: "1" }, { string: 2, fret: 5, finger: 1, degree: "♭2" }, { string: 2, fret: 7, finger: 3, degree: "♯2" }, { string: 2, fret: 8, finger: 4, degree: "3" }, { string: 3, fret: 5, finger: 2, degree: "♯4" }, { string: 3, fret: 7, finger: 4, degree: "♯5" }, { string: 4, fret: 5, finger: 1, degree: "♭7" }, { string: 4, fret: 7, finger: 3, degree: "1" }, { string: 4, fret: 8, finger: 4, degree: "♭2" }, { string: 5, fret: 5, finger: 1, degree: "♯2" }, { string: 5, fret: 6, finger: 2, degree: "3" }, { string: 5, fret: 8, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 549,
+        key: "altered/p3/B",
+        title: { pt: "B alterada - posição 3", en: "B altered - position 3" },
+        exerciseTitle: { pt: "B alterada - posição 3", en: "B altered - position 3" },
+        subtitle: { pt: "B alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "B altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 10, finger: 1, degree: "♯2" }, { string: 0, fret: 11, finger: 2, degree: "3" }, { string: 0, fret: 13, finger: 4, degree: "♯4" }, { string: 1, fret: 10, finger: 1, degree: "♯5" }, { string: 1, fret: 12, finger: 2, degree: "♭7" }, { string: 1, fret: 14, finger: 4, degree: "1" }, { string: 2, fret: 10, finger: 1, degree: "♭2" }, { string: 2, fret: 12, finger: 3, degree: "♯2" }, { string: 2, fret: 13, finger: 4, degree: "3" }, { string: 3, fret: 10, finger: 2, degree: "♯4" }, { string: 3, fret: 12, finger: 4, degree: "♯5" }, { string: 4, fret: 10, finger: 1, degree: "♭7" }, { string: 4, fret: 12, finger: 3, degree: "1" }, { string: 4, fret: 13, finger: 4, degree: "♭2" }, { string: 5, fret: 10, finger: 1, degree: "♯2" }, { string: 5, fret: 11, finger: 2, degree: "3" }, { string: 5, fret: 13, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 550,
+        key: "altered/p3/E",
+        title: { pt: "E alterada - posição 3", en: "E altered - position 3" },
+        exerciseTitle: { pt: "E alterada - posição 3", en: "E altered - position 3" },
+        subtitle: { pt: "E alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "E altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 3, finger: 1, degree: "♯2" }, { string: 0, fret: 4, finger: 2, degree: "3" }, { string: 0, fret: 6, finger: 4, degree: "♯4" }, { string: 1, fret: 3, finger: 1, degree: "♯5" }, { string: 1, fret: 5, finger: 2, degree: "♭7" }, { string: 1, fret: 7, finger: 4, degree: "1" }, { string: 2, fret: 3, finger: 1, degree: "♭2" }, { string: 2, fret: 5, finger: 3, degree: "♯2" }, { string: 2, fret: 6, finger: 4, degree: "3" }, { string: 3, fret: 3, finger: 2, degree: "♯4" }, { string: 3, fret: 5, finger: 4, degree: "♯5" }, { string: 4, fret: 3, finger: 1, degree: "♭7" }, { string: 4, fret: 5, finger: 3, degree: "1" }, { string: 4, fret: 6, finger: 4, degree: "♭2" }, { string: 5, fret: 3, finger: 1, degree: "♯2" }, { string: 5, fret: 4, finger: 2, degree: "3" }, { string: 5, fret: 6, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 551,
+        key: "altered/p3/A",
+        title: { pt: "A alterada - posição 3", en: "A altered - position 3" },
+        exerciseTitle: { pt: "A alterada - posição 3", en: "A altered - position 3" },
+        subtitle: { pt: "A alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "A altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 8, finger: 1, degree: "♯2" }, { string: 0, fret: 9, finger: 2, degree: "3" }, { string: 0, fret: 11, finger: 4, degree: "♯4" }, { string: 1, fret: 8, finger: 1, degree: "♯5" }, { string: 1, fret: 10, finger: 2, degree: "♭7" }, { string: 1, fret: 12, finger: 4, degree: "1" }, { string: 2, fret: 8, finger: 1, degree: "♭2" }, { string: 2, fret: 10, finger: 3, degree: "♯2" }, { string: 2, fret: 11, finger: 4, degree: "3" }, { string: 3, fret: 8, finger: 2, degree: "♯4" }, { string: 3, fret: 10, finger: 4, degree: "♯5" }, { string: 4, fret: 8, finger: 1, degree: "♭7" }, { string: 4, fret: 10, finger: 3, degree: "1" }, { string: 4, fret: 11, finger: 4, degree: "♭2" }, { string: 5, fret: 8, finger: 1, degree: "♯2" }, { string: 5, fret: 9, finger: 2, degree: "3" }, { string: 5, fret: 11, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 552,
+        key: "altered/p3/D",
+        title: { pt: "D alterada - posição 3", en: "D altered - position 3" },
+        exerciseTitle: { pt: "D alterada - posição 3", en: "D altered - position 3" },
+        subtitle: { pt: "D alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "D altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 1, finger: 1, degree: "♯2" }, { string: 0, fret: 2, finger: 2, degree: "3" }, { string: 0, fret: 4, finger: 4, degree: "♯4" }, { string: 1, fret: 1, finger: 1, degree: "♯5" }, { string: 1, fret: 3, finger: 2, degree: "♭7" }, { string: 1, fret: 5, finger: 4, degree: "1" }, { string: 2, fret: 1, finger: 1, degree: "♭2" }, { string: 2, fret: 3, finger: 3, degree: "♯2" }, { string: 2, fret: 4, finger: 4, degree: "3" }, { string: 3, fret: 1, finger: 2, degree: "♯4" }, { string: 3, fret: 3, finger: 4, degree: "♯5" }, { string: 4, fret: 1, finger: 1, degree: "♭7" }, { string: 4, fret: 3, finger: 3, degree: "1" }, { string: 4, fret: 4, finger: 4, degree: "♭2" }, { string: 5, fret: 1, finger: 1, degree: "♯2" }, { string: 5, fret: 2, finger: 2, degree: "3" }, { string: 5, fret: 4, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+      {
+        id: 553,
+        key: "altered/p3/G",
+        title: { pt: "G alterada - posição 3", en: "G altered - position 3" },
+        exerciseTitle: { pt: "G alterada - posição 3", en: "G altered - position 3" },
+        subtitle: { pt: "G alterada na posição 3 (Dórico ♭2), subindo e descendo", en: "G altered in position 3 (Dorian ♭2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G",
+            quality: "altered",
+            position: 3,
+            mode: { pt: "Dórico ♭2", en: "Dorian ♭2" },
+            notes: [{ string: 0, fret: 6, finger: 1, degree: "♯2" }, { string: 0, fret: 7, finger: 2, degree: "3" }, { string: 0, fret: 9, finger: 4, degree: "♯4" }, { string: 1, fret: 6, finger: 1, degree: "♯5" }, { string: 1, fret: 8, finger: 2, degree: "♭7" }, { string: 1, fret: 10, finger: 4, degree: "1" }, { string: 2, fret: 6, finger: 1, degree: "♭2" }, { string: 2, fret: 8, finger: 3, degree: "♯2" }, { string: 2, fret: 9, finger: 4, degree: "3" }, { string: 3, fret: 6, finger: 2, degree: "♯4" }, { string: 3, fret: 8, finger: 4, degree: "♯5" }, { string: 4, fret: 6, finger: 1, degree: "♭7" }, { string: 4, fret: 8, finger: 3, degree: "1" }, { string: 4, fret: 9, finger: 4, degree: "♭2" }, { string: 5, fret: 6, finger: 1, degree: "♯2" }, { string: 5, fret: 7, finger: 2, degree: "3" }, { string: 5, fret: 9, finger: 4, degree: "♯4" }],
+          },
+        ],
+      },
+        ],
+      },
+      {
+        title: { pt: "Posição 4", en: "Position 4" },
+        lessons: [
+      {
+        id: 554,
+        key: "altered/p4/C",
+        title: { pt: "C alterada - posição 4", en: "C altered - position 4" },
+        exerciseTitle: { pt: "C alterada - posição 4", en: "C altered - position 4" },
+        subtitle: { pt: "C alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "C altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "C",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 12, finger: 1, degree: "3" }, { string: 0, fret: 14, finger: 2, degree: "♯4" }, { string: 0, fret: 16, finger: 4, degree: "♯5" }, { string: 1, fret: 13, finger: 1, degree: "♭7" }, { string: 1, fret: 15, finger: 3, degree: "1" }, { string: 1, fret: 16, finger: 4, degree: "♭2" }, { string: 2, fret: 13, finger: 1, degree: "♯2" }, { string: 2, fret: 14, finger: 2, degree: "3" }, { string: 2, fret: 16, finger: 4, degree: "♯4" }, { string: 3, fret: 13, finger: 2, degree: "♯5" }, { string: 3, fret: 15, finger: 4, degree: "♭7" }, { string: 4, fret: 13, finger: 1, degree: "1" }, { string: 4, fret: 14, finger: 2, degree: "♭2" }, { string: 4, fret: 16, finger: 4, degree: "♯2" }, { string: 5, fret: 12, finger: 1, degree: "3" }, { string: 5, fret: 14, finger: 2, degree: "♯4" }, { string: 5, fret: 16, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 555,
+        key: "altered/p4/F",
+        title: { pt: "F alterada - posição 4", en: "F altered - position 4" },
+        exerciseTitle: { pt: "F alterada - posição 4", en: "F altered - position 4" },
+        subtitle: { pt: "F alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "F altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "F",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 5, finger: 1, degree: "3" }, { string: 0, fret: 7, finger: 2, degree: "♯4" }, { string: 0, fret: 9, finger: 4, degree: "♯5" }, { string: 1, fret: 6, finger: 1, degree: "♭7" }, { string: 1, fret: 8, finger: 3, degree: "1" }, { string: 1, fret: 9, finger: 4, degree: "♭2" }, { string: 2, fret: 6, finger: 1, degree: "♯2" }, { string: 2, fret: 7, finger: 2, degree: "3" }, { string: 2, fret: 9, finger: 4, degree: "♯4" }, { string: 3, fret: 6, finger: 2, degree: "♯5" }, { string: 3, fret: 8, finger: 4, degree: "♭7" }, { string: 4, fret: 6, finger: 1, degree: "1" }, { string: 4, fret: 7, finger: 2, degree: "♭2" }, { string: 4, fret: 9, finger: 4, degree: "♯2" }, { string: 5, fret: 5, finger: 1, degree: "3" }, { string: 5, fret: 7, finger: 2, degree: "♯4" }, { string: 5, fret: 9, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 556,
+        key: "altered/p4/Bb",
+        title: { pt: "B♭ alterada - posição 4", en: "B♭ altered - position 4" },
+        exerciseTitle: { pt: "B♭ alterada - posição 4", en: "B♭ altered - position 4" },
+        subtitle: { pt: "B♭ alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "B♭ altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B♭",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 10, finger: 1, degree: "3" }, { string: 0, fret: 12, finger: 2, degree: "♯4" }, { string: 0, fret: 14, finger: 4, degree: "♯5" }, { string: 1, fret: 11, finger: 1, degree: "♭7" }, { string: 1, fret: 13, finger: 3, degree: "1" }, { string: 1, fret: 14, finger: 4, degree: "♭2" }, { string: 2, fret: 11, finger: 1, degree: "♯2" }, { string: 2, fret: 12, finger: 2, degree: "3" }, { string: 2, fret: 14, finger: 4, degree: "♯4" }, { string: 3, fret: 11, finger: 2, degree: "♯5" }, { string: 3, fret: 13, finger: 4, degree: "♭7" }, { string: 4, fret: 11, finger: 1, degree: "1" }, { string: 4, fret: 12, finger: 2, degree: "♭2" }, { string: 4, fret: 14, finger: 4, degree: "♯2" }, { string: 5, fret: 10, finger: 1, degree: "3" }, { string: 5, fret: 12, finger: 2, degree: "♯4" }, { string: 5, fret: 14, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 557,
+        key: "altered/p4/Eb",
+        title: { pt: "E♭ alterada - posição 4", en: "E♭ altered - position 4" },
+        exerciseTitle: { pt: "E♭ alterada - posição 4", en: "E♭ altered - position 4" },
+        subtitle: { pt: "E♭ alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "E♭ altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E♭",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 3, finger: 1, degree: "3" }, { string: 0, fret: 5, finger: 2, degree: "♯4" }, { string: 0, fret: 7, finger: 4, degree: "♯5" }, { string: 1, fret: 4, finger: 1, degree: "♭7" }, { string: 1, fret: 6, finger: 3, degree: "1" }, { string: 1, fret: 7, finger: 4, degree: "♭2" }, { string: 2, fret: 4, finger: 1, degree: "♯2" }, { string: 2, fret: 5, finger: 2, degree: "3" }, { string: 2, fret: 7, finger: 4, degree: "♯4" }, { string: 3, fret: 4, finger: 2, degree: "♯5" }, { string: 3, fret: 6, finger: 4, degree: "♭7" }, { string: 4, fret: 4, finger: 1, degree: "1" }, { string: 4, fret: 5, finger: 2, degree: "♭2" }, { string: 4, fret: 7, finger: 4, degree: "♯2" }, { string: 5, fret: 3, finger: 1, degree: "3" }, { string: 5, fret: 5, finger: 2, degree: "♯4" }, { string: 5, fret: 7, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 558,
+        key: "altered/p4/Ab",
+        title: { pt: "A♭ alterada - posição 4", en: "A♭ altered - position 4" },
+        exerciseTitle: { pt: "A♭ alterada - posição 4", en: "A♭ altered - position 4" },
+        subtitle: { pt: "A♭ alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "A♭ altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A♭",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 8, finger: 1, degree: "3" }, { string: 0, fret: 10, finger: 2, degree: "♯4" }, { string: 0, fret: 12, finger: 4, degree: "♯5" }, { string: 1, fret: 9, finger: 1, degree: "♭7" }, { string: 1, fret: 11, finger: 3, degree: "1" }, { string: 1, fret: 12, finger: 4, degree: "♭2" }, { string: 2, fret: 9, finger: 1, degree: "♯2" }, { string: 2, fret: 10, finger: 2, degree: "3" }, { string: 2, fret: 12, finger: 4, degree: "♯4" }, { string: 3, fret: 9, finger: 2, degree: "♯5" }, { string: 3, fret: 11, finger: 4, degree: "♭7" }, { string: 4, fret: 9, finger: 1, degree: "1" }, { string: 4, fret: 10, finger: 2, degree: "♭2" }, { string: 4, fret: 12, finger: 4, degree: "♯2" }, { string: 5, fret: 8, finger: 1, degree: "3" }, { string: 5, fret: 10, finger: 2, degree: "♯4" }, { string: 5, fret: 12, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 559,
+        key: "altered/p4/Db",
+        title: { pt: "D♭ alterada - posição 4", en: "D♭ altered - position 4" },
+        exerciseTitle: { pt: "D♭ alterada - posição 4", en: "D♭ altered - position 4" },
+        subtitle: { pt: "D♭ alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "D♭ altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D♭",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 1, finger: 1, degree: "3" }, { string: 0, fret: 3, finger: 2, degree: "♯4" }, { string: 0, fret: 5, finger: 4, degree: "♯5" }, { string: 1, fret: 2, finger: 1, degree: "♭7" }, { string: 1, fret: 4, finger: 3, degree: "1" }, { string: 1, fret: 5, finger: 4, degree: "♭2" }, { string: 2, fret: 2, finger: 1, degree: "♯2" }, { string: 2, fret: 3, finger: 2, degree: "3" }, { string: 2, fret: 5, finger: 4, degree: "♯4" }, { string: 3, fret: 2, finger: 2, degree: "♯5" }, { string: 3, fret: 4, finger: 4, degree: "♭7" }, { string: 4, fret: 2, finger: 1, degree: "1" }, { string: 4, fret: 3, finger: 2, degree: "♭2" }, { string: 4, fret: 5, finger: 4, degree: "♯2" }, { string: 5, fret: 1, finger: 1, degree: "3" }, { string: 5, fret: 3, finger: 2, degree: "♯4" }, { string: 5, fret: 5, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 560,
+        key: "altered/p4/Gb",
+        title: { pt: "G♭ alterada - posição 4", en: "G♭ altered - position 4" },
+        exerciseTitle: { pt: "G♭ alterada - posição 4", en: "G♭ altered - position 4" },
+        subtitle: { pt: "G♭ alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "G♭ altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G♭",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 6, finger: 1, degree: "3" }, { string: 0, fret: 8, finger: 2, degree: "♯4" }, { string: 0, fret: 10, finger: 4, degree: "♯5" }, { string: 1, fret: 7, finger: 1, degree: "♭7" }, { string: 1, fret: 9, finger: 3, degree: "1" }, { string: 1, fret: 10, finger: 4, degree: "♭2" }, { string: 2, fret: 7, finger: 1, degree: "♯2" }, { string: 2, fret: 8, finger: 2, degree: "3" }, { string: 2, fret: 10, finger: 4, degree: "♯4" }, { string: 3, fret: 7, finger: 2, degree: "♯5" }, { string: 3, fret: 9, finger: 4, degree: "♭7" }, { string: 4, fret: 7, finger: 1, degree: "1" }, { string: 4, fret: 8, finger: 2, degree: "♭2" }, { string: 4, fret: 10, finger: 4, degree: "♯2" }, { string: 5, fret: 6, finger: 1, degree: "3" }, { string: 5, fret: 8, finger: 2, degree: "♯4" }, { string: 5, fret: 10, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 561,
+        key: "altered/p4/B",
+        title: { pt: "B alterada - posição 4", en: "B altered - position 4" },
+        exerciseTitle: { pt: "B alterada - posição 4", en: "B altered - position 4" },
+        subtitle: { pt: "B alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "B altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 11, finger: 1, degree: "3" }, { string: 0, fret: 13, finger: 2, degree: "♯4" }, { string: 0, fret: 15, finger: 4, degree: "♯5" }, { string: 1, fret: 12, finger: 1, degree: "♭7" }, { string: 1, fret: 14, finger: 3, degree: "1" }, { string: 1, fret: 15, finger: 4, degree: "♭2" }, { string: 2, fret: 12, finger: 1, degree: "♯2" }, { string: 2, fret: 13, finger: 2, degree: "3" }, { string: 2, fret: 15, finger: 4, degree: "♯4" }, { string: 3, fret: 12, finger: 2, degree: "♯5" }, { string: 3, fret: 14, finger: 4, degree: "♭7" }, { string: 4, fret: 12, finger: 1, degree: "1" }, { string: 4, fret: 13, finger: 2, degree: "♭2" }, { string: 4, fret: 15, finger: 4, degree: "♯2" }, { string: 5, fret: 11, finger: 1, degree: "3" }, { string: 5, fret: 13, finger: 2, degree: "♯4" }, { string: 5, fret: 15, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 562,
+        key: "altered/p4/E",
+        title: { pt: "E alterada - posição 4", en: "E altered - position 4" },
+        exerciseTitle: { pt: "E alterada - posição 4", en: "E altered - position 4" },
+        subtitle: { pt: "E alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "E altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 4, finger: 1, degree: "3" }, { string: 0, fret: 6, finger: 2, degree: "♯4" }, { string: 0, fret: 8, finger: 4, degree: "♯5" }, { string: 1, fret: 5, finger: 1, degree: "♭7" }, { string: 1, fret: 7, finger: 3, degree: "1" }, { string: 1, fret: 8, finger: 4, degree: "♭2" }, { string: 2, fret: 5, finger: 1, degree: "♯2" }, { string: 2, fret: 6, finger: 2, degree: "3" }, { string: 2, fret: 8, finger: 4, degree: "♯4" }, { string: 3, fret: 5, finger: 2, degree: "♯5" }, { string: 3, fret: 7, finger: 4, degree: "♭7" }, { string: 4, fret: 5, finger: 1, degree: "1" }, { string: 4, fret: 6, finger: 2, degree: "♭2" }, { string: 4, fret: 8, finger: 4, degree: "♯2" }, { string: 5, fret: 4, finger: 1, degree: "3" }, { string: 5, fret: 6, finger: 2, degree: "♯4" }, { string: 5, fret: 8, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 563,
+        key: "altered/p4/A",
+        title: { pt: "A alterada - posição 4", en: "A altered - position 4" },
+        exerciseTitle: { pt: "A alterada - posição 4", en: "A altered - position 4" },
+        subtitle: { pt: "A alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "A altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 9, finger: 1, degree: "3" }, { string: 0, fret: 11, finger: 2, degree: "♯4" }, { string: 0, fret: 13, finger: 4, degree: "♯5" }, { string: 1, fret: 10, finger: 1, degree: "♭7" }, { string: 1, fret: 12, finger: 3, degree: "1" }, { string: 1, fret: 13, finger: 4, degree: "♭2" }, { string: 2, fret: 10, finger: 1, degree: "♯2" }, { string: 2, fret: 11, finger: 2, degree: "3" }, { string: 2, fret: 13, finger: 4, degree: "♯4" }, { string: 3, fret: 10, finger: 2, degree: "♯5" }, { string: 3, fret: 12, finger: 4, degree: "♭7" }, { string: 4, fret: 10, finger: 1, degree: "1" }, { string: 4, fret: 11, finger: 2, degree: "♭2" }, { string: 4, fret: 13, finger: 4, degree: "♯2" }, { string: 5, fret: 9, finger: 1, degree: "3" }, { string: 5, fret: 11, finger: 2, degree: "♯4" }, { string: 5, fret: 13, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 564,
+        key: "altered/p4/D",
+        title: { pt: "D alterada - posição 4", en: "D altered - position 4" },
+        exerciseTitle: { pt: "D alterada - posição 4", en: "D altered - position 4" },
+        subtitle: { pt: "D alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "D altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 2, finger: 1, degree: "3" }, { string: 0, fret: 4, finger: 2, degree: "♯4" }, { string: 0, fret: 6, finger: 4, degree: "♯5" }, { string: 1, fret: 3, finger: 1, degree: "♭7" }, { string: 1, fret: 5, finger: 3, degree: "1" }, { string: 1, fret: 6, finger: 4, degree: "♭2" }, { string: 2, fret: 3, finger: 1, degree: "♯2" }, { string: 2, fret: 4, finger: 2, degree: "3" }, { string: 2, fret: 6, finger: 4, degree: "♯4" }, { string: 3, fret: 3, finger: 2, degree: "♯5" }, { string: 3, fret: 5, finger: 4, degree: "♭7" }, { string: 4, fret: 3, finger: 1, degree: "1" }, { string: 4, fret: 4, finger: 2, degree: "♭2" }, { string: 4, fret: 6, finger: 4, degree: "♯2" }, { string: 5, fret: 2, finger: 1, degree: "3" }, { string: 5, fret: 4, finger: 2, degree: "♯4" }, { string: 5, fret: 6, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+      {
+        id: 565,
+        key: "altered/p4/G",
+        title: { pt: "G alterada - posição 4", en: "G altered - position 4" },
+        exerciseTitle: { pt: "G alterada - posição 4", en: "G altered - position 4" },
+        subtitle: { pt: "G alterada na posição 4 (Lídio aumentado), subindo e descendo", en: "G altered in position 4 (Lydian augmented), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G",
+            quality: "altered",
+            position: 4,
+            mode: { pt: "Lídio aumentado", en: "Lydian augmented" },
+            notes: [{ string: 0, fret: 7, finger: 1, degree: "3" }, { string: 0, fret: 9, finger: 2, degree: "♯4" }, { string: 0, fret: 11, finger: 4, degree: "♯5" }, { string: 1, fret: 8, finger: 1, degree: "♭7" }, { string: 1, fret: 10, finger: 3, degree: "1" }, { string: 1, fret: 11, finger: 4, degree: "♭2" }, { string: 2, fret: 8, finger: 1, degree: "♯2" }, { string: 2, fret: 9, finger: 2, degree: "3" }, { string: 2, fret: 11, finger: 4, degree: "♯4" }, { string: 3, fret: 8, finger: 2, degree: "♯5" }, { string: 3, fret: 10, finger: 4, degree: "♭7" }, { string: 4, fret: 8, finger: 1, degree: "1" }, { string: 4, fret: 9, finger: 2, degree: "♭2" }, { string: 4, fret: 11, finger: 4, degree: "♯2" }, { string: 5, fret: 7, finger: 1, degree: "3" }, { string: 5, fret: 9, finger: 2, degree: "♯4" }, { string: 5, fret: 11, finger: 4, degree: "♯5" }],
+          },
+        ],
+      },
+        ],
+      },
+      {
+        title: { pt: "Posição 5", en: "Position 5" },
+        lessons: [
+      {
+        id: 566,
+        key: "altered/p5/C",
+        title: { pt: "C alterada - posição 5", en: "C altered - position 5" },
+        exerciseTitle: { pt: "C alterada - posição 5", en: "C altered - position 5" },
+        subtitle: { pt: "C alterada na posição 5 (Lídio dominante), subindo e descendo", en: "C altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "C",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 2, finger: 1, degree: "♯4" }, { string: 0, fret: 4, finger: 2, degree: "♯5" }, { string: 0, fret: 6, finger: 4, degree: "♭7" }, { string: 1, fret: 3, finger: 1, degree: "1" }, { string: 1, fret: 4, finger: 2, degree: "♭2" }, { string: 1, fret: 6, finger: 4, degree: "♯2" }, { string: 2, fret: 2, finger: 1, degree: "3" }, { string: 2, fret: 4, finger: 2, degree: "♯4" }, { string: 2, fret: 6, finger: 4, degree: "♯5" }, { string: 3, fret: 3, finger: 1, degree: "♭7" }, { string: 3, fret: 5, finger: 3, degree: "1" }, { string: 3, fret: 6, finger: 4, degree: "♭2" }, { string: 4, fret: 4, finger: 3, degree: "♯2" }, { string: 4, fret: 5, finger: 4, degree: "3" }, { string: 5, fret: 2, finger: 1, degree: "♯4" }, { string: 5, fret: 4, finger: 2, degree: "♯5" }, { string: 5, fret: 6, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 567,
+        key: "altered/p5/F",
+        title: { pt: "F alterada - posição 5", en: "F altered - position 5" },
+        exerciseTitle: { pt: "F alterada - posição 5", en: "F altered - position 5" },
+        subtitle: { pt: "F alterada na posição 5 (Lídio dominante), subindo e descendo", en: "F altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "F",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 7, finger: 1, degree: "♯4" }, { string: 0, fret: 9, finger: 2, degree: "♯5" }, { string: 0, fret: 11, finger: 4, degree: "♭7" }, { string: 1, fret: 8, finger: 1, degree: "1" }, { string: 1, fret: 9, finger: 2, degree: "♭2" }, { string: 1, fret: 11, finger: 4, degree: "♯2" }, { string: 2, fret: 7, finger: 1, degree: "3" }, { string: 2, fret: 9, finger: 2, degree: "♯4" }, { string: 2, fret: 11, finger: 4, degree: "♯5" }, { string: 3, fret: 8, finger: 1, degree: "♭7" }, { string: 3, fret: 10, finger: 3, degree: "1" }, { string: 3, fret: 11, finger: 4, degree: "♭2" }, { string: 4, fret: 9, finger: 3, degree: "♯2" }, { string: 4, fret: 10, finger: 4, degree: "3" }, { string: 5, fret: 7, finger: 1, degree: "♯4" }, { string: 5, fret: 9, finger: 2, degree: "♯5" }, { string: 5, fret: 11, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 568,
+        key: "altered/p5/Bb",
+        title: { pt: "B♭ alterada - posição 5", en: "B♭ altered - position 5" },
+        exerciseTitle: { pt: "B♭ alterada - posição 5", en: "B♭ altered - position 5" },
+        subtitle: { pt: "B♭ alterada na posição 5 (Lídio dominante), subindo e descendo", en: "B♭ altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B♭",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 12, finger: 1, degree: "♯4" }, { string: 0, fret: 14, finger: 2, degree: "♯5" }, { string: 0, fret: 16, finger: 4, degree: "♭7" }, { string: 1, fret: 13, finger: 1, degree: "1" }, { string: 1, fret: 14, finger: 2, degree: "♭2" }, { string: 1, fret: 16, finger: 4, degree: "♯2" }, { string: 2, fret: 12, finger: 1, degree: "3" }, { string: 2, fret: 14, finger: 2, degree: "♯4" }, { string: 2, fret: 16, finger: 4, degree: "♯5" }, { string: 3, fret: 13, finger: 1, degree: "♭7" }, { string: 3, fret: 15, finger: 3, degree: "1" }, { string: 3, fret: 16, finger: 4, degree: "♭2" }, { string: 4, fret: 14, finger: 3, degree: "♯2" }, { string: 4, fret: 15, finger: 4, degree: "3" }, { string: 5, fret: 12, finger: 1, degree: "♯4" }, { string: 5, fret: 14, finger: 2, degree: "♯5" }, { string: 5, fret: 16, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 569,
+        key: "altered/p5/Eb",
+        title: { pt: "E♭ alterada - posição 5", en: "E♭ altered - position 5" },
+        exerciseTitle: { pt: "E♭ alterada - posição 5", en: "E♭ altered - position 5" },
+        subtitle: { pt: "E♭ alterada na posição 5 (Lídio dominante), subindo e descendo", en: "E♭ altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E♭",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 5, finger: 1, degree: "♯4" }, { string: 0, fret: 7, finger: 2, degree: "♯5" }, { string: 0, fret: 9, finger: 4, degree: "♭7" }, { string: 1, fret: 6, finger: 1, degree: "1" }, { string: 1, fret: 7, finger: 2, degree: "♭2" }, { string: 1, fret: 9, finger: 4, degree: "♯2" }, { string: 2, fret: 5, finger: 1, degree: "3" }, { string: 2, fret: 7, finger: 2, degree: "♯4" }, { string: 2, fret: 9, finger: 4, degree: "♯5" }, { string: 3, fret: 6, finger: 1, degree: "♭7" }, { string: 3, fret: 8, finger: 3, degree: "1" }, { string: 3, fret: 9, finger: 4, degree: "♭2" }, { string: 4, fret: 7, finger: 3, degree: "♯2" }, { string: 4, fret: 8, finger: 4, degree: "3" }, { string: 5, fret: 5, finger: 1, degree: "♯4" }, { string: 5, fret: 7, finger: 2, degree: "♯5" }, { string: 5, fret: 9, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 570,
+        key: "altered/p5/Ab",
+        title: { pt: "A♭ alterada - posição 5", en: "A♭ altered - position 5" },
+        exerciseTitle: { pt: "A♭ alterada - posição 5", en: "A♭ altered - position 5" },
+        subtitle: { pt: "A♭ alterada na posição 5 (Lídio dominante), subindo e descendo", en: "A♭ altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A♭",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 10, finger: 1, degree: "♯4" }, { string: 0, fret: 12, finger: 2, degree: "♯5" }, { string: 0, fret: 14, finger: 4, degree: "♭7" }, { string: 1, fret: 11, finger: 1, degree: "1" }, { string: 1, fret: 12, finger: 2, degree: "♭2" }, { string: 1, fret: 14, finger: 4, degree: "♯2" }, { string: 2, fret: 10, finger: 1, degree: "3" }, { string: 2, fret: 12, finger: 2, degree: "♯4" }, { string: 2, fret: 14, finger: 4, degree: "♯5" }, { string: 3, fret: 11, finger: 1, degree: "♭7" }, { string: 3, fret: 13, finger: 3, degree: "1" }, { string: 3, fret: 14, finger: 4, degree: "♭2" }, { string: 4, fret: 12, finger: 3, degree: "♯2" }, { string: 4, fret: 13, finger: 4, degree: "3" }, { string: 5, fret: 10, finger: 1, degree: "♯4" }, { string: 5, fret: 12, finger: 2, degree: "♯5" }, { string: 5, fret: 14, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 571,
+        key: "altered/p5/Db",
+        title: { pt: "D♭ alterada - posição 5", en: "D♭ altered - position 5" },
+        exerciseTitle: { pt: "D♭ alterada - posição 5", en: "D♭ altered - position 5" },
+        subtitle: { pt: "D♭ alterada na posição 5 (Lídio dominante), subindo e descendo", en: "D♭ altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D♭",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 3, finger: 1, degree: "♯4" }, { string: 0, fret: 5, finger: 2, degree: "♯5" }, { string: 0, fret: 7, finger: 4, degree: "♭7" }, { string: 1, fret: 4, finger: 1, degree: "1" }, { string: 1, fret: 5, finger: 2, degree: "♭2" }, { string: 1, fret: 7, finger: 4, degree: "♯2" }, { string: 2, fret: 3, finger: 1, degree: "3" }, { string: 2, fret: 5, finger: 2, degree: "♯4" }, { string: 2, fret: 7, finger: 4, degree: "♯5" }, { string: 3, fret: 4, finger: 1, degree: "♭7" }, { string: 3, fret: 6, finger: 3, degree: "1" }, { string: 3, fret: 7, finger: 4, degree: "♭2" }, { string: 4, fret: 5, finger: 3, degree: "♯2" }, { string: 4, fret: 6, finger: 4, degree: "3" }, { string: 5, fret: 3, finger: 1, degree: "♯4" }, { string: 5, fret: 5, finger: 2, degree: "♯5" }, { string: 5, fret: 7, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 572,
+        key: "altered/p5/Gb",
+        title: { pt: "G♭ alterada - posição 5", en: "G♭ altered - position 5" },
+        exerciseTitle: { pt: "G♭ alterada - posição 5", en: "G♭ altered - position 5" },
+        subtitle: { pt: "G♭ alterada na posição 5 (Lídio dominante), subindo e descendo", en: "G♭ altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G♭",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 8, finger: 1, degree: "♯4" }, { string: 0, fret: 10, finger: 2, degree: "♯5" }, { string: 0, fret: 12, finger: 4, degree: "♭7" }, { string: 1, fret: 9, finger: 1, degree: "1" }, { string: 1, fret: 10, finger: 2, degree: "♭2" }, { string: 1, fret: 12, finger: 4, degree: "♯2" }, { string: 2, fret: 8, finger: 1, degree: "3" }, { string: 2, fret: 10, finger: 2, degree: "♯4" }, { string: 2, fret: 12, finger: 4, degree: "♯5" }, { string: 3, fret: 9, finger: 1, degree: "♭7" }, { string: 3, fret: 11, finger: 3, degree: "1" }, { string: 3, fret: 12, finger: 4, degree: "♭2" }, { string: 4, fret: 10, finger: 3, degree: "♯2" }, { string: 4, fret: 11, finger: 4, degree: "3" }, { string: 5, fret: 8, finger: 1, degree: "♯4" }, { string: 5, fret: 10, finger: 2, degree: "♯5" }, { string: 5, fret: 12, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 573,
+        key: "altered/p5/B",
+        title: { pt: "B alterada - posição 5", en: "B altered - position 5" },
+        exerciseTitle: { pt: "B alterada - posição 5", en: "B altered - position 5" },
+        subtitle: { pt: "B alterada na posição 5 (Lídio dominante), subindo e descendo", en: "B altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 1, finger: 1, degree: "♯4" }, { string: 0, fret: 3, finger: 2, degree: "♯5" }, { string: 0, fret: 5, finger: 4, degree: "♭7" }, { string: 1, fret: 2, finger: 1, degree: "1" }, { string: 1, fret: 3, finger: 2, degree: "♭2" }, { string: 1, fret: 5, finger: 4, degree: "♯2" }, { string: 2, fret: 1, finger: 1, degree: "3" }, { string: 2, fret: 3, finger: 2, degree: "♯4" }, { string: 2, fret: 5, finger: 4, degree: "♯5" }, { string: 3, fret: 2, finger: 1, degree: "♭7" }, { string: 3, fret: 4, finger: 3, degree: "1" }, { string: 3, fret: 5, finger: 4, degree: "♭2" }, { string: 4, fret: 3, finger: 3, degree: "♯2" }, { string: 4, fret: 4, finger: 4, degree: "3" }, { string: 5, fret: 1, finger: 1, degree: "♯4" }, { string: 5, fret: 3, finger: 2, degree: "♯5" }, { string: 5, fret: 5, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 574,
+        key: "altered/p5/E",
+        title: { pt: "E alterada - posição 5", en: "E altered - position 5" },
+        exerciseTitle: { pt: "E alterada - posição 5", en: "E altered - position 5" },
+        subtitle: { pt: "E alterada na posição 5 (Lídio dominante), subindo e descendo", en: "E altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 6, finger: 1, degree: "♯4" }, { string: 0, fret: 8, finger: 2, degree: "♯5" }, { string: 0, fret: 10, finger: 4, degree: "♭7" }, { string: 1, fret: 7, finger: 1, degree: "1" }, { string: 1, fret: 8, finger: 2, degree: "♭2" }, { string: 1, fret: 10, finger: 4, degree: "♯2" }, { string: 2, fret: 6, finger: 1, degree: "3" }, { string: 2, fret: 8, finger: 2, degree: "♯4" }, { string: 2, fret: 10, finger: 4, degree: "♯5" }, { string: 3, fret: 7, finger: 1, degree: "♭7" }, { string: 3, fret: 9, finger: 3, degree: "1" }, { string: 3, fret: 10, finger: 4, degree: "♭2" }, { string: 4, fret: 8, finger: 3, degree: "♯2" }, { string: 4, fret: 9, finger: 4, degree: "3" }, { string: 5, fret: 6, finger: 1, degree: "♯4" }, { string: 5, fret: 8, finger: 2, degree: "♯5" }, { string: 5, fret: 10, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 575,
+        key: "altered/p5/A",
+        title: { pt: "A alterada - posição 5", en: "A altered - position 5" },
+        exerciseTitle: { pt: "A alterada - posição 5", en: "A altered - position 5" },
+        subtitle: { pt: "A alterada na posição 5 (Lídio dominante), subindo e descendo", en: "A altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 11, finger: 1, degree: "♯4" }, { string: 0, fret: 13, finger: 2, degree: "♯5" }, { string: 0, fret: 15, finger: 4, degree: "♭7" }, { string: 1, fret: 12, finger: 1, degree: "1" }, { string: 1, fret: 13, finger: 2, degree: "♭2" }, { string: 1, fret: 15, finger: 4, degree: "♯2" }, { string: 2, fret: 11, finger: 1, degree: "3" }, { string: 2, fret: 13, finger: 2, degree: "♯4" }, { string: 2, fret: 15, finger: 4, degree: "♯5" }, { string: 3, fret: 12, finger: 1, degree: "♭7" }, { string: 3, fret: 14, finger: 3, degree: "1" }, { string: 3, fret: 15, finger: 4, degree: "♭2" }, { string: 4, fret: 13, finger: 3, degree: "♯2" }, { string: 4, fret: 14, finger: 4, degree: "3" }, { string: 5, fret: 11, finger: 1, degree: "♯4" }, { string: 5, fret: 13, finger: 2, degree: "♯5" }, { string: 5, fret: 15, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 576,
+        key: "altered/p5/D",
+        title: { pt: "D alterada - posição 5", en: "D altered - position 5" },
+        exerciseTitle: { pt: "D alterada - posição 5", en: "D altered - position 5" },
+        subtitle: { pt: "D alterada na posição 5 (Lídio dominante), subindo e descendo", en: "D altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 4, finger: 1, degree: "♯4" }, { string: 0, fret: 6, finger: 2, degree: "♯5" }, { string: 0, fret: 8, finger: 4, degree: "♭7" }, { string: 1, fret: 5, finger: 1, degree: "1" }, { string: 1, fret: 6, finger: 2, degree: "♭2" }, { string: 1, fret: 8, finger: 4, degree: "♯2" }, { string: 2, fret: 4, finger: 1, degree: "3" }, { string: 2, fret: 6, finger: 2, degree: "♯4" }, { string: 2, fret: 8, finger: 4, degree: "♯5" }, { string: 3, fret: 5, finger: 1, degree: "♭7" }, { string: 3, fret: 7, finger: 3, degree: "1" }, { string: 3, fret: 8, finger: 4, degree: "♭2" }, { string: 4, fret: 6, finger: 3, degree: "♯2" }, { string: 4, fret: 7, finger: 4, degree: "3" }, { string: 5, fret: 4, finger: 1, degree: "♯4" }, { string: 5, fret: 6, finger: 2, degree: "♯5" }, { string: 5, fret: 8, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+      {
+        id: 577,
+        key: "altered/p5/G",
+        title: { pt: "G alterada - posição 5", en: "G altered - position 5" },
+        exerciseTitle: { pt: "G alterada - posição 5", en: "G altered - position 5" },
+        subtitle: { pt: "G alterada na posição 5 (Lídio dominante), subindo e descendo", en: "G altered in position 5 (Lydian dominant), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G",
+            quality: "altered",
+            position: 5,
+            mode: { pt: "Lídio dominante", en: "Lydian dominant" },
+            notes: [{ string: 0, fret: 9, finger: 1, degree: "♯4" }, { string: 0, fret: 11, finger: 2, degree: "♯5" }, { string: 0, fret: 13, finger: 4, degree: "♭7" }, { string: 1, fret: 10, finger: 1, degree: "1" }, { string: 1, fret: 11, finger: 2, degree: "♭2" }, { string: 1, fret: 13, finger: 4, degree: "♯2" }, { string: 2, fret: 9, finger: 1, degree: "3" }, { string: 2, fret: 11, finger: 2, degree: "♯4" }, { string: 2, fret: 13, finger: 4, degree: "♯5" }, { string: 3, fret: 10, finger: 1, degree: "♭7" }, { string: 3, fret: 12, finger: 3, degree: "1" }, { string: 3, fret: 13, finger: 4, degree: "♭2" }, { string: 4, fret: 11, finger: 3, degree: "♯2" }, { string: 4, fret: 12, finger: 4, degree: "3" }, { string: 5, fret: 9, finger: 1, degree: "♯4" }, { string: 5, fret: 11, finger: 2, degree: "♯5" }, { string: 5, fret: 13, finger: 4, degree: "♭7" }],
+          },
+        ],
+      },
+        ],
+      },
+      {
+        title: { pt: "Posição 6", en: "Position 6" },
+        lessons: [
+      {
+        id: 578,
+        key: "altered/p6/C",
+        title: { pt: "C alterada - posição 6", en: "C altered - position 6" },
+        exerciseTitle: { pt: "C alterada - posição 6", en: "C altered - position 6" },
+        subtitle: { pt: "C alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "C altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "C",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 4, finger: 1, degree: "♯5" }, { string: 0, fret: 6, finger: 2, degree: "♭7" }, { string: 0, fret: 8, finger: 4, degree: "1" }, { string: 1, fret: 4, finger: 1, degree: "♭2" }, { string: 1, fret: 6, finger: 3, degree: "♯2" }, { string: 1, fret: 7, finger: 4, degree: "3" }, { string: 2, fret: 4, finger: 1, degree: "♯4" }, { string: 2, fret: 6, finger: 2, degree: "♯5" }, { string: 2, fret: 8, finger: 4, degree: "♭7" }, { string: 3, fret: 5, finger: 1, degree: "1" }, { string: 3, fret: 6, finger: 2, degree: "♭2" }, { string: 3, fret: 8, finger: 4, degree: "♯2" }, { string: 4, fret: 5, finger: 2, degree: "3" }, { string: 4, fret: 7, finger: 4, degree: "♯4" }, { string: 5, fret: 4, finger: 1, degree: "♯5" }, { string: 5, fret: 6, finger: 2, degree: "♭7" }, { string: 5, fret: 8, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 579,
+        key: "altered/p6/F",
+        title: { pt: "F alterada - posição 6", en: "F altered - position 6" },
+        exerciseTitle: { pt: "F alterada - posição 6", en: "F altered - position 6" },
+        subtitle: { pt: "F alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "F altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "F",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 9, finger: 1, degree: "♯5" }, { string: 0, fret: 11, finger: 2, degree: "♭7" }, { string: 0, fret: 13, finger: 4, degree: "1" }, { string: 1, fret: 9, finger: 1, degree: "♭2" }, { string: 1, fret: 11, finger: 3, degree: "♯2" }, { string: 1, fret: 12, finger: 4, degree: "3" }, { string: 2, fret: 9, finger: 1, degree: "♯4" }, { string: 2, fret: 11, finger: 2, degree: "♯5" }, { string: 2, fret: 13, finger: 4, degree: "♭7" }, { string: 3, fret: 10, finger: 1, degree: "1" }, { string: 3, fret: 11, finger: 2, degree: "♭2" }, { string: 3, fret: 13, finger: 4, degree: "♯2" }, { string: 4, fret: 10, finger: 2, degree: "3" }, { string: 4, fret: 12, finger: 4, degree: "♯4" }, { string: 5, fret: 9, finger: 1, degree: "♯5" }, { string: 5, fret: 11, finger: 2, degree: "♭7" }, { string: 5, fret: 13, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 580,
+        key: "altered/p6/Bb",
+        title: { pt: "B♭ alterada - posição 6", en: "B♭ altered - position 6" },
+        exerciseTitle: { pt: "B♭ alterada - posição 6", en: "B♭ altered - position 6" },
+        subtitle: { pt: "B♭ alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "B♭ altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B♭",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 2, finger: 1, degree: "♯5" }, { string: 0, fret: 4, finger: 2, degree: "♭7" }, { string: 0, fret: 6, finger: 4, degree: "1" }, { string: 1, fret: 2, finger: 1, degree: "♭2" }, { string: 1, fret: 4, finger: 3, degree: "♯2" }, { string: 1, fret: 5, finger: 4, degree: "3" }, { string: 2, fret: 2, finger: 1, degree: "♯4" }, { string: 2, fret: 4, finger: 2, degree: "♯5" }, { string: 2, fret: 6, finger: 4, degree: "♭7" }, { string: 3, fret: 3, finger: 1, degree: "1" }, { string: 3, fret: 4, finger: 2, degree: "♭2" }, { string: 3, fret: 6, finger: 4, degree: "♯2" }, { string: 4, fret: 3, finger: 2, degree: "3" }, { string: 4, fret: 5, finger: 4, degree: "♯4" }, { string: 5, fret: 2, finger: 1, degree: "♯5" }, { string: 5, fret: 4, finger: 2, degree: "♭7" }, { string: 5, fret: 6, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 581,
+        key: "altered/p6/Eb",
+        title: { pt: "E♭ alterada - posição 6", en: "E♭ altered - position 6" },
+        exerciseTitle: { pt: "E♭ alterada - posição 6", en: "E♭ altered - position 6" },
+        subtitle: { pt: "E♭ alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "E♭ altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E♭",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 7, finger: 1, degree: "♯5" }, { string: 0, fret: 9, finger: 2, degree: "♭7" }, { string: 0, fret: 11, finger: 4, degree: "1" }, { string: 1, fret: 7, finger: 1, degree: "♭2" }, { string: 1, fret: 9, finger: 3, degree: "♯2" }, { string: 1, fret: 10, finger: 4, degree: "3" }, { string: 2, fret: 7, finger: 1, degree: "♯4" }, { string: 2, fret: 9, finger: 2, degree: "♯5" }, { string: 2, fret: 11, finger: 4, degree: "♭7" }, { string: 3, fret: 8, finger: 1, degree: "1" }, { string: 3, fret: 9, finger: 2, degree: "♭2" }, { string: 3, fret: 11, finger: 4, degree: "♯2" }, { string: 4, fret: 8, finger: 2, degree: "3" }, { string: 4, fret: 10, finger: 4, degree: "♯4" }, { string: 5, fret: 7, finger: 1, degree: "♯5" }, { string: 5, fret: 9, finger: 2, degree: "♭7" }, { string: 5, fret: 11, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 582,
+        key: "altered/p6/Ab",
+        title: { pt: "A♭ alterada - posição 6", en: "A♭ altered - position 6" },
+        exerciseTitle: { pt: "A♭ alterada - posição 6", en: "A♭ altered - position 6" },
+        subtitle: { pt: "A♭ alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "A♭ altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A♭",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 12, finger: 1, degree: "♯5" }, { string: 0, fret: 14, finger: 2, degree: "♭7" }, { string: 0, fret: 16, finger: 4, degree: "1" }, { string: 1, fret: 12, finger: 1, degree: "♭2" }, { string: 1, fret: 14, finger: 3, degree: "♯2" }, { string: 1, fret: 15, finger: 4, degree: "3" }, { string: 2, fret: 12, finger: 1, degree: "♯4" }, { string: 2, fret: 14, finger: 2, degree: "♯5" }, { string: 2, fret: 16, finger: 4, degree: "♭7" }, { string: 3, fret: 13, finger: 1, degree: "1" }, { string: 3, fret: 14, finger: 2, degree: "♭2" }, { string: 3, fret: 16, finger: 4, degree: "♯2" }, { string: 4, fret: 13, finger: 2, degree: "3" }, { string: 4, fret: 15, finger: 4, degree: "♯4" }, { string: 5, fret: 12, finger: 1, degree: "♯5" }, { string: 5, fret: 14, finger: 2, degree: "♭7" }, { string: 5, fret: 16, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 583,
+        key: "altered/p6/Db",
+        title: { pt: "D♭ alterada - posição 6", en: "D♭ altered - position 6" },
+        exerciseTitle: { pt: "D♭ alterada - posição 6", en: "D♭ altered - position 6" },
+        subtitle: { pt: "D♭ alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "D♭ altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D♭",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 5, finger: 1, degree: "♯5" }, { string: 0, fret: 7, finger: 2, degree: "♭7" }, { string: 0, fret: 9, finger: 4, degree: "1" }, { string: 1, fret: 5, finger: 1, degree: "♭2" }, { string: 1, fret: 7, finger: 3, degree: "♯2" }, { string: 1, fret: 8, finger: 4, degree: "3" }, { string: 2, fret: 5, finger: 1, degree: "♯4" }, { string: 2, fret: 7, finger: 2, degree: "♯5" }, { string: 2, fret: 9, finger: 4, degree: "♭7" }, { string: 3, fret: 6, finger: 1, degree: "1" }, { string: 3, fret: 7, finger: 2, degree: "♭2" }, { string: 3, fret: 9, finger: 4, degree: "♯2" }, { string: 4, fret: 6, finger: 2, degree: "3" }, { string: 4, fret: 8, finger: 4, degree: "♯4" }, { string: 5, fret: 5, finger: 1, degree: "♯5" }, { string: 5, fret: 7, finger: 2, degree: "♭7" }, { string: 5, fret: 9, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 584,
+        key: "altered/p6/Gb",
+        title: { pt: "G♭ alterada - posição 6", en: "G♭ altered - position 6" },
+        exerciseTitle: { pt: "G♭ alterada - posição 6", en: "G♭ altered - position 6" },
+        subtitle: { pt: "G♭ alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "G♭ altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G♭",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 10, finger: 1, degree: "♯5" }, { string: 0, fret: 12, finger: 2, degree: "♭7" }, { string: 0, fret: 14, finger: 4, degree: "1" }, { string: 1, fret: 10, finger: 1, degree: "♭2" }, { string: 1, fret: 12, finger: 3, degree: "♯2" }, { string: 1, fret: 13, finger: 4, degree: "3" }, { string: 2, fret: 10, finger: 1, degree: "♯4" }, { string: 2, fret: 12, finger: 2, degree: "♯5" }, { string: 2, fret: 14, finger: 4, degree: "♭7" }, { string: 3, fret: 11, finger: 1, degree: "1" }, { string: 3, fret: 12, finger: 2, degree: "♭2" }, { string: 3, fret: 14, finger: 4, degree: "♯2" }, { string: 4, fret: 11, finger: 2, degree: "3" }, { string: 4, fret: 13, finger: 4, degree: "♯4" }, { string: 5, fret: 10, finger: 1, degree: "♯5" }, { string: 5, fret: 12, finger: 2, degree: "♭7" }, { string: 5, fret: 14, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 585,
+        key: "altered/p6/B",
+        title: { pt: "B alterada - posição 6", en: "B altered - position 6" },
+        exerciseTitle: { pt: "B alterada - posição 6", en: "B altered - position 6" },
+        subtitle: { pt: "B alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "B altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 3, finger: 1, degree: "♯5" }, { string: 0, fret: 5, finger: 2, degree: "♭7" }, { string: 0, fret: 7, finger: 4, degree: "1" }, { string: 1, fret: 3, finger: 1, degree: "♭2" }, { string: 1, fret: 5, finger: 3, degree: "♯2" }, { string: 1, fret: 6, finger: 4, degree: "3" }, { string: 2, fret: 3, finger: 1, degree: "♯4" }, { string: 2, fret: 5, finger: 2, degree: "♯5" }, { string: 2, fret: 7, finger: 4, degree: "♭7" }, { string: 3, fret: 4, finger: 1, degree: "1" }, { string: 3, fret: 5, finger: 2, degree: "♭2" }, { string: 3, fret: 7, finger: 4, degree: "♯2" }, { string: 4, fret: 4, finger: 2, degree: "3" }, { string: 4, fret: 6, finger: 4, degree: "♯4" }, { string: 5, fret: 3, finger: 1, degree: "♯5" }, { string: 5, fret: 5, finger: 2, degree: "♭7" }, { string: 5, fret: 7, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 586,
+        key: "altered/p6/E",
+        title: { pt: "E alterada - posição 6", en: "E altered - position 6" },
+        exerciseTitle: { pt: "E alterada - posição 6", en: "E altered - position 6" },
+        subtitle: { pt: "E alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "E altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 8, finger: 1, degree: "♯5" }, { string: 0, fret: 10, finger: 2, degree: "♭7" }, { string: 0, fret: 12, finger: 4, degree: "1" }, { string: 1, fret: 8, finger: 1, degree: "♭2" }, { string: 1, fret: 10, finger: 3, degree: "♯2" }, { string: 1, fret: 11, finger: 4, degree: "3" }, { string: 2, fret: 8, finger: 1, degree: "♯4" }, { string: 2, fret: 10, finger: 2, degree: "♯5" }, { string: 2, fret: 12, finger: 4, degree: "♭7" }, { string: 3, fret: 9, finger: 1, degree: "1" }, { string: 3, fret: 10, finger: 2, degree: "♭2" }, { string: 3, fret: 12, finger: 4, degree: "♯2" }, { string: 4, fret: 9, finger: 2, degree: "3" }, { string: 4, fret: 11, finger: 4, degree: "♯4" }, { string: 5, fret: 8, finger: 1, degree: "♯5" }, { string: 5, fret: 10, finger: 2, degree: "♭7" }, { string: 5, fret: 12, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 587,
+        key: "altered/p6/A",
+        title: { pt: "A alterada - posição 6", en: "A altered - position 6" },
+        exerciseTitle: { pt: "A alterada - posição 6", en: "A altered - position 6" },
+        subtitle: { pt: "A alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "A altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 1, finger: 1, degree: "♯5" }, { string: 0, fret: 3, finger: 2, degree: "♭7" }, { string: 0, fret: 5, finger: 4, degree: "1" }, { string: 1, fret: 1, finger: 1, degree: "♭2" }, { string: 1, fret: 3, finger: 3, degree: "♯2" }, { string: 1, fret: 4, finger: 4, degree: "3" }, { string: 2, fret: 1, finger: 1, degree: "♯4" }, { string: 2, fret: 3, finger: 2, degree: "♯5" }, { string: 2, fret: 5, finger: 4, degree: "♭7" }, { string: 3, fret: 2, finger: 1, degree: "1" }, { string: 3, fret: 3, finger: 2, degree: "♭2" }, { string: 3, fret: 5, finger: 4, degree: "♯2" }, { string: 4, fret: 2, finger: 2, degree: "3" }, { string: 4, fret: 4, finger: 4, degree: "♯4" }, { string: 5, fret: 1, finger: 1, degree: "♯5" }, { string: 5, fret: 3, finger: 2, degree: "♭7" }, { string: 5, fret: 5, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 588,
+        key: "altered/p6/D",
+        title: { pt: "D alterada - posição 6", en: "D altered - position 6" },
+        exerciseTitle: { pt: "D alterada - posição 6", en: "D altered - position 6" },
+        subtitle: { pt: "D alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "D altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 6, finger: 1, degree: "♯5" }, { string: 0, fret: 8, finger: 2, degree: "♭7" }, { string: 0, fret: 10, finger: 4, degree: "1" }, { string: 1, fret: 6, finger: 1, degree: "♭2" }, { string: 1, fret: 8, finger: 3, degree: "♯2" }, { string: 1, fret: 9, finger: 4, degree: "3" }, { string: 2, fret: 6, finger: 1, degree: "♯4" }, { string: 2, fret: 8, finger: 2, degree: "♯5" }, { string: 2, fret: 10, finger: 4, degree: "♭7" }, { string: 3, fret: 7, finger: 1, degree: "1" }, { string: 3, fret: 8, finger: 2, degree: "♭2" }, { string: 3, fret: 10, finger: 4, degree: "♯2" }, { string: 4, fret: 7, finger: 2, degree: "3" }, { string: 4, fret: 9, finger: 4, degree: "♯4" }, { string: 5, fret: 6, finger: 1, degree: "♯5" }, { string: 5, fret: 8, finger: 2, degree: "♭7" }, { string: 5, fret: 10, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+      {
+        id: 589,
+        key: "altered/p6/G",
+        title: { pt: "G alterada - posição 6", en: "G altered - position 6" },
+        exerciseTitle: { pt: "G alterada - posição 6", en: "G altered - position 6" },
+        subtitle: { pt: "G alterada na posição 6 (Mixolídio ♭6), subindo e descendo", en: "G altered in position 6 (Mixolydian ♭6), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G",
+            quality: "altered",
+            position: 6,
+            mode: { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+            notes: [{ string: 0, fret: 11, finger: 1, degree: "♯5" }, { string: 0, fret: 13, finger: 2, degree: "♭7" }, { string: 0, fret: 15, finger: 4, degree: "1" }, { string: 1, fret: 11, finger: 1, degree: "♭2" }, { string: 1, fret: 13, finger: 3, degree: "♯2" }, { string: 1, fret: 14, finger: 4, degree: "3" }, { string: 2, fret: 11, finger: 1, degree: "♯4" }, { string: 2, fret: 13, finger: 2, degree: "♯5" }, { string: 2, fret: 15, finger: 4, degree: "♭7" }, { string: 3, fret: 12, finger: 1, degree: "1" }, { string: 3, fret: 13, finger: 2, degree: "♭2" }, { string: 3, fret: 15, finger: 4, degree: "♯2" }, { string: 4, fret: 12, finger: 2, degree: "3" }, { string: 4, fret: 14, finger: 4, degree: "♯4" }, { string: 5, fret: 11, finger: 1, degree: "♯5" }, { string: 5, fret: 13, finger: 2, degree: "♭7" }, { string: 5, fret: 15, finger: 4, degree: "1" }],
+          },
+        ],
+      },
+        ],
+      },
+      {
+        title: { pt: "Posição 7", en: "Position 7" },
+        lessons: [
+      {
+        id: 590,
+        key: "altered/p7/C",
+        title: { pt: "C alterada - posição 7", en: "C altered - position 7" },
+        exerciseTitle: { pt: "C alterada - posição 7", en: "C altered - position 7" },
+        subtitle: { pt: "C alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "C altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "C",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 6, finger: 1, degree: "♭7" }, { string: 0, fret: 8, finger: 3, degree: "1" }, { string: 0, fret: 9, finger: 4, degree: "♭2" }, { string: 1, fret: 6, finger: 1, degree: "♯2" }, { string: 1, fret: 7, finger: 2, degree: "3" }, { string: 1, fret: 9, finger: 4, degree: "♯4" }, { string: 2, fret: 6, finger: 1, degree: "♯5" }, { string: 2, fret: 8, finger: 2, degree: "♭7" }, { string: 2, fret: 10, finger: 4, degree: "1" }, { string: 3, fret: 6, finger: 2, degree: "♭2" }, { string: 3, fret: 8, finger: 4, degree: "♯2" }, { string: 4, fret: 5, finger: 1, degree: "3" }, { string: 4, fret: 7, finger: 2, degree: "♯4" }, { string: 4, fret: 9, finger: 4, degree: "♯5" }, { string: 5, fret: 6, finger: 1, degree: "♭7" }, { string: 5, fret: 8, finger: 3, degree: "1" }, { string: 5, fret: 9, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 591,
+        key: "altered/p7/F",
+        title: { pt: "F alterada - posição 7", en: "F altered - position 7" },
+        exerciseTitle: { pt: "F alterada - posição 7", en: "F altered - position 7" },
+        subtitle: { pt: "F alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "F altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "F",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 11, finger: 1, degree: "♭7" }, { string: 0, fret: 13, finger: 3, degree: "1" }, { string: 0, fret: 14, finger: 4, degree: "♭2" }, { string: 1, fret: 11, finger: 1, degree: "♯2" }, { string: 1, fret: 12, finger: 2, degree: "3" }, { string: 1, fret: 14, finger: 4, degree: "♯4" }, { string: 2, fret: 11, finger: 1, degree: "♯5" }, { string: 2, fret: 13, finger: 2, degree: "♭7" }, { string: 2, fret: 15, finger: 4, degree: "1" }, { string: 3, fret: 11, finger: 2, degree: "♭2" }, { string: 3, fret: 13, finger: 4, degree: "♯2" }, { string: 4, fret: 10, finger: 1, degree: "3" }, { string: 4, fret: 12, finger: 2, degree: "♯4" }, { string: 4, fret: 14, finger: 4, degree: "♯5" }, { string: 5, fret: 11, finger: 1, degree: "♭7" }, { string: 5, fret: 13, finger: 3, degree: "1" }, { string: 5, fret: 14, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 592,
+        key: "altered/p7/Bb",
+        title: { pt: "B♭ alterada - posição 7", en: "B♭ altered - position 7" },
+        exerciseTitle: { pt: "B♭ alterada - posição 7", en: "B♭ altered - position 7" },
+        subtitle: { pt: "B♭ alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "B♭ altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B♭",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 4, finger: 1, degree: "♭7" }, { string: 0, fret: 6, finger: 3, degree: "1" }, { string: 0, fret: 7, finger: 4, degree: "♭2" }, { string: 1, fret: 4, finger: 1, degree: "♯2" }, { string: 1, fret: 5, finger: 2, degree: "3" }, { string: 1, fret: 7, finger: 4, degree: "♯4" }, { string: 2, fret: 4, finger: 1, degree: "♯5" }, { string: 2, fret: 6, finger: 2, degree: "♭7" }, { string: 2, fret: 8, finger: 4, degree: "1" }, { string: 3, fret: 4, finger: 2, degree: "♭2" }, { string: 3, fret: 6, finger: 4, degree: "♯2" }, { string: 4, fret: 3, finger: 1, degree: "3" }, { string: 4, fret: 5, finger: 2, degree: "♯4" }, { string: 4, fret: 7, finger: 4, degree: "♯5" }, { string: 5, fret: 4, finger: 1, degree: "♭7" }, { string: 5, fret: 6, finger: 3, degree: "1" }, { string: 5, fret: 7, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 593,
+        key: "altered/p7/Eb",
+        title: { pt: "E♭ alterada - posição 7", en: "E♭ altered - position 7" },
+        exerciseTitle: { pt: "E♭ alterada - posição 7", en: "E♭ altered - position 7" },
+        subtitle: { pt: "E♭ alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "E♭ altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E♭",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 9, finger: 1, degree: "♭7" }, { string: 0, fret: 11, finger: 3, degree: "1" }, { string: 0, fret: 12, finger: 4, degree: "♭2" }, { string: 1, fret: 9, finger: 1, degree: "♯2" }, { string: 1, fret: 10, finger: 2, degree: "3" }, { string: 1, fret: 12, finger: 4, degree: "♯4" }, { string: 2, fret: 9, finger: 1, degree: "♯5" }, { string: 2, fret: 11, finger: 2, degree: "♭7" }, { string: 2, fret: 13, finger: 4, degree: "1" }, { string: 3, fret: 9, finger: 2, degree: "♭2" }, { string: 3, fret: 11, finger: 4, degree: "♯2" }, { string: 4, fret: 8, finger: 1, degree: "3" }, { string: 4, fret: 10, finger: 2, degree: "♯4" }, { string: 4, fret: 12, finger: 4, degree: "♯5" }, { string: 5, fret: 9, finger: 1, degree: "♭7" }, { string: 5, fret: 11, finger: 3, degree: "1" }, { string: 5, fret: 12, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 594,
+        key: "altered/p7/Ab",
+        title: { pt: "A♭ alterada - posição 7", en: "A♭ altered - position 7" },
+        exerciseTitle: { pt: "A♭ alterada - posição 7", en: "A♭ altered - position 7" },
+        subtitle: { pt: "A♭ alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "A♭ altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A♭",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 2, finger: 1, degree: "♭7" }, { string: 0, fret: 4, finger: 3, degree: "1" }, { string: 0, fret: 5, finger: 4, degree: "♭2" }, { string: 1, fret: 2, finger: 1, degree: "♯2" }, { string: 1, fret: 3, finger: 2, degree: "3" }, { string: 1, fret: 5, finger: 4, degree: "♯4" }, { string: 2, fret: 2, finger: 1, degree: "♯5" }, { string: 2, fret: 4, finger: 2, degree: "♭7" }, { string: 2, fret: 6, finger: 4, degree: "1" }, { string: 3, fret: 2, finger: 2, degree: "♭2" }, { string: 3, fret: 4, finger: 4, degree: "♯2" }, { string: 4, fret: 1, finger: 1, degree: "3" }, { string: 4, fret: 3, finger: 2, degree: "♯4" }, { string: 4, fret: 5, finger: 4, degree: "♯5" }, { string: 5, fret: 2, finger: 1, degree: "♭7" }, { string: 5, fret: 4, finger: 3, degree: "1" }, { string: 5, fret: 5, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 595,
+        key: "altered/p7/Db",
+        title: { pt: "D♭ alterada - posição 7", en: "D♭ altered - position 7" },
+        exerciseTitle: { pt: "D♭ alterada - posição 7", en: "D♭ altered - position 7" },
+        subtitle: { pt: "D♭ alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "D♭ altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D♭",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 7, finger: 1, degree: "♭7" }, { string: 0, fret: 9, finger: 3, degree: "1" }, { string: 0, fret: 10, finger: 4, degree: "♭2" }, { string: 1, fret: 7, finger: 1, degree: "♯2" }, { string: 1, fret: 8, finger: 2, degree: "3" }, { string: 1, fret: 10, finger: 4, degree: "♯4" }, { string: 2, fret: 7, finger: 1, degree: "♯5" }, { string: 2, fret: 9, finger: 2, degree: "♭7" }, { string: 2, fret: 11, finger: 4, degree: "1" }, { string: 3, fret: 7, finger: 2, degree: "♭2" }, { string: 3, fret: 9, finger: 4, degree: "♯2" }, { string: 4, fret: 6, finger: 1, degree: "3" }, { string: 4, fret: 8, finger: 2, degree: "♯4" }, { string: 4, fret: 10, finger: 4, degree: "♯5" }, { string: 5, fret: 7, finger: 1, degree: "♭7" }, { string: 5, fret: 9, finger: 3, degree: "1" }, { string: 5, fret: 10, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 596,
+        key: "altered/p7/Gb",
+        title: { pt: "G♭ alterada - posição 7", en: "G♭ altered - position 7" },
+        exerciseTitle: { pt: "G♭ alterada - posição 7", en: "G♭ altered - position 7" },
+        subtitle: { pt: "G♭ alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "G♭ altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G♭",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 12, finger: 1, degree: "♭7" }, { string: 0, fret: 14, finger: 3, degree: "1" }, { string: 0, fret: 15, finger: 4, degree: "♭2" }, { string: 1, fret: 12, finger: 1, degree: "♯2" }, { string: 1, fret: 13, finger: 2, degree: "3" }, { string: 1, fret: 15, finger: 4, degree: "♯4" }, { string: 2, fret: 12, finger: 1, degree: "♯5" }, { string: 2, fret: 14, finger: 2, degree: "♭7" }, { string: 2, fret: 16, finger: 4, degree: "1" }, { string: 3, fret: 12, finger: 2, degree: "♭2" }, { string: 3, fret: 14, finger: 4, degree: "♯2" }, { string: 4, fret: 11, finger: 1, degree: "3" }, { string: 4, fret: 13, finger: 2, degree: "♯4" }, { string: 4, fret: 15, finger: 4, degree: "♯5" }, { string: 5, fret: 12, finger: 1, degree: "♭7" }, { string: 5, fret: 14, finger: 3, degree: "1" }, { string: 5, fret: 15, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 597,
+        key: "altered/p7/B",
+        title: { pt: "B alterada - posição 7", en: "B altered - position 7" },
+        exerciseTitle: { pt: "B alterada - posição 7", en: "B altered - position 7" },
+        subtitle: { pt: "B alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "B altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "B",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 5, finger: 1, degree: "♭7" }, { string: 0, fret: 7, finger: 3, degree: "1" }, { string: 0, fret: 8, finger: 4, degree: "♭2" }, { string: 1, fret: 5, finger: 1, degree: "♯2" }, { string: 1, fret: 6, finger: 2, degree: "3" }, { string: 1, fret: 8, finger: 4, degree: "♯4" }, { string: 2, fret: 5, finger: 1, degree: "♯5" }, { string: 2, fret: 7, finger: 2, degree: "♭7" }, { string: 2, fret: 9, finger: 4, degree: "1" }, { string: 3, fret: 5, finger: 2, degree: "♭2" }, { string: 3, fret: 7, finger: 4, degree: "♯2" }, { string: 4, fret: 4, finger: 1, degree: "3" }, { string: 4, fret: 6, finger: 2, degree: "♯4" }, { string: 4, fret: 8, finger: 4, degree: "♯5" }, { string: 5, fret: 5, finger: 1, degree: "♭7" }, { string: 5, fret: 7, finger: 3, degree: "1" }, { string: 5, fret: 8, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 598,
+        key: "altered/p7/E",
+        title: { pt: "E alterada - posição 7", en: "E altered - position 7" },
+        exerciseTitle: { pt: "E alterada - posição 7", en: "E altered - position 7" },
+        subtitle: { pt: "E alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "E altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "E",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 10, finger: 1, degree: "♭7" }, { string: 0, fret: 12, finger: 3, degree: "1" }, { string: 0, fret: 13, finger: 4, degree: "♭2" }, { string: 1, fret: 10, finger: 1, degree: "♯2" }, { string: 1, fret: 11, finger: 2, degree: "3" }, { string: 1, fret: 13, finger: 4, degree: "♯4" }, { string: 2, fret: 10, finger: 1, degree: "♯5" }, { string: 2, fret: 12, finger: 2, degree: "♭7" }, { string: 2, fret: 14, finger: 4, degree: "1" }, { string: 3, fret: 10, finger: 2, degree: "♭2" }, { string: 3, fret: 12, finger: 4, degree: "♯2" }, { string: 4, fret: 9, finger: 1, degree: "3" }, { string: 4, fret: 11, finger: 2, degree: "♯4" }, { string: 4, fret: 13, finger: 4, degree: "♯5" }, { string: 5, fret: 10, finger: 1, degree: "♭7" }, { string: 5, fret: 12, finger: 3, degree: "1" }, { string: 5, fret: 13, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 599,
+        key: "altered/p7/A",
+        title: { pt: "A alterada - posição 7", en: "A altered - position 7" },
+        exerciseTitle: { pt: "A alterada - posição 7", en: "A altered - position 7" },
+        subtitle: { pt: "A alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "A altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "A",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 3, finger: 1, degree: "♭7" }, { string: 0, fret: 5, finger: 3, degree: "1" }, { string: 0, fret: 6, finger: 4, degree: "♭2" }, { string: 1, fret: 3, finger: 1, degree: "♯2" }, { string: 1, fret: 4, finger: 2, degree: "3" }, { string: 1, fret: 6, finger: 4, degree: "♯4" }, { string: 2, fret: 3, finger: 1, degree: "♯5" }, { string: 2, fret: 5, finger: 2, degree: "♭7" }, { string: 2, fret: 7, finger: 4, degree: "1" }, { string: 3, fret: 3, finger: 2, degree: "♭2" }, { string: 3, fret: 5, finger: 4, degree: "♯2" }, { string: 4, fret: 2, finger: 1, degree: "3" }, { string: 4, fret: 4, finger: 2, degree: "♯4" }, { string: 4, fret: 6, finger: 4, degree: "♯5" }, { string: 5, fret: 3, finger: 1, degree: "♭7" }, { string: 5, fret: 5, finger: 3, degree: "1" }, { string: 5, fret: 6, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 600,
+        key: "altered/p7/D",
+        title: { pt: "D alterada - posição 7", en: "D altered - position 7" },
+        exerciseTitle: { pt: "D alterada - posição 7", en: "D altered - position 7" },
+        subtitle: { pt: "D alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "D altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "D",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 8, finger: 1, degree: "♭7" }, { string: 0, fret: 10, finger: 3, degree: "1" }, { string: 0, fret: 11, finger: 4, degree: "♭2" }, { string: 1, fret: 8, finger: 1, degree: "♯2" }, { string: 1, fret: 9, finger: 2, degree: "3" }, { string: 1, fret: 11, finger: 4, degree: "♯4" }, { string: 2, fret: 8, finger: 1, degree: "♯5" }, { string: 2, fret: 10, finger: 2, degree: "♭7" }, { string: 2, fret: 12, finger: 4, degree: "1" }, { string: 3, fret: 8, finger: 2, degree: "♭2" }, { string: 3, fret: 10, finger: 4, degree: "♯2" }, { string: 4, fret: 7, finger: 1, degree: "3" }, { string: 4, fret: 9, finger: 2, degree: "♯4" }, { string: 4, fret: 11, finger: 4, degree: "♯5" }, { string: 5, fret: 8, finger: 1, degree: "♭7" }, { string: 5, fret: 10, finger: 3, degree: "1" }, { string: 5, fret: 11, finger: 4, degree: "♭2" }],
+          },
+        ],
+      },
+      {
+        id: 601,
+        key: "altered/p7/G",
+        title: { pt: "G alterada - posição 7", en: "G altered - position 7" },
+        exerciseTitle: { pt: "G alterada - posição 7", en: "G altered - position 7" },
+        subtitle: { pt: "G alterada na posição 7 (Lócrio ♮2), subindo e descendo", en: "G altered in position 7 (Locrian ♮2), up and down" },
+        type: "scale",
+        status: "locked",
+        steps: [],
+        scale: [
+          {
+            root: "G",
+            quality: "altered",
+            position: 7,
+            mode: { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+            notes: [{ string: 0, fret: 1, finger: 1, degree: "♭7" }, { string: 0, fret: 3, finger: 3, degree: "1" }, { string: 0, fret: 4, finger: 4, degree: "♭2" }, { string: 1, fret: 1, finger: 1, degree: "♯2" }, { string: 1, fret: 2, finger: 2, degree: "3" }, { string: 1, fret: 4, finger: 4, degree: "♯4" }, { string: 2, fret: 1, finger: 1, degree: "♯5" }, { string: 2, fret: 3, finger: 2, degree: "♭7" }, { string: 2, fret: 5, finger: 4, degree: "1" }, { string: 3, fret: 1, finger: 2, degree: "♭2" }, { string: 3, fret: 3, finger: 4, degree: "♯2" }, { string: 4, fret: 0, finger: 1, degree: "3" }, { string: 4, fret: 2, finger: 2, degree: "♯4" }, { string: 4, fret: 4, finger: 4, degree: "♯5" }, { string: 5, fret: 1, finger: 1, degree: "♭7" }, { string: 5, fret: 3, finger: 3, degree: "1" }, { string: 5, fret: 4, finger: 4, degree: "♭2" }],
           },
         ],
       },
