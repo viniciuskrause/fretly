@@ -666,35 +666,52 @@ function stringFingers(frets) {
 }
 
 /**
- * Position `index` (0 = Jônio) of the major scale on `majorRoot`: 18 notes, three
- * per string from the 6th to the 1st, starting on fret 1–12 of the 6th string.
+ * Notes of one position: starting on pitch class `startPc` on the 6th string
+ * (fret 1–12), one note per scale degree from `index` on, `perString` notes on each
+ * string (6th → 1st). `intervals` are the semitones of the scale's degrees above its
+ * tonic; `degreeOf(i)` labels degree i. Fingers follow `stringFingers`, or one finger
+ * per fret when the position fits in four frets.
  */
-function scalePosition(majorRoot, quality, index) {
-  const tonic = rootPitchClass(majorRoot);
-  const startPc = (tonic + MAJOR_SCALE[index]) % 12;
+function positionNotes({ startPc, intervals, index, perString, degreeOf, name }) {
   const startFret = ((startPc - 4 + 12) % 12) || 12; // low E is pitch class 4
   let midi = OPEN_STRING_MIDI[0] + startFret;
-  const perString = NOTES_PER_STRING[index];
   const stringOf = perString.flatMap((count, string) => Array(count).fill(string));
   const notes = [];
   for (let n = 0; n < stringOf.length; n++) {
     const degree = (index + n) % 7;
     const string = stringOf[n];
-    const scaleDegree = quality === "major" ? degree : (degree - MINOR_TONIC_DEGREE + 7) % 7;
-    notes.push({ string, fret: midi - OPEN_STRING_MIDI[string], degree: SCALE_DEGREES[quality][scaleDegree] });
-    const next = MAJOR_SCALE[(degree + 1) % 7] + (degree === 6 ? 12 : 0);
-    midi += next - MAJOR_SCALE[degree];
+    notes.push({ string, fret: midi - OPEN_STRING_MIDI[string], degree: degreeOf(degree) });
+    const next = intervals[(degree + 1) % 7] + (degree === 6 ? 12 : 0);
+    midi += next - intervals[degree];
   }
   for (let string = 0; string < 6; string++) {
     const onString = notes.filter((note) => note.string === string);
     const frets = onString.map((note) => note.fret);
-    if (frets.some((fret, i) => i > 0 && fret <= frets[i - 1])) throw new Error(`${majorRoot} posição ${index + 1}: casas fora de ordem`);
-    if (frets.at(-1) - frets[0] > 5) throw new Error(`${majorRoot} posição ${index + 1}: abertura de ${frets.at(-1) - frets[0]} casas`);
+    if (frets.some((fret, i) => i > 0 && fret <= frets[i - 1])) throw new Error(`${name}: casas fora de ordem`);
+    if (frets.at(-1) - frets[0] > 5) throw new Error(`${name}: abertura de ${frets.at(-1) - frets[0]} casas`);
     stringFingers(frets).forEach((finger, i) => (onString[i].finger = finger));
   }
   // A position within four frets is played one finger per fret (index on the lowest fret).
   const low = Math.min(...notes.map((note) => note.fret));
   if (Math.max(...notes.map((note) => note.fret)) - low <= 3) notes.forEach((note) => (note.finger = note.fret - low + 1));
+  return notes;
+}
+
+/**
+ * Position `index` (0 = Jônio) of the major scale on `majorRoot`: 17 notes from the
+ * 6th string to the 1st, starting on fret 1–12 of the 6th string.
+ */
+function scalePosition(majorRoot, quality, index) {
+  const tonic = rootPitchClass(majorRoot);
+  const notes = positionNotes({
+    startPc: (tonic + MAJOR_SCALE[index]) % 12,
+    intervals: MAJOR_SCALE,
+    index,
+    perString: NOTES_PER_STRING[index],
+    degreeOf: (degree) =>
+      SCALE_DEGREES[quality][quality === "major" ? degree : (degree - MINOR_TONIC_DEGREE + 7) % 7],
+    name: `${majorRoot} posição ${index + 1}`,
+  });
   // Minor keys number their positions from the minor tonic: position 1 starts on
   // the tonic (the Eólio shape), position 2 on the 2nd degree (Lócrio), …
   const position = quality === "major" ? index + 1 : ((index - MINOR_TONIC_DEGREE + 7) % 7) + 1;
@@ -832,6 +849,62 @@ ${lessons.join("\n")}
         ],
       },`;
 });
+
+// ---------------------------------------------------------------- altered scale
+// Module "Escala Alterada" (user, 2026-11-20): the altered scale (7th mode of the
+// melodic minor; in C: C D♭ E♭ E F♯ G♯ B♭) in seven positions, like the Ionian
+// module. Position n starts on its n-th degree on the 6th string. The altered scale
+// on C is D♭ melodic minor, which differs from D♭ major in one note only, so each
+// position keeps the notes per string of the matching major-scale position
+// (altered position 1 = the major scale's 7th position, Lócrio, and so on).
+const ALTERED_SCALE = [0, 1, 3, 4, 6, 8, 10];
+/** Degrees as the user spells the scale (C D♭ E♭ E F♯ G♯ B♭). */
+const ALTERED_DEGREES = ["1", "♭2", "♯2", "3", "♯4", "♯5", "♭7"];
+/** Mode of the melodic minor whose shape each position has. */
+const ALTERED_MODES = [
+  { pt: "Alterado", en: "Altered" },
+  { pt: "Menor melódica", en: "Melodic minor" },
+  { pt: "Dórico ♭2", en: "Dorian ♭2" },
+  { pt: "Lídio aumentado", en: "Lydian augmented" },
+  { pt: "Lídio dominante", en: "Lydian dominant" },
+  { pt: "Mixolídio ♭6", en: "Mixolydian ♭6" },
+  { pt: "Lócrio ♮2", en: "Locrian ♮2" },
+];
+
+function alteredLesson(root, position) {
+  const index = position - 1;
+  const notes = positionNotes({
+    startPc: (rootPitchClass(root) + ALTERED_SCALE[index]) % 12,
+    intervals: ALTERED_SCALE,
+    index,
+    perString: NOTES_PER_STRING[(index + 6) % 7],
+    degreeOf: (degree) => ALTERED_DEGREES[degree],
+    name: `${root} alterada posição ${position}`,
+  });
+  const mode = ALTERED_MODES[index];
+  const name = { pt: `${root} alterada`, en: `${root} altered` };
+  return {
+    key: lessonKey("altered", `p${position}`, ascii(root)),
+    title: { pt: `${name.pt} - posição ${position}`, en: `${name.en} - position ${position}` },
+    subtitle: {
+      pt: `${name.pt} na posição ${position} (${mode.pt}), subindo e descendo`,
+      en: `${name.en} in position ${position} (${mode.en}), up and down`,
+    },
+    scale: [{ root, quality: "altered", position, mode, notes }],
+  };
+}
+
+const ALTERED = {
+  title: { pt: "7 Posições da Escala Alterada", en: "7 Positions of the Altered Scale" },
+  subtitle: {
+    pt: "Aprenda a escala alterada em sete posições e use as tensões do acorde dominante em qualquer região do braço",
+    en: "Learn the altered scale in seven positions and use the dominant chord's tensions anywhere on the neck",
+  },
+  trails: [1, 2, 3, 4, 5, 6, 7].map((position) => ({
+    title: { pt: `Posição ${position}`, en: `Position ${position}` },
+    lessons: CYCLE_OF_FOURTHS.map((root) => alteredLesson(root, position)),
+  })),
+};
 
 // ---------------------------------------------------------------- arpeggios
 // Module "Arpejos de Tríades": the major triad played note by note (1 3 5).
@@ -2076,6 +2149,7 @@ SEVENTHS.trails.push(
 const triadTrails = renderInversionTrails(TRIADS);
 const inversionTrails = renderInversionTrails(INVERSIONS);
 const scaleTrails = renderScaleTrails(SCALES);
+const alteredTrails = renderScaleTrails(ALTERED);
 const arpeggioTrails = renderScaleTrails(ARPEGGIOS);
 const seventhArpeggioTrails = renderScaleTrails(SEVENTHS);
 
@@ -2175,6 +2249,14 @@ ${arpeggioTrails.join("\n")}
 ${seventhArpeggioTrails.join("\n")}
     ],
   },
+  {
+    id: 7,
+    title: ${loc(ALTERED.title)},
+    subtitle: ${loc(ALTERED.subtitle)},
+    trails: [
+${alteredTrails.join("\n")}
+    ],
+  },
 ];
 
 /** Every lesson of every trail, in order. */
@@ -2185,5 +2267,5 @@ fs.writeFileSync(
   file,
 );
 console.log(
-  `src/lessons.ts: 6 seções, ${TRAILS.length + TRIADS.trails.length + INVERSIONS.trails.length + SCALES.trails.length + ARPEGGIOS.trails.length + SEVENTHS.trails.length} trilhas, ${nextId - 1} aulas`,
+  `src/lessons.ts: 7 seções, ${TRAILS.length + TRIADS.trails.length + INVERSIONS.trails.length + SCALES.trails.length + ARPEGGIOS.trails.length + SEVENTHS.trails.length + ALTERED.trails.length} trilhas, ${nextId - 1} aulas`,
 );
