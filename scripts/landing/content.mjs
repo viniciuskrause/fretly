@@ -61,7 +61,7 @@ export const content = {
           ],
         },
         {
-          h: "CAGED System",
+          h: "CAGED System chords",
           paragraphs: [
             "The CAGED system maps the whole guitar neck with five shapes you already know from open chords: C, A, G, E and D. Each one covers a region of the fretboard, and together they link up from the nut to the top of the neck without gaps.",
             "Instead of memorising hundreds of chords, you learn a handful of base patterns once and move them: the same shape played higher up the neck gives you the same chord in another key, and the five shapes give you one chord in five regions. Major, minor, dominant seventh and half-diminished chords all follow these patterns.",
@@ -195,7 +195,7 @@ export const content = {
           ],
         },
         {
-          h: "Sistema CAGED",
+          h: "Acordes no Sistema CAGED",
           paragraphs: [
             "O sistema CAGED mapeia o braço inteiro da guitarra com cinco formas que você já conhece dos acordes abertos: C, A, G, E e D. Cada uma cobre uma região do braço, e juntas elas se encadeiam da pestana até o fim do braço, sem buracos.",
             "Em vez de decorar centenas de acordes, você aprende alguns padrões básicos uma vez e os desloca: a mesma forma tocada mais acima no braço dá o mesmo acorde em outro tom, e as cinco formas dão um acorde em cinco regiões. Acordes maiores, menores, de sétima dominante e meio diminutos seguem esses padrões.",
